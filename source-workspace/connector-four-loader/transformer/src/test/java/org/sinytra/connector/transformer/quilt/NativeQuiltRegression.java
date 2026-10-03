@@ -5,6 +5,9 @@ import net.fabricmc.loader.impl.metadata.*;
 import net.minecraftforge.fart.api.Transformer;
 import org.objectweb.asm.*;
 import org.objectweb.asm.tree.*;
+import org.sinytra.connector.infinity.inventory.TrustedPayloads;
+import org.sinytra.connector.infinity.inventory.AdmissionTestRegistration;
+import java.security.MessageDigest;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
@@ -23,6 +26,7 @@ public final class NativeQuiltRegression {
         try { parse(extra, root); throw new AssertionError("accepted " + message); } catch (IOException | ParseMetadataException expected) { check(expected.getMessage().contains(message), expected.toString()); }
     }
     public static void main(String[] args) throws Exception {
+        AdmissionTestRegistration.begin();
         LoaderModMetadata metadata = parse(",\"entrypoints\":{\"pre_launch\":[\"A\",{\"adapter\":\"default\",\"value\":\"B::start\"}],\"init\":\"C\"},\"depends\":[{\"id\":\"minecraft\",\"versions\":{\"any\":[\"=1.21.1\",\"=1.21\"]}}]", ",\"minecraft\":{\"environment\":\"dedicated_server\"},\"mixin\":[{\"config\":\"client.json\",\"environment\":\"client\"},\"common.json\"],\"access_widener\":[\"test.aw\"],\"custom_unknown\":{\"retained\":true}");
         check(metadata.getId().equals("native-test"), "original id");
         check(metadata.getVersion().getFriendlyString().equals("1.0.0+raw"), "raw version");
@@ -54,13 +58,15 @@ public final class NativeQuiltRegression {
         try { parseText(BASE.formatted("", "") + "{}", false); throw new AssertionError("trailing accepted"); } catch (IOException expected) { check(true, "trailing reject"); }
         try { parseText(BASE.formatted("", "").replace("\"schema_version\"", "/*comment*/\"schema_version\""), false); throw new AssertionError("comment accepted"); } catch (IOException expected) { check(true, "comment reject"); }
         for (String input : args) try (JarFile jar = new JarFile(input)) {
-            check(QuiltJarAdapter.isManagedQsl(Path.of(input)), "managed QSL digest");
+            check(!QuiltJarAdapter.isManagedQsl(Path.of(input)), "matching external QSL bytes are not a managed origin");
             String json = new String(jar.getInputStream(jar.getJarEntry("quilt.mod.json")).readAllBytes(), StandardCharsets.UTF_8);
             LoaderModMetadata qsl = parseText(json, true);
+            try (ManagedFixture managed = managedFixture(Path.of(input), qsl.getId())) {
+            check(QuiltJarAdapter.isManagedQsl(managed.payload()), "managed QSL origin and digest");
             check(qsl.getLicense().contains("Apache-2.0"), "QSL attribution");
             check(qsl.getVersion().getFriendlyString().equals("10.0.0-alpha.5+1.21.1"), "QSL version");
             for (EnvType side : EnvType.values()) {
-                QuiltJarAdapter adapter = new QuiltJarAdapter(Path.of(input), side);
+                QuiltJarAdapter adapter = new QuiltJarAdapter(managed.payload(), side);
                 int processed = 0;
                 for (var it = jar.entries(); it.hasMoreElements();) {
                     var entry = it.nextElement();
@@ -71,11 +77,36 @@ public final class NativeQuiltRegression {
                 }
                 check(processed > 0, "QSL side preprocessing " + side);
             }
+            }
         }
         assertions += NativeQuiltPrereleaseRegression.run();
         testSingleHostResolver();
         testSideStripper();
+        AdmissionTestRegistration.seal();
         System.out.println("NATIVE_QUILT_REGRESSION assertions=" + assertions + " PASS");
+    }
+    private record ManagedFixture(Path directory, Path payload) implements AutoCloseable {
+        @Override public void close() throws IOException {
+            try (var files = Files.walk(directory)) {
+                for (Path path : files.sorted(Comparator.reverseOrder()).toList()) Files.delete(path);
+            }
+        }
+    }
+    private static ManagedFixture managedFixture(Path original, String id) throws Exception {
+        String pin = Map.of("quilt_base", "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+            "quilt_lifecycle_events", "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4").get(id);
+        if (pin == null) throw new IllegalArgumentException("Unpinned QSL fixture " + id);
+        Path directory = Files.createTempDirectory("quilt-managed-fixture-");
+        Path host = directory.resolve("host.jar"), payload = directory.resolve("payload.jar");
+        Files.copy(original, payload);
+        String entry = "META-INF/jarjar/" + id + ".jar";
+        try (JarOutputStream output = new JarOutputStream(Files.newOutputStream(host))) {
+            output.putNextEntry(new JarEntry(entry)); output.write(Files.readAllBytes(original)); output.closeEntry();
+        }
+        String hostPin = HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(host)));
+        var root = TrustedPayloads.registerRoot(host, hostPin, Set.of("fixture_host"));
+        TrustedPayloads.registerExtracted(root, payload, List.of(entry), pin, Set.of(id), "QSL");
+        return new ManagedFixture(directory, payload);
     }
     private static void testSingleHostResolver() throws Exception {
         var minecraft = new net.fabricmc.loader.impl.discovery.BuiltinMetadataWrapper(new BuiltinModMetadata.Builder("minecraft", "1.21.1").build());

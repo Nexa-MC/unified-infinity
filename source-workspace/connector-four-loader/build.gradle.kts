@@ -151,7 +151,7 @@ val modJar: Jar by tasks.creating(Jar::class) {
     manifest.attributes("Implementation-Version" to project.version)
     archiveClassifier.set("mod")
 }
-localJarJar("modJarConfig", "org.sinytra:connector-mod", project.version.toString(), modJar)
+// GAME implementation is installed separately by FML; never rediscovered through SERVICE JarJar.
 
 val depsJar: ShadowJar by tasks.creating(ShadowJar::class) {
     configurations = listOf(shade)
@@ -365,11 +365,27 @@ val infinityCompleteSources by tasks.registering(Zip::class) {
     destinationDirectory.set(layout.buildDirectory.dir("distributions"))
     from(projectDir) {
         include("src/**", "transformer/src/**", "components/**/src/**", "**/*.gradle.kts",
-            "gradle/libs.versions.toml", "gradle/infinity-upstream-pins.json", "LICENSE")
+            "gradle/libs.versions.toml", "gradle/infinity-upstream-pins.json", "components/**/*.sh", "components/**/*.py", "LICENSE")
         exclude("**/build/**", "**/.gradle/**")
     }
 }
-tasks.named("fullJar") { dependsOn(infinityCompleteSources) }
+tasks.named("fullJar") { dependsOn(infinityCompleteSources, modJar) }
+
+// Preserve sibling source layout referenced by the build identity. These are
+// source inputs only; no generated classes, game artifacts or test profiles.
+tasks.named<Zip>("infinityCompleteSources") {
+    from(file("../admission-bootstrap")) {
+        into("loader-sources/admission-bootstrap")
+        include("src/**", "*.gradle.kts", "*.gradle", "LICENSE*")
+        exclude("**/build/**")
+    }
+    from(file("../fml-unified")) {
+        into("loader-sources/fml-unified")
+        include("src/**", "*.gradle", "*.gradle.kts", "provenance/**", "LICENSE*", "MODIFICATIONS.md")
+        exclude("**/build/**")
+    }
+}
+
 
 // Compile-only ABI of the exact managed QSL base. Runtime is the original pinned module via host discovery.
 val nativeQuiltBase = layout.projectDirectory.file("../../docs/four-loader/quilt/upstream/qsl_base-alpha5.jar")
@@ -400,7 +416,7 @@ val nativeQuiltApiRegression by tasks.registering(Exec::class) {
 }
 tasks.check { dependsOn(nativeQuiltApiRegression, ":transformer:nativeQuiltRegression") }
 tasks.named<Zip>("infinityCompleteSources") {
-    from(projectDir) { include("four-loader/api-tests/**"); exclude("**/classes/**", "**/test-classes/**") }
+    from(projectDir) { include("four-loader/**/src/**", "four-loader/**/*.sh", "four-loader/**/*.py"); exclude("**/classes/**", "**/test-classes/**", "**/build/**") }
 }
 
 val forgeAdapterRegression by tasks.registering(Exec::class) {
@@ -426,3 +442,9 @@ val forgeClumpsRegression by tasks.registering(Exec::class) {
     workingDir(projectDir)
 }
 tasks.check { dependsOn(forgeEventRegression, forgeClumpsRegression) }
+
+// Never shade a second admission session/trust registry into service or game layers.
+dependencies {
+    compileOnly(project(":fml-unified"))
+    "modCompileOnly"(project(":fml-unified"))
+}

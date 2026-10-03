@@ -16,11 +16,23 @@ env['JAVA_TOOL_OPTIONS']=' '.join(opts);env['GRADLE_OPTS']=' '.join(opts)
 # HotSpot applies _JAVA_OPTIONS after command-line JVM options, including NeoForm's -Xmx4G.
 env['_JAVA_OPTIONS']='-Xmx2G -XX:ActiveProcessorCount=2'
 args=sys.argv[1:] or ['fullJar']
+# Explicit cap applies to Gradle AND every forked tool JVM; use one worker for
+# the constrained cloud profile. It is not an estimate of aggregate resident RAM.
+heap_mib = 2048
+if '--heap-mib' in args:
+ index = args.index('--heap-mib')
+ if index + 1 >= len(args): raise SystemExit('--heap-mib requires an integer')
+ try: heap_mib = int(args[index + 1])
+ except ValueError: raise SystemExit('--heap-mib requires an integer')
+ if heap_mib not in (512, 768, 1024, 1536, 2048): raise SystemExit('Unsupported bounded heap cap')
+ del args[index:index + 2]
+env['_JAVA_OPTIONS']=f'-Xmx{heap_mib}m -XX:ActiveProcessorCount=2'
+worker_count = 1 if heap_mib <= 768 else 2
 selectors=[a for a in args if a in ('--unified','--four-loader')]
 if len(selectors)>1:raise SystemExit('Choose one source-tree selector')
 project='connector-four-loader' if '--four-loader' in args else ('connector-combined' if '--unified' in args else 'connector')
 args=[a for a in args if a not in ('--unified','--four-loader')]
 if not (workspace/project).is_dir():raise SystemExit('Selected source tree is not prepared: '+project)
 if any(x.lower().split(':')[-1].startswith(('run','publish','upload','release')) for x in args):raise SystemExit('This wrapper allows build and inspection tasks only')
-cmd=[str(root/'.toolchains/gradle-8.11.1/bin/gradle'),'--no-daemon','--console=plain','--max-workers=2','--no-parallel','-Dorg.gradle.jvmargs=-Xmx2G','--project-cache-dir',str(workspace/(project+'-project-cache')),'-p',str(workspace/project)]+args
+cmd=[str(root/'.toolchains/gradle-8.11.1/bin/gradle'),'--no-daemon','--console=plain',f'--max-workers={worker_count}','--no-parallel',f'-Dorg.gradle.jvmargs=-Xmx{heap_mib}m','--project-cache-dir',str(workspace/(project+'-project-cache')),'-p',str(workspace/project)]+args
 raise SystemExit(subprocess.call(cmd,env=env))

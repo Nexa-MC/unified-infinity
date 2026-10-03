@@ -4,6 +4,8 @@ import com.google.gson.*;
 import net.neoforged.neoforgespi.locating.IModFile;
 import org.sinytra.connector.transformer.quilt.NativeQuiltSources;
 import org.sinytra.connector.util.ConnectorUtil;
+import org.sinytra.connector.infinity.inventory.TrustedPayloads;
+import org.sinytra.connector.infinity.inventory.AdmissionSession;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -27,6 +29,8 @@ final class ManagedQuiltModules {
         for (IModFile host : hosts) {
             Path inventory = host.getSecureJar().getPath(INVENTORY);
             if (!Files.isRegularFile(inventory)) continue;
+            TrustedPayloads.root(host.getSecureJar().getPrimaryPath())
+                .orElseThrow(() -> new IOException("Managed QSL requires a bootstrap-verified host root; external inventories cannot grant trust: " + host.getFilePath()));
             JsonObject record;
             try (InputStream input = Files.newInputStream(inventory)) {
                 byte[] bytes = input.readNBytes(65537);
@@ -50,14 +54,10 @@ final class ManagedQuiltModules {
                     if (bytes.length > 8 * 1024 * 1024) throw new IOException("Oversized managed QSL payload " + id);
                 }
                 if (!digest(bytes).equals(expected)) throw new IOException("Managed QSL payload digest mismatch for " + id);
-                Path target = ConnectorUtil.CONNECTOR_FOLDER.resolve("managed-qsl").resolve(artifact + "-" + expected + ".jar");
-                Files.createDirectories(target.getParent());
-                if (!Files.isRegularFile(target) || !digest(Files.readAllBytes(target)).equals(expected)) {
-                    Path staging = Files.createTempFile(target.getParent(), artifact, ".part");
-                    try { Files.write(staging, bytes); Files.move(staging, target, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE); }
-                    finally { Files.deleteIfExists(staging); }
-                }
-                target = target.toRealPath();
+                Path target = AdmissionSession.current().nestedArchive(host.getSecureJar().getPrimaryPath(), path)
+                    .orElseThrow(() -> new IOException("Managed QSL payload was not admitted by the launch session: " + id));
+                if (TrustedPayloads.find(target, Set.of(id)).isEmpty())
+                    throw new IOException("Managed QSL lacks its pinned launch receipt: " + id);
                 NativeQuiltSources.record(target, List.of(host.getSecureJar().getPrimaryPath().toAbsolutePath().normalize(), Path.of(path)));
                 result.add(target);
             }

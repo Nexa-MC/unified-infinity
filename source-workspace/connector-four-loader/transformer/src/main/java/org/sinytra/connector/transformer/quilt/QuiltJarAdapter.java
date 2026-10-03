@@ -4,6 +4,7 @@ import com.google.gson.*;
 import net.fabricmc.api.EnvType;
 import net.minecraftforge.fart.api.Transformer;
 import org.objectweb.asm.*;
+import org.sinytra.connector.infinity.inventory.TrustedPayloads;
 import org.objectweb.asm.tree.*;
 
 import java.io.*;
@@ -40,6 +41,10 @@ public final class QuiltJarAdapter implements Transformer {
     }
 
     public static boolean isManagedQsl(Path input) throws IOException {
+        // Matching bytes in a user JAR are not a managed extraction origin.
+        boolean registered = TrustedPayloads.find(input, List.of("quilt_base")).isPresent()
+            || TrustedPayloads.find(input, List.of("quilt_lifecycle_events")).isPresent();
+        if (!registered) return false;
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             try (InputStream in = Files.newInputStream(input)) { byte[] b = new byte[65536]; int n; while ((n = in.read(b)) != -1) digest.update(b, 0, n); }

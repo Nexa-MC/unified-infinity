@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "status": "PASS_BYTE_COMPARISON",
+  "rawSourceBuiltFmlSha256": "bd51010d4aff27a932941bf96190cf42c4154f40a6919df8e6634fb89fbc1e40",
+  "launchedPolicyAssembledBootSha256": "6d431507a5afb30b7701f79148d890cde6ff77c42166e539f6f61886e90d0320",
+  "classEntriesIdentical": 309,
+  "archiveEntriesIdenticalExcept": [
+    "META-INF/unified-admission/installation.json"
+  ],
+  "newOrRemovedEntries": [],
+  "installationPolicySha256": "16e01cc04d9469ab285e53f00d5f3952fe895612de3678d3bdcb9724b2efc76f",
+  "originalAssemblySpecSha256": "cad53e2bfe1091ecc567058b6c328628241c13de867494df1448f29fae2cbd24",
+  "originalBuildReceiptSha256": "3ac1b0abd9e683a22088e35c78f8b0f0daa47aef824d88f6933d5645289a5636",
+  "originalLaunchSealSha256": "b0aca02b66f65fb3eee60867aeb3f5c04e860fa1df9da01de0a9fc50d3949a0c",
+  "packageVerificationSha256": "71964cfeae1fa6d3be45ae56e71778cdd0b92e5dd781fb3aa420437f9c639181",
+  "recipe": "assemble_installation.py reads the reviewed installation inputs and full-source FML base, validates pins, and replaces only META-INF/unified-admission/installation.json. All 309 class entry bytes are identical. Zip order/compression and policy resource account for artifact digest change. No class-byte injection. validate_launch.py runs before Java.",
+  "sanitization": "Only workspace prefix replaced by ${REPO} in readable spec/policy copies. Exact original hashes above apply to original files, not normalized copies. No raw process argv, launcher account data, access tokens, or environment values beyond the sealed policy are included. Source launch seal is identified by digest only.",
+  "sourceRecordCount": 655,
+  "historicalReceiptLabelNote": "Original buildKind free text says refreshed654-record; exact source correspondence receipt verifies655. Historical receipt bytes left unchanged.",
+  "argumentsSha256": "ebd9b830c93c39082a8b6957a6c173c13d556ffdb3b9c8c3edff7cddf9591630",
+  "heapMiB": 1280,
+  "memoryGateBytes": 1879048192,
+  "fiveContentMods": 5,
+  "twoUntrustedExpectedExcludedInputs": 2,
+  "sourceFiles": {
+    "four-loader/bootstrap-gate-design/fixtures/envelope/run_envelope.py": {
+      "sha256": "1a9ab416f27f593e80498ac9ea873261ce0330e6ebabee8ac75c8864d50da1e2",
+      "bytes": 6467,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/envelope/src/org/sinytra/connector/infinity/inventory/EnvelopeHarness.java": {
+      "sha256": "5821eeded0ba8458868cf61636d6f14a136cd70b3b0da81c55591873a88f90a0",
+      "bytes": 3340,
+      "matchingRecordedRuns": [
+        "official-envelope-reverse-v2"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/envelope/src/org/sinytra/connector/infinity/inventory/ReverseNestedHarness.java": {
+      "sha256": "169bf97e98862dee8067cefb0dbc9138d17c8e3398b2fe4cb0a49b3edd6d65d8",
+      "bytes": 1972,
+      "matchingRecordedRuns": [
+        "official-envelope-reverse-v2"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/README.md": {
+      "sha256": "42e8fcd40bbf4375d64132fd67fdbb9e602adf9df0c04510102be1c811699463",
+      "bytes": 1476,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/acceptance-matrix.json": {
+      "sha256": "f56554e45e9ce701a105cc8ff90947b1f89891bad1d7cd4948a4ae0bce60a691",
+      "bytes": 2910,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/dependency-src/fixture/api/ManagedApi.java": {
+      "sha256": "560d08a108791b6729b513e1ca0551e7e9f377be639b3925a824088840f8bcc6",
+      "bytes": 115,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/dependency-src/fixture/content/ContentProbe.java": {
+      "sha256": "f84f5b28e2470076b496a617fbf57f6aa492cd3232fa7056f57bcb4063648dca",
+      "bytes": 131,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/harness/org/sinytra/connector/infinity/inventory/AdmissionMarkerHarness.java": {
+      "sha256": "0bc1661291d26a880e61b305f730de36e2e4ab8c2995e0a09adbf2763eb1bc53",
+      "bytes": 7303,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/jpms/module-info.java": {
+      "sha256": "0cdd292311ca22039a5784235c619c6af54b30e9b8c436723a5f74a215bbae3a",
+      "bytes": 920,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/run_harmless.py": {
+      "sha256": "d50d466fafe36fa6c19be5022a9c0997864ccd0bbc136d2d3904a15aad6f0334",
+      "bytes": 7554,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedDependency.java": {
+      "sha256": "17be6aa2e1aeae4f06a3e2ef28b41edc4f1148e1635671bafda22ef983e8a7d6",
+      "bytes": 416,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedGraphics.java": {
+      "sha256": "6a9f79efc5b2baa542b4a20a91476603fd6cb1db3d304c3efa34defa968dfbb6",
+      "bytes": 447,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedLocator.java": {
+      "sha256": "daf82482c892bbee0422c952da8e242f3d942188ed549affc6f19a193ba6c276",
+      "bytes": 441,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedReader.java": {
+      "sha256": "7324f021dc92334c616d7a096576927fcda993b4638224737aa813c5436ea663",
+      "bytes": 433,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedTransformer.java": {
+      "sha256": "bfa600df9e85f2fb3ad19237b2706a95a89dad1bdb5aea92fb89bd51b7283a88",
+      "bytes": 619,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/MarkedWindow.java": {
+      "sha256": "4718cfa85782b09646aadc8b7faeb65294d5317cd7e992e79053f2b3d5d2e6a3",
+      "bytes": 1255,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/bootstrap-gate-design/fixtures/service-matrix/src/org/unifiedinfinity/gatefixture/Markers.java": {
+      "sha256": "c8ffe363fe31233002271f8d273dd225ec8a6c30cf6b4fa6077f3d9bb4b443b2",
+      "bytes": 582,
+      "matchingRecordedRuns": [
+        "harmless-final-reverse-v1"
+      ],
+      "verification": "recorded-run-source-hash"
+    },
+    "four-loader/launch-support/observe_admission.py": {
+      "sha256": "a7e0efad5f884da1f2138e66f4566f1d0789af1d7b0527667cd6d37fd59458cd",
+      "bytes": 4517,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    },
+    "source-workspace/fml-unified/tests/test_launch_validation.py": {
+      "sha256": "f089d66f51ac97a2d1e3005ac05196253e5869d3f64e2bfdc7385212bdac5dcf",
+      "bytes": 3720,
+      "matchingRecordedRuns": [],
+      "verification": "captured-unchanged-working-source; original run did not record this file hash"
+    }
+  },
+  "reports": {
+    "official-envelope-reverse-v2": {
+      "status": "PASS",
+      "caseCount": 9,
+      "scope": "canonical metadata scan and real SERVICE candidate exclusion only; no official provider classes or game run",
+      "originalReportSha256": "e0dad57d704ca8a07cb30b75c59832eb62781f6773c25c344f56ff0f0d3da1e3"
+    },
+    "harmless-final-reverse-v1": {
+      "status": "PASS",
+      "caseCount": 7,
+      "scope": "fresh-process patched FML discovery and JarJar selector edges; not full production BootstrapInstallation or ModLauncher layer launch",
+      "originalReportSha256": "008f18ff0b436fa9a09f750800e32492cc80e75458610f1cbca949b6885eaf5c"
+    }
+  },
+  "test_fixture_maintenance": "The sourceFiles section records the original post-run supporting capture. The launch-validation test fixture was later corrected without production source changes; see launch-validation-fixture-maintenance.json and current source-capture.json."
+}

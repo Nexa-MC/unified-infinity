@@ -1,0 +1,10 @@
+{
+  "protocol": 1,
+  "runtimeModelOwner": "fml_loader",
+  "consumers": [
+    "ConnectorLocator",
+    "FabricModsDiscoverer",
+    "OrdinaryAdmissionGate",
+    "ManagedQuiltModules"
+  ]
+}

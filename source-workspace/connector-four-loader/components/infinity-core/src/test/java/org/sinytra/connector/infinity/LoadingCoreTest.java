@@ -23,6 +23,8 @@ public final class LoadingCoreTest {
         deterministicFailureAndCleanup();
         interruptionAndCleanup();
         timeoutAndCleanup();
+        CooperativePumpTest.run();
+        tests++;
         boundedSubmissionWindow();
         progressSnapshots();
         ownedResourceScope();

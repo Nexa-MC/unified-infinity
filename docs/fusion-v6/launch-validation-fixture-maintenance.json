@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "testCount": 7,
+  "command": "/usr/bin/python3 -I source-workspace/fml-unified/tests/test_launch_validation.py -v",
+  "exitCode": 0,
+  "testSourceSha256": "f863cf8c2dee74f839dcbd666b2ee90945da88565ec5504a3f736adc7c8139a1",
+  "previousTestSourceSha256": "f089d66f51ac97a2d1e3005ac05196253e5869d3f64e2bfdc7385212bdac5dcf",
+  "validatorSha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451",
+  "validatorMatchesAcceptedV6": true,
+  "jvmStarted": false,
+  "runtimeSourcesChanged": false,
+  "scope": "Structural synthetic ZIP tests only. Added explicit SERVICE/GAME/product/FML placeholder entries required by current validator; retained all seven assertions and narrowed missing-consumer KeyError match. No executable class bytes.",
+  "logSha256": "ea4ce903a639f3e89e59ce56d22f481817a956ee9a6d4d2b06a736cfccdeb9d8",
+  "archive": "source-workspace/artifacts/fusion-v6-candidate/supporting-tests-corrected/v6-supporting-test-sources-corrected.zip",
+  "archiveSha256": "ae68c00605eb5158f22349ec6a47d95948139dc95d6424aa437e746fafa59b1f",
+  "supersedesSourceZip": "source-workspace/artifacts/fusion-v6-candidate/supporting-tests-and-recipe/v6-supporting-test-sources.zip"
+}

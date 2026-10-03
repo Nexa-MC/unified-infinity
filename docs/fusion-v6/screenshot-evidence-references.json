@@ -1,0 +1,76 @@
+{
+  "captures_in_git": false,
+  "screenshots": [
+    {
+      "file": "screenshots/2026-10-03_10.34.25.png",
+      "sha256": "39d0872fb7e3c19f24897a1331987d18d1099907e72e9ba33693d2fac6deec23",
+      "description": "Real1180x812 menu: Unified infinity5 user mods footer visibly separated from copyright; toast expired before F2",
+      "capture": "Minecraft native F2"
+    },
+    {
+      "file": "screenshots/2026-10-03_10.35.10.png",
+      "sha256": "fe0b01d4bcaead5a60586be150b0026c193858eae034133174b16c1d317d9f6d",
+      "description": "Mods5 user mods /56 loaded /46 bundled API /11 rows; one API summary and Skipped45",
+      "capture": "Minecraft native F2"
+    },
+    {
+      "file": "screenshots/2026-10-03_10.35.33.png",
+      "sha256": "0bc1afdb5ecdf7246344f9a7328e01013d58a71bbf7fb88e8df0d4d04e941785",
+      "description": "Persistent45 exclusions: actual FFAPI source chain, original ID, reason and rule",
+      "capture": "Minecraft native F2"
+    },
+    {
+      "file": "screenshots/2026-10-03_10.35.43.png",
+      "sha256": "8765b5df300749e1eb3f840a17b263b82dc02115d9b41c809726ce728006cd91",
+      "description": "Scrolled details: actual selected-provider ID and another original source/reason",
+      "capture": "Minecraft native F2"
+    },
+    {
+      "file": "screenshots/2026-10-03_10.36.57.png",
+      "sha256": "85f894052221c35c1a4e962fbaf6dce4acf9cba644e686fa7cd32e8a4133fb38",
+      "description": "Copied world reopened in final v6 with saved Farmer’s Delight stove held and in slot0",
+      "capture": "Minecraft native F2"
+    }
+  ],
+  "toast_persisted_in_f2": false,
+  "real_preload_resize": {
+    "scope": "one actual native titlebar size-toggle/restore during real preload; not a latency benchmark",
+    "observations": [
+      {
+        "utc": "2026-10-03T17:33:42Z",
+        "clientSize": [
+          1180,
+          812
+        ],
+        "stage": "Preparing compatible bytecode1/5"
+      },
+      {
+        "utc": "2026-10-03T17:33:54Z",
+        "clientSize": [
+          960,
+          540
+        ],
+        "stage": "Registering prepared mods; compatibility stages complete"
+      },
+      {
+        "utc": "2026-10-03T17:34:05Z",
+        "clientSize": [
+          1180,
+          812
+        ],
+        "stage": "context handoff imminent",
+        "visualLimit": "Immediate desktop screenshot contains transient stale/composited fragments; no duration measured"
+      },
+      {
+        "utc": "2026-10-03T17:34:16Z",
+        "clientSize": [
+          1180,
+          812
+        ],
+        "stage": "Main menu with correct full drawable content"
+      }
+    ],
+    "capture": "CUA screenshots observed in conversation; no OS PNG persisted",
+    "result": "Native resize and restore were accepted while real progress continued; no hang or failed menu handoff. A visually artifact-free sequence is not established."
+  }
+}

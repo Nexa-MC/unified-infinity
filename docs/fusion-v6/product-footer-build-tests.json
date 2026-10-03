@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "kind": "measured-footer-width-product",
+  "writtenUtc": "2026-10-03T17:31:49.752441+00:00",
+  "artifact": {
+    "path": "runtime-bundle/build-footer-final-candidate/libs/unified-infinity-0.1.0-dev.jar",
+    "sha256": "469118e449691228933e2fd1c090990519c0428050056f59040082f4147706d9"
+  },
+  "compileInputsAtBuild": {
+    "fmlSha256": "efd2cf2a107975f9a73efdfd20d98a32b4cee6db945016ddca1e2fd3ab92d24a",
+    "coreSha256": "bb12add68d213254d742feb09296af708f2b8ed0500a959e3b5e1699abb3313b",
+    "note": "Product compiled against these earlier pinned inputs; the final combined runtime is validated separately by v6 acceptance."
+  },
+  "measuredDefaultFontGuiPixels": {
+    "copyright": 196,
+    "oldOverlappingFooter": 283,
+    "fullConciseFooter": 158,
+    "compactConciseFooter": 100,
+    "availableAt1180pxScale3": 188
+  },
+  "behavior": "Runtime measures actual Font.width and reserves unchanged copyright PlainTextButton bounds plus6GUIpixel gap; chooses whole full/compact labels, omits only left branding at exceptionally insufficient width. Components remain in Mods header.",
+  "tests": {
+    "actualProductClientCompile": "passed",
+    "assembledJarBrandingWidthChecks": 1320,
+    "uiModelChecks": 316,
+    "exclusionNoticeChecks": 43,
+    "productIsolation": "passed",
+    "archiveClosure": 47,
+    "staticLocalizationChecks": 10
+  },
+  "limits": {
+    "gradleHeapMiB": 512,
+    "workers": 1,
+    "testHeapMiB": 256,
+    "activeProcessors": 2
+  },
+  "evidenceFiles": {
+    "runtime-bundle/build-footer-final-candidate/gradle-build.log": {
+      "sha256": "b7d7b43607926999bb83f7bbb71c27900d59dc65afbad99ce1bc10b5c3f38674",
+      "modifiedUtc": "2026-10-03T17:30:04.371524+00:00"
+    },
+    "runtime-bundle/build-footer-final-candidate/test-compile.args": {
+      "sha256": "f7d5e5a1bc169702cb0dfa7817cc9c1ce05a1887e3bc1d437a8da7d1af766ac2",
+      "modifiedUtc": "2026-10-03T17:30:11.800577+00:00"
+    },
+    "runtime-bundle/build-footer-final-candidate/test-compile.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "modifiedUtc": "2026-10-03T17:30:25.027259+00:00"
+    },
+    "runtime-bundle/build-footer-final-candidate/tests.log": {
+      "sha256": "c5afb90b06683a267cce8b5a47015b75d67929227560564e9ab01d24b7e42629",
+      "modifiedUtc": "2026-10-03T17:30:27.915224+00:00"
+    },
+    "runtime-bundle/build-footer-final-candidate/reports/bundle-verification.json": {
+      "sha256": "c63d05ccec1e8eb1e3b52a0b846d53e2293ab3a111c2a62a0863a372d8288339",
+      "modifiedUtc": "2026-10-03T17:30:04.260829+00:00"
+    },
+    "runtime-bundle/src/client-branding-test/resources/default-font-advances.properties": {
+      "sha256": "547f3c39de85ba9b54e086356aebd72c49021e528450cd9d78308bbe23fff7f8",
+      "modifiedUtc": "2026-10-03T17:27:49.150535+00:00"
+    }
+  },
+  "accepted0b66Unchanged": true,
+  "runtimeValidated": false,
+  "pending": "Historical at build time; main-menu and notice behavior subsequently covered by the separate v6 runtime acceptance. Narrow-window runtime coverage remains limited to recorded width tests.",
+  "original_receipt_sha256": "c7de824da880d36213c241d19dd64afd33eb81a14c0ca8c221e81b6e3facb431"
+}

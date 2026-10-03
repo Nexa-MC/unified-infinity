@@ -1,0 +1,18 @@
+{
+  "status": "PASS_SOURCE_CORRESPONDENCE_RUNTIME_ACCEPTANCE_PENDING",
+  "sourceRecords": 655,
+  "serviceSha256": "b138700eb66cea6d027178df82bc905a21051c67c50844c5bbbfdfb044e4d31d",
+  "sourceZip": "source-workspace/artifacts/fusion-v6-candidate/complete-source-at-v6.zip",
+  "sourceZipSha256": "80c7f6e4b8ad52e9d153f895487a10312fc6950a4bc8c35e2eb61f286f8a443e",
+  "launchToolsZip": "source-workspace/artifacts/fusion-v6-candidate/v6-launch-tools.zip",
+  "launchToolsZipSha256": "73114165df4755ac669eee9a80cb29a2910139e8d9e1268aeb0dacadc5ad39a3",
+  "launchToolSources": {
+    "source-workspace/fml-unified/tools/assemble_installation.py": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a",
+    "source-workspace/fml-unified/tools/validate_launch.py": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451",
+    "source-workspace/fml-unified/tools/launch_successor.py": "63a533cdec3ee847bd47209220012b23137c51511da1803863bdccd8c758b984",
+    "source-workspace/fml-unified/tools/build_source.py": "00455c1ec072c5b3b02d0d09f8345837385178526ef045f268715881453b0ba6",
+    "source-workspace/fml-unified/tools/check_source_candidate.py": "e4c2330ebb21bef17577bbd18f5fb6bc1a43acf03b4b3826a393901b05fd9930",
+    "four-loader/launch-support/game_environment.py": "46e0fec38191d7b521fa6ae2c415c04285d04d1b545787054ab2a41ab67892e8",
+    "four-loader/launch-support/probe_native_headroom.py": "1ca96b8bbbd19143837d2285c42d072e5c3671e0c09d97b5e6f9f0f9a59c10a7"
+  }
+}

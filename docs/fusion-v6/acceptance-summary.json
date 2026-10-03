@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "PASS_SCOPED_WITH_NOTED_LIMITS",
+  "scope": "Final combined v6 foundation: reverse-container guard and width-aware footer; five approved content mods plus two untrusted expected-excluded infrastructure copies, real UI and copied-world save/exit",
+  "started_utc": "2026-10-03T17:33:18.155506+00:00",
+  "finished_utc": "2026-10-03T17:37:37.158895+00:00",
+  "exit_code": 0,
+  "receipt_sha256": "3ac1b0abd9e683a22088e35c78f8b0f0daa47aef824d88f6933d5645289a5636",
+  "launch_spec_sha256": "cad53e2bfe1091ecc567058b6c328628241c13de867494df1448f29fae2cbd24",
+  "arguments_sha256": "ebd9b830c93c39082a8b6957a6c173c13d556ffdb3b9c8c3edff7cddf9591630",
+  "original_inputs_unchanged": true,
+  "checked_input_paths": 15,
+  "checks": {
+    "actualPreload": "PASS: full viewport, real LoadProgress commit/complete sequence14,13527ms",
+    "actualResizeRestore": "Accepted1180x812→960x540→1180x812; realprogress continued. Transient immediate restore composition artifact observed, duration/latency not measured.",
+    "mainMenuFooter": "PASS:5 user mods and copyright visibly separated at1180px",
+    "modList": "PASS:5/56/46/11 and one API summary",
+    "realNonmodalToast": "PASS:45 entries visible in CUA17:34:16; expired before saved F2",
+    "persistentExclusions": "PASS:45 count with real source/reason/provider details and working scroll/back",
+    "copiedWorldReopen": "PASS: joined17:36:38UTC, persisted stove visible",
+    "save": "PASS: all dimensions saved17:37:16UTC",
+    "independentNBT": "PASS",
+    "gracefulExit": "PASS:exit0 at17:37:37.159UTC",
+    "originalInputs": "PASS:launcher15 paths; independent original/staged and selected artifact hashes"
+  },
+  "limits": [
+    "This is one Linux software-rendered client smoke run with1280MiB heap, not cross-platform or large-pack compatibility proof.",
+    "The resize/restore was observed during real progress but the immediate restore desktop image contained transient composited fragments; no input latency or zero-stutter claim.",
+    "The real45-entry toast was seen in CUA but expired before F2; persisted screenshots cover the permanent details.",
+    "Offline Yggdrasil public-key and unavailable ALSA sound errors occurred; no mod lifecycle fatal or OOM was observed.",
+    "Reverse mixed-container rejection is covered by focused source-owner tests; this accepted game uses the reviewed approved content set, not a new mixed-container fixture.",
+    "World remains local in this isolated profile and must not be exported."
+  ],
+  "counts": {
+    "userMods": 5,
+    "loadedEntries": 56,
+    "bundledApis": 46,
+    "visibleRows": 11,
+    "apiSummaryRows": 1
+  },
+  "main_menu_footer": {
+    "text": "Unified ∞ Infinity (5 user mods)",
+    "copyright_separated": true
+  },
+  "world_verification": {
+    "status": "PASS",
+    "method": "Independent bounded saved-data parse after clean save and exit",
+    "persisted_test_stove_verified": true,
+    "prior_world_unchanged": true,
+    "world_data_included": false
+  },
+  "runtime_scope": "One Linux client run. V6 dedicated-server and larger-pack acceptance were not repeated."
+}

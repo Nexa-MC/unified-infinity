@@ -47,6 +47,8 @@ public final class PreloadTests {
         check(normal.due(0) && !normal.due(1), "no catch-up render burst");
         var image = TextLayer.render(known,true);
         check(image.getWidth()==960 && image.getHeight()==540 && (image.getRGB(0,0)>>>24)==0, "own typography rasterizes headlessly to alpha texture");
+        responsiveGeometry(known);
+        nonblockingTelemetry(known);
         var disabledQa = new QaRecorder(null);
         disabledQa.captureSource(known, p -> { throw new AssertionError("Disabled QA called exporter"); });
         disabledQa.event("test", known);
@@ -74,5 +76,76 @@ public final class PreloadTests {
         check(!provider.positionWindow(java.util.Optional.empty(),i->{},i->{},i->{},i->{}), "headless mode declines window ownership");
         provider.close(); provider.close(); check(true,"headless close is idempotent");
         System.out.println("RESULT: " + passed + " assertions passed; graphical client/handoff not exercised by this suite");
+    }
+
+    private static void responsiveGeometry(ProgressSnapshot state) {
+        for (int[] size : new int[][] {{960,540,960,540}, {1180,812,1180,812}, {1364,1024,1364,1024}, {320,320,320,320},
+                {320,900,320,900}, {1920,320,1920,320}, {960,540,1920,1080}, {1000,700,1500,1050},
+                {3840,2160,7680,4320}, {1,1,1,1}, {1,1000,1,1000}, {Integer.MAX_VALUE,1,Integer.MAX_VALUE,1}}) {
+            var layout = ResponsiveLayout.of(size[0], size[1], size[2], size[3]);
+            check(layout.pixelWidth() > 0 && layout.pixelHeight() > 0
+                    && layout.pixelWidth() <= ResponsiveLayout.MAX_TEXTURE_EDGE && layout.pixelHeight() <= ResponsiveLayout.MAX_TEXTURE_EDGE
+                    && (long) layout.pixelWidth() * layout.pixelHeight() <= ResponsiveLayout.MAX_TEXTURE_PIXELS,
+                    "raster allocation bounded at " + java.util.Arrays.toString(size));
+            check(layout.iconX() >= layout.margin() && layout.iconX() + layout.iconSize() <= layout.width() - layout.margin()
+                    && layout.iconTop() > layout.headerLine() && layout.titleBaseline() > layout.iconTop() + layout.iconSize()
+                    && layout.detailBaseline() + 16 < layout.footerLine(), "anchored geometry has no collisions at " + java.util.Arrays.toString(size));
+            check(layout.barX() >= layout.margin() - .001 && layout.barX() + layout.barWidth() <= layout.width() - layout.margin() + .001,
+                    "progress stays inside viewport margins");
+        }
+        check(!ResponsiveLayout.drawable(960,540,0,0) && !ResponsiveLayout.drawable(0,540,960,540)
+                && !ResponsiveLayout.drawable(960,540,-1,540), "zero/minimized/negative geometry never divides or allocates");
+        try { ResponsiveLayout.of(960,540,0,0); throw new AssertionError("zero framebuffer accepted"); }
+        catch (IllegalArgumentException expected) { check(true, "zero framebuffer rejected before rendering"); }
+        var base = ResponsiveLayout.of(960,540,960,540); var hidpi = ResponsiveLayout.of(960,540,1920,1080);
+        check(base.width() == hidpi.width() && base.iconSize() == hidpi.iconSize() && base.titleBaseline() == hidpi.titleBaseline(),
+                "HiDPI changes raster density without stretching logical UI");
+        var narrow = ResponsiveLayout.of(320,320,320,320);
+        check(narrow.stackedFooter() && narrow.compact() && !base.stackedFooter(), "narrow footer reflows into readable separate rows");
+        var narrowImage = TextLayer.render(state, true, narrow);
+        check(narrowImage.getWidth() == 320 && narrowImage.getHeight() == 320, "compact typography uses responsive raster");
+        var canvas = new TextLayer.Canvas();
+        var first = canvas.render(state, true, base);
+        Object storage = ((java.awt.image.DataBufferInt) first.getRaster().getDataBuffer()).getData();
+        var resized = canvas.render(state, true, narrow);
+        check(storage == ((java.awt.image.DataBufferInt) resized.getRaster().getDataBuffer()).getData(),
+                "continuous text resize reuses bounded pixel storage");
+        check(resized.getRGB(0, 0) == 0 && resized.getRGB(160, 160) == narrowImage.getRGB(160, 160),
+                "reused text canvas clears old pixels and preserves raster semantics");
+        var g = narrowImage.createGraphics();
+        try {
+            g.setFont(new java.awt.Font(java.awt.Font.SANS_SERIF, java.awt.Font.PLAIN, 13));
+            var lines = TextLayer.wrap(g, "Compatibility stages complete · waiting for Minecraft", narrow.contentWidth(), 2);
+            check(lines.size() == 2 && lines.stream().allMatch(line -> g.getFontMetrics().stringWidth(line) <= narrow.contentWidth()),
+                    "long stage detail wraps without entering margins");
+        } finally { g.dispose(); }
+        var stats = new ResponsivenessStats(); stats.poll(1); stats.poll(150_000_001);
+        stats.frame(1, 2); stats.frame(150_000_001, 170_000_001);
+        check(stats.summary().contains("frameGapsOver100ms=1") && stats.summary().contains("eventPollGapMaxMs=150.0"),
+                "diagnostics expose long frames and event-pump gaps separately");
+    }
+
+    private static void nonblockingTelemetry(ProgressSnapshot state) throws Exception {
+        var entered = new java.util.concurrent.CountDownLatch(1);
+        var release = new java.util.concurrent.CountDownLatch(1);
+        var finished = new java.util.concurrent.CountDownLatch(1);
+        var sampler = new ProgressSampler(now -> {
+            entered.countDown();
+            try {
+                // Model a slow operation which does not finish immediately on interruption.
+                try { release.await(3, java.util.concurrent.TimeUnit.SECONDS); }
+                catch (InterruptedException expected) { release.await(3, java.util.concurrent.TimeUnit.SECONDS); }
+            } catch (InterruptedException expected) { Thread.currentThread().interrupt(); }
+            finally { finished.countDown(); }
+            return state;
+        });
+        try {
+            sampler.start();
+            check(entered.await(2, java.util.concurrent.TimeUnit.SECONDS), "telemetry sampler starts without native graphics");
+            check(sampler.latest() == ProgressSnapshot.WAITING, "snapshot access never waits for a pending telemetry read");
+            sampler.close();
+            check(finished.getCount() == 1, "sampler shutdown does not join a stalled filesystem read");
+        } finally { release.countDown(); sampler.close(); }
+        check(finished.await(2, java.util.concurrent.TimeUnit.SECONDS), "released telemetry worker finishes after shutdown");
     }
 }

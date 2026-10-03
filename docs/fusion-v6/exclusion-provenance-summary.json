@@ -1,0 +1,401 @@
+{
+  "status": "PASS",
+  "scope": "actual pre-service notices and pinned class definitions; native-only API temp paths are not mapped here, so denied nested-alias exclusion additionally relies on frozen decisions and actual trusted selected snapshot classifications; not a lifecycle invocation counter",
+  "logical_exclusion_count": 45,
+  "by_original_archive": {
+    "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar": 44,
+    "external-connector-2.0.0-beta.17+1.21.1.jar": 1
+  },
+  "decisions": [
+    {
+      "id": "fabric_resource_loader_v0",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-resource-loader-v0-1.3.1+4ea8954419.jar"
+      ]
+    },
+    {
+      "id": "fabric_content_registries_v0",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-content-registries-v0-8.0.19+c290471319.jar"
+      ]
+    },
+    {
+      "id": "connector",
+      "reason": "A second external loader bridge cannot own the Unified loading pipeline",
+      "source_archive": "external-connector-2.0.0-beta.17+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jarjar/org.sinytra.connector-2.0.0-beta.17+1.21.1-mod.jar"
+      ]
+    },
+    {
+      "id": "fabric_screen_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-screen-api-v1-2.0.25+4228281319.jar"
+      ]
+    },
+    {
+      "id": "fabric_screen_handler_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar"
+      ]
+    },
+    {
+      "id": "fabric_networking_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-networking-api-v1-4.3.0+30a980d919.jar"
+      ]
+    },
+    {
+      "id": "fabric_entity_events_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-entity-events-v1-1.8.0+5ede667619.jar"
+      ]
+    },
+    {
+      "id": "fabric_object_builder_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-object-builder-api-v1-15.2.1+cc242efd19.jar"
+      ]
+    },
+    {
+      "id": "fabric_rendering_data_attachment_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar"
+      ]
+    },
+    {
+      "id": "fabric_block_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-block-api-v1-1.1.0+b0c22bb819.jar"
+      ]
+    },
+    {
+      "id": "fabric_registry_sync_v0",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-registry-sync-v0-5.3.1+f9aace1619.jar"
+      ]
+    },
+    {
+      "id": "fabric_convention_tags_v2",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-convention-tags-v2-2.11.1+87e5848019.jar"
+      ]
+    },
+    {
+      "id": "fabric_api",
+      "reason": "External FFAPI duplicates the managed API profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": []
+    },
+    {
+      "id": "forgified_fabric_api",
+      "reason": "External FFAPI duplicates the managed API profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": []
+    },
+    {
+      "id": "fabric_game_rule_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-game-rule-api-v1-1.0.53+36d727be19.jar"
+      ]
+    },
+    {
+      "id": "fabric_gametest_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-gametest-api-v1-2.0.5+29f188ce19.jar"
+      ]
+    },
+    {
+      "id": "fabric_item_group_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-item-group-api-v1-4.1.7+e324903319.jar"
+      ]
+    },
+    {
+      "id": "fabric_renderer_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-renderer-api-v1-3.4.1+6e8f52c719.jar"
+      ]
+    },
+    {
+      "id": "fabric_rendering_fluids_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-rendering-fluids-v1-3.1.6+857185bc19.jar"
+      ]
+    },
+    {
+      "id": "fabric_convention_tags_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-convention-tags-v1-2.1.5+7f945d5b19.jar"
+      ]
+    },
+    {
+      "id": "fabric_item_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-item-api-v1-11.2.0+0c57911319.jar"
+      ]
+    },
+    {
+      "id": "fabric_key_binding_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar"
+      ]
+    },
+    {
+      "id": "fabric_resource_conditions_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar"
+      ]
+    },
+    {
+      "id": "fabric_loot_api_v3",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-loot-api-v3-1.0.3+333dfad919.jar"
+      ]
+    },
+    {
+      "id": "fabric_particles_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-particles-v1-4.0.2+824f924c19.jar"
+      ]
+    },
+    {
+      "id": "fabric_sound_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-sound-api-v1-1.0.23+10b84f8419.jar"
+      ]
+    },
+    {
+      "id": "fabric_api_lookup_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-api-lookup-api-v1-1.6.71+c290471319.jar"
+      ]
+    },
+    {
+      "id": "fabric_data_attachment_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar"
+      ]
+    },
+    {
+      "id": "fabric_transitive_access_wideners_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar"
+      ]
+    },
+    {
+      "id": "fabric_rendering_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-rendering-v1-5.1.0+1a09bd5a19.jar"
+      ]
+    },
+    {
+      "id": "fabric_lifecycle_events_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar"
+      ]
+    },
+    {
+      "id": "fabric_api_base",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-api-base-0.4.42+d1308ded19.jar"
+      ]
+    },
+    {
+      "id": "fabric_command_api_v2",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-command-api-v2-2.2.28+36d727be19.jar"
+      ]
+    },
+    {
+      "id": "fabric_events_interaction_v0",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-events-interaction-v0-0.7.13+86e0887119.jar"
+      ]
+    },
+    {
+      "id": "fabric_loot_api_v2",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-loot-api-v2-3.0.15+a3ee712d19.jar"
+      ]
+    },
+    {
+      "id": "fabric_model_loading_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar"
+      ]
+    },
+    {
+      "id": "fabric_data_generation_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar"
+      ]
+    },
+    {
+      "id": "fabric_message_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-message-api-v1-6.0.14+6a754fce19.jar"
+      ]
+    },
+    {
+      "id": "fabric_recipe_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-recipe-api-v1-5.0.15+59440bcc19.jar"
+      ]
+    },
+    {
+      "id": "fabric_blockrenderlayer_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-blockrenderlayer-v1-1.1.52+c290471319.jar"
+      ]
+    },
+    {
+      "id": "fabric_transfer_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-transfer-api-v1-5.4.3+a25cb45619.jar"
+      ]
+    },
+    {
+      "id": "fabric_renderer_indigo",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-renderer-indigo-1.7.1+4198af7119.jar"
+      ]
+    },
+    {
+      "id": "fabric_block_view_api_v2",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-block-view-api-v2-1.0.11+e9036fd419.jar"
+      ]
+    },
+    {
+      "id": "fabric_biome_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-biome-api-v1-13.0.31+1e62d33c19.jar"
+      ]
+    },
+    {
+      "id": "fabric_client_tags_api_v1",
+      "reason": "External FFAPI module conflicts with the managed profile",
+      "source_archive": "external-forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "embedded_entries": [
+        "META-INF/jars/fabric-client-tags-api-v1-1.1.15+e053909619.jar"
+      ]
+    }
+  ],
+  "class_origins": [
+    {
+      "class": "org.sinytra.connector.infinity.inventory.AdmissionSession",
+      "sha256": "6d431507a5afb30b7701f79148d890cde6ff77c42166e539f6f61886e90d0320",
+      "artifact": "loader-4.0.42-unified-fusion.jar"
+    },
+    {
+      "class": "org.sinytra.connector.infinity.FmlCompatibilityComponent",
+      "sha256": "b138700eb66cea6d027178df82bc905a21051c67c50844c5bbbfdfb044e4d31d",
+      "artifact": "connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-full.jar"
+    },
+    {
+      "class": "org.sinytra.connector.service.ConnectorLoaderService",
+      "sha256": "b138700eb66cea6d027178df82bc905a21051c67c50844c5bbbfdfb044e4d31d",
+      "artifact": "connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-full.jar"
+    },
+    {
+      "class": "org.sinytra.connector.mod.FmlGameCompatibilityComponent",
+      "sha256": "78cc8094f198a7cf98afe0c0b6ecfb2f6eab030e5ebab13cc3d3960bdb80ef3a",
+      "artifact": "game-78cc8094f198.jar"
+    },
+    {
+      "class": "org.sinytra.connector.mod.ConnectorMod",
+      "sha256": "78cc8094f198a7cf98afe0c0b6ecfb2f6eab030e5ebab13cc3d3960bdb80ef3a",
+      "artifact": "game-78cc8094f198.jar"
+    },
+    {
+      "class": "dev.modcompat.runtime.bundle.RuntimeBundle",
+      "sha256": "469118e449691228933e2fd1c090990519c0428050056f59040082f4147706d9",
+      "artifact": "unified-infinity-0.1.0-dev.jar"
+    }
+  ],
+  "forbidden_outer_definitions_observed": 0,
+  "not_exhaustive": true
+}

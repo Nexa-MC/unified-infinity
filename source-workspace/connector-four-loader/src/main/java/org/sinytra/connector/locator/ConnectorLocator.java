@@ -24,6 +24,8 @@ import org.jetbrains.annotations.Nullable;
 import org.sinytra.connector.ConnectorEarlyLoader;
 import org.sinytra.connector.infinity.LoadProgress;
 import org.sinytra.connector.infinity.BuildIdentity;
+import org.sinytra.connector.infinity.inventory.AdmissionInventory.*;
+import org.sinytra.connector.infinity.inventory.AdmissionSession;
 import org.sinytra.connector.infinity.ManagedConnectorTransformerEnvironment;
 import org.sinytra.connector.locator.filter.ForgeModPackageFilter;
 import org.sinytra.connector.locator.filter.SplitPackageMerger;
@@ -71,7 +73,8 @@ public class ConnectorLocator implements IDependencyLocator {
 
                 // Create mod file for generated adapter mixins jar
                 Path generatedAdapterJar = results.generatedJarPath();
-                if (Files.exists(generatedAdapterJar)) {
+                if (Files.exists(generatedAdapterJar) && !results.originalPaths().isEmpty()) {
+                    AdmissionSession.current().bindGenerated(generatedAdapterJar, results.generatedSourcePaths());
                     pipeline.addPath(generatedAdapterJar, ModFileDiscoveryAttributes.DEFAULT, IncompatibleFileReporting.ERROR);
                 }
                 completed = true;
@@ -93,8 +96,8 @@ public class ConnectorLocator implements IDependencyLocator {
             // Handle forge mod split packages
             ForgeModPackageFilter.filterPackages(loadedMods);
 
-            // Whatever happens load connector itself anyway.
-            // This way if there are dependency errors or others above the game is still able to display the correct error messages
+            // Discover only the installed SERVICE component's pinned runtime dependencies.
+            // GAME compatibility metadata is admitted separately by the FML installation locator.
             try {
                 loadEmbeddedJars(pipeline);
                 if (completed) LoadProgress.finish(null);
@@ -160,6 +163,8 @@ public class ConnectorLocator implements IDependencyLocator {
 
             // Run jar transformations (or get existing outputs from cache)
             List<JarTransformer.TransformedFabricModPath> transformed = transformer.transform(candidates, renameLibs);
+            for (JarTransformer.TransformedFabricModPath selected : transformed)
+                AdmissionSession.current().bindDerived(selected.output().path(), selected.input());
 
             List<JarTransformer.TransformedFabricModPath> failing = transformed.stream().filter(j -> j.auditTrail() != null && j.auditTrail().hasFailingMixins()).toList();
             if (!failing.isEmpty()) {
@@ -180,9 +185,24 @@ public class ConnectorLocator implements IDependencyLocator {
             // Deal with split packages (thanks modules)
             List<SplitPackageMerger.FilteredModPath> moduleSafeJars = SplitPackageMerger.mergeSplitPackages(transformed.stream().map(JarTransformer.TransformedFabricModPath::output).toList(), loadedModFiles, ignoredModFiles);
 
-            List<IModFile> loadedMods = moduleSafeJars.stream().map(ConnectorLocator::createConnectorModFile).toList();
+            Map<String, Path> selectedInputs = new HashMap<>();
+            for (JarTransformer.TransformedFabricModPath selected : transformed)
+                selectedInputs.put(selected.output().metadata().modMetadata().getId(), selected.input());
+            List<IModFile> loadedMods = moduleSafeJars.stream().map(path -> {
+                IModFile mod = createConnectorModFile(path);
+                if (!path.metadata().generated()) {
+                    Path original = selectedInputs.get(path.metadata().modMetadata().getId());
+                    boolean quilt = path.metadata().modMetadata().containsCustomValue("infinity:quilt_metadata");
+                    if (original != null) AdmittedModCatalog.captureOriginal(mod, original,
+                        quilt ? Ecosystem.QUILT : Ecosystem.FABRIC, quilt ? Lane.NATIVE_QUILT : Lane.FABRIC_PROJECTION, Optional.empty());
+                }
+                return mod;
+            }).toList();
             List<Path> originalPaths = transformed.stream().map(JarTransformer.TransformedFabricModPath::input).toList();
-            return new LocationResult(loadedMods, originalPaths, environment.getGeneratedJarPath());
+            Set<Path> generatedSources = new LinkedHashSet<>(originalPaths);
+            for (IModFile library : loadedModFiles)
+                generatedSources.addAll(AdmissionSession.current().sourcePathsForRuntimeObject(library));
+            return new LocationResult(loadedMods, originalPaths, environment.getGeneratedJarPath(), List.copyOf(generatedSources));
         }
     }
 
@@ -190,6 +210,7 @@ public class ConnectorLocator implements IDependencyLocator {
         Collection<String> loadedModIds, Collection<String> loadedModuleNames, List<Path> managedQuilt) {
         // Existing upstream discovery and nested-JAR traversal, unchanged.
         List<JarTransformer.TransformableJar> discoveredJars = Stream.concat(FabricModsDiscoverer.scanFabricMods(), managedQuilt.stream()).distinct()
+            .filter(p -> uncheck(() -> OrdinaryAdmissionGate.allow(p, OrdinaryAdmissionGate.root(p))))
             .map(rethrowFunction(p -> transformer.cacheTransformableJar(p.toFile())))
             .filter(jar -> !shouldIgnoreMod(jar, loadedModIds, loadedModuleNames))
             .toList();
@@ -220,13 +241,17 @@ public class ConnectorLocator implements IDependencyLocator {
 
     private static IModFile createConnectorModFile(SplitPackageMerger.FilteredModPath modPath) {
         JarContents jarContents = new JarContentsBuilder().paths(modPath.paths()).pathFilter(modPath.filter()).build();
+        AdmissionSession.current().bindRuntimeObject(jarContents, Arrays.asList(modPath.paths()));
         if (modPath.metadata().generated()) {
-            return IModFile.create(SecureJar.from(jarContents), JarModsDotTomlModFileReader::manifestParser, IModFile.Type.GAMELIBRARY, ModFileDiscoveryAttributes.DEFAULT);
+            IModFile library = IModFile.create(SecureJar.from(jarContents), JarModsDotTomlModFileReader::manifestParser, IModFile.Type.GAMELIBRARY, ModFileDiscoveryAttributes.DEFAULT);
+            AdmissionSession.current().bindRuntimeObject(library, Arrays.asList(modPath.paths()));
+            return library;
         }
         ModJarMetadata modJarMetadata = new ModJarMetadata(jarContents);
         SecureJar secureJar = SecureJar.from(jarContents, modJarMetadata);
         IModFile modFile = IModFile.create(secureJar, f -> FabricModMetadataParser.createForgeMetadata(f, (ConnectorFabricModMetadata) modPath.metadata().modMetadata(), modPath.metadata().visibleMixinConfigs(), modPath.metadata().generated()));
         modJarMetadata.setModFile(modFile);
+        AdmissionSession.current().bindRuntimeObject(modFile, Arrays.asList(modPath.paths()));
         return modFile;
     }
 
@@ -236,8 +261,8 @@ public class ConnectorLocator implements IDependencyLocator {
             .map(entry -> secureJar.getPath(entry.getFile()))
             .filter(Files::exists)
             .flatMap(path -> {
-                JarTransformer.TransformableJar jar = uncheck(() -> prepareNestedJar(transformer, tempDir, secureJar.getPrimaryPath().getFileName().toString(), path));
-                if (shouldIgnoreMod(jar, loadedModIds, loadedModuleNames)) {
+                JarTransformer.TransformableJar jar = uncheck(() -> prepareNestedJar(transformer, tempDir, parent, secureJar.getPrimaryPath().getFileName().toString(), path));
+                if (jar == null || shouldIgnoreMod(jar, loadedModIds, loadedModuleNames)) {
                     return Stream.empty();
                 }
                 parentToChildren.put(parent, jar);
@@ -246,14 +271,12 @@ public class ConnectorLocator implements IDependencyLocator {
             });
     }
 
-    private static JarTransformer.TransformableJar prepareNestedJar(JarTransformer transformer, Path tempDir, String parentName, Path path) throws IOException {
-        Files.createDirectories(tempDir);
-
-        String parentNameWithoutExt = parentName.split("\\.(?!.*\\.)")[0];
-        // Extract JiJ
-        Path extracted = tempDir.resolve(parentNameWithoutExt + "$" + path.getFileName().toString());
-        ConnectorUtil.cache(path, extracted, () -> Files.copy(path, extracted));
-
+    private static JarTransformer.TransformableJar prepareNestedJar(JarTransformer transformer, Path tempDir, JarTransformer.TransformableJar parent, String parentName, Path path) throws IOException {
+        String nestedEntry = path.toString().replace('\\', '/');
+        while (nestedEntry.startsWith("/")) nestedEntry = nestedEntry.substring(1);
+        Optional<Path> selected = AdmissionSession.current().nestedArchive(parent.input().toPath(), nestedEntry);
+        if (selected.isEmpty()) return null;
+        Path extracted = selected.get();
         JarTransformer.TransformableJar candidate = uncheck(() -> transformer.cacheTransformableJar(extracted.toFile()));
         if (candidate.modPath().metadata().modMetadata().containsCustomValue("infinity:quilt_metadata"))
             throw new IOException("Native Quilt nested-mod provenance is unsupported in native-quilt-v1: " + parentName + "!" + path);
@@ -323,13 +346,15 @@ public class ConnectorLocator implements IDependencyLocator {
     }
 
     private static void loadEmbeddedJars(IDiscoveryPipeline pipeline) throws Exception {
-        SecureJar secureJar = SecureJar.from(Path.of(ConnectorLocator.class.getProtectionDomain().getCodeSource().getLocation().toURI()));
+        Path coreSource = AdmissionSession.current().installedComponent("ADMISSION_CONSUMER");
+        SecureJar secureJar = SecureJar.from(coreSource);
         IModFile modFile = IModFile.create(secureJar, JarModsDotTomlModFileReader::manifestParser);
+        AdmissionSession.current().bindRuntimeObject(modFile, List.of(coreSource));
         new JarInJarDependencyLocator().scanMods(List.of(modFile), pipeline);
     }
 
     private record SimpleModInfo(String modid, ArtifactVersion version, boolean library, @Nullable IModFile origin, @Nullable String moduleName) {
     }
 
-    private record LocationResult(List<IModFile> mods, List<Path> originalPaths, Path generatedJarPath) {} 
+    private record LocationResult(List<IModFile> mods, List<Path> originalPaths, Path generatedJarPath, List<Path> generatedSourcePaths) {} 
 }

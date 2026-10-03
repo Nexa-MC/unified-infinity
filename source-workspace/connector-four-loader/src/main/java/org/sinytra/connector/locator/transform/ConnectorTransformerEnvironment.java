@@ -52,6 +52,17 @@ public class ConnectorTransformerEnvironment implements TransformerEnvironment {
     private static final VarHandle TRANSFORMER_LOADER_FIELD = uncheck(() -> MethodHandles.privateLookupIn(MixinLaunchPluginLegacy.class, MethodHandles.lookup()).findVarHandle(MixinLaunchPluginLegacy.class, "transformerLoader", ILaunchPluginService.ITransformerLoader.class));
 
     private final Collection<IModFile> loadedModFiles;
+    // Pinned FML discovery constructs this environment after ImmediateWindowHandler.load, on its startup owner.
+    private final Thread loadingThread = Thread.currentThread();
+
+    @Override
+    public void pumpLoadingWindow() {
+        if (Thread.currentThread() != loadingThread)
+            throw new IllegalStateException("Loading-window pump must stay on the discovery/startup thread");
+        Runnable tick = FMLLoader.progressWindowTick;
+        // Portable/pre-window paths do not get a window; dedicated-server FML supplies its no-op provider.
+        if (tick != null) tick.run();
+    }
 
     public ConnectorTransformerEnvironment(Collection<IModFile> loadedModFiles) {
         this.loadedModFiles = loadedModFiles;

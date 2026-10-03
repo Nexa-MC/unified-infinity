@@ -1,0 +1,57 @@
+{
+  "status": "PASS_IMMUTABLE_SOURCE_CONTINUITY",
+  "provider_sha256": "ca776b212632f387a76dbb20be766f6fe4d852424a3af7bd59e05cb6e6f6be7a",
+  "source_checkpoint_sha256": "c9a9a8788a45a1892c6374ee157fd270e4fe2fc550135349b436242b7c0bd130",
+  "records": [
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/FramePacer.java",
+      "sha256": "9b883bf7bf426c444e2f7ef56c6e059c573259392e974c303c3b57521c04ace4"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/InfinityRenderer.java",
+      "sha256": "76adb7030e2452d1c8734d923ee4fa417789c00324e22e97918afc21c90d2958"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/InfinityWindowProvider.java",
+      "sha256": "8114b20383e205530f1763910877547ba2796824f727f630913d54dc47c9ad7d"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ProgressFileReader.java",
+      "sha256": "579a009b0d8bfdbc35894224195e19813e1427fb79ad2dbd324fbd6ee0f5a6be"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ProgressSampler.java",
+      "sha256": "71038ab2c0c4a38b41ec9c9cb9ea4091920fa90dc5bd760b773f03c46b6bf573"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ProgressSnapshot.java",
+      "sha256": "b9a1028ce6a47965493ac207cc5d96f18ed8598cb16247b8efaaf2dfc048a08a"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/QaRecorder.java",
+      "sha256": "94b6329dd638f48212fb0b658604f226bced06c8af6842c3a4ac65cfc7d4084d"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ResponsiveLayout.java",
+      "sha256": "8bc60cdc6085a5b9b81dac11682a16cba8f3e3b0960431e478b0a935ed89f5f7"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ResponsivenessStats.java",
+      "sha256": "20b614f36383a178d1be40c00e552ffa1f71cfb97ed14c4833e8be6329f7a3db"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/TextLayer.java",
+      "sha256": "8d86db5663fe4d0b0574c94b62a17d35170b52367e1fe7bbddc89314db83fd1a"
+    },
+    {
+      "path": "preload-ui/src/main/resources/META-INF/services/net.neoforged.neoforgespi.earlywindow.ImmediateWindowProvider",
+      "sha256": "eb9b0133c13a31448d2bdf841e6cf07aea77cbf96e7895c6c20b1e6a53c3843d"
+    },
+    {
+      "path": "preload-ui/src/main/resources/infinity-icon.png",
+      "sha256": "213ca59a8fab466a3b2fd968be012aad5dc71039f5dbee5417225bb0f8193a01"
+    }
+  ],
+  "source_owner_confirmation": "Product source unchanged after original candidate build;12main source/resource files match the immutable15:18 checkpoint.",
+  "limits": "No contemporaneous build-time source-hash manifest. This is source continuity and exact runtime artifact evidence, not a fresh reproducible-build proof. Later native-test labeling was not part of the original standalone native tests."
+}

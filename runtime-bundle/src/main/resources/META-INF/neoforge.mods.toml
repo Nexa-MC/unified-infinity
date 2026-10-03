@@ -1,5 +1,7 @@
-modLoader="javafml"
-loaderVersion="[4,5)"
+# Metadata-only legacy capability view. The installed product initializes through FML PRODUCT_GAME.
+# The unified_internal provider does not scan @Mod constructors or create an ordinary mod event bus.
+modLoader="unified_internal"
+loaderVersion="[1]"
 license="All Rights Reserved (host); Apache-2.0 (bundled Forgified Fabric API)"
 
 [[mods]]
@@ -7,10 +9,11 @@ modId="mod_compat_runtime"
 version="${bundleVersion}"
 displayName="Unified ∞ Infinity"
 description='''
-Native NeoForge packaging host that embeds the official, unchanged Forgified
-Fabric API aggregate. Uses the exact managed Sinytra Connector-based core profile
-for Fabric transformation and loading, including disclosed source-built variants.
-Original upstream implementation, authorship and licenses remain credited.
+Installed Unified Infinity product and API bundle, initialized explicitly by the
+source-owned FML product lifecycle. This metadata-only legacy capability view
+preserves dependency and resource discovery; it is not an ordinary mod entrypoint.
+Embeds the official unchanged Forgified Fabric API aggregate and managed Quilt
+modules. Original upstream implementation, authorship and licenses remain credited.
 '''
 
 [[dependencies.mod_compat_runtime]]

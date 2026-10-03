@@ -7,28 +7,26 @@ import com.mojang.logging.LogUtils;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModList;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import org.sinytra.connector.mod.compat.FluidHandlerCompat;
 import org.sinytra.connector.mod.compat.FluidHandlerCompatClient;
 import org.sinytra.connector.mod.compat.LazyEntityAttributes;
-import org.sinytra.connector.util.ConnectorUtil;
 import org.slf4j.Logger;
 
 import java.io.InputStream;
 import java.net.URL;
 
-@Mod(ConnectorUtil.CONNECTOR_MODID)
 public class ConnectorMod {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     private static boolean clientLoadComplete;
 
-    public ConnectorMod(IEventBus bus) {
+    private ConnectorMod() {}
+
+    /** Loader-owned initialization; this class is no longer an ordinary mod. */
+    public static void initialize(IEventBus bus, boolean client) {
         ModList modList = ModList.get();
 
-        bus.addListener(ConnectorMod::onClientSetup);
-        bus.addListener(FluidHandlerCompatClient::onRegisterClientExtensions);
+        if (client) bus.addListener(FluidHandlerCompatClient::onRegisterClientExtensions);
         FluidHandlerCompat.init(bus);
 
         if (modList.isLoaded("fabric_object_builder_api_v1")) {
@@ -40,7 +38,7 @@ public class ConnectorMod {
         return clientLoadComplete;
     }
 
-    private static void onClientSetup(FMLClientSetupEvent event) {
+    public static void onClientSetup() {
         clientLoadComplete = true;
     }
 

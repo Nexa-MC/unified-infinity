@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public interface TransformerEnvironment {
+    /** Optional host event pump, called only by the transform-batch caller, never a worker. */
+    default void pumpLoadingWindow() { }
+
     Path getAuditReportPath();
 
     Path getGeneratedJarPath();

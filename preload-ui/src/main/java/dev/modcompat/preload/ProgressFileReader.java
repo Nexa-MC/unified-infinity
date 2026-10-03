@@ -19,7 +19,7 @@ public final class ProgressFileReader {
     private final long notBeforeMillis;
     private long nextPoll;
     private ProgressSnapshot latest = ProgressSnapshot.WAITING;
-    private long reads;
+    private volatile long reads;
     public ProgressFileReader(Path path, long notBeforeMillis) {
         this.path = path;
         this.notBeforeMillis = notBeforeMillis;

@@ -1,0 +1,14 @@
+{
+  "status": "PASS_RECORDED_BUILD",
+  "source_log_sha256": "b48564395c688dd8a3e47c43e5eb82de5ab010ab28ac098d18ce7768954aae5e",
+  "build_result": "BUILD SUCCESSFUL in 31s",
+  "task_summary": "39 actionable tasks: 20 executed, 19 up-to-date",
+  "assertions": [
+    "PASS 48 admission inventory assertions (model only; no host launch)",
+    "PASS 13 original-descriptor license assertions",
+    "PASS 11 loading core tests",
+    "PASS direct FART entry ownership, ordering, failure, and cancellation tests"
+  ],
+  "scope": "Final fullJar build and its invoked core/FART checks. This receipt does not claim a new clean-network full root check.",
+  "rerun_for_publication": false
+}

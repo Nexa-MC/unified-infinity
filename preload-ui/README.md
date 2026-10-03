@@ -1,3 +1,6 @@
+> Current runtime evidence: [v6 acceptance](../docs/fusion-v6/README.md).
+> The development results below are historical; they do not replace the v6 scope and source-continuity limits.
+
 # Unified ∞ Infinity preload UI
 
 An actual FML **4.0.42** `ImmediateWindowProvider`, pinned to **NeoForge 21.1.219 / Minecraft 1.21.1 / Java 21**. This is a local research prototype, not a published release.
@@ -96,10 +99,8 @@ under `runtime-bundle/src/client-branding`. Actual main-menu branding is
 `Unified ∞ Infinity | Minecraft 1.21.1`. Minecraft's copyright and NeoForge
 21.1.219 in the Mods technical view were visually verified as preserved.
 
-See `../docs/M5-FULL-SOURCE-ACCEPTANCE.md` and the retained
-`reports/client-attempts/05-source-built-client/acceptance.json` for exact hashes,
-test scope and remaining untested environments. Captured game images are omitted
-from this source publication.
+See `reports/verification.json` and `reports/final-handoff.json` for exact hashes,
+Library evidence identifiers, test scope and remaining untested environments.
 The optional `--animation` native harness capture records real framebuffer
 samples; `tools/encode_animation.py` encodes them into a GIF with measured
 capture timing and no interpolated frames or synthetic loader progress.

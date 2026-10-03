@@ -14,6 +14,7 @@ import net.neoforged.neoforgespi.locating.IModFile;
 import org.sinytra.connector.util.ConnectorUtil;
 import org.slf4j.Logger;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,36 @@ public final class FabricModMetadataParser {
     // From ModInfo
     private static final Pattern VALID_VERSION = Pattern.compile("^\\d+.*");
     private static final Logger LOGGER = LogUtils.getLogger();
+
+    /** Presentation only. The preserved original AST is read, never rewritten or reparsed from disk. */
+    static String presentationCredits(String fabricCredits, CustomValue originalQuilt) {
+        CustomValue contributors = objectMember(objectMember(objectMember(originalQuilt, "quilt_loader"), "metadata"), "contributors");
+        if (contributors == null || contributors.getType() != CustomValue.CvType.OBJECT) return fabricCredits;
+        List<String> lines = new ArrayList<>();
+        if (!fabricCredits.isEmpty()) lines.add(fabricCredits);
+        for (Map.Entry<String, CustomValue> contributor : contributors.getAsObject()) {
+            String name = contributor.getKey();
+            CustomValue value = contributor.getValue();
+            if (name == null || name.isBlank() || value == null) continue;
+            List<String> roles = new ArrayList<>();
+            if (value.getType() == CustomValue.CvType.STRING) roles.add(value.getAsString());
+            else if (value.getType() == CustomValue.CvType.ARRAY) {
+                boolean valid = true;
+                for (CustomValue role : value.getAsArray()) {
+                    if (role == null || role.getType() != CustomValue.CvType.STRING) { valid = false; break; }
+                    roles.add(role.getAsString());
+                }
+                if (!valid) continue;
+            } else continue;
+            // No translation, role inference, deduplication or promotion of Owner/Developer to Author.
+            lines.add(roles.isEmpty() ? name : name + ": " + String.join(", ", roles));
+        }
+        return String.join("\n", lines);
+    }
+
+    private static CustomValue objectMember(CustomValue object, String key) {
+        return object == null || object.getType() != CustomValue.CvType.OBJECT ? null : object.getAsObject().get(key);
+    }
 
     public static IModFileInfo createForgeMetadata(IModFile modFile, ConnectorFabricModMetadata metadata, Collection<String> activeMixinConfigs, boolean lowCode) {
         String modid = metadata.getId();
@@ -84,9 +115,12 @@ public final class FabricModMetadataParser {
             .map(Person::getName)
             .collect(Collectors.joining(", ")));
 
-        modListConfig.add("credits", metadata.getContributors().stream()
+        String fabricCredits = metadata.getContributors().stream()
             .map(Person::getName)
-            .collect(Collectors.joining(", ")));
+            .collect(Collectors.joining(", "));
+        // Quilt contributors carry declared roles, not a Fabric author/contributor classification.
+        // Preserve those exact roles in host presentation credits without changing either public metadata API.
+        modListConfig.add("credits", presentationCredits(fabricCredits, metadata.getCustomValue("infinity:quilt_metadata")));
 
         config.add("mods", List.of(modListConfig));
 

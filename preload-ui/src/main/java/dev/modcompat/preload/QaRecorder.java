@@ -16,7 +16,7 @@ final class QaRecorder {
     private final Path directory;
     private final Set<String> captured = new HashSet<>();
     private final Gson gson = new Gson();
-    private boolean ioFailed;
+    private volatile boolean ioFailed;
     QaRecorder(Path directory) { this.directory = directory; }
     boolean enabled() { return directory != null && !ioFailed; }
     synchronized void event(String event, ProgressSnapshot state) {

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: fml_loader
+Specification-Title: FMLloader
+Specification-Vendor: NeoForged
+Specification-Version: 4
+Implementation-Title: FML loader, Unified admission source candidate
+Implementation-Version: 4.0.42-unified-admission-candidate
+Implementation-Vendor: NeoForged and Unified Infinity contributors
+FMLModType: LIBRARY
+Unified-Admission-Status: Source candidate, not runtime accepted
+

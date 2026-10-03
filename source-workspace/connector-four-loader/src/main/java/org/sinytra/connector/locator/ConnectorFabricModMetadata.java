@@ -44,6 +44,9 @@ public class ConnectorFabricModMetadata implements LoaderModMetadata {
         return version.replace("+", "_");
     }
 
+    /** Exact source ID, before host namespace normalization. */
+    public String getOriginalId() { return this.wrapped.getId(); }
+
     public String getNormalizedVersion() {
         return normalizeVersion(getVersion().getFriendlyString());
     }

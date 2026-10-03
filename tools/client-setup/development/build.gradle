@@ -13,7 +13,7 @@ neoForge {
     runs {
         client {
             client()
-            jvmArguments = ['-Xms512M', '-Xmx2G']
+            jvmArguments = ['-Xms256M', '-Xmx1536M', '-XX:ActiveProcessorCount=2']
             systemProperty 'unified.infinity.maxWorkers', '4'
             systemProperty 'connector.clean.path', file('../../../run/client-dev/development-build/moddev/artifacts/minecraft-1.21.1-clean.jar').absolutePath
             gameDirectory = file('../../../run/client-dev/development-game')
@@ -58,6 +58,7 @@ tasks.register('prepareClientLaunch') {
             classpath: runtimeFiles.collect { it.absolutePath },
             jvmArgs: run.jvmArgs,
             args: run.args,
+            environment: run.environmentProperty.get(),
             profileMods: verifyProfileMods(),
             gameLaunched: false
         ]

@@ -21,3 +21,8 @@ project(":infinity-fart").projectDir = file("components/infinity-fart")
 
 include(":infinity-adapter")
 project(":infinity-adapter").projectDir = file("components/infinity-adapter")
+
+
+// Canonical full-source FML owns BOOT and the internal component contracts.
+include(":fml-unified")
+project(":fml-unified").projectDir = file("../fml-unified")

@@ -1,0 +1,6 @@
+{
+  "version": "0.4.1",
+  "url": "https://maven.neoforged.net/releases/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1-sources.jar",
+  "archiveSha256": "48f49141fbe2db076e7dab02cb0f16aae4311b2caa7ff3e5ef5c2d284c440b1f",
+  "verifiedBehavior": "Recursive discovery and final selection both call sourceProducer; Optional.empty is excluded from returned selected candidates; original version metadata/ranges are retained by the source-owned FML callback patch."
+}

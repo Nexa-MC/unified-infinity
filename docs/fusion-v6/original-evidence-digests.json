@@ -1,0 +1,22 @@
+[
+  {
+    "report": "acceptance.json",
+    "sha256": "32c09c448290fdb9e8ba9dd7cdc02ac4a185450b95da2f23793f670dd4de6991",
+    "publication": "Sanitized compact summary only; original remains outside Git"
+  },
+  {
+    "report": "ui-verification.json",
+    "sha256": "77cb87b7c1a04b0b9bc414e02178fd496482b1fb62562b0d3080ae4c7e33626a",
+    "publication": "Sanitized compact summary only; original remains outside Git"
+  },
+  {
+    "report": "world-final-save-verification.json",
+    "sha256": "dbe01e349363e4c157245b7951e61f8f506c5385eba25a3c9b0124a505baf1b2",
+    "publication": "Sanitized compact summary only; original remains outside Git"
+  },
+  {
+    "report": "exclusion-provenance-observation.json",
+    "sha256": "553ed815d9502e8010c38adca68a88a0350ab16a6a38d35faac2768595f528b9",
+    "publication": "Sanitized compact summary only; original remains outside Git"
+  }
+]

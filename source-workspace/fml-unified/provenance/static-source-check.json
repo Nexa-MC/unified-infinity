@@ -1,0 +1,25 @@
+{
+  "status": "PASS-static-only",
+  "upstreamJavaSources": 179,
+  "unchangedUpstreamFiles": 199,
+  "modifiedUpstreamFiles": [
+    "src/main/resources/META-INF/MANIFEST.MF",
+    "src/main/java/net/neoforged/fml/ModLoader.java",
+    "src/main/java/net/neoforged/fml/loading/ModDirTransformerDiscoverer.java",
+    "src/main/java/net/neoforged/fml/loading/LanguageProviderLoader.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ModsFolderLocator.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/JarInJarDependencyLocator.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionClientProvider.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/NeoForgeDevProvider.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionServerProvider.java",
+    "src/main/java/net/neoforged/fml/loading/moddiscovery/ModDiscoverer.java",
+    "src/main/java/net/neoforged/fml/loading/FMLLoader.java",
+    "src/main/java/net/neoforged/fml/loading/ClasspathTransformerDiscoverer.java",
+    "src/main/java/net/neoforged/fml/loading/FMLServiceProvider.java",
+    "src/main/java/net/neoforged/fml/util/ServiceLoaderUtil.java"
+  ],
+  "duplicateProductionModelSources": [],
+  "thisStaticCheckStartsJvm": false,
+  "thisStaticCheckRunsServiceMarkers": false,
+  "successorInstalled": false
+}

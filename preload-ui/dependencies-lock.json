@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "lwjgl": "3.3.3",
+  "dependencies": [
+    {
+      "filename": "lwjgl-3.3.3-natives-linux.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3-natives-linux.jar",
+      "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9",
+      "role": "runtime-test-only"
+    },
+    {
+      "filename": "lwjgl-3.3.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3.jar",
+      "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4",
+      "role": "compile-only"
+    },
+    {
+      "filename": "lwjgl-glfw-3.3.3-natives-linux.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3-natives-linux.jar",
+      "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8",
+      "role": "runtime-test-only"
+    },
+    {
+      "filename": "lwjgl-glfw-3.3.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3.jar",
+      "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259",
+      "role": "compile-only"
+    },
+    {
+      "filename": "lwjgl-opengl-3.3.3-natives-linux.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3-natives-linux.jar",
+      "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250",
+      "role": "runtime-test-only"
+    },
+    {
+      "filename": "lwjgl-opengl-3.3.3.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3.jar",
+      "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e",
+      "role": "compile-only"
+    }
+  ]
+}

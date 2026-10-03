@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "result": "PASS_STATIC_PACKAGE_BOUNDARIES",
+  "source_records_verified": 655,
+  "artifacts": {
+    "service": {
+      "path": "source-workspace/connector-four-loader/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-full.jar",
+      "sha256": "b138700eb66cea6d027178df82bc905a21051c67c50844c5bbbfdfb044e4d31d"
+    },
+    "game": {
+      "path": "source-workspace/connector-four-loader/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-mod.jar",
+      "sha256": "78cc8094f198a7cf98afe0c0b6ecfb2f6eab030e5ebab13cc3d3960bdb80ef3a"
+    },
+    "fml": {
+      "path": "source-workspace/fml-unified/build/libs/fml-loader-4.0.42-unified-source.jar",
+      "sha256": "bd51010d4aff27a932941bf96190cf42c4154f40a6919df8e6634fb89fbc1e40"
+    },
+    "product": {
+      "path": "runtime-bundle/build-footer-final-candidate/libs/unified-infinity-0.1.0-dev.jar",
+      "sha256": "469118e449691228933e2fd1c090990519c0428050056f59040082f4147706d9"
+    }
+  },
+  "runtime_validation": "NOT_RUN_BY_THIS_CHECK"
+}

@@ -112,7 +112,7 @@ public final class JarTransformer {
                     progress.increment();
                     LoadProgress.transformedOne();
                     return new TransformedFabricModPath(jar.input().toPath(), pair.getFirst(), pair.getSecond());
-                });
+                }, this.environment::pumpLoadingWindow);
             } catch (BoundedBatch.BatchException failure) {
                 TransformableJar failed = paths.get(failure.inputIndex());
                 throw this.environment.onTransformationError("Error transforming file " + failed.input().getName(), failure.getCause());

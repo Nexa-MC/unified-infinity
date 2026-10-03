@@ -1,5 +1,5 @@
 // Compile the late client-only hooks against the exact prepared official runtime.
-// No client class is referenced by the common @Mod entry point or early SPI.
+// The common installed product references its client hook only inside the FML-owned client lifecycle guard.
 def clientManifest = providers.gradleProperty('clientClasspathManifest')
     .map { file(it) }
     .orElse(file('../run/client-dev/development-build/moddev/client-launch-inputs.json'))
@@ -9,21 +9,42 @@ def clientLibraries = providers.provider {
     def parsed = new groovy.json.JsonSlurper().parse(manifest)
     parsed.classpath.findAll { it.endsWith('.jar') }.collect { file(it) }
 }
+// The internal GAME contract and immutable model belong to the same source-built FML BOOT module.
+// Never package/shade this compilation input into the product JAR.
+def unifiedFml = providers.gradleProperty('unifiedFmlJar').map { file(it) }
+    .orElse(file('../source-workspace/fml-unified/build/libs/fml-loader-4.0.42-unified-source.jar'))
+// An explicit canonical compile-only model override remains useful for isolated source checks.
+def admissionModel = providers.gradleProperty('admissionModelJar').map { file(it) }.orElse(unifiedFml)
 sourceSets {
     clientBranding {
         java.srcDir 'src/client-branding/java'
         resources.srcDir 'src/client-branding/resources'
-        compileClasspath = files(clientLibraries)
+        compileClasspath = files(unifiedFml) + files(clientLibraries) + files(admissionModel)
     }
     clientBrandingTest {
         java.srcDir 'src/client-branding-test/java'
-        compileClasspath = sourceSets.clientBranding.output
+        compileClasspath = sourceSets.clientBranding.output + files(admissionModel)
         runtimeClasspath = output + compileClasspath
+    }
+}
+// No dependency cycle: client hooks depend only on loader/Minecraft APIs; the product calls the compiled hook.
+sourceSets.main.compileClasspath = files(unifiedFml) + files(clientLibraries) + sourceSets.clientBranding.output
+tasks.named('compileJava') {
+    dependsOn tasks.named('clientBrandingClasses')
+    inputs.file(unifiedFml)
+    doFirst {
+        if (!unifiedFml.isPresent() || !unifiedFml.get().isFile()) throw new GradleException('Build the source-owned FML loader first or pass -PunifiedFmlJar=/path/source-built-loader.jar; this compile-only input is never packaged')
     }
 }
 tasks.named('compileClientBrandingJava') {
     options.compilerArgs.add('-proc:none')
     inputs.file(clientManifest)
+    inputs.file(unifiedFml)
+    inputs.file(admissionModel)
+    doFirst {
+        if (!unifiedFml.isPresent() || !unifiedFml.get().isFile()) throw new GradleException('Client product requires -PunifiedFmlJar=/path/source-built-loader.jar')
+        if (!admissionModel.get().isFile()) throw new GradleException('The source-built FML or explicit canonical admission model input is missing; runtime owner remains patched FML BOOT')
+    }
 }
 tasks.named('jar') {
     from sourceSets.clientBranding.output
@@ -36,5 +57,31 @@ tasks.register('testClientBranding', JavaExec) {
     dependsOn tasks.named('clientBrandingTestClasses')
     classpath = sourceSets.clientBrandingTest.runtimeClasspath
     mainClass = 'dev.modcompat.runtime.branding.BrandingTextTests'
+    args file('src/client-branding-test/resources/default-font-advances.properties').absolutePath
 }
 tasks.named('check') { dependsOn 'testClientBranding' }
+
+tasks.register('testInventoryUi', JavaExec) {
+    group = 'verification'
+    dependsOn tasks.named('clientBrandingTestClasses')
+    classpath = sourceSets.clientBrandingTest.runtimeClasspath
+    mainClass = 'dev.modcompat.runtime.modlist.InventoryUiModelTests'
+}
+tasks.named('check') { dependsOn 'testInventoryUi' }
+
+// This is a headless class-linkage check, not a dedicated-server startup test.
+tasks.register('testProductIsolation', JavaExec) {
+    group = 'verification'
+    dependsOn tasks.named('classes'), tasks.named('clientBrandingTestClasses')
+    classpath = sourceSets.clientBrandingTest.runtimeClasspath + sourceSets.main.output + files(unifiedFml) + files(clientLibraries)
+    mainClass = 'dev.modcompat.runtime.modlist.RuntimeBundleIsolationTests'
+}
+tasks.named('check') { dependsOn 'testProductIsolation' }
+
+tasks.register('testExclusionNotices', JavaExec) {
+    group = 'verification'
+    dependsOn tasks.named('clientBrandingTestClasses')
+    classpath = sourceSets.clientBrandingTest.runtimeClasspath
+    mainClass = 'dev.modcompat.runtime.modlist.ExclusionNoticeStateTests'
+}
+tasks.named('check') { dependsOn 'testExclusionNotices' }

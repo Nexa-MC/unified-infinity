@@ -1,0 +1,307 @@
+{
+  "schema": 1,
+  "kind": "immutable-product-source-snapshot",
+  "createdUtc": "2026-10-03T17:39:33.483379+00:00",
+  "productArtifact": {
+    "path": "runtime-bundle/build-footer-final-candidate/libs/unified-infinity-0.1.0-dev.jar",
+    "sha256": "469118e449691228933e2fd1c090990519c0428050056f59040082f4147706d9"
+  },
+  "sourceZip": {
+    "path": "runtime-bundle/build-footer-final-candidate/source-snapshot/product-469118e4-source-only.zip",
+    "sha256": "10e555b98ef4082a44c3f52b532512183f328a9cc9b7f28ca2ca9b292e01b4b1",
+    "bytes": 59915,
+    "fileCount": 39
+  },
+  "sourceFiles": {
+    "docs/four-loader/quilt/bundled-initial.json": {
+      "sha256": "6e17ab294a515b0b068b7137c426b7edc7cdae3c2c4f8166de1c4c2ee1073ca9",
+      "bytes": 704
+    },
+    "runtime-bundle/build.gradle": {
+      "sha256": "b2e09d6d8583df5b91c0d45610253db439b44b55af69ef909ed8853b8d27a569",
+      "bytes": 10819
+    },
+    "runtime-bundle/client-branding.gradle": {
+      "sha256": "8f12e195bf9c16dcd8971f7e635b05081db9e3074118b7de44018022844b3aaf",
+      "bytes": 4681
+    },
+    "runtime-bundle/gradle.lockfile": {
+      "sha256": "0f15e3318773adc1b0101d85f29ac57986d8e480c9bdf6f20394869716212637",
+      "bytes": 301
+    },
+    "runtime-bundle/gradle.properties": {
+      "sha256": "75abb0171a79cb9858fad3fa50d7b5b0faffb076d9ac7015b502007d477fb12b",
+      "bytes": 124
+    },
+    "runtime-bundle/qsl-bundle.gradle": {
+      "sha256": "fb73880123204547f0434888c479f2c93905e1c883ae908aebab64189089ae73",
+      "bytes": 3067
+    },
+    "runtime-bundle/settings.gradle": {
+      "sha256": "2dae93d65f147f8fbf1292e05b50a75edee1fb43d62493d3a98990f1d5f65a6c",
+      "bytes": 38
+    },
+    "runtime-bundle/src/client-branding-test/java/dev/modcompat/runtime/branding/BrandingTextTests.java": {
+      "sha256": "0d3856d51ad0625bd6c990f4f25d67d1f1ec931b651c933e0335e484c84f21d6",
+      "bytes": 5902
+    },
+    "runtime-bundle/src/client-branding-test/java/dev/modcompat/runtime/modlist/ExclusionNoticeStateTests.java": {
+      "sha256": "1a671d12ca5763ee07ecb64f3e8099e1e3cfc90bc146daa1f02a2f9884d24a89",
+      "bytes": 3781
+    },
+    "runtime-bundle/src/client-branding-test/java/dev/modcompat/runtime/modlist/InventoryUiModelTests.java": {
+      "sha256": "eb3ba538076a4a63e0f23e0cf3028dc37b62cb614d9488f2c92bd1c38def3b93",
+      "bytes": 7321
+    },
+    "runtime-bundle/src/client-branding-test/java/dev/modcompat/runtime/modlist/RuntimeBundleIsolationTests.java": {
+      "sha256": "ec27e9435ffd53a6ae2b833f666afa89248645f8e732c68cda6668213ef6ad67",
+      "bytes": 2527
+    },
+    "runtime-bundle/src/client-branding-test/resources/default-font-advances.properties": {
+      "sha256": "547f3c39de85ba9b54e086356aebd72c49021e528450cd9d78308bbe23fff7f8",
+      "bytes": 422
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/BrandingText.java": {
+      "sha256": "7766e4f7c492ba825b6417de8eb259ac0f5a041590280090c1c346da0594d1f2",
+      "bytes": 2652
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/mixin/MinecraftTitleMixin.java": {
+      "sha256": "c69e5c75c663c5802068f1727ee4fe9c8d64f91a979f1262d45ebbb80e8d8a9e",
+      "bytes": 803
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/mixin/TitleScreenBrandingMixin.java": {
+      "sha256": "0e5d64021956eb16ae157f44c0e874036f60f0a9f3a4e5a484c7ac1a02ed26b6",
+      "bytes": 2672
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/ExclusionNoticeState.java": {
+      "sha256": "802dcbe1ffcc29bb1fe4d9a81d781e48f51144defc31b53169a8288ae96c3a0c",
+      "bytes": 566
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/InventoryCreditsScreen.java": {
+      "sha256": "cb2ec7991bcedd726ea51de130e67a6a4df1cc7a0757f3a7bbb7ecdb9d92d3de",
+      "bytes": 1486
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/InventoryDetails.java": {
+      "sha256": "6d052b7067dbc5f705d2c4a986aa474c110a2b790412ccfbfd7cefbc3f4c0fb3",
+      "bytes": 6397
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/InventoryNoticesScreen.java": {
+      "sha256": "e8dfc12a79f2a14f0035651a3e8cbf01b25a8e3a0d047656c9f3563f78000a93",
+      "bytes": 1632
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/InventoryTextPanel.java": {
+      "sha256": "ddd1f076f122a09e41cd9a79f812c34c2f026c943119c3e9cb6fa27ed438d14b",
+      "bytes": 4552
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/InventoryUiModel.java": {
+      "sha256": "9d21d3dcaae55094a223bbfc33e7748d3fd33e91e2497545ba8f12177828f6c1",
+      "bytes": 5269
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/UnifiedModListEvents.java": {
+      "sha256": "3745c7cbce5f8373ee0699e62432fe8546854b3fefbae8916cffa88682a465e4",
+      "bytes": 2607
+    },
+    "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/modlist/UnifiedModListScreen.java": {
+      "sha256": "ed08c94b8623fbb21cde534094204e48dddc0b3f156151d129f0c77148401375",
+      "bytes": 11322
+    },
+    "runtime-bundle/src/client-branding/resources/assets/mod_compat_runtime/lang/en_us.json": {
+      "sha256": "7318d6970cdd946cd939d0062a814dd6c95e9303b71845f23a1ff1e083d40e00",
+      "bytes": 5259
+    },
+    "runtime-bundle/src/client-branding/resources/assets/mod_compat_runtime/lang/zh_cn.json": {
+      "sha256": "7a7c35efc1ca074885958d921270069b88cf39e169cf71d9360fad1c3c5c59e4",
+      "bytes": 5112
+    },
+    "runtime-bundle/src/client-branding/resources/unified-infinity.client-branding.mixins.json": {
+      "sha256": "9bdfc8d502e8a8e79fcd5bb869b3294ea295f00a3a7ec1ea2012c952032cc710",
+      "bytes": 237
+    },
+    "runtime-bundle/src/main/java/dev/modcompat/runtime/bundle/RuntimeBundle.java": {
+      "sha256": "ddae668f014707c4d4d64f885c4586c1a3308b957c6494f56a4638f0f7036070",
+      "bytes": 2992
+    },
+    "runtime-bundle/src/main/resources/META-INF/THIRD-PARTY-NOTICES.txt": {
+      "sha256": "b1bb57d5cbaeae8afa34a02d75070237a6c178384d5705ecb6f061fe158fc2af",
+      "bytes": 2843
+    },
+    "runtime-bundle/src/main/resources/META-INF/licenses/Connector-MIT.txt": {
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826",
+      "bytes": 1061
+    },
+    "runtime-bundle/src/main/resources/META-INF/licenses/FFAPI-Apache-2.0.txt": {
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357
+    },
+    "runtime-bundle/src/main/resources/META-INF/licenses/QSL-Apache-2.0.txt": {
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357
+    },
+    "runtime-bundle/src/main/resources/META-INF/licenses/QSL-NOTICE.txt": {
+      "sha256": "514b59623fce0c3b69fac879e31aa661a3869ada276feb6f68f0b6a2b28cebb8",
+      "bytes": 638
+    },
+    "runtime-bundle/src/main/resources/META-INF/neoforge.mods.toml": {
+      "sha256": "2e46639fb9d193f9385053c6a5b0881e316ae89204e8a6bfafd3d2f777c61fd6",
+      "bytes": 1612
+    },
+    "runtime-bundle/tests/test_archive_verifier.py": {
+      "sha256": "27d0738419879222404159774f9b4b4398466d64e935d16f86d24918e6bea187",
+      "bytes": 1952
+    },
+    "runtime-bundle/tests/test_managed_core_pin.py": {
+      "sha256": "39d6b90da0bb42c2d831a43aca3bcf88f8ed553d6a79941210f44e514cadc987",
+      "bytes": 2110
+    },
+    "runtime-bundle/tests/test_mod_list_source.py": {
+      "sha256": "8d56dbd6e0ea99d10d80e0c6659e326c49b05c018831cc373bbc279080b7ec41",
+      "bytes": 7605
+    },
+    "runtime-bundle/tests/test_qsl_bundle.py": {
+      "sha256": "8712cf8619834018f404b3435e4150ed8d66417b479a974bea39e7e467ff680c",
+      "bytes": 3150
+    },
+    "runtime-bundle/tools/verify_bundle.py": {
+      "sha256": "d3f7ac48321acff3053594096a896e0e0c4fda427d821cb17b63f14f185ac46f",
+      "bytes": 8582
+    },
+    "tools/java-env.sh": {
+      "sha256": "baf50fbe0b7d616a10b5158ad5b23636b3dfd435c0cd1522d1ddb968873a122d",
+      "bytes": 237
+    }
+  },
+  "compileInputsAtBuild": {
+    "fmlSha256": "efd2cf2a107975f9a73efdfd20d98a32b4cee6db945016ddca1e2fd3ab92d24a",
+    "coreSha256": "bb12add68d213254d742feb09296af708f2b8ed0500a959e3b5e1699abb3313b",
+    "note": "These were the verified artifacts when this product was built; the gate owner is rebuilding/sealing its private Session change afterward."
+  },
+  "externalBinaryInputPins": {
+    "ffapi": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+    "quilt_base": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+    "quilt_lifecycle_events": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+  },
+  "scope": "Source/UI/resources/tests/build inputs and QSL inventory only; no runtime JARs, private launch policies, user files, or independent UII public-API discussion documents. Canonical FML/core sources are owned by their separate receipts.",
+  "newBuildRun": false,
+  "runtimeAcceptance": "pending publisher/root confirmation; this snapshot alone does not claim v6 runtime acceptance",
+  "bindingEvidence": {
+    "verifiedBuildReceipt": "runtime-bundle/build-footer-final-candidate/reports/footer-width-receipt.json",
+    "verifiedBuildReceiptSha256": "c7de824da880d36213c241d19dd64afd33eb81a14c0ca8c221e81b6e3facb431",
+    "sourceModifiedAfterArtifact": false,
+    "concurrentSourceChangeDuringCapture": false,
+    "compiledOutputClassesMatchProductJar": [
+      {
+        "path": "dev/modcompat/runtime/bundle/RuntimeBundle.class",
+        "sha256": "6aa1c5084d5b9f655caca458fbdea3bb4ea278db6d9d6e69d2e2156cbca45006"
+      },
+      {
+        "path": "dev/modcompat/runtime/branding/BrandingText$CountText.class",
+        "sha256": "945eaed6dc8a090b2fdf3349fc9805c4660d7a3afd7aaf130e44f02feeadb07e"
+      },
+      {
+        "path": "dev/modcompat/runtime/branding/BrandingText.class",
+        "sha256": "cc05158243aeb6d6e4d07b61ffb71feb90097019a30d1a9ba7a6787ee1fa56bd"
+      },
+      {
+        "path": "dev/modcompat/runtime/branding/mixin/MinecraftTitleMixin.class",
+        "sha256": "fcebad53dd113cb004a77892a118c820dc4cd66d8e864a82ac253432c3a643c4"
+      },
+      {
+        "path": "dev/modcompat/runtime/branding/mixin/TitleScreenBrandingMixin.class",
+        "sha256": "49246453c6b8a61379dd98ee7d115488d739adf390f43cd9244be0849aa1ba3d"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/ExclusionNoticeState.class",
+        "sha256": "932eba4c7b7f24e1d2335248cad32c0150201fda3d4ddc894ca47e593169a488"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryCreditsScreen.class",
+        "sha256": "800c86e22801bfa3f8b76b4d5b370a64855494bb9c6ccaeb3782deda377692a3"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryDetails$1.class",
+        "sha256": "2f1598715a91e483734812a6710d0bf11f149a2c7d43fe15aa9b6b71b81c7dc7"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryDetails.class",
+        "sha256": "6f54e7cc48a183199ead595ab0969b0677f8b612005224360d4cd90110c1812d"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryNoticesScreen.class",
+        "sha256": "065145aed53c6c83d032674db14f8efa0a927ceebfeb15f9890952e3f6ec7d3b"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryTextPanel.class",
+        "sha256": "d89b87849c8c1513cef6d33e1822565343b3b5aa59241a6dcbc24a6d9b8cb75c"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryUiModel$Layout.class",
+        "sha256": "61d2e1e262cea26321489f9e7c6378ba299300ce12d9dd179f7a2f7442a87384"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryUiModel$Rect.class",
+        "sha256": "b5ff9ce559e6252384a968517d008a1a0ec9fbdb41b5e6efbb84abed6a9259a7"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryUiModel$Sort.class",
+        "sha256": "5fff737fd8c8bb3f584d29b0518acf440b260de579474b106b33aa75c4237c12"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/InventoryUiModel.class",
+        "sha256": "6a15fa6296bef9cc6f7a1f8cbd44aa8298106176a71994a85df3e4e5153af376"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/UnifiedModListEvents.class",
+        "sha256": "544554ab217f60c8423ed2e24d2564f68ae9ea20d0205a162218e53323f1e51b"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/UnifiedModListScreen$ModRows$Item.class",
+        "sha256": "28813d7fe173ce7ee036af9bccf968f547dce5bf9b5451b050b4b79edf5adbcc"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/UnifiedModListScreen$ModRows.class",
+        "sha256": "fa4d671408a7b357e67ba6c16da6e5ad89a4fd690c55ffda4e696e12ba7dc662"
+      },
+      {
+        "path": "dev/modcompat/runtime/modlist/UnifiedModListScreen.class",
+        "sha256": "9403ed264be968750e1ae20b530ed11fdd23dc5321d68491733db2d4ed7e86de"
+      }
+    ],
+    "unexpandedSourceResourcesMatchProductJar": [
+      {
+        "path": "assets/mod_compat_runtime/lang/en_us.json",
+        "sha256": "7318d6970cdd946cd939d0062a814dd6c95e9303b71845f23a1ff1e083d40e00"
+      },
+      {
+        "path": "assets/mod_compat_runtime/lang/zh_cn.json",
+        "sha256": "7a7c35efc1ca074885958d921270069b88cf39e169cf71d9360fad1c3c5c59e4"
+      },
+      {
+        "path": "unified-infinity.client-branding.mixins.json",
+        "sha256": "9bdfc8d502e8a8e79fcd5bb869b3294ea295f00a3a7ec1ea2012c952032cc710"
+      },
+      {
+        "path": "META-INF/THIRD-PARTY-NOTICES.txt",
+        "sha256": "b1bb57d5cbaeae8afa34a02d75070237a6c178384d5705ecb6f061fe158fc2af"
+      },
+      {
+        "path": "META-INF/licenses/Connector-MIT.txt",
+        "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+      },
+      {
+        "path": "META-INF/licenses/FFAPI-Apache-2.0.txt",
+        "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+      },
+      {
+        "path": "META-INF/licenses/QSL-Apache-2.0.txt",
+        "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+      },
+      {
+        "path": "META-INF/licenses/QSL-NOTICE.txt",
+        "sha256": "514b59623fce0c3b69fac879e31aa661a3869ada276feb6f68f0b6a2b28cebb8"
+      }
+    ],
+    "tomlResourceNote": "The source TOML is parameter-expanded by processResources. Product metadata and dependency pins were verified in the build closure/width receipts.",
+    "sourceAttestation": "Unchanged source/resource/test/build inputs captured after verified compilation; output classes and raw resources match the pinned product artifact."
+  },
+  "original_receipt_sha256": "bc82838f7ade95b40376bdb8faf166c63867be983cb69fa45910fc6c0957215d"
+}

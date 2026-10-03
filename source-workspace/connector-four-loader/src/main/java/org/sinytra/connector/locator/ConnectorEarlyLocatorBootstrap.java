@@ -12,6 +12,9 @@ import org.apache.logging.log4j.core.Filter;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.filter.MarkerFilter;
 import org.sinytra.connector.service.DummyVirtualJar;
+import org.sinytra.connector.infinity.inventory.AdmissionSession;
+import java.nio.file.Path;
+import java.util.List;
 
 import java.util.Arrays;
 import java.util.Locale;
@@ -58,7 +61,10 @@ public class ConnectorEarlyLocatorBootstrap implements IModFileCandidateLocator 
     @Override
     public void findCandidates(ILaunchContext context, IDiscoveryPipeline pipeline) {
         launchContext = context;
-        pipeline.addModFile(overrideFabricLoaderMod());
+        IModFile virtualLibrary = overrideFabricLoaderMod();
+        Path coreSource = AdmissionSession.current().installedComponent("ADMISSION_CONSUMER");
+        AdmissionSession.current().bindRuntimeObject(virtualLibrary, List.of(coreSource));
+        pipeline.addModFile(virtualLibrary);
     }
 
     private static IModFile overrideFabricLoaderMod() {

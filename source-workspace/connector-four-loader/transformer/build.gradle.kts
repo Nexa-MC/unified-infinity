@@ -138,3 +138,6 @@ val nativeQuiltRegression by tasks.registering(JavaExec::class) {
     enableAssertions = true
 }
 tasks.check { dependsOn(nativeQuiltRegression) }
+
+// Shared policy/model classes are supplied once by the source-owned FML BOOT module.
+dependencies { compileOnly(project(":fml-unified")); testImplementation(project(":fml-unified")) }

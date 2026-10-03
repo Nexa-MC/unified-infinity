@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "status": "seven-harmless-edge-cases-pass-full-layer-and-remaining-matrix-pending",
+  "freshProcessPerCase": true,
+  "requiresBudgetRelease": true,
+  "cases": [
+    {
+      "id": "external-service-provider",
+      "variants": [
+        "graphics",
+        "transformer",
+        "window",
+        "locator",
+        "reader",
+        "dependency"
+      ],
+      "ids": [
+        "connector",
+        "connectormod",
+        "fabric_api",
+        "modmenu"
+      ],
+      "expected": "no static, constructor or entry marker; source hash unchanged"
+    },
+    {
+      "id": "trusted-positive-root",
+      "expected": "exact pinned origin admitted; all applicable marker phases execute"
+    },
+    {
+      "id": "same-id-external-copy",
+      "expected": "outside the pinned permitted origin excluded even when bytes match"
+    },
+    {
+      "id": "forged-origin-claim",
+      "expected": "builtin/self-declared metadata cannot register trust"
+    },
+    {
+      "id": "classpath-pinned-jars",
+      "expected": "same session decisions; no denied NamedPath"
+    },
+    {
+      "id": "grouped-mod-classes",
+      "expected": "unsupported nonempty directory groups fail before SERVICE, not partial admission"
+    },
+    {
+      "id": "jpms-provides",
+      "expected": "module descriptor providers excluded before module layer construction"
+    },
+    {
+      "id": "nested-denied-under-content",
+      "expected": "ordinary parent retained; separately nested denied child absent from recursive/final selection; actual pinned managed API implementation works; original constraints untouched"
+    },
+    {
+      "id": "nested-managed-pins",
+      "expected": "exact origin chain/bytes admitted; external copy remains external"
+    },
+    {
+      "id": "all-discovery-reentry",
+      "routes": [
+        "addPath",
+        "addJarContent",
+        "readModFile",
+        "addModFile",
+        "ConnectorLocator"
+      ],
+      "expected": "requires frozen complete origin/object receipt"
+    },
+    {
+      "id": "changed-input-after-scan",
+      "expected": "stop with stale-byte diagnosis, no rescan or implicit allow"
+    },
+    {
+      "id": "single-runtime-owner",
+      "expected": "one fml_loader module owns every admission model class and package"
+    },
+    {
+      "id": "satisfied-real-dependency",
+      "expected": "ordinary resolver continues with actual selected managed provider"
+    },
+    {
+      "id": "missing-mandatory-api",
+      "expected": "ordinary real dependency error; no fabricated API or version"
+    },
+    {
+      "id": "optional-provider-absent",
+      "expected": "ordinary optional dependency semantics remain intact"
+    },
+    {
+      "id": "original-input-hashes",
+      "expected": "all original top-level and nested archive hashes unchanged"
+    }
+  ],
+  "executedReport": "../../../../source-workspace/fml-unified/build/harmless-markers-v3/report.json"
+}

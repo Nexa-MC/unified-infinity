@@ -67,3 +67,13 @@ All existing Connector/Adapter MIT, FART LGPL-2.1, FFAPI/QSL Apache and other or
 notices remain. This does not relicense the combined project. Runtime resource notices
 are preserved as the frozen accepted source; this external clarification does not
 alter the hashes of already accepted core/host/provider binaries.
+
+
+## Source-owned FML and shared admission
+
+The v6 source snapshot includes modified FancyModLoader4.0.42 sources under
+`source-workspace/fml-unified`, with LGPL-2.1 text, upstream provenance and
+`MODIFICATIONS.md`. Shared BOOT admission retains its MIT notice. Connector
+and Adapter retain original Sinytra attribution; modified FART retains LGPL-2.1
+and corresponding source. Original component licenses apply independently;
+this project does not replace them with a blanket license.

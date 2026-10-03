@@ -12,6 +12,10 @@ From repository root, after preparation succeeds:
 DISPLAY=:0 python tools/client-setup/gradle_client.py --launch --offline runClient
 ```
 
+Run this command in the **cloud native desktop terminal through CUA**. The
+separate `exec_command` environment does not expose the desktop's X11 socket;
+setting `DISPLAY=:0` there alone cannot launch a visible window.
+
 This delegates launch argument generation and the `forgeclientdev` target to
 NeoForge's official ModDevGradle plugin. It does not invent a username, UUID,
 access token, or login. NeoForge's documentation explicitly describes its
@@ -24,16 +28,17 @@ user's legitimate account; the installed production JSON is not fed fake auth.
 - Custom provider setting: `config/fml.toml`, `earlyWindowProvider="unifiedinfinity"`
 - Generated launch arguments/classpath: `run/client-dev/development-build/moddev/`
 - Real loader progress: `run/client-dev/development-game/compat-progress.json`
-- Opt-in QA captures: `preload-ui/reports/client-qa-next` (optional diagnostic output)
+- Opt-in QA captures: `preload-ui/reports/client-qa-next` (owned by the UI worker)
 - Source scheduler: `unified.infinity.maxWorkers=4`; client heap 512 MiB to 2 GiB
 
 The current profile starts with no progress snapshot. Before an intentional
 repeat run, archive the preceding run's generated snapshot and captures so
 that only real stages from that run appear. Do not synthesize stage events.
 
-All four custom JARs live directly in this profile's `mods/`: the source-derived
-Connector, internally bundled host/API implementation, parity probe, and window
-provider. Do not add duplicate provider copies to the module or runtime paths;
+The original four-JAR parity profile put the source-derived Connector,
+internally bundled host/API implementation, parity probe, and window provider
+directly in `mods/`. The current mixed profile below replaces the parity probe
+with three approved real mods. Do not add duplicate provider copies to the module or runtime paths;
 pinned FML 4.0.42 discovers ImmediateWindowProvider service JARs in `mods/` early.
 
 ## Reproduce preparation
@@ -52,7 +57,7 @@ must match the locked first-party manifest. No `--skip-hash-check` is used.
 The separate `prepare_distribution.py` checks official hashes and sizes for
 Linux libraries, log config, asset index, and all 3,888 unique asset objects.
 All download and runtime data stay below `run/client-dev`. Distribution files
-are never included in source checkpoints.
+are never included in source/Library checkpoints.
 
 The Gradle wrapper uses a profile-private cache and derives proxy JVM options
 from the current tool process. An inherited `GRADLE_OPTS` pointing to an old
@@ -94,12 +99,12 @@ source change or invented artifact-discovery fallback is necessary.
 
 ## Actual launch validation
 
-After runtime-classpath caching and clean-artifact configuration, the recorded test
+After runtime-classpath caching and clean-artifact configuration, the UI worker
 visually verified the real Minecraft 1.21.1 / NeoForge 21.1.219 main menu with
 49 mods. Source commit completion, the real GAME overlay, context handoff,
 resource reload, and renderer cleanup passed. No further launch is automatic.
 The current source/provider hashes and exact generated inputs are locked in
-`logs/client-setup-baseline-lock.json`; raw visual evidence is omitted from this source publication.
+`logs/client-setup-baseline-lock.json`; visual evidence belongs to the UI worker.
 
 The subsequent full-source acceptance run uses core SHA-256
 `c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e`
@@ -112,7 +117,63 @@ then exited normally. Exact evidence is in
 This is main-menu acceptance, without world, multiplayer, or Lithium client testing.
 
 The profile-local `development-game/profile-mods.lock.json` freezes the exact
-four JAR names and SHA-256 hashes. Both `prepareClientLaunch` and `runClient`
+JAR names and SHA-256 hashes. Both `prepareClientLaunch` and `runClient`
 validate it; preparation also includes the resolved mod records in
 `client-launch-inputs.json`. An intentional artifact change requires updating
 the profile lock and baseline lock together after verifying the new bytes.
+
+## Current mixed-mod client profile
+
+Attempt `06-mixed-pack-client` uses six direct, byte-pinned JARs: the unchanged
+source core, host, and window provider from attempt 05; Fabric Lithium 0.15.4;
+Fabric Chunky 1.4.23; and NeoForge Farmer's Delight 1.3.4. It has no parity-probe
+JAR and does not substitute the native NeoForge Lithium/Chunky controls.
+
+`stage_mixed_profile.py --stage` performs the explicit one-time transition,
+checking approved hashes before writing. It renames the complete preceding
+game directory, including its Connector cache, to
+`run/client-dev/archived-05-source-built-client-game`. Previous QA output,
+baseline lock, and generated launch arguments are preserved in
+`preload-ui/reports/client-attempts/06-mixed-pack-client/previous-profile/`.
+Existing common configuration and display options are copied into the fresh
+game directory; no save, cache, or progress snapshot is carried forward.
+
+Offline `prepareClientLaunch` passed with the official 97-entry runtime. Exact
+staged inputs and preparation evidence live under attempt 06. Preparation
+does not launch Minecraft. Actual acceptance must be separately coordinated
+with the server tests and the available cloud GUI; this remains an isolated
+official development-player flow with no account credentials or external
+game-server connection.
+
+Actual attempt 06 passed: the cold transformations completed, the custom
+window and GAME overlay lifecycle finished, and scoped CUA confirmed the
+branded main menu with 51 mods. Quit Game exited with status 0. Full evidence
+is `preload-ui/reports/client-attempts/06-mixed-pack-client/acceptance.json`.
+An initial command-namespace display failure is preserved separately and is
+not counted as a mod-compatibility failure.
+
+## Local mixed-world acceptance
+
+The subsequently authorized attempt `07-mixed-pack-world` passed with the
+same six byte-identical JARs. A fresh default-terrain creative world named
+`infinity-mixed-acceptance` (seed `2026100301`) was created in the isolated
+profile. To bound cloud rendering, its profile uses render/simulation distance
+6 and a 60 FPS cap; the preceding options are preserved with the evidence.
+
+Actual CUA interaction exercised Farmer's Delight creative inventory entries,
+the placed cooking-pot model and container, its recipe-book screen, and a
+tomato transferred into input slot 0. Save and Quit to Title completed; the
+same world was selected and reopened, where the same pot and tomato were
+visibly present. Both integrated-server cycles saved all dimensions. Final
+Quit Game returned exit 0. No multiplayer or LAN flow was entered.
+
+`verify_world_save.py` independently decodes actual `level.dat` and region NBT
+using the existing bounded read-only decoder. It verifies the world identity,
+seed, player cooking-pot inventory, and the cooking pot at `(-66,64,-206)` with
+one tomato in slot 0. It passed against the first and reopened saves, including
+their archived copies. This client test did not complete a heated recipe.
+
+The authoritative record, before/after save archives, native F2 screenshots,
+logs, and verification reports are under
+`preload-ui/reports/client-attempts/07-mixed-pack-world/acceptance.json`.
+Attempt 06 remains frozen as separate main-menu acceptance evidence.

@@ -8,9 +8,7 @@ import cpw.mods.modlauncher.api.IModuleLayerManager;
 import cpw.mods.modlauncher.api.ITransformationService;
 import cpw.mods.modlauncher.api.ITransformer;
 import cpw.mods.modlauncher.serviceapi.ILaunchPluginService;
-import net.neoforged.fml.loading.ImmediateWindowHandler;
 import net.neoforged.fml.loading.LoadingModList;
-import net.neoforged.neoforgespi.earlywindow.ImmediateWindowProvider;
 import org.sinytra.connector.ConnectorEarlyLoader;
 import org.sinytra.connector.service.hacks.ConnectorForkJoinThreadFactory;
 import org.sinytra.connector.service.hacks.FabricASMFixer;
@@ -42,38 +40,18 @@ public class ConnectorLoaderService implements ITransformationService {
 
     @Override
     public void initialize(IEnvironment environment) {
-        VarHandle provider = uncheck(() -> ConnectorUtil.TRUSTED_LOOKUP.findStaticVarHandle(ImmediateWindowHandler.class, "provider", ImmediateWindowProvider.class));
-
-        ImmediateWindowProvider original = (ImmediateWindowProvider) provider.get();
-        ImmediateWindowProvider newProvider = new ImmediateWindowProvider() {
-            @Override
-            public void updateModuleReads(ModuleLayer layer) {
-                if (!ConnectorEarlyLoader.hasEncounteredException()) {
-                    // Setup entrypoints
-                    ConnectorEarlyLoader.setup();
-                    // Invoke mixin on a dummy class to initialize mixin plugins
-                    // Necessary to avoid duplicate class definition errors when a plugin loads the class that is being transformed
-                    uncheck(() -> Class.forName("org.sinytra.connector.mod.DummyTarget", false, Thread.currentThread().getContextClassLoader()));
-                    // Run preLaunch
-                    ConnectorEarlyLoader.preLaunch();
-                }
-                original.updateModuleReads(layer);
-            }
-
-            //@formatter:off
-            @Override public String name() {return original.name();}
-            @Override public Runnable initialize(String[] arguments) {return original.initialize(arguments);}
-            @Override public void updateFramebufferSize(IntConsumer width, IntConsumer height) {original.updateFramebufferSize(width, height);}
-            @Override public long setupMinecraftWindow(IntSupplier width, IntSupplier height, Supplier<String> title, LongSupplier monitor) {return original.setupMinecraftWindow(width, height, title, monitor);}
-            @Override public boolean positionWindow(Optional<Object> monitor, IntConsumer widthSetter, IntConsumer heightSetter, IntConsumer xSetter, IntConsumer ySetter) {return original.positionWindow(monitor, widthSetter, heightSetter, xSetter, ySetter);}
-            @Override public <T> Supplier<T> loadingOverlay(Supplier<?> mc, Supplier<?> ri, Consumer<Optional<Throwable>> ex, boolean fade) {return original.loadingOverlay(mc, ri, ex, fade);}
-            @Override public void periodicTick() {original.periodicTick();}
-            @Override public String getGLVersion() {return original.getGLVersion();}
-            @Override public void crash(String message) {original.crash(message);}
-            //@formatter:on
-        };
-        provider.set(newProvider);
         ConnectorForkJoinThreadFactory.install();
+    }
+
+    /** Called by the FML-owned GAME-layer boundary, never by wrapping a window. */
+    public void beforeGameStart(ModuleLayer layer) {
+        if (!ConnectorEarlyLoader.hasEncounteredException()) {
+            ConnectorEarlyLoader.setup();
+            // Keep plugin initialization before any target class can be defined twice.
+            uncheck(() -> Class.forName("org.sinytra.connector.mod.DummyTarget", false,
+                    Thread.currentThread().getContextClassLoader()));
+            ConnectorEarlyLoader.preLaunch();
+        }
     }
 
     @SuppressWarnings("unchecked")

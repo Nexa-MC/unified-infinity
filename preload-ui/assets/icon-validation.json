@@ -1,0 +1,60 @@
+{
+  "source_filename": "original.svg",
+  "source_bytes": 44169,
+  "source_sha256": "9d77aa04ba9fbc646a50eebb42712451f94288dde00b932375553e6ba033322d",
+  "derived_svg": "unified_infinity_block_icon.svg",
+  "viewBox": [
+    190,
+    60,
+    300,
+    300
+  ],
+  "retained": [
+    "cube-right",
+    "cube-left",
+    "cube-top",
+    "cube-top-edge",
+    "cube-center-edge",
+    "cube-outline"
+  ],
+  "removed": [
+    "rounded background rect",
+    "outer badge border rect",
+    "six decorative outer pixels",
+    "invalidated C2PA metadata"
+  ],
+  "png": {
+    "256": {
+      "size": [
+        256,
+        256
+      ],
+      "alpha_bounds_exclusive": [
+        26,
+        10,
+        230,
+        246
+      ],
+      "fully_transparent_pixels": 29244,
+      "fully_opaque_pixels": 35457,
+      "antialiased_pixels": 835,
+      "all_four_corners_alpha": 0
+    },
+    "1024": {
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_bounds_exclusive": [
+        104,
+        41,
+        920,
+        983
+      ],
+      "fully_transparent_pixels": 471501,
+      "fully_opaque_pixels": 573728,
+      "antialiased_pixels": 3347,
+      "all_four_corners_alpha": 0
+    }
+  }
+}

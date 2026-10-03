@@ -1,0 +1,54 @@
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+plugins { id 'java-library' }
+group = 'net.neoforged.fancymodloader'
+version = '4.0.42-unified-source'
+base { archivesName = 'fml-loader' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) }; withSourcesJar() }
+sourceSets.main.java.srcDir('../admission-bootstrap/src/main/java')
+def repoRoot = projectDir.parentFile.parentFile
+def lockFile = file('provenance/compile-classpath-lock.json')
+def lock = new JsonSlurper().parse(lockFile)
+def pinnedCompileFiles = lock.artifacts.collect { new File(repoRoot, it.path) }
+dependencies { compileOnly files(pinnedCompileFiles) }
+def verifyCompileInputs = tasks.register('verifyCompileInputs') {
+    inputs.file(lockFile)
+    inputs.files(pinnedCompileFiles)
+    doLast {
+        lock.artifacts.each { pin ->
+            def input = new File(repoRoot, pin.path)
+            def digest = MessageDigest.getInstance('SHA-256')
+            input.withInputStream { stream -> byte[] bytes = new byte[65536]; int n; while ((n = stream.read(bytes)) >= 0) digest.update(bytes, 0, n) }
+            if (HexFormat.of().formatHex(digest.digest()) != pin.sha256) throw new GradleException("Changed FML compile dependency: ${pin.path}")
+        }
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    dependsOn verifyCompileInputs
+    options.release = 21
+    options.compilerArgs.add('-proc:none')
+    options.fork = true
+    options.forkOptions.memoryMaximumSize = '192m'
+    options.forkOptions.jvmArgs.add('-XX:ActiveProcessorCount=2')
+}
+def installationResources = layout.buildDirectory.dir('generated/installation-resources')
+def prepareInstallationPolicy = tasks.register('prepareInstallationPolicy') {
+    def policy = providers.gradleProperty('unifiedInstallationPolicy')
+    if (policy.isPresent()) inputs.file(policy.get())
+    outputs.dir(installationResources)
+    doLast {
+        def output = installationResources.get().file('META-INF/unified-admission/installation.json').asFile
+        output.parentFile.mkdirs()
+        output.text = policy.isPresent() ? file(policy.get()).text : '{"schema":1,"approved":false}\n'
+    }
+}
+sourceSets.main.resources.srcDir(installationResources)
+tasks.named('processResources') { dependsOn prepareInstallationPolicy }
+tasks.named('jar', Jar) {
+    manifest.from(file('src/main/resources/META-INF/MANIFEST.MF'))
+    exclude('META-INF/MANIFEST.MF')
+    from('LICENSE-LGPL-2.1.txt') { into 'META-INF/unified-admission' }
+    from('MODIFICATIONS.md') { into 'META-INF/unified-admission' }
+}
+tasks.withType(Jar).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+// Full canonical source project. No cached FML binary or duplicate model JAR is packaged.

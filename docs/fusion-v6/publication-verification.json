@@ -1,0 +1,30 @@
+{
+  "status": "PASS_FINAL_PUBLICATION_CHECKS",
+  "fresh_checks": {
+    "source_archive_and_mod_list_checks": 17,
+    "offline_managed_core_pin_checks": 4,
+    "launch_validation_checks": 7,
+    "minimal_child_environment_checks": 6
+  },
+  "optional_candidate_binary_checks_skipped": 5,
+  "initial_failures": [
+    {
+      "suite": "ManagedCorePinTest",
+      "failures": 4,
+      "cause": "Isolated export did not include Gradle; expected pin-rejection assertions instead received exec: gradle: not found.",
+      "resolution": "Existing authorized Java21/Gradle8.11.1 and cache temporarily linked under ignored paths; four tests reran offline and passed. Temporary links removed."
+    },
+    {
+      "suite": "launch_validation",
+      "failures": 1,
+      "errors": 2,
+      "cause": "Historical synthetic test fixtures lacked new mandatory SERVICE/GAME/product structure.",
+      "resolution": "Test-only fixture correction recorded after runtime acceptance; seven tests now pass; accepted runtime and validator sources unchanged."
+    }
+  ],
+  "jvm_for_publication": "Four offline Gradle configuration tests only;512MiB heap cap,one processor; no game or artifact rebuild",
+  "runtime_acceptance": "Separate exact v6 evidence; not rerun during publication",
+  "pin_test_rerun_log_sha256": "7d6156e0e336bcbf1ec21f1805c6549d4db81544f4ce30ceab17cb1bab7e97d8",
+  "no_temporary_toolchain_or_cache_links": true,
+  "whitespace_check": "git diff --check reports preserved trailing whitespace in exact frozen/upstream source and its original MANIFEST.MF newline; source hashes intentionally not changed for formatting."
+}

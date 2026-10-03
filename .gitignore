@@ -41,3 +41,9 @@ four-loader/quilt-probe/build/*
 source-workspace/connector-four-loader/**/.gradle/
 source-workspace/connector-four-loader/**/.git/
 source-workspace/connector-four-loader/**/run/
+
+# Verified v6 corresponding-source archives, never runtime artifacts.
+!source-workspace/artifacts/unified-infinity-fusion-v6-complete-sources.zip
+!source-workspace/artifacts/unified-infinity-product-469118e4-sources.zip
+source-workspace/fml-unified/build/
+source-workspace/admission-bootstrap/build/

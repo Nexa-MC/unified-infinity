@@ -1,0 +1,22 @@
+plugins { id 'java-library' }
+group = 'org.sinytra.connector.infinity'
+version = '0.1.0-admission-candidate'
+base { archivesName = 'unified-admission-compile-only-model' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+repositories { mavenCentral() }
+dependencies {
+    compileOnly 'com.google.code.gson:gson:2.10.1'
+    compileOnly 'com.electronwill.night-config:core:3.8.0'
+    compileOnly 'com.electronwill.night-config:toml:3.8.0'
+}
+tasks.withType(Jar).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+    manifest { attributes('Unified-Compile-Only': 'true', 'Unified-Runtime-Owner': 'fml_loader') }
+}
+// This JAR is a compilation/test model only. Runtime ownership is the full source-built patched FML loader.
+
+dependencies {
+    compileOnly files("../../run/client-dev/libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar")
+    compileOnly files("../../run/client-dev/libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar")
+}
