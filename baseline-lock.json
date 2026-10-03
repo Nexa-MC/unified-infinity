@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-10-03T06:10:00Z",
+  "profile": "minecraft-1.21.1-connector-beta17-source-aligned",
+  "status": "Research baseline; official artifacts downloaded and inspected, but no Minecraft launch or cross-mod compatibility test performed by this research task",
+  "minecraft": "1.21.1",
+  "java": {
+    "major": 21,
+    "source": "Connector released-tag build.gradle.kts toolchain; do not substitute Java25 without separate validation",
+    "minimumRuntimeMajor": 21,
+    "policy": "All supported Minecraft version adapters require a host JVM of at least Java21; a newer target may raise this requirement. Runtime/JDK/classfile compatibility require separate evidence."
+  },
+  "pins": {
+    "neoforge": "21.1.219",
+    "connector": "2.0.0-beta.17+1.21.1",
+    "ffapi": "0.116.7+2.2.1+1.21.1",
+    "forgifiedFabricLoader": "2.5.70+0.19.3+1.21.1",
+    "fabricLoaderApi": "0.19.3",
+    "spongeMixin": "0.15.2+mixin.0.8.7",
+    "adapterCore": "2.0.43+1.21.1",
+    "adapterRuntime": "1.0.0+1.21.1"
+  },
+  "repositories": [
+    "https://maven.sinytra.org/",
+    "https://maven.neoforged.net/releases/",
+    "https://maven.fabricmc.net/"
+  ],
+  "artifacts": [
+    {
+      "id": "neoforge-installer",
+      "coordinate": "net.neoforged:neoforge:21.1.219:installer",
+      "version": "21.1.219",
+      "filename": "neoforge-21.1.219-installer.jar",
+      "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-installer.jar",
+      "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44",
+      "size": 6961236,
+      "license": "LGPL-2.1 (published POM declaration; exact SPDX variant not audited)",
+      "role": "Host installer, not embedded in the compatibility mod"
+    },
+    {
+      "id": "connector",
+      "coordinate": "org.sinytra:connector:2.0.0-beta.17+1.21.1:full",
+      "version": "2.0.0-beta.17+1.21.1",
+      "filename": "connector-2.0.0-beta.17+1.21.1-full.jar",
+      "url": "https://github.com/Sinytra/Connector/releases/download/2.0.0-beta.17%2B1.21.1/connector-2.0.0-beta.17%2B1.21.1-full.jar",
+      "sha256": "270b2d385be50932419b7d57d4f4bf7328d70e08d0dd9d88adefdb3c5d08a986",
+      "size": 4573245,
+      "license": "MIT AND Apache-2.0",
+      "role": "Top-level NeoForge bootstrap JAR; retains upstream Fabric Loader and transformation services",
+      "license_note": "Project license MIT; Apache-2.0 Fabric-derived source and shaded third-party components have separate notices. This expression is not a complete transitive-license inventory."
+    },
+    {
+      "id": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:forgified-fabric-api:0.116.7+2.2.1+1.21.1",
+      "version": "0.116.7+2.2.1+1.21.1",
+      "filename": "ffapi-baseline.jar",
+      "url": "https://maven.sinytra.org/org/sinytra/forgified-fabric-api/forgified-fabric-api/0.116.7+2.2.1+1.21.1/forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+      "size": 5563831,
+      "license": "Apache-2.0",
+      "role": "Unchanged internal JarJar dependency of a separately discovered NeoForge host mod; preserve all nested modules and original IDs",
+      "download_filename": "forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar"
+    }
+  ],
+  "shadedIntoConnector": [
+    {
+      "coordinate": "org.sinytra:forgified-fabric-loader:2.5.70+0.19.3+1.21.1",
+      "upstreamFabricLoaderApi": "0.19.3",
+      "license": "Apache-2.0",
+      "standaloneDownloadRequired": false
+    },
+    {
+      "coordinate": "org.sinytra.adapter:core:2.0.43+1.21.1",
+      "standaloneDownloadRequired": false
+    },
+    {
+      "coordinate": "org.sinytra:ForgeAutoRenamingTool:1.0.14",
+      "standaloneDownloadRequired": false
+    },
+    {
+      "coordinate": "net.fabricmc:class-tweaker:0.3.0",
+      "standaloneDownloadRequired": false
+    }
+  ],
+  "hostManagedMixin": {
+    "coordinate": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+    "policy": "Use NeoForge-selected Fabric build of upstream Sponge Mixin; do not replace or embed another Mixin engine"
+  },
+  "hostDirectDependencies": [
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "neoform",
+      "version": "1.21.1-20240808.144430",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged.fancymodloader",
+      "artifactId": "loader",
+      "version": "4.0.42",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged.fancymodloader",
+      "artifactId": "earlydisplay",
+      "version": "4.0.42",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "accesstransformers",
+      "version": "10.0.1",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "bus",
+      "version": "8.0.5",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "coremods",
+      "version": "7.0.3",
+      "scope": "compile"
+    },
+    {
+      "groupId": "cpw.mods",
+      "artifactId": "modlauncher",
+      "version": "11.0.5",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "mergetool",
+      "version": "2.0.0",
+      "classifier": "api",
+      "scope": "compile"
+    },
+    {
+      "groupId": "com.electronwill.night-config",
+      "artifactId": "core",
+      "version": "3.8.3",
+      "scope": "compile"
+    },
+    {
+      "groupId": "com.electronwill.night-config",
+      "artifactId": "toml",
+      "version": "3.8.3",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.apache.maven",
+      "artifactId": "maven-artifact",
+      "version": "3.8.5",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.jodah",
+      "artifactId": "typetools",
+      "version": "0.6.3",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.minecrell",
+      "artifactId": "terminalconsoleappender",
+      "version": "1.3.0",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.fabricmc",
+      "artifactId": "sponge-mixin",
+      "version": "0.15.2+mixin.0.8.7",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.openjdk.nashorn",
+      "artifactId": "nashorn-core",
+      "version": "15.4",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "JarJarSelector",
+      "version": "0.4.1",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.apache.commons",
+      "artifactId": "commons-lang3",
+      "version": "3.14.0",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "JarJarMetadata",
+      "version": "0.4.1",
+      "scope": "compile"
+    },
+    {
+      "groupId": "cpw.mods",
+      "artifactId": "securejarhandler",
+      "version": "3.0.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm",
+      "version": "9.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm-commons",
+      "version": "9.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm-tree",
+      "version": "9.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm-util",
+      "version": "9.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "org.ow2.asm",
+      "artifactId": "asm-analysis",
+      "version": "9.8",
+      "scope": "compile"
+    },
+    {
+      "groupId": "cpw.mods",
+      "artifactId": "bootstraplauncher",
+      "version": "2.0.2",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged",
+      "artifactId": "JarJarFileSystems",
+      "version": "0.4.1",
+      "scope": "compile"
+    },
+    {
+      "groupId": "io.github.llamalad7",
+      "artifactId": "mixinextras-neoforge",
+      "version": "0.5.0",
+      "scope": "compile"
+    },
+    {
+      "groupId": "net.neoforged.fancymodloader",
+      "artifactId": "junit-fml",
+      "version": "4.0.42",
+      "scope": "compile"
+    }
+  ],
+  "embeddedArtifactGraph": [
+    {
+      "parent": "connector",
+      "coordinate": "org.sinytra.adapter:runtime:1.0.0+1.21.1",
+      "range": "[1.0.0+1.21.1,)",
+      "path": "META-INF/jarjar/runtime-1.0.0+1.21.1.jar",
+      "sha256": "36de91a417138f01a1801b7e2ae59bb1052c8ddb23b1352d3fe952b3d33a5e06",
+      "size": 6547
+    },
+    {
+      "parent": "connector",
+      "coordinate": "org.sinytra:connector-mod:2.0.0-beta.17+1.21.1",
+      "range": "[2.0.0-beta.17+1.21.1,)",
+      "path": "META-INF/jarjar/org.sinytra.connector-2.0.0-beta.17+1.21.1-mod.jar",
+      "sha256": "0bd1b42d10a78152287935b02b06554478e4f38fad3e5fce334a9e7efc920266",
+      "size": 113345
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-screen-api-v1:2.0.25+4228281319",
+      "range": "[2.0.25+4228281319,)",
+      "path": "META-INF/jars/fabric-screen-api-v1-2.0.25+4228281319.jar",
+      "sha256": "6c884a1b9a7487d395256270607127beae8f7c63c36172450eaa15ded3d6f41b",
+      "size": 51820
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-object-builder-api-v1:15.2.1+cc242efd19",
+      "range": "[15.2.1+cc242efd19,)",
+      "path": "META-INF/jars/fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+      "sha256": "bce09d346a7dcffa0a0f0fb0ca4accd00885927558fb5687aecc2921fbce8da8",
+      "size": 80737
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-command-api-v2:2.2.28+36d727be19",
+      "range": "[2.2.28+36d727be19,)",
+      "path": "META-INF/jars/fabric-command-api-v2-2.2.28+36d727be19.jar",
+      "sha256": "b939e1fac847365827982db9801dbea20201b451edb3f59185f7246cf1e33293",
+      "size": 32529
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-data-attachment-api-v1:1.4.5+26d408aa19",
+      "range": "[1.4.5+26d408aa19,)",
+      "path": "META-INF/jars/fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+      "sha256": "bb11972d90dfe058f92e30ff91bfd1499d6d12cd2c06c1d592eb2daaaa939974",
+      "size": 38897
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-particles-v1:4.0.2+824f924c19",
+      "range": "[4.0.2+824f924c19,)",
+      "path": "META-INF/jars/fabric-particles-v1-4.0.2+824f924c19.jar",
+      "sha256": "a74c2bf2b046bc66b959c6bb130b671d40decf6f548cbbcf1d7b8291172f17e2",
+      "size": 33756
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-entity-events-v1:1.8.0+5ede667619",
+      "range": "[1.8.0+5ede667619,)",
+      "path": "META-INF/jars/fabric-entity-events-v1-1.8.0+5ede667619.jar",
+      "sha256": "3b5fbf3248bd8e9dbee89cc38d5fb89383fe0f8088d80cad8a5fbf3d7c05deed",
+      "size": 66393
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-key-binding-api-v1:1.0.47+62cc7ce119",
+      "range": "[1.0.47+62cc7ce119,)",
+      "path": "META-INF/jars/fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+      "sha256": "8fab6b6dbf92a945a4adf505a34f0a58d52f085b491b7c14c7b2202201528769",
+      "size": 22863
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-rendering-data-attachment-v1:0.3.49+73761d2e19",
+      "range": "[0.3.49+73761d2e19,)",
+      "path": "META-INF/jars/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+      "sha256": "be9e4fe504867856bb1c96d827a6771e7097ee3676b0f08edc93a30ba2348649",
+      "size": 21118
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-gametest-api-v1:2.0.5+29f188ce19",
+      "range": "[2.0.5+29f188ce19,)",
+      "path": "META-INF/jars/fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+      "sha256": "c80d9ccfb5e03d9031dfc3c8b30c04af02082bb2abfe8ea54714e839f4795f2a",
+      "size": 33416
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-item-group-api-v1:4.1.7+e324903319",
+      "range": "[4.1.7+e324903319,)",
+      "path": "META-INF/jars/fabric-item-group-api-v1-4.1.7+e324903319.jar",
+      "sha256": "672c0d65c5fab82ea5d9822f41b0d114ac9f7152c37a9e48553a25c8f0608f63",
+      "size": 44928
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-registry-sync-v0:5.3.1+f9aace1619",
+      "range": "[5.3.1+f9aace1619,)",
+      "path": "META-INF/jars/fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+      "sha256": "a7505be70861793be23afe90e45438d09c0e410ab9c39dcb284f341dd645e038",
+      "size": 54263
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-transitive-access-wideners-v1:6.2.0+6c854b6f19",
+      "range": "[6.2.0+6c854b6f19,)",
+      "path": "META-INF/jars/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+      "sha256": "fa9789ccf7c70393382cd773e0c9098dacc3fd54a33f5c00b5dcb24675fb7f91",
+      "size": 17790
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v1:2.1.5+7f945d5b19",
+      "range": "[2.1.5+7f945d5b19,)",
+      "path": "META-INF/jars/fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+      "sha256": "c0a16e6348f1f4b856da2d4f9c4cdd50c6e2050766b060268321816c3c9c1b93",
+      "size": 37761
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-item-api-v1:11.2.0+0c57911319",
+      "range": "[11.2.0+0c57911319,)",
+      "path": "META-INF/jars/fabric-item-api-v1-11.2.0+0c57911319.jar",
+      "sha256": "d7ff0a6ff1473a1ce95969a9ddc76eb6c65b7fec11c406dd6936b08e9bbf8d9c",
+      "size": 60950
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-resource-conditions-api-v1:4.3.0+5bdd099819",
+      "range": "[4.3.0+5bdd099819,)",
+      "path": "META-INF/jars/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+      "sha256": "ce52a388219f61a49b852b20ef73f56f38980c7f2026266659f04efb7d29e0d3",
+      "size": 66540
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-rendering-v1:5.1.0+1a09bd5a19",
+      "range": "[5.1.0+1a09bd5a19,)",
+      "path": "META-INF/jars/fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+      "sha256": "6636e2d052874b65098b7020ffe85855fcf0b99ae5fac3db6b9b7ecf629d3dfa",
+      "size": 92453
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-block-api-v1:1.1.0+b0c22bb819",
+      "range": "[1.1.0+b0c22bb819,)",
+      "path": "META-INF/jars/fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+      "sha256": "0fee6b82063090a12b1d49d22ffd7a94e7632cd16d0379b2475885236cc4517d",
+      "size": 20891
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-content-registries-v0:8.0.19+c290471319",
+      "range": "[8.0.19+c290471319,)",
+      "path": "META-INF/jars/fabric-content-registries-v0-8.0.19+c290471319.jar",
+      "sha256": "7f445db3a52e763d2024f09a029a59aeb0e1d0db469b2fb47202a1aec9a628fc",
+      "size": 61800
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-screen-handler-api-v1:1.3.90+8dbc56dd19",
+      "range": "[1.3.90+8dbc56dd19,)",
+      "path": "META-INF/jars/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+      "sha256": "828fa4ed6206f46381f06c4db7e72ef2946110fc0d05c6442a1d4ada3ef85934",
+      "size": 24207
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-blockrenderlayer-v1:1.1.52+c290471319",
+      "range": "[1.1.52+c290471319,)",
+      "path": "META-INF/jars/fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+      "sha256": "dbbfaddace14df54803fb704b6448e766a318d1cef4bbf909f57cf7f58ccdc65",
+      "size": 24369
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-message-api-v1:6.0.14+6a754fce19",
+      "range": "[6.0.14+6a754fce19,)",
+      "path": "META-INF/jars/fabric-message-api-v1-6.0.14+6a754fce19.jar",
+      "sha256": "b2506a623a1ebe7e5b7de4129c5608efa477dc333598c2522fe49252a3eb3f2f",
+      "size": 46595
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-data-generation-api-v1:20.2.34+12dbe3c819",
+      "range": "[20.2.34+12dbe3c819,)",
+      "path": "META-INF/jars/fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+      "sha256": "aebe7756d918b8ded5562933641dbd7283f04913189350c4cddf1533beb572d3",
+      "size": 99235
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-recipe-api-v1:5.0.15+59440bcc19",
+      "range": "[5.0.15+59440bcc19,)",
+      "path": "META-INF/jars/fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+      "sha256": "7b3f7b2057a3ef9e6b1be8b4eea41998ada9b5c8408c14f73edb759bd3937960",
+      "size": 55515
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-resource-loader-v0:1.3.1+4ea8954419",
+      "range": "[1.3.1+4ea8954419,)",
+      "path": "META-INF/jars/fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+      "sha256": "490ce52a66a0d227d0d111406d10a76c949bb4b1d48dd9514139fb6c1c6e0164",
+      "size": 106751
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-game-rule-api-v1:1.0.53+36d727be19",
+      "range": "[1.0.53+36d727be19,)",
+      "path": "META-INF/jars/fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+      "sha256": "ce4f0b01786c0f99c5ad03227d255cddfe1d50cefe41086199b09edec70fab17",
+      "size": 52862
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-sound-api-v1:1.0.23+10b84f8419",
+      "range": "[1.0.23+10b84f8419,)",
+      "path": "META-INF/jars/fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+      "sha256": "c7d18ded011962f549c81609fdc81bcd19a4d230a3a8f3ffc92aa89803ed378f",
+      "size": 21480
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-loot-api-v3:1.0.3+333dfad919",
+      "range": "[1.0.3+333dfad919,)",
+      "path": "META-INF/jars/fabric-loot-api-v3-1.0.3+333dfad919.jar",
+      "sha256": "caf037e0416c40780b6a90a28bb1cdcd4362bdb7341e64796cca9b9662f0d785",
+      "size": 35621
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-renderer-indigo:1.7.1+4198af7119",
+      "range": "[1.7.1+4198af7119,)",
+      "path": "META-INF/jars/fabric-renderer-indigo-1.7.1+4198af7119.jar",
+      "sha256": "6c79036bff0746c32d7c97f44904f3bc465b381f0b549fb1936501221377ebcd",
+      "size": 110483
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-networking-api-v1:4.3.0+30a980d919",
+      "range": "[4.3.0+30a980d919,)",
+      "path": "META-INF/jars/fabric-networking-api-v1-4.3.0+30a980d919.jar",
+      "sha256": "23d483eeba8d36e5caa44ba89332844fa4672d9221469023eb1f906af469d83a",
+      "size": 171611
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-block-view-api-v2:1.0.11+e9036fd419",
+      "range": "[1.0.11+e9036fd419,)",
+      "path": "META-INF/jars/fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+      "sha256": "a6664b5fa4cffb6050835265f9291f3d39926cb8d774256540ecc3f7ffbec590",
+      "size": 26307
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-model-loading-api-v1:2.1.0+6e8f52c719",
+      "range": "[2.1.0+6e8f52c719,)",
+      "path": "META-INF/jars/fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+      "sha256": "cf63040c8bb3d661941d5dc96a151670afa64714a2382efa43237700fde5fd37",
+      "size": 62549
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:5.4.3+a25cb45619",
+      "range": "[5.4.3+a25cb45619,)",
+      "path": "META-INF/jars/fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+      "sha256": "4ab435cb4d68b178dada1b9a92ee7eb5aa2cfde082da81385c1680950c121481",
+      "size": 205900
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:1.6.71+c290471319",
+      "range": "[1.6.71+c290471319,)",
+      "path": "META-INF/jars/fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+      "sha256": "54bcedcd19d3722b48479891fca5979388a67be9c7568c66142c045c489d5f61",
+      "size": 53596
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-renderer-api-v1:3.4.1+6e8f52c719",
+      "range": "[3.4.1+6e8f52c719,)",
+      "path": "META-INF/jars/fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+      "sha256": "cf6f78654fab63f31c4dbc25960d5fa6886fd4d9dc9dcd879f3008cf7b40c2d0",
+      "size": 58965
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v2:2.11.1+87e5848019",
+      "range": "[2.11.1+87e5848019,)",
+      "path": "META-INF/jars/fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+      "sha256": "d6d031153a0641a878f0e86123596e3eec964500f7806ae6f370acf4f871730e",
+      "size": 224988
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-lifecycle-events-v1:2.6.0+e40d8add19",
+      "range": "[2.6.0+e40d8add19,)",
+      "path": "META-INF/jars/fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+      "sha256": "d370338732add3c5644fa2deb6522deb6874fb37a83841c458127bab6213f7ab",
+      "size": 90121
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-events-interaction-v0:0.7.13+86e0887119",
+      "range": "[0.7.13+86e0887119,)",
+      "path": "META-INF/jars/fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+      "sha256": "ff096aae3f1164e7ddc4f1f0f01e2ea67a08c64517ab881d9a9dcf4849a0b021",
+      "size": 57085
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra:forgified-fabric-loader:2.5.68+0.18.4+1.21.1",
+      "range": "[2.5.68+0.18.4+1.21.1,)",
+      "path": "META-INF/jars/forgified-fabric-loader-2.5.68+0.18.4+1.21.1-full.jar",
+      "sha256": "caa360db3ab75965a2e3573f5cf5ff898484e5c02eaef6fba8645e0c7e6f1616",
+      "size": 3539919
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-api-base:0.4.42+d1308ded19",
+      "range": "[0.4.42+d1308ded19,)",
+      "path": "META-INF/jars/fabric-api-base-0.4.42+d1308ded19.jar",
+      "sha256": "e57137c9e14c79ee4e789ca6a351749cce4279de1b938df28dd99490222987b6",
+      "size": 35467
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-loot-api-v2:3.0.15+a3ee712d19",
+      "range": "[3.0.15+a3ee712d19,)",
+      "path": "META-INF/jars/fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+      "sha256": "67240fa36f5f46f82fab6c6acfbe2cda32b3617bc35b3bca3fc2f1053859d420",
+      "size": 28113
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-biome-api-v1:13.0.31+1e62d33c19",
+      "range": "[13.0.31+1e62d33c19,)",
+      "path": "META-INF/jars/fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+      "sha256": "740926ce5ff7efb76a8a2d507277338fbada4e565282eb6521eacdcb45fbf87c",
+      "size": 78122
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-rendering-fluids-v1:3.1.6+857185bc19",
+      "range": "[3.1.6+857185bc19,)",
+      "path": "META-INF/jars/fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+      "sha256": "f835041e44fc03292272f7ffdbb476e1a348eea03afc4f189502dd3026f0cdc0",
+      "size": 41484
+    },
+    {
+      "parent": "ffapi",
+      "coordinate": "org.sinytra.forgified-fabric-api:fabric-client-tags-api-v1:1.1.15+e053909619",
+      "range": "[1.1.15+e053909619,)",
+      "path": "META-INF/jars/fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+      "sha256": "93a255e664661ff992d2612eb8a5f893b626bccb4d02b701099925595cf11f95",
+      "size": 26478
+    }
+  ],
+  "graphCompleteness": "Complete first-level NeoForge POM dependency list and direct nested-JAR graph of the two captured compatibility artifacts. Not a resolved full transitive Maven graph or complete shaded SBOM.",
+  "architecture": {
+    "connectorPlacement": "Top-level mods folder, so its early SPI and ITransformationService providers are available before dependency discovery",
+    "ffapiPlacement": "Internal unchanged nested JAR in separately discovered NeoForge host mod; NeoForge recursively discovers its API modules before ConnectorLocator low-priority scan",
+    "preserve": [
+      "fabric_api",
+      "forgified_fabric_api",
+      "fabric-api / fabric aliases",
+      "all per-module IDs and provides aliases",
+      "Mixin configuration names",
+      "resources",
+      "package names",
+      "service providers",
+      "JarJar metadata"
+    ],
+    "conflictPolicy": "Reject duplicate external FFAPI or upstream Fabric API for the bundled profile; do not silently replace the internal version"
+  },
+  "sourceEvidence": [
+    "https://github.com/Sinytra/Connector/releases/tag/2.0.0-beta.17%2B1.21.1",
+    "https://github.com/Sinytra/Connector/blob/2.0.0-beta.17%2B1.21.1/gradle/libs.versions.toml",
+    "https://github.com/Sinytra/Connector/blob/2.0.0-beta.17%2B1.21.1/build.gradle.kts",
+    "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219.pom",
+    "https://maven.sinytra.org/org/sinytra/forgified-fabric-api/forgified-fabric-api/0.116.7+2.2.1+1.21.1/forgified-fabric-api-0.116.7+2.2.1+1.21.1.pom"
+  ],
+  "limitations": [
+    "Connector remains a beta prerelease",
+    "No guarantee every Fabric mod or Forge mod works",
+    "NeoForge host does not support arbitrary Forge-specific internals",
+    "Input mod JARs remain unchanged on disk; upstream Connector transforms cached runtime copies",
+    "No redistribution of Minecraft game binaries or user mods is authorized by this lock",
+    "No game EULA acceptance or server launch is implied by this research"
+  ],
+  "nativeFabricControl": {
+    "lockFile": "docs/research/native-fabric-api-lock.json",
+    "coordinate": "net.fabricmc.fabric-api:fabric-api:0.116.7+1.21.1",
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/0.116.7+1.21.1/fabric-api-0.116.7+1.21.1.jar",
+    "sha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4",
+    "size": 2424884,
+    "license": "Apache-2.0",
+    "baseModuleId": "fabric-api-base",
+    "baseModuleVersion": "0.4.42+6573ed8c19",
+    "baseModuleSha256": "1def6e18f8b56c566b2b3d6ec40d3528457787fcaf09ad093312377b0ff24126",
+    "placement": "Separate native Fabric control profile only; never load alongside FFAPI",
+    "purpose": "Parity control addendum; original NeoForge baseline artifact identities unchanged"
+  }
+}

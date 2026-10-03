@@ -1,0 +1,48 @@
+modLoader="javafml"
+loaderVersion="[4,5)"
+license="All Rights Reserved (host); Apache-2.0 (bundled Forgified Fabric API)"
+
+[[mods]]
+modId="mod_compat_runtime"
+version="${bundleVersion}"
+displayName="Unified ∞ Infinity"
+description='''
+Native NeoForge packaging host that embeds the official, unchanged Forgified
+Fabric API aggregate. Uses the original Sinytra Connector companion for Fabric
+mod transformation and loading. Not a reimplementation of those projects.
+'''
+
+[[dependencies.mod_compat_runtime]]
+modId="neoforge"
+type="required"
+versionRange="[${neoForgeVersion}]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.mod_compat_runtime]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.mod_compat_runtime]]
+modId="connector"
+type="required"
+versionRange="[${connectorVersion}]"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.mod_compat_runtime]]
+modId="fabric_api"
+type="required"
+versionRange="[${ffapiVersion}]"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.mod_compat_runtime]]
+modId="forgified_fabric_api"
+type="required"
+versionRange="[${ffapiVersion}]"
+ordering="AFTER"
+side="BOTH"

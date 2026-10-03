@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mod-compat-admission"
+version = "0.1.0"
+description = "Bounded, read-only Minecraft 1.21.1 JAR metadata admission prototype"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+compat-admission = "compat_admission.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["compat_admission*"]

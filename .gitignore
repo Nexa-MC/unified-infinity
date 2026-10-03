@@ -1,0 +1,8 @@
+.toolchains/
+.gradle/
+**/build/
+__pycache__/
+*.pyc
+run/
+artifacts/
+checkpoints/

@@ -1,0 +1,214 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+import java.util.zip.ZipFile
+
+plugins {
+    id 'java'
+}
+
+group = 'dev.modcompat'
+version = '0.1.0-dev'
+
+// These versions come from the official Connector beta.17 release catalog and
+// NeoForge 21.1.219 POM. This tiny host uses no Minecraft classes, so a Minecraft
+// userdev environment / remapper is intentionally not part of its build.
+ext {
+    minecraftVersion = '1.21.1'
+    neoForgeVersion = '21.1.219'
+    fmlVersion = '4.0.42'
+    ffapiVersion = '0.116.7+2.2.1+1.21.1'
+    connectorVersion = '2.0.0-beta.17+1.21.1'
+    ffapiSha256 = 'f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690'
+    connectorSha256 = '270b2d385be50932419b7d57d4f4bf7328d70e08d0dd9d88adefdb3c5d08a986'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+repositories {
+    if (providers.gradleProperty('neoforgeLibraries').isPresent()) {
+        maven {
+            name = 'InstalledNeoForgeLibraries'
+            url = uri(providers.gradleProperty('neoforgeLibraries').get())
+            metadataSources { artifact() }
+            content { includeGroupByRegex 'net\\.neoforged.*' }
+        }
+    }
+    maven {
+        name = 'NeoForged'
+        url = 'https://maven.neoforged.net/releases'
+        content { includeGroupByRegex 'net\\.neoforged.*' }
+    }
+    maven {
+        name = 'Sinytra'
+        url = 'https://maven.su5ed.dev/releases'
+        content { includeGroup 'org.sinytra.forgified-fabric-api' }
+    }
+}
+
+configurations {
+    embeddedApi {
+        canBeConsumed = false
+        canBeResolved = true
+        transitive = false
+    }
+}
+
+dependencies {
+    // Compile-only APIs are supplied by the installed NeoForge runtime.
+    compileOnly('net.neoforged.fancymodloader:loader:4.0.42') { transitive = false }
+    compileOnly('net.neoforged:mergetool:2.0.0:api') { transitive = false }
+
+    // Resolve the release aggregate, not its transitive Gradle dependency graph.
+    // The aggregate contains 43 original JarJar modules. A local file is useful
+    // for offline builds, but it must pass the same immutable checksum check.
+    if (providers.gradleProperty('ffapiJar').isPresent()) {
+        embeddedApi files(providers.gradleProperty('ffapiJar').get())
+    } else {
+        embeddedApi "org.sinytra.forgified-fabric-api:forgified-fabric-api:${ffapiVersion}@jar"
+    }
+}
+
+dependencyLocking { lockAllConfigurations() }
+// This configuration can legitimately switch between an external artifact and
+// the same local file. Its version and bytes are locked explicitly above; a
+// Gradle "empty configuration" lock would break the alternate input mode.
+configurations.embeddedApi.resolutionStrategy.deactivateDependencyLocking()
+
+def digest = { File file ->
+    def md = MessageDigest.getInstance('SHA-256')
+    file.withInputStream { stream ->
+        byte[] buffer = new byte[65536]
+        for (int count = stream.read(buffer); count != -1; count = stream.read(buffer)) {
+            md.update(buffer, 0, count)
+        }
+    }
+    md.digest().encodeHex().toString()
+}
+
+def generatedResources = layout.buildDirectory.dir('generated/bundle-resources')
+def ffapiName = "forgified-fabric-api-${ffapiVersion}.jar"
+def connectorName = "connector-${connectorVersion}-full.jar"
+def connectorFile = providers.gradleProperty('connectorJar')
+    .map { file(it) }
+    .orElse(file("../docs/research/upstream/${connectorName}"))
+
+tasks.register('verifyEmbeddedApi') {
+    group = 'verification'
+    inputs.files(configurations.embeddedApi)
+    doLast {
+        File aggregate = configurations.embeddedApi.singleFile
+        if (digest(aggregate) != ffapiSha256) {
+            throw new GradleException("FFAPI checksum mismatch: ${aggregate}. Do not silently change the release lock.")
+        }
+    }
+}
+
+tasks.register('generateJarJarMetadata') {
+    dependsOn 'verifyEmbeddedApi'
+    inputs.property('ffapiVersion', ffapiVersion)
+    outputs.dir(generatedResources)
+    doLast {
+        File destination = generatedResources.get().file('META-INF/jarjar/metadata.json').asFile
+        destination.parentFile.mkdirs()
+        // Standard NeoForge JarJar format. Exact range avoids negotiating an
+        // untested replacement. No relocations or invented Fabric module IDs.
+        destination.text = JsonOutput.prettyPrint(JsonOutput.toJson([jars: [[
+            identifier: [group: 'org.sinytra.forgified-fabric-api', artifact: 'forgified-fabric-api'],
+            version: [range: "[${ffapiVersion}]", artifactVersion: ffapiVersion],
+            path: "META-INF/jarjar/${ffapiName}"
+        ]]])) + '\n'
+    }
+}
+
+sourceSets.main.resources.srcDir(tasks.named('generateJarJarMetadata'))
+
+tasks.named('processResources') {
+    dependsOn 'generateJarJarMetadata'
+    inputs.property('bundleVersion', version)
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand(bundleVersion: version, neoForgeVersion: neoForgeVersion,
+            ffapiVersion: ffapiVersion, connectorVersion: connectorVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+tasks.named('jar') {
+    dependsOn 'verifyEmbeddedApi'
+    from(configurations.embeddedApi) {
+        into 'META-INF/jarjar'
+        rename { ffapiName }
+    }
+    manifest.attributes(
+        'Implementation-Title': 'Unified Infinity API Bundle',
+        'Implementation-Version': project.version,
+        'Automatic-Module-Name': 'dev.modcompat.runtime.bundle'
+    )
+}
+
+tasks.register('verifyConnector') {
+    group = 'verification'
+    inputs.file(connectorFile)
+    doLast {
+        if (digest(connectorFile.get()) != connectorSha256) {
+            throw new GradleException('Connector checksum mismatch. Supply the pinned official full release JAR with -PconnectorJar=/path/to/file.jar')
+        }
+        new ZipFile(connectorFile.get()).withCloseable { archive ->
+            [
+                'META-INF/services/cpw.mods.modlauncher.api.ITransformationService',
+                'META-INF/services/net.neoforged.neoforgespi.locating.IDependencyLocator'
+            ].each { path ->
+                if (archive.getEntry(path) == null) throw new GradleException("Connector missing early service: ${path}")
+            }
+        }
+    }
+}
+
+tasks.register('verifyBundle', Exec) {
+    group = 'verification'
+    description = 'Checks the built JAR without executing Minecraft or any upstream mod.'
+    dependsOn 'jar'
+    inputs.file(tasks.named('jar').flatMap { it.archiveFile })
+    inputs.files(configurations.embeddedApi)
+    inputs.file('tools/verify_bundle.py')
+    doFirst {
+        commandLine 'python3', 'tools/verify_bundle.py',
+            '--bundle', tasks.jar.archiveFile.get().asFile,
+            '--ffapi', configurations.embeddedApi.singleFile,
+            '--report', layout.buildDirectory.file('reports/bundle-verification.json').get().asFile
+    }
+}
+
+tasks.register('testArchiveVerifier', Exec) {
+    group = 'verification'
+    commandLine 'python3', '-m', 'unittest', 'discover', '-s', 'tests', '-v'
+}
+
+tasks.named('check') { dependsOn 'verifyBundle', 'testArchiveVerifier' }
+
+tasks.register('runtimeDistribution', Zip) {
+    group = 'distribution'
+    description = 'Creates the two-file runtime distribution, preserving Connector early discovery.'
+    dependsOn 'verifyBundle', 'verifyConnector'
+    archiveClassifier = 'runtime'
+    destinationDirectory = layout.buildDirectory.dir('distributions')
+    from(tasks.named('jar').flatMap { it.archiveFile }) { into 'mods' }
+    from(connectorFile) {
+        into 'mods'
+        rename { connectorName }
+    }
+    from('README.md')
+    from('src/main/resources/META-INF/licenses') { into 'licenses' }
+    from('src/main/resources/META-INF/THIRD-PARTY-NOTICES.txt')
+}

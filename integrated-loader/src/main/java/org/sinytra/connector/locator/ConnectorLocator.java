@@ -1,0 +1,313 @@
+package org.sinytra.connector.locator;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import com.mojang.logging.LogUtils;
+import cpw.mods.jarhandling.JarContents;
+import cpw.mods.jarhandling.JarContentsBuilder;
+import cpw.mods.jarhandling.SecureJar;
+import cpw.mods.modlauncher.Launcher;
+import cpw.mods.modlauncher.api.IModuleLayerManager;
+import net.fabricmc.loader.impl.metadata.LoaderModMetadata;
+import net.fabricmc.loader.impl.metadata.NestedJarEntry;
+import net.neoforged.fml.ModLoadingException;
+import net.neoforged.fml.loading.FMLPaths;
+import net.neoforged.fml.loading.moddiscovery.ModJarMetadata;
+import net.neoforged.fml.loading.moddiscovery.locators.JarInJarDependencyLocator;
+import net.neoforged.fml.loading.moddiscovery.readers.JarModsDotTomlModFileReader;
+import net.neoforged.fml.loading.progress.StartupNotificationManager;
+import net.neoforged.neoforgespi.language.IModInfo;
+import net.neoforged.neoforgespi.locating.*;
+import org.apache.maven.artifact.versioning.ArtifactVersion;
+import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+import org.jetbrains.annotations.Nullable;
+import org.sinytra.connector.ConnectorEarlyLoader;
+import org.sinytra.connector.infinity.LoadProgress;
+import org.sinytra.connector.infinity.BuildIdentity;
+import org.sinytra.connector.infinity.ManagedConnectorTransformerEnvironment;
+import org.sinytra.connector.locator.filter.ForgeModPackageFilter;
+import org.sinytra.connector.locator.filter.SplitPackageMerger;
+import org.sinytra.connector.transformer.jar.JarTransformer;
+import org.sinytra.connector.util.ConnectorUtil;
+import org.sinytra.connector.util.PriorityModLoadingException;
+import org.slf4j.Logger;
+
+import java.io.IOException;
+import java.lang.module.ModuleDescriptor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static cpw.mods.modlauncher.api.LambdaExceptionUtils.rethrowFunction;
+import static cpw.mods.modlauncher.api.LambdaExceptionUtils.uncheck;
+import static net.neoforged.fml.loading.LogMarkers.SCAN;
+
+public class ConnectorLocator implements IDependencyLocator {
+    public static final String PLACEHOLDER_PROPERTY = "connector:placeholder";
+    private static final Logger LOGGER = LogUtils.getLogger();
+
+    @Override
+    public int getPriority() {
+        return LOWEST_SYSTEM_PRIORITY;
+    }
+
+    @Override
+    public void scanMods(List<IModFile> loadedMods, IDiscoveryPipeline pipeline) {
+        if (ConnectorEarlyLoader.hasEncounteredException()) {
+            LOGGER.error("Skipping mod scan due to previously encountered error");
+            return;
+        }
+
+        boolean completed = false;
+        LOGGER.info("Unified Infinity modified Connector source fork (upstream 2.0.0-beta.17+1.21.1); source SHA-256 {}", BuildIdentity.SOURCE_SHA256);
+        LoadProgress.begin(LoadProgress.Stage.DISCOVER);
+        try {
+            LocationResult results = locateFabricMods(loadedMods);
+            if (results != null) {
+                results.mods().forEach(pipeline::addModFile);
+                results.originalPaths().forEach(ConnectorEarlyLoader::addConnectorModPath);
+
+                // Create mod file for generated adapter mixins jar
+                Path generatedAdapterJar = results.generatedJarPath();
+                if (Files.exists(generatedAdapterJar)) {
+                    pipeline.addPath(generatedAdapterJar, ModFileDiscoveryAttributes.DEFAULT, IncompatibleFileReporting.ERROR);
+                }
+                completed = true;
+            }
+        } catch (PriorityModLoadingException e) {
+            LoadProgress.fail(e);
+            throw e;
+        } catch (ModLoadingException e) {
+            LoadProgress.fail(e);
+            // Let these pass through
+            ConnectorEarlyLoader.addGenericLoadingException(e.getIssues());
+        } catch (Throwable t) {
+            LoadProgress.fail(t);
+            // Rethrow other exceptions
+            StartupNotificationManager.addModMessage("CONNECTOR LOCATOR ERROR");
+            LOGGER.error("Connector locator error", t);
+            ConnectorEarlyLoader.addGenericLoadingException(ConnectorEarlyLoader.createGenericLoadingIssue(t, "Fabric mod discovery failed"));
+        } finally {
+            // Handle forge mod split packages
+            ForgeModPackageFilter.filterPackages(loadedMods);
+
+            // Whatever happens load connector itself anyway.
+            // This way if there are dependency errors or others above the game is still able to display the correct error messages
+            try {
+                loadEmbeddedJars(pipeline);
+                if (completed) LoadProgress.finish(null);
+            } catch (Throwable t) {
+                LoadProgress.fail(t);
+                // Rethrow any exception encountered
+                StartupNotificationManager.addModMessage("CONNECTOR EMBEDDED LOCATOR ERROR");
+                LOGGER.error("Connector embedded locator error", t);
+                ConnectorEarlyLoader.addGenericLoadingException(ConnectorEarlyLoader.createGenericLoadingIssue(t, "Connector embedded mod discovery failed"));
+            }
+        }
+    }
+
+    @Nullable
+    private LocationResult locateFabricMods(List<IModFile> discoveredMods) {
+        LOGGER.debug(SCAN, "Scanning mods dir {} for mods", FMLPaths.MODSDIR.get());
+        Path tempDir = ConnectorUtil.CONNECTOR_FOLDER.resolve("temp");
+
+        // Get all existing mods
+        Collection<SimpleModInfo> loadedModInfos = getPreviouslyDiscoveredMods(discoveredMods);
+        Collection<IModFile> loadedModFiles = loadedModInfos.stream().map(SimpleModInfo::origin).toList();
+        Collection<String> loadedModIds = loadedModInfos.stream().filter(mod -> !mod.library()).map(SimpleModInfo::modid).collect(Collectors.toUnmodifiableSet());
+        Collection<String> loadedModuleNames = Stream.concat(
+                Launcher.INSTANCE.findLayerManager().flatMap(m -> m.getLayer(IModuleLayerManager.Layer.BOOT))
+                    .stream()
+                    .flatMap(m -> m.modules().stream())
+                    .map(Module::getName),
+                loadedModInfos.stream().filter(SimpleModInfo::library).map(SimpleModInfo::moduleName).filter(Objects::nonNull))
+            .collect(Collectors.toUnmodifiableSet());
+
+        try (ManagedConnectorTransformerEnvironment environment = new ManagedConnectorTransformerEnvironment(loadedModFiles)) {
+            JarTransformer transformer = new JarTransformer(environment);
+
+            DiscoveredFabricJars discovered = discoverFabricJars(transformer, tempDir, loadedModIds, loadedModuleNames);
+            LoadProgress.finish(discovered.roots().size() + discovered.nested().size());
+            LoadProgress.begin(LoadProgress.Stage.RESOLVE);
+
+            // Collect mods that are (likely) going to be excluded by FML's UniqueModListBuilder. Exclude them from global split package filtering
+            Collection<? super IModFile> ignoredModFiles = new ArrayList<>();
+
+            // Remove mods loaded by FML
+            List<JarTransformer.TransformableJar> uniqueJars = handleDuplicateMods(discovered.roots(), discovered.nested(), loadedModInfos, ignoredModFiles);
+
+            // Ensure we have all required dependencies before transforming, remove side-only mods
+            List<JarTransformer.TransformableJar> candidates = DependencyResolver.resolveDependencies(uniqueJars, discovered.parentToChildren(), loadedModFiles);
+
+            LoadProgress.finish(candidates.size());
+            LoadProgress.begin(LoadProgress.Stage.TRANSFORM);
+
+            // Get renamer library classpath
+            List<Path> renameLibs = loadedModFiles.stream().map(modFile -> modFile.getSecureJar().getRootPath()).toList();
+
+            // Run jar transformations (or get existing outputs from cache)
+            List<JarTransformer.TransformedFabricModPath> transformed = transformer.transform(candidates, renameLibs);
+
+            List<JarTransformer.TransformedFabricModPath> failing = transformed.stream().filter(j -> j.auditTrail() != null && j.auditTrail().hasFailingMixins()).toList();
+            if (!failing.isEmpty()) {
+                MixinTransformSafeguard.trigger(failing);
+            }
+
+            // Skip last step to save time if an error occured during transformation
+            if (ConnectorEarlyLoader.hasEncounteredException()) {
+                StartupNotificationManager.addModMessage("JAR TRANSFORMATION ERROR");
+                LOGGER.error("Cancelling jar discovery due to previous error");
+                LoadProgress.fail(new IllegalStateException("Transformation recorded an error"));
+                return null;
+            }
+
+            LoadProgress.finish(transformed.size());
+            LoadProgress.begin(LoadProgress.Stage.COMMIT);
+
+            // Deal with split packages (thanks modules)
+            List<SplitPackageMerger.FilteredModPath> moduleSafeJars = SplitPackageMerger.mergeSplitPackages(transformed.stream().map(JarTransformer.TransformedFabricModPath::output).toList(), loadedModFiles, ignoredModFiles);
+
+            List<IModFile> loadedMods = moduleSafeJars.stream().map(ConnectorLocator::createConnectorModFile).toList();
+            List<Path> originalPaths = transformed.stream().map(JarTransformer.TransformedFabricModPath::input).toList();
+            return new LocationResult(loadedMods, originalPaths, environment.getGeneratedJarPath());
+        }
+    }
+
+    private static DiscoveredFabricJars discoverFabricJars(JarTransformer transformer, Path tempDir,
+        Collection<String> loadedModIds, Collection<String> loadedModuleNames) {
+        // Existing upstream discovery and nested-JAR traversal, unchanged.
+        List<JarTransformer.TransformableJar> discoveredJars = FabricModsDiscoverer.scanFabricMods()
+            .map(rethrowFunction(p -> transformer.cacheTransformableJar(p.toFile())))
+            .filter(jar -> !shouldIgnoreMod(jar, loadedModIds, loadedModuleNames))
+            .toList();
+
+        // Discover fabric nested mod jars
+        Multimap<JarTransformer.TransformableJar, JarTransformer.TransformableJar> parentToChildren = HashMultimap.create();
+        List<JarTransformer.TransformableJar> discoveredNestedJars = discoveredJars.stream()
+            .flatMap(jar -> {
+                LoaderModMetadata metadata = jar.modPath().metadata().modMetadata();
+                return shouldIgnoreMod(jar, loadedModIds, loadedModuleNames) ? Stream.empty() : discoverNestedJarsRecursive(transformer, tempDir, jar, metadata.getJars(), parentToChildren, loadedModIds, loadedModuleNames);
+            })
+            .toList();
+
+        return new DiscoveredFabricJars(discoveredJars, discoveredNestedJars, parentToChildren);
+    }
+
+    private record DiscoveredFabricJars(List<JarTransformer.TransformableJar> roots,
+        List<JarTransformer.TransformableJar> nested,
+        Multimap<JarTransformer.TransformableJar, JarTransformer.TransformableJar> parentToChildren) {}
+
+    private static IModFile createConnectorModFile(SplitPackageMerger.FilteredModPath modPath) {
+        JarContents jarContents = new JarContentsBuilder().paths(modPath.paths()).pathFilter(modPath.filter()).build();
+        if (modPath.metadata().generated()) {
+            return IModFile.create(SecureJar.from(jarContents), JarModsDotTomlModFileReader::manifestParser, IModFile.Type.GAMELIBRARY, ModFileDiscoveryAttributes.DEFAULT);
+        }
+        ModJarMetadata modJarMetadata = new ModJarMetadata(jarContents);
+        SecureJar secureJar = SecureJar.from(jarContents, modJarMetadata);
+        IModFile modFile = IModFile.create(secureJar, f -> FabricModMetadataParser.createForgeMetadata(f, (ConnectorFabricModMetadata) modPath.metadata().modMetadata(), modPath.metadata().visibleMixinConfigs(), modPath.metadata().generated()));
+        modJarMetadata.setModFile(modFile);
+        return modFile;
+    }
+
+    private static Stream<JarTransformer.TransformableJar> discoverNestedJarsRecursive(JarTransformer transformer, Path tempDir, JarTransformer.TransformableJar parent, Collection<NestedJarEntry> jars, Multimap<JarTransformer.TransformableJar, JarTransformer.TransformableJar> parentToChildren, Collection<String> loadedModIds, Collection<String> loadedModuleNames) {
+        SecureJar secureJar = SecureJar.from(parent.input().toPath());
+        return jars.stream()
+            .map(entry -> secureJar.getPath(entry.getFile()))
+            .filter(Files::exists)
+            .flatMap(path -> {
+                JarTransformer.TransformableJar jar = uncheck(() -> prepareNestedJar(transformer, tempDir, secureJar.getPrimaryPath().getFileName().toString(), path));
+                if (shouldIgnoreMod(jar, loadedModIds, loadedModuleNames)) {
+                    return Stream.empty();
+                }
+                parentToChildren.put(parent, jar);
+                LoaderModMetadata metadata = jar.modPath().metadata().modMetadata();
+                return Stream.concat(Stream.of(jar), discoverNestedJarsRecursive(transformer, tempDir, jar, metadata.getJars(), parentToChildren, loadedModIds, loadedModuleNames));
+            });
+    }
+
+    private static JarTransformer.TransformableJar prepareNestedJar(JarTransformer transformer, Path tempDir, String parentName, Path path) throws IOException {
+        Files.createDirectories(tempDir);
+
+        String parentNameWithoutExt = parentName.split("\\.(?!.*\\.)")[0];
+        // Extract JiJ
+        Path extracted = tempDir.resolve(parentNameWithoutExt + "$" + path.getFileName().toString());
+        ConnectorUtil.cache(path, extracted, () -> Files.copy(path, extracted));
+
+        return uncheck(() -> transformer.cacheTransformableJar(extracted.toFile()));
+    }
+
+    // Removes any duplicates from located connector mods, as well as mods that are already located by FML.
+    private static List<JarTransformer.TransformableJar> handleDuplicateMods(List<JarTransformer.TransformableJar> rootMods, List<JarTransformer.TransformableJar> nestedMods, Collection<SimpleModInfo> loadedMods, Collection<? super IModFile> ignoredModFiles) {
+        return Stream.concat(rootMods.stream(), nestedMods.stream())
+            .filter(jar -> {
+                String id = jar.modPath().metadata().modMetadata().getId();
+                List<SimpleModInfo> forgeMods = loadedMods.stream()
+                    .filter(mod -> mod.modid().equals(id))
+                    .toList();
+                // Add mods that are going to be excluded by FML's UniqueModListBuilder to the ignore list 
+                if (forgeMods.stream().anyMatch(SimpleModInfo::library)) {
+                    ArtifactVersion artifactVersion = new DefaultArtifactVersion(jar.modPath().metadata().modMetadata().getVersion().getFriendlyString());
+                    SimpleModInfo fabricModInfo = new SimpleModInfo(id, artifactVersion, false, null, null);
+                    // Sort mods by version, descending
+                    List<SimpleModInfo> modsByVersion = Stream.concat(Stream.of(fabricModInfo), forgeMods.stream())
+                        .sorted(Comparator.comparing(SimpleModInfo::version).reversed())
+                        .toList();
+                    // The fabric mod has the latest version - ignore others
+                    if (modsByVersion.getFirst() == fabricModInfo) {
+                        modsByVersion.subList(1, modsByVersion.size()).forEach(mod -> {
+                            IModFile modFile = Objects.requireNonNull(mod.origin(), "Missing mod origin for mod " + mod.modid());
+                            ignoredModFiles.add(modFile);
+                        });
+                        return true;
+                    }
+                }
+                if (loadedMods.stream().anyMatch(mod -> mod.modid().equals(id))) {
+                    LOGGER.info(SCAN, "Removing duplicate mod {} in file {}", id, jar.modPath().path().toAbsolutePath());
+                    return false;
+                }
+                return true;
+            })
+            .toList();
+    }
+
+    private static boolean shouldIgnoreMod(JarTransformer.TransformableJar jar, Collection<String> loadedModIds, Collection<String> loadedModuleNames) {
+        LoaderModMetadata metadata = jar.modPath().metadata().modMetadata();
+        String id = metadata.getId();
+        return ConnectorUtil.DISABLED_MODS.contains(id) || loadedModIds.contains(id)
+            || jar.modPath().metadata().generated() && loadedModuleNames.contains(jar.moduleName());
+    }
+
+    private static Collection<SimpleModInfo> getPreviouslyDiscoveredMods(List<IModFile> discoveredMods) {
+        return discoveredMods.stream()
+            .flatMap(modFile -> Optional.ofNullable(modFile.getModFileInfo()).stream())
+            .flatMap(modFileInfo -> {
+                IModFile modFile = modFileInfo.getFile();
+                List<IModInfo> modInfos = modFileInfo.getMods();
+                // Ignore placeholder mods
+                if (modFileInfo.getFileProperties().containsKey(PLACEHOLDER_PROPERTY)) {
+                    // Set mod version to 0.0 to prioritize the Fabric mod when FML resolves duplicates
+                    modInfos.forEach(mod -> mod.getVersion().parseVersion("0.0"));
+                    return Stream.empty();
+                }
+                if (!modInfos.isEmpty()) {
+                    return modInfos.stream().map(modInfo -> new SimpleModInfo(modInfo.getModId(), modInfo.getVersion(), false, modFile, modFileInfo.moduleName()));
+                }
+                String version = modFileInfo.getFile().getSecureJar().moduleDataProvider().descriptor().version().map(ModuleDescriptor.Version::toString).orElse("0.0");
+                return Stream.of(new SimpleModInfo(modFileInfo.moduleName(), new DefaultArtifactVersion(version), true, modFile, modFileInfo.moduleName()));
+            })
+            .toList();
+    }
+
+    private static void loadEmbeddedJars(IDiscoveryPipeline pipeline) throws Exception {
+        SecureJar secureJar = SecureJar.from(Path.of(ConnectorLocator.class.getProtectionDomain().getCodeSource().getLocation().toURI()));
+        IModFile modFile = IModFile.create(secureJar, JarModsDotTomlModFileReader::manifestParser);
+        new JarInJarDependencyLocator().scanMods(List.of(modFile), pipeline);
+    }
+
+    private record SimpleModInfo(String modid, ArtifactVersion version, boolean library, @Nullable IModFile origin, @Nullable String moduleName) {
+    }
+
+    private record LocationResult(List<IModFile> mods, List<Path> originalPaths, Path generatedJarPath) {} 
+}

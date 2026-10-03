@@ -1,0 +1,102 @@
+{
+  "kind": "project-owned synthetic non-gameplay transform corpus",
+  "jars": [
+    {
+      "name": "infinity-corpus-00.jar",
+      "sha256": "c0bb0f5c0ff289d2790d71e77b6b02d7da7be8422c1df71f9b45cab40763611c",
+      "size": 51263,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-01.jar",
+      "sha256": "43f5f8acaa60854fd589cec9f4f4c099143d1fdc5449d82247a1cfd07b242190",
+      "size": 51251,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-02.jar",
+      "sha256": "6a27edd3f8af5b20f60428f07d193ddf3c4e82527fbbe689cec86b59381be9ac",
+      "size": 51282,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-03.jar",
+      "sha256": "4076e9d80d3f5722c3676a54b2cbc4cff5fa82e195ef462a2f6cf22cc84f83bd",
+      "size": 51300,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-04.jar",
+      "sha256": "f69971c9027ad8385f6fda9ca8fb99c118079a9f2c645e51987a33abb09ab467",
+      "size": 51313,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-05.jar",
+      "sha256": "51385cfecf8fa6fbac4b661954d1ffe1b969db9d90cae302692c6ee4888bc9f4",
+      "size": 51333,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-06.jar",
+      "sha256": "e2d14c4afe8cbf777c14e89ed75ea55c213bfaaa4426684f85913ecbe942392e",
+      "size": 51327,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-07.jar",
+      "sha256": "85a9430a48df2a68528078d21171b76cc7354d3bcda972ddc93f2fc3bb1066bc",
+      "size": 51330,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-08.jar",
+      "sha256": "fd9d8a2e0dfb2dba77f93c1b96332deb46ec1ce965c3591f0b3677483bce4062",
+      "size": 51347,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-09.jar",
+      "sha256": "8e65d59bd37698aa54b786dc423ef6662fc85040578cf2e7350e74f8eea0563a",
+      "size": 51329,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-10.jar",
+      "sha256": "b3d4e7afe754d754c4b941b27650854361442ec4062009589f2f69fa70cc6e83",
+      "size": 51251,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-11.jar",
+      "sha256": "1fe60cb2104fe9a470c5492df1394f0238f8b025d0c102e36e3565c51f4d760f",
+      "size": 51215,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-12.jar",
+      "sha256": "76cf34abce3e6b4af58992c640e2063fe564f6b6d571a9c4a5cce4d3aa896011",
+      "size": 51265,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-13.jar",
+      "sha256": "c72407f673d24ac47ba3de55705ad639d26b8c3ad87b96b24f541b4110941952",
+      "size": 51274,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-14.jar",
+      "sha256": "7e8d35a1f5fe80a6633dd00b668f09fd3b57178897dfffb0e8ea4cb47127eb3f",
+      "size": 51297,
+      "classes": 128
+    },
+    {
+      "name": "infinity-corpus-15.jar",
+      "sha256": "d8dc8bbbd2c7c931d618c7f4ea7ed1e171bc1ee8da51584e139fe6c1c1431154",
+      "size": 51302,
+      "classes": 128
+    }
+  ],
+  "warning": "not representative third-party mod behavior; no entrypoint or Mixin in synthetic jars"
+}

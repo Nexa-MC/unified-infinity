@@ -1,0 +1,6 @@
+# This is a Gradle generated file for dependency locking.
+# Manual edits can break the build and are not advised.
+# This file is expected to be part of source control.
+net.neoforged.fancymodloader:loader:4.0.42=compileClasspath
+net.neoforged:mergetool:2.0.0=compileClasspath
+empty=annotationProcessor

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256" viewBox="190 60 300 300" role="img" height="256" aria-labelledby="icon-title icon-description">
+  <title id="icon-title">Unified Infinity block icon</title>
+  <desc id="icon-description">Transparent isometric amber and teal block with a pixel infinity symbol on its dark top face.</desc>
+  <g transform="matrix(12.99 -7.5 0 15 340 210)" style="fill:rgb(0, 0, 0);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-right">
+    <rect x="0" y="0" width="9" height="9" fill="#138F87" style="fill:rgb(19, 143, 135);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    <g fill="#1FB3A9" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="2" y="1" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="0" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="2" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="4" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="4" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="6" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="8" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="6" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="3" width="1" height="1" style="fill:rgb(31, 179, 169);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#0C6F69" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="0" y="1" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="1" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="0" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="4" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="5" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="7" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="7" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="8" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="3" width="1" height="1" style="fill:rgb(12, 111, 105);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+  </g>
+  <g transform="matrix(12.99 7.5 0 15 223.1 142.5)" style="fill:rgb(0, 0, 0);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-left">
+    <rect x="0" y="0" width="9" height="9" fill="#F5A524" style="fill:rgb(245, 165, 36);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    <g fill="#FFC258" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="1" y="1" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="0" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="2" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="4" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="5" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="7" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="8" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="6" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="6" width="1" height="1" style="fill:rgb(255, 194, 88);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#D98A0E" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="2" y="0" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="1" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="3" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="3" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="4" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="6" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="7" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="8" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="2" width="1" height="1" style="fill:rgb(217, 138, 14);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+  </g>
+  <g transform="matrix(12.99 7.5 -12.99 7.5 340 75)" style="fill:rgb(0, 0, 0);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-top">
+    <rect x="0" y="0" width="9" height="9" fill="#0F0C26" style="fill:rgb(15, 12, 38);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    <g fill="#251F57" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="0" y="1" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="0" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="0" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="1" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="3" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="3" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="5" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="7" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="8" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="6" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="8" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="7" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="0" width="1" height="1" style="fill:rgb(37, 31, 87);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#080618" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="3" y="0" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="3" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="7" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="8" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="7" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="1" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="7" width="1" height="1" style="fill:rgb(8, 6, 24);stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#F5A524" stroke="#0F0C26" stroke-width="0.1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="1" y="2" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="2" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="3" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="4" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="0" y="5" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="1" y="6" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="2" y="6" width="1" height="1" style="fill:rgb(245, 165, 36);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#F2F4FF" stroke="#0F0C26" stroke-width="0.1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="3" y="3" width="1" height="1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="3" width="1" height="1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="4" y="4" width="1" height="1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="3" y="5" width="1" height="1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="5" y="5" width="1" height="1" style="fill:rgb(242, 244, 255);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+    <g fill="#22D3C5" stroke="#0F0C26" stroke-width="0.1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1">
+      <rect x="6" y="2" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="2" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="3" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="4" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="8" y="5" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="6" y="6" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+      <rect x="7" y="6" width="1" height="1" style="fill:rgb(34, 211, 197);stroke:rgb(15, 12, 38);stroke-width:0.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1"/>
+    </g>
+  </g>
+  <polyline points="223.1,142.5 340,210 456.9,142.5" fill="none" stroke="#05040F" stroke-width="3" stroke-linejoin="miter" style="fill:none;stroke:rgb(5, 4, 15);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-top-edge"/>
+  <line x1="340" y1="210" x2="340" y2="345" stroke="#05040F" stroke-width="3" style="fill:rgb(0, 0, 0);stroke:rgb(5, 4, 15);stroke-width:3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-center-edge"/>
+  <polygon points="340,75 456.9,142.5 456.9,277.5 340,345 223.1,277.5 223.1,142.5" fill="none" stroke="#05040F" stroke-width="5" stroke-linejoin="miter" style="fill:none;stroke:rgb(5, 4, 15);stroke-width:5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1" id="cube-outline"/>
+</svg>

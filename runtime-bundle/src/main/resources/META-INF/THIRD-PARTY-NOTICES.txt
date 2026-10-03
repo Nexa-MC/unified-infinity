@@ -1,0 +1,27 @@
+This host is an independent packaging/integration prototype, not Sinytra's work.
+The host does not claim ownership of or reimplement the Fabric compatibility
+engine, Fabric Loader, Fabric API, or Forgified Fabric API.
+
+Bundled dependency:
+  Forgified Fabric API 0.116.7+2.2.1+1.21.1
+  Sinytra and FabricMC contributors
+  https://github.com/Sinytra/ForgifiedFabricAPI
+  Apache License 2.0; see licenses/FFAPI-Apache-2.0.txt
+  The aggregate and all nested modules are copied without modification.
+
+Companion dependency (present only in the runtime distribution ZIP):
+  Sinytra Connector 2.0.0-beta.17+1.21.1
+  Copyright (c) 2023 Su5eD and project contributors
+  https://github.com/Sinytra/Connector
+  MIT License; see licenses/Connector-MIT.txt
+  The official full JAR is copied without modification; its bundled components
+  remain upstream components under their respective licenses.
+
+The FFAPI aggregate's module manifests, IDs, authors, resources, mixin configs,
+access wideners/transformers, and nested JARs are retained verbatim. Connector's
+manifest and service-provider declarations are retained verbatim.
+
+This notice is not a complete legal audit of upstream transitive components.
+Before public redistribution, audit the notices/licenses of every component
+bundled by those upstream projects and choose a license for the host source.
+No Minecraft binaries are distributed by this project.
