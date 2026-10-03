@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "declared_version": "1.2.1-SNAPSHOT",
+  "resolved_marker_timestamped_version": "1.2.1-20260813.224440-41",
+  "resolved_implementation_timestamped_version": "1.2.1-20260813.224440-42",
+  "evidence": "logs/full-source-baseline-build-02.log contains the timestamped download URLs",
+  "artifacts": [
+    {
+      "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter.userdev/org.sinytra.adapter.userdev.gradle.plugin/1.2.1-SNAPSHOT/7d0f3e3543a62d85dcaf73689fea6f0ce7b97a61/org.sinytra.adapter.userdev.gradle.plugin-1.2.1-SNAPSHOT.pom",
+      "sha256": "7a7da8f9212265c91f5ee0b86815915c1512e3bcae8ec3ae54f76f319c515ac7",
+      "size": 670
+    },
+    {
+      "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/6822d09917333282500427ccb45a4c20aa041185/userdev-1.2.1-SNAPSHOT.module",
+      "sha256": "b4bb6cc3b4e5a3d0621121545957a10bf620fec65f66d6ea5c25d21995720b14",
+      "size": 1928
+    },
+    {
+      "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/9156c904b22cbbbd1c24271c0da3487be52dad06/userdev-1.2.1-SNAPSHOT.jar",
+      "sha256": "f3eb4336e3f8890a057fbfef8e132d3642386c391842131042d2ad4bdb4ce36a",
+      "size": 8141
+    },
+    {
+      "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/e87c5e26978f1abd478e04da90e91e6210dee891/userdev-1.2.1-SNAPSHOT.pom",
+      "sha256": "74c9e5aa15f127b078661f9b89452e63bc004d04fa05e33b6c8c77ce037bbec4",
+      "size": 766
+    }
+  ]
+}

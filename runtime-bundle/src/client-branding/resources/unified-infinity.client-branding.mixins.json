@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.modcompat.runtime.branding.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["TitleScreenBrandingMixin", "MinecraftTitleMixin"],
+  "injectors": {"defaultRequire": 1}
+}

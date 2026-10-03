@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "compared_files": 354,
+  "differences": [],
+  "note": "Source reconstruction only; repeat compilation separately verified"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": 2,
+  "connector_url": "https://github.com/Sinytra/Connector",
+  "connector_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "connector_tag": "2.0.0-beta.17+1.21.1",
+  "status": "built-tested-repeatable-in-observed-cache",
+  "files": {
+    "patches/0001-source-build-layout.patch": "8fa6ce10803c630f37505163ebc78ffa031873da9f949ec0d59a5cb2cffa2bd2",
+    "patches/0002-owned-runtime-sources.patch": "27e8468b4d1a634a6577bf0442f3f458403bfb81cb4c0ecdee28c4e498f129f9",
+    "patches/0003-fart-direct-entry.patch": "108f0945152ac46dc9ceb70f9f73d7bd0fc97bb2629b652fc1060e75db1271d5",
+    "patches/0004-adapter-lithium-fixes.patch": "f05a5edc1f697f74ccd8cde6d9c4a16fe8bd2b608a851a8bc88eee4a40378ad4",
+    "upstream/Adapter-LICENSE.txt": "87a7602f76c46e06cf59670de6189c5ed9e88fa0ff413d347404ff2de05e6711",
+    "upstream/FART-LICENSE.txt": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331",
+    "upstream/ForgeAutoRenamingTool-1.0.14-sources.jar": "1cf3acb13c14360805a84040266cb12ad467bdd98238b3ba8ec1b115be79782a",
+    "upstream/adapter-core-2.0.43+1.21.1-sources.jar": "7fe14fb8f5c4a737ac5e7e8d9c563b698f3341fc2a58c9074d4d3f2b08e9f4f8"
+  }
+}

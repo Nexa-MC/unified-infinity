@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "outer_version": "2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a",
+  "nested_versions": [
+    {
+      "path": "META-INF/jarjar/runtime-1.0.0+1.21.1.jar",
+      "version": "1.0.0+1.21.1"
+    },
+    {
+      "path": "META-INF/jarjar/org.sinytra.connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-mod.jar",
+      "version": "2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a"
+    }
+  ],
+  "class_definitions_checked": 1300,
+  "duplicate_class_definitions": {},
+  "fabric_loader_owner": [
+    "outer"
+  ],
+  "scope": "Source-built Connector candidate including its two JarJar libraries; external managed-host API inventory remains runtime acceptance scope"
+}

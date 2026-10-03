@@ -136,7 +136,16 @@ final class InfinityRenderer implements AutoCloseable {
             pixels.put((byte) (argb >> 16)).put((byte) (argb >> 8)).put((byte) argb).put((byte) (argb >> 24));
         }
         pixels.flip(); glBindTexture(GL_TEXTURE_2D, textTexture);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, W, H, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        int alignment = glGetInteger(GL_UNPACK_ALIGNMENT), rowLength = glGetInteger(GL_UNPACK_ROW_LENGTH);
+        int skipRows = glGetInteger(GL_UNPACK_SKIP_ROWS), skipPixels = glGetInteger(GL_UNPACK_SKIP_PIXELS);
+        try {
+            glPixelStorei(GL_UNPACK_ALIGNMENT, 1); glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+            glPixelStorei(GL_UNPACK_SKIP_ROWS, 0); glPixelStorei(GL_UNPACK_SKIP_PIXELS, 0);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, W, H, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        } finally {
+            glPixelStorei(GL_UNPACK_ALIGNMENT, alignment); glPixelStorei(GL_UNPACK_ROW_LENGTH, rowLength);
+            glPixelStorei(GL_UNPACK_SKIP_ROWS, skipRows); glPixelStorei(GL_UNPACK_SKIP_PIXELS, skipPixels);
+        }
     }
     private void draw(boolean textured) {
         int count = vertices.position() / 8; vertices.flip(); glBufferData(GL_ARRAY_BUFFER, vertices, GL_STREAM_DRAW);
@@ -166,10 +175,12 @@ final class InfinityRenderer implements AutoCloseable {
     /** Explicit in-app QA export of our real GL framebuffer, not a screenshot of another app. */
     void exportFrame(java.nio.file.Path destination) throws java.io.IOException {
         int oldRead = glGetInteger(GL_READ_FRAMEBUFFER_BINDING), oldPack = glGetInteger(GL_PIXEL_PACK_BUFFER_BINDING);
-        int alignment = glGetInteger(GL_PACK_ALIGNMENT);
+        int alignment = glGetInteger(GL_PACK_ALIGNMENT), rowLength = glGetInteger(GL_PACK_ROW_LENGTH);
+        int skipRows = glGetInteger(GL_PACK_SKIP_ROWS), skipPixels = glGetInteger(GL_PACK_SKIP_PIXELS);
         ByteBuffer pixels = ByteBuffer.allocateDirect(W * H * 4);
         try {
             glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo); glBindBuffer(GL_PIXEL_PACK_BUFFER, 0); glPixelStorei(GL_PACK_ALIGNMENT, 1);
+            glPixelStorei(GL_PACK_ROW_LENGTH, 0); glPixelStorei(GL_PACK_SKIP_ROWS, 0); glPixelStorei(GL_PACK_SKIP_PIXELS, 0);
             glReadPixels(0, 0, W, H, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
             BufferedImage result = new BufferedImage(W, H, BufferedImage.TYPE_INT_ARGB);
             for (int y = 0; y < H; y++) for (int x = 0; x < W; x++) {
@@ -181,6 +192,7 @@ final class InfinityRenderer implements AutoCloseable {
             if (!javax.imageio.ImageIO.write(result, "png", destination.toFile())) throw new java.io.IOException("PNG encoder unavailable");
         } finally {
             glBindFramebuffer(GL_READ_FRAMEBUFFER, oldRead); glBindBuffer(GL_PIXEL_PACK_BUFFER, oldPack); glPixelStorei(GL_PACK_ALIGNMENT, alignment);
+            glPixelStorei(GL_PACK_ROW_LENGTH, rowLength); glPixelStorei(GL_PACK_SKIP_ROWS, skipRows); glPixelStorei(GL_PACK_SKIP_PIXELS, skipPixels);
         }
     }
     @Override public void close() {

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "milestone": "M5 curated source publication",
+  "validated_on": "2026-10-03",
+  "source_archive_sha256": "7b3b85e3334a48c1b61cc7aaafed605cd9d4525322554828ef80bee4a8b1a672",
+  "tests": {
+    "admission": {
+      "tests": 99,
+      "passed": true
+    },
+    "archive_verifier": {
+      "tests": 5,
+      "passed": true
+    },
+    "registry_harness": {
+      "tests": 16,
+      "passed": true
+    },
+    "standalone_api": {
+      "tests": 22,
+      "passed": true,
+      "fabric_comparison": "compiled against pinned upstream API, not executed in Minecraft"
+    },
+    "loading_core": {
+      "tests": 10,
+      "passed": true
+    },
+    "direct_fart": {
+      "passed": true,
+      "coverage": [
+        "ownership",
+        "ordering",
+        "failure",
+        "cancellation"
+      ]
+    },
+    "preload_headless": {
+      "assertions": 32,
+      "passed": true,
+      "graphics_exercised": false
+    },
+    "branding_text": {
+      "contracts": 10,
+      "passed": true
+    },
+    "adapter_repair": {
+      "parameter_tests": 31,
+      "parameter_checks": 429,
+      "postprocess_checks": 79,
+      "failures": 0,
+      "tested_core_sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+      "compiled_export_test_sources_against_existing_frozen_artifact": true,
+      "baseline_negative_control": "expected original annotation-count and ASM serialization failure reproduced"
+    }
+  },
+  "source_reconstruction": {
+    "digest_pinned_inputs": 8,
+    "archive_files_exactly_matched": 331,
+    "build_identity_source_inputs_exactly_matched": 316,
+    "ordinary_clone_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a"
+  },
+  "scope_limits": [
+    "No fresh full core Gradle build was run for this publication; recorded M5 build/repeat evidence is retained",
+    "No new Minecraft server/client or graphics run was performed for this publication",
+    "Core regression tests used the already built, hash-verified frozen M5 core and official prepared fixture libraries",
+    "Captured game screenshots, raw runtime logs, worlds, game binaries, private account data and credentials are omitted",
+    "The corrected host notice resource can change a rebuilt host digest; the historical tested host hash remains unchanged as evidence",
+    "Later hopper and mixed-pack work is not part of this snapshot"
+  ]
+}

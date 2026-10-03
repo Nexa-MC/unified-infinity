@@ -1,27 +1,48 @@
-This host is an independent packaging/integration prototype, not Sinytra's work.
-The host does not claim ownership of or reimplement the Fabric compatibility
-engine, Fabric Loader, Fabric API, or Forgified Fabric API.
+Unified Infinity is an independent packaging and source-integration prototype.
+It does not claim to have created the upstream compatibility engine, Fabric
+Loader, Fabric API, Forgified Fabric API, Connector, FART or Adapter.
 
 Bundled dependency:
   Forgified Fabric API 0.116.7+2.2.1+1.21.1
   Sinytra and FabricMC contributors
   https://github.com/Sinytra/ForgifiedFabricAPI
   Apache License 2.0; see licenses/FFAPI-Apache-2.0.txt
-  The aggregate and all nested modules are copied without modification.
+  The aggregate and nested API module payloads are retained without modification.
+  Original logical module IDs, manifests, authors, resources, mixin configuration,
+  access rules and notices remain credited to their upstream contributors.
 
-Companion dependency (present only in the runtime distribution ZIP):
-  Sinytra Connector 2.0.0-beta.17+1.21.1
+Companion managed core in the M5 profile:
+  Source-derived Sinytra Connector 2.0.0-beta.17+1.21.1
+  Upstream commit 8b27f1ad042aae8037bcc522b321c03fcce1a12a
   Copyright (c) 2023 Su5eD and project contributors
   https://github.com/Sinytra/Connector
   MIT License; see licenses/Connector-MIT.txt
-  The official full JAR is copied without modification; its bundled components
-  remain upstream components under their respective licenses.
+  The M5 core is a disclosed complete-source derived build, not an unchanged
+  official Connector JAR. It includes the modified Connector ownership/progress
+  integration, complete FART 1.0.14 source, and complete Adapter core
+  2.0.43+1.21.1 source with three documented Lithium compatibility repairs.
+  Existing service-provider descriptors are retained. The derived manifest,
+  implementation version, JarJar identity and cache identity are intentionally
+  distinct from the upstream release.
 
-The FFAPI aggregate's module manifests, IDs, authors, resources, mixin configs,
-access wideners/transformers, and nested JARs are retained verbatim. Connector's
-manifest and service-provider declarations are retained verbatim.
+Corresponding source and component licenses:
+  source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip
+  SHA-256: 7b3b85e3334a48c1b61cc7aaafed605cd9d4525322554828ef80bee4a8b1a672
+  source-workspace/source-lock.json and source-workspace/patches/
+  Connector: MIT; integrated-loader/LICENSE
+  Adapter core: MIT; source-workspace/upstream/Adapter-LICENSE.txt
+  FART: LGPL-2.1; source-workspace/upstream/FART-LICENSE.txt
+  Complete source, source archives, modification records and reconstruction
+  instructions accompany the source distribution. The FART AsyncHelper changes
+  retain their modification notice and original upstream copyright/license.
 
-This notice is not a complete legal audit of upstream transitive components.
-Before public redistribution, audit the notices/licenses of every component
-bundled by those upstream projects and choose a license for the host source.
-No Minecraft binaries are distributed by this project.
+Forgified Fabric Loader, Adapter runtime and NeoForge/FML/Minecraft host
+components remain pinned external dependencies under their own licenses.
+This notice does not replace any original license or assert one blanket license
+for the host/API/UI/tooling source or the complete mixed-license distribution.
+No Minecraft binaries or assets are distributed in this source repository.
+
+Publication correction: this notice supersedes the older statement that the
+companion Connector JAR was unchanged. It does not alter the recorded hashes of
+already tested immutable M5 artifacts. A host rebuilt with this corrected resource
+can have a different digest and must receive a new artifact pin and regression.

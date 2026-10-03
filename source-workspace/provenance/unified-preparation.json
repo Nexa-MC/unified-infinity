@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "connector_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "status": "prepared-not-built",
+  "seed_source_sha256": "0a3f1db7293b7e813b1b19e87ac60bd6b458bc11e82eee046f72d5190f027d11",
+  "fart_sources_sha256": "1cf3acb13c14360805a84040266cb12ad467bdd98238b3ba8ec1b115be79782a",
+  "scope": "complete Connector and complete FART source; other libraries remain pinned binary dependencies"
+}

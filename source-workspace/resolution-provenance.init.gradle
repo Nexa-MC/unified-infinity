@@ -1,0 +1,27 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+
+def target = System.getProperty('infinity.provenance.file')
+if (target != null) {
+    def records = []
+    allprojects { p ->
+        configurations.configureEach { cfg ->
+            cfg.incoming.afterResolve {
+                def row = [project: p.path, configuration: cfg.name, artifacts: []]
+                cfg.resolvedConfiguration.resolvedArtifacts.each { a ->
+                    row.artifacts << [id: a.moduleVersion.id.toString(), classifier: a.classifier,
+                        file: a.file.name, size: a.file.isFile() ? a.file.length() : null,
+                        sha256: a.file.isFile() ? MessageDigest.getInstance('SHA-256').digest(a.file.bytes).encodeHex().toString() : null,
+                        pendingProjectOutput: !a.file.exists(), directory: a.file.isDirectory()]
+                }
+                synchronized(records) {
+                    records << row
+                    def output = new File(target)
+                    output.parentFile.mkdirs()
+                    output.text = JsonOutput.prettyPrint(JsonOutput.toJson([schema:1,
+                        note:'Observed resolved configurations; not a complete dependency lock',configurations:records])) + '\n'
+                }
+            }
+        }
+    }
+}

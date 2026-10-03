@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "source_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "source_modified": false,
+  "CI": "true",
+  "pipeline": "official-MDG-binary-only-game-artifacts",
+  "artifact": "source-workspace/connector/build/libs/connector-2.0.0-beta.17+1.21.1+dev-g8b27f1a-full.jar",
+  "artifact_sha256": "e15fdfa51ae1600e28267698dfbc015c69c5ca1caa19ea0402980e2581046ad1",
+  "log": "logs/full-source-baseline-ci-05.log",
+  "note": "Complete Connector source compiled; Minecraft dependency built through official binary-only pipeline; no runtime launch"
+}

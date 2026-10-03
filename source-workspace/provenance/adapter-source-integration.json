@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "source-prepared-not-built",
+  "module": "org.sinytra.adapter:core:2.0.43+1.21.1",
+  "sources_jar_sha256": "7fe14fb8f5c4a737ac5e7e8d9c563b698f3341fc2a58c9074d4d3f2b08e9f4f8",
+  "source_file_count": 163,
+  "patch_sha256": "2285ce0c9fc5da8632b6ed6d47370ec5b3a24532756334f0122b5746adb9dfe1",
+  "validated_experiment_sha256": "6acb0706519701e6816221a739e8f6d11d0bf280369ba87764b63f8345ef679c",
+  "patched_sources": [
+    {
+      "path": "org/sinytra/adapter/transform/param/RemoveParameterTransformer.java",
+      "sha256": "e1ce40b765c582cfa937aefae0e0337b6a5f1234a4a55e44fc4ca19492bbd1c0"
+    },
+    {
+      "path": "org/sinytra/adapter/patch/mixin/RedirectMixin.java",
+      "sha256": "9d844dcd5171617f591f1beb8faad9a38552325dc4df6edcc0526a333fc7eed0"
+    },
+    {
+      "path": "org/sinytra/adapter/patch/mixin/InjectMixin.java",
+      "sha256": "5b13fa28522c2c50c13e9badcf386a5d2fffe6e92d3a7dfd5e26f47e5e8a262a"
+    }
+  ],
+  "license_sha256": "87a7602f76c46e06cf59670de6189c5ed9e88fa0ff413d347404ff2de05e6711"
+}

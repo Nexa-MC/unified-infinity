@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "artifact": "source-workspace/connector-combined/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-full.jar",
+  "artifact_sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+  "cache_identity_sha256": "e6d0b0028e64c9cc6fbad7e36a5f2051aa21fe355245753292199c2951264dc6",
+  "source_identity_inputs": 316,
+  "external_dependency_identity_inputs": 169,
+  "identity_independently_reproduced": true,
+  "compiled_source_components": {
+    "infinity-core": {
+      "compiled_classes": 8,
+      "all_packaged": true,
+      "java_sources": 4
+    },
+    "infinity-adapter": {
+      "compiled_classes": 245,
+      "all_packaged": true,
+      "java_sources": 163
+    },
+    "infinity-fart": {
+      "compiled_classes": 64,
+      "all_packaged": true,
+      "java_sources": 28
+    }
+  },
+  "service_descriptors_unchanged_from_source_baseline": [
+    "META-INF/services/cpw.mods.modlauncher.api.ITransformationService",
+    "META-INF/services/net.neoforged.neoforgespi.coremod.ICoreMod",
+    "META-INF/services/net.neoforged.neoforgespi.locating.IDependencyLocator",
+    "META-INF/services/net.neoforged.neoforgespi.locating.IModFileCandidateLocator"
+  ],
+  "embedded_complete_fart_adapter_sources_match": true,
+  "runtime_validation": "not-run-by-source-worker"
+}

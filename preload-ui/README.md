@@ -80,3 +80,26 @@ The critical contract is that rendering must stop using the background context b
 These captures are native framebuffer evidence, not evidence of reaching Minecraft's main menu by themselves. Pair them with the actual game log and CUA screen observation. Capture I/O makes QA runs unsuitable for normal loading-performance comparisons.
 
 The native harness also supports `./native-harness.sh --reduced-motion`. It checks that two real framebuffer exports four seconds apart are byte-identical while no loader event occurs. This tests stationary reduced-motion presentation without fabricating progress.
+
+## Verified client integration and branding
+
+The official ModDevGradle `forgeclientdev` launch reached the actual Minecraft
+1.21.1 main menu with 49 mods. Source snapshots, same-window context handoff,
+NeoForge GAME-overlay rendering, successful resource reload and renderer cleanup
+were verified together. The first development attempt exposed Connector's
+supported `connector.clean.path` requirement; exporting NFRT's official
+`vanillaDeobfuscated` artifact resolved it without changing Connector code.
+
+The final host bundle includes narrow client-only main-menu/window-title hooks
+under `runtime-bundle/src/client-branding`. Actual main-menu branding is
+`Unified ∞ Infinity (49 mods)` and the window title is
+`Unified ∞ Infinity | Minecraft 1.21.1`. Minecraft's copyright and NeoForge
+21.1.219 in the Mods technical view were visually verified as preserved.
+
+See `../docs/M5-FULL-SOURCE-ACCEPTANCE.md` and the retained
+`reports/client-attempts/05-source-built-client/acceptance.json` for exact hashes,
+test scope and remaining untested environments. Captured game images are omitted
+from this source publication.
+The optional `--animation` native harness capture records real framebuffer
+samples; `tools/encode_animation.py` encodes them into a GIF with measured
+capture timing and no interpolated frames or synthetic loader progress.

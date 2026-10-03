@@ -1,0 +1,74 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.143'
+}
+
+layout.buildDirectory = file('../../../run/client-dev/development-build')
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    enable {
+        version = '21.1.219'
+        disableRecompilation = true
+    }
+    runs {
+        client {
+            client()
+            jvmArguments = ['-Xms512M', '-Xmx2G']
+            systemProperty 'unified.infinity.maxWorkers', '4'
+            systemProperty 'connector.clean.path', file('../../../run/client-dev/development-build/moddev/artifacts/minecraft-1.21.1-clean.jar').absolutePath
+            gameDirectory = file('../../../run/client-dev/development-game')
+            systemProperty 'unified.infinity.qaDirectory', file('../../../preload-ui/reports/client-qa-next').absolutePath
+            systemProperty 'unified.infinity.progressFile', file('../../../run/client-dev/development-game/compat-progress.json').absolutePath
+        }
+    }
+}
+
+// Resolve the exact JavaExec runtime inputs without calling RunGameTask.exec().
+// prepareClientRun generates argument files but does not resolve DevLaunch.
+def verifyProfileMods = {
+    def lockFile = file('../../../run/client-dev/development-game/profile-mods.lock.json')
+    def lock = new groovy.json.JsonSlurper().parse(lockFile)
+    def root = file('../../..')
+    def expectedNames = lock.mods.collect { new File(it.path).name }.sort()
+    def actualNames = file('../../../run/client-dev/development-game/mods').listFiles()
+        .findAll { it.name.endsWith('.jar') }.collect { it.name }.sort()
+    if (actualNames != expectedNames) throw new GradleException('Client mod set differs from the frozen profile')
+    lock.mods.each { item ->
+        def jar = new File(root, item.path)
+        def actual = java.security.MessageDigest.getInstance('SHA-256').digest(jar.bytes).encodeHex().toString()
+        if (actual != item.sha256) throw new GradleException("Frozen client artifact changed: ${item.path}")
+    }
+    return lock.mods
+}
+tasks.named('runClient') {
+    doFirst { verifyProfileMods() }
+}
+tasks.register('prepareClientLaunch') {
+    group = 'mod development'
+    description = 'Resolves the actual runClient classpath without launching the game.'
+    dependsOn 'classes', 'prepareClientRun'
+    doLast {
+        def run = tasks.named('runClient').get()
+        def runtimeFiles = (run.classpath.files + run.classpathProvider.files).toList().unique()
+        def missingJars = runtimeFiles.findAll { it.name.endsWith('.jar') && !it.isFile() }
+        if (!missingJars.empty) throw new GradleException("Missing runClient runtime JARs: ${missingJars}")
+        def manifest = [
+            mainClass: run.mainClass.get(),
+            gameDirectory: run.gameDirectory.get().asFile.absolutePath,
+            classpath: runtimeFiles.collect { it.absolutePath },
+            jvmArgs: run.jvmArgs,
+            args: run.args,
+            profileMods: verifyProfileMods(),
+            gameLaunched: false
+        ]
+        def out = file('../../../run/client-dev/development-build/moddev/client-launch-inputs.json')
+        out.parentFile.mkdirs()
+        out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(manifest)) + '\n'
+        println "Resolved actual runClient runtime: ${runtimeFiles.size()} entries; main=${manifest.mainClass}; game not launched."
+    }
+}
+
+// Supported NFRT export of the clean deobfuscated input before NeoForge patches.
+tasks.named('createMinecraftArtifacts') {
+    additionalResults.put('vanillaDeobfuscated', file('../../../run/client-dev/development-build/moddev/artifacts/minecraft-1.21.1-clean.jar'))
+}

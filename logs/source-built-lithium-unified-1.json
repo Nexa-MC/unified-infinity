@@ -1,0 +1,42 @@
+{
+  "profile": "unified",
+  "cycle": 1,
+  "timestamp_utc": "2026-10-03T08:40:30.255001+00:00",
+  "passed": true,
+  "exit_code": 0,
+  "timed_out": false,
+  "ready": true,
+  "saved": true,
+  "all_dimensions_saved": true,
+  "persistent_score_verified": true,
+  "lithium_version_in_log": true,
+  "lithium_config_code_executed": true,
+  "same_original_fabric_jar": true,
+  "input_mod_sha256": {
+    "lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+    "unified-infinity-0.1.0-dev.jar": "3802215d427501040a432a54e1304e50bbd6758a4610efeea46b0a479641b61e",
+    "unified-infinity-connector-2.0.0-beta.17+1.21.1-derived.jar": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+    "unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99"
+  },
+  "world_before": {},
+  "world_after": {
+    "session.lock": "51643361c79ecaef25a8de802de24f570ba25d9c2df1d22d94fade11b4f466cc",
+    "level.dat": "4e781f33ea7723af9c55415d376dd0a645b27346be408816a3fad1962d367e9e",
+    "level.dat_old": "34a57bd6b61d0d4084dfb3e7533453b4df1c6ee1d57a7fd59bbeb67950536367",
+    "region/r.-1.-1.mca": "ea563877f0fa64a1e42e0d5119e93350ace548ef172810f1dbf27201d49d3048",
+    "region/r.-1.0.mca": "9225e700db3482f66a4f4ad3b1e85e63f8df1618d563943d92cde10283fa9671",
+    "data/raids.dat": "5dc7bb31f249afb9019aa0ba18342f74cdefb31acd10b7d5743252ce04aa5efb",
+    "data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "data/scoreboard.dat": "2ae8090f7b676a937e8b38dd235cd8192e83d631507ff4e1f57907d8f7e2fe93",
+    "serverconfig/readme.txt": "b1022ab932f8f0ea0cf78d9f312e95b85a4f96f59ca430e63f9a435e512d1186",
+    "poi/r.-1.-1.mca": "d22621078ae95bb64e3b4215285dd29cd13aa636f2dd59d8657807816d9ea233",
+    "entities/r.-1.-1.mca": "965f4f70a408401862d4cb984323c4b6cbcc5dc15fad5c8fd9996fe030436d51",
+    "DIM-1/data/raids.dat": "5dc7bb31f249afb9019aa0ba18342f74cdefb31acd10b7d5743252ce04aa5efb",
+    "DIM-1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "DIM1/data/raids_end.dat": "5dc7bb31f249afb9019aa0ba18342f74cdefb31acd10b7d5743252ce04aa5efb",
+    "DIM1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562"
+  },
+  "profile_network": "127.0.0.1:25573; online-mode=true; RCON/query disabled",
+  "duration_seconds": 31.942,
+  "scope": "Unchanged Lithium server binary create/save/reopen. No performance, player, client/render, or exhaustive Mixin claim."
+}

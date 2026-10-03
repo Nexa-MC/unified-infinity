@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "status": "pass",
+  "compared_files": 188,
+  "differences": [],
+  "note": "Patch reconstruction only; no source compilation or game launch"
+}

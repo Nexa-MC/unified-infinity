@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "status": "completed-source-build-and-focused-tests-awaiting-runtime-acceptance",
+  "artifact": "source-workspace/artifacts/unified-infinity-source-connector-adapter-fart-1.21.1.jar",
+  "artifact_sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+  "sources": "source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip",
+  "sources_sha256": "7b3b85e3334a48c1b61cc7aaafed605cd9d4525322554828ef80bee4a8b1a672",
+  "repeat_build": {
+    "status": "byte-identical",
+    "command": "CI=true python3 source-workspace/gradle-build.py --unified fullJar --offline --rerun-tasks --stacktrace",
+    "log": "logs/full-source-combined-reproducibility-10.log",
+    "all_tasks_executed": 31,
+    "scope": "same pinned source and observed dependency cache; not cross-environment bitwise reproducibility proof"
+  },
+  "regressions": {
+    "parameter_tests": 31,
+    "parameter_checks": 429,
+    "postprocess_checks": 79,
+    "failures": 0,
+    "baseline_negative_control": "expected-failure-confirmed",
+    "shared_core_tests": 10,
+    "direct_fart_ownership_tests": "passed"
+  },
+  "cache_identity": "e6d0b0028e64c9cc6fbad7e36a5f2051aa21fe355245753292199c2951264dc6",
+  "runtime_launches_by_this_worker": 0,
+  "live_build_sessions": 0,
+  "remaining_binary_dependencies": [
+    "Forgified Fabric Loader",
+    "Forgified Fabric API",
+    "Sinytra Adapter runtime",
+    "NeoForge/FML/Minecraft host dependencies"
+  ],
+  "upstream_snapshot_dependency": "Recorded userdev 1.2.1-20260813.224440-42; build still declares 1.2.1-SNAPSHOT and is not fully dependency-locked"
+}

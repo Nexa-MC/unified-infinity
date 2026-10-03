@@ -1,0 +1,40 @@
+// Compile the late client-only hooks against the exact prepared official runtime.
+// No client class is referenced by the common @Mod entry point or early SPI.
+def clientManifest = providers.gradleProperty('clientClasspathManifest')
+    .map { file(it) }
+    .orElse(file('../run/client-dev/development-build/moddev/client-launch-inputs.json'))
+def clientLibraries = providers.provider {
+    File manifest = clientManifest.get()
+    if (!manifest.isFile()) throw new GradleException('Client branding requires the official prepared client classpath. Run tools/client-setup preparation or pass -PclientClasspathManifest=/path/client-launch-inputs.json')
+    def parsed = new groovy.json.JsonSlurper().parse(manifest)
+    parsed.classpath.findAll { it.endsWith('.jar') }.collect { file(it) }
+}
+sourceSets {
+    clientBranding {
+        java.srcDir 'src/client-branding/java'
+        resources.srcDir 'src/client-branding/resources'
+        compileClasspath = files(clientLibraries)
+    }
+    clientBrandingTest {
+        java.srcDir 'src/client-branding-test/java'
+        compileClasspath = sourceSets.clientBranding.output
+        runtimeClasspath = output + compileClasspath
+    }
+}
+tasks.named('compileClientBrandingJava') {
+    options.compilerArgs.add('-proc:none')
+    inputs.file(clientManifest)
+}
+tasks.named('jar') {
+    from sourceSets.clientBranding.output
+}
+tasks.named('sourcesJar') {
+    from sourceSets.clientBranding.allSource
+}
+tasks.register('testClientBranding', JavaExec) {
+    group = 'verification'
+    dependsOn tasks.named('clientBrandingTestClasses')
+    classpath = sourceSets.clientBrandingTest.runtimeClasspath
+    mainClass = 'dev.modcompat.runtime.branding.BrandingTextTests'
+}
+tasks.named('check') { dependsOn 'testClientBranding' }

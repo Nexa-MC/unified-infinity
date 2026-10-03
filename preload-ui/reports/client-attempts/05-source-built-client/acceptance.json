@@ -1,0 +1,211 @@
+{
+  "test": "05-source-built-client",
+  "result": "PASS",
+  "scope": "Actual official Minecraft 1.21.1 / NeoForge 21.1.219 development client; same four direct JARs and parity probe 0.2.0; no extra mod corpus",
+  "mods": [
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-source-connector-adapter-fart-1.21.1.jar",
+      "source": "source-workspace/artifacts/unified-infinity-source-connector-adapter-fart-1.21.1.jar",
+      "bytes": 4928799,
+      "sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e"
+    },
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-0.1.0-dev.jar",
+      "source": "runtime-bundle/build/libs/unified-infinity-0.1.0-dev.jar",
+      "bytes": 5573905,
+      "sha256": "3802215d427501040a432a54e1304e50bbd6758a4610efeea46b0a479641b61e"
+    },
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-preload-0.1.0-dev.jar",
+      "source": "preload-ui/build/libs/unified-infinity-preload-0.1.0-dev.jar",
+      "bytes": 48945,
+      "sha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99"
+    },
+    {
+      "path": "run/client-dev/development-game/mods/compat-parity-probe-0.2.0.jar",
+      "source": "unchanged previous profile probe",
+      "bytes": 5542,
+      "sha256": "51b7586dc1faf13f5a8f2b333e6e4a20179e489cbbb9deb432478e30a5a399da"
+    }
+  ],
+  "officialRuntimeEntries": 97,
+  "cache": "Previous Connector cache archived before launch; log confirms 1 uncached JAR transformed",
+  "sourceProgress": {
+    "stage": "commit",
+    "status": "complete",
+    "completed": null,
+    "total": null,
+    "elapsedMs": 3172,
+    "sequence": 10
+  },
+  "capturedStages": [
+    "frame-source-discover-running",
+    "frame-source-transform-running",
+    "frame-source-commit-running",
+    "frame-source-commit-complete"
+  ],
+  "lifecycleEvents": [
+    {
+      "event": "initialized",
+      "observedAtEpochMs": 1791017089400
+    },
+    {
+      "event": "frame-source-discover-running",
+      "observedAtEpochMs": 1791017090329,
+      "sourceSnapshot": {
+        "stage": "discover",
+        "status": "running",
+        "elapsedMs": 0,
+        "sequence": 1
+      }
+    },
+    {
+      "event": "frame-source-transform-running",
+      "observedAtEpochMs": 1791017090430,
+      "sourceSnapshot": {
+        "stage": "transform",
+        "status": "running",
+        "completed": 0,
+        "total": 1,
+        "elapsedMs": 212,
+        "sequence": 6
+      }
+    },
+    {
+      "event": "frame-source-commit-running",
+      "observedAtEpochMs": 1791017093175,
+      "sourceSnapshot": {
+        "stage": "commit",
+        "status": "running",
+        "elapsedMs": 2882,
+        "sequence": 9
+      }
+    },
+    {
+      "event": "frame-source-commit-complete",
+      "observedAtEpochMs": 1791017093441,
+      "sourceSnapshot": {
+        "stage": "commit",
+        "status": "complete",
+        "elapsedMs": 3172,
+        "sequence": 10
+      }
+    },
+    {
+      "event": "game-overlay-contract-bound",
+      "observedAtEpochMs": 1791017095125
+    },
+    {
+      "event": "window-context-handed-off",
+      "observedAtEpochMs": 1791017103781
+    },
+    {
+      "event": "game-overlay-created",
+      "observedAtEpochMs": 1791017105602
+    },
+    {
+      "event": "frame-game-overlay-rendering",
+      "observedAtEpochMs": 1791017105725,
+      "sourceSnapshot": {
+        "stage": "commit",
+        "status": "complete",
+        "elapsedMs": 3172,
+        "sequence": 10
+      }
+    },
+    {
+      "event": "host-reload-succeeded",
+      "observedAtEpochMs": 1791017109134
+    },
+    {
+      "event": "frame-host-reload-succeeded",
+      "observedAtEpochMs": 1791017109162,
+      "sourceSnapshot": {
+        "stage": "commit",
+        "status": "complete",
+        "elapsedMs": 3172,
+        "sequence": 10
+      }
+    },
+    {
+      "event": "closed-render-resources",
+      "observedAtEpochMs": 1791017111168
+    }
+  ],
+  "visualVerification": {
+    "mainMenu": true,
+    "windowTitle": "Unified \u221e Infinity | Minecraft 1.21.1",
+    "footer": "Unified \u221e Infinity (49 mods)",
+    "minecraftCopyrightVisible": true,
+    "screenshot": "source-built-main-menu.png",
+    "observedBy": "scoped CUA game window and Minecraft F2 export"
+  },
+  "gracefulExit": {
+    "log": "Stopping!",
+    "gradle": "BUILD SUCCESSFUL in 1m 20s"
+  },
+  "renderingEnvironment": "Same cloud DISPLAY :0; Mesa llvmpipe software OpenGL from native harness baseline; this run was not a physical GPU test",
+  "limitations": [
+    "Main-menu acceptance only; no world opened or game-server connection",
+    "Linux cloud audio device unavailable; game disabled audio",
+    "Ordinary unauthenticated development profile/public-key lookups received Connection refused",
+    "No Lithium client coverage or expanded compatibility corpus"
+  ],
+  "artifacts": [
+    {
+      "path": "client-launch-inputs.json",
+      "bytes": 22657,
+      "sha256": "2824f4291efa2d4d01ffb03f3ea2c7f50ab885e0d3e72075b9e273fc6d6ca303"
+    },
+    {
+      "path": "client-setup-baseline-lock.json",
+      "bytes": 6379,
+      "sha256": "3d7bced8acfe5fc3cddd1892824f9e8fce7174a36e65a18f164649a919357096"
+    },
+    {
+      "path": "clientRunProgramArgs.txt",
+      "bytes": 443,
+      "sha256": "e550b85285a7285b28a75e493db0be3371b8a4b32dce11f9a9dca7064e541f2b"
+    },
+    {
+      "path": "clientRunVmArgs.txt",
+      "bytes": 2745,
+      "sha256": "e3ce8a497b76cb975e3f6791e794b06f9cb5de11eaf9968d77a1d4126acdd834"
+    },
+    {
+      "path": "debug.log",
+      "bytes": 28501,
+      "sha256": "4295fe6bb2aa5c14cb0953e31d737e80a08f3b68dd51022a82da452245cf577f"
+    },
+    {
+      "path": "final-progress.json",
+      "bytes": 100,
+      "sha256": "c5ea38fd3f4b125a6898aecc93d97323b24ecba2e07f7d38f8b328343e5aee22"
+    },
+    {
+      "path": "latest.log",
+      "bytes": 28501,
+      "sha256": "4295fe6bb2aa5c14cb0953e31d737e80a08f3b68dd51022a82da452245cf577f"
+    },
+    {
+      "path": "prepare-launch.log",
+      "bytes": 995,
+      "sha256": "41483ecb3891f12097e95748919f2ebd124774104f53dff7ba7f162c418e6b52"
+    },
+    {
+      "path": "runtime.log",
+      "bytes": 35330,
+      "sha256": "102d15616947763dc4fee8a5143f70c7d7963500b32612126ce1b14daa749d86"
+    },
+    {
+      "path": "source-built-main-menu.png",
+      "bytes": 918983,
+      "sha256": "5c6e3520fd2664a7c9478d77c0e65dba08b5964827e151ed188f2e855dc7bb8c"
+    },
+    {
+      "path": "staged-inputs.json",
+      "bytes": 1535,
+      "sha256": "68ff04e323ad13a2ef4f4d717d5e4b4a8b376727a5a292074a2bad316674effd"
+    }
+  ]
+}

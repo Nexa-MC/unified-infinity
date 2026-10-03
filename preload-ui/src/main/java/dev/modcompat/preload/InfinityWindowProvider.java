@@ -1,6 +1,5 @@
 package dev.modcompat.preload;
 
-import java.awt.GraphicsEnvironment;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.util.List;
@@ -61,7 +60,7 @@ public final class InfinityWindowProvider extends DisplayWindow {
     @Override public Runnable initialize(String[] args) {
         if (mainThread != null) throw new IllegalStateException("Infinity provider already initialized");
         mainThread = Thread.currentThread();
-        disabled = Boolean.getBoolean("unified.infinity.headless") || serverTarget(args) || GraphicsEnvironment.isHeadless();
+        disabled = graphicsDisabled(args);
         if (disabled) return () -> { };
         width = argumentInt(args, "--width", 960); height = argumentInt(args, "--height", 540);
         try {
@@ -86,6 +85,10 @@ public final class InfinityWindowProvider extends DisplayWindow {
             closed = true;
             throw new IllegalStateException("Unified Infinity could not initialize its early window", failure);
         }
+    }
+    static boolean graphicsDisabled(String[] args) {
+        // java.awt.headless governs AWT widgets, not GLFW. Minecraft may set it even with a native display.
+        return Boolean.getBoolean("unified.infinity.headless") || serverTarget(args);
     }
     private static boolean serverTarget(String[] args) {
         for (int i = 0; i + 1 < args.length; i++) if (args[i].equals("--launchTarget")) return args[i+1].toLowerCase(java.util.Locale.ROOT).contains("server");

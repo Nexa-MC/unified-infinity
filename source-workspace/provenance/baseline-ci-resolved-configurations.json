@@ -1,0 +1,3733 @@
+{
+    "schema": 1,
+    "note": "Observed resolved configurations; not a complete dependency lock",
+    "configurations": [
+        {
+            "project": ":",
+            "configuration": "shade",
+            "artifacts": [
+                {
+                    "id": "org.sinytra:forgified-fabric-loader:2.5.70+0.19.3+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+                    "size": 3459840,
+                    "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1"
+                },
+                {
+                    "id": "net.fabricmc:class-tweaker:0.3.0",
+                    "classifier": null,
+                    "file": "class-tweaker-0.3.0.jar",
+                    "size": 61827,
+                    "sha256": "83bf284909d13c7b4ae953c3fe141628dfedbe56120217f61891c341f0be2f1f"
+                },
+                {
+                    "id": "org.sinytra:ForgeAutoRenamingTool:1.0.14",
+                    "classifier": null,
+                    "file": "ForgeAutoRenamingTool-1.0.14.jar",
+                    "size": 97402,
+                    "sha256": "22ab8db6f4b6f7d1db2a0d7d8892098609c9e15e048d6b82ced2999605ffeb93"
+                },
+                {
+                    "id": "org.sinytra.adapter:core:2.0.43+1.21.1",
+                    "classifier": null,
+                    "file": "core-2.0.43+1.21.1.jar",
+                    "size": 509254,
+                    "sha256": "41a3564dcea058a5c10c99f10a64aee3dfb688ced42a19bbf8efc77a52a38314"
+                },
+                {
+                    "id": "org.sinytra.connector:transformer:2.0.0-beta.17+1.21.1+dev-g8b27f1a",
+                    "classifier": null,
+                    "file": "transformer-2.0.0-beta.17+1.21.1+dev-g8b27f1a.jar",
+                    "size": 113403,
+                    "sha256": "59cf70112097511ef860f06dc0d67fc039279614fa2868551b6444874d9418bf"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.5.4",
+                    "classifier": null,
+                    "file": "srgutils-0.5.4.jar",
+                    "size": 72075,
+                    "sha256": "77bc2de440968713da0935708548d97c700074bfdbc776db0c2a8b54a0b27d2c"
+                },
+                {
+                    "id": "org.ow2.sat4j:org.ow2.sat4j.pb:2.3.6",
+                    "classifier": null,
+                    "file": "org.ow2.sat4j.pb-2.3.6.jar",
+                    "size": 443025,
+                    "sha256": "24f88ed3315959c414334373ded1c1006278d90e691e6395caf72f1bbb91a7e5"
+                },
+                {
+                    "id": "org.ow2.sat4j:org.ow2.sat4j.core:2.3.6",
+                    "classifier": null,
+                    "file": "org.ow2.sat4j.core-2.3.6.jar",
+                    "size": 439860,
+                    "sha256": "0e7aacdd976dd958291e6a5599bdae0d40246fe1277b7b63a80db0fc92d469d7"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "modJarJar",
+            "artifacts": [
+                
+            ]
+        },
+        {
+            "project": ":transformer",
+            "configuration": "compileClasspath",
+            "artifacts": [
+                {
+                    "id": "org.jetbrains:annotations:13.0",
+                    "classifier": null,
+                    "file": "annotations-13.0.jar",
+                    "size": 17536,
+                    "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-core:2.24.3",
+                    "classifier": null,
+                    "file": "log4j-core-2.24.3.jar",
+                    "size": 1914666,
+                    "sha256": "7eb4084596ae25bd3c61698e48e8d0ab65a9260758884ed5cbb9c6e55c44a56a"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.24.3",
+                    "classifier": null,
+                    "file": "log4j-slf4j2-impl-2.24.3.jar",
+                    "size": 30133,
+                    "sha256": "cdaac22e40ec30c4096e1ebe8c454c8826c0d1c378d7db5d7b3ad166354b0bd3"
+                },
+                {
+                    "id": "org.sinytra.adapter:core:2.0.43+1.21.1",
+                    "classifier": null,
+                    "file": "core-2.0.43+1.21.1.jar",
+                    "size": 509254,
+                    "sha256": "41a3564dcea058a5c10c99f10a64aee3dfb688ced42a19bbf8efc77a52a38314"
+                },
+                {
+                    "id": "org.sinytra:ForgeAutoRenamingTool:1.0.14",
+                    "classifier": null,
+                    "file": "ForgeAutoRenamingTool-1.0.14.jar",
+                    "size": 97402,
+                    "sha256": "22ab8db6f4b6f7d1db2a0d7d8892098609c9e15e048d6b82ced2999605ffeb93"
+                },
+                {
+                    "id": "org.sinytra:forgified-fabric-loader:2.5.70+0.19.3+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+                    "size": 3459840,
+                    "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1"
+                },
+                {
+                    "id": "net.fabricmc:class-tweaker:0.3.0",
+                    "classifier": null,
+                    "file": "class-tweaker-0.3.0.jar",
+                    "size": 61827,
+                    "sha256": "83bf284909d13c7b4ae953c3fe141628dfedbe56120217f61891c341f0be2f1f"
+                },
+                {
+                    "id": "com.mojang:logging:1.2.7",
+                    "classifier": null,
+                    "file": "logging-1.2.7.jar",
+                    "size": 15343,
+                    "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+                },
+                {
+                    "id": "cpw.mods:modlauncher:11.0.4",
+                    "classifier": null,
+                    "file": "modlauncher-11.0.4.jar",
+                    "size": 116200,
+                    "sha256": "790b76e93c1c21c7ab6086237c213bc5297663f9e65176ee5a5e56c40041dc51"
+                },
+                {
+                    "id": "cpw.mods:securejarhandler:3.0.8",
+                    "classifier": null,
+                    "file": "securejarhandler-3.0.8.jar",
+                    "size": 103765,
+                    "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+                },
+                {
+                    "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+                    "classifier": null,
+                    "file": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                    "size": 1494751,
+                    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-api:2.24.3",
+                    "classifier": null,
+                    "file": "log4j-api-2.24.3.jar",
+                    "size": 348513,
+                    "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+                },
+                {
+                    "id": "com.mojang:datafixerupper:8.0.16",
+                    "classifier": null,
+                    "file": "datafixerupper-8.0.16.jar",
+                    "size": 724313,
+                    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+                },
+                {
+                    "id": "net.fabricmc:tiny-remapper:0.11.2",
+                    "classifier": null,
+                    "file": "tiny-remapper-0.11.2.jar",
+                    "size": 223408,
+                    "sha256": "37c15670db5da17e6ffccc3fced1456e17c654d37878d1f85a4eef4bda220536"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.8",
+                    "classifier": null,
+                    "file": "asm-commons-9.8.jar",
+                    "size": 73498,
+                    "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.8",
+                    "classifier": null,
+                    "file": "asm-util-9.8.jar",
+                    "size": 94559,
+                    "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.8",
+                    "classifier": null,
+                    "file": "asm-analysis-9.8.jar",
+                    "size": 35151,
+                    "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.8",
+                    "classifier": null,
+                    "file": "asm-tree-9.8.jar",
+                    "size": 51934,
+                    "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.8",
+                    "classifier": null,
+                    "file": "asm-9.8.jar",
+                    "size": 126113,
+                    "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.5.4",
+                    "classifier": null,
+                    "file": "srgutils-0.5.4.jar",
+                    "size": 72075,
+                    "sha256": "77bc2de440968713da0935708548d97c700074bfdbc776db0c2a8b54a0b27d2c"
+                },
+                {
+                    "id": "com.google.guava:guava:32.1.2-jre",
+                    "classifier": null,
+                    "file": "guava-32.1.2-jre.jar",
+                    "size": 3041591,
+                    "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "org.slf4j:slf4j-api:2.0.16",
+                    "classifier": null,
+                    "file": "slf4j-api-2.0.16.jar",
+                    "size": 69435,
+                    "sha256": "a12578dde1ba00bd9b816d388a0b879928d00bab3c83c240f7013bf4196c579a"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.5.12",
+                    "classifier": null,
+                    "file": "fastutil-8.5.12.jar",
+                    "size": 23326598,
+                    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+                },
+                {
+                    "id": "com.google.code.findbugs:jsr305:3.0.2",
+                    "classifier": null,
+                    "file": "jsr305-3.0.2.jar",
+                    "size": 19936,
+                    "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+                },
+                {
+                    "id": "com.google.guava:failureaccess:1.0.1",
+                    "classifier": null,
+                    "file": "failureaccess-1.0.1.jar",
+                    "size": 4617,
+                    "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+                },
+                {
+                    "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "classifier": null,
+                    "file": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                    "size": 2199,
+                    "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+                },
+                {
+                    "id": "org.checkerframework:checker-qual:3.33.0",
+                    "classifier": null,
+                    "file": "checker-qual-3.33.0.jar",
+                    "size": 223979,
+                    "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+                },
+                {
+                    "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+                    "classifier": null,
+                    "file": "error_prone_annotations-2.18.0.jar",
+                    "size": 16017,
+                    "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+                },
+                {
+                    "id": "com.google.j2objc:j2objc-annotations:2.8",
+                    "classifier": null,
+                    "file": "j2objc-annotations-2.8.jar",
+                    "size": 9301,
+                    "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+                }
+            ]
+        },
+        {
+            "project": ":transformer",
+            "configuration": "annotationProcessor",
+            "artifacts": [
+                
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeExternalTools",
+            "artifacts": [
+                {
+                    "id": "io.codechicken:DiffPatch:2.0.0.36",
+                    "classifier": "all",
+                    "file": "DiffPatch-2.0.0.36-all.jar",
+                    "size": 22580704,
+                    "sha256": "30d1ff26c112bf3a488e1e5a32a345f75ff0ef985c3315b2d987d607e7038580"
+                },
+                {
+                    "id": "net.neoforged.installertools:installertools:4.0.12",
+                    "classifier": "fatjar",
+                    "file": "installertools-4.0.12-fatjar.jar",
+                    "size": 813509,
+                    "sha256": "ba3e9d27d9f5145f829ac94124e3d97b80f027949d690b430305734526f143db"
+                },
+                {
+                    "id": "net.neoforged:AutoRenamingTool:2.0.17",
+                    "classifier": "all",
+                    "file": "AutoRenamingTool-2.0.17-all.jar",
+                    "size": 751270,
+                    "sha256": "e977ee4422efb51eb54cc99f939833cef769de8b4aa1043294ce5400c60f3b1f"
+                },
+                {
+                    "id": "net.neoforged:AutoRenamingTool:2.0.17",
+                    "classifier": null,
+                    "file": "AutoRenamingTool-2.0.17.jar",
+                    "size": 107707,
+                    "sha256": "db39a2c95f8299d23bf3bc81b7c17fcd2693081b7d3fe68f2c7d11ab1ff3cdde"
+                },
+                {
+                    "id": "net.neoforged.jst:jst-cli-bundle:2.0.6",
+                    "classifier": null,
+                    "file": "jst-cli-bundle-2.0.6.jar",
+                    "size": 57944672,
+                    "sha256": "14e1f20d33d1e6dde9d3714f7e9d5f0631d90639db96eb1a56289e3e0dddd790"
+                },
+                {
+                    "id": "net.minecraftforge:mergetool:1.1.7",
+                    "classifier": "fatjar",
+                    "file": "mergetool-1.1.7-fatjar.jar",
+                    "size": 467912,
+                    "sha256": "2fbb74386cc9f9f4e816d2b5167ed9274c0864eae532d658e34587b2a47857e8"
+                },
+                {
+                    "id": "net.covers1624:Quack:0.4.10.101",
+                    "classifier": null,
+                    "file": "Quack-0.4.10.101.jar",
+                    "size": 417120,
+                    "sha256": "22afc1694fd7ff99d71fce3544d54c3bd81df71ef1a83e96ced1daba19cf68e6"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.3.1",
+                    "classifier": null,
+                    "file": "fastutil-8.3.1.jar",
+                    "size": 19011744,
+                    "sha256": "1ee5da1ebfdc86ab9574be3cc290769f319df901ae95932a118889b7c63636b9"
+                },
+                {
+                    "id": "org.apache.commons:commons-lang3:3.9",
+                    "classifier": null,
+                    "file": "commons-lang3-3.9.jar",
+                    "size": 503880,
+                    "sha256": "de2e1dcdcf3ef917a8ce858661a06726a9a944f28e33ad7f9e08bea44dc3c230"
+                },
+                {
+                    "id": "org.apache.commons:commons-compress:1.18",
+                    "classifier": null,
+                    "file": "commons-compress-1.18.jar",
+                    "size": 591748,
+                    "sha256": "5f2df1e467825e4cac5996d44890c4201c000b43c0b23cffc0782d28a0beb9b0"
+                },
+                {
+                    "id": "net.neoforged.installertools:binarypatcher:4.0.12",
+                    "classifier": null,
+                    "file": "binarypatcher-4.0.12.jar",
+                    "size": 37543,
+                    "sha256": "0ba74c89a9b1f2e32df8150b4dd90904584e4343c79fc5d66706588d2a5b6ae4"
+                },
+                {
+                    "id": "org.tukaani:xz:1.10",
+                    "classifier": null,
+                    "file": "xz-1.10.jar",
+                    "size": 168569,
+                    "sha256": "95c63c1a55b22dd6453890a419cc1a640f790bbf7d8ae82db1e30aefefb08888"
+                },
+                {
+                    "id": "net.sf.jopt-simple:jopt-simple:6.0-alpha-3",
+                    "classifier": null,
+                    "file": "jopt-simple-6.0-alpha-3.jar",
+                    "size": 79368,
+                    "sha256": "d440ceb839d6adb5cfa81aa321813d60255e68a3e9ca564c91126599310abde5"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.5",
+                    "classifier": null,
+                    "file": "asm-util-9.5.jar",
+                    "size": 91076,
+                    "sha256": "c467f1bb3c08888f47243e2d475209b34a772d627e44fca06752e18bb038bd74"
+                },
+                {
+                    "id": "net.neoforged:accesstransformers:13.0.1",
+                    "classifier": null,
+                    "file": "accesstransformers-13.0.1.jar",
+                    "size": 18860,
+                    "sha256": "d7354d343b276466d68856d93a78e90838eb2e729fb1a10d9425dbcb186f5a22"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.9.1",
+                    "classifier": null,
+                    "file": "asm-commons-9.9.1.jar",
+                    "size": 75010,
+                    "sha256": "c2319e014ce7199f2b7f7d56d6bb991863168c3f4b6cd6c9f542a4937ef7ef88"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.5",
+                    "classifier": null,
+                    "file": "asm-analysis-9.5.jar",
+                    "size": 33978,
+                    "sha256": "39f1cf1791335701c3b02cae7b2bc21057ec9a55b2240789cb6d552b2b2c62fa"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.9.1",
+                    "classifier": null,
+                    "file": "asm-tree-9.9.1.jar",
+                    "size": 51963,
+                    "sha256": "0f3555096b720b820bbacab0b515589bee0200bee099bda14c561738ae837ba1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.9.1",
+                    "classifier": null,
+                    "file": "asm-9.9.1.jar",
+                    "size": 126252,
+                    "sha256": "6f3828a215c920059a5efa2fb55c233d6c54ec5cadca99ce1b1bdd10077c7ddd"
+                },
+                {
+                    "id": "net.neoforged.javadoctor:gson-io:2.0.17",
+                    "classifier": null,
+                    "file": "gson-io-2.0.17.jar",
+                    "size": 5747,
+                    "sha256": "de40a10adb58105e84864dff41e3ef490d87411afa390d86a940c74a6bf69821"
+                },
+                {
+                    "id": "net.neoforged:srgutils:1.0.0",
+                    "classifier": null,
+                    "file": "srgutils-1.0.0.jar",
+                    "size": 71421,
+                    "sha256": "16663ae2504a0522cca386af6c11281d3fde61d25b6bd2690d7200e900b26c36"
+                },
+                {
+                    "id": "net.neoforged.installertools:cli-utils:4.0.12",
+                    "classifier": null,
+                    "file": "cli-utils-4.0.12.jar",
+                    "size": 7745,
+                    "sha256": "e8e2c41f0b058689acfbacd4204a7e32ec5d0b28e02c4020f788003ca26e77a5"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.4.15",
+                    "classifier": null,
+                    "file": "srgutils-0.4.15.jar",
+                    "size": 69393,
+                    "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "de.siegmar:fastcsv:2.0.0",
+                    "classifier": null,
+                    "file": "fastcsv-2.0.0.jar",
+                    "size": 29476,
+                    "sha256": "665d52cb6f35ca236919be9ac81653c208628507f91d6bf13479bc11496db616"
+                },
+                {
+                    "id": "com.nothome:javaxdelta:2.0.1",
+                    "classifier": null,
+                    "file": "javaxdelta-2.0.1.jar",
+                    "size": 38995,
+                    "sha256": "a661dfcb749053fc26eada2a0a8e619a8ead1ca9eda29e1698687aa2cdd80152"
+                },
+                {
+                    "id": "net.neoforged.javadoctor:spec:2.0.17",
+                    "classifier": null,
+                    "file": "spec-2.0.17.jar",
+                    "size": 6266,
+                    "sha256": "67d6fdde98770e91e82303fde1ce5560f12081b733da07bfa7bac71968a93dff"
+                },
+                {
+                    "id": "trove:trove:1.0.2",
+                    "classifier": null,
+                    "file": "trove-1.0.2.jar",
+                    "size": 361155,
+                    "sha256": "ad68a86cfd0255a2bc0525ce11ec49640caea7e34ff91eb89c3193dcccd77f05"
+                },
+                {
+                    "id": "net.neoforged.accesstransformers:at-parser:13.0.1",
+                    "classifier": null,
+                    "file": "at-parser-13.0.1.jar",
+                    "size": 19698,
+                    "sha256": "4576507635fd434a47668bd13ab11209ba036cab682616b3e1082637939fb2fc"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeDependenciesNeoForgeClasses",
+            "artifacts": [
+                {
+                    "id": "net.neoforged:neoforge:21.1.219",
+                    "classifier": "userdev",
+                    "file": "neoforge-21.1.219-userdev.jar",
+                    "size": 3978801,
+                    "sha256": "69c4eca3c24485825bc20a1db7e2ab941b554cce51cf95462c1df06fcd9cee6b"
+                },
+                {
+                    "id": "net.neoforged:neoform:1.21.1-20240808.144430",
+                    "classifier": null,
+                    "file": "neoform-1.21.1-20240808.144430.zip",
+                    "size": 1683830,
+                    "sha256": "3fcdf0f0d115774cfceaf206a05a6dc964e2189bfd00f5b5f863e37f4b7733c7"
+                },
+                {
+                    "id": "org.vineflower:vineflower:1.10.1",
+                    "classifier": null,
+                    "file": "vineflower-1.10.1.jar",
+                    "size": 1778509,
+                    "sha256": "b9b208e50793b64657a6b6292067526613f549de7405f9243624b02f4276e409"
+                },
+                {
+                    "id": "net.neoforged:mergetool:2.0.3",
+                    "classifier": "fatjar",
+                    "file": "mergetool-2.0.3-fatjar.jar",
+                    "size": 467899,
+                    "sha256": "3dbd19d9489348e838b1bedcf7ffd6d9810dac40543f3c34d3bcf6e39e674922"
+                },
+                {
+                    "id": "net.neoforged:AutoRenamingTool:2.0.3",
+                    "classifier": "all",
+                    "file": "AutoRenamingTool-2.0.3-all.jar",
+                    "size": 746919,
+                    "sha256": "43fcb978664ba04fc0b3b1b1a14eccabb4bc87b7a415e0eb8bdd1c2f12324321"
+                },
+                {
+                    "id": "net.neoforged.installertools:installertools:2.1.2",
+                    "classifier": "fatjar",
+                    "file": "installertools-2.1.2-fatjar.jar",
+                    "size": 5742231,
+                    "sha256": "9fe7c6df17299f661b9cd07fc1c4e85493b63efae6bb9da0255a97d9d0a87c60"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeDependenciesNeoForgeSources",
+            "artifacts": [
+                {
+                    "id": "net.neoforged:neoforge:21.1.219",
+                    "classifier": "sources",
+                    "file": "neoforge-21.1.219-sources.jar",
+                    "size": 1774876,
+                    "sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeDependenciesCompileClasspath",
+            "artifacts": [
+                {
+                    "id": "net.neoforged.fancymodloader:loader:4.0.42",
+                    "classifier": null,
+                    "file": "loader-4.0.42.jar",
+                    "size": 504899,
+                    "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+                    "classifier": null,
+                    "file": "earlydisplay-4.0.42.jar",
+                    "size": 261718,
+                    "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+                },
+                {
+                    "id": "net.neoforged:accesstransformers:10.0.1",
+                    "classifier": null,
+                    "file": "accesstransformers-10.0.1.jar",
+                    "size": 67234,
+                    "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+                },
+                {
+                    "id": "net.neoforged:bus:8.0.5",
+                    "classifier": null,
+                    "file": "bus-8.0.5.jar",
+                    "size": 30340,
+                    "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+                },
+                {
+                    "id": "net.neoforged:coremods:7.0.3",
+                    "classifier": null,
+                    "file": "coremods-7.0.3.jar",
+                    "size": 22659,
+                    "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+                },
+                {
+                    "id": "cpw.mods:modlauncher:11.0.5",
+                    "classifier": null,
+                    "file": "modlauncher-11.0.5.jar",
+                    "size": 116486,
+                    "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+                },
+                {
+                    "id": "net.neoforged:mergetool:2.0.3",
+                    "classifier": "api",
+                    "file": "mergetool-2.0.3-api.jar",
+                    "size": 2550,
+                    "sha256": "e13e61c0437d6db17e7b3581ff261292015dcd9e11683f5a365b4b9a5c192283"
+                },
+                {
+                    "id": "com.electronwill.night-config:toml:3.8.3",
+                    "classifier": null,
+                    "file": "toml-3.8.3.jar",
+                    "size": 39516,
+                    "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+                },
+                {
+                    "id": "com.electronwill.night-config:core:3.8.3",
+                    "classifier": null,
+                    "file": "core-3.8.3.jar",
+                    "size": 382911,
+                    "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+                },
+                {
+                    "id": "net.neoforged:JarJarSelector:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarSelector-0.4.1.jar",
+                    "size": 17168,
+                    "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+                },
+                {
+                    "id": "net.neoforged:JarJarMetadata:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarMetadata-0.4.1.jar",
+                    "size": 15648,
+                    "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+                },
+                {
+                    "id": "org.apache.maven:maven-artifact:3.8.5",
+                    "classifier": null,
+                    "file": "maven-artifact-3.8.5.jar",
+                    "size": 58077,
+                    "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+                },
+                {
+                    "id": "net.jodah:typetools:0.6.3",
+                    "classifier": null,
+                    "file": "typetools-0.6.3.jar",
+                    "size": 18281,
+                    "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+                },
+                {
+                    "id": "net.minecrell:terminalconsoleappender:1.3.0",
+                    "classifier": null,
+                    "file": "terminalconsoleappender-1.3.0.jar",
+                    "size": 16949,
+                    "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+                },
+                {
+                    "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+                    "classifier": null,
+                    "file": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                    "size": 1494751,
+                    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+                },
+                {
+                    "id": "org.openjdk.nashorn:nashorn-core:15.4",
+                    "classifier": null,
+                    "file": "nashorn-core-15.4.jar",
+                    "size": 2167292,
+                    "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+                },
+                {
+                    "id": "org.apache.commons:commons-lang3:3.14.0",
+                    "classifier": null,
+                    "file": "commons-lang3-3.14.0.jar",
+                    "size": 657952,
+                    "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+                },
+                {
+                    "id": "cpw.mods:securejarhandler:3.0.8",
+                    "classifier": null,
+                    "file": "securejarhandler-3.0.8.jar",
+                    "size": 103765,
+                    "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.8",
+                    "classifier": null,
+                    "file": "asm-commons-9.8.jar",
+                    "size": 73498,
+                    "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.8",
+                    "classifier": null,
+                    "file": "asm-util-9.8.jar",
+                    "size": 94559,
+                    "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.8",
+                    "classifier": null,
+                    "file": "asm-analysis-9.8.jar",
+                    "size": 35151,
+                    "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.8",
+                    "classifier": null,
+                    "file": "asm-tree-9.8.jar",
+                    "size": 51934,
+                    "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.8",
+                    "classifier": null,
+                    "file": "asm-9.8.jar",
+                    "size": 126113,
+                    "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+                },
+                {
+                    "id": "cpw.mods:bootstraplauncher:2.0.2",
+                    "classifier": null,
+                    "file": "bootstraplauncher-2.0.2.jar",
+                    "size": 11116,
+                    "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+                },
+                {
+                    "id": "net.neoforged:JarJarFileSystems:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarFileSystems-0.4.1.jar",
+                    "size": 31807,
+                    "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+                },
+                {
+                    "id": "io.github.llamalad7:mixinextras-neoforge:0.5.0",
+                    "classifier": null,
+                    "file": "mixinextras-neoforge-0.5.0.jar",
+                    "size": 722959,
+                    "sha256": "9c617719248f8b89847348fc7ea5e705739c147ae5e172551264d225bc9f2507"
+                },
+                {
+                    "id": "com.google.guava:guava:32.1.2-jre",
+                    "classifier": null,
+                    "file": "guava-32.1.2-jre.jar",
+                    "size": 3041591,
+                    "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+                },
+                {
+                    "id": "com.google.code.findbugs:jsr305:3.0.2",
+                    "classifier": null,
+                    "file": "jsr305-3.0.2.jar",
+                    "size": 19936,
+                    "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+                },
+                {
+                    "id": "org.jetbrains:annotations:24.1.0",
+                    "classifier": null,
+                    "file": "annotations-24.1.0.jar",
+                    "size": 30570,
+                    "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6"
+                },
+                {
+                    "id": "ca.weblite:java-objc-bridge:1.1",
+                    "classifier": null,
+                    "file": "java-objc-bridge-1.1.jar",
+                    "size": 1330045,
+                    "sha256": "77e34a13bccffc6c8b1a0e3ed46ddb0ea7dd56f2104ecdfacaaec9e4054ac332"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-core:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-core-2.22.1.jar",
+                    "size": 1900022,
+                    "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-api:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-api-2.22.1.jar",
+                    "size": 335001,
+                    "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "com.mojang:logging:1.2.7",
+                    "classifier": null,
+                    "file": "logging-1.2.7.jar",
+                    "size": 15343,
+                    "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+                },
+                {
+                    "id": "org.slf4j:slf4j-api:2.0.9",
+                    "classifier": null,
+                    "file": "slf4j-api-2.0.9.jar",
+                    "size": 64579,
+                    "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+                },
+                {
+                    "id": "org.antlr:antlr4-runtime:4.13.1",
+                    "classifier": null,
+                    "file": "antlr4-runtime-4.13.1.jar",
+                    "size": 326305,
+                    "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+                },
+                {
+                    "id": "org.codehaus.plexus:plexus-utils:3.3.0",
+                    "classifier": null,
+                    "file": "plexus-utils-3.3.0.jar",
+                    "size": 263253,
+                    "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+                },
+                {
+                    "id": "org.jline:jline-reader:3.20.0",
+                    "classifier": null,
+                    "file": "jline-reader-3.20.0.jar",
+                    "size": 171052,
+                    "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+                },
+                {
+                    "id": "com.machinezoo.noexception:noexception:1.7.1",
+                    "classifier": null,
+                    "file": "noexception-1.7.1.jar",
+                    "size": 250861,
+                    "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+                },
+                {
+                    "id": "com.github.oshi:oshi-core:6.4.10",
+                    "classifier": null,
+                    "file": "oshi-core-6.4.10.jar",
+                    "size": 979212,
+                    "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+                },
+                {
+                    "id": "com.google.guava:failureaccess:1.0.1",
+                    "classifier": null,
+                    "file": "failureaccess-1.0.1.jar",
+                    "size": 4617,
+                    "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+                },
+                {
+                    "id": "com.ibm.icu:icu4j:73.2",
+                    "classifier": null,
+                    "file": "icu4j-73.2.jar",
+                    "size": 14567819,
+                    "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+                },
+                {
+                    "id": "com.mojang:authlib:6.0.54",
+                    "classifier": null,
+                    "file": "authlib-6.0.54.jar",
+                    "size": 115242,
+                    "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+                },
+                {
+                    "id": "com.mojang:blocklist:1.0.10",
+                    "classifier": null,
+                    "file": "blocklist-1.0.10.jar",
+                    "size": 964,
+                    "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+                },
+                {
+                    "id": "com.mojang:brigadier:1.3.10",
+                    "classifier": null,
+                    "file": "brigadier-1.3.10.jar",
+                    "size": 80082,
+                    "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+                },
+                {
+                    "id": "com.mojang:datafixerupper:8.0.16",
+                    "classifier": null,
+                    "file": "datafixerupper-8.0.16.jar",
+                    "size": 724313,
+                    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+                },
+                {
+                    "id": "com.mojang:patchy:2.2.10",
+                    "classifier": null,
+                    "file": "patchy-2.2.10.jar",
+                    "size": 4439,
+                    "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+                },
+                {
+                    "id": "com.mojang:text2speech:1.17.9",
+                    "classifier": null,
+                    "file": "text2speech-1.17.9.jar",
+                    "size": 12243,
+                    "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+                },
+                {
+                    "id": "commons-codec:commons-codec:1.16.0",
+                    "classifier": null,
+                    "file": "commons-codec-1.16.0.jar",
+                    "size": 360738,
+                    "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+                },
+                {
+                    "id": "commons-io:commons-io:2.15.1",
+                    "classifier": null,
+                    "file": "commons-io-2.15.1.jar",
+                    "size": 501218,
+                    "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+                },
+                {
+                    "id": "commons-logging:commons-logging:1.2",
+                    "classifier": null,
+                    "file": "commons-logging-1.2.jar",
+                    "size": 61829,
+                    "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+                },
+                {
+                    "id": "io.netty:netty-buffer:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-buffer-4.1.97.Final.jar",
+                    "size": 306590,
+                    "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+                },
+                {
+                    "id": "io.netty:netty-codec:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-codec-4.1.97.Final.jar",
+                    "size": 345274,
+                    "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+                },
+                {
+                    "id": "io.netty:netty-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-common-4.1.97.Final.jar",
+                    "size": 659930,
+                    "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+                },
+                {
+                    "id": "io.netty:netty-handler:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-handler-4.1.97.Final.jar",
+                    "size": 560040,
+                    "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+                },
+                {
+                    "id": "io.netty:netty-resolver:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-resolver-4.1.97.Final.jar",
+                    "size": 37792,
+                    "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+                },
+                {
+                    "id": "io.netty:netty-transport-classes-epoll:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-classes-epoll-4.1.97.Final.jar",
+                    "size": 147139,
+                    "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-unix-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-native-unix-common-4.1.97.Final.jar",
+                    "size": 43897,
+                    "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+                },
+                {
+                    "id": "io.netty:netty-transport:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-4.1.97.Final.jar",
+                    "size": 489624,
+                    "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.5.12",
+                    "classifier": null,
+                    "file": "fastutil-8.5.12.jar",
+                    "size": 23326598,
+                    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+                },
+                {
+                    "id": "net.java.dev.jna:jna-platform:5.14.0",
+                    "classifier": null,
+                    "file": "jna-platform-5.14.0.jar",
+                    "size": 1369287,
+                    "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+                },
+                {
+                    "id": "net.java.dev.jna:jna:5.14.0",
+                    "classifier": null,
+                    "file": "jna-5.14.0.jar",
+                    "size": 1878533,
+                    "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+                },
+                {
+                    "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+                    "classifier": null,
+                    "file": "jopt-simple-5.0.4.jar",
+                    "size": 78146,
+                    "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+                },
+                {
+                    "id": "org.apache.commons:commons-compress:1.26.0",
+                    "classifier": null,
+                    "file": "commons-compress-1.26.0.jar",
+                    "size": 1078328,
+                    "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpclient:4.5.13",
+                    "classifier": null,
+                    "file": "httpclient-4.5.13.jar",
+                    "size": 780321,
+                    "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpcore:4.4.16",
+                    "classifier": null,
+                    "file": "httpcore-4.4.16.jar",
+                    "size": 327891,
+                    "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-slf4j2-impl-2.22.1.jar",
+                    "size": 27364,
+                    "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+                },
+                {
+                    "id": "org.jcraft:jorbis:0.0.17",
+                    "classifier": null,
+                    "file": "jorbis-0.0.17.jar",
+                    "size": 99701,
+                    "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+                },
+                {
+                    "id": "org.joml:joml:1.10.5",
+                    "classifier": null,
+                    "file": "joml-1.10.5.jar",
+                    "size": 712082,
+                    "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-freetype:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-freetype-3.3.3.jar",
+                    "size": 450896,
+                    "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-glfw:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-glfw-3.3.3.jar",
+                    "size": 135546,
+                    "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-jemalloc:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-jemalloc-3.3.3.jar",
+                    "size": 43896,
+                    "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-openal:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-openal-3.3.3.jar",
+                    "size": 110586,
+                    "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-opengl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-opengl-3.3.3.jar",
+                    "size": 929192,
+                    "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-stb:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-stb-3.3.3.jar",
+                    "size": 120283,
+                    "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-tinyfd:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-tinyfd-3.3.3.jar",
+                    "size": 13400,
+                    "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-3.3.3.jar",
+                    "size": 785029,
+                    "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+                },
+                {
+                    "id": "org.lz4:lz4-java:1.8.0",
+                    "classifier": null,
+                    "file": "lz4-java-1.8.0.jar",
+                    "size": 682804,
+                    "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+                },
+                {
+                    "id": "org.jline:jline-terminal:3.20.0",
+                    "classifier": null,
+                    "file": "jline-terminal-3.20.0.jar",
+                    "size": 228481,
+                    "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+                },
+                {
+                    "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "classifier": null,
+                    "file": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                    "size": 2199,
+                    "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+                },
+                {
+                    "id": "org.checkerframework:checker-qual:3.33.0",
+                    "classifier": null,
+                    "file": "checker-qual-3.33.0.jar",
+                    "size": 223979,
+                    "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+                },
+                {
+                    "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+                    "classifier": null,
+                    "file": "error_prone_annotations-2.18.0.jar",
+                    "size": 16017,
+                    "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+                },
+                {
+                    "id": "com.google.j2objc:j2objc-annotations:2.8",
+                    "classifier": null,
+                    "file": "j2objc-annotations-2.8.jar",
+                    "size": 9301,
+                    "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeDependenciesRuntimeClasspath",
+            "artifacts": [
+                {
+                    "id": "net.neoforged:neoforge:21.1.219",
+                    "classifier": "universal",
+                    "file": "neoforge-21.1.219-universal.jar",
+                    "size": 3524551,
+                    "sha256": "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+                    "classifier": null,
+                    "file": "earlydisplay-4.0.42.jar",
+                    "size": 261718,
+                    "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:loader:4.0.42",
+                    "classifier": null,
+                    "file": "loader-4.0.42.jar",
+                    "size": 504899,
+                    "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+                },
+                {
+                    "id": "net.neoforged.accesstransformers:at-modlauncher:10.0.1",
+                    "classifier": null,
+                    "file": "at-modlauncher-10.0.1.jar",
+                    "size": 2347,
+                    "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935"
+                },
+                {
+                    "id": "net.neoforged:accesstransformers:10.0.1",
+                    "classifier": null,
+                    "file": "accesstransformers-10.0.1.jar",
+                    "size": 67234,
+                    "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+                },
+                {
+                    "id": "net.neoforged:bus:8.0.5",
+                    "classifier": null,
+                    "file": "bus-8.0.5.jar",
+                    "size": 30340,
+                    "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+                },
+                {
+                    "id": "net.neoforged:coremods:7.0.3",
+                    "classifier": null,
+                    "file": "coremods-7.0.3.jar",
+                    "size": 22659,
+                    "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+                },
+                {
+                    "id": "cpw.mods:modlauncher:11.0.5",
+                    "classifier": null,
+                    "file": "modlauncher-11.0.5.jar",
+                    "size": 116486,
+                    "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+                },
+                {
+                    "id": "net.neoforged:mergetool:2.0.0",
+                    "classifier": "api",
+                    "file": "mergetool-2.0.0-api.jar",
+                    "size": 2550,
+                    "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00"
+                },
+                {
+                    "id": "com.electronwill.night-config:toml:3.8.3",
+                    "classifier": null,
+                    "file": "toml-3.8.3.jar",
+                    "size": 39516,
+                    "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+                },
+                {
+                    "id": "com.electronwill.night-config:core:3.8.3",
+                    "classifier": null,
+                    "file": "core-3.8.3.jar",
+                    "size": 382911,
+                    "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+                },
+                {
+                    "id": "net.neoforged:JarJarSelector:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarSelector-0.4.1.jar",
+                    "size": 17168,
+                    "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+                },
+                {
+                    "id": "net.neoforged:JarJarMetadata:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarMetadata-0.4.1.jar",
+                    "size": 15648,
+                    "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+                },
+                {
+                    "id": "org.apache.maven:maven-artifact:3.8.5",
+                    "classifier": null,
+                    "file": "maven-artifact-3.8.5.jar",
+                    "size": 58077,
+                    "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+                },
+                {
+                    "id": "net.jodah:typetools:0.6.3",
+                    "classifier": null,
+                    "file": "typetools-0.6.3.jar",
+                    "size": 18281,
+                    "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+                },
+                {
+                    "id": "net.minecrell:terminalconsoleappender:1.3.0",
+                    "classifier": null,
+                    "file": "terminalconsoleappender-1.3.0.jar",
+                    "size": 16949,
+                    "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+                },
+                {
+                    "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+                    "classifier": null,
+                    "file": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                    "size": 1494751,
+                    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+                },
+                {
+                    "id": "org.openjdk.nashorn:nashorn-core:15.4",
+                    "classifier": null,
+                    "file": "nashorn-core-15.4.jar",
+                    "size": 2167292,
+                    "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+                },
+                {
+                    "id": "org.apache.commons:commons-lang3:3.14.0",
+                    "classifier": null,
+                    "file": "commons-lang3-3.14.0.jar",
+                    "size": 657952,
+                    "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+                },
+                {
+                    "id": "cpw.mods:bootstraplauncher:2.0.2",
+                    "classifier": null,
+                    "file": "bootstraplauncher-2.0.2.jar",
+                    "size": 11116,
+                    "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+                },
+                {
+                    "id": "cpw.mods:securejarhandler:3.0.8",
+                    "classifier": null,
+                    "file": "securejarhandler-3.0.8.jar",
+                    "size": 103765,
+                    "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.8",
+                    "classifier": null,
+                    "file": "asm-commons-9.8.jar",
+                    "size": 73498,
+                    "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.8",
+                    "classifier": null,
+                    "file": "asm-util-9.8.jar",
+                    "size": 94559,
+                    "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.8",
+                    "classifier": null,
+                    "file": "asm-analysis-9.8.jar",
+                    "size": 35151,
+                    "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.8",
+                    "classifier": null,
+                    "file": "asm-tree-9.8.jar",
+                    "size": 51934,
+                    "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.8",
+                    "classifier": null,
+                    "file": "asm-9.8.jar",
+                    "size": 126113,
+                    "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+                },
+                {
+                    "id": "net.neoforged:JarJarFileSystems:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarFileSystems-0.4.1.jar",
+                    "size": 31807,
+                    "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+                },
+                {
+                    "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+                    "classifier": null,
+                    "file": "jopt-simple-5.0.4.jar",
+                    "size": 78146,
+                    "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+                },
+                {
+                    "id": "commons-io:commons-io:2.15.1",
+                    "classifier": null,
+                    "file": "commons-io-2.15.1.jar",
+                    "size": 501218,
+                    "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+                },
+                {
+                    "id": "com.mojang:logging:1.2.7",
+                    "classifier": null,
+                    "file": "logging-1.2.7.jar",
+                    "size": 15343,
+                    "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-slf4j2-impl-2.22.1.jar",
+                    "size": 27364,
+                    "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-core:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-core-2.22.1.jar",
+                    "size": 1900022,
+                    "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-api:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-api-2.22.1.jar",
+                    "size": 335001,
+                    "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+                },
+                {
+                    "id": "com.google.guava:guava:32.1.2-jre",
+                    "classifier": null,
+                    "file": "guava-32.1.2-jre.jar",
+                    "size": 3041591,
+                    "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "org.slf4j:slf4j-api:2.0.9",
+                    "classifier": null,
+                    "file": "slf4j-api-2.0.9.jar",
+                    "size": 64579,
+                    "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+                },
+                {
+                    "id": "org.antlr:antlr4-runtime:4.13.1",
+                    "classifier": null,
+                    "file": "antlr4-runtime-4.13.1.jar",
+                    "size": 326305,
+                    "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.4.15",
+                    "classifier": null,
+                    "file": "srgutils-0.4.15.jar",
+                    "size": 69393,
+                    "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3"
+                },
+                {
+                    "id": "org.codehaus.plexus:plexus-utils:3.3.0",
+                    "classifier": null,
+                    "file": "plexus-utils-3.3.0.jar",
+                    "size": 263253,
+                    "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+                },
+                {
+                    "id": "org.jline:jline-reader:3.20.0",
+                    "classifier": null,
+                    "file": "jline-reader-3.20.0.jar",
+                    "size": 171052,
+                    "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+                },
+                {
+                    "id": "com.machinezoo.noexception:noexception:1.7.1",
+                    "classifier": null,
+                    "file": "noexception-1.7.1.jar",
+                    "size": 250861,
+                    "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+                },
+                {
+                    "id": "com.github.oshi:oshi-core:6.4.10",
+                    "classifier": null,
+                    "file": "oshi-core-6.4.10.jar",
+                    "size": 979212,
+                    "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+                },
+                {
+                    "id": "com.google.guava:failureaccess:1.0.1",
+                    "classifier": null,
+                    "file": "failureaccess-1.0.1.jar",
+                    "size": 4617,
+                    "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+                },
+                {
+                    "id": "com.ibm.icu:icu4j:73.2",
+                    "classifier": null,
+                    "file": "icu4j-73.2.jar",
+                    "size": 14567819,
+                    "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+                },
+                {
+                    "id": "com.mojang:authlib:6.0.54",
+                    "classifier": null,
+                    "file": "authlib-6.0.54.jar",
+                    "size": 115242,
+                    "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+                },
+                {
+                    "id": "com.mojang:blocklist:1.0.10",
+                    "classifier": null,
+                    "file": "blocklist-1.0.10.jar",
+                    "size": 964,
+                    "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+                },
+                {
+                    "id": "com.mojang:brigadier:1.3.10",
+                    "classifier": null,
+                    "file": "brigadier-1.3.10.jar",
+                    "size": 80082,
+                    "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+                },
+                {
+                    "id": "com.mojang:datafixerupper:8.0.16",
+                    "classifier": null,
+                    "file": "datafixerupper-8.0.16.jar",
+                    "size": 724313,
+                    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+                },
+                {
+                    "id": "com.mojang:patchy:2.2.10",
+                    "classifier": null,
+                    "file": "patchy-2.2.10.jar",
+                    "size": 4439,
+                    "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+                },
+                {
+                    "id": "com.mojang:text2speech:1.17.9",
+                    "classifier": null,
+                    "file": "text2speech-1.17.9.jar",
+                    "size": 12243,
+                    "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+                },
+                {
+                    "id": "commons-codec:commons-codec:1.16.0",
+                    "classifier": null,
+                    "file": "commons-codec-1.16.0.jar",
+                    "size": 360738,
+                    "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+                },
+                {
+                    "id": "commons-logging:commons-logging:1.2",
+                    "classifier": null,
+                    "file": "commons-logging-1.2.jar",
+                    "size": 61829,
+                    "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+                },
+                {
+                    "id": "io.netty:netty-buffer:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-buffer-4.1.97.Final.jar",
+                    "size": 306590,
+                    "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+                },
+                {
+                    "id": "io.netty:netty-codec:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-codec-4.1.97.Final.jar",
+                    "size": 345274,
+                    "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+                },
+                {
+                    "id": "io.netty:netty-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-common-4.1.97.Final.jar",
+                    "size": 659930,
+                    "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+                },
+                {
+                    "id": "io.netty:netty-handler:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-handler-4.1.97.Final.jar",
+                    "size": 560040,
+                    "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+                },
+                {
+                    "id": "io.netty:netty-resolver:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-resolver-4.1.97.Final.jar",
+                    "size": 37792,
+                    "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+                },
+                {
+                    "id": "io.netty:netty-transport-classes-epoll:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-classes-epoll-4.1.97.Final.jar",
+                    "size": 147139,
+                    "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-unix-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-native-unix-common-4.1.97.Final.jar",
+                    "size": 43897,
+                    "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+                },
+                {
+                    "id": "io.netty:netty-transport:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-4.1.97.Final.jar",
+                    "size": 489624,
+                    "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.5.12",
+                    "classifier": null,
+                    "file": "fastutil-8.5.12.jar",
+                    "size": 23326598,
+                    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+                },
+                {
+                    "id": "net.java.dev.jna:jna-platform:5.14.0",
+                    "classifier": null,
+                    "file": "jna-platform-5.14.0.jar",
+                    "size": 1369287,
+                    "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+                },
+                {
+                    "id": "net.java.dev.jna:jna:5.14.0",
+                    "classifier": null,
+                    "file": "jna-5.14.0.jar",
+                    "size": 1878533,
+                    "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+                },
+                {
+                    "id": "org.apache.commons:commons-compress:1.26.0",
+                    "classifier": null,
+                    "file": "commons-compress-1.26.0.jar",
+                    "size": 1078328,
+                    "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpclient:4.5.13",
+                    "classifier": null,
+                    "file": "httpclient-4.5.13.jar",
+                    "size": 780321,
+                    "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpcore:4.4.16",
+                    "classifier": null,
+                    "file": "httpcore-4.4.16.jar",
+                    "size": 327891,
+                    "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+                },
+                {
+                    "id": "org.jcraft:jorbis:0.0.17",
+                    "classifier": null,
+                    "file": "jorbis-0.0.17.jar",
+                    "size": 99701,
+                    "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+                },
+                {
+                    "id": "org.joml:joml:1.10.5",
+                    "classifier": null,
+                    "file": "joml-1.10.5.jar",
+                    "size": 712082,
+                    "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-freetype:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-freetype-3.3.3.jar",
+                    "size": 450896,
+                    "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-freetype:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-freetype-3.3.3-natives-linux.jar",
+                    "size": 1245129,
+                    "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-glfw:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-glfw-3.3.3.jar",
+                    "size": 135546,
+                    "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-glfw:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-glfw-3.3.3-natives-linux.jar",
+                    "size": 118478,
+                    "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-jemalloc:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-jemalloc-3.3.3.jar",
+                    "size": 43896,
+                    "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-jemalloc:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-jemalloc-3.3.3-natives-linux.jar",
+                    "size": 206779,
+                    "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-openal:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-openal-3.3.3.jar",
+                    "size": 110586,
+                    "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-openal:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-openal-3.3.3-natives-linux.jar",
+                    "size": 573224,
+                    "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-opengl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-opengl-3.3.3.jar",
+                    "size": 929192,
+                    "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-opengl:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-opengl-3.3.3-natives-linux.jar",
+                    "size": 80463,
+                    "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-stb:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-stb-3.3.3.jar",
+                    "size": 120283,
+                    "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-stb:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-stb-3.3.3-natives-linux.jar",
+                    "size": 231820,
+                    "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-tinyfd:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-tinyfd-3.3.3.jar",
+                    "size": 13400,
+                    "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-tinyfd:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-tinyfd-3.3.3-natives-linux.jar",
+                    "size": 44192,
+                    "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-3.3.3.jar",
+                    "size": 785029,
+                    "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl:3.3.3",
+                    "classifier": "natives-linux",
+                    "file": "lwjgl-3.3.3-natives-linux.jar",
+                    "size": 114627,
+                    "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9"
+                },
+                {
+                    "id": "org.lz4:lz4-java:1.8.0",
+                    "classifier": null,
+                    "file": "lz4-java-1.8.0.jar",
+                    "size": 682804,
+                    "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+                },
+                {
+                    "id": "org.jline:jline-terminal:3.20.0",
+                    "classifier": null,
+                    "file": "jline-terminal-3.20.0.jar",
+                    "size": 228481,
+                    "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-epoll:4.1.97.Final",
+                    "classifier": "linux-aarch_64",
+                    "file": "netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+                    "size": 40427,
+                    "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-epoll:4.1.97.Final",
+                    "classifier": "linux-x86_64",
+                    "file": "netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+                    "size": 38954,
+                    "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+                },
+                {
+                    "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "classifier": null,
+                    "file": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                    "size": 2199,
+                    "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+                },
+                {
+                    "id": "com.google.code.findbugs:jsr305:3.0.2",
+                    "classifier": null,
+                    "file": "jsr305-3.0.2.jar",
+                    "size": 19936,
+                    "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+                },
+                {
+                    "id": "org.checkerframework:checker-qual:3.33.0",
+                    "classifier": null,
+                    "file": "checker-qual-3.33.0.jar",
+                    "size": 223979,
+                    "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+                },
+                {
+                    "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+                    "classifier": null,
+                    "file": "error_prone_annotations-2.18.0.jar",
+                    "size": 16017,
+                    "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+                },
+                {
+                    "id": "com.google.j2objc:j2objc-annotations:2.8",
+                    "classifier": null,
+                    "file": "j2objc-annotations-2.8.jar",
+                    "size": 9301,
+                    "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "accessTransformers",
+            "artifacts": [
+                
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "interfaceInjectionData",
+            "artifacts": [
+                
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "neoFormRuntimeTool",
+            "artifacts": [
+                {
+                    "id": "net.neoforged:neoform-runtime:2.0.18",
+                    "classifier": "all",
+                    "file": "neoform-runtime-2.0.18-all.jar",
+                    "size": 4479682,
+                    "sha256": "1fe29864dfbad1ec41d54b35d308f078302b2f8785eebfb8b90d9cdcd9433cb9"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "parchmentData",
+            "artifacts": [
+                {
+                    "id": "org.parchmentmc.data:parchment-1.21.1:2024.11.17",
+                    "classifier": null,
+                    "file": "parchment-1.21.1-2024.11.17.zip",
+                    "size": 889204,
+                    "sha256": "7c240a37ab432213033b1113d75cb80dc22bffa631d979818b2da1585fa24a08"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "compileClasspath",
+            "artifacts": [
+                {
+                    "id": "org.sinytra.adapter:runtime:1.0.0+1.21.1",
+                    "classifier": null,
+                    "file": "runtime-1.0.0+1.21.1.jar",
+                    "size": 6547,
+                    "sha256": "36de91a417138f01a1801b7e2ae59bb1052c8ddb23b1352d3fe952b3d33a5e06"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:forgified-fabric-api:0.116.7+2.2.1+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+                    "size": 5563831,
+                    "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690"
+                },
+                {
+                    "id": "org.sinytra:forgified-fabric-loader:2.5.70+0.19.3+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+                    "size": 3459840,
+                    "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1"
+                },
+                {
+                    "id": "net.fabricmc:class-tweaker:0.3.0",
+                    "classifier": null,
+                    "file": "class-tweaker-0.3.0.jar",
+                    "size": 61827,
+                    "sha256": "83bf284909d13c7b4ae953c3fe141628dfedbe56120217f61891c341f0be2f1f"
+                },
+                {
+                    "id": "org.sinytra:ForgeAutoRenamingTool:1.0.14",
+                    "classifier": null,
+                    "file": "ForgeAutoRenamingTool-1.0.14.jar",
+                    "size": 97402,
+                    "sha256": "22ab8db6f4b6f7d1db2a0d7d8892098609c9e15e048d6b82ced2999605ffeb93"
+                },
+                {
+                    "id": "org.sinytra.adapter:core:2.0.43+1.21.1",
+                    "classifier": null,
+                    "file": "core-2.0.43+1.21.1.jar",
+                    "size": 509254,
+                    "sha256": "41a3564dcea058a5c10c99f10a64aee3dfb688ced42a19bbf8efc77a52a38314"
+                },
+                {
+                    "id": "org.sinytra.connector:transformer:2.0.0-beta.17+1.21.1+dev-g8b27f1a",
+                    "classifier": null,
+                    "file": "transformer-2.0.0-beta.17+1.21.1+dev-g8b27f1a.jar",
+                    "size": 113403,
+                    "sha256": "59cf70112097511ef860f06dc0d67fc039279614fa2868551b6444874d9418bf"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-api-base:0.4.42+d1308ded19",
+                    "classifier": null,
+                    "file": "fabric-api-base-0.4.42+d1308ded19.jar",
+                    "size": 34807,
+                    "sha256": "28b6e741ab6f9ebb1319dca5fa2c5dabc5582b73b08abc7cbcb812d834046b38"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:1.6.71+c290471319",
+                    "classifier": null,
+                    "file": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+                    "size": 52740,
+                    "sha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-biome-api-v1:13.0.31+1e62d33c19",
+                    "classifier": null,
+                    "file": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+                    "size": 77170,
+                    "sha256": "252f4e91732cfffa3bef080be8424ee23ae1cbd271a3981cd9caad0a4449fcde"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-block-api-v1:1.1.0+b0c22bb819",
+                    "classifier": null,
+                    "file": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+                    "size": 20319,
+                    "sha256": "b3aa36fd2b2830d1e6cd99daa96b98bf3b5ac05b59b7b67780a95923b4a0f772"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-block-view-api-v2:1.0.11+e9036fd419",
+                    "classifier": null,
+                    "file": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+                    "size": 25642,
+                    "sha256": "6de474a6ed584ec9545e8d69ef515ded73222470ad81d1064242c9784e43f4ac"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-blockrenderlayer-v1:1.1.52+c290471319",
+                    "classifier": null,
+                    "file": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+                    "size": 23764,
+                    "sha256": "22277b144bbf93694b10925afc5700633caba5439bce5afd284984ee02f40427"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-client-tags-api-v1:1.1.15+e053909619",
+                    "classifier": null,
+                    "file": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+                    "size": 25900,
+                    "sha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-command-api-v2:2.2.28+36d727be19",
+                    "classifier": null,
+                    "file": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+                    "size": 31795,
+                    "sha256": "5d36aef269d68cc454dc14f63655b5631d1bec445228d482635eaa0147c2a732"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-content-registries-v0:8.0.19+c290471319",
+                    "classifier": null,
+                    "file": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+                    "size": 60896,
+                    "sha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v2:2.11.1+87e5848019",
+                    "classifier": null,
+                    "file": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+                    "size": 219081,
+                    "sha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-data-attachment-api-v1:1.4.5+26d408aa19",
+                    "classifier": null,
+                    "file": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+                    "size": 38155,
+                    "sha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-data-generation-api-v1:20.2.34+12dbe3c819",
+                    "classifier": null,
+                    "file": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+                    "size": 98163,
+                    "sha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-entity-events-v1:1.8.0+5ede667619",
+                    "classifier": null,
+                    "file": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+                    "size": 65411,
+                    "sha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-events-interaction-v0:0.7.13+86e0887119",
+                    "classifier": null,
+                    "file": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+                    "size": 56154,
+                    "sha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-game-rule-api-v1:1.0.53+36d727be19",
+                    "classifier": null,
+                    "file": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+                    "size": 52044,
+                    "sha256": "623b4283718c1226e542a5ab61e3f8ec776cda5fc5d72c688d2b1205de011269"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-gametest-api-v1:2.0.5+29f188ce19",
+                    "classifier": null,
+                    "file": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+                    "size": 32718,
+                    "sha256": "476168647007a3f9e2e81a7f484563d46e23ace76ad4fa5324c3b3c9d17b75dd"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-item-api-v1:11.2.0+0c57911319",
+                    "classifier": null,
+                    "file": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+                    "size": 59981,
+                    "sha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-item-group-api-v1:4.1.7+e324903319",
+                    "classifier": null,
+                    "file": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+                    "size": 43914,
+                    "sha256": "33fd75221240410042ae4354becdf7dc3574e07a8b8dbdfaa96d8c6ffe2c53d3"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-key-binding-api-v1:1.0.47+62cc7ce119",
+                    "classifier": null,
+                    "file": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+                    "size": 22251,
+                    "sha256": "aadd1ac08758f0fe9d819179e7aed645c2367eb6190cd1c2eca8dfa5d7ab8fb6"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-lifecycle-events-v1:2.6.0+e40d8add19",
+                    "classifier": null,
+                    "file": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+                    "size": 88814,
+                    "sha256": "e448755bf38bbff07f5d8d952b18fef2f7ae1ff7d1e7640121a2284b91e9e349"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-loot-api-v3:1.0.3+333dfad919",
+                    "classifier": null,
+                    "file": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+                    "size": 34952,
+                    "sha256": "ebd99e05b80ddc98ad57a9f1b2feb092b8d90b35a01ceb9a24991147a9a1fc53"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-message-api-v1:6.0.14+6a754fce19",
+                    "classifier": null,
+                    "file": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+                    "size": 45752,
+                    "sha256": "7713de55f30cc67bf7c9e12b8e6f6354044590a9525c753722a21269f3c05c73"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-model-loading-api-v1:2.1.0+6e8f52c719",
+                    "classifier": null,
+                    "file": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+                    "size": 61621,
+                    "sha256": "077f804b0e281e06b0297581431c70aed136a3bc3f53f437a87cb91e6835469e"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-networking-api-v1:4.3.0+30a980d919",
+                    "classifier": null,
+                    "file": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+                    "size": 169809,
+                    "sha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-object-builder-api-v1:15.2.1+cc242efd19",
+                    "classifier": null,
+                    "file": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+                    "size": 79690,
+                    "sha256": "d47501338613b39978db8adc399dc432b867206162777a5a6ecfec3d9d3be471"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-particles-v1:4.0.2+824f924c19",
+                    "classifier": null,
+                    "file": "fabric-particles-v1-4.0.2+824f924c19.jar",
+                    "size": 33007,
+                    "sha256": "7602ecfd15c01cc354a13a873c10da9ede0f8a3b09b63810d1f79747bf871073"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-recipe-api-v1:5.0.15+59440bcc19",
+                    "classifier": null,
+                    "file": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+                    "size": 54698,
+                    "sha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-registry-sync-v0:5.3.1+f9aace1619",
+                    "classifier": null,
+                    "file": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+                    "size": 53273,
+                    "sha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-renderer-api-v1:3.4.1+6e8f52c719",
+                    "classifier": null,
+                    "file": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+                    "size": 58067,
+                    "sha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-renderer-indigo:1.7.1+4198af7119",
+                    "classifier": null,
+                    "file": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+                    "size": 109369,
+                    "sha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-fluids-v1:3.1.6+857185bc19",
+                    "classifier": null,
+                    "file": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+                    "size": 40725,
+                    "sha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-v1:5.1.0+1a09bd5a19",
+                    "classifier": null,
+                    "file": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+                    "size": 91242,
+                    "sha256": "f7b1c7c82677cb2718837d2b44d8653aa8b677abcc8274b49ea7abe01578aa30"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-resource-conditions-api-v1:4.3.0+5bdd099819",
+                    "classifier": null,
+                    "file": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+                    "size": 65689,
+                    "sha256": "9876eca7644ff5d1805b1ebecf708985a120c86d8826b6416538678c3d33894c"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-resource-loader-v0:1.3.1+4ea8954419",
+                    "classifier": null,
+                    "file": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+                    "size": 105481,
+                    "sha256": "9eb65b0a9f069d0eeedbe85770b1562750b304f0fc17f9f94562d54f96034b10"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-screen-api-v1:2.0.25+4228281319",
+                    "classifier": null,
+                    "file": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+                    "size": 50958,
+                    "sha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-screen-handler-api-v1:1.3.90+8dbc56dd19",
+                    "classifier": null,
+                    "file": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+                    "size": 23609,
+                    "sha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-sound-api-v1:1.0.23+10b84f8419",
+                    "classifier": null,
+                    "file": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+                    "size": 20907,
+                    "sha256": "0bac20f36a80beccdb22e26cd6041c67a7e107a34c248a8a1b368abd7b7ebe78"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:5.4.3+a25cb45619",
+                    "classifier": null,
+                    "file": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+                    "size": 204155,
+                    "sha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-transitive-access-wideners-v1:6.2.0+6c854b6f19",
+                    "classifier": null,
+                    "file": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+                    "size": 17388,
+                    "sha256": "3410255c6a9cc84801a55e4fdce900a8facf5621b0aaf8b19c89bddd74fba035"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v1:2.1.5+7f945d5b19",
+                    "classifier": null,
+                    "file": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+                    "size": 37138,
+                    "sha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-loot-api-v2:3.0.15+a3ee712d19",
+                    "classifier": null,
+                    "file": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+                    "size": 27451,
+                    "sha256": "875e729220ddf60f12f0170427a5fc70d576d70b1f5e4adba92541eafb021ea8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-data-attachment-v1:0.3.49+73761d2e19",
+                    "classifier": null,
+                    "file": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+                    "size": 20498,
+                    "sha256": "a68a5ad12233436778cd106bf1b5cac21062622f39580a72d1a9641cfc7eb928"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:loader:4.0.42",
+                    "classifier": null,
+                    "file": "loader-4.0.42.jar",
+                    "size": 504899,
+                    "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+                    "classifier": null,
+                    "file": "earlydisplay-4.0.42.jar",
+                    "size": 261718,
+                    "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+                },
+                {
+                    "id": "net.neoforged:accesstransformers:10.0.1",
+                    "classifier": null,
+                    "file": "accesstransformers-10.0.1.jar",
+                    "size": 67234,
+                    "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+                },
+                {
+                    "id": "net.neoforged:bus:8.0.5",
+                    "classifier": null,
+                    "file": "bus-8.0.5.jar",
+                    "size": 30340,
+                    "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+                },
+                {
+                    "id": "net.neoforged:coremods:7.0.3",
+                    "classifier": null,
+                    "file": "coremods-7.0.3.jar",
+                    "size": 22659,
+                    "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+                },
+                {
+                    "id": "cpw.mods:modlauncher:11.0.5",
+                    "classifier": null,
+                    "file": "modlauncher-11.0.5.jar",
+                    "size": 116486,
+                    "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+                },
+                {
+                    "id": "net.neoforged:mergetool:2.0.3",
+                    "classifier": "api",
+                    "file": "mergetool-2.0.3-api.jar",
+                    "size": 2550,
+                    "sha256": "e13e61c0437d6db17e7b3581ff261292015dcd9e11683f5a365b4b9a5c192283"
+                },
+                {
+                    "id": "com.electronwill.night-config:toml:3.8.3",
+                    "classifier": null,
+                    "file": "toml-3.8.3.jar",
+                    "size": 39516,
+                    "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+                },
+                {
+                    "id": "com.electronwill.night-config:core:3.8.3",
+                    "classifier": null,
+                    "file": "core-3.8.3.jar",
+                    "size": 382911,
+                    "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+                },
+                {
+                    "id": "net.neoforged:JarJarSelector:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarSelector-0.4.1.jar",
+                    "size": 17168,
+                    "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+                },
+                {
+                    "id": "net.neoforged:JarJarMetadata:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarMetadata-0.4.1.jar",
+                    "size": 15648,
+                    "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+                },
+                {
+                    "id": "org.apache.maven:maven-artifact:3.8.5",
+                    "classifier": null,
+                    "file": "maven-artifact-3.8.5.jar",
+                    "size": 58077,
+                    "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+                },
+                {
+                    "id": "net.jodah:typetools:0.6.3",
+                    "classifier": null,
+                    "file": "typetools-0.6.3.jar",
+                    "size": 18281,
+                    "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+                },
+                {
+                    "id": "net.minecrell:terminalconsoleappender:1.3.0",
+                    "classifier": null,
+                    "file": "terminalconsoleappender-1.3.0.jar",
+                    "size": 16949,
+                    "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+                },
+                {
+                    "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+                    "classifier": null,
+                    "file": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                    "size": 1494751,
+                    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+                },
+                {
+                    "id": "org.openjdk.nashorn:nashorn-core:15.4",
+                    "classifier": null,
+                    "file": "nashorn-core-15.4.jar",
+                    "size": 2167292,
+                    "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+                },
+                {
+                    "id": "org.apache.commons:commons-lang3:3.14.0",
+                    "classifier": null,
+                    "file": "commons-lang3-3.14.0.jar",
+                    "size": 657952,
+                    "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+                },
+                {
+                    "id": "cpw.mods:securejarhandler:3.0.8",
+                    "classifier": null,
+                    "file": "securejarhandler-3.0.8.jar",
+                    "size": 103765,
+                    "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.8",
+                    "classifier": null,
+                    "file": "asm-commons-9.8.jar",
+                    "size": 73498,
+                    "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.8",
+                    "classifier": null,
+                    "file": "asm-util-9.8.jar",
+                    "size": 94559,
+                    "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.8",
+                    "classifier": null,
+                    "file": "asm-analysis-9.8.jar",
+                    "size": 35151,
+                    "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.8",
+                    "classifier": null,
+                    "file": "asm-tree-9.8.jar",
+                    "size": 51934,
+                    "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.8",
+                    "classifier": null,
+                    "file": "asm-9.8.jar",
+                    "size": 126113,
+                    "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+                },
+                {
+                    "id": "cpw.mods:bootstraplauncher:2.0.2",
+                    "classifier": null,
+                    "file": "bootstraplauncher-2.0.2.jar",
+                    "size": 11116,
+                    "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+                },
+                {
+                    "id": "net.neoforged:JarJarFileSystems:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarFileSystems-0.4.1.jar",
+                    "size": 31807,
+                    "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+                },
+                {
+                    "id": "io.github.llamalad7:mixinextras-neoforge:0.5.0",
+                    "classifier": null,
+                    "file": "mixinextras-neoforge-0.5.0.jar",
+                    "size": 722959,
+                    "sha256": "9c617719248f8b89847348fc7ea5e705739c147ae5e172551264d225bc9f2507"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.5.4",
+                    "classifier": null,
+                    "file": "srgutils-0.5.4.jar",
+                    "size": 72075,
+                    "sha256": "77bc2de440968713da0935708548d97c700074bfdbc776db0c2a8b54a0b27d2c"
+                },
+                {
+                    "id": "com.google.guava:guava:32.1.2-jre",
+                    "classifier": null,
+                    "file": "guava-32.1.2-jre.jar",
+                    "size": 3041591,
+                    "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+                },
+                {
+                    "id": "com.google.code.findbugs:jsr305:3.0.2",
+                    "classifier": null,
+                    "file": "jsr305-3.0.2.jar",
+                    "size": 19936,
+                    "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+                },
+                {
+                    "id": "org.jetbrains:annotations:24.1.0",
+                    "classifier": null,
+                    "file": "annotations-24.1.0.jar",
+                    "size": 30570,
+                    "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6"
+                },
+                {
+                    "id": "ca.weblite:java-objc-bridge:1.1",
+                    "classifier": null,
+                    "file": "java-objc-bridge-1.1.jar",
+                    "size": 1330045,
+                    "sha256": "77e34a13bccffc6c8b1a0e3ed46ddb0ea7dd56f2104ecdfacaaec9e4054ac332"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-core:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-core-2.22.1.jar",
+                    "size": 1900022,
+                    "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-api:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-api-2.22.1.jar",
+                    "size": 335001,
+                    "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "com.mojang:logging:1.2.7",
+                    "classifier": null,
+                    "file": "logging-1.2.7.jar",
+                    "size": 15343,
+                    "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+                },
+                {
+                    "id": "org.slf4j:slf4j-api:2.0.9",
+                    "classifier": null,
+                    "file": "slf4j-api-2.0.9.jar",
+                    "size": 64579,
+                    "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+                },
+                {
+                    "id": "org.antlr:antlr4-runtime:4.13.1",
+                    "classifier": null,
+                    "file": "antlr4-runtime-4.13.1.jar",
+                    "size": 326305,
+                    "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+                },
+                {
+                    "id": "org.codehaus.plexus:plexus-utils:3.3.0",
+                    "classifier": null,
+                    "file": "plexus-utils-3.3.0.jar",
+                    "size": 263253,
+                    "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+                },
+                {
+                    "id": "org.jline:jline-reader:3.20.0",
+                    "classifier": null,
+                    "file": "jline-reader-3.20.0.jar",
+                    "size": 171052,
+                    "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+                },
+                {
+                    "id": "com.machinezoo.noexception:noexception:1.7.1",
+                    "classifier": null,
+                    "file": "noexception-1.7.1.jar",
+                    "size": 250861,
+                    "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+                },
+                {
+                    "id": "com.github.oshi:oshi-core:6.4.10",
+                    "classifier": null,
+                    "file": "oshi-core-6.4.10.jar",
+                    "size": 979212,
+                    "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+                },
+                {
+                    "id": "com.google.guava:failureaccess:1.0.1",
+                    "classifier": null,
+                    "file": "failureaccess-1.0.1.jar",
+                    "size": 4617,
+                    "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+                },
+                {
+                    "id": "com.ibm.icu:icu4j:73.2",
+                    "classifier": null,
+                    "file": "icu4j-73.2.jar",
+                    "size": 14567819,
+                    "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+                },
+                {
+                    "id": "com.mojang:authlib:6.0.54",
+                    "classifier": null,
+                    "file": "authlib-6.0.54.jar",
+                    "size": 115242,
+                    "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+                },
+                {
+                    "id": "com.mojang:blocklist:1.0.10",
+                    "classifier": null,
+                    "file": "blocklist-1.0.10.jar",
+                    "size": 964,
+                    "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+                },
+                {
+                    "id": "com.mojang:brigadier:1.3.10",
+                    "classifier": null,
+                    "file": "brigadier-1.3.10.jar",
+                    "size": 80082,
+                    "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+                },
+                {
+                    "id": "com.mojang:datafixerupper:8.0.16",
+                    "classifier": null,
+                    "file": "datafixerupper-8.0.16.jar",
+                    "size": 724313,
+                    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+                },
+                {
+                    "id": "com.mojang:patchy:2.2.10",
+                    "classifier": null,
+                    "file": "patchy-2.2.10.jar",
+                    "size": 4439,
+                    "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+                },
+                {
+                    "id": "com.mojang:text2speech:1.17.9",
+                    "classifier": null,
+                    "file": "text2speech-1.17.9.jar",
+                    "size": 12243,
+                    "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+                },
+                {
+                    "id": "commons-codec:commons-codec:1.16.0",
+                    "classifier": null,
+                    "file": "commons-codec-1.16.0.jar",
+                    "size": 360738,
+                    "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+                },
+                {
+                    "id": "commons-io:commons-io:2.15.1",
+                    "classifier": null,
+                    "file": "commons-io-2.15.1.jar",
+                    "size": 501218,
+                    "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+                },
+                {
+                    "id": "commons-logging:commons-logging:1.2",
+                    "classifier": null,
+                    "file": "commons-logging-1.2.jar",
+                    "size": 61829,
+                    "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+                },
+                {
+                    "id": "io.netty:netty-buffer:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-buffer-4.1.97.Final.jar",
+                    "size": 306590,
+                    "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+                },
+                {
+                    "id": "io.netty:netty-codec:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-codec-4.1.97.Final.jar",
+                    "size": 345274,
+                    "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+                },
+                {
+                    "id": "io.netty:netty-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-common-4.1.97.Final.jar",
+                    "size": 659930,
+                    "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+                },
+                {
+                    "id": "io.netty:netty-handler:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-handler-4.1.97.Final.jar",
+                    "size": 560040,
+                    "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+                },
+                {
+                    "id": "io.netty:netty-resolver:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-resolver-4.1.97.Final.jar",
+                    "size": 37792,
+                    "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+                },
+                {
+                    "id": "io.netty:netty-transport-classes-epoll:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-classes-epoll-4.1.97.Final.jar",
+                    "size": 147139,
+                    "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-unix-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-native-unix-common-4.1.97.Final.jar",
+                    "size": 43897,
+                    "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+                },
+                {
+                    "id": "io.netty:netty-transport:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-4.1.97.Final.jar",
+                    "size": 489624,
+                    "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.5.12",
+                    "classifier": null,
+                    "file": "fastutil-8.5.12.jar",
+                    "size": 23326598,
+                    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+                },
+                {
+                    "id": "net.java.dev.jna:jna-platform:5.14.0",
+                    "classifier": null,
+                    "file": "jna-platform-5.14.0.jar",
+                    "size": 1369287,
+                    "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+                },
+                {
+                    "id": "net.java.dev.jna:jna:5.14.0",
+                    "classifier": null,
+                    "file": "jna-5.14.0.jar",
+                    "size": 1878533,
+                    "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+                },
+                {
+                    "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+                    "classifier": null,
+                    "file": "jopt-simple-5.0.4.jar",
+                    "size": 78146,
+                    "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+                },
+                {
+                    "id": "org.apache.commons:commons-compress:1.26.0",
+                    "classifier": null,
+                    "file": "commons-compress-1.26.0.jar",
+                    "size": 1078328,
+                    "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpclient:4.5.13",
+                    "classifier": null,
+                    "file": "httpclient-4.5.13.jar",
+                    "size": 780321,
+                    "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpcore:4.4.16",
+                    "classifier": null,
+                    "file": "httpcore-4.4.16.jar",
+                    "size": 327891,
+                    "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-slf4j2-impl-2.22.1.jar",
+                    "size": 27364,
+                    "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+                },
+                {
+                    "id": "org.jcraft:jorbis:0.0.17",
+                    "classifier": null,
+                    "file": "jorbis-0.0.17.jar",
+                    "size": 99701,
+                    "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+                },
+                {
+                    "id": "org.joml:joml:1.10.5",
+                    "classifier": null,
+                    "file": "joml-1.10.5.jar",
+                    "size": 712082,
+                    "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-freetype:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-freetype-3.3.3.jar",
+                    "size": 450896,
+                    "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-glfw:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-glfw-3.3.3.jar",
+                    "size": 135546,
+                    "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-jemalloc:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-jemalloc-3.3.3.jar",
+                    "size": 43896,
+                    "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-openal:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-openal-3.3.3.jar",
+                    "size": 110586,
+                    "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-opengl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-opengl-3.3.3.jar",
+                    "size": 929192,
+                    "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-stb:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-stb-3.3.3.jar",
+                    "size": 120283,
+                    "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-tinyfd:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-tinyfd-3.3.3.jar",
+                    "size": 13400,
+                    "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-3.3.3.jar",
+                    "size": 785029,
+                    "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+                },
+                {
+                    "id": "org.lz4:lz4-java:1.8.0",
+                    "classifier": null,
+                    "file": "lz4-java-1.8.0.jar",
+                    "size": 682804,
+                    "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+                },
+                {
+                    "id": "org.jline:jline-terminal:3.20.0",
+                    "classifier": null,
+                    "file": "jline-terminal-3.20.0.jar",
+                    "size": 228481,
+                    "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+                },
+                {
+                    "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "classifier": null,
+                    "file": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                    "size": 2199,
+                    "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+                },
+                {
+                    "id": "org.checkerframework:checker-qual:3.33.0",
+                    "classifier": null,
+                    "file": "checker-qual-3.33.0.jar",
+                    "size": 223979,
+                    "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+                },
+                {
+                    "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+                    "classifier": null,
+                    "file": "error_prone_annotations-2.18.0.jar",
+                    "size": 16017,
+                    "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+                },
+                {
+                    "id": "com.google.j2objc:j2objc-annotations:2.8",
+                    "classifier": null,
+                    "file": "j2objc-annotations-2.8.jar",
+                    "size": 9301,
+                    "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "annotationProcessor",
+            "artifacts": [
+                
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "modCompileClasspath",
+            "artifacts": [
+                {
+                    "id": "org.sinytra.forgified-fabric-api:forgified-fabric-api:0.116.7+2.2.1+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+                    "size": 5563831,
+                    "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690"
+                },
+                {
+                    "id": "org.sinytra:forgified-fabric-loader:2.5.70+0.19.3+1.21.1",
+                    "classifier": null,
+                    "file": "forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+                    "size": 3459840,
+                    "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1"
+                },
+                {
+                    "id": "net.fabricmc:class-tweaker:0.3.0",
+                    "classifier": null,
+                    "file": "class-tweaker-0.3.0.jar",
+                    "size": 61827,
+                    "sha256": "83bf284909d13c7b4ae953c3fe141628dfedbe56120217f61891c341f0be2f1f"
+                },
+                {
+                    "id": "org.sinytra:ForgeAutoRenamingTool:1.0.14",
+                    "classifier": null,
+                    "file": "ForgeAutoRenamingTool-1.0.14.jar",
+                    "size": 97402,
+                    "sha256": "22ab8db6f4b6f7d1db2a0d7d8892098609c9e15e048d6b82ced2999605ffeb93"
+                },
+                {
+                    "id": "org.sinytra.adapter:core:2.0.43+1.21.1",
+                    "classifier": null,
+                    "file": "core-2.0.43+1.21.1.jar",
+                    "size": 509254,
+                    "sha256": "41a3564dcea058a5c10c99f10a64aee3dfb688ced42a19bbf8efc77a52a38314"
+                },
+                {
+                    "id": "org.sinytra.connector:transformer:2.0.0-beta.17+1.21.1+dev-g8b27f1a",
+                    "classifier": null,
+                    "file": "transformer-2.0.0-beta.17+1.21.1+dev-g8b27f1a.jar",
+                    "size": 113403,
+                    "sha256": "59cf70112097511ef860f06dc0d67fc039279614fa2868551b6444874d9418bf"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:loader:4.0.42",
+                    "classifier": null,
+                    "file": "loader-4.0.42.jar",
+                    "size": 504899,
+                    "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+                },
+                {
+                    "id": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+                    "classifier": null,
+                    "file": "earlydisplay-4.0.42.jar",
+                    "size": 261718,
+                    "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+                },
+                {
+                    "id": "net.neoforged:accesstransformers:10.0.1",
+                    "classifier": null,
+                    "file": "accesstransformers-10.0.1.jar",
+                    "size": 67234,
+                    "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+                },
+                {
+                    "id": "net.neoforged:bus:8.0.5",
+                    "classifier": null,
+                    "file": "bus-8.0.5.jar",
+                    "size": 30340,
+                    "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+                },
+                {
+                    "id": "net.neoforged:coremods:7.0.3",
+                    "classifier": null,
+                    "file": "coremods-7.0.3.jar",
+                    "size": 22659,
+                    "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+                },
+                {
+                    "id": "cpw.mods:modlauncher:11.0.5",
+                    "classifier": null,
+                    "file": "modlauncher-11.0.5.jar",
+                    "size": 116486,
+                    "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+                },
+                {
+                    "id": "net.neoforged:mergetool:2.0.3",
+                    "classifier": "api",
+                    "file": "mergetool-2.0.3-api.jar",
+                    "size": 2550,
+                    "sha256": "e13e61c0437d6db17e7b3581ff261292015dcd9e11683f5a365b4b9a5c192283"
+                },
+                {
+                    "id": "com.electronwill.night-config:toml:3.8.3",
+                    "classifier": null,
+                    "file": "toml-3.8.3.jar",
+                    "size": 39516,
+                    "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+                },
+                {
+                    "id": "com.electronwill.night-config:core:3.8.3",
+                    "classifier": null,
+                    "file": "core-3.8.3.jar",
+                    "size": 382911,
+                    "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+                },
+                {
+                    "id": "net.neoforged:JarJarSelector:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarSelector-0.4.1.jar",
+                    "size": 17168,
+                    "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+                },
+                {
+                    "id": "net.neoforged:JarJarMetadata:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarMetadata-0.4.1.jar",
+                    "size": 15648,
+                    "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+                },
+                {
+                    "id": "org.apache.maven:maven-artifact:3.8.5",
+                    "classifier": null,
+                    "file": "maven-artifact-3.8.5.jar",
+                    "size": 58077,
+                    "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+                },
+                {
+                    "id": "net.jodah:typetools:0.6.3",
+                    "classifier": null,
+                    "file": "typetools-0.6.3.jar",
+                    "size": 18281,
+                    "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+                },
+                {
+                    "id": "net.minecrell:terminalconsoleappender:1.3.0",
+                    "classifier": null,
+                    "file": "terminalconsoleappender-1.3.0.jar",
+                    "size": 16949,
+                    "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+                },
+                {
+                    "id": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+                    "classifier": null,
+                    "file": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+                    "size": 1494751,
+                    "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+                },
+                {
+                    "id": "org.openjdk.nashorn:nashorn-core:15.4",
+                    "classifier": null,
+                    "file": "nashorn-core-15.4.jar",
+                    "size": 2167292,
+                    "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+                },
+                {
+                    "id": "org.apache.commons:commons-lang3:3.14.0",
+                    "classifier": null,
+                    "file": "commons-lang3-3.14.0.jar",
+                    "size": 657952,
+                    "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+                },
+                {
+                    "id": "cpw.mods:securejarhandler:3.0.8",
+                    "classifier": null,
+                    "file": "securejarhandler-3.0.8.jar",
+                    "size": 103765,
+                    "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+                },
+                {
+                    "id": "org.ow2.asm:asm-commons:9.8",
+                    "classifier": null,
+                    "file": "asm-commons-9.8.jar",
+                    "size": 73498,
+                    "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+                },
+                {
+                    "id": "org.ow2.asm:asm-util:9.8",
+                    "classifier": null,
+                    "file": "asm-util-9.8.jar",
+                    "size": 94559,
+                    "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+                },
+                {
+                    "id": "org.ow2.asm:asm-analysis:9.8",
+                    "classifier": null,
+                    "file": "asm-analysis-9.8.jar",
+                    "size": 35151,
+                    "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+                },
+                {
+                    "id": "org.ow2.asm:asm-tree:9.8",
+                    "classifier": null,
+                    "file": "asm-tree-9.8.jar",
+                    "size": 51934,
+                    "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+                },
+                {
+                    "id": "org.ow2.asm:asm:9.8",
+                    "classifier": null,
+                    "file": "asm-9.8.jar",
+                    "size": 126113,
+                    "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+                },
+                {
+                    "id": "cpw.mods:bootstraplauncher:2.0.2",
+                    "classifier": null,
+                    "file": "bootstraplauncher-2.0.2.jar",
+                    "size": 11116,
+                    "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+                },
+                {
+                    "id": "net.neoforged:JarJarFileSystems:0.4.1",
+                    "classifier": null,
+                    "file": "JarJarFileSystems-0.4.1.jar",
+                    "size": 31807,
+                    "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+                },
+                {
+                    "id": "io.github.llamalad7:mixinextras-neoforge:0.5.0",
+                    "classifier": null,
+                    "file": "mixinextras-neoforge-0.5.0.jar",
+                    "size": 722959,
+                    "sha256": "9c617719248f8b89847348fc7ea5e705739c147ae5e172551264d225bc9f2507"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-api-base:0.4.42+d1308ded19",
+                    "classifier": null,
+                    "file": "fabric-api-base-0.4.42+d1308ded19.jar",
+                    "size": 34807,
+                    "sha256": "28b6e741ab6f9ebb1319dca5fa2c5dabc5582b73b08abc7cbcb812d834046b38"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-api-lookup-api-v1:1.6.71+c290471319",
+                    "classifier": null,
+                    "file": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+                    "size": 52740,
+                    "sha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-biome-api-v1:13.0.31+1e62d33c19",
+                    "classifier": null,
+                    "file": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+                    "size": 77170,
+                    "sha256": "252f4e91732cfffa3bef080be8424ee23ae1cbd271a3981cd9caad0a4449fcde"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-block-api-v1:1.1.0+b0c22bb819",
+                    "classifier": null,
+                    "file": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+                    "size": 20319,
+                    "sha256": "b3aa36fd2b2830d1e6cd99daa96b98bf3b5ac05b59b7b67780a95923b4a0f772"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-block-view-api-v2:1.0.11+e9036fd419",
+                    "classifier": null,
+                    "file": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+                    "size": 25642,
+                    "sha256": "6de474a6ed584ec9545e8d69ef515ded73222470ad81d1064242c9784e43f4ac"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-blockrenderlayer-v1:1.1.52+c290471319",
+                    "classifier": null,
+                    "file": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+                    "size": 23764,
+                    "sha256": "22277b144bbf93694b10925afc5700633caba5439bce5afd284984ee02f40427"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-client-tags-api-v1:1.1.15+e053909619",
+                    "classifier": null,
+                    "file": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+                    "size": 25900,
+                    "sha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-command-api-v2:2.2.28+36d727be19",
+                    "classifier": null,
+                    "file": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+                    "size": 31795,
+                    "sha256": "5d36aef269d68cc454dc14f63655b5631d1bec445228d482635eaa0147c2a732"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-content-registries-v0:8.0.19+c290471319",
+                    "classifier": null,
+                    "file": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+                    "size": 60896,
+                    "sha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v2:2.11.1+87e5848019",
+                    "classifier": null,
+                    "file": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+                    "size": 219081,
+                    "sha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-data-attachment-api-v1:1.4.5+26d408aa19",
+                    "classifier": null,
+                    "file": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+                    "size": 38155,
+                    "sha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-data-generation-api-v1:20.2.34+12dbe3c819",
+                    "classifier": null,
+                    "file": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+                    "size": 98163,
+                    "sha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-entity-events-v1:1.8.0+5ede667619",
+                    "classifier": null,
+                    "file": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+                    "size": 65411,
+                    "sha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-events-interaction-v0:0.7.13+86e0887119",
+                    "classifier": null,
+                    "file": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+                    "size": 56154,
+                    "sha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-game-rule-api-v1:1.0.53+36d727be19",
+                    "classifier": null,
+                    "file": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+                    "size": 52044,
+                    "sha256": "623b4283718c1226e542a5ab61e3f8ec776cda5fc5d72c688d2b1205de011269"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-gametest-api-v1:2.0.5+29f188ce19",
+                    "classifier": null,
+                    "file": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+                    "size": 32718,
+                    "sha256": "476168647007a3f9e2e81a7f484563d46e23ace76ad4fa5324c3b3c9d17b75dd"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-item-api-v1:11.2.0+0c57911319",
+                    "classifier": null,
+                    "file": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+                    "size": 59981,
+                    "sha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-item-group-api-v1:4.1.7+e324903319",
+                    "classifier": null,
+                    "file": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+                    "size": 43914,
+                    "sha256": "33fd75221240410042ae4354becdf7dc3574e07a8b8dbdfaa96d8c6ffe2c53d3"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-key-binding-api-v1:1.0.47+62cc7ce119",
+                    "classifier": null,
+                    "file": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+                    "size": 22251,
+                    "sha256": "aadd1ac08758f0fe9d819179e7aed645c2367eb6190cd1c2eca8dfa5d7ab8fb6"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-lifecycle-events-v1:2.6.0+e40d8add19",
+                    "classifier": null,
+                    "file": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+                    "size": 88814,
+                    "sha256": "e448755bf38bbff07f5d8d952b18fef2f7ae1ff7d1e7640121a2284b91e9e349"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-loot-api-v3:1.0.3+333dfad919",
+                    "classifier": null,
+                    "file": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+                    "size": 34952,
+                    "sha256": "ebd99e05b80ddc98ad57a9f1b2feb092b8d90b35a01ceb9a24991147a9a1fc53"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-message-api-v1:6.0.14+6a754fce19",
+                    "classifier": null,
+                    "file": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+                    "size": 45752,
+                    "sha256": "7713de55f30cc67bf7c9e12b8e6f6354044590a9525c753722a21269f3c05c73"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-model-loading-api-v1:2.1.0+6e8f52c719",
+                    "classifier": null,
+                    "file": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+                    "size": 61621,
+                    "sha256": "077f804b0e281e06b0297581431c70aed136a3bc3f53f437a87cb91e6835469e"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-networking-api-v1:4.3.0+30a980d919",
+                    "classifier": null,
+                    "file": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+                    "size": 169809,
+                    "sha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-object-builder-api-v1:15.2.1+cc242efd19",
+                    "classifier": null,
+                    "file": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+                    "size": 79690,
+                    "sha256": "d47501338613b39978db8adc399dc432b867206162777a5a6ecfec3d9d3be471"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-particles-v1:4.0.2+824f924c19",
+                    "classifier": null,
+                    "file": "fabric-particles-v1-4.0.2+824f924c19.jar",
+                    "size": 33007,
+                    "sha256": "7602ecfd15c01cc354a13a873c10da9ede0f8a3b09b63810d1f79747bf871073"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-recipe-api-v1:5.0.15+59440bcc19",
+                    "classifier": null,
+                    "file": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+                    "size": 54698,
+                    "sha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-registry-sync-v0:5.3.1+f9aace1619",
+                    "classifier": null,
+                    "file": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+                    "size": 53273,
+                    "sha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-renderer-api-v1:3.4.1+6e8f52c719",
+                    "classifier": null,
+                    "file": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+                    "size": 58067,
+                    "sha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-renderer-indigo:1.7.1+4198af7119",
+                    "classifier": null,
+                    "file": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+                    "size": 109369,
+                    "sha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-fluids-v1:3.1.6+857185bc19",
+                    "classifier": null,
+                    "file": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+                    "size": 40725,
+                    "sha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-v1:5.1.0+1a09bd5a19",
+                    "classifier": null,
+                    "file": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+                    "size": 91242,
+                    "sha256": "f7b1c7c82677cb2718837d2b44d8653aa8b677abcc8274b49ea7abe01578aa30"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-resource-conditions-api-v1:4.3.0+5bdd099819",
+                    "classifier": null,
+                    "file": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+                    "size": 65689,
+                    "sha256": "9876eca7644ff5d1805b1ebecf708985a120c86d8826b6416538678c3d33894c"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-resource-loader-v0:1.3.1+4ea8954419",
+                    "classifier": null,
+                    "file": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+                    "size": 105481,
+                    "sha256": "9eb65b0a9f069d0eeedbe85770b1562750b304f0fc17f9f94562d54f96034b10"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-screen-api-v1:2.0.25+4228281319",
+                    "classifier": null,
+                    "file": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+                    "size": 50958,
+                    "sha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-screen-handler-api-v1:1.3.90+8dbc56dd19",
+                    "classifier": null,
+                    "file": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+                    "size": 23609,
+                    "sha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-sound-api-v1:1.0.23+10b84f8419",
+                    "classifier": null,
+                    "file": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+                    "size": 20907,
+                    "sha256": "0bac20f36a80beccdb22e26cd6041c67a7e107a34c248a8a1b368abd7b7ebe78"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-transfer-api-v1:5.4.3+a25cb45619",
+                    "classifier": null,
+                    "file": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+                    "size": 204155,
+                    "sha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-transitive-access-wideners-v1:6.2.0+6c854b6f19",
+                    "classifier": null,
+                    "file": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+                    "size": 17388,
+                    "sha256": "3410255c6a9cc84801a55e4fdce900a8facf5621b0aaf8b19c89bddd74fba035"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-convention-tags-v1:2.1.5+7f945d5b19",
+                    "classifier": null,
+                    "file": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+                    "size": 37138,
+                    "sha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-loot-api-v2:3.0.15+a3ee712d19",
+                    "classifier": null,
+                    "file": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+                    "size": 27451,
+                    "sha256": "875e729220ddf60f12f0170427a5fc70d576d70b1f5e4adba92541eafb021ea8"
+                },
+                {
+                    "id": "org.sinytra.forgified-fabric-api:fabric-rendering-data-attachment-v1:0.3.49+73761d2e19",
+                    "classifier": null,
+                    "file": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+                    "size": 20498,
+                    "sha256": "a68a5ad12233436778cd106bf1b5cac21062622f39580a72d1a9641cfc7eb928"
+                },
+                {
+                    "id": "net.minecraftforge:srgutils:0.5.4",
+                    "classifier": null,
+                    "file": "srgutils-0.5.4.jar",
+                    "size": 72075,
+                    "sha256": "77bc2de440968713da0935708548d97c700074bfdbc776db0c2a8b54a0b27d2c"
+                },
+                {
+                    "id": "com.google.guava:guava:32.1.2-jre",
+                    "classifier": null,
+                    "file": "guava-32.1.2-jre.jar",
+                    "size": 3041591,
+                    "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+                },
+                {
+                    "id": "com.google.code.findbugs:jsr305:3.0.2",
+                    "classifier": null,
+                    "file": "jsr305-3.0.2.jar",
+                    "size": 19936,
+                    "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+                },
+                {
+                    "id": "org.jetbrains:annotations:24.1.0",
+                    "classifier": null,
+                    "file": "annotations-24.1.0.jar",
+                    "size": 30570,
+                    "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6"
+                },
+                {
+                    "id": "ca.weblite:java-objc-bridge:1.1",
+                    "classifier": null,
+                    "file": "java-objc-bridge-1.1.jar",
+                    "size": 1330045,
+                    "sha256": "77e34a13bccffc6c8b1a0e3ed46ddb0ea7dd56f2104ecdfacaaec9e4054ac332"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-core:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-core-2.22.1.jar",
+                    "size": 1900022,
+                    "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-api:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-api-2.22.1.jar",
+                    "size": 335001,
+                    "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+                },
+                {
+                    "id": "com.google.code.gson:gson:2.10.1",
+                    "classifier": null,
+                    "file": "gson-2.10.1.jar",
+                    "size": 283367,
+                    "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+                },
+                {
+                    "id": "com.mojang:logging:1.2.7",
+                    "classifier": null,
+                    "file": "logging-1.2.7.jar",
+                    "size": 15343,
+                    "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+                },
+                {
+                    "id": "org.slf4j:slf4j-api:2.0.9",
+                    "classifier": null,
+                    "file": "slf4j-api-2.0.9.jar",
+                    "size": 64579,
+                    "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+                },
+                {
+                    "id": "org.antlr:antlr4-runtime:4.13.1",
+                    "classifier": null,
+                    "file": "antlr4-runtime-4.13.1.jar",
+                    "size": 326305,
+                    "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+                },
+                {
+                    "id": "org.codehaus.plexus:plexus-utils:3.3.0",
+                    "classifier": null,
+                    "file": "plexus-utils-3.3.0.jar",
+                    "size": 263253,
+                    "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+                },
+                {
+                    "id": "org.jline:jline-reader:3.20.0",
+                    "classifier": null,
+                    "file": "jline-reader-3.20.0.jar",
+                    "size": 171052,
+                    "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+                },
+                {
+                    "id": "com.machinezoo.noexception:noexception:1.7.1",
+                    "classifier": null,
+                    "file": "noexception-1.7.1.jar",
+                    "size": 250861,
+                    "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+                },
+                {
+                    "id": "com.github.oshi:oshi-core:6.4.10",
+                    "classifier": null,
+                    "file": "oshi-core-6.4.10.jar",
+                    "size": 979212,
+                    "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+                },
+                {
+                    "id": "com.google.guava:failureaccess:1.0.1",
+                    "classifier": null,
+                    "file": "failureaccess-1.0.1.jar",
+                    "size": 4617,
+                    "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+                },
+                {
+                    "id": "com.ibm.icu:icu4j:73.2",
+                    "classifier": null,
+                    "file": "icu4j-73.2.jar",
+                    "size": 14567819,
+                    "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+                },
+                {
+                    "id": "com.mojang:authlib:6.0.54",
+                    "classifier": null,
+                    "file": "authlib-6.0.54.jar",
+                    "size": 115242,
+                    "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+                },
+                {
+                    "id": "com.mojang:blocklist:1.0.10",
+                    "classifier": null,
+                    "file": "blocklist-1.0.10.jar",
+                    "size": 964,
+                    "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+                },
+                {
+                    "id": "com.mojang:brigadier:1.3.10",
+                    "classifier": null,
+                    "file": "brigadier-1.3.10.jar",
+                    "size": 80082,
+                    "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+                },
+                {
+                    "id": "com.mojang:datafixerupper:8.0.16",
+                    "classifier": null,
+                    "file": "datafixerupper-8.0.16.jar",
+                    "size": 724313,
+                    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+                },
+                {
+                    "id": "com.mojang:patchy:2.2.10",
+                    "classifier": null,
+                    "file": "patchy-2.2.10.jar",
+                    "size": 4439,
+                    "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+                },
+                {
+                    "id": "com.mojang:text2speech:1.17.9",
+                    "classifier": null,
+                    "file": "text2speech-1.17.9.jar",
+                    "size": 12243,
+                    "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+                },
+                {
+                    "id": "commons-codec:commons-codec:1.16.0",
+                    "classifier": null,
+                    "file": "commons-codec-1.16.0.jar",
+                    "size": 360738,
+                    "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+                },
+                {
+                    "id": "commons-io:commons-io:2.15.1",
+                    "classifier": null,
+                    "file": "commons-io-2.15.1.jar",
+                    "size": 501218,
+                    "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+                },
+                {
+                    "id": "commons-logging:commons-logging:1.2",
+                    "classifier": null,
+                    "file": "commons-logging-1.2.jar",
+                    "size": 61829,
+                    "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+                },
+                {
+                    "id": "io.netty:netty-buffer:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-buffer-4.1.97.Final.jar",
+                    "size": 306590,
+                    "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+                },
+                {
+                    "id": "io.netty:netty-codec:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-codec-4.1.97.Final.jar",
+                    "size": 345274,
+                    "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+                },
+                {
+                    "id": "io.netty:netty-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-common-4.1.97.Final.jar",
+                    "size": 659930,
+                    "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+                },
+                {
+                    "id": "io.netty:netty-handler:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-handler-4.1.97.Final.jar",
+                    "size": 560040,
+                    "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+                },
+                {
+                    "id": "io.netty:netty-resolver:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-resolver-4.1.97.Final.jar",
+                    "size": 37792,
+                    "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+                },
+                {
+                    "id": "io.netty:netty-transport-classes-epoll:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-classes-epoll-4.1.97.Final.jar",
+                    "size": 147139,
+                    "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+                },
+                {
+                    "id": "io.netty:netty-transport-native-unix-common:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-native-unix-common-4.1.97.Final.jar",
+                    "size": 43897,
+                    "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+                },
+                {
+                    "id": "io.netty:netty-transport:4.1.97.Final",
+                    "classifier": null,
+                    "file": "netty-transport-4.1.97.Final.jar",
+                    "size": 489624,
+                    "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+                },
+                {
+                    "id": "it.unimi.dsi:fastutil:8.5.12",
+                    "classifier": null,
+                    "file": "fastutil-8.5.12.jar",
+                    "size": 23326598,
+                    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+                },
+                {
+                    "id": "net.java.dev.jna:jna-platform:5.14.0",
+                    "classifier": null,
+                    "file": "jna-platform-5.14.0.jar",
+                    "size": 1369287,
+                    "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+                },
+                {
+                    "id": "net.java.dev.jna:jna:5.14.0",
+                    "classifier": null,
+                    "file": "jna-5.14.0.jar",
+                    "size": 1878533,
+                    "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+                },
+                {
+                    "id": "net.sf.jopt-simple:jopt-simple:5.0.4",
+                    "classifier": null,
+                    "file": "jopt-simple-5.0.4.jar",
+                    "size": 78146,
+                    "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+                },
+                {
+                    "id": "org.apache.commons:commons-compress:1.26.0",
+                    "classifier": null,
+                    "file": "commons-compress-1.26.0.jar",
+                    "size": 1078328,
+                    "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpclient:4.5.13",
+                    "classifier": null,
+                    "file": "httpclient-4.5.13.jar",
+                    "size": 780321,
+                    "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+                },
+                {
+                    "id": "org.apache.httpcomponents:httpcore:4.4.16",
+                    "classifier": null,
+                    "file": "httpcore-4.4.16.jar",
+                    "size": 327891,
+                    "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+                },
+                {
+                    "id": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+                    "classifier": null,
+                    "file": "log4j-slf4j2-impl-2.22.1.jar",
+                    "size": 27364,
+                    "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+                },
+                {
+                    "id": "org.jcraft:jorbis:0.0.17",
+                    "classifier": null,
+                    "file": "jorbis-0.0.17.jar",
+                    "size": 99701,
+                    "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+                },
+                {
+                    "id": "org.joml:joml:1.10.5",
+                    "classifier": null,
+                    "file": "joml-1.10.5.jar",
+                    "size": 712082,
+                    "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-freetype:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-freetype-3.3.3.jar",
+                    "size": 450896,
+                    "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-glfw:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-glfw-3.3.3.jar",
+                    "size": 135546,
+                    "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-jemalloc:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-jemalloc-3.3.3.jar",
+                    "size": 43896,
+                    "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-openal:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-openal-3.3.3.jar",
+                    "size": 110586,
+                    "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-opengl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-opengl-3.3.3.jar",
+                    "size": 929192,
+                    "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-stb:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-stb-3.3.3.jar",
+                    "size": 120283,
+                    "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl-tinyfd:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-tinyfd-3.3.3.jar",
+                    "size": 13400,
+                    "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+                },
+                {
+                    "id": "org.lwjgl:lwjgl:3.3.3",
+                    "classifier": null,
+                    "file": "lwjgl-3.3.3.jar",
+                    "size": 785029,
+                    "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+                },
+                {
+                    "id": "org.lz4:lz4-java:1.8.0",
+                    "classifier": null,
+                    "file": "lz4-java-1.8.0.jar",
+                    "size": 682804,
+                    "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+                },
+                {
+                    "id": "org.jline:jline-terminal:3.20.0",
+                    "classifier": null,
+                    "file": "jline-terminal-3.20.0.jar",
+                    "size": 228481,
+                    "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+                },
+                {
+                    "id": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+                    "classifier": null,
+                    "file": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+                    "size": 2199,
+                    "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+                },
+                {
+                    "id": "org.checkerframework:checker-qual:3.33.0",
+                    "classifier": null,
+                    "file": "checker-qual-3.33.0.jar",
+                    "size": 223979,
+                    "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+                },
+                {
+                    "id": "com.google.errorprone:error_prone_annotations:2.18.0",
+                    "classifier": null,
+                    "file": "error_prone_annotations-2.18.0.jar",
+                    "size": 16017,
+                    "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+                },
+                {
+                    "id": "com.google.j2objc:j2objc-annotations:2.8",
+                    "classifier": null,
+                    "file": "j2objc-annotations-2.8.jar",
+                    "size": 9301,
+                    "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+                }
+            ]
+        },
+        {
+            "project": ":",
+            "configuration": "modAnnotationProcessor",
+            "artifacts": [
+                
+            ]
+        }
+    ]
+}

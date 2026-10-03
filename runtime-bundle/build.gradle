@@ -88,10 +88,32 @@ def digest = { File file ->
     md.digest().encodeHex().toString()
 }
 
+// A source-built profile must pin the actual managed core, not relax the
+// dependency to any Connector version or impersonate the official release.
+if (providers.gradleProperty('managedCoreJar').isPresent()) {
+    File core = file(providers.gradleProperty('managedCoreJar').get())
+    String expected = providers.gradleProperty('managedCoreSha256').orNull
+    if (expected == null || !(expected ==~ /[0-9a-f]{64}/)) {
+        throw new GradleException('managedCoreJar requires an explicit SHA-256 pin')
+    }
+    if (!core.isFile() || digest(core) != expected) {
+        throw new GradleException('Managed source-built core does not match its SHA-256 pin')
+    }
+    new java.util.jar.JarFile(core).withCloseable { archive ->
+        String declared = archive.manifest?.mainAttributes?.getValue('Implementation-Version')
+        if (declared == null || declared.length() > 256 || !(declared ==~ /[A-Za-z0-9_.+\-]+/)) {
+            throw new GradleException('Managed core has no safe exact Implementation-Version')
+        }
+        project.ext.connectorVersion = declared
+        project.ext.connectorSha256 = expected
+    }
+}
+
 def generatedResources = layout.buildDirectory.dir('generated/bundle-resources')
 def ffapiName = "forgified-fabric-api-${ffapiVersion}.jar"
 def connectorName = "connector-${connectorVersion}-full.jar"
-def connectorFile = providers.gradleProperty('connectorJar')
+def connectorFile = providers.gradleProperty('managedCoreJar')
+    .orElse(providers.gradleProperty('connectorJar'))
     .map { file(it) }
     .orElse(file("../docs/research/upstream/${connectorName}"))
 
@@ -128,6 +150,8 @@ sourceSets.main.resources.srcDir(tasks.named('generateJarJarMetadata'))
 tasks.named('processResources') {
     dependsOn 'generateJarJarMetadata'
     inputs.property('bundleVersion', version)
+    inputs.property('managedConnectorVersion', connectorVersion)
+    inputs.property('managedConnectorSha256', connectorSha256)
     filesMatching('META-INF/neoforge.mods.toml') {
         expand(bundleVersion: version, neoForgeVersion: neoForgeVersion,
             ffapiVersion: ffapiVersion, connectorVersion: connectorVersion)
@@ -212,3 +236,6 @@ tasks.register('runtimeDistribution', Zip) {
     from('src/main/resources/META-INF/licenses') { into 'licenses' }
     from('src/main/resources/META-INF/THIRD-PARTY-NOTICES.txt')
 }
+
+// Late client presentation hooks; original upstream IDs and embedded bytes are preserved.
+apply from: 'client-branding.gradle'

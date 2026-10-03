@@ -95,3 +95,17 @@ Pinned primary sources:
 - https://github.com/Sinytra/ForgifiedFabricAPI
 - https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219.pom
 - https://docs.neoforged.net/toolchain/docs/dependencies/jarinjar/
+
+## Client presentation
+
+The client-only branding source set changes the main menu's NeoForge label to
+`Unified ∞ Infinity` while keeping the localized mod count. It also prefixes
+the Minecraft window title. It does not replace Minecraft's logo/copyright,
+network protocol brand, mod IDs, versions, Mods technical metadata, licenses,
+or global NeoForge branding data.
+
+The two precise mixins run only in the GAME client layer, never in the early
+preload service or dedicated-server entry point. Compilation uses the official
+prepared client classpath from the client-setup workflow; override its location
+with `-PclientClasspathManifest=/absolute/client-launch-inputs.json` if needed.
+`testClientBranding` verifies replacement scope and attribution preservation.

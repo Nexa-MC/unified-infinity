@@ -8,8 +8,9 @@ version="${bundleVersion}"
 displayName="Unified ∞ Infinity"
 description='''
 Native NeoForge packaging host that embeds the official, unchanged Forgified
-Fabric API aggregate. Uses the original Sinytra Connector companion for Fabric
-mod transformation and loading. Not a reimplementation of those projects.
+Fabric API aggregate. Uses the exact managed Sinytra Connector-based core profile
+for Fabric transformation and loading, including disclosed source-built variants.
+Original upstream implementation, authorship and licenses remain credited.
 '''
 
 [[dependencies.mod_compat_runtime]]
@@ -46,3 +47,6 @@ type="required"
 versionRange="[${ffapiVersion}]"
 ordering="AFTER"
 side="BOTH"
+
+[[mixins]]
+config="unified-infinity.client-branding.mixins.json"

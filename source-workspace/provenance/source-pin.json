@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "source_url": "https://github.com/Sinytra/Connector",
+  "tag": "2.0.0-beta.17+1.21.1",
+  "commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "tag_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "tree": "bcb2a45fefcf13ea34a71efef82dabd161310093",
+  "captured_utc": "2026-10-03T07:11:28.761023+00:00",
+  "git_status_before_build": "",
+  "files": [
+    {
+      "path": "LICENSE",
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "sha256": "9bd3db0099244f5bb50e4108cc4879ba1be22360da21ec16712b66c62ce5dffc"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "sha256": "61b807ddd79a99d6a642b364357a1a0275c5560c7a72a601718a53a99130d2b3"
+    },
+    {
+      "path": "gradle.properties",
+      "sha256": "e5f396fc9c8d7ebca68c7b28941122982359315f89b1f21f5d10544b03a02876"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "8e0969acec4c5639eef6cb6983dcf0c94fdf1c269273de450832dc7635093f69"
+    },
+    {
+      "path": "build.gradle.kts",
+      "sha256": "713e98bd5f17504f9de2df86027bde844c4d54b218595365a59815a06699d13a"
+    },
+    {
+      "path": "transformer/build.gradle.kts",
+      "sha256": "1a240f9ae8f74dd8d967d14e3d9d62dd1a0aba7ff3abe1b755b2d04245ed24ee"
+    }
+  ]
+}

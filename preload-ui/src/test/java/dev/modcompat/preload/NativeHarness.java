@@ -16,6 +16,11 @@ public final class NativeHarness {
         java.nio.file.Path frame = java.nio.file.Path.of(reduced ? "reports/native-framebuffer-reduced-motion.png" : "reports/native-framebuffer.png");
         long secondCaptureAt = handoffAt + 4_000_000_000L;
         boolean secondCaptured = false;
+        boolean animation = Boolean.getBoolean("unified.infinity.qaAnimation");
+        long animationStart = handoffAt + 500_000_000L, nextAnimation = animationStart;
+        int animationIndex = 0;
+        java.nio.file.Path animationDir = java.nio.file.Path.of("reports/native-animation-frames");
+        if (animation) java.nio.file.Files.createDirectories(animationDir);
         try {
             while (System.nanoTime() < until) {
                 provider.periodicTick();
@@ -33,6 +38,14 @@ public final class NativeHarness {
                         throw new AssertionError("Reduced-motion output changed without a source event");
                     System.out.println("REDUCED_MOTION_STATIC_FRAME_PASSED separatedBySeconds=4");
                     secondCaptured = true;
+                }
+                long now = System.nanoTime();
+                if (animation && handle != 0 && now >= nextAnimation && now < animationStart + 5_000_000_000L) {
+                    String name = String.format(java.util.Locale.ROOT, "frame-%03d.png", animationIndex++);
+                    provider.exportFrameForQa(animationDir.resolve(name));
+                    java.nio.file.Files.writeString(animationDir.resolve("timing.csv"), name + "," + now + "\n",
+                            java.nio.file.StandardOpenOption.CREATE, java.nio.file.StandardOpenOption.APPEND);
+                    nextAnimation = now + 100_000_000L;
                 }
                 Thread.sleep(10);
             }

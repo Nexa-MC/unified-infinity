@@ -1,0 +1,26 @@
+{
+  "profile": "unified",
+  "cycle": 1,
+  "timestamp_utc": "2026-10-03T08:32:17.426410+00:00",
+  "passed": false,
+  "exit_code": 0,
+  "timed_out": false,
+  "ready": false,
+  "saved": false,
+  "all_dimensions_saved": false,
+  "persistent_score_verified": false,
+  "lithium_version_in_log": true,
+  "lithium_config_code_executed": false,
+  "same_original_fabric_jar": true,
+  "input_mod_sha256": {
+    "lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+    "unified-infinity-0.1.0-dev.jar": "e0fbbe9f5a101df29429719bfd171b5e56c55afdeefa027f39f5d1a72b35715b",
+    "unified-infinity-connector-2.0.0-beta.17+1.21.1-derived.jar": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+    "unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99"
+  },
+  "world_before": {},
+  "world_after": {},
+  "profile_network": "127.0.0.1:25573; online-mode=true; RCON/query disabled",
+  "duration_seconds": 17.321,
+  "scope": "Unchanged Lithium server binary create/save/reopen. No performance, player, client/render, or exhaustive Mixin claim."
+}

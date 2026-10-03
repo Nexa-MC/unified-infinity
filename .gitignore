@@ -6,3 +6,19 @@ __pycache__/
 run/
 artifacts/
 checkpoints/
+
+# Generated source-build workspaces and local credentials
+source-workspace/connector/
+source-workspace/connector-*/
+source-workspace/gradle-cache/
+source-workspace/*-project-cache/
+source-workspace/xdg-*/
+source-workspace/home/
+source-workspace/regression-tests/classes/
+.github-cli-auth/
+**/reports/*.png
+**/reports/*.gif
+# This immutable archive is corresponding source, not a compiled artifact.
+!source-workspace/artifacts/
+source-workspace/artifacts/*
+!source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip

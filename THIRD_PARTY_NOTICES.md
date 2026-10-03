@@ -10,7 +10,11 @@ FFAPI, Mixin or their authors' work. No public release is authorized.
 - Sinytra ForgeAutoRenamingTool1.0.14: LGPL2.1 license text is retained. Its modified
   AsyncHelper is source-provided, together with the complete exact upstream source
   archive, patch and rebuild procedure. This archive is explicitly included in
-  source checkpoints containing the modified binary.
+  source distributions accompanying the modified binary.
+- Sinytra Adapter core2.0.43+1.21.1: MIT. The complete pinned source archive,
+  complete modified core sources, three Lithium-fix source changes, original
+  copyright/license, patches and reconstruction instructions are included under
+  source-workspace/. Adapter runtime remains a separate upstream dependency.
 - Forgified Fabric API0.116.7+2.2.1+1.21.1: Apache2.0; byte-identical aggregate and
   nested modules are embedded in the managed host. Original IDs, aliases and notices
   remain. Upstream license copies are in runtime-bundle resources.
@@ -31,3 +35,15 @@ Exact artifact coordinates, source URLs and checksums live in baseline-lock.json
 component provenance records and their captured upstream license files. This file
 summarizes attribution; it does not replace the original license texts or claim
 that later public distribution has received a comprehensive legal review.
+
+## M5 source publication
+
+The companion core is the complete source-derived Connector/FART/Adapter build,
+not an unchanged upstream binary. Its complete corresponding source ZIP is
+`source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip`.
+See `source-workspace/source-lock.json`, the original licenses under
+`source-workspace/upstream/`, and `docs/full-source-build/README.md`.
+No single project-wide reuse license is asserted for this mixed-license tree;
+this attribution update does not relicense any component. Frozen runtime evidence
+keeps its original tested hashes; the corrected host notice is a publication
+change and a future rebuilt host must be pinned and tested separately.

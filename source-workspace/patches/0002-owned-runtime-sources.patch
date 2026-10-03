@@ -1,0 +1,1053 @@
+diff --git a/src/main/java/org/sinytra/connector/locator/ConnectorLocator.java b/src/main/java/org/sinytra/connector/locator/ConnectorLocator.java
+index 3db45cc..4a5e47a 100644
+--- a/src/main/java/org/sinytra/connector/locator/ConnectorLocator.java
++++ b/src/main/java/org/sinytra/connector/locator/ConnectorLocator.java
+@@ -22,10 +22,11 @@ import org.apache.maven.artifact.versioning.ArtifactVersion;
+ import org.apache.maven.artifact.versioning.DefaultArtifactVersion;
+ import org.jetbrains.annotations.Nullable;
+ import org.sinytra.connector.ConnectorEarlyLoader;
++import org.sinytra.connector.infinity.LoadProgress;
++import org.sinytra.connector.infinity.BuildIdentity;
++import org.sinytra.connector.infinity.ManagedConnectorTransformerEnvironment;
+ import org.sinytra.connector.locator.filter.ForgeModPackageFilter;
+ import org.sinytra.connector.locator.filter.SplitPackageMerger;
+-import org.sinytra.connector.locator.transform.ConnectorTransformerEnvironment;
+-import org.sinytra.connector.transformer.TransformerEnvironment;
+ import org.sinytra.connector.transformer.jar.JarTransformer;
+ import org.sinytra.connector.util.ConnectorUtil;
+ import org.sinytra.connector.util.PriorityModLoadingException;
+@@ -59,6 +60,9 @@ public class ConnectorLocator implements IDependencyLocator {
+             return;
+         }
+ 
++        boolean completed = false;
++        LOGGER.info("Unified Infinity modified Connector source fork (upstream 2.0.0-beta.17+1.21.1); source SHA-256 {}", BuildIdentity.SOURCE_SHA256);
++        LoadProgress.begin(LoadProgress.Stage.DISCOVER);
+         try {
+             LocationResult results = locateFabricMods(loadedMods);
+             if (results != null) {
+@@ -70,13 +74,17 @@ public class ConnectorLocator implements IDependencyLocator {
+                 if (Files.exists(generatedAdapterJar)) {
+                     pipeline.addPath(generatedAdapterJar, ModFileDiscoveryAttributes.DEFAULT, IncompatibleFileReporting.ERROR);
+                 }
++                completed = true;
+             }
+         } catch (PriorityModLoadingException e) {
++            LoadProgress.fail(e);
+             throw e;
+         } catch (ModLoadingException e) {
++            LoadProgress.fail(e);
+             // Let these pass through
+             ConnectorEarlyLoader.addGenericLoadingException(e.getIssues());
+         } catch (Throwable t) {
++            LoadProgress.fail(t);
+             // Rethrow other exceptions
+             StartupNotificationManager.addModMessage("CONNECTOR LOCATOR ERROR");
+             LOGGER.error("Connector locator error", t);
+@@ -89,7 +97,9 @@ public class ConnectorLocator implements IDependencyLocator {
+             // This way if there are dependency errors or others above the game is still able to display the correct error messages
+             try {
+                 loadEmbeddedJars(pipeline);
++                if (completed) LoadProgress.finish(null);
+             } catch (Throwable t) {
++                LoadProgress.fail(t);
+                 // Rethrow any exception encountered
+                 StartupNotificationManager.addModMessage("CONNECTOR EMBEDDED LOCATOR ERROR");
+                 LOGGER.error("Connector embedded locator error", t);
+@@ -115,10 +125,59 @@ public class ConnectorLocator implements IDependencyLocator {
+                 loadedModInfos.stream().filter(SimpleModInfo::library).map(SimpleModInfo::moduleName).filter(Objects::nonNull))
+             .collect(Collectors.toUnmodifiableSet());
+ 
+-        TransformerEnvironment environment = new ConnectorTransformerEnvironment(loadedModFiles);
+-        JarTransformer transformer = new JarTransformer(environment);
++        try (ManagedConnectorTransformerEnvironment environment = new ManagedConnectorTransformerEnvironment(loadedModFiles)) {
++            JarTransformer transformer = new JarTransformer(environment);
+ 
+-        // Discover fabric mod jars
++            DiscoveredFabricJars discovered = discoverFabricJars(transformer, tempDir, loadedModIds, loadedModuleNames);
++            LoadProgress.finish(discovered.roots().size() + discovered.nested().size());
++            LoadProgress.begin(LoadProgress.Stage.RESOLVE);
++
++            // Collect mods that are (likely) going to be excluded by FML's UniqueModListBuilder. Exclude them from global split package filtering
++            Collection<? super IModFile> ignoredModFiles = new ArrayList<>();
++
++            // Remove mods loaded by FML
++            List<JarTransformer.TransformableJar> uniqueJars = handleDuplicateMods(discovered.roots(), discovered.nested(), loadedModInfos, ignoredModFiles);
++
++            // Ensure we have all required dependencies before transforming, remove side-only mods
++            List<JarTransformer.TransformableJar> candidates = DependencyResolver.resolveDependencies(uniqueJars, discovered.parentToChildren(), loadedModFiles);
++
++            LoadProgress.finish(candidates.size());
++            LoadProgress.begin(LoadProgress.Stage.TRANSFORM);
++
++            // Get renamer library classpath
++            List<Path> renameLibs = loadedModFiles.stream().map(modFile -> modFile.getSecureJar().getRootPath()).toList();
++
++            // Run jar transformations (or get existing outputs from cache)
++            List<JarTransformer.TransformedFabricModPath> transformed = transformer.transform(candidates, renameLibs);
++
++            List<JarTransformer.TransformedFabricModPath> failing = transformed.stream().filter(j -> j.auditTrail() != null && j.auditTrail().hasFailingMixins()).toList();
++            if (!failing.isEmpty()) {
++                MixinTransformSafeguard.trigger(failing);
++            }
++
++            // Skip last step to save time if an error occured during transformation
++            if (ConnectorEarlyLoader.hasEncounteredException()) {
++                StartupNotificationManager.addModMessage("JAR TRANSFORMATION ERROR");
++                LOGGER.error("Cancelling jar discovery due to previous error");
++                LoadProgress.fail(new IllegalStateException("Transformation recorded an error"));
++                return null;
++            }
++
++            LoadProgress.finish(transformed.size());
++            LoadProgress.begin(LoadProgress.Stage.COMMIT);
++
++            // Deal with split packages (thanks modules)
++            List<SplitPackageMerger.FilteredModPath> moduleSafeJars = SplitPackageMerger.mergeSplitPackages(transformed.stream().map(JarTransformer.TransformedFabricModPath::output).toList(), loadedModFiles, ignoredModFiles);
++
++            List<IModFile> loadedMods = moduleSafeJars.stream().map(ConnectorLocator::createConnectorModFile).toList();
++            List<Path> originalPaths = transformed.stream().map(JarTransformer.TransformedFabricModPath::input).toList();
++            return new LocationResult(loadedMods, originalPaths, environment.getGeneratedJarPath());
++        }
++    }
++
++    private static DiscoveredFabricJars discoverFabricJars(JarTransformer transformer, Path tempDir,
++        Collection<String> loadedModIds, Collection<String> loadedModuleNames) {
++        // Existing upstream discovery and nested-JAR traversal, unchanged.
+         List<JarTransformer.TransformableJar> discoveredJars = FabricModsDiscoverer.scanFabricMods()
+             .map(rethrowFunction(p -> transformer.cacheTransformableJar(p.toFile())))
+             .filter(jar -> !shouldIgnoreMod(jar, loadedModIds, loadedModuleNames))
+@@ -133,41 +192,13 @@ public class ConnectorLocator implements IDependencyLocator {
+             })
+             .toList();
+ 
+-        // Collect mods that are (likely) going to be excluded by FML's UniqueModListBuilder. Exclude them from global split package filtering
+-        Collection<? super IModFile> ignoredModFiles = new ArrayList<>();
+-
+-        // Remove mods loaded by FML
+-        List<JarTransformer.TransformableJar> uniqueJars = handleDuplicateMods(discoveredJars, discoveredNestedJars, loadedModInfos, ignoredModFiles);
+-
+-        // Ensure we have all required dependencies before transforming, remove side-only mods
+-        List<JarTransformer.TransformableJar> candidates = DependencyResolver.resolveDependencies(uniqueJars, parentToChildren, loadedModFiles);
+-
+-        // Get renamer library classpath
+-        List<Path> renameLibs = loadedModFiles.stream().map(modFile -> modFile.getSecureJar().getRootPath()).toList();
+-
+-        // Run jar transformations (or get existing outputs from cache)
+-        List<JarTransformer.TransformedFabricModPath> transformed = transformer.transform(candidates, renameLibs);
+-
+-        List<JarTransformer.TransformedFabricModPath> failing = transformed.stream().filter(j -> j.auditTrail() != null && j.auditTrail().hasFailingMixins()).toList();
+-        if (!failing.isEmpty()) {
+-            MixinTransformSafeguard.trigger(failing);
+-        }
+-
+-        // Skip last step to save time if an error occured during transformation
+-        if (ConnectorEarlyLoader.hasEncounteredException()) {
+-            StartupNotificationManager.addModMessage("JAR TRANSFORMATION ERROR");
+-            LOGGER.error("Cancelling jar discovery due to previous error");
+-            return null;
+-        }
+-
+-        // Deal with split packages (thanks modules)
+-        List<SplitPackageMerger.FilteredModPath> moduleSafeJars = SplitPackageMerger.mergeSplitPackages(transformed.stream().map(JarTransformer.TransformedFabricModPath::output).toList(), loadedModFiles, ignoredModFiles);
+-
+-        List<IModFile> loadedMods = moduleSafeJars.stream().map(ConnectorLocator::createConnectorModFile).toList();
+-        List<Path> originalPaths = transformed.stream().map(JarTransformer.TransformedFabricModPath::input).toList();
+-        return new LocationResult(loadedMods, originalPaths, environment.getGeneratedJarPath());
++        return new DiscoveredFabricJars(discoveredJars, discoveredNestedJars, parentToChildren);
+     }
+ 
++    private record DiscoveredFabricJars(List<JarTransformer.TransformableJar> roots,
++        List<JarTransformer.TransformableJar> nested,
++        Multimap<JarTransformer.TransformableJar, JarTransformer.TransformableJar> parentToChildren) {}
++
+     private static IModFile createConnectorModFile(SplitPackageMerger.FilteredModPath modPath) {
+         JarContents jarContents = new JarContentsBuilder().paths(modPath.paths()).pathFilter(modPath.filter()).build();
+         if (modPath.metadata().generated()) {
+diff --git a/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java b/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java
+index f53f233..173ce59 100644
+--- a/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java
++++ b/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java
+@@ -94,6 +94,7 @@ public class JarTransformInstance {
+         MixinPatchTransformer patchTransformer = new MixinPatchTransformer(this.environment, environment, accessorRedirectTransformer.getPatches());
+ 
+         Renamer.Builder builder = Renamer.builder()
++            .threads(1) // The shared outer JAR budget owns concurrency; entries run on that worker.
+             .add(new JarSignatureStripper())
+             .add(new ClassNodeTransformer(
+                 new FieldToMethodTransformer(metadata.modMetadata().getClassTweaker(), srgToIntermediary),
+@@ -138,6 +139,7 @@ public class JarTransformInstance {
+ 
+     private static void processGeneratedJar(File input, Path output, Stopwatch stopwatch) throws IOException {
+         Renamer.Builder builder = Renamer.builder()
++            .threads(1) // The shared outer JAR budget owns concurrency; entries run on that worker.
+             .logger(s -> LOGGER.trace(JarTransformer.TRANSFORM_MARKER, s))
+             .debug(s -> LOGGER.trace(JarTransformer.TRANSFORM_MARKER, s))
+             .ignoreJarPathPrefix("assets/", "data/");
+diff --git a/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformer.java b/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformer.java
+index 196ce6e..260bed3 100644
+--- a/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformer.java
++++ b/transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformer.java
+@@ -8,6 +8,9 @@ import cpw.mods.jarhandling.JarContentsBuilder;
+ import cpw.mods.jarhandling.JarMetadata;
+ import cpw.mods.modlauncher.serviceapi.ILaunchPluginService;
+ import net.minecraftforge.fart.api.ClassProvider;
++import org.sinytra.connector.infinity.BoundedBatch;
++import org.sinytra.connector.infinity.LoadingPolicy;
++import org.sinytra.connector.infinity.LoadProgress;
+ import org.jetbrains.annotations.Nullable;
+ import org.sinytra.adapter.env.ctx.AuditTrail;
+ import org.sinytra.connector.transformer.TransformerEnvironment;
+@@ -27,10 +30,9 @@ import java.nio.file.Path;
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Map;
+-import java.util.Objects;
+-import java.util.concurrent.ExecutorService;
+-import java.util.concurrent.Executors;
+-import java.util.concurrent.Future;
++import java.util.IdentityHashMap;
++import java.time.Duration;
++import java.util.concurrent.TimeoutException;
+ import java.util.concurrent.TimeUnit;
+ 
+ import static cpw.mods.modlauncher.api.LambdaExceptionUtils.uncheck;
+@@ -48,25 +50,28 @@ public final class JarTransformer {
+     }
+ 
+     public List<TransformedFabricModPath> transform(List<TransformableJar> jars, List<Path> libs) {
+-        List<TransformedFabricModPath> transformed = new ArrayList<>();
+-
++        Map<TransformableJar, TransformedFabricModPath> outputs = new IdentityHashMap<>();
+         List<Path> inputLibs = new ArrayList<>(libs);
+         List<TransformableJar> needTransforming = new ArrayList<>();
++        int cached = 0;
+         for (TransformableJar jar : jars) {
+             if (jar.cacheFile().isUpToDate()) {
+-                transformed.add(jar.toTransformedPath());
+-            }
+-            else {
++                outputs.put(jar, jar.toTransformedPath());
++                cached++;
++            } else {
+                 needTransforming.add(jar);
+             }
+             inputLibs.add(jar.input().toPath());
+         }
+-
++        LoadProgress.transformUnits(jars.size(), cached);
+         if (!needTransforming.isEmpty()) {
+-            transformed.addAll(transformJars(needTransforming, inputLibs));
++            List<TransformedFabricModPath> transformed = transformJars(needTransforming, inputLibs);
++            for (int i = 0; i < needTransforming.size(); i++) {
++                outputs.put(needTransforming.get(i), transformed.get(i));
++            }
+         }
+-
+-        return transformed;
++        // Cache state must not reorder candidates selected by the existing dependency resolver.
++        return jars.stream().map(outputs::get).toList();
+     }
+ 
+     public TransformableJar cacheTransformableJar(File input) throws IOException {
+@@ -83,53 +88,65 @@ public final class JarTransformer {
+     private List<TransformedFabricModPath> transformJars(List<TransformableJar> paths, List<Path> libs) {
+         Stopwatch stopwatch = Stopwatch.createStarted();
+         TransformProgressMeter progress = this.environment.createProgressMeter("[Connector] Transforming Jars", paths.size());
++        ClassProvider ownedClassProvider = null;
++        Throwable pendingFailure = null;
+         try {
+             TransformProgressMeter initProgress = this.environment.createProgressMeter("[Connector] Initializing Transformer", 0);
+             JarTransformInstance transformInstance;
+             try {
+                 ClassProvider classProvider = this.environment.getRuntimeClassProvider(libs);
++                ownedClassProvider = classProvider;
+                 ILaunchPluginService.ITransformerLoader loader = name -> classProvider.getClassBytes(name.replace('.', '/')).orElseThrow(() -> new ClassNotFoundException(name));
+                 this.environment.setGlobalBytecodeLoader(loader);
+                 transformInstance = new JarTransformInstance(this.environment, classProvider, libs);
+             } finally {
+                 initProgress.complete();
+             }
+-            ExecutorService executorService = Executors.newFixedThreadPool(paths.size());
+-            List<Pair<File, Future<Pair<FabricModPath, AuditTrail>>>> futures = paths.stream()
+-                .map(jar -> {
+-                    Future<Pair<FabricModPath, AuditTrail>> future = executorService.submit(() -> {
+-                        Pair<FabricModPath, AuditTrail> pair = jar.transform(transformInstance);
+-                        progress.increment();
+-                        return pair;
+-                    });
+-                    return Pair.of(jar.input(), future);
+-                })
+-                .toList();
+-            executorService.shutdown();
+-            if (!executorService.awaitTermination(1, TimeUnit.HOURS)) {
+-                throw new RuntimeException("Timed out waiting for jar remap");
++            LoadingPolicy policy = LoadingPolicy.current(paths.size());
++            LOGGER.info(TRANSFORM_MARKER, "Unified Infinity transform budget: {} workers for {} uncached jars (CPU {}, heap {}, cap {})",
++                policy.workers(), paths.size(), policy.cpuBudget(), policy.heapBudget(), policy.configuredCap());
++            List<TransformedFabricModPath> results;
++            try {
++                results = BoundedBatch.map(paths, policy.workers(), Duration.ofHours(1), jar -> {
++                    Pair<FabricModPath, AuditTrail> pair = jar.transform(transformInstance);
++                    progress.increment();
++                    LoadProgress.transformedOne();
++                    return new TransformedFabricModPath(jar.input().toPath(), pair.getFirst(), pair.getSecond());
++                });
++            } catch (BoundedBatch.BatchException failure) {
++                TransformableJar failed = paths.get(failure.inputIndex());
++                throw this.environment.onTransformationError("Error transforming file " + failed.input().getName(), failure.getCause());
++            } catch (TimeoutException failure) {
++                throw this.environment.onTransformationError("Timed out waiting for jar remap", failure);
+             }
+-            List<TransformedFabricModPath> results = futures.stream()
+-                .map(pair -> {
+-                    try {
+-                        Pair<FabricModPath, AuditTrail> result = pair.getSecond().get();
+-                        return new TransformedFabricModPath(pair.getFirst().toPath(), result.getFirst(), result.getSecond());
+-                    } catch (Throwable t) {
+-                        throw this.environment.onTransformationError("Error transforming file " + pair.getFirst().getName(), t);
+-                    }
+-                })
+-                .filter(Objects::nonNull)
+-                .toList();
+             uncheck(() -> transformInstance.getBfu().saveGeneratedAdapterJar());
+             transformInstance.saveAuditReport();
+             stopwatch.stop();
+             LOGGER.debug(TRANSFORM_MARKER, "Processed all jars in {} ms", stopwatch.elapsed(TimeUnit.MILLISECONDS));
+             return results;
+-        } catch (InterruptedException ignored) {
+-            return List.of();
++        } catch (InterruptedException interrupted) {
++            Thread.currentThread().interrupt();
++            RuntimeException failure = this.environment.onTransformationError("Interrupted while transforming jars", interrupted);
++            pendingFailure = failure;
++            throw failure;
++        } catch (RuntimeException | Error failure) {
++            pendingFailure = failure;
++            throw failure;
+         } finally {
+-            cleanupEnvironment();
+-            progress.complete();
++            try {
++                cleanupEnvironment();
++            } finally {
++                try {
++                    // This provider owns input-JAR handles, not borrowed host directories.
++                    // Workers have drained, adapter/audit writes ended, and the callback is removed.
++                    if (ownedClassProvider != null) ownedClassProvider.close();
++                } catch (Throwable closeFailure) {
++                    if (pendingFailure != null) pendingFailure.addSuppressed(closeFailure);
++                    else throw this.environment.onTransformationError("Failed to close transform class provider", closeFailure);
++                } finally {
++                    progress.complete();
++                }
++            }
+         }
+     }
+ 
+--- /dev/null
++++ b/components/infinity-core/src/main/java/org/sinytra/connector/infinity/BoundedBatch.java
+@@ -0,0 +1,97 @@
++package org.sinytra.connector.infinity;
++
++import java.time.Duration;
++import java.util.ArrayDeque;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.concurrent.ArrayBlockingQueue;
++import java.util.concurrent.ExecutionException;
++import java.util.concurrent.Future;
++import java.util.concurrent.ThreadPoolExecutor;
++import java.util.concurrent.TimeUnit;
++import java.util.concurrent.TimeoutException;
++import java.util.concurrent.atomic.AtomicInteger;
++
++/** Bounded submission window, input-order results and input-order exception attribution. */
++public final class BoundedBatch {
++    private BoundedBatch() {}
++
++    @FunctionalInterface
++    public interface Operation<I, O> {
++        O apply(I input) throws Exception;
++    }
++
++    public static final class BatchException extends Exception {
++        private final int inputIndex;
++        BatchException(int inputIndex, Throwable cause) {
++            super("Transform batch failed at input index " + inputIndex, cause);
++            this.inputIndex = inputIndex;
++        }
++        public int inputIndex() { return this.inputIndex; }
++    }
++
++    public static <I, O> List<O> map(List<I> inputs, int workers, Duration timeout, Operation<I, O> operation)
++        throws InterruptedException, BatchException, TimeoutException {
++        if (inputs.isEmpty()) return List.of();
++        if (workers < 1 || timeout.isNegative() || timeout.isZero()) throw new IllegalArgumentException("Invalid batch policy");
++        int width = Math.min(inputs.size(), workers);
++        AtomicInteger serial = new AtomicInteger();
++        ThreadPoolExecutor executor = new ThreadPoolExecutor(width, width, 0L, TimeUnit.MILLISECONDS,
++            new ArrayBlockingQueue<>(width), runnable -> {
++                Thread thread = new Thread(runnable, "infinity-jar-transform-" + serial.incrementAndGet());
++                thread.setDaemon(false);
++                return thread;
++            }, new ThreadPoolExecutor.AbortPolicy());
++        ArrayDeque<Future<O>> window = new ArrayDeque<>(width);
++        List<O> outputs = new ArrayList<>(inputs.size());
++        long deadline = System.nanoTime() + timeout.toNanos();
++        boolean succeeded = false;
++        boolean interrupted = false;
++        try {
++            int submitted = 0;
++            while (submitted < width) {
++                I input = inputs.get(submitted++);
++                window.addLast(executor.submit(() -> operation.apply(input)));
++            }
++            for (int index = 0; index < inputs.size(); index++) {
++                long remaining = deadline - System.nanoTime();
++                if (remaining <= 0) throw new TimeoutException("Timed out waiting for jar remap");
++                // Do not remove this future until get succeeds: failure cleanup must cancel it too.
++                try {
++                    outputs.add(window.getFirst().get(remaining, TimeUnit.NANOSECONDS));
++                } catch (ExecutionException e) {
++                    throw new BatchException(index, e.getCause());
++                }
++                window.removeFirst();
++                if (submitted < inputs.size()) {
++                    I input = inputs.get(submitted++);
++                    window.addLast(executor.submit(() -> operation.apply(input)));
++                }
++            }
++            succeeded = true;
++            return List.copyOf(outputs);
++        } catch (InterruptedException e) {
++            interrupted = true;
++            throw e;
++        } finally {
++            if (succeeded) {
++                executor.shutdown();
++            } else {
++                window.forEach(future -> future.cancel(true));
++                executor.shutdownNow();
++            }
++            // Never let global bytecode-loader/Mixin-cache cleanup race an active transformer.
++            // Cooperative tasks terminate promptly; an uninterruptible task requires process cancellation.
++            while (!executor.isTerminated()) {
++                try {
++                    executor.awaitTermination(1, TimeUnit.DAYS);
++                } catch (InterruptedException e) {
++                    interrupted = true;
++                    window.forEach(future -> future.cancel(true));
++                    executor.shutdownNow();
++                }
++            }
++            if (interrupted) Thread.currentThread().interrupt();
++        }
++    }
++}
+--- /dev/null
++++ b/components/infinity-core/src/main/java/org/sinytra/connector/infinity/LoadProgress.java
+@@ -0,0 +1,101 @@
++package org.sinytra.connector.infinity;
++
++import java.io.IOException;
++import java.nio.charset.StandardCharsets;
++import java.nio.file.AtomicMoveNotSupportedException;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.nio.file.StandardCopyOption;
++
++/** Small latest-state IPC contract. ConnectorLocator alone owns the ordered phase boundaries. */
++public final class LoadProgress {
++    public static final String FILE_PROPERTY = "unified.infinity.progressFile";
++    public enum Stage { DISCOVER, RESOLVE, TRANSFORM, COMMIT }
++
++    private static Stage stage;
++    private static String status = "running";
++    private static Integer completed;
++    private static Integer total;
++    private static final long started = System.nanoTime();
++    private static long sequence;
++    private static long lastPublishAttempt;
++    private static boolean warned;
++    private static String error;
++
++    private LoadProgress() {}
++
++    public static synchronized void begin(Stage next) {
++        stage = next;
++        status = "running";
++        completed = null;
++        total = null;
++        error = null;
++        publish(true);
++    }
++
++    public static synchronized void finish(Integer actualOutputs) {
++        if (stage == null || status.equals("failed")) return;
++        status = "complete";
++        if (actualOutputs != null) completed = total = actualOutputs;
++        publish(true);
++    }
++
++    public static synchronized void transformUnits(int count, int cached) {
++        if (stage != Stage.TRANSFORM || !status.equals("running")) return;
++        if (count < 0 || cached < 0 || cached > count) throw new IllegalArgumentException("Invalid progress units");
++        completed = cached;
++        total = count;
++        publish(true);
++    }
++
++    public static synchronized void transformedOne() {
++        if (stage != Stage.TRANSFORM || !status.equals("running") || completed == null) return;
++        completed++;
++        if (completed > total) throw new IllegalStateException("Transformation completion exceeds input count");
++        publish(completed.equals(total));
++    }
++
++    public static synchronized void fail(Throwable failure) {
++        if (stage == null) return;
++        status = "failed";
++        // Never leak input paths, exception messages or mod contents to a UI snapshot.
++        error = failure.getClass().getSimpleName().replaceAll("[^a-zA-Z0-9_$]", "");
++        publish(true);
++    }
++
++    private static void publish(boolean force) {
++        sequence++;
++        String location = System.getProperty(FILE_PROPERTY);
++        if (location == null || location.isBlank()) return;
++        long now = System.nanoTime();
++        if (!force && now - lastPublishAttempt < 100_000_000L) return;
++        lastPublishAttempt = now;
++        Path temp = null;
++        try {
++            Path destination = Path.of(location);
++            if (!destination.isAbsolute()) throw new IOException("Progress destination must be absolute");
++            Files.createDirectories(destination.getParent());
++            temp = Files.createTempFile(destination.getParent(), ".infinity-progress-", ".tmp");
++            String json = "{\"stage\":\"" + stage.name().toLowerCase(java.util.Locale.ROOT)
++                + "\",\"status\":\"" + status + "\",\"completed\":" + completed + ",\"total\":" + total
++                + ",\"elapsedMs\":" + Math.max(0, (System.nanoTime() - started) / 1_000_000L)
++                + ",\"sequence\":" + sequence + (error == null ? "" : ",\"error\":\"" + error + "\"") + "}\n";
++            Files.writeString(temp, json, StandardCharsets.UTF_8);
++            try {
++                Files.move(temp, destination, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);
++            } catch (AtomicMoveNotSupportedException e) {
++                // A partial snapshot is worse than a stale one; do not fall back to non-atomic writes.
++                throw new IOException("Atomic progress replacement unsupported", e);
++            }
++        } catch (IOException | RuntimeException e) {
++            if (!warned) {
++                System.err.println("[Unified Infinity] Progress snapshot unavailable (" + e.getClass().getSimpleName() + ")");
++                warned = true;
++            }
++        } finally {
++            if (temp != null) {
++                try { Files.deleteIfExists(temp); } catch (IOException ignored) {}
++            }
++        }
++    }
++}
+--- /dev/null
++++ b/components/infinity-core/src/main/java/org/sinytra/connector/infinity/LoadingPolicy.java
+@@ -0,0 +1,36 @@
++package org.sinytra.connector.infinity;
++
++/** One bounded budget for the existing independent JAR-transform stage only. */
++public record LoadingPolicy(int workers, int cpuBudget, int heapBudget, int configuredCap) {
++    public static final String WORKERS_PROPERTY = "unified.infinity.workers";
++    public static final String MAX_WORKERS_PROPERTY = "unified.infinity.maxWorkers";
++    private static final long MIB = 1024L * 1024L;
++
++    public static LoadingPolicy current(int inputs) {
++        return compute(inputs, Runtime.getRuntime().availableProcessors(), Runtime.getRuntime().maxMemory(),
++            positiveProperty(MAX_WORKERS_PROPERTY, 4), positiveProperty(WORKERS_PROPERTY, Integer.MAX_VALUE));
++    }
++
++    public static LoadingPolicy compute(int inputs, int cpus, long maxHeap, int maxWorkers, int requestedWorkers) {
++        if (inputs < 0 || maxWorkers < 1 || requestedWorkers < 1) {
++            throw new IllegalArgumentException("Invalid transform worker budget");
++        }
++        int cpuBudget = Math.max(1, cpus - 1);
++        // Conservative admission heuristic, not a reservation or an RSS guarantee.
++        int heapBudget = (int) Math.min(Integer.MAX_VALUE, Math.max(1L, (maxHeap - 512L * MIB) / (256L * MIB)));
++        int cap = Math.min(maxWorkers, requestedWorkers);
++        int workers = inputs == 0 ? 0 : Math.max(1, Math.min(inputs, Math.min(cap, Math.min(cpuBudget, heapBudget))));
++        return new LoadingPolicy(workers, cpuBudget, heapBudget, cap);
++    }
++
++    private static int positiveProperty(String name, int fallback) {
++        String value = System.getProperty(name);
++        if (value == null) return fallback;
++        try {
++            int parsed = Integer.parseInt(value);
++            if (parsed > 0) return parsed;
++        } catch (NumberFormatException ignored) {
++        }
++        throw new IllegalArgumentException(name + " must be a positive integer");
++    }
++}
+--- /dev/null
++++ b/components/infinity-core/src/main/java/org/sinytra/connector/infinity/ResourceScope.java
+@@ -0,0 +1,31 @@
++package org.sinytra.connector.infinity;
++
++import java.util.ArrayDeque;
++
++/** Locator-thread ownership of resources created by this transaction, never borrowed handles. */
++public final class ResourceScope implements AutoCloseable {
++    private final ArrayDeque<AutoCloseable> resources = new ArrayDeque<>();
++    private boolean closed;
++
++    public <T extends AutoCloseable> T own(T resource) {
++        if (closed) throw new IllegalStateException("Resource scope already closed");
++        resources.addLast(resource);
++        return resource;
++    }
++
++    @Override
++    public void close() {
++        if (closed) return;
++        closed = true;
++        RuntimeException failure = null;
++        while (!resources.isEmpty()) {
++            try {
++                resources.removeLast().close();
++            } catch (Exception exception) {
++                if (failure == null) failure = new RuntimeException("Failed to close owned transform resources", exception);
++                else failure.addSuppressed(exception);
++            }
++        }
++        if (failure != null) throw failure;
++    }
++}
+--- /dev/null
++++ b/components/infinity-core/src/test/java/org/sinytra/connector/infinity/LoadingCoreTest.java
+@@ -0,0 +1,259 @@
++package org.sinytra.connector.infinity;
++
++import java.io.IOException;
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.time.Duration;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.TimeUnit;
++import java.util.concurrent.atomic.AtomicBoolean;
++import java.util.concurrent.atomic.AtomicInteger;
++import java.util.concurrent.atomic.AtomicReference;
++import java.util.stream.IntStream;
++
++/** No mocks of host classes: focused executable tests of the actual shared core. */
++public final class LoadingCoreTest {
++    private static int tests;
++    public static void main(String[] args) throws Exception {
++        policyBudgets();
++        boundedConcurrencyAndOrderedOutputs();
++        sequentialDifferential();
++        deterministicFailureAndCleanup();
++        interruptionAndCleanup();
++        timeoutAndCleanup();
++        boundedSubmissionWindow();
++        progressSnapshots();
++        ownedResourceScope();
++        emptyBatch();
++        assertNoWorkers();
++        System.out.println("PASS " + tests + " loading core tests");
++    }
++
++    private static void policyBudgets() {
++        check(LoadingPolicy.compute(100, 128, 8L << 30, 4, Integer.MAX_VALUE).workers() == 4, "configured cap");
++        check(LoadingPolicy.compute(100, 128, 1L << 30, 4, Integer.MAX_VALUE).workers() == 2, "heap cap");
++        check(LoadingPolicy.compute(100, 2, 8L << 30, 4, Integer.MAX_VALUE).workers() == 1, "CPU reserve");
++        check(LoadingPolicy.compute(100, 1, 128L << 20, 4, Integer.MAX_VALUE).workers() == 1, "minimum one worker");
++        check(LoadingPolicy.compute(0, 128, 8L << 30, 4, 1).workers() == 0, "empty budget");
++        check(LoadingPolicy.compute(3, 128, 8L << 30, 4, Integer.MAX_VALUE).workers() == 3, "input cap");
++        String old = System.getProperty(LoadingPolicy.WORKERS_PROPERTY);
++        try {
++            System.setProperty(LoadingPolicy.WORKERS_PROPERTY, "1");
++            check(LoadingPolicy.current(100).workers() == 1, "sequential property");
++            System.setProperty(LoadingPolicy.WORKERS_PROPERTY, "0");
++            try { LoadingPolicy.current(2); throw new AssertionError("zero property accepted"); }
++            catch (IllegalArgumentException expected) { }
++        } finally { restoreProperty(LoadingPolicy.WORKERS_PROPERTY, old); }
++        tests++;
++    }
++
++    private static void boundedConcurrencyAndOrderedOutputs() throws Exception {
++        AtomicInteger active = new AtomicInteger();
++        AtomicInteger peak = new AtomicInteger();
++        CountDownLatch overlap = new CountDownLatch(3);
++        List<Integer> inputs = IntStream.range(0, 30).boxed().toList();
++        List<Integer> output = BoundedBatch.map(inputs, 3, Duration.ofSeconds(10), index -> {
++            int now = active.incrementAndGet();
++            peak.accumulateAndGet(now, Math::max);
++            try {
++                if (index < 3) {
++                    overlap.countDown();
++                    check(overlap.await(3, TimeUnit.SECONDS), "workers did not overlap");
++                }
++                Thread.sleep((3 - index % 3) * 2L);
++                return index * index;
++            } finally { active.decrementAndGet(); }
++        });
++        check(peak.get() == 3, "peak concurrency exactly bounded");
++        check(active.get() == 0, "workers done on success");
++        check(output.equals(inputs.stream().map(n -> n * n).toList()), "output input order");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void sequentialDifferential() throws Exception {
++        List<Integer> input = IntStream.range(0, 100).boxed().toList();
++        List<String> sequential = BoundedBatch.map(input, 1, Duration.ofSeconds(10), i -> "jar-" + i + ":" + Integer.toHexString(i * 98731));
++        List<String> bounded = BoundedBatch.map(input, 4, Duration.ofSeconds(10), i -> "jar-" + i + ":" + Integer.toHexString(i * 98731));
++        check(sequential.equals(bounded), "sequential/bounded differential");
++        tests++;
++    }
++
++    private static void deterministicFailureAndCleanup() throws Exception {
++        AtomicInteger active = new AtomicInteger();
++        CountDownLatch started = new CountDownLatch(3);
++        try {
++            BoundedBatch.map(List.of(0, 1, 2, 3, 4), 3, Duration.ofSeconds(5), i -> {
++                active.incrementAndGet();
++                try {
++                    started.countDown();
++                    check(started.await(2, TimeUnit.SECONDS), "failure workers did not start");
++                    if (i == 0) { Thread.sleep(30); return i; }
++                    if (i == 1) { Thread.sleep(10); throw new IOException("first input failure"); }
++                    if (i == 2) throw new IllegalStateException("later input failed earlier");
++                    Thread.sleep(30_000);
++                    return i;
++                } finally { active.decrementAndGet(); }
++            });
++            throw new AssertionError("failure was swallowed");
++        } catch (BoundedBatch.BatchException expected) {
++            check(expected.inputIndex() == 1, "failure input attribution deterministic");
++            check(expected.getCause() instanceof IOException, "first input cause preserved");
++        }
++        check(active.get() == 0, "all failure workers drained before return");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void interruptionAndCleanup() throws Exception {
++        AtomicInteger active = new AtomicInteger();
++        AtomicBoolean restored = new AtomicBoolean();
++        AtomicReference<Throwable> error = new AtomicReference<>();
++        CountDownLatch started = new CountDownLatch(2);
++        Thread caller = new Thread(() -> {
++            try {
++                BoundedBatch.map(List.of(0, 1, 2, 3), 2, Duration.ofSeconds(30), i -> {
++                    active.incrementAndGet();
++                    try { started.countDown(); Thread.sleep(30_000); return i; }
++                    finally { active.decrementAndGet(); }
++                });
++                error.set(new AssertionError("interrupt swallowed"));
++            } catch (InterruptedException expected) {
++                restored.set(Thread.currentThread().isInterrupted());
++                if (active.get() != 0) error.set(new AssertionError("workers alive after interruption"));
++            } catch (Throwable unexpected) { error.set(unexpected); }
++        }, "test-caller");
++        caller.start();
++        check(started.await(3, TimeUnit.SECONDS), "interrupt workers started");
++        caller.interrupt();
++        caller.join(5_000);
++        check(!caller.isAlive(), "interrupted caller terminates");
++        check(error.get() == null, "interruption failed: " + error.get());
++        check(restored.get(), "interrupt flag preserved");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void timeoutAndCleanup() throws Exception {
++        AtomicInteger active = new AtomicInteger();
++        try {
++            BoundedBatch.map(List.of(0, 1), 2, Duration.ofMillis(80), i -> {
++                active.incrementAndGet();
++                try { Thread.sleep(30_000); return i; }
++                finally { active.decrementAndGet(); }
++            });
++            throw new AssertionError("timeout swallowed");
++        } catch (java.util.concurrent.TimeoutException expected) { }
++        check(active.get() == 0, "timeout workers drained");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void boundedSubmissionWindow() throws Exception {
++        AtomicInteger visited = new AtomicInteger();
++        CountDownLatch firstEntered = new CountDownLatch(1);
++        CountDownLatch releaseFirst = new CountDownLatch(1);
++        AtomicReference<Throwable> error = new AtomicReference<>();
++        Thread caller = new Thread(() -> {
++            try {
++                BoundedBatch.map(IntStream.range(0, 2000).boxed().toList(), 3, Duration.ofSeconds(10), i -> {
++                    visited.incrementAndGet();
++                    if (i == 0) { firstEntered.countDown(); releaseFirst.await(); }
++                    return i;
++                });
++            } catch (Throwable unexpected) { error.set(unexpected); }
++        });
++        caller.start();
++        try {
++            check(firstEntered.await(2, TimeUnit.SECONDS), "window first input entered");
++            Thread.sleep(100);
++            check(visited.get() <= 3, "tasks admitted beyond bounded window");
++        } finally { releaseFirst.countDown(); }
++        caller.join(5_000);
++        check(!caller.isAlive() && error.get() == null, "bounded window caller completed");
++        check(visited.get() == 2000, "all inputs eventually visited");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void progressSnapshots() throws Exception {
++        Path directory = Files.createTempDirectory("infinity-progress-test-");
++        Path snapshot = directory.resolve("state.json");
++        String old = System.getProperty(LoadProgress.FILE_PROPERTY);
++        try {
++            System.setProperty(LoadProgress.FILE_PROPERTY, snapshot.toString());
++            LoadProgress.begin(LoadProgress.Stage.DISCOVER);
++            String initial = Files.readString(snapshot);
++            check(initial.contains("\"completed\":null") && initial.contains("\"total\":null"), "unknown counts indeterminate");
++            LoadProgress.finish(7);
++            LoadProgress.begin(LoadProgress.Stage.RESOLVE);
++            LoadProgress.finish(5);
++            LoadProgress.begin(LoadProgress.Stage.TRANSFORM);
++            LoadProgress.transformUnits(100, 0);
++            String beforeCoalescing = Files.readString(snapshot);
++            LoadProgress.transformedOne();
++            LoadProgress.transformedOne();
++            check(Files.readString(snapshot).equals(beforeCoalescing), "routine progress not coalesced");
++            LoadProgress.transformUnits(5, 2);
++            BoundedBatch.map(List.of(0, 1, 2), 3, Duration.ofSeconds(2), i -> { LoadProgress.transformedOne(); return i; });
++            String transformed = Files.readString(snapshot);
++            check(transformed.contains("\"completed\":5,\"total\":5"), "actual cache plus transformed counts");
++            LoadProgress.finish(5);
++            LoadProgress.begin(LoadProgress.Stage.COMMIT);
++            LoadProgress.finish(null);
++            String complete = Files.readString(snapshot);
++            check(complete.contains("\"stage\":\"commit\",\"status\":\"complete\""), "commit terminal stage");
++            check(complete.contains("\"completed\":null"), "unknown host-admission count never fabricated");
++            LoadProgress.fail(new IOException("secret /private/mods/file.jar"));
++            LoadProgress.finish(999);
++            String failed = Files.readString(snapshot);
++            check(failed.contains("\"status\":\"failed\"") && failed.contains("\"error\":\"IOException\""), "failure survives finish");
++            check(!failed.contains("secret") && !failed.contains("file.jar"), "exception message omitted");
++            try (var files = Files.list(directory)) { check(files.count() == 1, "temporary snapshots cleaned up"); }
++        } finally {
++            restoreProperty(LoadProgress.FILE_PROPERTY, old);
++            Files.deleteIfExists(snapshot);
++            Files.deleteIfExists(directory);
++        }
++        tests++;
++    }
++
++    private static void emptyBatch() throws Exception {
++        check(BoundedBatch.map(List.of(), 0, Duration.ofSeconds(1), i -> i).isEmpty(), "empty batch");
++        assertNoWorkers();
++        tests++;
++    }
++
++    private static void ownedResourceScope() {
++        List<Integer> closed = new ArrayList<>();
++        ResourceScope scope = new ResourceScope();
++        scope.own(() -> { closed.add(1); throw new IOException("first owned resource"); });
++        scope.own(() -> { closed.add(2); throw new IOException("last owned resource"); });
++        scope.own(() -> closed.add(3));
++        try {
++            scope.close();
++            throw new AssertionError("close failure swallowed");
++        } catch (RuntimeException expected) {
++            check(expected.getCause() instanceof IOException, "resource close cause lost");
++            check(expected.getSuppressed().length == 1, "later close failure not suppressed");
++        }
++        check(closed.equals(List.of(3, 2, 1)), "resources not closed in LIFO order");
++        scope.close();
++        check(closed.size() == 3, "resource closed twice");
++        tests++;
++    }
++
++    private static void assertNoWorkers() {
++        check(Thread.getAllStackTraces().keySet().stream().noneMatch(t -> t.isAlive() && t.getName().startsWith("infinity-jar-transform-")), "transform worker leaked");
++    }
++
++    private static void restoreProperty(String key, String old) {
++        if (old == null) System.clearProperty(key); else System.setProperty(key, old);
++    }
++
++    private static void check(boolean result, String message) {
++        if (!result) throw new AssertionError(message);
++    }
++}
+--- /dev/null
++++ b/components/infinity-fart/src/test/java/net/minecraftforge/fart/internal/DirectEntryTest.java
+@@ -0,0 +1,86 @@
++package net.minecraftforge.fart.internal;
++
++import java.util.List;
++import java.util.concurrent.Callable;
++import java.util.concurrent.CountDownLatch;
++import java.util.concurrent.TimeUnit;
++import java.util.concurrent.atomic.AtomicInteger;
++import java.util.concurrent.atomic.AtomicReference;
++import org.sinytra.connector.infinity.BoundedBatch;
++import java.time.Duration;
++
++/** Package-level tests of the compiled real FART source patch, not a surrogate. */
++public final class DirectEntryTest {
++    public static void main(String[] args) throws Exception {
++        Thread owner = Thread.currentThread();
++        AsyncHelper helper = new AsyncHelper(1);
++        List<Integer> results = helper.invokeAll(List.of(1, 2, 3), Object::toString, i -> {
++            check(Thread.currentThread() == owner, "entry escaped caller thread");
++            return i == 2 ? null : i * 2;
++        });
++        check(results.equals(List.of(2, 6)), "order or null-filter contract changed");
++        AtomicInteger consumed = new AtomicInteger();
++        helper.consumeAll(List.of(1, 2, 3), Object::toString, i -> {
++            check(Thread.currentThread() == owner, "consumer escaped owner thread");
++            consumed.addAndGet(i);
++        });
++        check(consumed.get() == 6, "consumer incomplete");
++        List<Pair<String, ? extends Callable<Integer>>> calls = List.of(new Pair<>("one", () -> 1), new Pair<>("two", () -> 2));
++        check(helper.invokeAll(calls).equals(List.of(1, 2)), "callable overload order");
++        try {
++            helper.invokeAll(List.of(1), Object::toString, i -> { throw new IllegalArgumentException("intentional"); });
++            throw new AssertionError("entry exception swallowed");
++        } catch (RuntimeException expected) {
++            check(expected.getCause() instanceof java.util.concurrent.ExecutionException, "upstream cause shape lost");
++            check(expected.getCause().getCause() instanceof IllegalArgumentException, "entry cause lost");
++        }
++        helper.shutdown();
++
++        CountDownLatch active = new CountDownLatch(1);
++        AtomicReference<Throwable> failure = new AtomicReference<>();
++        AtomicInteger processing = new AtomicInteger();
++        Thread caller = new Thread(() -> {
++            try {
++                BoundedBatch.map(List.of(1, 2, 3), 2, Duration.ofSeconds(20), i -> {
++                    AsyncHelper entries = new AsyncHelper(1);
++                    try {
++                        return entries.invokeAll(List.of("entry"), s -> s, entry -> {
++                            check(Thread.currentThread().getName().startsWith("infinity-jar-transform-"), "nested async worker created");
++                            processing.incrementAndGet();
++                            try {
++                                active.countDown();
++                                Thread.sleep(30_000);
++                            } catch (InterruptedException interrupted) {
++                                Thread.currentThread().interrupt();
++                                throw new RuntimeException(interrupted);
++                            } finally { processing.decrementAndGet(); }
++                            return entry;
++                        });
++                    } finally { entries.shutdown(); }
++                });
++                failure.set(new AssertionError("interruption swallowed"));
++            } catch (InterruptedException expected) {
++                check(Thread.currentThread().isInterrupted(), "caller interruption not preserved");
++                if (processing.get() != 0) failure.set(new AssertionError("inner entry alive after batch return"));
++            } catch (Throwable unexpected) { failure.set(unexpected); }
++        });
++        caller.start();
++        check(active.await(3, TimeUnit.SECONDS), "entry never started");
++        caller.interrupt();
++        caller.join(5_000);
++        check(!caller.isAlive() && failure.get() == null, "cancel/drain: " + failure.get());
++        check(processing.get() == 0, "orphan entry work");
++        Thread.currentThread().interrupt();
++        try {
++            new AsyncHelper(1).invokeAll(List.of(1), Object::toString, i -> { throw new AssertionError("cancelled task ran"); });
++            throw new AssertionError("pre-existing interruption ignored");
++        } catch (RuntimeException expected) {
++            check(Thread.currentThread().isInterrupted(), "entry interruption consumed");
++        } finally { Thread.interrupted(); }
++        System.out.println("PASS direct FART entry ownership, ordering, failure, and cancellation tests");
++    }
++
++    private static void check(boolean condition, String message) {
++        if (!condition) throw new AssertionError(message);
++    }
++}
+--- /dev/null
++++ b/components/infinity-host-neoforge/src/main/java/org/sinytra/connector/infinity/ManagedConnectorTransformerEnvironment.java
+@@ -0,0 +1,30 @@
++package org.sinytra.connector.infinity;
++
++import java.util.Collection;
++import net.neoforged.neoforgespi.locating.IModFile;
++import org.sinytra.adapter.util.provider.ClassLookup;
++import org.sinytra.connector.locator.transform.ConnectorTransformerEnvironment;
++
++/** Same pinned upstream lookup selection, with explicit ownership of newly created handles. */
++public final class ManagedConnectorTransformerEnvironment extends ConnectorTransformerEnvironment implements AutoCloseable {
++    private final ResourceScope resources = new ResourceScope();
++
++    public ManagedConnectorTransformerEnvironment(Collection<IModFile> loadedModFiles) {
++        super(loadedModFiles);
++    }
++
++    @Override
++    public String getJarCacheVersion() {
++        return super.getJarCacheVersion() + BuildIdentity.TRANSFORM_CACHE_SUFFIX;
++    }
++
++    @Override
++    public ClassLookup getCleanClassLookup() {
++        return org.sinytra.connector.infinity.mc1211.Minecraft1211ClassLookup.open(resources);
++    }
++
++    @Override
++    public void close() {
++        resources.close();
++    }
++}
+--- /dev/null
++++ b/components/infinity-mc-1.21.1/src/main/java/org/sinytra/connector/infinity/mc1211/Minecraft1211ClassLookup.java
+@@ -0,0 +1,42 @@
++package org.sinytra.connector.infinity.mc1211;
++
++import java.nio.file.Files;
++import java.nio.file.Path;
++import java.util.Optional;
++import java.util.zip.ZipFile;
++import net.neoforged.fml.ModLoadingException;
++import net.neoforged.fml.ModLoadingIssue;
++import net.neoforged.fml.loading.FMLEnvironment;
++import net.neoforged.fml.loading.FMLLoader;
++import net.neoforged.fml.loading.LibraryFinder;
++import net.neoforged.fml.loading.MavenCoordinate;
++import org.sinytra.adapter.util.provider.ClassLookup;
++import org.sinytra.adapter.util.provider.ZipClassLookup;
++import org.sinytra.connector.infinity.ResourceScope;
++import org.sinytra.connector.transformer.jar.SimpleClassLookup;
++import net.minecraftforge.fart.api.ClassProvider;
++import static cpw.mods.modlauncher.api.LambdaExceptionUtils.uncheck;
++
++/** Pinned Minecraft 1.21.1 clean-bytecode selection; no independent classloader. */
++public final class Minecraft1211ClassLookup {
++    private Minecraft1211ClassLookup() {}
++    public static ClassLookup open(ResourceScope resources) {
++        // Adapted from Connector beta17 ConnectorTransformerEnvironment (MIT); selection is unchanged.
++        String mcAndNeoFormVersion = FMLLoader.versionInfo().mcAndNeoFormVersion();
++        if (FMLEnvironment.production) {
++            MavenCoordinate coords = new MavenCoordinate("net.minecraft", FMLEnvironment.dist.isClient() ? "client" : "server", "", "srg", mcAndNeoFormVersion);
++            Path path = LibraryFinder.findPathForMaven(coords);
++            if (!Files.exists(path)) {
++                throw new ModLoadingException(ModLoadingIssue.error("fml.modloadingissue.corrupted_installation").withAffectedPath(path));
++            }
++            ZipFile zipFile = resources.own(uncheck(() -> new ZipFile(path.toFile())));
++            return new ZipClassLookup(zipFile);
++        } else {
++            Path cleanPath = Optional.ofNullable(System.getProperty("connector.clean.path"))
++                .map(Path::of)
++                .filter(Files::exists)
++                .orElseThrow(() -> new RuntimeException("Could not determine clean minecraft artifact path"));
++            return new SimpleClassLookup(resources.own(ClassProvider.fromPaths(cleanPath)));
++        }
++    }
++}

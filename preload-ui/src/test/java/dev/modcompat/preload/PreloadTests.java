@@ -59,6 +59,11 @@ public final class PreloadTests {
         qa.captureSource(ProgressFileReader.parse(event(99,"6","8")), p -> exports.incrementAndGet());
         check(exports.get()==1, "QA captures once per observed stage/status rather than every count");
         check(Files.readString(qaDir.resolve("lifecycle.jsonl")).contains("sourceSnapshot"), "QA binds captured frame audit to observed source snapshot");
+        check(!InfinityWindowProvider.graphicsDisabled(new String[]{"--launchTarget","forgeclient"}), "AWT headless flag does not falsely disable GLFW client graphics");
+        check(InfinityWindowProvider.graphicsDisabled(new String[]{"--launchTarget","forgeserver"}), "server target disables graphics independently of AWT");
+        System.setProperty("unified.infinity.headless", "true");
+        check(InfinityWindowProvider.graphicsDisabled(new String[]{"--launchTarget","forgeclient"}), "explicit Infinity headless flag still suppresses graphics");
+        System.clearProperty("unified.infinity.headless");
         var providers = ServiceLoader.load(ImmediateWindowProvider.class).stream().filter(p -> p.type().getName().equals(InfinityWindowProvider.class.getName())).toList();
         check(providers.size()==1, "real FML SPI descriptor resolves our provider");
         var provider = (InfinityWindowProvider) providers.getFirst().get();

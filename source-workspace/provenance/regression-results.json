@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "artifact": "source-workspace/connector-combined/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+dev-g8b27f1a-full.jar",
+  "artifact_sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+  "original_lithium_sha256": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+  "results": [
+    {
+      "test": "parameters",
+      "exit_code": 0
+    },
+    {
+      "test": "postprocess",
+      "exit_code": 0
+    }
+  ],
+  "negative_control": {
+    "exit_code": 1,
+    "expected_failure": true,
+    "artifact": "source-workspace/connector/build/libs/connector-2.0.0-beta.17+1.21.1+dev-g8b27f1a-full.jar"
+  }
+}

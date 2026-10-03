@@ -1,0 +1,135 @@
+--- a/org/sinytra/adapter/patch/mixin/InjectMixin.java
++++ b/org/sinytra/adapter/patch/mixin/InjectMixin.java
+@@ -1,6 +1,11 @@
+ package org.sinytra.adapter.patch.mixin;
+ 
+ import org.objectweb.asm.Type;
++import org.objectweb.asm.Opcodes;
++import org.objectweb.asm.tree.AbstractInsnNode;
++import org.objectweb.asm.tree.VarInsnNode;
++import org.objectweb.asm.tree.IincInsnNode;
++import org.sinytra.adapter.env.util.TypeConstants;
+ import org.sinytra.adapter.env.ctx.TargetPair;
+ import org.sinytra.adapter.patch.config.ConfigurationTemplates;
+ import org.sinytra.adapter.env.ctx.MixinContext;
+@@ -76,6 +81,19 @@
+             }
+         }
+ 
++        // A split target can change return kind. An unused, non-cancellable
++        // callback carries no return semantics, so update only that proven case.
++        if (Type.getReturnType(dirty.getTargetMethod().desc()).equals(Type.VOID_TYPE)
++            && !clean.getProperty(MixinKeys.CANCELLABLE).orElse(false)) {
++            List<Parameter> callbacks = dirty.getParameters().get(CI_CIR);
++            if (callbacks.size() == 1 && callbacks.getFirst().type().equals(TypeConstants.CIR_TYPE)
++                && unusedCallback(context, clean)) {
++                MethodParameters corrected = dirty.getParameters().copy();
++                corrected.set(CI_CIR, List.of(new Parameter(TypeConstants.CI_TYPE, callbacks.getFirst().annotations())));
++                dirty.setParameters(corrected);
++            }
++        }
++
+         // Process static modifier
+         if (!clean.getProperty(SpecialKeys.STATIC).orElse(false) && dirty.getProperty(SpecialKeys.STATIC).orElse(false)) {
+             List<Type> types = context.targetTypes();
+@@ -92,6 +110,16 @@
+         return TxResult.SUCCESS;
+     }
+ 
++    private static boolean unusedCallback(MixinContext context, Configuration clean) {
++        int slot = context.isStatic() ? 0 : 1;
++        for (Type type : clean.getParameters().getTypes(METHOD_PARAMS)) slot += type.getSize();
++        for (AbstractInsnNode instruction : context.methodNode().instructions) {
++            if (instruction instanceof VarInsnNode var && var.var == slot) return false;
++            if (instruction instanceof IincInsnNode inc && inc.var == slot) return false;
++        }
++        return true;
++    }
++
+     private boolean sameTarget(Recipe recipe) {
+         MethodQualifier cleanQ = recipe.clean().getTargetMethod();
+         MethodQualifier dirtyQ = recipe.dirty().getTargetMethod();
+
+--- a/org/sinytra/adapter/patch/mixin/RedirectMixin.java
++++ b/org/sinytra/adapter/patch/mixin/RedirectMixin.java
+@@ -1,6 +1,9 @@
+ package org.sinytra.adapter.patch.mixin;
+ 
+ import org.objectweb.asm.Type;
++import org.objectweb.asm.Opcodes;
++import org.objectweb.asm.tree.ClassNode;
++import org.objectweb.asm.tree.MethodNode;
+ import org.sinytra.adapter.env.ctx.MethodHelper;
+ import org.sinytra.adapter.env.ctx.MixinContext;
+ import org.sinytra.adapter.env.ctx.TargetPair;
+@@ -91,13 +94,24 @@
+             return TxResult.FAIL;
+ 
+         TargetPair dirtyTarget = context.methods().findOwnMethodPair(context.dirtyLookup(), targetDesc);
++        if (dirtyTarget == null && targetDesc.internalOwnerName() != null) {
++            // Invocation owners may inherit the method through interfaces. Keep
++            // the symbolic receiver from the call site, not its declaring parent.
++            MethodNode inherited = context.methods().findInheritedMethod(context.dirtyLookup(), targetDesc);
++            ClassNode receiver = context.dirtyLookup().getClass(targetDesc.internalOwnerName()).orElse(null);
++            if (inherited != null && receiver != null && (inherited.access & (Opcodes.ACC_STATIC | Opcodes.ACC_PRIVATE)) == 0) {
++                dirtyTarget = new TargetPair(receiver, inherited);
++            }
++        }
+         if (dirtyTarget == null)
+             return TxResult.FAIL;
+ 
+         List<Type> dirtyCaptured = context.methods().resolveCapturedMethodParams(recipe.clean(), recipe.dirty());
+         List<Type> callTypes = Parameters.getParameterTypes(targetDesc.desc());
+         if (!MethodHelper.isStatic(dirtyTarget.methodNode())) {
+-            Type owner = Type.getObjectType(dirtyTarget.classNode().name);
++            // Redirect receiver must match the invocation's symbolic owner,
++            // even when lookup resolves a superclass/interface declaration.
++            Type owner = Type.getObjectType(targetDesc.internalOwnerName());
+             callTypes.addFirst(owner);
+         }
+ 
+
+--- a/org/sinytra/adapter/transform/param/RemoveParameterTransformer.java
++++ b/org/sinytra/adapter/transform/param/RemoveParameterTransformer.java
+@@ -19,6 +19,7 @@
+     @Override
+     public PatchResult apply(ClassNode classNode, MethodNode methodNode, MixinContext context, List<Type> parameters, int offset) {
+         final int target = this.index() + offset;
++        validateParameterAnnotations(methodNode, parameters.size());
+         final int lvtIndex = ParamTransformationUtil.calculateLVTIndex(parameters, !context.isStatic(), target);
+ 
+         LVTSnapshot.with(methodNode, () -> {
+@@ -35,10 +36,31 @@
+         });
+ 
+         methodNode.parameters.remove(target);
+-        methodNode.visibleParameterAnnotations = AdapterUtil.removeArrayElement(methodNode.visibleParameterAnnotations, this.index, List[]::new);
+-        methodNode.invisibleParameterAnnotations = AdapterUtil.removeArrayElement(methodNode.invisibleParameterAnnotations, this.index, List[]::new);
++        removeParameterAnnotations(methodNode, target);
+         parameters.remove(target);
+ 
+         return PatchResult.COMPUTE_FRAMES;
+     }
++
++    // ASM stores attribute counts independently from arrays. Keep the existing
++    // descriptor-coordinate annotation placement, removing only this parameter.
++    // Reduced-count attributes can use non-descriptor indices (synthetic params);
++    // refuse those ambiguous layouts rather than guessing and moving annotations.
++    static void validateParameterAnnotations(MethodNode method, int parameterCount) {
++        validateAnnotationLayout(method.visibleParameterAnnotations, method.visibleAnnotableParameterCount, parameterCount);
++        validateAnnotationLayout(method.invisibleParameterAnnotations, method.invisibleAnnotableParameterCount, parameterCount);
++    }
++
++    private static void validateAnnotationLayout(List<?>[] annotations, int count, int parameters) {
++        if (annotations != null && (annotations.length != parameters || (count != 0 && count != parameters))) {
++            throw new IllegalArgumentException("Cannot remove parameter from non-descriptor-coordinate annotation layout");
++        }
++    }
++
++    static void removeParameterAnnotations(MethodNode method, int target) {
++        method.visibleParameterAnnotations = AdapterUtil.removeArrayElement(method.visibleParameterAnnotations, target, List[]::new);
++        method.invisibleParameterAnnotations = AdapterUtil.removeArrayElement(method.invisibleParameterAnnotations, target, List[]::new);
++        if (method.visibleAnnotableParameterCount > 0) method.visibleAnnotableParameterCount--;
++        if (method.invisibleAnnotableParameterCount > 0) method.invisibleAnnotableParameterCount--;
++    }
+ }

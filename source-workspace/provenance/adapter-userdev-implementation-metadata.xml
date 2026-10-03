@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.sinytra.adapter</groupId>
+  <artifactId>userdev</artifactId>
+  <versioning>
+    <lastUpdated>20260813224440</lastUpdated>
+    <snapshot>
+      <timestamp>20260813.224440</timestamp>
+      <buildNumber>42</buildNumber>
+    </snapshot>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.2.1-20260813.224440-42</value>
+        <updated>20260813224440</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.2.1-20260813.224440-42</value>
+        <updated>20260813224440</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>module</extension>
+        <value>1.2.1-20260813.224440-42</value>
+        <updated>20260813224440</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+  <version>1.2.1-SNAPSHOT</version>
+</metadata>

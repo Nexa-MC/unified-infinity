@@ -1,0 +1,248 @@
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 564b2ed..6ab0fdf 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -28,7 +28,7 @@ val connectorExtrasModrinth: String by project
+ val PUBLISH_RELEASE_TYPE: Provider<String> = providers.environmentVariable("PUBLISH_RELEASE_TYPE")
+ 
+ group = "org.sinytra"
+-version = "$versionConnector+$versionMc"
++version = "$versionConnector+$versionMc+infinity-source"
+ // Append git commit hash for dev versions
+ if (!PUBLISH_RELEASE_TYPE.isPresent) {
+     version = "$version+dev-${gradleutils.gitInfo["hash"]}"
+@@ -325,3 +325,47 @@ fun localJarJar(configName: String, mavenCoords: String, version: String, artifa
+         jarJar(project(":")) { capabilities { requireCapability(mavenCoords) } }
+     }
+ }
++
++// Unified Infinity: one compiled core, one FART implementation, one existing host SPI.
++sourceSets.main {
++    java.srcDirs("components/infinity-host-neoforge/src/main/java", "components/infinity-mc-1.21.1/src/main/java")
++}
++dependencies { shade(project(":infinity-core")) { isTransitive = false } }
++allprojects {
++    configurations.configureEach {
++        resolutionStrategy.dependencySubstitution {
++            substitute(module("org.sinytra:ForgeAutoRenamingTool")).using(project(":infinity-fart"))
++            substitute(module("org.sinytra.adapter:core")).using(project(":infinity-adapter"))
++        }
++    }
++    tasks.withType<AbstractArchiveTask>().configureEach {
++        isPreserveFileTimestamps = false
++        isReproducibleFileOrder = true
++    }
++}
++tasks.named<ShadowJar>("fullJar") {
++    dependsOn(":infinity-core:check", ":infinity-fart:check", ":infinity-fart:sourcesJar")
++    from(project(":infinity-fart").layout.buildDirectory.file("libs/infinity-fart-1.0.14-infinity-sources.jar")) {
++        into("META-INF/unified-infinity/sources")
++    }
++    manifest.attributes("Unified-Infinity-Build" to "complete-connector-and-fart-source-research")
++}
++
++tasks.named<ShadowJar>("fullJar") {
++    dependsOn(":infinity-adapter:sourcesJar")
++    from(project(":infinity-adapter").layout.buildDirectory.file("libs/infinity-adapter-2.0.43+1.21.1-infinity-sources.jar")) {
++        into("META-INF/unified-infinity/sources")
++    }
++    manifest.attributes("Unified-Infinity-Build" to "complete-connector-fart-adapter-source-research")
++}
++
++val infinityCompleteSources by tasks.registering(Zip::class) {
++    archiveFileName.set("unified-infinity-complete-connector-fart-adapter-sources.zip")
++    destinationDirectory.set(layout.buildDirectory.dir("distributions"))
++    from(projectDir) {
++        include("src/**", "transformer/src/**", "components/**/src/**", "**/*.gradle.kts",
++            "gradle/libs.versions.toml", "gradle/infinity-upstream-pins.json", "LICENSE")
++        exclude("**/build/**", "**/.gradle/**")
++    }
++}
++tasks.named("fullJar") { dependsOn(infinityCompleteSources) }
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+index b8f9511..6bc51ee 100644
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -14,4 +14,10 @@ pluginManagement {
+ 
+ rootProject.name = "connector"
+ 
+-include("transformer")
+\ No newline at end of file
++include("transformer")
++include(":infinity-core", ":infinity-fart")
++project(":infinity-core").projectDir = file("components/infinity-core")
++project(":infinity-fart").projectDir = file("components/infinity-fart")
++
++include(":infinity-adapter")
++project(":infinity-adapter").projectDir = file("components/infinity-adapter")
+diff --git a/transformer/build.gradle.kts b/transformer/build.gradle.kts
+index b2f8e93..50e81b1 100644
+--- a/transformer/build.gradle.kts
++++ b/transformer/build.gradle.kts
+@@ -126,3 +126,5 @@ class Log4JConfigTransformer(private val resourcesDir: File?) : ResourceTransfor
+     override fun hasTransformedResource(): Boolean = true
+     override fun modifyOutputStream(os: ZipOutputStream, preserveFileTimestamps: Boolean) {}
+ }
++
++dependencies { implementation(project(":infinity-core")) }
+--- /dev/null
++++ b/components/infinity-adapter/build.gradle.kts
+@@ -0,0 +1,21 @@
++plugins { `java-library` }
++group = "org.sinytra.adapter"
++version = "2.0.43+1.21.1-infinity"
++java { toolchain.languageVersion.set(JavaLanguageVersion.of(21)); withSourcesJar() }
++repositories {
++    mavenCentral()
++    maven("https://maven.fabricmc.net")
++    maven("https://libraries.minecraft.net")
++}
++dependencies {
++    compileOnly("org.jetbrains:annotations:24.0.1")
++    api("com.mojang:datafixerupper:8.0.16")
++    api(platform("org.ow2.asm:asm-bom:9.8"))
++    listOf("asm", "asm-commons", "asm-tree", "asm-analysis", "asm-util").forEach { api("org.ow2.asm:$it") }
++    implementation("com.mojang:logging:1.1.1")
++    implementation("com.google.guava:guava:32.1.2-jre")
++    implementation("org.slf4j:slf4j-api:2.0.0")
++    implementation("net.fabricmc:sponge-mixin:0.14.0+mixin.0.8.6")
++    implementation("io.github.llamalad7:mixinextras-common:0.3.1")
++}
++tasks.withType<JavaCompile>().configureEach { options.release.set(21); options.compilerArgs.add("-proc:none") }
+--- /dev/null
++++ b/components/infinity-core/build.gradle.kts
+@@ -0,0 +1,66 @@
++import java.security.MessageDigest
++import groovy.json.JsonOutput
++import org.gradle.api.artifacts.component.ModuleComponentIdentifier
++
++plugins { `java-library` }
++java { toolchain.languageVersion.set(JavaLanguageVersion.of(21)); withSourcesJar() }
++val generated = layout.buildDirectory.dir("generated/sources/infinity/java")
++val generatedResources = layout.buildDirectory.dir("generated/resources/infinity")
++val identityInputs = rootProject.fileTree(rootProject.projectDir) {
++    include("**/*.java", "**/*.gradle.kts", "gradle/libs.versions.toml", "gradle/infinity-upstream-pins.json")
++    exclude("**/build/**", ".gradle/**")
++}
++// Resolve only external module artifacts: never create a task cycle through our own output JARs.
++val dependencyInputs = providers.provider {
++    listOf(rootProject, project(":transformer"), project(":infinity-adapter"), project(":infinity-fart"))
++        .flatMap { owner -> listOf("compileClasspath", "runtimeClasspath", "shade").mapNotNull { name ->
++            owner.configurations.findByName(name)?.takeIf { it.isCanBeResolved }?.incoming?.artifactView {
++                componentFilter { it is ModuleComponentIdentifier }
++            }?.files
++        }}
++}
++val generateBuildIdentity by tasks.registering {
++    inputs.files(identityInputs)
++    inputs.files(dependencyInputs)
++    outputs.dir(generated)
++    outputs.dir(generatedResources)
++    doLast {
++        val digest = MessageDigest.getInstance("SHA-256")
++        identityInputs.files.sortedBy { it.relativeTo(rootProject.projectDir).invariantSeparatorsPath }.forEach {
++            digest.update(it.relativeTo(rootProject.projectDir).invariantSeparatorsPath.toByteArray())
++            digest.update(0.toByte()); digest.update(it.readBytes()); digest.update(0.toByte())
++        }
++        // All source components and every resolved external compile/runtime dependency affect one identity.
++        val dependencies = dependencyInputs.get().flatMap { it.files }.distinct().sortedBy { it.name }
++        dependencies.forEach { digest.update(it.name.toByteArray()); digest.update(0.toByte()); digest.update(it.readBytes()); digest.update(0.toByte()) }
++        digest.update(System.getProperty("java.runtime.version").toByteArray())
++        val hash = digest.digest().joinToString("") { "%02x".format(it) }
++        fun sha(bytes: ByteArray) = MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }
++        val manifest = mapOf(
++            "schema" to 1,
++            "identity_sha256" to hash,
++            "compiler_runtime" to System.getProperty("java.runtime.version"),
++            "scope" to "All compiled component Java sources, build scripts, upstream pins and resolved external compile/runtime/shade dependency bytes",
++            "sources" to identityInputs.files.sortedBy { it.relativeTo(rootProject.projectDir).invariantSeparatorsPath }.map {
++                mapOf("path" to it.relativeTo(rootProject.projectDir).invariantSeparatorsPath, "sha256" to sha(it.readBytes()))
++            },
++            "dependencies" to dependencies.map { mapOf("filename" to it.name, "sha256" to sha(it.readBytes())) }
++        )
++        val metadata = generatedResources.get().file("META-INF/unified-infinity/build-identity.json").asFile
++        metadata.parentFile.mkdirs()
++        metadata.writeText(JsonOutput.prettyPrint(JsonOutput.toJson(manifest)) + "\n")
++        val output = generated.get().file("org/sinytra/connector/infinity/BuildIdentity.java").asFile
++        output.parentFile.mkdirs()
++        output.writeText("package org.sinytra.connector.infinity;\npublic final class BuildIdentity {\nprivate BuildIdentity() {}\npublic static final String SOURCE_SHA256 = \"$hash\";\npublic static final String TRANSFORM_CACHE_SUFFIX = \":unified-infinity-full-source:$hash\";\n}\n")
++    }
++}
++sourceSets.main { java.srcDir(generated); resources.srcDir(generatedResources) }
++tasks.processResources { dependsOn(generateBuildIdentity) }
++tasks.compileJava { dependsOn(generateBuildIdentity); options.release.set(21) }
++val coreSelfTest by tasks.registering(JavaExec::class) {
++    dependsOn(tasks.testClasses)
++    classpath = sourceSets.test.get().runtimeClasspath
++    mainClass.set("org.sinytra.connector.infinity.LoadingCoreTest")
++    maxHeapSize = "256m"
++}
++tasks.check { dependsOn(coreSelfTest) }
+--- /dev/null
++++ b/components/infinity-fart/build.gradle.kts
+@@ -0,0 +1,22 @@
++plugins { `java-library` }
++group = "org.sinytra"
++version = "1.0.14-infinity"
++java { toolchain.languageVersion.set(JavaLanguageVersion.of(21)); withSourcesJar() }
++repositories { mavenCentral(); maven("https://maven.neoforged.net/releases") }
++dependencies {
++    compileOnly("org.jetbrains:annotations:13.0")
++    api("net.minecraftforge:srgutils:0.5.1")
++    implementation("net.sf.jopt-simple:jopt-simple:6.0-alpha-3")
++    implementation("org.ow2.asm:asm:9.5")
++    implementation("org.ow2.asm:asm-commons:9.5")
++    implementation("org.ow2.asm:asm-tree:9.5")
++    testImplementation(project(":infinity-core"))
++}
++tasks.withType<JavaCompile>().configureEach { options.release.set(21) }
++val directEntrySelfTest by tasks.registering(JavaExec::class) {
++    dependsOn(tasks.testClasses)
++    classpath = sourceSets.test.get().runtimeClasspath
++    mainClass.set("net.minecraftforge.fart.internal.DirectEntryTest")
++    maxHeapSize = "256m"
++}
++tasks.check { dependsOn(directEntrySelfTest) }
+--- /dev/null
++++ b/gradle/infinity-upstream-pins.json
+@@ -0,0 +1,39 @@
++{
++  "adapter_core_sources_sha256": "7fe14fb8f5c4a737ac5e7e8d9c563b698f3341fc2a58c9074d4d3f2b08e9f4f8",
++  "adapter_patch_sha256": "2285ce0c9fc5da8632b6ed6d47370ec5b3a24532756334f0122b5746adb9dfe1",
++  "adapter_userdev_snapshot": {
++    "artifacts": [
++      {
++        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter.userdev/org.sinytra.adapter.userdev.gradle.plugin/1.2.1-SNAPSHOT/7d0f3e3543a62d85dcaf73689fea6f0ce7b97a61/org.sinytra.adapter.userdev.gradle.plugin-1.2.1-SNAPSHOT.pom",
++        "sha256": "7a7da8f9212265c91f5ee0b86815915c1512e3bcae8ec3ae54f76f319c515ac7",
++        "size": 670
++      },
++      {
++        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/6822d09917333282500427ccb45a4c20aa041185/userdev-1.2.1-SNAPSHOT.module",
++        "sha256": "b4bb6cc3b4e5a3d0621121545957a10bf620fec65f66d6ea5c25d21995720b14",
++        "size": 1928
++      },
++      {
++        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/9156c904b22cbbbd1c24271c0da3487be52dad06/userdev-1.2.1-SNAPSHOT.jar",
++        "sha256": "f3eb4336e3f8890a057fbfef8e132d3642386c391842131042d2ad4bdb4ce36a",
++        "size": 8141
++      },
++      {
++        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/e87c5e26978f1abd478e04da90e91e6210dee891/userdev-1.2.1-SNAPSHOT.pom",
++        "sha256": "74c9e5aa15f127b078661f9b89452e63bc004d04fa05e33b6c8c77ce037bbec4",
++        "size": 766
++      }
++    ],
++    "declared_version": "1.2.1-SNAPSHOT",
++    "evidence": "logs/full-source-baseline-build-02.log contains the timestamped download URLs",
++    "resolved_implementation_timestamped_version": "1.2.1-20260813.224440-42",
++    "resolved_marker_timestamped_version": "1.2.1-20260813.224440-41",
++    "schema": 1
++  },
++  "artifact_kind": "research-source-build",
++  "connector_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
++  "fart_sources_sha256": "1cf3acb13c14360805a84040266cb12ad467bdd98238b3ba8ec1b115be79782a",
++  "java_major": 21,
++  "minecraft": "1.21.1",
++  "schema": 1
++}
