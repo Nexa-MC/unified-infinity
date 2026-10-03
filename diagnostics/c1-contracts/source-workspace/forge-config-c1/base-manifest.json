@@ -1,0 +1,52 @@
+{
+  "archive": "source-workspace/fml-unified/build/successor-client-api1/frozen-inputs/api1-source-only.zip",
+  "archive_sha256": "c797a562f4a4b14eae619c89aaca75223f5315c599a9cd79f84d49f7a4af7e70",
+  "source_archive_file_count": 736,
+  "selected": [
+    {
+      "archive_member": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "path": "org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "sha256": "abb821c30d2acc95ba4dfeb9269d9f1f4f807a996abc70bdbbb2c85ca8166f28"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ConfigTracker.java",
+      "path": "net/neoforged/fml/config/ConfigTracker.java",
+      "sha256": "a817d69ec9fb9e82b2ee5abbe0625d21b19b308970599d5626f73ba7fe9d9b8f"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ConfigWatcher.java",
+      "path": "net/neoforged/fml/config/ConfigWatcher.java",
+      "sha256": "bf854ba00b2b0da3e11775f6d21cff8635bb6a69edc52fcbc8e1d83a7b11e708"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/IConfigSpec.java",
+      "path": "net/neoforged/fml/config/IConfigSpec.java",
+      "sha256": "df0505965e3dcfc073beb47baea5b009dcf0c7e4cfcf221d3f74ca0a1f9ac947"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/LoadedConfig.java",
+      "path": "net/neoforged/fml/config/LoadedConfig.java",
+      "sha256": "d152fde783ed68a66f4e5d080d18814c2280e981629a6b63454601da670ecb58"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ModConfig.java",
+      "path": "net/neoforged/fml/config/ModConfig.java",
+      "sha256": "12be8b71028a88d3974267061af3ef07ce2d9d1c528f45e495e93cbed071ab5a"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ModConfigs.java",
+      "path": "net/neoforged/fml/config/ModConfigs.java",
+      "sha256": "b0807e23ceb87ebc5433d8956fba02df66b38462954806f3fa348aa36e74b607"
+    },
+    {
+      "archive_member": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/event/config/ModConfigEvent.java",
+      "path": "net/neoforged/fml/event/config/ModConfigEvent.java",
+      "sha256": "7aaade589b35e468931ab2dbd775396d2d11af82fa255a944c8d39e2fe78051c"
+    },
+    {
+      "archive_member": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "path": "org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "sha256": "e502b63b6530dc96280710df5bc27f36bfa5b6432d92642f4b08e5c5a938fc98"
+    }
+  ]
+}

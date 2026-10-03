@@ -1,0 +1,71 @@
+{
+  "status": "UNMERGED_GAME_RUNTIME_UNVERIFIED",
+  "files": [
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/net/neoforged/fml/config/ConfigRegistrationPolicy.java",
+      "proposedIntegrationPath": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ConfigRegistrationPolicy.java",
+      "sha256": "b4e57cbb7312c217d4a5856239149015445b87e919556a49a7c13874932041ea",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/net/neoforged/fml/config/ConfigTracker.java",
+      "proposedIntegrationPath": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ConfigTracker.java",
+      "sha256": "2db24c10941d2768c49587c28c5fd6e067eea863fc4d529fc5acec1cf3a0dd8c",
+      "baseSha256": "a817d69ec9fb9e82b2ee5abbe0625d21b19b308970599d5626f73ba7fe9d9b8f"
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/net/neoforged/fml/config/LoadedConfig.java",
+      "proposedIntegrationPath": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/LoadedConfig.java",
+      "sha256": "b305b30f17679ae1d28ea4714a0786383b2a2d1c7b4c8d4eacd4f6ca4d5af46a",
+      "baseSha256": "d152fde783ed68a66f4e5d080d18814c2280e981629a6b63454601da670ecb58"
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/net/neoforged/fml/config/ModConfig.java",
+      "proposedIntegrationPath": "source-workspace/fml-unified/src/main/java/net/neoforged/fml/config/ModConfig.java",
+      "sha256": "75729b89c858ec6b4d1808729c8c35b906036e81fb799b082fb0686e4d3603a5",
+      "baseSha256": "12be8b71028a88d3974267061af3ef07ce2d9d1c528f45e495e93cbed071ab5a"
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/ForgeConfigSpec.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/config/ForgeConfigSpec.java",
+      "sha256": "9cf8c5acdb81df0f6af76dcd78e8a159bbf7a299e542b22a190632f7d69de375",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/ForgeConfigSpecAdapter.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/config/ForgeConfigSpecAdapter.java",
+      "sha256": "06e1ac436aeec22328d36192cd4d6c434614924729c1407fca6ed88c69cfdc1a",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/ForgeModConfig.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/config/ForgeModConfig.java",
+      "sha256": "79994d96a32b4740f645f1860681e8692eb71827c78026e9823efa858b517c18",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/ForgeModConfigEvent.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/config/ForgeModConfigEvent.java",
+      "sha256": "a236823f0464d0fd6f5124fd10d19ee3470b9e97a12626f1a7871a3e466819a5",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/IForgeConfigSpec.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/config/IForgeConfigSpec.java",
+      "sha256": "8f235c6025dc179749aa29744551c90b9ab06fa9f1c50e54a3b5d832e1d08dd1",
+      "baseSha256": null
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "sha256": "bd4807276af143a654b4ece01258767a2443099f8fe2b3d6da7247fdf333fc8c",
+      "baseSha256": "abb821c30d2acc95ba4dfeb9269d9f1f4f807a996abc70bdbbb2c85ca8166f28"
+    },
+    {
+      "candidate": "source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "proposedIntegrationPath": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "sha256": "1be9bba33a5ae4ec82ca050f0a7463c42a6b510190809cec1ca6c012ec526e16",
+      "baseSha256": "e502b63b6530dc96280710df5bc27f36bfa5b6432d92642f4b08e5c5a938fc98"
+    }
+  ]
+}

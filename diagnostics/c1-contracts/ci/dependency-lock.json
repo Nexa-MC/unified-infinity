@@ -1,0 +1,241 @@
+{
+  "schema": 1,
+  "source": "dependency-restoration.json and exact C1/API1 provenance; URL availability not yet fetched in this diagnostic",
+  "dependencyRestorationSha256": "0889d4a98e3afae9686cb1eb2a563265b13c539e869f32993e62cb65bbbc3fdf",
+  "allowedDownloadHosts": [
+    "repo.maven.apache.org",
+    "libraries.minecraft.net",
+    "maven.neoforged.net",
+    "maven.minecraftforge.net",
+    "github.com",
+    "release-assets.githubusercontent.com",
+    "objects.githubusercontent.com",
+    "services.gradle.org",
+    "downloads.gradle.org"
+  ],
+  "java": "21.0.12.1+1-LTS",
+  "gradle": "8.11.1",
+  "artifacts": [
+    {
+      "path": ".toolchains/jdk21.tar.gz",
+      "sha256": "ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94",
+      "bytes": 207473347,
+      "urls": [
+        "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz"
+      ],
+      "kind": "official-jdk",
+      "tranche": "toolchains"
+    },
+    {
+      "path": ".toolchains/gradle-8.11.1-bin.zip",
+      "sha256": "f397b287023acdba1e9f6fc5ea72d22dd63669d59ed4a289a29b1a76eee151c6",
+      "bytes": 136920070,
+      "urls": [
+        "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip"
+      ],
+      "kind": "official-gradle",
+      "tranche": "full-module"
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar",
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79",
+      "bytes": 382911,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar",
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f",
+      "bytes": 39516,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "bytes": 4617,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce",
+      "bytes": 3041591,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c",
+      "bytes": 15343,
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/logging/1.2.7/logging-1.2.7.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154",
+      "bytes": 501218,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a",
+      "bytes": 30340,
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c",
+      "bytes": 657952,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53",
+      "bytes": 335001,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+      "bytes": 1900022,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97",
+      "bytes": 27364,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm/9.8/asm-9.8.jar",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+      "bytes": 126113,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.8/asm-9.8.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4",
+      "bytes": 73498,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+      "bytes": 51934,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "run/client-dev/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "bytes": 64579,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jetbrains/annotations/24.1.0/7af6a669488450c4a07c2c3254e2151df42d7d04/annotations-24.1.0.jar",
+      "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6",
+      "bytes": 30570,
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/24.1.0/annotations-24.1.0.jar"
+      ],
+      "kind": "public-maven",
+      "tranche": "contracts"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+      "bytes": 2617057,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar"
+      ],
+      "kind": "official-forge-reference",
+      "tranche": "official-inputs"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999",
+      "bytes": 58819,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar"
+      ],
+      "kind": "official-forge-reference",
+      "tranche": "official-inputs"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15",
+      "bytes": 19235,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar"
+      ],
+      "kind": "official-forge-reference",
+      "tranche": "official-inputs"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a",
+      "bytes": 122624,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar"
+      ],
+      "kind": "official-forge-reference",
+      "tranche": "official-inputs"
+    }
+  ]
+}

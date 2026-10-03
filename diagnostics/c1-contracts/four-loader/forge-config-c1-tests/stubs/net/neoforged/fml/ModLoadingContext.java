@@ -1,0 +1,1 @@
+package net.neoforged.fml; public class ModLoadingContext { public static ModLoadingContext get(){throw new UnsupportedOperationException("No loader bootstrap in pure contract tests");} public ModContainer getActiveContainer(){throw new UnsupportedOperationException();} }

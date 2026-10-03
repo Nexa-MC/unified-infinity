@@ -1,0 +1,38 @@
+name: Isolated C1 contracts diagnostic
+
+# One bounded run from the approved diagnostic branch; main stays unchanged.
+on:
+  push:
+    branches:
+      - diagnostic/c1-contracts-20261003-2239
+
+permissions:
+  contents: read
+
+concurrency:
+  group: c1-contracts-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  contracts:
+    if: github.repository == 'Nexa-MC/unified-infinity' && github.ref == 'refs/heads/diagnostic/c1-contracts-20261003-2239'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    env:
+      CI: 'true'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Read the diagnostic source commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # official v4.2.2, verified tag
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify sources and pinned download policy
+        run: python3 diagnostics/c1-contracts/ci/bootstrap.py check
+      - name: Restore verified public inputs and run contracts serially
+        run: python3 diagnostics/c1-contracts/ci/bootstrap.py contracts --fetch
+      - name: Record diagnostic scope
+        if: always()
+        run: |
+          echo 'Only source contracts and exact ASM boundaries are in scope. Full Gradle modules, native/Unified game controls, GUI tooltip and OPTab remain unverified by this workflow.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No cache or artifact uploads are configured; detailed results remain in this run log.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,1 @@
+package net.neoforged.fml.loading; public enum FMLPaths { GAMEDIR, CONFIGDIR; public java.nio.file.Path get() { var p=java.nio.file.Path.of(System.getProperty("c1.test.root")); return this==GAMEDIR?p:p.resolve("config"); } }

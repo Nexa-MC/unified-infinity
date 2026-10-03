@@ -1,0 +1,1 @@
+package org.sinytra.connector.forge.loader; public final class ForgeModContainer extends net.neoforged.fml.ModContainer { private final ForgeModLoadingContext context=new ForgeModLoadingContext(this); public ForgeModContainer(String id){super(id);} public ForgeModLoadingContext context(){return context;} }

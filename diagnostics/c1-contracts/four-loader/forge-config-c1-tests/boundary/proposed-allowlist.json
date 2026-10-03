@@ -1,0 +1,785 @@
+{
+  "api1_source_baseline": {
+    "path": "source-workspace/fml-unified/build/successor-client-api1/frozen-inputs/api1-source-only.zip",
+    "sha256": "c797a562f4a4b14eae619c89aaca75223f5315c599a9cd79f84d49f7a4af7e70",
+    "transformer_member": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java"
+  },
+  "class_policy": {
+    "existing_only_subclass_exception": "net/minecraftforge/eventbus/api/Event",
+    "reject_bundled_forge_namespace": true,
+    "reject_forge_implementation": true,
+    "reject_forge_subclass": true,
+    "synthetic_negative_headers": [
+      {
+        "interfaces": [
+          "net/minecraftforge/fml/config/IConfigSpec"
+        ],
+        "name": "infinity/probe/CustomSpec",
+        "super": "java/lang/Object"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/Subclass",
+        "super": "net/minecraftforge/common/ForgeConfigSpec"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassBuilder",
+        "super": "net/minecraftforge/common/ForgeConfigSpec$Builder"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassConfigValue",
+        "super": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassBooleanValue",
+        "super": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassIntValue",
+        "super": "net/minecraftforge/common/ForgeConfigSpec$IntValue"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassModConfig",
+        "super": "net/minecraftforge/fml/config/ModConfig"
+      },
+      {
+        "interfaces": [],
+        "name": "infinity/probe/SubclassLoading",
+        "super": "net/minecraftforge/fml/event/config/ModConfigEvent$Loading"
+      }
+    ]
+  },
+  "default_deny": "All other Forge types/methods/fields remain unsupported, including omitted public and protected members, handles, inherited aliases and erased descriptor near-misses.",
+  "emitted_probe_validation": "pending independent compilation against official Forge 52.1.0",
+  "existing_dependencies": {
+    "context_target": "org/sinytra/connector/forge/loader/ForgeModLoadingContext",
+    "method_keys": [
+      "fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus()Lnet/minecraftforge/eventbus/api/IEventBus;",
+      "eventbus/api/IEventBus.addListener(Ljava/util/function/Consumer;)V"
+    ],
+    "types": [
+      "net/minecraftforge/fml/common/Mod",
+      "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext",
+      "net/minecraftforge/eventbus/api/IEventBus",
+      "net/minecraftforge/fml/event/lifecycle/FMLCommonSetupEvent"
+    ]
+  },
+  "fields": [
+    {
+      "descriptor": "Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "kind": "field",
+      "name": "COMMON",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "transformer_key": "fml/config/ModConfig$Type.COMMON:Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    }
+  ],
+  "limitations": [
+    "Static declaration/hierarchy evidence is not runtime linking or semantics proof",
+    "Source hashes bind the fixture but do not prove javac emitted these owners",
+    "Python reference gate tests do not execute or replace the production ASM transformer",
+    "Alias/type expansion beyond this probe requires independent emitted-class evidence and explicit approval"
+  ],
+  "methods": [
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "()Ljava/lang/Object;",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "resolution": "inherited-alias",
+      "transformer_key": "common/ForgeConfigSpec$BooleanValue.get()Ljava/lang/Object;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "(Ljava/lang/Object;)V",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "resolution": "inherited-alias",
+      "transformer_key": "common/ForgeConfigSpec$BooleanValue.set(Ljava/lang/Object;)V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "()V",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.<init>()V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "()Lnet/minecraftforge/common/ForgeConfigSpec;",
+      "kind": "method",
+      "name": "build",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.build()Lnet/minecraftforge/common/ForgeConfigSpec;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "kind": "method",
+      "name": "comment",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.comment(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;",
+      "kind": "method",
+      "name": "define",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.define(Ljava/lang/String;Ljava/lang/Object;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;Z)Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;",
+      "kind": "method",
+      "name": "define",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.define(Ljava/lang/String;Z)Lnet/minecraftforge/common/ForgeConfigSpec$BooleanValue;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;",
+      "kind": "method",
+      "name": "defineInRange",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.defineInRange(Ljava/lang/String;III)Lnet/minecraftforge/common/ForgeConfigSpec$IntValue;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;Ljava/util/List;Ljava/util/function/Predicate;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;",
+      "kind": "method",
+      "name": "defineListAllowEmpty",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.defineListAllowEmpty(Ljava/lang/String;Ljava/util/List;Ljava/util/function/Predicate;)Lnet/minecraftforge/common/ForgeConfigSpec$ConfigValue;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "kind": "method",
+      "name": "pop",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.pop()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "kind": "method",
+      "name": "push",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.push(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "kind": "method",
+      "name": "translation",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.translation(Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "descriptor": "()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "kind": "method",
+      "name": "worldRestart",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$Builder.worldRestart()Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "()Ljava/lang/Object;",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$ConfigValue.get()Ljava/lang/Object;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "(Ljava/lang/Object;)V",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec$ConfigValue.set(Ljava/lang/Object;)V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "()Ljava/lang/Object;",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "resolution": "inherited-alias",
+      "transformer_key": "common/ForgeConfigSpec$IntValue.get()Ljava/lang/Object;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "()V",
+      "kind": "method",
+      "name": "save",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "resolution": "inherited-alias",
+      "transformer_key": "common/ForgeConfigSpec$IntValue.save()V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "descriptor": "(Ljava/lang/Object;)V",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "resolution": "inherited-alias",
+      "transformer_key": "common/ForgeConfigSpec$IntValue.set(Ljava/lang/Object;)V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "descriptor": "()Z",
+      "kind": "method",
+      "name": "isLoaded",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec.isLoaded()Z"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "descriptor": "()V",
+      "kind": "method",
+      "name": "save",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "resolution": "declared",
+      "transformer_key": "common/ForgeConfigSpec.save()V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/config/ModConfig",
+      "descriptor": "()Ljava/lang/String;",
+      "kind": "method",
+      "name": "getFileName",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "resolution": "declared",
+      "transformer_key": "fml/config/ModConfig.getFileName()Ljava/lang/String;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/config/ModConfig",
+      "descriptor": "()Ljava/lang/String;",
+      "kind": "method",
+      "name": "getModId",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "resolution": "declared",
+      "transformer_key": "fml/config/ModConfig.getModId()Ljava/lang/String;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/config/ModConfig",
+      "descriptor": "()Lnet/minecraftforge/fml/config/IConfigSpec;",
+      "kind": "method",
+      "name": "getSpec",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "resolution": "declared",
+      "transformer_key": "fml/config/ModConfig.getSpec()Lnet/minecraftforge/fml/config/IConfigSpec;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/config/ModConfig",
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "kind": "method",
+      "name": "getType",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "resolution": "declared",
+      "transformer_key": "fml/config/ModConfig.getType()Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/event/config/ModConfigEvent",
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig;",
+      "kind": "method",
+      "name": "getConfig",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Loading",
+      "resolution": "inherited-alias",
+      "transformer_key": "fml/event/config/ModConfigEvent$Loading.getConfig()Lnet/minecraftforge/fml/config/ModConfig;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/event/config/ModConfigEvent",
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig;",
+      "kind": "method",
+      "name": "getConfig",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Reloading",
+      "resolution": "inherited-alias",
+      "transformer_key": "fml/event/config/ModConfigEvent$Reloading.getConfig()Lnet/minecraftforge/fml/config/ModConfig;"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/ModLoadingContext",
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;)V",
+      "kind": "method",
+      "name": "registerConfig",
+      "owner": "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext",
+      "resolution": "inherited-alias",
+      "transformer_key": "fml/javafmlmod/FMLJavaModLoadingContext.registerConfig(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;)V"
+    },
+    {
+      "declaration_owner": "net/minecraftforge/fml/ModLoadingContext",
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Ljava/lang/String;)V",
+      "kind": "method",
+      "name": "registerConfig",
+      "owner": "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext",
+      "resolution": "inherited-alias",
+      "transformer_key": "fml/javafmlmod/FMLJavaModLoadingContext.registerConfig(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Ljava/lang/String;)V"
+    }
+  ],
+  "negative_symbols": [
+    {
+      "descriptor": "Lnet/minecraftforge/fml/config/ConfigTracker;",
+      "evidence": "official-member",
+      "kind": "field",
+      "name": "INSTANCE",
+      "owner": "net/minecraftforge/fml/config/ConfigTracker",
+      "reason": "no second registry or externally exposed tracker",
+      "transformer_key": "fml/config/ConfigTracker.INSTANCE:Lnet/minecraftforge/fml/config/ConfigTracker;"
+    },
+    {
+      "descriptor": "Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "evidence": "official-member",
+      "kind": "field",
+      "name": "CLIENT",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "reason": "C1 is COMMON-only",
+      "transformer_key": "fml/config/ModConfig$Type.CLIENT:Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    },
+    {
+      "descriptor": "Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "evidence": "official-member",
+      "kind": "field",
+      "name": "SERVER",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "reason": "C1 is COMMON-only",
+      "transformer_key": "fml/config/ModConfig$Type.SERVER:Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    },
+    {
+      "descriptor": "()Ljava/lang/Integer;",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$BooleanValue.get()Ljava/lang/Integer;"
+    },
+    {
+      "descriptor": "()V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "save",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "reason": "unexercised invocation owner alias remains deferred",
+      "transformer_key": "common/ForgeConfigSpec$BooleanValue.save()V"
+    },
+    {
+      "descriptor": "(I)V",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$BooleanValue.set(I)V"
+    },
+    {
+      "descriptor": "([Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "comment",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "reason": "unexercised overload",
+      "transformer_key": "common/ForgeConfigSpec$Builder.comment([Ljava/lang/String;)Lnet/minecraftforge/common/ForgeConfigSpec$Builder;"
+    },
+    {
+      "descriptor": "()Ljava/lang/Integer;",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$ConfigValue.get()Ljava/lang/Integer;"
+    },
+    {
+      "descriptor": "()V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "save",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "reason": "unexercised invocation owner alias remains deferred",
+      "transformer_key": "common/ForgeConfigSpec$ConfigValue.save()V"
+    },
+    {
+      "descriptor": "(I)V",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$ConfigValue.set(I)V"
+    },
+    {
+      "descriptor": "()Ljava/lang/Integer;",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$IntValue.get()Ljava/lang/Integer;"
+    },
+    {
+      "descriptor": "(I)V",
+      "evidence": "fabricated-near-miss",
+      "kind": "method",
+      "name": "set",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "reason": "generic source type must not replace erased Object descriptor",
+      "transformer_key": "common/ForgeConfigSpec$IntValue.set(I)V"
+    },
+    {
+      "descriptor": "()Lcom/electronwill/nightconfig/core/UnmodifiableConfig;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getValues",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "reason": "raw spec access is outside the public C1 lifecycle",
+      "transformer_key": "common/ForgeConfigSpec.getValues()Lcom/electronwill/nightconfig/core/UnmodifiableConfig;"
+    },
+    {
+      "descriptor": "(Lcom/electronwill/nightconfig/core/CommentedConfig;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "setConfig",
+      "owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "reason": "raw spec access is outside the public C1 lifecycle",
+      "transformer_key": "common/ForgeConfigSpec.setConfig(Lcom/electronwill/nightconfig/core/CommentedConfig;)V"
+    },
+    {
+      "descriptor": "()Lnet/minecraftforge/fml/ModLoadingContext;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "get",
+      "owner": "net/minecraftforge/fml/ModLoadingContext",
+      "reason": "legacy context is outside C1",
+      "transformer_key": "fml/ModLoadingContext.get()Lnet/minecraftforge/fml/ModLoadingContext;"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "registerConfig",
+      "owner": "net/minecraftforge/fml/ModLoadingContext",
+      "reason": "base context invocation owner is deferred",
+      "transformer_key": "fml/ModLoadingContext.registerConfig(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;)V"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Ljava/lang/String;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "registerConfig",
+      "owner": "net/minecraftforge/fml/ModLoadingContext",
+      "reason": "base context invocation owner is deferred",
+      "transformer_key": "fml/ModLoadingContext.registerConfig(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Ljava/lang/String;)V"
+    },
+    {
+      "descriptor": "()V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/fml/config/ConfigFileTypeHandler",
+      "reason": "no second file engine",
+      "transformer_key": "fml/config/ConfigFileTypeHandler.<init>()V"
+    },
+    {
+      "descriptor": "()Ljava/util/concurrent/ConcurrentHashMap;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "fileMap",
+      "owner": "net/minecraftforge/fml/config/ConfigTracker",
+      "reason": "mutable tracker state is not exposed",
+      "transformer_key": "fml/config/ConfigTracker.fileMap()Ljava/util/concurrent/ConcurrentHashMap;"
+    },
+    {
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getConfig",
+      "owner": "net/minecraftforge/fml/config/IConfigEvent",
+      "reason": "unexercised event owner or deferred Unloading",
+      "transformer_key": "fml/config/IConfigEvent.getConfig()Lnet/minecraftforge/fml/config/ModConfig;"
+    },
+    {
+      "descriptor": "()V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "afterReload",
+      "owner": "net/minecraftforge/fml/config/IConfigSpec",
+      "reason": "IConfigSpec is descriptor-only in C1",
+      "transformer_key": "fml/config/IConfigSpec.afterReload()V"
+    },
+    {
+      "descriptor": "()Ljava/lang/String;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "extension",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "reason": "enum methods are separate, deferred admission decisions",
+      "transformer_key": "fml/config/ModConfig$Type.extension()Ljava/lang/String;"
+    },
+    {
+      "descriptor": "(Ljava/lang/String;)Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "valueOf",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "reason": "enum methods are separate, deferred admission decisions",
+      "transformer_key": "fml/config/ModConfig$Type.valueOf(Ljava/lang/String;)Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    },
+    {
+      "descriptor": "()[Lnet/minecraftforge/fml/config/ModConfig$Type;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "values",
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "reason": "enum methods are separate, deferred admission decisions",
+      "transformer_key": "fml/config/ModConfig$Type.values()[Lnet/minecraftforge/fml/config/ModConfig$Type;"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Lnet/minecraftforge/fml/ModContainer;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "native tracker owns config construction",
+      "transformer_key": "fml/config/ModConfig.<init>(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Lnet/minecraftforge/fml/ModContainer;)V"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Lnet/minecraftforge/fml/ModContainer;Ljava/lang/String;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "native tracker owns config construction",
+      "transformer_key": "fml/config/ModConfig.<init>(Lnet/minecraftforge/fml/config/ModConfig$Type;Lnet/minecraftforge/fml/config/IConfigSpec;Lnet/minecraftforge/fml/ModContainer;Ljava/lang/String;)V"
+    },
+    {
+      "descriptor": "([B)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "acceptSyncedConfig",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "raw data, handler, direct ModConfig save and sync are outside C1",
+      "transformer_key": "fml/config/ModConfig.acceptSyncedConfig([B)V"
+    },
+    {
+      "descriptor": "()Lcom/electronwill/nightconfig/core/CommentedConfig;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getConfigData",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "raw data, handler, direct ModConfig save and sync are outside C1",
+      "transformer_key": "fml/config/ModConfig.getConfigData()Lcom/electronwill/nightconfig/core/CommentedConfig;"
+    },
+    {
+      "descriptor": "()Lnet/minecraftforge/fml/config/ConfigFileTypeHandler;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getHandler",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "raw data, handler, direct ModConfig save and sync are outside C1",
+      "transformer_key": "fml/config/ModConfig.getHandler()Lnet/minecraftforge/fml/config/ConfigFileTypeHandler;"
+    },
+    {
+      "descriptor": "()V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "save",
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "reason": "raw data, handler, direct ModConfig save and sync are outside C1",
+      "transformer_key": "fml/config/ModConfig.save()V"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Loading",
+      "reason": "owner dispatches events; external construction is not admitted",
+      "transformer_key": "fml/event/config/ModConfigEvent$Loading.<init>(Lnet/minecraftforge/fml/config/ModConfig;)V"
+    },
+    {
+      "descriptor": "(Lnet/minecraftforge/fml/config/ModConfig;)V",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "<init>",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Reloading",
+      "reason": "owner dispatches events; external construction is not admitted",
+      "transformer_key": "fml/event/config/ModConfigEvent$Reloading.<init>(Lnet/minecraftforge/fml/config/ModConfig;)V"
+    },
+    {
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getConfig",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Unloading",
+      "reason": "unexercised event owner or deferred Unloading",
+      "transformer_key": "fml/event/config/ModConfigEvent$Unloading.getConfig()Lnet/minecraftforge/fml/config/ModConfig;"
+    },
+    {
+      "descriptor": "()Lnet/minecraftforge/fml/config/ModConfig;",
+      "evidence": "official-member",
+      "kind": "method",
+      "name": "getConfig",
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent",
+      "reason": "unexercised event owner or deferred Unloading",
+      "transformer_key": "fml/event/config/ModConfigEvent.getConfig()Lnet/minecraftforge/fml/config/ModConfig;"
+    }
+  ],
+  "official_binary_archives": [
+    {
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999",
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a",
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15",
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar"
+    }
+  ],
+  "pinned_inputs": [
+    {
+      "path": "docs/api-coverage/forge-config/ABI-CONTRACTS.md",
+      "sha256": "b492c307bf2609d3993d6ac7fcf468350aa3f57e0ef4f27b13e75dccb9d59d48"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/PROBE-PLAN.md",
+      "sha256": "ea3d38b91393b8ce710de643befd17e7cae79f3113619d1c65eb41a7288b166f"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/member-shapes.csv",
+      "sha256": "45e5bbfc65a103da411a514b11122c782b142f3f1efd3269633f16877c43f5b4"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/probe/ForgeConfigLifecycleProbe.java",
+      "sha256": "379603f3d150442f568c4e7c721a61dedf1f9c6a74b5fdefb8518b499d4bf171"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/provenance.json",
+      "sha256": "75ce113ff4b2349c0f5cda236462cd6ed6ed09d12d7b842834a16c5b3064e493"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/common/ForgeConfigSpec.java",
+      "sha256": "aa169b7baa6b4f7edd27c0ebb87e10835b975bc77dde0c8cca37690d49116388"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/ModLoadingContext.java",
+      "sha256": "6383af5c2fb33efe7e823c06fc2e5eca187454a175789f572a7361ef836da58b"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/config/IConfigEvent.java",
+      "sha256": "4f8c3bf11be2bad3272962fb83f7c2a134942daa75921f220c55d949f1b69ff3"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/config/IConfigSpec.java",
+      "sha256": "a4a5a1b0677ed575bb41f825d011afea1df974da239853346c5fd5b7efd74853"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/config/ModConfig.java",
+      "sha256": "9487f5075b4631fbb0c50c401377b7fece98cc753b944f8381838dffbb2e9f9d"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/event/config/ModConfigEvent.java",
+      "sha256": "710902634cd5e9b77f278b4f33e162cca084f037d92cfc26a59fe8a1a6e90f18"
+    },
+    {
+      "path": "docs/api-coverage/forge-config/sources/net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.java",
+      "sha256": "6f6bdfda1fd0f85ae842f216fd42f082fe658720616cf99c6088cd39cdd82f98"
+    },
+    {
+      "path": "four-loader/forge-config-c1-tests/boundary/fixtures/NegativeConfigInputs.java",
+      "sha256": "bfccdd3b21d04a3311bc2948e497ca2f6e6ad57e5433ddb19df0601c65170892"
+    },
+    {
+      "path": "source-workspace/connector-four-loader/components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "sha256": "e502b63b6530dc96280710df5bc27f36bfa5b6432d92642f4b08e5c5a938fc98"
+    },
+    {
+      "path": "tools/api-coverage/forge_classfile.py",
+      "sha256": "5141a48ab6febc31ec17ca2183d5b6a4da92194858ce8dff8131034531b2f176"
+    }
+  ],
+  "production_admitted": false,
+  "runtime_guards_required": [
+    "COMMON only; reject CLIENT/SERVER even if obtained without direct field access",
+    "Accept only the supported concrete source-derived spec; reject custom IConfigSpec and subclasses",
+    "Use the single native config owner, registry, file, watcher and lock"
+  ],
+  "schema_version": 1,
+  "scope": "C1 COMMON lifecycle probe; exact symbol proposal, not a production transformer or ledger update",
+  "status": "proposal-only",
+  "types": [
+    {
+      "owner": "net/minecraftforge/common/ForgeConfigSpec",
+      "target": "org/sinytra/connector/forge/config/ForgeConfigSpec"
+    },
+    {
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$BooleanValue",
+      "target": "org/sinytra/connector/forge/config/ForgeConfigSpec$BooleanValue"
+    },
+    {
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$Builder",
+      "target": "org/sinytra/connector/forge/config/ForgeConfigSpec$Builder"
+    },
+    {
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$ConfigValue",
+      "target": "org/sinytra/connector/forge/config/ForgeConfigSpec$ConfigValue"
+    },
+    {
+      "owner": "net/minecraftforge/common/ForgeConfigSpec$IntValue",
+      "target": "org/sinytra/connector/forge/config/ForgeConfigSpec$IntValue"
+    },
+    {
+      "owner": "net/minecraftforge/fml/config/IConfigSpec",
+      "restriction": "descriptor-only; no external implementation or callable IConfigSpec member",
+      "target": "org/sinytra/connector/forge/config/IForgeConfigSpec"
+    },
+    {
+      "owner": "net/minecraftforge/fml/config/ModConfig",
+      "target": "org/sinytra/connector/forge/config/ForgeModConfig"
+    },
+    {
+      "owner": "net/minecraftforge/fml/config/ModConfig$Type",
+      "target": "org/sinytra/connector/forge/config/ForgeModConfig$Type"
+    },
+    {
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Loading",
+      "target": "org/sinytra/connector/forge/config/ForgeModConfigEvent$Loading"
+    },
+    {
+      "owner": "net/minecraftforge/fml/event/config/ModConfigEvent$Reloading",
+      "target": "org/sinytra/connector/forge/config/ForgeModConfigEvent$Reloading"
+    }
+  ]
+}

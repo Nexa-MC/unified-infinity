@@ -1,0 +1,12 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "game_started": false,
+  "gradle_started": false,
+  "jvm_started": false,
+  "output": "test_allowlisted_declarations_agree_with_member_shapes (__main__.BoundaryTests.test_allowlisted_declarations_agree_with_member_shapes) ... ok\ntest_common_is_only_admitted_field_and_no_enum_methods (__main__.BoundaryTests.test_common_is_only_admitted_field_and_no_enum_methods) ... ok\ntest_context_and_event_aliases_resolve_without_admitting_base_owners (__main__.BoundaryTests.test_context_and_event_aliases_resolve_without_admitting_base_owners) ... ok\ntest_custom_specs_and_forge_subclasses_remain_blocked (__main__.BoundaryTests.test_custom_specs_and_forge_subclasses_remain_blocked) ... ok\ntest_erased_values_and_required_inherited_aliases (__main__.BoundaryTests.test_erased_values_and_required_inherited_aliases) ... ok\ntest_every_other_config_declaration_stays_denied (__main__.BoundaryTests.test_every_other_config_declaration_stays_denied) ... ok\ntest_every_proposed_symbol_resolves_exactly_in_official_forge (__main__.BoundaryTests.test_every_proposed_symbol_resolves_exactly_in_official_forge) ... ok\ntest_frozen_transformer_preserves_exact_default_deny (__main__.BoundaryTests.test_frozen_transformer_preserves_exact_default_deny) ... ok\ntest_negative_symbols_are_denied_and_official_shapes_are_real (__main__.BoundaryTests.test_negative_symbols_are_denied_and_official_shapes_are_real) ... ok\ntest_pinned_inputs_match (__main__.BoundaryTests.test_pinned_inputs_match) ... ok\ntest_proposal_remains_review_only_and_exact (__main__.BoundaryTests.test_proposal_remains_review_only_and_exact) ... ok\ntest_reference_sources_match_official_archives (__main__.BoundaryTests.test_reference_sources_match_official_archives) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests (elapsed time omitted)\n\nOK\n",
+  "production_transformer_executed": false,
+  "scope": "static proposal and official declarations only",
+  "status": "passed",
+  "tests_run": 12
+}

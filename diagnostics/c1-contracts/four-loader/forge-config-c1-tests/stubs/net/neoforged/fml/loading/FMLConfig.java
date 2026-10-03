@@ -1,0 +1,1 @@
+package net.neoforged.fml.loading; public final class FMLConfig { public enum ConfigValue { DISABLE_CONFIG_WATCHER } public static String defaultConfigPath(){return "defaultconfigs";} public static boolean getBoolConfigValue(ConfigValue v){return false;} }

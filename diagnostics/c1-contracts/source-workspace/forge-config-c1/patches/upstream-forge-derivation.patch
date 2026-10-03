@@ -1,0 +1,93 @@
+--- a/docs/api-coverage/forge-config/sources/net/minecraftforge/common/ForgeConfigSpec.java
++++ b/source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/ForgeConfigSpec.java
+@@ -3,7 +3,7 @@
+  * SPDX-License-Identifier: LGPL-2.1-only
+  */
+ 
+-package net.minecraftforge.common;
++package org.sinytra.connector.forge.config;
+ 
+ import java.util.ArrayList;
+ import java.util.Arrays;
+@@ -22,9 +22,9 @@
+ import java.util.regex.Pattern;
+ import java.util.stream.Collectors;
+ 
+-import net.minecraftforge.fml.Logging;
+-import net.minecraftforge.fml.config.IConfigSpec;
+-import net.minecraftforge.fml.loading.FMLEnvironment;
++import net.neoforged.fml.Logging;
++import org.sinytra.connector.forge.config.IForgeConfigSpec;
++import net.neoforged.fml.loading.FMLEnvironment;
+ import org.apache.commons.lang3.tuple.Pair;
+ import org.apache.logging.log4j.LogManager;
+ 
+@@ -49,12 +49,29 @@
+  * and other things Forge configs would find useful.
+  */
+ //TODO: Remove extends and pipe everything through getSpec/getValues?
+-public class ForgeConfigSpec extends UnmodifiableConfigWrapper<UnmodifiableConfig> implements IConfigSpec<ForgeConfigSpec> {
++public class ForgeConfigSpec extends UnmodifiableConfigWrapper<UnmodifiableConfig> implements IForgeConfigSpec<ForgeConfigSpec> {
+     private final Map<List<String>, String> levelComments;
+     private final Map<List<String>, String> levelTranslationKeys;
+ 
+     private final UnmodifiableConfig values;
+     private Config childConfig;
++    // C1 modification: persistence stays with source-owned FML's LoadedConfig.
++    private Runnable ownerSave;
++    private java.util.function.BiConsumer<Runnable, Runnable> ownerMutation;
++
++    void attachOwner(CommentedConfig config, Runnable save, java.util.function.BiConsumer<Runnable, Runnable> mutation) {
++        this.ownerSave = save;
++        this.ownerMutation = mutation;
++        acceptConfig(config);
++    }
++
++    private void mutateValue(Runnable mutation, Runnable successfulCommit) {
++        if (ownerMutation != null) ownerMutation.accept(mutation, successfulCommit);
++        else {
++            mutation.run();
++            successfulCommit.run();
++        }
++    }
+ 
+     private boolean isCorrecting = false;
+ 
+@@ -135,7 +152,9 @@
+ 
+     public void save() {
+         Objects.requireNonNull(childConfig, "Cannot save config value without assigned Config object present");
+-        if (childConfig instanceof FileConfig fileConfig) {
++        if (ownerSave != null) {
++            ownerSave.run();
++        } else if (childConfig instanceof FileConfig fileConfig) {
+             fileConfig.save();
+         }
+     }
+@@ -900,8 +919,7 @@
+         public void set(T value) {
+             Objects.requireNonNull(spec, "Cannot set config value before spec is built");
+             Objects.requireNonNull(spec.childConfig, "Cannot set config value without assigned Config object present");
+-            spec.childConfig.set(path, value);
+-            this.cachedValue = value;
++            spec.mutateValue(() -> spec.childConfig.set(path, value), () -> this.cachedValue = value);
+         }
+ 
+         public void clearCache() {
+--- a/docs/api-coverage/forge-config/sources/net/minecraftforge/fml/config/IConfigSpec.java
++++ b/source-workspace/forge-config-c1/src/main/java/org/sinytra/connector/forge/config/IForgeConfigSpec.java
+@@ -3,12 +3,12 @@
+  * SPDX-License-Identifier: LGPL-2.1-only
+  */
+ 
+-package net.minecraftforge.fml.config;
++package org.sinytra.connector.forge.config;
+ 
+ import com.electronwill.nightconfig.core.CommentedConfig;
+ import com.electronwill.nightconfig.core.UnmodifiableConfig;
+ 
+-public interface IConfigSpec<T extends IConfigSpec<T>> extends UnmodifiableConfig {
++public interface IForgeConfigSpec<T extends IForgeConfigSpec<T>> extends UnmodifiableConfig {
+     @SuppressWarnings("unchecked")
+     default T self() {
+         return (T) this;
