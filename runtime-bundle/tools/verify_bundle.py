@@ -35,10 +35,16 @@ def inventory(data: bytes, origin: str, depth: int = 0) -> list[dict]:
         if bad:
             raise ValueError(f"CRC failure: {origin}!/{bad}")
         metadata = tomllib.loads(jar.read(MOD_METADATA).decode()) if MOD_METADATA in names else {}
+        mod_ids = [mod["modId"] for mod in metadata.get("mods", [])]
+        if "quilt.mod.json" in names:
+            qmeta = json.loads(jar.read("quilt.mod.json"))
+            if qmeta.get("schema_version") != 1:
+                raise ValueError("Unsupported Quilt metadata schema")
+            mod_ids.append(qmeta["quilt_loader"]["id"])
         result = [{
             "path": origin,
             "sha256": hashlib.sha256(data).hexdigest(),
-            "mod_ids": [mod["modId"] for mod in metadata.get("mods", [])],
+            "mod_ids": mod_ids,
             "licenses": [n for n in names if "license" in n.lower() or "notice" in n.lower()],
         }]
         if JARJAR_METADATA in names:
@@ -56,14 +62,17 @@ def inventory(data: bytes, origin: str, depth: int = 0) -> list[dict]:
         return result
 
 
-def verify(bundle: Path, ffapi: Path) -> dict:
+def verify(bundle: Path, ffapi: Path, qsl_inventory: Path | None = None) -> dict:
+    qsl = json.loads(qsl_inventory.read_text())["modules"] if qsl_inventory else []
+    if len({x["id"] for x in qsl}) != len(qsl):
+        raise ValueError("Duplicate QSL module pins")
     upstream = ffapi.read_bytes()
     if hashlib.sha256(upstream).hexdigest() != FFAPI_SHA256:
         raise ValueError("Unrecognized FFAPI release hash")
     with zipfile.ZipFile(bundle) as host:
         nested = json.loads(host.read(JARJAR_METADATA))["jars"]
         if len(nested) != 1:
-            raise ValueError("Host must embed exactly one FFAPI aggregate")
+            raise ValueError("Host JarJar must contain only the FFAPI aggregate; QSL has one coordinated intake")
         dep = nested[0]
         if dep["identifier"] != {"group": "org.sinytra.forgified-fabric-api", "artifact": "forgified-fabric-api"}:
             raise ValueError("Incorrect upstream JarJar identity")
@@ -71,22 +80,52 @@ def verify(bundle: Path, ffapi: Path) -> dict:
             raise ValueError("Incorrect pinned version constraint")
         if host.read(dep["path"]) != upstream:
             raise ValueError("Embedded FFAPI differs from the official aggregate")
+        managed = json.loads(host.read("META-INF/unified-infinity/bundled-qsl.json"))["modules"] if "META-INF/unified-infinity/bundled-qsl.json" in host.namelist() else []
+        if len(managed) != len(qsl):
+            raise ValueError("Host QSL inventory differs from explicitly pinned modules")
+        host_meta = tomllib.loads(host.read(MOD_METADATA).decode())
+        for entry in qsl:
+            required = [d for d in host_meta.get("dependencies", {}).get("mod_compat_runtime", []) if d.get("modId") == entry["id"]]
+            if len(required) != 1 or required[0].get("type") != "required" or required[0].get("versionRange") != f'[{entry["version"]}]':
+                raise ValueError("Host must require the exact bundled QSL logical version")
+            matches = [dep for dep in managed if dep["group"] == entry["group"] and dep["artifact"] == entry["artifact"]]
+            if len(matches) != 1:
+                raise ValueError("Missing or duplicate QSL Maven identity")
+            dep = matches[0]
+            if dep["version"] != entry["version"] or dep["id"] != entry["id"] or dep["sha256"] != entry["sha256"]:
+                raise ValueError("QSL exact version pin mismatch")
+            data = host.read(dep["path"])
+            if hashlib.sha256(data).hexdigest() != entry["sha256"]:
+                raise ValueError("Embedded QSL checksum mismatch")
+            if data != (qsl_inventory.parent / entry["file"]).read_bytes():
+                raise ValueError("Embedded QSL differs from original module")
+            with zipfile.ZipFile(io.BytesIO(data)) as module:
+                meta = json.loads(module.read("quilt.mod.json"))["quilt_loader"]
+                if meta["id"] != entry["id"] or meta["version"] != entry["version"]:
+                    raise ValueError("Embedded QSL logical identity mismatch")
+                if meta.get("metadata", {}).get("license") != "Apache-2.0":
+                    raise ValueError("Unexpected QSL license declaration")
+            if len(host.read("META-INF/licenses/QSL-Apache-2.0.txt")) < 100:
+                raise ValueError("QSL accompanying license text missing")
         host.read("dev/modcompat/runtime/bundle/RuntimeBundle.class")
         for license_path in ("META-INF/licenses/FFAPI-Apache-2.0.txt", "META-INF/licenses/Connector-MIT.txt"):
             if len(host.read(license_path)) < 100:
                 raise ValueError(f"Missing license text: {license_path}")
-        if any(n.startswith(("net/fabricmc/", "org/sinytra/")) for n in host.namelist()):
+        if any(n.startswith(("net/fabricmc/", "org/sinytra/", "org/quiltmc/")) for n in host.namelist()):
             raise ValueError("Upstream classes must not be shaded into the host")
         if any(n.startswith("META-INF/services/") for n in host.namelist()):
             raise ValueError("Host must not replace Connector's early services")
     items = inventory(bundle.read_bytes(), bundle.name)
+    with zipfile.ZipFile(bundle) as host:
+        for entry in managed:
+            items.extend(inventory(host.read(entry["path"]), bundle.name + "!/" + entry["path"]))
     ids = [mod_id for item in items for mod_id in item["mod_ids"]]
     if len(ids) != len(set(ids)):
         raise ValueError("Duplicate mod IDs in bundle")
     if not {"mod_compat_runtime", "fabric_api", "forgified_fabric_api", "fabric_api_base"}.issubset(ids):
         raise ValueError("Expected native and upstream module IDs missing")
-    if len(items) != 45:
-        raise ValueError(f"Expected host + FFAPI + 43 nested modules; found {len(items)} archives")
+    if len(items) != 45 + len(qsl):
+        raise ValueError(f"Expected host + FFAPI + 43 nested modules + selected QSL; found {len(items)} archives")
     return {
         "status": "structural-check-passed",
         "runtime_tested": False,
@@ -96,6 +135,7 @@ def verify(bundle: Path, ffapi: Path) -> dict:
         "archive_count": len(items),
         "mod_id_count": len(ids),
         "archives": items,
+        "bundled_qsl_ids": [x["id"] for x in qsl],
     }
 
 
@@ -104,8 +144,9 @@ def main() -> None:
     parser.add_argument("--bundle", type=Path, required=True)
     parser.add_argument("--ffapi", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument("--qsl-inventory", type=Path)
     args = parser.parse_args()
-    report = verify(args.bundle, args.ffapi)
+    report = verify(args.bundle, args.ffapi, args.qsl_inventory)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(report, indent=2) + "\n")
     print(f"Verified {report['archive_count']} archives and {report['mod_id_count']} preserved mod IDs")

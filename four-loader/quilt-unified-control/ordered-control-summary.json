@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "scope": "Native Quilt and exact internally embedded QSL base/lifecycle server vertical slice, including original bootstrap listener order; no full Quilt/client claim",
+  "inputs": {
+    "source-workspace/artifacts/unified-infinity-four-loader-26b599fc.jar": "26b599fc1c033614c427062b209ae8d7a48a3e75bca51e78f1c79ff8299f4cde",
+    "runtime-bundle/build-quilt-candidate/libs/unified-infinity-0.1.0-dev.jar": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+    "run/source-built-lithium-unified/mods/unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+    "four-loader/quilt-probe/build/unified-native-quilt-probe-0.1.0.jar": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+  },
+  "create_report": "four-loader/quilt-unified-control/logs/unified-quilt-probe-ordered/unified-create-1.json",
+  "reopen_report": "four-loader/quilt-unified-control/logs/unified-quilt-probe-ordered/unified-reopen-1.json",
+  "native_control": "four-loader/quilt-native-control/native-control-summary.json",
+  "stage_counts": [
+    {
+      "pre_launch": 1,
+      "init": 1,
+      "method_reference": 1,
+      "server_init": 1,
+      "automatic_ready": 1,
+      "ready": 1,
+      "ready_to_save": 1,
+      "stopped": 1
+    },
+    {
+      "pre_launch": 1,
+      "init": 1,
+      "method_reference": 1,
+      "server_init": 1,
+      "automatic_ready": 1,
+      "ready": 1,
+      "ready_to_save": 1,
+      "stopped": 1
+    }
+  ],
+  "automatic_before_manual_ready_matches_native": true,
+  "original_inputs_unchanged": true,
+  "saved_data_sha256": "39e5a3aea3408fc4ea8002cbeeec76ce8be0174a8ab6b9b3ebb11ad34248a9f2",
+  "saved_data_read_before_write": true,
+  "saved_data_unchanged": true,
+  "warm_cache": {
+    "cold3uncached": true,
+    "warm_no_transform": true
+  },
+  "network": {
+    "loopback_both": true,
+    "lan_disabled_before_first_start": true,
+    "public_listener": false
+  },
+  "supersedes_semantic_order_claim_for": "201910d6 first pair retains valid lifecycle/persistence evidence but failed strengthened order assertion",
+  "untested": [
+    "client path",
+    "AW runtime",
+    "other28QSLmodules",
+    "third-party native Quilt mods",
+    "full Quilt engine/plugin APIs"
+  ]
+}

@@ -1,0 +1,274 @@
+[
+  {
+    "filename": "quilt-loader-repo.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-loader",
+    "sha256": "1be9f9a2e14e0d7ebec3d3309d31339d0734b35c46fb987e3f5e2a1d4ebfecb6",
+    "bytes": 6339
+  },
+  {
+    "filename": "quilt-loader-releases.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-loader/releases?per_page=10",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  {
+    "filename": "quilt-loader-meta-1.21.1.json",
+    "url": "https://meta.quiltmc.org/v3/versions/loader/1.21.1",
+    "sha256": "de882ad66ba5d401bbe3c5453be7a00ab422faee6bf5c54d7a86feefe1f6a5d4",
+    "bytes": 892353
+  },
+  {
+    "filename": "qsl-repo.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-standard-libraries",
+    "sha256": "3c8879f7134f37e74c8ae11dbc17878557fb146e8d96ea7868525ec86115f523",
+    "bytes": 6921
+  },
+  {
+    "filename": "qsl-releases.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-standard-libraries/releases?per_page=100",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  {
+    "filename": "qfapi-repo.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilted-fabric-api",
+    "sha256": "f8033d1c6a554e313d7c768e1b9d2c9ef6a9c4f1a60d2c175e0f7d59f173483f",
+    "bytes": 17196
+  },
+  {
+    "filename": "qfapi-releases.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilted-fabric-api/releases?per_page=100",
+    "sha256": "c37935f35effe46818ae5e7d9702fc041824c8b6f34efde4c351dd1444f87e14",
+    "bytes": 431345
+  },
+  {
+    "filename": "qsl-modrinth-project.json",
+    "url": "https://api.modrinth.com/v2/project/qsl",
+    "sha256": "e9246acd1680784e08b352d3715f15b5bb559628e90eb5a7078334ca46d0bc37",
+    "bytes": 4179
+  },
+  {
+    "filename": "qsl-modrinth-1.21.1.json",
+    "url": "https://api.modrinth.com/v2/project/qsl/version?game_versions=%5B%221.21.1%22%5D",
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "bytes": 2
+  },
+  {
+    "filename": "quilt-loader-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/maven-metadata.xml",
+    "sha256": "b4679407c385d1e90e1e75ed7b307b2f2c343d4559dc24f6423496c2e8f1261a",
+    "bytes": 12003
+  },
+  {
+    "filename": "qsl-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/maven-metadata.xml",
+    "sha256": "5b00d07b12b4ebaaf49de34b5fbafe60df917ccbba29af50a5b35fef44bc06df",
+    "bytes": 6870
+  },
+  {
+    "filename": "qfapi-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilted-fabric-api/quilted-fabric-api/maven-metadata.xml",
+    "sha256": "d50168591fb9986ebe050527647b35521c8177d9d27cba84708d7986588a39b9",
+    "bytes": 8120
+  },
+  {
+    "filename": "quilt-loader-tags.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-loader/tags?per_page=100",
+    "sha256": "e90ea7471d6da40f2e77354dff49ed06e851d56051c586e8911e08d9ee0e3902",
+    "bytes": 44663
+  },
+  {
+    "filename": "quilt-loader-tree.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-loader/git/trees/develop?recursive=1",
+    "sha256": "10289322a032efaf2691e0994902c45efcfffea3a4574935d0e9484a4fecabaf",
+    "bytes": 277083
+  },
+  {
+    "filename": "qsl-tree-1.21.1.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-standard-libraries/git/trees/1.21.1?recursive=1",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "filename": "qfapi-tree-1.21.1.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilted-fabric-api/git/trees/1.21.1?recursive=1",
+    "sha256": "bf819a2b2386e5811ea4407b5f0c424e227f21a9972677fd1aa773cabd9a4117",
+    "bytes": 1206707
+  },
+  {
+    "filename": "qsl-10.0.0-alpha.5+1.21.1.pom",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/10.0.0-alpha.5+1.21.1/qsl-10.0.0-alpha.5+1.21.1.pom",
+    "sha256": "2836796932b4c3e01e063fa5fc5a6509395df06a2949bb63212e7c502dc8bb8e",
+    "bytes": 2361
+  },
+  {
+    "filename": "qsl-10.0.0-alpha.5+1.21.1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/10.0.0-alpha.5+1.21.1/qsl-10.0.0-alpha.5+1.21.1.jar",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "filename": "modrinth-quilt-1.21.1-search.json",
+    "url": "https://api.modrinth.com/v2/search?facets=%5B%5B%22categories%3Aquilt%22%5D%2C+%5B%22versions%3A1.21.1%22%5D%2C+%5B%22project_type%3Amod%22%5D%5D&limit=100",
+    "sha256": "a3b9d57ecd5d62ef532749f25081700dc5228a11ecafcb53f3b1a5d358e7a103",
+    "bytes": 184785
+  },
+  {
+    "filename": "quilt-mod-spec-v1.md",
+    "url": "https://raw.githubusercontent.com/QuiltMC/quilt-mod-json-spec/main/src/main/resources/quilt_mod_spec/quilt.mod.json.v1.md",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "filename": "loader-0.30.1-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1-sources.jar",
+    "sha256": "66d1b1214179306574b730f0841a63d9499d47d1ea16b912ef336f6a2c62a08a",
+    "bytes": 906131
+  },
+  {
+    "filename": "loader-0.30.1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar",
+    "sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+    "bytes": 3149891
+  },
+  {
+    "filename": "loader-0.30.1-tree.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-loader/git/trees/b33861b30a815f327652015018d2d1262f12b63a?recursive=1",
+    "sha256": "d8be79a0173c3809cf263de72d665c0ed3f3176fe13d71d24696deac1df1221c",
+    "bytes": 270971
+  },
+  {
+    "filename": "qsl-tags.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-standard-libraries/tags?per_page=100",
+    "sha256": "e1b9f03226a57f8745790b93bfd9172415ad0df6b94ad19856221f4c07b44824",
+    "bytes": 52187
+  },
+  {
+    "filename": "qsl-core-alpha5.pom",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/10.0.0-alpha.5+1.21.1/core-10.0.0-alpha.5+1.21.1.pom",
+    "sha256": "0cf1bb324780fc9e046460ea04fd733c197c917c5f9476b6619530974e928f4f",
+    "bytes": 2068
+  },
+  {
+    "filename": "qsl-block-alpha5.pom",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/10.0.0-alpha.5+1.21.1/block-10.0.0-alpha.5+1.21.1.pom",
+    "sha256": "6fc8e831987a7881a5f72162962f307c9f697948af29747316827343d0794352",
+    "bytes": 1090
+  },
+  {
+    "filename": "qsl-lifecycle-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/maven-metadata.xml",
+    "sha256": "fe62e552c6668c7ee55526ea2f95cb674219413359b70d54c209b12570476d0e",
+    "bytes": 6756
+  },
+  {
+    "filename": "qsl-base-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/maven-metadata.xml",
+    "sha256": "d204207045bc6a6698b1a87940236e5ddd8c69fcbe07d70bcfccc6344d3715f2",
+    "bytes": 6795
+  },
+  {
+    "filename": "qsl-crash-maven.xml",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/crash_info/maven-metadata.xml",
+    "sha256": "24347d3961194b2f4107fe7d79b06a952f9f33e0daf06ae6670c3a11320bf174",
+    "bytes": 6841
+  },
+  {
+    "filename": "qsl-10.0.0-alpha.5+1.21.1.module",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/10.0.0-alpha.5+1.21.1/qsl-10.0.0-alpha.5+1.21.1.module",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "filename": "qfapi-1.21.1-gradle.properties",
+    "url": "https://raw.githubusercontent.com/QuiltMC/quilted-fabric-api/1869b119d88199e2d03146048de043dfaae5297f/gradle.properties",
+    "sha256": "684c0d371d52773384ff7a141596877da0035e6c43167b8c7c50390a384c6aa4",
+    "bytes": 2243
+  },
+  {
+    "filename": "qfapi-1.21.1-README.md",
+    "url": "https://raw.githubusercontent.com/QuiltMC/quilted-fabric-api/1869b119d88199e2d03146048de043dfaae5297f/README.md",
+    "sha256": "96870641afba231c853533f441e782fc8c5a4bfb2913f5c2e88ac949061687c9",
+    "bytes": 4372
+  },
+  {
+    "filename": "qsl_base-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+    "bytes": 33867
+  },
+  {
+    "filename": "qsl_base-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "8eeaa11ec49031c9c0fa1532d7b678de34a3d4cd79b70f4b61c4e56cff831d30",
+    "bytes": 37609
+  },
+  {
+    "filename": "crash_info-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/crash_info/10.0.0-alpha.5+1.21.1/crash_info-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "88cf482e64a95acbe2684f981cf80a66f1a22a08eb94818504e7d61da68b504a",
+    "bytes": 16260
+  },
+  {
+    "filename": "crash_info-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/crash_info/10.0.0-alpha.5+1.21.1/crash_info-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "ecbe76f2afa29d693db0f41320754f01e837a096720f153ff33b35d006762a5f",
+    "bytes": 11468
+  },
+  {
+    "filename": "lifecycle_events-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+    "bytes": 29191
+  },
+  {
+    "filename": "lifecycle_events-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "18e57c7816661e8f65afb8d80d25e986a0eaab7235e59159330e4c93c9851cdf",
+    "bytes": 20824
+  },
+  {
+    "filename": "registry-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/registry/10.0.0-alpha.5+1.21.1/registry-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "fc376679cb44c82593e62a2bba74151c619e35896c905db38fe122fef5377855",
+    "bytes": 170780
+  },
+  {
+    "filename": "registry-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/registry/10.0.0-alpha.5+1.21.1/registry-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "9b9127b98b3c8ef1edb9b23aebd4de82790d6ac153f912039447829cb0fdbeee",
+    "bytes": 98748
+  },
+  {
+    "filename": "networking-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/networking/10.0.0-alpha.5+1.21.1/networking-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "832cd638539b22f6ebbd9bf154baf25a8d191837abe840c4fa4167efbf9fde35",
+    "bytes": 178567
+  },
+  {
+    "filename": "networking-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/networking/10.0.0-alpha.5+1.21.1/networking-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "de0717376f53cfa5f120fbff662d99baea9778502190454589db62d084f50bad",
+    "bytes": 123472
+  },
+  {
+    "filename": "resource_loader-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/resource_loader/10.0.0-alpha.5+1.21.1/resource_loader-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "9026bc0ba7ea07711b4c0678214d61d8444520dd3fd0dc6117b98d4c89bdb9dd",
+    "bytes": 143897
+  },
+  {
+    "filename": "resource_loader-alpha5-sources.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/resource_loader/10.0.0-alpha.5+1.21.1/resource_loader-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "7a3c4801a2227ca2c12105dc5140498b9ddc616417e7acd83bc5f5c9e26cc9fb",
+    "bytes": 94740
+  },
+  {
+    "filename": "block_content_registry-alpha5.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_content_registry/10.0.0-alpha.5+1.21.1/block_content_registry-10.0.0-alpha.5+1.21.1.jar",
+    "sha256": "b79f83f5cd80de18c489bfaa01f008163e2b14db0a48b40dc66d690853a79943",
+    "bytes": 36134
+  },
+  {
+    "filename": "qsl-branches.json",
+    "url": "https://api.github.com/repos/QuiltMC/quilt-standard-libraries/branches?per_page=100",
+    "sha256": "2b26194af662f080ab6d110595274259caa35870fdb3021c15fe9a92d89d7b37",
+    "bytes": 2559
+  }
+]

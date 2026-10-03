@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "scope": "Unchanged genuine Forge52.1.0 own Item probe on existing Unified NeoForge21.1.219/FML4.0.42 host; one bounded ABI slice, not complete Forge support",
+  "core_sha256": "bda743b2a0ed5cab72ac78ab4d75cb0a30384d8bba95dd76680639fe8ae697db",
+  "host_sha256": "9a6239e4fc5f99a3339da200b2fcec2f4c1642323618eee05df8a3b528233955",
+  "provider_sha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+  "probe_sha256": "3a016e8b8340c7c10b6490f15bb7452c1555363035c7373f4d81ccfacfde15fe",
+  "phases": {
+    "create": {
+      "passed": true,
+      "exit_code": 0,
+      "stage_counts": {
+        "constructor": 1,
+        "common_setup": 1,
+        "enqueued_work": 1,
+        "world_create": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "ready_to_save": 1
+      },
+      "offline_world_before_launch": null,
+      "offline_world_after_stop": {
+        "passed": true,
+        "chest_position": [
+          0,
+          100,
+          0
+        ],
+        "item": {
+          "id": "unified_forge_probe:anchor",
+          "count": 7,
+          "Slot": 0
+        },
+        "saved_data_marker": "forge_52_1_0_probe_v1"
+      }
+    },
+    "reopen": {
+      "passed": true,
+      "exit_code": 0,
+      "stage_counts": {
+        "constructor": 1,
+        "common_setup": 1,
+        "enqueued_work": 1,
+        "world_reopen": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "ready_to_save": 1
+      },
+      "offline_world_before_launch": {
+        "passed": true,
+        "chest_position": [
+          0,
+          100,
+          0
+        ],
+        "item": {
+          "id": "unified_forge_probe:anchor",
+          "count": 7,
+          "Slot": 0
+        },
+        "saved_data_marker": "forge_52_1_0_probe_v1"
+      },
+      "offline_world_after_stop": {
+        "passed": true,
+        "chest_position": [
+          0,
+          100,
+          0
+        ],
+        "item": {
+          "id": "unified_forge_probe:anchor",
+          "count": 7,
+          "Slot": 0
+        },
+        "saved_data_marker": "forge_52_1_0_probe_v1"
+      }
+    }
+  },
+  "warm_cache": true,
+  "original_sha_unchanged": true,
+  "native_comparison": "logs/forge-native-probe/native-summary.json",
+  "profile": "run/unified-forge-probe-first"
+}

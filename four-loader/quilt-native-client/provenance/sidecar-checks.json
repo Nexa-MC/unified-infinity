@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://maven.fabricmc.net/net/fabricmc/fabric-api/fabric-api/0.116.7+1.21.1/fabric-api-0.116.7+1.21.1.jar.sha256",
+    "path": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar",
+    "sha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4",
+    "verified": true
+  },
+  {
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/loom/1.8.5/loom-1.8.5-sources.jar.sha256",
+    "path": "four-loader/quilt-native-client/provenance/loom-1.8.5-sources.jar",
+    "sha256": "e4c9b5ad3c4d12288c2247c7b3bcf9e8e0bb3029964df1ead46cf3d9dd3c1af6",
+    "verified": true
+  }
+]

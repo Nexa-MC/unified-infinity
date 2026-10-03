@@ -50,3 +50,5 @@ side="BOTH"
 
 [[mixins]]
 config="unified-infinity.client-branding.mixins.json"
+
+${qslDependencies}

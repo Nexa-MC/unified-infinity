@@ -1,0 +1,523 @@
+{
+  "baseline": "connector-combined accepted source",
+  "candidate": "connector-four-loader",
+  "validated_runtime_core_sha256": "26b599fc1c033614c427062b209ae8d7a48a3e75bca51e78f1c79ff8299f4cde",
+  "patch_includes": "Native Quilt ordered first slice and Forge event source/build/tests; excludes build outputs",
+  "changed_files": [
+    {
+      "path": "build.gradle.kts",
+      "sha256": "fc18fde32b040c76c286abcd0a6dea199e1e7938994883a87249bf335d00b3f3",
+      "new": false
+    },
+    {
+      "path": "components/infinity-forge/README.md",
+      "sha256": "551fcc27a22dc74e5b52d6df60797f69777247003e3cf96baa0c2f99336bd8f2",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/run-adapter-tests.sh",
+      "sha256": "790afbb49b693b3dc6c5e044748df41fc26a8c5695e0347b31e9b819b36566cb",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/run-clumps-tests.sh",
+      "sha256": "cfbc3a6fa8aa750358204b6cabfafaf5b3a6273b3ae354688cbc29f7a0d7b1fe",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/run-event-tests.sh",
+      "sha256": "eb4c0607f6ec9dc389f2dd1fd4a0690e69b4c40ce1b20bfd1de3d5f7308ec70e",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/run-facade-tests.sh",
+      "sha256": "03a7fd1400bb5a62f41103700eea44e3e3c392f9655bbd7386698d9f352cc9ca",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52JarAdapter.java",
+      "sha256": "ed4e9021c14ecdd7e55d3955d5e344973929d51a950451ed4f18079587da485c",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52Metadata.java",
+      "sha256": "a43685ce2e1aa7927d1c7a7f53cea53ee067bd78dc6548144a0f57bf98f61495",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52Resources.java",
+      "sha256": "dd76f26b13c356d75e4786d16b09387e3096946667b3accf1042ed7472e2c819",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/ForgeModFileReader.java",
+      "sha256": "6af906ef081a535b3a9cab897e961289cd08424f2a426b4b3a73f35170615e24",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeEventBridge.java",
+      "sha256": "8999bb346553512f6e7ca16403eb4af089fca7993173ba213bc41aa0564dc67c",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeMod.java",
+      "sha256": "8d6770169d162246e901ead0299cab7d17590423fc6ec1b18a963d2bc9876c54",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModContainer.java",
+      "sha256": "17348d86881aeabf73708a3a42fecc71397de7a715228a76993abe9d97d563fb",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLanguageLoader.java",
+      "sha256": "5347110de7205645c110d2f982c3f118682d78901f67e7595cabbad4561c201f",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "sha256": "abb821c30d2acc95ba4dfeb9269d9f1f4f807a996abc70bdbbb2c85ca8166f28",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "sha256": "7f8f289b4b67d45a09d3c1d2decdb0d2e3b62a6ee4eead4c5bb41813a0628032",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/DeferredRegister.java",
+      "sha256": "a4c95b913fe4c9b55d05d176d0c79f97bd1d8e026da8203272850bc295b1cc86",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/Forge52Capability.java",
+      "sha256": "8df051b3e9bf521779922cfc5686a8301466729344ea93ab68c96e05009ac26e",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/ForgeRegistries.java",
+      "sha256": "5faea18134a0c131d3e16b22c0e8d43b4e509c643e2bd9ce245db12b468b6534",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/IForgeRegistry.java",
+      "sha256": "6f858d0061e70fa26b0de2a21022d9c72a71408cef3ce7fbb01a262958d8d0e1",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/RegistryObject.java",
+      "sha256": "72b4e915a7f5b44e80c68443874d39869ebb7954501e9ce126e6597c2c19cfcf",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/discovery/ForgeAdapterTest.java",
+      "sha256": "e77fc3e8b6e896f0b340cacb0532ed095333e40ef1e117c78697ed6e5b38cc4d",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/discovery/ForgeClumpsTransformTest.java",
+      "sha256": "0a96e05886f06f084c016324fcbfb3ad1b8ef1653b991cc148d8ccdb9a4093e0",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/events/ForgeEventBridgeTest.java",
+      "sha256": "e60db835004097beee869c7f5f61dbb198b137863e12d11368c488b222c88245",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/events/ForgeNativePickupXpTest.java",
+      "sha256": "34ac48afa83d5af4989261eab94a2eb98f2ca78afec18a297d01cce85643c3a0",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/loader/ForgeLoaderFacadeTest.java",
+      "sha256": "a5584b453d401c4be4da0593c782a7970ce95ca5eb439b6c3e6327e55d297994",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/loader/fixture/ForgeEntrypoints.java",
+      "sha256": "007da199fd9c25e90c67198839fa36759c319e26327377d0057f621ed1f45a3b",
+      "new": true
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/runtime/ForgeRegistryFacadeTest.java",
+      "sha256": "6fd76184b974ec31a568c63285470e551ca6a824c1dc4fa6e7d44ceadb89304a",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/.gitignore",
+      "sha256": "d9d8071aaef42d2d1f6e432aa3b09017eaa3bebd591ef77274a902bc02016e16",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/LICENSE-quilt-loader.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/README.md",
+      "sha256": "b02c724ec560f24aafc70a3dc43c6aa97649f16d4e9ecece7d78574eda106c77",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/abi-result.json",
+      "sha256": "e4aa8700a683b5097649afd3511d9c5396ef569e5d2ad147624c41db7d9fdd6e",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/behavior-result.txt",
+      "sha256": "4e3380055938020eef95fac19f98a7248b53e6873cf381fd2a578fadab03f573",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/qsl-linkage-result.json",
+      "sha256": "2dedec2a937a70465368499a4fe9a09cc02b84b21bac48b495beb99112137af6",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/run.sh",
+      "sha256": "d8acffb86d558d58a0de3efdd459e122892dcc9d582598c3fe37b3685134f25d",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/source-manifest.json",
+      "sha256": "77c001c15d93a20b3bf26f023e91a3c4b473f9b59c5416f264399c2049bb459d",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/src/net/fabricmc/loader/impl/FabricLoaderImpl.java",
+      "sha256": "51ccb8ee978a873dd28d7255df77f0a293b8ffecffac0ab41c6a0a98e3f13118",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/src/net/fabricmc/loader/impl/launch/FabricLauncherBase.java",
+      "sha256": "56394d3ff0f968ec9f621484f5d625af2ec4d7d7ce889c63bda46e6e365ff124",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/src/org/sinytra/connector/quilt/QuiltApiTest.java",
+      "sha256": "00d49266d9f89acdd3b1a2e395a778fc3313707b201a451784f2eefdda5ff543",
+      "new": true
+    },
+    {
+      "path": "four-loader/api-tests/verify_api_abi.py",
+      "sha256": "db42e9ab9dfd3058cea32565f44143b91e00bd8ec94b07e413a4fe7665090c7e",
+      "new": true
+    },
+    {
+      "path": "gradle/infinity-upstream-pins.json",
+      "sha256": "9ce9d53f0ae4000729e7fe74175e9064a3e80cad039273074f3357d3279a6b5c",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LanguageAdapter.java",
+      "sha256": "d64be9796926b784e84b825599963f7364932094b4ec6d2c481ad5756d9eaaf8",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LanguageAdapterException.java",
+      "sha256": "eca5272c966389097ef834f68a13579d7972170b2dba17f33b20d46b5d19eb7c",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LoaderValue.java",
+      "sha256": "f1c2c525819ead8322e027e13c5980a6d98f4d249cbd4070ed787cfb5b751d53",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/MappingResolver.java",
+      "sha256": "11efac96fe8eb56860bca1524b8e6aaee5cc4b6b5239a3f0a7eb128b7a6fd5d8",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModContainer.java",
+      "sha256": "7339d0989c5427b5a5092441e112f1d0c7b1d9ca9e64cf9b4d3f0d8849e48a6e",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModContributor.java",
+      "sha256": "e85e4b26342afa06ef2165a7009b14d49c5ebaa27039835a83ac9982cffb78e9",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModDependency.java",
+      "sha256": "2dcfb19c93ca4ebc97aad764d69bbed03fc4f11ef2bd8426e5e2e397039866f2",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModDependencyIdentifier.java",
+      "sha256": "38634f3bd861189b1cefc969c9f96e8e7831af5948d60b0490e579b6eb00e684",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModInternal.java",
+      "sha256": "e57f97773bdf79804de8bdcf84e69651742c11739735f5ae27a466d7a722a8a8",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModLicense.java",
+      "sha256": "969e2fc3c54ae223a67d2f5b2b6aa0065323ed669bc3d6d3696b1d58a7a67910",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModMetadata.java",
+      "sha256": "88c343d74bb30bd42cc641c0bde73365ebad9813cb92f0f9d0596cd4d3ca98da",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/QuiltLoader.java",
+      "sha256": "b98ce475b8db586f581d784f25359b9ebf25ec2d9905479c745cebf6466b09f1",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/Requires.java",
+      "sha256": "c150d97ab997a313539c31a032ff9f9f9e133c3c61cfcf5f63d7bfb16eb2bb4a",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/Version.java",
+      "sha256": "db7be049fb283522d23c7fab7229c61eabadc5f6e4df64d4f78cdb4cbe9c168d",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionConstraint.java",
+      "sha256": "4d855e48240ce1f75470a427003f016d73d1019d2e6ffd2ba06760c81b35defa",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionFormatException.java",
+      "sha256": "d031d9cfd6ded39e1e6fd5cc86c12a275a828ac89a1733cd03eaf89007a6e273",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionInterval.java",
+      "sha256": "35f53292ebb8aa2c97d3d9b979d544cc59bf76d82b7746e313605c50091a4ab7",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionRange.java",
+      "sha256": "726183858a99560cb237f8199014d8fdd807ae83131d8bbfc88b1e968ce5c77b",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointContainer.java",
+      "sha256": "00561341b3d645d95eeb488bb4927bca50fbf3382d8d7589dceddb51d657f2e1",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointException.java",
+      "sha256": "cec589c427893370c2719caf4a054a15e933708c18a0146328f500c8b4d1507d",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointUtil.java",
+      "sha256": "5b5a158480930702a35a0bd0ce25c98bf2ae28cf8629701a2a61cba4157ec36c",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/GameEntrypoint.java",
+      "sha256": "ca03b9d46759ebceee7bf83e87d509f691de3ed1bfe8bf048f93322b96e4938e",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/PreLaunchEntrypoint.java",
+      "sha256": "9f6aa1e59a05a43c1373c2d552dd9c357424f016ddf0a06e79db06cab946b31c",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/ClientOnly.java",
+      "sha256": "201f0fdfd38d19825796a6c4f61ccfa839f003bdfe3ec31f3ae21fac26c68c4e",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/DedicatedServerOnly.java",
+      "sha256": "00362fd0fc933646914a283bd20803778db9bf0a1b946e56ecc8ffcf300e91fa",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/MinecraftQuiltLoader.java",
+      "sha256": "c4b87506e62550df47b2d972ceb65488aeb4c60ecbd66f74ce5be6f55cdddad7",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/ConnectorEarlyLoader.java",
+      "sha256": "4790488715bf996801bb55afbb6162aa9f20a2e74188c22300ae13363a1c4297",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ConnectorLocator.java",
+      "sha256": "b1559708815d3aa20b6b1dc62133e44632dd96671a6f6701142ccb3605aa0da5",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/DependencyResolver.java",
+      "sha256": "0efe5cbe3ef30827660ad90f7a8312ea0e0ae036d9244019a720fb639d375d4f",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/FabricModMetadataParser.java",
+      "sha256": "cd9b178a80b325e9b9a5e70951d05d8caea50dd0502c80627ad838869bd1cd48",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/FabricModsDiscoverer.java",
+      "sha256": "20870ff0a38d6800ed0dc8a5b2ee46f2c3d7970d5346b98dc34e45393d9cdec9",
+      "new": false
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ManagedQuiltModules.java",
+      "sha256": "fbcd3b3357d2113b08858bd9da100a4e98e12f7c58b43c1d8193f74e29e1248a",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/HostLanguageAdapter.java",
+      "sha256": "84f0501d8e12504fee9a0be67fadfa6db44b07831e8fcd7ead10c661e24c14e3",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltBridge.java",
+      "sha256": "fdce114326dedde7db01b07a187896a43528e118c2af7a919966e72eebb128be",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltLoaderProvider.java",
+      "sha256": "096cc2bd0f693148fa7bb05f72773e9d9fc07c24723a2a2531318c52d0bbb81e",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltModContainer.java",
+      "sha256": "1d3253c676bcb786a2940a38f3a1d835b59a690cd0abfe0cc8b7cf5e5bef58a4",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltModMetadata.java",
+      "sha256": "98cf40d8abbd2faa199f076128eb4582b2e50e8fac78acea51de039dd5e8ff50",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltValues.java",
+      "sha256": "541132734b006e24e29cf088f69ec4c215f14986f2867b58573b67e9268bb7ff",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/VersionIntervalImpl.java",
+      "sha256": "54ec0fe190bb08ac41d4e061b0eaf91b288de2b9f46deb299e79416938504955",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/VersionRangeImpl.java",
+      "sha256": "f7c67d9702d09afc57040b6c01ee2852c27138dfbe231b45eefaa716ef52ed26",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/GenericVersionImpl.java",
+      "sha256": "93103fca8440fcd709c061fa4acc2f934f4ab3433221f1e340c33a79495a4a3f",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModContributorImpl.java",
+      "sha256": "f632b192bb38597ae8e6d526786509a5b49952e676dcdec8a9ebc0cc04b10a9d",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModDependencyIdentifierImpl.java",
+      "sha256": "6b95a5c729cc3e9e6566aed06da4c90a7ecc5dd289ca19c728fb24e98203c8df",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModDependencyImpl.java",
+      "sha256": "041f9e77887accb15f8db18d05ed20b737aebcb0e623cbb6f7101c24a19bdf2c",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModLicenseImpl.java",
+      "sha256": "11de862007db23525a82de5914a3832fb39eab03ed96beac4a2d322387473dbf",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/QmjMetadataInternalFactory.java",
+      "sha256": "755a209770691d4f879d0c1f9c9f50c4e702fbc22ec7ecffd07374c5015ac0f7",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/SemanticVersionImpl.java",
+      "sha256": "e80b6b90d3d32c36a3a7572eeaed7d757bfc7fbba109a1d1d524c8415d8c1d56",
+      "new": true
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/VersionConstraintImpl.java",
+      "sha256": "ae004b5c762e6b8a8c1b0ad6d0edf716acc9834b5c51550a49c43637a89904ea",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/META-INF/licenses/quilt-api-adapter-notice.md",
+      "sha256": "b02c724ec560f24aafc70a3dc43c6aa97649f16d4e9ecece7d78574eda106c77",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/META-INF/licenses/quilt-loader-0.30.1.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.language.IModLanguageLoader",
+      "sha256": "7ac42611f3ec3c4ae4419e3d4952069210d40d437bb86a2eb3d448f298404db5",
+      "new": true
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IModFileReader",
+      "sha256": "2a4db378168fcb106dff4b923bcd25e8b09d50d37be53da1c984f3de81207eea",
+      "new": true
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/ConnectorLoader.java",
+      "sha256": "2d63a9bee63ce5110b36af603a1bb66ad2dbfd8d6d9ee5f15aa271e8ecbe1bd2",
+      "new": false
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/QuiltQslEntrypoints.java",
+      "sha256": "f950abbf8621574861aff14dc29891e3916146cabbf186c24a7ae774053a0cb8",
+      "new": true
+    },
+    {
+      "path": "src/mod/resources/META-INF/neoforge.mods.toml",
+      "sha256": "e6ee5faa6ff8e6c399a45cabd04248826092007bb94b146315775a6fd19fa17d",
+      "new": false
+    },
+    {
+      "path": "transformer/build.gradle.kts",
+      "sha256": "9626fd651099fa2f949f9be35686dbae04b2ac658a0c13afa9d98af0b994fc5c",
+      "new": false
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/FabricJarReader.java",
+      "sha256": "38ef5a8499ce14089558553f7b27ac870d0363a61aa019f210fc192dc2e71fce",
+      "new": false
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java",
+      "sha256": "d6d4555309a11501e7b0f22cafbea4789830c4a981c66cf0a8e6c9b32c7c44fa",
+      "new": false
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/NativeQuiltMetadata.java",
+      "sha256": "6459acba4aab7bfa266fa2de446bd5bc3004140eefe3333e3d30bc68e1f48e13",
+      "new": true
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/NativeQuiltSources.java",
+      "sha256": "dd28a729c970cd96ee100564555113bb4de6cc2b8ce0fc4633d608fa5613d093",
+      "new": true
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/QuiltJarAdapter.java",
+      "sha256": "bec2ad238f80d14e21fda1045b42585705250d8ff835e4fc39e0ba9118e9793b",
+      "new": true
+    },
+    {
+      "path": "transformer/src/test/java/org/sinytra/connector/transformer/quilt/NativeQuiltRegression.java",
+      "sha256": "634454b11f1a2f1464a0b9bed18744d3e7fc5b66a18ca2b3cdf1413979ada0d3",
+      "new": true
+    }
+  ]
+}

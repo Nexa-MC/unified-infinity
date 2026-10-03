@@ -1,0 +1,3650 @@
+{
+  "timestamp_utc": "2026-10-03",
+  "mode": "static artifacts only; no module executed",
+  "rows": [
+    {
+      "group": "org.quiltmc",
+      "artifact": "qsl",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/10.0.0-alpha.5+1.21.1/qsl-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "2836796932b4c3e01e063fa5fc5a6509395df06a2949bb63212e7c502dc8bb8e",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "block",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "core",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "data",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "entity",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "gui",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "item",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "management",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "misc",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "rendering",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl",
+          "artifactId": "worldgen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "block",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/10.0.0-alpha.5+1.21.1/block-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "6fc8e831987a7881a5f72162962f307c9f697948af29747316827343d0794352",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.block",
+          "artifactId": "block_content_registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.block",
+          "artifactId": "block_entity",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.block",
+          "artifactId": "block_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "core",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/10.0.0-alpha.5+1.21.1/core-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "0cf1bb324780fc9e046460ea04fd733c197c917c5f9476b6619530974e928f4f",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "crash_info",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "data_callback",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "testing",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "data",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/10.0.0-alpha.5+1.21.1/data-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "08be5831e0469d5952713c1bb65998299067314362ab5690904d243ba18871e6",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.data",
+          "artifactId": "recipe",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.data",
+          "artifactId": "registry_entry_attachment",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.data",
+          "artifactId": "tags",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "entity",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/10.0.0-alpha.5+1.21.1/entity-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "6f591ff4eb8644f8a0f78badaea19328eb5e3e5806a0b451f4f4d3f366098d83",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.entity",
+          "artifactId": "entity_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.entity",
+          "artifactId": "entity_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.entity",
+          "artifactId": "multipart",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.entity",
+          "artifactId": "status_effect",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "gui",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/10.0.0-alpha.5+1.21.1/gui-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "c7387ebbbc268e992af3ff85ab6b804614f99882895593eea936bb166f47bc97",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "tooltip",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "item",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/10.0.0-alpha.5+1.21.1/item-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "d7f620d9c81fd9e97aa1d5aea7ab2108d995348422e3c2a5888276831c16737b",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.item",
+          "artifactId": "item_content_registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.item",
+          "artifactId": "item_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.item",
+          "artifactId": "item_setting",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "management",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/10.0.0-alpha.5+1.21.1/management-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "abd9b9fad5c1bf195c91d71c459d6ae2d137f2e51adcd3749fef8984cbc0566e",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.management",
+          "artifactId": "chat",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.management",
+          "artifactId": "client_command",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.management",
+          "artifactId": "command",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "misc",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/misc/10.0.0-alpha.5+1.21.1/misc-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "de892b4fe554d44ca28e42e2319c6f2bc55dd7f5d9b8e785cca084ae08a5721f",
+      "packaging": "pom",
+      "dependencies": []
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "rendering",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/rendering/10.0.0-alpha.5+1.21.1/rendering-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "14af66f3257a4eb0963d6a6c94af7807a9a503ea78bdbeaebba0224b3c0dbe52",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.rendering",
+          "artifactId": "entity_rendering",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl",
+      "artifact": "worldgen",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/10.0.0-alpha.5+1.21.1/worldgen-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "1a56610a6c479e1a76ca7cc3cd3620e91c4c20fe56d82beda79b4104e43c0c86",
+      "packaging": "pom",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.worldgen",
+          "artifactId": "biome",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.worldgen",
+          "artifactId": "dimension",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.worldgen",
+          "artifactId": "surface_rule",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        }
+      ]
+    },
+    {
+      "group": "org.quiltmc.qsl.block",
+      "artifact": "block_content_registry",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_content_registry/10.0.0-alpha.5+1.21.1/block_content_registry-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "23b8f72cf2cf3d8b617fa7f879f5e05de22f9839b3b9110d51ce1b6baebe3cc0",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.data",
+          "artifactId": "registry_entry_attachment",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_content_registry/10.0.0-alpha.5+1.21.1/block_content_registry-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "b79f83f5cd80de18c489bfaa01f008163e2b14db0a48b40dc66d690853a79943",
+      "sha512": "afc380a0b938be2e33a0117930c2076f0cc7c84bebd46590ada173024473450cc23a0c0ad4c4ffa3e81cd97b4c29295da056fd1a6913ef63d60b12ee113dea0f",
+      "bytes": 36134,
+      "class_count": 15,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.block",
+          "id": "quilt_block_content_registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Block Content Registry API",
+            "description": "An API for adding to different content registries in Minecraft",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_block_content_registry/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry_entry_attachment",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_tooltip",
+              "versions": ">=10.0.0-alpha.5+1.21.1",
+              "optional": true
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.block.content.registry.impl.client.BlockContentRegistriesClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.block.content.registry.impl.BlockContentRegistriesImpl"
+            ]
+          }
+        },
+        "mixin": "quilt_block_content_registry.mixins.json",
+        "access_widener": "quilt_block_content_registry.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_block_content_registry/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.block",
+      "artifact": "block_entity",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_entity/10.0.0-alpha.5+1.21.1/block_entity-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "077bb0f52a71dd492fe032dfa0cd0dcb5ef0f592541be47165cab2666bc09f81",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_entity/10.0.0-alpha.5+1.21.1/block_entity-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "fb7ad7f536a8a3bc8b5339f148ca7002157bf63adddb5b328f4cdd77eba8fd54",
+      "sha512": "4e6d05d6f13015abc907ec82dadd5d7b11dbd1e0c363f636a1ebcf6758e49f6df803894ead6e9859d256ea3fcf9cc361e952acbb141909c945a844a05175c468",
+      "bytes": 11124,
+      "class_count": 6,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.block",
+          "id": "quilt_block_entity",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Block Entity API",
+            "description": "Extensions for creating and working with block entities.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_block_entity/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_events": [
+              "org.quiltmc.qsl.block.entity.impl.client.QuiltBlockEntityImplClient::INSTANCE"
+            ],
+            "client_init": [
+              "org.quiltmc.qsl.block.entity.impl.client.QuiltBlockEntityImplClient::INSTANCE"
+            ],
+            "events": [
+              "org.quiltmc.qsl.block.entity.impl.QuiltBlockEntityImpl::INSTANCE"
+            ],
+            "init": [
+              "org.quiltmc.qsl.block.entity.impl.QuiltBlockEntityImpl::INSTANCE"
+            ]
+          }
+        },
+        "mixin": "quilt_block_entity.mixins.json",
+        "access_widener": "quilt_block_entity.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_block_entity/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_2591": [
+              "org/quiltmc/qsl/block/entity/api/QuiltBlockEntityType"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.block",
+      "artifact": "block_extensions",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_extensions/10.0.0-alpha.5+1.21.1/block_extensions-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "d5a9807fc6eed519a9bc0fbbb973f40b16ae2f17a7d3322364e211091d1ce294",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/block/block_extensions/10.0.0-alpha.5+1.21.1/block_extensions-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "3bb6305ef8111e8c771414234d3e92e9d7405cb83d73251b305cfedeb91aa452",
+      "sha512": "f975be141a8a671b2c9e63f3d0defda27fc2e2e75edc41c2fede4eaae9598c6775f803904dee6090420761c45f950879acd5ce0ec81199971c31b4a27dc132e5",
+      "bytes": 16241,
+      "class_count": 6,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.block",
+          "id": "quilt_block_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Block Extensions API",
+            "description": "Extensions for creating and working with blocks.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_block_extensions/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_block_extensions.mixins.json",
+        "access_widener": "quilt_block_extensions.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_block_extensions/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "crash_info",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/crash_info/10.0.0-alpha.5+1.21.1/crash_info-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "ab10af3286d7f74780393d27fa5fe17aa8f24d0c59bfe8fc28d71bc664a705e9",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/crash_info/10.0.0-alpha.5+1.21.1/crash_info-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "88cf482e64a95acbe2684f981cf80a66f1a22a08eb94818504e7d61da68b504a",
+      "sha512": "4c3493c6f6ccc3c152027bbf00709f4c37bee2f1947e4998ee2d6fd18bd63396f49957c1d9468f1a580f019989e8a72fefd747b76b5fda61dec6d2bd917fac6a",
+      "bytes": 16260,
+      "class_count": 14,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_crash_info",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Crash Info",
+            "description": "Adds information about the Quilt environment to crash reports, and allows other mods to do the same.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_crash_info/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "events": [
+              "org.quiltmc.qsl.crash.impl.CrashInfoImpl"
+            ]
+          }
+        },
+        "mixin": "quilt_crash_info.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_crash_info/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "data_callback",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/data_callback/10.0.0-alpha.5+1.21.1/data_callback-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "39bc1e87e1398e987de2a1f23b82fef934fd61f383ccb29bd2f1709ff50e0aa9",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/data_callback/10.0.0-alpha.5+1.21.1/data_callback-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "3640f5715f2b0cfaa0531eef99addf2e90828921a81bd1a0b369b9fbf52a5e15",
+      "sha512": "41a6f02d6531f4d20845e0747a6c18cbd662b121c03cee8689c35699f8fc72d71c972e0d20c40df7f8eaf2d955a154318595a7b4b38c566ad853ce49f2389f63",
+      "bytes": 23839,
+      "class_count": 12,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_data_callback",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Data Callback API",
+            "description": "APIs for making events or APIs data-driven",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_data_callback/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_data_callback/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "lifecycle_events",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "decea5a19b48e9f390e1ed1feefb5cf7cd99f6613a02748dbd632a99ffe74a5c",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+      "sha512": "ea727de739dc4c69a4867ddb41c84a889b53fbc019ba99212c035549a33f2fd6d7266b6d91629e70f2a38af06ff55cce4b372fbeb1b2eeaa92812ca786b99a88",
+      "bytes": 29191,
+      "class_count": 28,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Lifecycle Events",
+            "description": "Events to track the lifecycle of Minecraft.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_lifecycle_events/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_lifecycle_events.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_lifecycle_events/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "networking",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/networking/10.0.0-alpha.5+1.21.1/networking-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "b52ac3f120354393c835ebfa21e2d162ba039f59aa463d29a29d49aabe421bd3",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/networking/10.0.0-alpha.5+1.21.1/networking-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "832cd638539b22f6ebbd9bf154baf25a8d191837abe840c4fa4167efbf9fde35",
+      "sha512": "567c487db6588f9b0f4d57fee3e5a259ae0ee4742ab1aee84d7103b3d2203b9b3f6c03c82b83e127c280a216b4f81560fb0d6bda849fab9a75d1c164b335f128",
+      "bytes": 178567,
+      "class_count": 130,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Networking",
+            "description": "Utilites to assist with sending custom packets over the Minecraft protocol.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_networking/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.networking.impl.client.ClientNetworkingImpl::clientInit"
+            ],
+            "init": [
+              "org.quiltmc.qsl.networking.impl.NetworkingImpl::init",
+              "org.quiltmc.qsl.networking.impl.common.CommonPacketsImpl::init"
+            ]
+          }
+        },
+        "mixin": "quilt_networking.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_networking/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_8610": [
+              "org/quiltmc/qsl/networking/api/server/ServerConfigurationTaskManager"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "qsl_base",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "2c5939a820797acb21f53138e87109f1bebda644d317b91022b1ae8e69ae2d96",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+      "sha512": "7eb712123ef8947514b0150bc48d89f75c3a8594fb55ae68ed6d2295c4f2697de86a92e1186bfd1b856a41567899e79b7e536cd3e75bfceb74192e8d0b14cc5f",
+      "bytes": 33867,
+      "class_count": 25,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Base API",
+            "description": "Basic APIs for Quilt mods, such as events and entrypoints.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_base/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            }
+          ],
+          "entrypoints": {
+            "init": [
+              "org.quiltmc.qsl.base.impl.event.EventRegistry"
+            ]
+          }
+        },
+        "mixin": "quilt_base.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_base/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "registry",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/registry/10.0.0-alpha.5+1.21.1/registry-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "bb198bafce55c4dfc84f19f76cd0507cc9c6ecdab38d89ae4e4784a435dc65e8",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/registry/10.0.0-alpha.5+1.21.1/registry-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "fc376679cb44c82593e62a2bba74151c619e35896c905db38fe122fef5377855",
+      "sha512": "88abac36dc1c3792d21b908b13a6c88f01bd7bfa36907a684a667b72624efda754a5f2bce99774c6fdb1a47c8f6521692eeed85208319cc3268493e727852661",
+      "bytes": 170780,
+      "class_count": 92,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Registry API",
+            "description": "Tools and events for manipulating and monitoring Minecraft's content registries.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_registry/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_networking",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.registry.impl.sync.client.RegistrySyncClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.registry.impl.sync.RegistrySyncInitializer"
+            ]
+          }
+        },
+        "mixin": "quilt_registry.mixins.json",
+        "access_widener": "quilt_registry.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_registry/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "resource_loader",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/resource_loader/10.0.0-alpha.5+1.21.1/resource_loader-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "c03cb6cf40f6e8a16b38464526d4122bf904cca790775e57721bbf87c52ea19c",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/resource_loader/10.0.0-alpha.5+1.21.1/resource_loader-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "9026bc0ba7ea07711b4c0678214d61d8444520dd3fd0dc6117b98d4c89bdb9dd",
+      "sha512": "70005b2a372861768bffab525d5b55d4ec69d49c3689999d428d0d62557191ed322719872dc41cc1cd1ff20f8f74425879194ab5897b2cfacbfc37f1f2c248b3",
+      "bytes": 143897,
+      "class_count": 90,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Resource Loader",
+            "description": "Asset and data resource loading for Quilt mods.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_resource_loader/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_screen",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_events": [
+              "org.quiltmc.qsl.resource.loader.impl.client.PackScreenTooltips"
+            ]
+          }
+        },
+        "mixin": "quilt_resource_loader.mixins.json",
+        "access_widener": "quilt_resource_loader.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_resource_loader/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_3262": [
+              "org/quiltmc/qsl/resource/loader/api/QuiltPack"
+            ],
+            "net/minecraft/class_3288": [
+              "org/quiltmc/qsl/resource/loader/api/QuiltPackProfile"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "testing",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/testing/10.0.0-alpha.5+1.21.1/testing-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "1efe01aa9d3af5b0a5743b9b5e0aa1a1ae5e001efdf6ee176cbc53c8b659dc48",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/testing/10.0.0-alpha.5+1.21.1/testing-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "b7e806d34ee3e4d926ff370eb7ba8944a6993f469bc853ff99dc82133ee0b187",
+      "sha512": "60f1aeb69f98a1a174ec9f016f13b584208c82f25bd3ab162004410131f7f3d8e39bbaba706a5ea53175220c723b8a799202781f5cb633a53fa23545b29e8b0c",
+      "bytes": 43236,
+      "class_count": 23,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.core",
+          "id": "quilt_testing",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Testing API",
+            "description": "Utilites to assist in testing the game and mods.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_testing/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "init": [
+              "org.quiltmc.qsl.testing.impl.game.QuiltGameTestImpl"
+            ]
+          }
+        },
+        "mixin": "quilt_testing.mixins.json",
+        "access_widener": "quilt_testing.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_testing/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.data",
+      "artifact": "recipe",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/recipe/10.0.0-alpha.5+1.21.1/recipe-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "ce2d20f220413423c7405b9b0177db0e14df2d21e2c8ea27ff1ea90e785744d4",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/recipe/10.0.0-alpha.5+1.21.1/recipe-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "03af25a3b10f5a7e091ffe6baafaf93c91320e6ded353e144d50475c29d4dfd9",
+      "sha512": "533e1ee805a00a3ab467688df53b45bdc22cb78936538741cf78370fba27f0b22c8b7c97e7bbea7ddd3b37403359889715629d04a3290699201b231e6f21b52c",
+      "bytes": 38849,
+      "class_count": 21,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.data",
+          "id": "quilt_recipe",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Recipe API",
+            "description": "Recipe manipulation APIs.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_recipe/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "events": [
+              "org.quiltmc.qsl.recipe.impl.RecipeManagerImpl"
+            ]
+          }
+        },
+        "mixin": "quilt_recipe.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_recipe/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.data",
+      "artifact": "registry_entry_attachment",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/registry_entry_attachment/10.0.0-alpha.5+1.21.1/registry_entry_attachment-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "6888008af2e651349b9f38a47f968f38e1335b55e72e9e1500ee37caacd4dbf8",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/registry_entry_attachment/10.0.0-alpha.5+1.21.1/registry_entry_attachment-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "f8678702f2a21a79d3278419fa55c6fe00ba4d3bc23c966302fd07b79459b18f",
+      "sha512": "015e0b7d4e5f1470dee1d39f9f0278184a24cecaeb243a775fdce9f6a6cc1c490010b2dd235f4b4ca52394d4927b6ed61313f081bb55bb99f405114d4b96355a",
+      "bytes": 79349,
+      "class_count": 39,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.data",
+          "id": "quilt_registry_entry_attachment",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Registry Entry Attachment",
+            "description": "Extensible attachment system for registry entries.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_registry_entry_attachment/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_networking",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_command",
+              "versions": ">=10.0.0-alpha.5+1.21.1",
+              "optional": true
+            }
+          ],
+          "provides": [
+            "quilt_registry_entry_attachments"
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.registry.attachment.impl.client.ClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.registry.attachment.impl.Initializer"
+            ]
+          }
+        },
+        "mixin": "quilt_registry_entry_attachment.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_registry_entry_attachment/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.data",
+      "artifact": "tags",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/tags/10.0.0-alpha.5+1.21.1/tags-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "6959242a298373a3d1859728dcc4512cede95701a4e1c5712e83244ab53cbdd3",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/data/tags/10.0.0-alpha.5+1.21.1/tags-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "8ef1ae1e470f63a455e1717ee72704105184aaf731be5cbfb2a7f2d0054c9221",
+      "sha512": "a6751739e3dce645df5c53661035665ab33f54eb6c95a7dc0403256e086bc575f8e796edd27305f4ce1f1af8d8be1c5ae1be9ea234fb750813e2eba86d54b4d6",
+      "bytes": 43166,
+      "class_count": 26,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.data",
+          "id": "quilt_tags",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Tags API",
+            "description": "Tag loading and management.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_tags/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.tag.impl.client.ClientQuiltTagsMod"
+            ],
+            "events": [
+              "org.quiltmc.qsl.tag.impl.TagRegistryImpl"
+            ]
+          }
+        },
+        "mixin": "quilt_tags.mixins.json",
+        "access_widener": "quilt_tags.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_tags/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_6862": [
+              "org/quiltmc/qsl/tag/api/QuiltTagKey"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.entity",
+      "artifact": "entity_events",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/entity_events/10.0.0-alpha.5+1.21.1/entity_events-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "8eaf9a774d68772325be73019dad68d25218c4c53a49117c72eb15e8cff1fe7a",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/entity_events/10.0.0-alpha.5+1.21.1/entity_events-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "0e3c7b6691e7af377f2d3086abf4e073b0ca22339dd9750eeb83bb473e07d2e7",
+      "sha512": "1ab8ac3220b8b134674cd5f032eb190d77baeebc1933443450c5cc385b28357cc3477934c3a09c9d46b9d39011648bb0b9da38151ce52bdf076c835dd9502654",
+      "bytes": 28608,
+      "class_count": 24,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.entity",
+          "id": "quilt_entity_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Entity Events",
+            "description": "Provides various events to do with entities",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_entity_events/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_entity_events.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_entity_events/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.entity",
+      "artifact": "entity_extensions",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/entity_extensions/10.0.0-alpha.5+1.21.1/entity_extensions-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "2b83e44a7c7520e241b6469a7539ea19e5c8a98fc3a6abeea4381c810bc0b1b3",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/entity_extensions/10.0.0-alpha.5+1.21.1/entity_extensions-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "776392c89fd7cc37f94a332915ca0bccbb5327d8976917125729062494b7de9a",
+      "sha512": "862ece1ea31598f15673a4f9cd7c72ade66dd5db78ef275d732b0de06764fc92cd82959a3de6c8deaec21c64737605b66e735afaf49f13ff81bf03eedb7db6f2",
+      "bytes": 48066,
+      "class_count": 25,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.entity",
+          "id": "quilt_entity_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Entity Extensions",
+            "description": "Extensions for creating and working with entities.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_entity_extensions/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_networking",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.entity.extensions.impl.networking.QuiltEntityNetworkingClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.entity.extensions.impl.networking.QuiltEntityNetworkingInitializer"
+            ]
+          }
+        },
+        "mixin": "quilt_entity_extensions.mixins.json",
+        "access_widener": "quilt_entity_extensions.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_entity_extensions/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_1688": [
+              "org/quiltmc/qsl/entity/extensions/api/MinecartComparatorLogic"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.entity",
+      "artifact": "multipart",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/multipart/10.0.0-alpha.5+1.21.1/multipart-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "1e223d56d8bc86ee2ee2d65b7bc069190cf0f53e28ddb8ef899ff66e60baee5d",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/multipart/10.0.0-alpha.5+1.21.1/multipart-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "7049413bfa28e5b9b9ce0c9d42f3a9983e9168cd2ff06279948bfee50f97077d",
+      "sha512": "aeca9bf9de1dc028d43bd236abbd4c62db82fa8621934231855a2d41338d56f0f60f62bc5dfa7e835c275545829cd787f02a7679cc0f80d73403f05156fed67d",
+      "bytes": 23071,
+      "class_count": 15,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.entity",
+          "id": "quilt_entity_multipart",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Multipart Entity API",
+            "description": "An API to support custom multipart entities.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_entity_multipart/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_entity_multipart.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_entity_multipart/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_1508": [
+              "org/quiltmc/qsl/entity/multipart/impl/EnderDragonEntityPart"
+            ],
+            "net/minecraft/class_1510": [
+              "org/quiltmc/qsl/entity/multipart/impl/EnderDragonMultipartEntity"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.entity",
+      "artifact": "status_effect",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/status_effect/10.0.0-alpha.5+1.21.1/status_effect-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "58b7954a41896f8aca39b0358fba202920f5cce5a8a794c1a71b32e315defbb0",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/entity/status_effect/10.0.0-alpha.5+1.21.1/status_effect-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "95c44c001996d04296eab46366f6374b1ad6908914d57f53fe5e0955887555ad",
+      "sha512": "c450819c08e58593e1e5bc482507f20b0bd61a128a1f1f909401ec86607f75e341e3c3eb14e30d292c55e43d335bf82ad4a0f994ed97b7f672bf1bed3cf05002",
+      "bytes": 21925,
+      "class_count": 15,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.entity",
+          "id": "quilt_status_effect",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Status Effect API",
+            "description": "Provides extensions for dealing with status effects.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_status_effect/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_status_effect.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_status_effect/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_1291": [
+              "org/quiltmc/qsl/entity/effect/api/QuiltStatusEffectExtensions"
+            ],
+            "net/minecraft/class_1309": [
+              "org/quiltmc/qsl/entity/effect/api/QuiltLivingEntityStatusEffectExtensions"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.gui",
+      "artifact": "screen",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/screen/10.0.0-alpha.5+1.21.1/screen-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "ffd851560f7ca1936c4b7ae91a789e9d6dc3cdb84da33e7c2536085fdbbb9d9e",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/screen/10.0.0-alpha.5+1.21.1/screen-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "e824418409f58eb5ab84d5bf544c7989a7339b34fc86217c8290b563c33d9c24",
+      "sha512": "d9d4a6ce923beb2b9237a808958ab2f908d9de5d6bbd05fd18e2215a3e82aa5dde28dfeb9b7f0df356899342394cd47f6d7a20e69b5b8858079d3520351c00ae",
+      "bytes": 36580,
+      "class_count": 32,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.gui",
+          "id": "quilt_screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Screen API",
+            "description": "Hooks and APIs for manipulating screens.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_screen/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_screen.mixins.json",
+        "minecraft": {
+          "environment": "client"
+        },
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_screen/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_437": [
+              "org/quiltmc/qsl/screen/api/client/QuiltScreen"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.gui",
+      "artifact": "tooltip",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/tooltip/10.0.0-alpha.5+1.21.1/tooltip-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "c0fd5ce8842de9e31e8f2f3cffbf2f3053a9f6bf742b470fe535787b3550ff48",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/tooltip/10.0.0-alpha.5+1.21.1/tooltip-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "1d78ca2f96f1610a5905d0b9b7b833871aa112ab90b35ad524ca66e22ecd76b2",
+      "sha512": "67ac40ceddbdbe06d8fe3196c96b56a93de82c35383bb68c55a64607a578fd827cefb919329a444bb077d286f621281bf97db85531e5ed17e502fa78e084b37d",
+      "bytes": 10611,
+      "class_count": 6,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.gui",
+          "id": "quilt_tooltip",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Tooltip API",
+            "description": "Hooks and APIs for manipulating tooltips.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_tooltip/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "client_events": [
+              "org.quiltmc.qsl.tooltip.impl.client.QuiltClientTooltipMod::INSTANCE"
+            ],
+            "client_init": [
+              "org.quiltmc.qsl.tooltip.impl.client.QuiltClientTooltipMod::INSTANCE"
+            ]
+          }
+        },
+        "mixin": "quilt_tooltip.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_tooltip/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.item",
+      "artifact": "item_content_registry",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_content_registry/10.0.0-alpha.5+1.21.1/item_content_registry-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "3505705b2ee1cae68f2eee6f86edabd68339288e2ac0cb66f16be4104373b8e8",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.data",
+          "artifactId": "registry_entry_attachment",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_content_registry/10.0.0-alpha.5+1.21.1/item_content_registry-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "722c4aff6028372743bc3ef9abdd60a90200a4f46bad1abb30833a27e7b57db4",
+      "sha512": "1e1894b1518c8cefbd38ffe35ad4abedf3c88c274a3e838cef1d6fe7208519ffab59c069ee6c83f2bf77d6c8e3beeed65b13aa2cedd71c46d1832105b270a3b7",
+      "bytes": 13044,
+      "class_count": 4,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.item",
+          "id": "quilt_item_content_registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Item Content Registry API",
+            "description": "An API for adding to different content registries in Minecraft",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_item_content_registry/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry_entry_attachment",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_tooltip",
+              "versions": ">=10.0.0-alpha.5+1.21.1",
+              "optional": true
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.item.content.registry.impl.ItemContentRegistriesClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.item.content.registry.impl.ItemContentRegistriesInitializer"
+            ]
+          }
+        },
+        "mixin": "quilt_item_content_registry.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_item_content_registry/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.item",
+      "artifact": "item_extensions",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_extensions/10.0.0-alpha.5+1.21.1/item_extensions-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "10b8e29b95af91ac2b98384c6e37e5a6fc054820201295ff81c4fca6872929b8",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_extensions/10.0.0-alpha.5+1.21.1/item_extensions-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "4300d80fbf8362d0e5bc9a3771cfd2cfb82e7253b7d820d81c8e8659f2a0100f",
+      "sha512": "4d6d756db816114faef741a833b8ae4746f29dd58dd51eeab624c6be102f888047ee200bee2cfe6e34895bf9eb43b6bd3f6eb4fdcae8314f172cb855e7977bda",
+      "bytes": 31688,
+      "class_count": 23,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.item",
+          "id": "quilt_item_extensions",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Item Extensions API",
+            "description": "An API for extending various vanilla items and providing relevant events for such items.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_item_extensions/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_item_extensions.mixins.json",
+        "access_widener": "quilt_item_extensions.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_item_extensions/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_1753": [
+              "org/quiltmc/qsl/item/extensions/api/bow/BowExtensions"
+            ],
+            "net/minecraft/class_1764": [
+              "org/quiltmc/qsl/item/extensions/api/crossbow/CrossbowExtensions"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.item",
+      "artifact": "item_setting",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_setting/10.0.0-alpha.5+1.21.1/item_setting-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "f1bffad89c93d02cbffe146d57c680addd0a76f68f59355a9e4f1d0b9e31a978",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/item/item_setting/10.0.0-alpha.5+1.21.1/item_setting-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "e61eb31dce3b90538549873b114b7a24fb2bc3e747ba61a79ef5c9bfbf3920b2",
+      "sha512": "8d7a54059c4a858a1ad2893cbe0fb1c3e51cb1f8814d483a47dcaba2bbf2d45995af244467eeec798b8ec01a1ef4945e57d40efc176318f5dd380597198df79d",
+      "bytes": 41103,
+      "class_count": 25,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.item",
+          "id": "quilt_item_setting",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Item Setting API",
+            "description": "An API for extended functionality in Item Settings",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_item_setting/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_item_setting.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_item_setting/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_1792$class_1793": [
+              "org/quiltmc/qsl/item/setting/api/QuiltItemSettings"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.management",
+      "artifact": "chat",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/chat/10.0.0-alpha.5+1.21.1/chat-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "021ff20a15747b497a306e7451ef5ff25effa9dd44343139512b36849bc79613",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/chat/10.0.0-alpha.5+1.21.1/chat-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "641c94d7ae32ff3e69aec6bf8192f1c1bce1f3340d4b3c215ac6ca7697e82361",
+      "sha512": "75f4b76221b43490e8de4f0e31598a7be6b1d7612a20fd147a66b79fe0a34190551eb05094cb79b572c6938fb0145047921ae559a8d3c4111b54f0491f21252c",
+      "bytes": 43692,
+      "class_count": 30,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.management",
+          "id": "quilt_chat",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Chat API",
+            "description": "Quilt APIs for modifying chat.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_chat/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_chat.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_chat/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.management",
+      "artifact": "client_command",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/client_command/10.0.0-alpha.5+1.21.1/client_command-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "df097222b212f03b8473a36f3d3e5bb87e5fb3729142725c5699e379e4688c4a",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/client_command/10.0.0-alpha.5+1.21.1/client_command-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "7030e6015199d26da4727aa987bc72fa4158b270a4f6cba8dd3c040de0988f88",
+      "sha512": "e1f7fe230f811978a716783e8587f6ea2a6bef2594f6b430ef36f20fb5c699e550934e96022e72b908ed543537c6988ad3c4e2b4ef399492d567f90260164032",
+      "bytes": 18971,
+      "class_count": 8,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.management",
+          "id": "quilt_client_command",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Client Command API",
+            "description": "Quilt APIs for creating and managing client-side commands.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_client_command/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_client_command.mixins.json",
+        "minecraft": {
+          "environment": "client"
+        },
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_client_command/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_637": [
+              "org/quiltmc/qsl/command/api/client/QuiltClientCommandSource"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.management",
+      "artifact": "command",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/command/10.0.0-alpha.5+1.21.1/command-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "e373ae9425e467b4b005819ca56e9541c687e5368691586f387d273424ef79e9",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/management/command/10.0.0-alpha.5+1.21.1/command-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "3fbde27dad60b09ddc97fee3662f446779e077087c6d35c2c6f6d79b63459f31",
+      "sha512": "e5abc51a01575cb050f4e1b54dee7cb8f835445094ccb9c2d708de308c1f31c99b29892f0fc1b6cf4e4940ba13cf1a031e3fe105983eaa83000746a6f54ffc50",
+      "bytes": 36138,
+      "class_count": 25,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.management",
+          "id": "quilt_command",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Command API",
+            "description": "Quilt APIs relating to commands.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_command/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_networking",
+              "versions": ">=10.0.0-alpha.5+1.21.1",
+              "optional": true
+            }
+          ],
+          "entrypoints": {
+            "client_init": [
+              "org.quiltmc.qsl.command.impl.client.ClientInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.command.impl.Initializer"
+            ]
+          }
+        },
+        "mixin": "quilt_command.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_command/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        },
+        "quilt_loom": {
+          "injected_interfaces": {
+            "net/minecraft/class_2170$class_5364": [
+              "org/quiltmc/qsl/command/api/QuiltCommandRegistrationEnvironment"
+            ],
+            "net/minecraft/class_2303": [
+              "org/quiltmc/qsl/command/api/QuiltEntitySelectorReader"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.rendering",
+      "artifact": "entity_rendering",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/rendering/entity_rendering/10.0.0-alpha.5+1.21.1/entity_rendering-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "17aa26e05fcc217fc985494dd96c98c08054f2dc767c2143b57dbf8d3ccfcd67",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/rendering/entity_rendering/10.0.0-alpha.5+1.21.1/entity_rendering-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "2b3c052846cfcecbcab8141e2d51db64878a9546cb1795bb70dd0d3e1996f5ac",
+      "sha512": "2c037b2a79590c43ea14178805fba7afc79f7781b15636dad1e13c8bcc318e8e0c809e523e427a24ca1cf66e47d42a980181e28ce1d8610ef821b98b2157c946",
+      "bytes": 16512,
+      "class_count": 8,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.rendering",
+          "id": "quilt_entity_rendering",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Entity Rendering API",
+            "description": "Quilt APIs relating to the rendering of entities.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_entity_rendering/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_entity_rendering.mixins.json",
+        "minecraft": {
+          "environment": "client"
+        },
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_entity_rendering/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.worldgen",
+      "artifact": "biome",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/biome/10.0.0-alpha.5+1.21.1/biome-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "80f7affb7e5f997787f5ea63f967102913bed467deb04a20edbd97acb2f41845",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "data_callback",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/biome/10.0.0-alpha.5+1.21.1/biome-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "da0acfccab99e842408eaf9e34ac59efe3422ba8a1274dd3136b9665044afa4b",
+      "sha512": "5d35698a0fbaa66cdb4c4313d046b5f31cf32d35ec837235430e40f90eceff4283856d7feae677a0a58309124e6b4fb260f86114450bcfb02b99b43e127374ec",
+      "bytes": 105160,
+      "class_count": 49,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.worldgen",
+          "id": "quilt_biome",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Biome API",
+            "description": "An API for managing custom biomes.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_biome/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_lifecycle_events",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_data_callback",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "events": [
+              "org.quiltmc.qsl.worldgen.biome.impl.TheEndBiomeData"
+            ],
+            "init": [
+              "org.quiltmc.qsl.worldgen.biome.impl.modification.BiomeModifierCodecs"
+            ]
+          }
+        },
+        "mixin": "quilt_biome.mixins.json",
+        "access_widener": "quilt_biome.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_biome/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.worldgen",
+      "artifact": "dimension",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/dimension/10.0.0-alpha.5+1.21.1/dimension-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "ed5582add0f4e70052e260cf6729ad838e045bbd970ab6570101852717e4ca5d",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/dimension/10.0.0-alpha.5+1.21.1/dimension-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "4b17e43e28caae9534f5b72717e91020c372e45649ac85fae39f91e16c526a16",
+      "sha512": "54026ed8a7f54a5dd157b8c80b7a4c1fbdd93112905ca372014e8a959fb21fbd05d61019d747b9a4e01cc8b1370084f9940d497aefb96269451bb2a182b6ed32",
+      "bytes": 7973,
+      "class_count": 3,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.worldgen",
+          "id": "quilt_dimension",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Dimension API",
+            "description": "An API for managing custom dimensions.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_dimension/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ]
+        },
+        "mixin": "quilt_dimension.mixins.json",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_dimension/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    },
+    {
+      "group": "org.quiltmc.qsl.worldgen",
+      "artifact": "surface_rule",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "pom_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/surface_rule/10.0.0-alpha.5+1.21.1/surface_rule-10.0.0-alpha.5+1.21.1.pom",
+      "pom_sha256": "4d0effab9b6d37142d76c919003de185b4e881c13f09720d56f72b7cf8cc97e0",
+      "packaging": "jar",
+      "dependencies": [
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "qsl_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "registry",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "resource_loader",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "data_callback",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "compile"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "networking",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.core",
+          "artifactId": "lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc.qsl.gui",
+          "artifactId": "screen",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "scope": "runtime"
+        },
+        {
+          "groupId": "org.quiltmc",
+          "artifactId": "quilt-loader",
+          "version": "0.25.0",
+          "scope": "runtime"
+        }
+      ],
+      "jar_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/worldgen/surface_rule/10.0.0-alpha.5+1.21.1/surface_rule-10.0.0-alpha.5+1.21.1.jar",
+      "sha256": "486371e0ba6e12714bc9c7b484698e77d04d3be2fa754beef197a2354592b36f",
+      "sha512": "b59fb9debbe6e7533ad58d4a30640e4d4533be2a18e055cc3c53c0a5695f622e247a710ba4dd2adb286ebd5245b722e6415c2beb1ed741c1967cdfc655faad74",
+      "bytes": 25462,
+      "class_count": 19,
+      "metadata": {
+        "schema_version": 1,
+        "quilt_loader": {
+          "group": "org.quiltmc.qsl.worldgen",
+          "id": "quilt_surface_rule",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "metadata": {
+            "name": "Quilt Surface Rule API",
+            "description": "An API for managing custom Surface Rules.",
+            "contributors": {
+              "The Quilt Project": "Owner"
+            },
+            "contact": {
+              "homepage": "https://quiltmc.org",
+              "issues": "https://github.com/QuiltMC/quilt-standard-libraries/issues",
+              "sources": "https://github.com/QuiltMC/quilt-standard-libraries"
+            },
+            "license": "Apache-2.0",
+            "icon": "assets/quilt_surface_rule/icon.png"
+          },
+          "intermediate_mappings": "net.fabricmc:intermediary",
+          "load_type": "if_possible",
+          "depends": [
+            {
+              "id": "quilt_loader",
+              "versions": ">=0.25.0"
+            },
+            {
+              "id": "minecraft",
+              "versions": {
+                "any": [
+                  "=1.21.1",
+                  "=1.21"
+                ]
+              }
+            },
+            {
+              "id": "quilt_base",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_registry",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_resource_loader",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            },
+            {
+              "id": "quilt_data_callback",
+              "versions": ">=10.0.0-alpha.5+1.21.1"
+            }
+          ],
+          "entrypoints": {
+            "events": [
+              "org.quiltmc.qsl.worldgen.surface_rule.impl.QuiltSurfaceRuleInitializer"
+            ],
+            "init": [
+              "org.quiltmc.qsl.worldgen.surface_rule.impl.SurfaceRuleDataInitializer"
+            ]
+          }
+        },
+        "mixin": "quilt_surface_rule.mixins.json",
+        "access_widener": "quilt_surface_rule.accesswidener",
+        "modmenu": {
+          "badges": [
+            "library"
+          ],
+          "parent": {
+            "id": "qsl",
+            "name": "Quilt Standard Libraries",
+            "description": "A set of libraries to assist in making Quilt mods.",
+            "icon": "assets/quilt_surface_rule/icon.png",
+            "badges": [
+              "library"
+            ]
+          }
+        }
+      },
+      "has_fabric_metadata": false
+    }
+  ]
+}

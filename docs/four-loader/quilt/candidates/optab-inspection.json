@@ -1,0 +1,79 @@
+{
+  "project": "optab",
+  "project_id": "JqlHhgpT",
+  "source_url": "https://github.com/betterclient/opitemsmod",
+  "version_id": "tcJK6pdC",
+  "version": "2.0.0V1.21.1+1.21",
+  "game_versions": [
+    "1.21",
+    "1.21.1"
+  ],
+  "loaders": [
+    "quilt"
+  ],
+  "published": "2024-08-31T19:59:03.042470Z",
+  "file": {
+    "id": "7TrLU83f",
+    "hashes": {
+      "sha512": "8c1fac43d5b71b825f1515fc877aeede48cd6076667714f047d5a1c0976b965b22b4eb59d3a48ca07599a83f8919f1ac7888153cc34d2787d5f4b16d4bba822b",
+      "sha1": "f18394658aca07185ffd742e9eba4cfc745795f4"
+    },
+    "url": "https://cdn.modrinth.com/data/JqlHhgpT/versions/tcJK6pdC/optab-2.0.0V1.21.1%2B1.21.jar",
+    "filename": "optab-2.0.0V1.21.1+1.21.jar",
+    "primary": true,
+    "size": 7643,
+    "file_type": null
+  },
+  "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296",
+  "sha512": "8c1fac43d5b71b825f1515fc877aeede48cd6076667714f047d5a1c0976b965b22b4eb59d3a48ca07599a83f8919f1ac7888153cc34d2787d5f4b16d4bba822b",
+  "metadata": {
+    "quilt.mod.json": {
+      "schema_version": 1,
+      "quilt_loader": {
+        "group": "io.github.betterclient",
+        "id": "optab",
+        "version": "2.0.0V1.21.1+1.21",
+        "metadata": {
+          "name": "Op Tab",
+          "description": "Adds /give items as a creative tab.",
+          "contributors": {
+            "BetterClient": "Owner"
+          },
+          "contact": {
+            "curseforge": "https://www.curseforge.com/minecraft/mc-mods/op-tab",
+            "modrinth": "https://modrinth.com/mod/optab",
+            "issues": "https://github.com/BetterClient/opitemsmod/issues",
+            "sources": "https://github.com/BetterClient/opitemsmod"
+          },
+          "icon": "assets/optab/icon.png"
+        },
+        "intermediate_mappings": "net.fabricmc:intermediary",
+        "entrypoints": {
+          "init": "io.github.betterclient.optab.OpTab"
+        },
+        "depends": [
+          {
+            "id": "quilt_loader",
+            "versions": ">=0.16.0-"
+          },
+          {
+            "id": "minecraft",
+            "versions": ">=1.21"
+          }
+        ]
+      }
+    }
+  },
+  "nested_jars": [],
+  "quilt_reference_classes": [
+    "io/github/betterclient/optab/OpTab.class"
+  ],
+  "modrinth_dependencies": [
+    {
+      "version_id": null,
+      "project_id": "qvIfYCYJ",
+      "file_name": null,
+      "dependency_type": "required"
+    }
+  ]
+}

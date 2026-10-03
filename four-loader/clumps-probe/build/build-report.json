@@ -1,0 +1,95 @@
+{
+  "probe": "four-loader/clumps-probe/build/unified-clumps-probe-0.1.0.jar",
+  "sha256": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+  "java_release": 21,
+  "namespace": "Mojmap production Forge 52.1.0; no reobfuscation",
+  "compile_method": "javac against official Forge, clean Minecraft and compile-only Clumps",
+  "runtime_validation": "NOT RUN: compile and pure arithmetic tests do not establish Minecraft behavior",
+  "clumps_sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+  "sources": {
+    "four-loader/clumps-probe/src/dev/infinity/clumpsprobe/ClumpsProbe.java": "7151e9aed7333b857f0ba10ccc8bc67b63f9c7c8a07ef177ad5962bee5a83ca0",
+    "four-loader/clumps-probe/src/dev/infinity/clumpsprobe/OrbTotals.java": "390cb02cc754ba7cb1be7c1de23a996a13fa4e99fa1feec87980e6033d7b2391"
+  },
+  "resources": {
+    "four-loader/clumps-probe/resources/META-INF/LICENSE": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb",
+    "four-loader/clumps-probe/resources/META-INF/mods.toml": "1f6aa72d7d9d45a295518a5059450b9ef82b316cfab0e3378d2b220206b18be5"
+  },
+  "compile_inputs": [
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999"
+    },
+    {
+      "path": "source-workspace/connector-combined/build/createCleanArtifact/minecraft-renamed.jar",
+      "sha256": "26a29a83d298df77d4bc78e7029ffb453e479a0e4fd2d7f7a0ac84b6726fdf3c"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/guava/20.0/guava-20.0.jar",
+      "sha256": "36a666e3b71ae7f0f0dca23654b67e086e6c93d192f60ba5dfd5519db6c288c8"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "path": "run/neoforge-native/libraries/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/joml/joml/1.10.5/joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    }
+  ],
+  "foreign_loader_reference_check": "PASS",
+  "required_abi_check": "PASS",
+  "no_bundled_dependencies_check": "PASS",
+  "no_clumped_map_setter_check": "PASS"
+}

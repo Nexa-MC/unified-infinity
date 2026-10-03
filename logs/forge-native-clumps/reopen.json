@@ -1,0 +1,224 @@
+{
+  "loader": "native",
+  "phase": "reopen",
+  "timestamp_utc": "2026-10-03T11:35:57.159959+00:00",
+  "command": [
+    ".toolchains/jdk-21.0.12.1+1/bin/java",
+    "-Xms512M",
+    "-Xmx2G",
+    "-Dunified.clumpsProbe.phase=reopen",
+    "@libraries/net/minecraftforge/forge/1.21.1-52.1.0/unix_args.txt",
+    "nogui"
+  ],
+  "console_commands": [
+    {
+      "elapsed_seconds": 12.747,
+      "command": "tick freeze"
+    },
+    {
+      "elapsed_seconds": 12.954,
+      "command": "save-all flush"
+    },
+    {
+      "elapsed_seconds": 13.286,
+      "command": "stop"
+    }
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "duration_seconds": 14.393,
+  "server_ready": true,
+  "tick_freeze_acknowledged": true,
+  "saved": true,
+  "all_dimensions_saved": true,
+  "markers": [
+    "\u001b[mUNIFIED_CLUMPS_PROBE PASS stage=constructor count=1",
+    "\u001b[m> UNIFIED_CLUMPS_PROBE PASS stage=server_started phase=reopen players=0 max_post_ticks=200",
+    "UNIFIED_CLUMPS_PROBE PASS stage=post_tick count=1 haveTime=false",
+    "UNIFIED_CLUMPS_PROBE PASS stage=world_reopen read_before_write=true entities=1 units=6 xp=72 survivor=3ffbddaf-2bd6-48c2-a283-782bb0a0864c",
+    "UNIFIED_CLUMPS_PROBE PASS stage=nbt_roundtrip entities=1 units=6 xp=72 clumped_map=true in_memory=true",
+    "UNIFIED_CLUMPS_PROBE PASS stage=ready_to_save phase=reopen post_ticks=1 xp=72"
+  ],
+  "stage_counts": {
+    "constructor": 1,
+    "server_started": 1,
+    "post_tick": 1,
+    "world_reopen": 1,
+    "nbt_roundtrip": 1,
+    "ready_to_save": 1
+  },
+  "stage_order": [
+    "constructor",
+    "server_started",
+    "post_tick",
+    "world_reopen",
+    "nbt_roundtrip",
+    "ready_to_save"
+  ],
+  "expected_stage_order": [
+    "constructor",
+    "server_started",
+    "post_tick",
+    "world_reopen",
+    "nbt_roundtrip",
+    "ready_to_save"
+  ],
+  "original_absent_refmap_warning": [
+    "\u001b[m\u001b[33m[04:35:45] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message"
+  ],
+  "diagnostics": [
+    "\u001b[m\u001b[33m[04:35:45] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message",
+    "java.net.ConnectException: null",
+    "Caused by: java.net.ConnectException",
+    "\tat java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1065) ~[java.net.http:?]",
+    "Caused by: java.nio.channels.UnresolvedAddressException",
+    "java.net.ConnectException: null",
+    "Caused by: java.net.ConnectException",
+    "\tat java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1065) ~[java.net.http:?]",
+    "Caused by: java.nio.channels.UnresolvedAddressException",
+    "\u001b[m\u001b[1;31m[04:35:51] [Yggdrasil Key Fetcher/ERROR] [mojang/YggdrasilServicesKeyInfo]: Failed to request yggdrasil public key",
+    "com.mojang.authlib.exceptions.MinecraftClientException: Failed to read from https://api.minecraftservices.com/publickeys due to api.minecraftservices.com",
+    "Caused by: java.net.UnknownHostException: api.minecraftservices.com"
+  ],
+  "lock_sha256": "5902f1ca9ea1ab43b9ea006302b5eab86443389face9990a52e3b0db33cfa4d1",
+  "mods": {
+    "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+    "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09"
+  },
+  "core_sha256": null,
+  "host_sha256": null,
+  "offline_world_before_launch": {
+    "passed": true,
+    "orb": {
+      "count": 1,
+      "clumped_map": {
+        "1": 1,
+        "3": 1,
+        "37": 1,
+        "17": 1,
+        "7": 2
+      },
+      "weighted_xp": 72,
+      "original_orb_multiplicity": 6,
+      "uuid": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ],
+      "position": [
+        8.35,
+        100.1,
+        8.5
+      ],
+      "vanilla_value": 72,
+      "vanilla_count": 5,
+      "age": 6
+    },
+    "saved_data_marker": "clumps_forge_19_0_0_1_probe_v1",
+    "saved_data": {
+      "marker": "clumps_forge_19_0_0_1_probe_v1",
+      "survivor": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ]
+    },
+    "entity_chunks_inspected": 3,
+    "empty_entity_region_placeholders": [
+      "entities/r.-1.-1.mca",
+      "entities/r.0.-1.mca"
+    ],
+    "world_version": {
+      "Snapshot": 0,
+      "Series": "main",
+      "Id": 3955,
+      "Name": "1.21.1"
+    },
+    "files": {
+      "level.dat": "f766b9abe188e4ba1d082eb8e90720e98f8a5fe4bb53b7ab766b56c029b84046",
+      "data/unified_clumps_probe.dat": "1d9c15abfc03ad8bc81d8cfcb7fd03c7b8be83e05386170131dd005ca0758a8f",
+      "entities/r.-1.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.-1.0.mca": "18cb74b3bb5684ccf1dfffc2f2e6947f706e58a1bf86f29c1ed81cdaeb62c74d",
+      "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.0.0.mca": "c82a315247f0a23701acad6e3149b683b3d760c8c381a947a3c8eaf0da0e18f5"
+    },
+    "schema_evidence": "Approved Clumps MixinExperienceOrb bytecode: clumpedMap compound, XP string keys, int multiplicities",
+    "scope": "One naturally merged six-orb clump persisted in a local world; no pickup, mending or player claim"
+  },
+  "offline_world_after_stop": {
+    "passed": true,
+    "orb": {
+      "count": 1,
+      "clumped_map": {
+        "1": 1,
+        "3": 1,
+        "37": 1,
+        "17": 1,
+        "7": 2
+      },
+      "weighted_xp": 72,
+      "original_orb_multiplicity": 6,
+      "uuid": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ],
+      "position": [
+        8.35,
+        100.1,
+        8.5
+      ],
+      "vanilla_value": 72,
+      "vanilla_count": 5,
+      "age": 7
+    },
+    "saved_data_marker": "clumps_forge_19_0_0_1_probe_v1",
+    "saved_data": {
+      "marker": "clumps_forge_19_0_0_1_probe_v1",
+      "survivor": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ]
+    },
+    "entity_chunks_inspected": 3,
+    "empty_entity_region_placeholders": [
+      "entities/r.-1.-1.mca",
+      "entities/r.0.-1.mca"
+    ],
+    "world_version": {
+      "Snapshot": 0,
+      "Series": "main",
+      "Id": 3955,
+      "Name": "1.21.1"
+    },
+    "files": {
+      "level.dat": "ac9712ca394d35a9c467ccae5b59d5e16537bc23628d717b28f9625cea3163ca",
+      "data/unified_clumps_probe.dat": "1d9c15abfc03ad8bc81d8cfcb7fd03c7b8be83e05386170131dd005ca0758a8f",
+      "entities/r.-1.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.-1.0.mca": "836f40011372ac09aa8c54928531f648ebd202c2ff9afd0366a975be512d773f",
+      "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.0.0.mca": "5aebdf31f9c4edb24c327b2cfbbf206741e30b22876d8901c22c3951d9bdcef1"
+    },
+    "schema_evidence": "Approved Clumps MixinExperienceOrb bytecode: clumpedMap compound, XP string keys, int multiplicities",
+    "scope": "One naturally merged six-orb clump persisted in a local world; no pickup, mending or player claim"
+  },
+  "controller_sha256": "7f68cd2b7ba19e0416d094ea0ea31120c1b09200654f0ebdb3644a3c8e753ccb",
+  "verifier_sha256": "24ef3e2ce1f83f13b923a4f5257021516acc38ddd98b066a683f28a506739d4e",
+  "log_sha256": "7eace44a60d4e17ad6b4e250368d8e569d94127e8c9ff6cf623a0e2a2c7e050c",
+  "network": "Loopback only; explicit loader-correct LAN advertisement off; online-mode=true; no RCON/query/status/player accounts",
+  "coverage": "Exact original Clumps startup, injected interface/Mixins, six-to-one natural merge, XP histogram/total conservation, save/read/reopen",
+  "not_tested": [
+    "XP pickup",
+    "PlayerXpEvent cancellation",
+    "mending/RepairEvent",
+    "ValueEvent",
+    "client rendering",
+    "external or real players"
+  ],
+  "passed": true
+}

@@ -1,0 +1,148 @@
+{
+  "core_sha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+  "host_sha256": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+  "provider_sha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+  "files": [
+    {
+      "path": "runtime-bundle/build.gradle",
+      "sha256": "b2e09d6d8583df5b91c0d45610253db439b44b55af69ef909ed8853b8d27a569",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/client-branding.gradle",
+      "sha256": "35d8a6cd473fd6acdb8662140115407e66734656b2cdf7a3a17f712a787eb79a",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/gradle.lockfile",
+      "sha256": "0f15e3318773adc1b0101d85f29ac57986d8e480c9bdf6f20394869716212637",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/gradle.properties",
+      "sha256": "75abb0171a79cb9858fad3fa50d7b5b0faffb076d9ac7015b502007d477fb12b",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/qsl-bundle.gradle",
+      "sha256": "fb73880123204547f0434888c479f2c93905e1c883ae908aebab64189089ae73",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/settings.gradle",
+      "sha256": "2dae93d65f147f8fbf1292e05b50a75edee1fb43d62493d3a98990f1d5f65a6c",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/BrandingText.java",
+      "sha256": "f517e8043c9b0b04531d5750313177372e6fbb23114186a93adfb760f327088c",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/mixin/MinecraftTitleMixin.java",
+      "sha256": "c69e5c75c663c5802068f1727ee4fe9c8d64f91a979f1262d45ebbb80e8d8a9e",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/client-branding/java/dev/modcompat/runtime/branding/mixin/TitleScreenBrandingMixin.java",
+      "sha256": "37fbe82b89faaa7973c47fc715726873cfe988c4114d907927e271b137cba78f",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/client-branding/resources/unified-infinity.client-branding.mixins.json",
+      "sha256": "9bdfc8d502e8a8e79fcd5bb869b3294ea295f00a3a7ec1ea2012c952032cc710",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/client-branding-test/java/dev/modcompat/runtime/branding/BrandingTextTests.java",
+      "sha256": "a692c106ea5d8fc4e31d0a15871a2951c1379129d792eed8722459b5a4d20980",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/java/dev/modcompat/runtime/bundle/RuntimeBundle.java",
+      "sha256": "05e71a2fe045c876ffacf59700e18162ee3d0db2d858e19fdf0580a477bbcb7e",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/THIRD-PARTY-NOTICES.txt",
+      "sha256": "b1bb57d5cbaeae8afa34a02d75070237a6c178384d5705ecb6f061fe158fc2af",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/licenses/Connector-MIT.txt",
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/licenses/FFAPI-Apache-2.0.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/licenses/QSL-Apache-2.0.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/licenses/QSL-NOTICE.txt",
+      "sha256": "514b59623fce0c3b69fac879e31aa661a3869ada276feb6f68f0b6a2b28cebb8",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "runtime-bundle/src/main/resources/META-INF/neoforge.mods.toml",
+      "sha256": "eb84307e31db820e33da892f95951cc327b18d49f28fe70c0641f2eefe6c1ed4",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/FramePacer.java",
+      "sha256": "9b883bf7bf426c444e2f7ef56c6e059c573259392e974c303c3b57521c04ace4",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/InfinityRenderer.java",
+      "sha256": "5608415a2a0f2f1e48976bd88e2e2636d0e231348997ac4334a410ee116b02b8",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/InfinityWindowProvider.java",
+      "sha256": "e22b7e1977e23fed349408c7dea27b4e71a46574d4fc2698b36ab66341c73acb",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ProgressFileReader.java",
+      "sha256": "8c7403733794f41bcc33c670405b9db5bb254086d3dd60793711270e70504f27",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/ProgressSnapshot.java",
+      "sha256": "b9a1028ce6a47965493ac207cc5d96f18ed8598cb16247b8efaaf2dfc048a08a",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/QaRecorder.java",
+      "sha256": "34449149bef348d5f1f225aab2e6a4480e2d9bead75bf9d55a2f76d8eb912b28",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/java/dev/modcompat/preload/TextLayer.java",
+      "sha256": "080cbf946d4b709bc11041004987e4a398731ca409de329ae09f5b31aab848b5",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/main/resources/META-INF/services/net.neoforged.neoforgespi.earlywindow.ImmediateWindowProvider",
+      "sha256": "eb9b0133c13a31448d2bdf841e6cf07aea77cbf96e7895c6c20b1e6a53c3843d",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/test/java/dev/modcompat/preload/NativeHarness.java",
+      "sha256": "5540c7c49a0dc6751b292ba32f1a1da3bafbc3ab047e962db6f19f0baea9d066",
+      "basis": "frozen accepted source archive"
+    },
+    {
+      "path": "preload-ui/src/test/java/dev/modcompat/preload/PreloadTests.java",
+      "sha256": "a4b8cff99df80e553827aa346e2f809a6bdb1d2495287343ed810f9a94079cdd",
+      "basis": "frozen accepted source archive"
+    }
+  ],
+  "scope": "Source correspondence, not a new compilation; provider icon is retained from the previously verified M5 publication"
+}

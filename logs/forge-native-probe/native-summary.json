@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "probe_sha256": "3a016e8b8340c7c10b6490f15bb7452c1555363035c7373f4d81ccfacfde15fe",
+  "minecraft": "1.21.1",
+  "forge": "52.1.0",
+  "java": "21.0.12.1+1-LTS",
+  "eventbus": "6.2.27",
+  "namespace": "Mojmap production",
+  "original_jar": "four-loader/forge-probe/build/unified-forge-probe-0.1.0.jar",
+  "runs": {
+    "create": {
+      "passed": true,
+      "exit_code": 0,
+      "stage_counts": {
+        "constructor": 1,
+        "common_setup": 1,
+        "enqueued_work": 1,
+        "world_create": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "ready_to_save": 1
+      },
+      "report": "logs/forge-native-probe/native-create.json",
+      "log": "logs/forge-native-probe/native-create.log"
+    },
+    "reopen": {
+      "passed": true,
+      "exit_code": 0,
+      "stage_counts": {
+        "constructor": 1,
+        "common_setup": 1,
+        "enqueued_work": 1,
+        "world_reopen": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "ready_to_save": 1
+      },
+      "report": "logs/forge-native-probe/native-reopen.json",
+      "log": "logs/forge-native-probe/native-reopen.log"
+    }
+  },
+  "independent_persistence_verification": {
+    "passed": true,
+    "chest_position": [
+      0,
+      100,
+      0
+    ],
+    "item": {
+      "id": "unified_forge_probe:anchor",
+      "count": 7,
+      "Slot": 0
+    },
+    "saved_data_marker": "forge_52_1_0_probe_v1"
+  },
+  "saved_data_bytes_identical_across_reopen": true,
+  "coverage": [
+    "Forge-only metadata/annotation/context constructor",
+    "exactly-once constructor/setup/work/item supplier",
+    "DeferredRegister vanilla item key and RegistryObject semantics",
+    "real registry identity",
+    "server lifecycle and explicit Post.getServer/haveTime",
+    "chest custom-item and SavedData save/reopen",
+    "read-before-write on reopened world",
+    "independent region/NBT reads",
+    "clean save and stop"
+  ],
+  "limitations": [
+    "Native Forge control only; Unified adapter has not run in this task",
+    "One original Item; no custom block or IForgeRegistry overload",
+    "No third-party mod, Mixin, capability, client, account, player or network protocol test",
+    "First create attempted default LAN advertising, blocked by sandbox; disabled explicitly for reopen",
+    "Forge logged missing pack metadata because this code-only probe supplies no resource/data pack",
+    "Mojang public-key fetch was unavailable without network configuration; online-mode remained true and no players connected"
+  ]
+}

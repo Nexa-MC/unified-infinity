@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[52,53)"
+license="MIT"
+
+[[mods]]
+modId="unified_clumps_probe"
+version="0.1.0"
+displayName="Unified Clumps Forge Behavior Probe"
+description='''Original Forge-only probe of real Clumps orb merging, XP conservation and saved entity data.'''
+
+[[dependencies.unified_clumps_probe]]
+modId="forge"
+mandatory=true
+versionRange="[52.1.0,52.2)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.unified_clumps_probe]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.unified_clumps_probe]]
+modId="clumps"
+mandatory=true
+versionRange="[19.0.0.1]"
+ordering="AFTER"
+side="BOTH"

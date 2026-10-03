@@ -1,0 +1,946 @@
+{
+  "passed": true,
+  "phase": "create",
+  "profile": "run/unified-combined-98d-retry2",
+  "timestamp_utc": "2026-10-03T12:11:43.869982+00:00",
+  "lock_sha256": "e918c7a3c4f5fc988207be6d639b86d054d4a52e3b13c634915ba6e49a5c8006",
+  "scope": "Combined server integration; original Fabric Lithium/Chunky, native NeoForge Farmers Delight, original Forge Clumps plus Forge companion, and project-owned native Quilt probe. Not OP Tab or client acceptance.",
+  "world_before": {},
+  "offline_world_before_launch": null,
+  "network": "Loopback only; root NeoForge LAN advertisement=false; online-mode=true; RCON/query/status off; no accounts/players",
+  "not_tested": [
+    "OP Tab/client acceptance",
+    "real-player XP pickup/cancellation/Mending",
+    "broad mod compatibility",
+    "performance"
+  ],
+  "mixed_pack": {
+    "profile": "unified",
+    "cycle": 1,
+    "tag": "unified-combined-98d-retry2-create",
+    "ready": true,
+    "saved": true,
+    "exit_code": 0,
+    "duration_seconds": 81.671,
+    "input_mod_sha256": {
+      "Chunky-Fabric-1.4.23.jar": "3412b170247dde7351e0945d857e713bedf6fae05ab300aa74d06ffbde0ca07e",
+      "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "FarmersDelight-1.21.1-1.3.4.jar": "139ad7696462c89c03eea463f805abffa552526c5dadaadae221dd9624cb197c",
+      "lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+      "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+      "unified-infinity-0.1.0-dev.jar": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+      "unified-infinity-four-loader-98d86a92.jar": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+      "unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+      "unified-native-quilt-probe-0.1.0.jar": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+    },
+    "jvm_flags": [
+      "-Xms512M",
+      "-Xmx2G"
+    ],
+    "lithium_config_executed_zero_overrides": true,
+    "versions_recognized": {
+      "lithium": true,
+      "chunky": true,
+      "farmersdelight": true
+    },
+    "chunky": {
+      "selection": "[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: [Chunky] Current selection\n[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: World: minecraft:overworld\n[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: Shape: square\n[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: Center: 2048, 2048\n[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: Radius: 16\n[05:12:44] [Server thread/INFO] [minecraft/MinecraftServer]: [Not Secure] [Server] MIXED_ACK_00009",
+      "completion": "[05:12:46] [Server thread/INFO] [minecraft/MinecraftServer]: [Chunky] Task finished for minecraft:overworld. Processed: 9 chunks (100.00%), Total time: 0:00:01",
+      "processed_chunks": 9,
+      "maximum_target_chunks": 9,
+      "deadline_seconds": 120,
+      "elapsed_seconds": 1.745,
+      "target_chunks": [
+        [
+          127,
+          127
+        ],
+        [
+          127,
+          128
+        ],
+        [
+          127,
+          129
+        ],
+        [
+          128,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          128,
+          129
+        ],
+        [
+          129,
+          127
+        ],
+        [
+          129,
+          128
+        ],
+        [
+          129,
+          129
+        ]
+      ],
+      "passed": true
+    },
+    "snapshots": [
+      {
+        "stage": "hopper_transfer_and_cooking",
+        "observed": {
+          "source": {
+            "id": "minecraft:chest",
+            "inventory": []
+          },
+          "hopper": {
+            "id": "minecraft:hopper",
+            "inventory": []
+          },
+          "sink": {
+            "id": "farmersdelight:cooking_pot",
+            "inventory": [
+              {
+                "slot": 8,
+                "id": "farmersdelight:cooked_rice",
+                "count": 2
+              }
+            ]
+          },
+          "contents": {
+            "id": "minecraft:chest",
+            "inventory": [
+              {
+                "slot": 0,
+                "id": "farmersdelight:tomato",
+                "count": 7
+              },
+              {
+                "slot": 1,
+                "id": "farmersdelight:cabbage",
+                "count": 5
+              },
+              {
+                "slot": 2,
+                "id": "farmersdelight:rope",
+                "count": 3
+              },
+              {
+                "slot": 3,
+                "id": "farmersdelight:iron_knife",
+                "count": 1
+              }
+            ]
+          },
+          "cutting_board": {
+            "id": "farmersdelight:cutting_board",
+            "inventory": []
+          }
+        },
+        "expected": {
+          "source": {
+            "id": "minecraft:chest",
+            "inventory": []
+          },
+          "hopper": {
+            "id": "minecraft:hopper",
+            "inventory": []
+          },
+          "sink": {
+            "id": "farmersdelight:cooking_pot",
+            "inventory": [
+              {
+                "slot": 8,
+                "id": "farmersdelight:cooked_rice",
+                "count": 2
+              }
+            ]
+          },
+          "contents": {
+            "id": "minecraft:chest",
+            "inventory": [
+              {
+                "slot": 0,
+                "id": "farmersdelight:tomato",
+                "count": 7
+              },
+              {
+                "slot": 1,
+                "id": "farmersdelight:cabbage",
+                "count": 5
+              },
+              {
+                "slot": 2,
+                "id": "farmersdelight:rope",
+                "count": 3
+              },
+              {
+                "slot": 3,
+                "id": "farmersdelight:iron_knife",
+                "count": 1
+              }
+            ]
+          },
+          "cutting_board": {
+            "id": "farmersdelight:cutting_board",
+            "inventory": []
+          }
+        },
+        "raw": {
+          "source": {
+            "z": 2,
+            "x": 2,
+            "id": "minecraft:chest",
+            "y": 204,
+            "Items": []
+          },
+          "hopper": {
+            "z": 2,
+            "x": 2,
+            "TransferCooldown": 0,
+            "id": "minecraft:hopper",
+            "y": 203,
+            "Items": []
+          },
+          "sink": {
+            "z": 2,
+            "x": 2,
+            "CookTimeTotal": 100,
+            "Inventory": {
+              "Size": 9,
+              "Items": [
+                {
+                  "count": 2,
+                  "Slot": 8,
+                  "id": "farmersdelight:cooked_rice"
+                }
+              ]
+            },
+            "CookTime": 0,
+            "id": "farmersdelight:cooking_pot",
+            "y": 202,
+            "Container": {
+              "count": 1,
+              "id": "minecraft:bowl"
+            },
+            "RecipesUsed": {
+              "farmersdelight:cooking/cooked_rice": 2
+            }
+          },
+          "contents": {
+            "z": 2,
+            "x": 6,
+            "id": "minecraft:chest",
+            "y": 202,
+            "Items": [
+              {
+                "count": 7,
+                "Slot": 0,
+                "id": "farmersdelight:tomato"
+              },
+              {
+                "count": 5,
+                "Slot": 1,
+                "id": "farmersdelight:cabbage"
+              },
+              {
+                "count": 3,
+                "Slot": 2,
+                "id": "farmersdelight:rope"
+              },
+              {
+                "count": 1,
+                "Slot": 3,
+                "id": "farmersdelight:iron_knife"
+              }
+            ]
+          },
+          "cutting_board": {
+            "z": 2,
+            "x": 9,
+            "IsItemCarved": 0,
+            "Inventory": {
+              "Size": 1,
+              "Items": []
+            },
+            "id": "farmersdelight:cutting_board",
+            "y": 202
+          }
+        },
+        "passed": true
+      }
+    ],
+    "exact_tick_steps": [
+      {
+        "requested": 8,
+        "before": 76,
+        "after": 84,
+        "exact": true
+      },
+      {
+        "requested": 260,
+        "before": 84,
+        "after": 344,
+        "exact": true
+      }
+    ],
+    "commands": [
+      "gamerule randomTickSpeed 0",
+      "say MIXED_ACK_00001",
+      "gamerule doMobSpawning false",
+      "say MIXED_ACK_00002",
+      "gamerule doDaylightCycle false",
+      "say MIXED_ACK_00003",
+      "gamerule doWeatherCycle false",
+      "say MIXED_ACK_00004",
+      "chunky world minecraft:overworld",
+      "say MIXED_ACK_00005",
+      "chunky shape square",
+      "say MIXED_ACK_00006",
+      "chunky center 2048 2048",
+      "say MIXED_ACK_00007",
+      "chunky radius 16",
+      "say MIXED_ACK_00008",
+      "chunky selection",
+      "say MIXED_ACK_00009",
+      "chunky start",
+      "say MIXED_ACK_00010",
+      "tick freeze",
+      "say MIXED_ACK_00011",
+      "forceload query 0 0",
+      "say MIXED_ACK_00012",
+      "time query gametime",
+      "say MIXED_ACK_00013",
+      "tick step 8",
+      "say MIXED_ACK_00014",
+      "time query gametime",
+      "say MIXED_ACK_00015",
+      "time query gametime",
+      "say MIXED_ACK_00016",
+      "time query gametime",
+      "say MIXED_ACK_00017",
+      "fill 0 199 0 12 206 4 minecraft:air",
+      "say MIXED_ACK_00018",
+      "setblock 2 204 2 minecraft:chest",
+      "say MIXED_ACK_00019",
+      "setblock 2 203 2 minecraft:hopper[facing=down]",
+      "say MIXED_ACK_00020",
+      "setblock 2 201 2 farmersdelight:stove[lit=true]",
+      "say MIXED_ACK_00021",
+      "setblock 2 202 2 farmersdelight:cooking_pot",
+      "say MIXED_ACK_00022",
+      "data merge block 2 202 2 {Inventory:{Size:9,Items:[{Slot:7,id:\"minecraft:bowl\",count:2}]}}",
+      "say MIXED_ACK_00023",
+      "setblock 6 202 2 minecraft:chest",
+      "say MIXED_ACK_00024",
+      "item replace block 6 202 2 container.0 with farmersdelight:tomato 7",
+      "say MIXED_ACK_00025",
+      "item replace block 6 202 2 container.1 with farmersdelight:cabbage 5",
+      "say MIXED_ACK_00026",
+      "item replace block 6 202 2 container.2 with farmersdelight:rope 3",
+      "say MIXED_ACK_00027",
+      "item replace block 6 202 2 container.3 with farmersdelight:iron_knife 1",
+      "say MIXED_ACK_00028",
+      "setblock 9 201 2 minecraft:stone",
+      "say MIXED_ACK_00029",
+      "setblock 9 202 2 farmersdelight:cutting_board",
+      "say MIXED_ACK_00030",
+      "item replace block 2 204 2 container.0 with farmersdelight:rice 2",
+      "say MIXED_ACK_00031",
+      "time query gametime",
+      "say MIXED_ACK_00032",
+      "tick step 260",
+      "say MIXED_ACK_00033",
+      "time query gametime",
+      "say MIXED_ACK_00034",
+      "time query gametime",
+      "say MIXED_ACK_00035",
+      "time query gametime",
+      "say MIXED_ACK_00036",
+      "time query gametime",
+      "say MIXED_ACK_00037",
+      "time query gametime",
+      "say MIXED_ACK_00038",
+      "time query gametime",
+      "say MIXED_ACK_00039",
+      "time query gametime",
+      "say MIXED_ACK_00040",
+      "time query gametime",
+      "say MIXED_ACK_00041",
+      "time query gametime",
+      "say MIXED_ACK_00042",
+      "time query gametime",
+      "say MIXED_ACK_00043",
+      "time query gametime",
+      "say MIXED_ACK_00044",
+      "time query gametime",
+      "say MIXED_ACK_00045",
+      "time query gametime",
+      "say MIXED_ACK_00046",
+      "time query gametime",
+      "say MIXED_ACK_00047",
+      "time query gametime",
+      "say MIXED_ACK_00048",
+      "time query gametime",
+      "say MIXED_ACK_00049",
+      "time query gametime",
+      "say MIXED_ACK_00050",
+      "time query gametime",
+      "say MIXED_ACK_00051",
+      "time query gametime",
+      "say MIXED_ACK_00052",
+      "time query gametime",
+      "say MIXED_ACK_00053",
+      "time query gametime",
+      "say MIXED_ACK_00054",
+      "time query gametime",
+      "say MIXED_ACK_00055",
+      "time query gametime",
+      "say MIXED_ACK_00056",
+      "time query gametime",
+      "say MIXED_ACK_00057",
+      "time query gametime",
+      "say MIXED_ACK_00058",
+      "time query gametime",
+      "say MIXED_ACK_00059",
+      "time query gametime",
+      "say MIXED_ACK_00060",
+      "time query gametime",
+      "say MIXED_ACK_00061",
+      "time query gametime",
+      "say MIXED_ACK_00062",
+      "time query gametime",
+      "say MIXED_ACK_00063",
+      "time query gametime",
+      "say MIXED_ACK_00064",
+      "time query gametime",
+      "say MIXED_ACK_00065",
+      "time query gametime",
+      "say MIXED_ACK_00066",
+      "time query gametime",
+      "say MIXED_ACK_00067",
+      "time query gametime",
+      "say MIXED_ACK_00068",
+      "time query gametime",
+      "say MIXED_ACK_00069",
+      "time query gametime",
+      "say MIXED_ACK_00070",
+      "time query gametime",
+      "say MIXED_ACK_00071",
+      "time query gametime",
+      "say MIXED_ACK_00072",
+      "time query gametime",
+      "say MIXED_ACK_00073",
+      "time query gametime",
+      "say MIXED_ACK_00074",
+      "time query gametime",
+      "say MIXED_ACK_00075",
+      "time query gametime",
+      "say MIXED_ACK_00076",
+      "time query gametime",
+      "say MIXED_ACK_00077",
+      "time query gametime",
+      "say MIXED_ACK_00078",
+      "time query gametime",
+      "say MIXED_ACK_00079",
+      "time query gametime",
+      "say MIXED_ACK_00080",
+      "time query gametime",
+      "say MIXED_ACK_00081",
+      "time query gametime",
+      "say MIXED_ACK_00082",
+      "time query gametime",
+      "say MIXED_ACK_00083",
+      "time query gametime",
+      "say MIXED_ACK_00084",
+      "time query gametime",
+      "say MIXED_ACK_00085",
+      "time query gametime",
+      "say MIXED_ACK_00086",
+      "time query gametime",
+      "say MIXED_ACK_00087",
+      "time query gametime",
+      "say MIXED_ACK_00088",
+      "time query gametime",
+      "say MIXED_ACK_00089",
+      "time query gametime",
+      "say MIXED_ACK_00090",
+      "time query gametime",
+      "say MIXED_ACK_00091",
+      "time query gametime",
+      "say MIXED_ACK_00092",
+      "time query gametime",
+      "say MIXED_ACK_00093",
+      "time query gametime",
+      "say MIXED_ACK_00094",
+      "time query gametime",
+      "say MIXED_ACK_00095",
+      "time query gametime",
+      "say MIXED_ACK_00096",
+      "time query gametime",
+      "say MIXED_ACK_00097",
+      "time query gametime",
+      "say MIXED_ACK_00098",
+      "time query gametime",
+      "say MIXED_ACK_00099",
+      "time query gametime",
+      "say MIXED_ACK_00100",
+      "data get block 2 204 2",
+      "say MIXED_ACK_00101",
+      "data get block 2 203 2",
+      "say MIXED_ACK_00102",
+      "data get block 2 202 2",
+      "say MIXED_ACK_00103",
+      "data get block 6 202 2",
+      "say MIXED_ACK_00104",
+      "data get block 9 202 2",
+      "say MIXED_ACK_00105",
+      "save-all flush",
+      "say MIXED_ACK_00106",
+      "stop"
+    ],
+    "safeguard_audit_zero_failed": true,
+    "safeguard_audit": "==== Connector Mixin Patch Audit Summary ====\nSuccessful: 7\nPartial: 0\nFailed: 0\nSuccess rate: 100.00%        Accuracy: 100.00%\n=============================================\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/block/hopper/LevelMixin updateHopperOnUpdateSuppression(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to markAndNotifyBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;II)V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/Level;onBlockStateChange(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=markAndNotifyBlock, desc=(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;II)V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n     - Change descriptor to (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/entity/collisions/fluid/EntityMixin tryShortcutFluidPushing(Lnet/minecraft/tags/TagKey;DLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;IIIIII)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to updateFluidHeightAndDoFluidPushing()V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/entity/Entity;isPushedByFluid()Z, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=updateFluidHeightAndDoFluidPushing, desc=()V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;IIIIII)V\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/experimental/entity/block_caching/fluid_pushing/EntityMixin cacheFluidSearchResult(Lnet/minecraft/tags/TagKey;DLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;DZLnet/minecraft/world/phys/Vec3;)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to lambda$updateFluidHeightAndDoFluidPushing$22(Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;)V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/phys/Vec3;length()D, ordinal=0, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=lambda$updateFluidHeightAndDoFluidPushing$22, desc=(Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;)V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;DZLnet/minecraft/world/phys/Vec3;)V\n     - Change descriptor to (Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;DZLnet/minecraft/world/phys/Vec3;)V\n\nMixin method net/caffeinemc/mods/lithium/mixin/minimal_nonvanilla/world/expiring_chunk_tickets/DistanceManagerMixin removeIfEmpty(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lit/unimi/dsi/fastutil/objects/ObjectIterator;Lit/unimi/dsi/fastutil/longs/Long2ObjectMap$Entry;)V\n  >> Using org.sinytra.adapter.transform.preprocess.LocalCaptureUpgradeTransformer\n     - Change descriptor to (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lit/unimi/dsi/fastutil/longs/Long2ObjectMap$Entry;)V\n     - Upgrade captured locals\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin getNull(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/LevelReader;getFluidState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin skipFluidCheck(Lnet/minecraft/world/level/material/FluidState;)Lnet/minecraft/world/level/material/Fluid;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/material/FluidState;getType()Lnet/minecraft/world/level/material/Fluid;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin fluidCheckAndGetBlock(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/Block;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\n",
+    "error_log_lines": [
+      "[05:12:31] [Yggdrasil Key Fetcher/ERROR] [mojang/YggdrasilServicesKeyInfo]: Failed to request yggdrasil public key"
+    ],
+    "fatal_compatibility_exception": false,
+    "passed": true
+  },
+  "probes": {
+    "quilt": {
+      "markers": [
+        "\u001b[mNATIVE_QUILT_PROBE CLASS_DEFINED",
+        "NATIVE_QUILT_PROBE PASS stage=pre_launch count=1 native_id=unified-quilt-probe group=dev.infinity.probes version=0.1.0+native source=run/unified-combined-98d-retry2/mods/unified-native-quilt-probe-0.1.0.jar sha256=f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04",
+        "NATIVE_QUILT_PROBE PASS stage=init count=1 registry=unified_quilt_probe:anchor",
+        "NATIVE_QUILT_PROBE PASS stage=method_reference count=1 order=after_init",
+        "NATIVE_QUILT_PROBE PASS stage=server_init count=1",
+        "NATIVE_QUILT_PROBE PASS stage=automatic_ready count=1",
+        "NATIVE_QUILT_PROBE PASS stage=ready phase=create marker=native_quilt_qsl_alpha5_v1 read_before_write=false",
+        "NATIVE_QUILT_PROBE PASS stage=ready_to_save ticks=5 mixin_ticks=5 auto_ready=1 phase=create",
+        "NATIVE_QUILT_PROBE PASS stage=stopped ticks=368"
+      ],
+      "stage_counts": {
+        "pre_launch": 1,
+        "init": 1,
+        "method_reference": 1,
+        "server_init": 1,
+        "automatic_ready": 1,
+        "ready": 1,
+        "ready_to_save": 1,
+        "stopped": 1
+      },
+      "class_defined_count": 1,
+      "entrypoint_order_valid": true,
+      "original_jar_identity_verified": true,
+      "saved_data_phase_verified": true,
+      "qsl_and_mixin_tick_verified": true,
+      "loopback_binding_verified": true,
+      "server_ready": true,
+      "save_acknowledged": true,
+      "all_dimensions_saved": true,
+      "no_probe_failure": true,
+      "passed": true
+    },
+    "clumps": {
+      "markers": [
+        "UNIFIED_CLUMPS_PROBE PASS stage=constructor count=1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=server_started phase=create players=0 max_post_ticks=200",
+        "UNIFIED_CLUMPS_PROBE PASS stage=post_tick count=1 haveTime=false",
+        "UNIFIED_CLUMPS_PROBE PASS stage=seeded entities=6 units=6 xp=72 map=1:1,3:1,7:2,17:1,37:1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=merge initial_entities=6 final_entities=1 units=6 xp=72 stable_observations=5 post_ticks=32",
+        "UNIFIED_CLUMPS_PROBE PASS stage=nbt_roundtrip entities=1 units=6 xp=72 clumped_map=true in_memory=true",
+        "UNIFIED_CLUMPS_PROBE PASS stage=world_create survivor=bcff5563-b1a7-4653-ae73-597d663d75a2 saved_data=clumps_forge_19_0_0_1_probe_v1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=ready_to_save phase=create post_ticks=32 xp=72"
+      ],
+      "stage_order": [
+        "constructor",
+        "server_started",
+        "post_tick",
+        "seeded",
+        "merge",
+        "nbt_roundtrip",
+        "world_create",
+        "ready_to_save"
+      ],
+      "expected_stage_order": [
+        "constructor",
+        "server_started",
+        "post_tick",
+        "seeded",
+        "merge",
+        "nbt_roundtrip",
+        "world_create",
+        "ready_to_save"
+      ],
+      "stage_counts": {
+        "constructor": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "seeded": 1,
+        "merge": 1,
+        "nbt_roundtrip": 1,
+        "world_create": 1,
+        "ready_to_save": 1
+      },
+      "passed": true
+    },
+    "passed": true
+  },
+  "host_evidence": {
+    "forge_prepared_lines": [
+      "\u001b[m\u001b[32m[05:11:47.990] [main/INFO] [forge.discovery.ForgeModFileReader/]: Unified Forge ABI slice prepared source=run/unified-combined-98d-retry2/mods/Clumps-forge-1.21.1-19.0.0.1.jar sha256=e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19 derived=run/unified-combined-98d-retry2/.cache/connector/forge52/6339158ea75ad1531559dbac22ff4b0b591c7fcdce05f4f3e3049fd7c1e73844.jar cacheHit=false ",
+      "\u001b[m\u001b[32m[05:11:48.026] [main/INFO] [forge.discovery.ForgeModFileReader/]: Unified Forge ABI slice prepared source=run/unified-combined-98d-retry2/mods/unified-clumps-probe-0.1.0.jar sha256=b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09 derived=run/unified-combined-98d-retry2/.cache/connector/forge52/5293114caf491c0a55ed109d95a1207651eb7d795dfb18cc787aef198f2ffb2a.jar cacheHit=false "
+    ],
+    "forge_two_originals_exactly_once": true,
+    "forge_cache_hits": 0,
+    "one_host_mixin_service": true,
+    "mixin_service_lines": [
+      "\u001b[m\u001b[32m[05:11:47.113] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:run/unified-combined-98d-retry2/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER "
+    ],
+    "original_absent_refmap_warning": [
+      "\u001b[m\u001b[33m[05:12:21.158] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message "
+    ],
+    "native_host_launch": true
+  },
+  "offline_world_after_stop": {
+    "mixed_pack": {
+      "inventories": {
+        "source": {
+          "id": "minecraft:chest",
+          "inventory": []
+        },
+        "hopper": {
+          "id": "minecraft:hopper",
+          "inventory": []
+        },
+        "sink": {
+          "id": "farmersdelight:cooking_pot",
+          "inventory": [
+            {
+              "slot": 8,
+              "id": "farmersdelight:cooked_rice",
+              "count": 2
+            }
+          ]
+        },
+        "contents": {
+          "id": "minecraft:chest",
+          "inventory": [
+            {
+              "slot": 0,
+              "id": "farmersdelight:tomato",
+              "count": 7
+            },
+            {
+              "slot": 1,
+              "id": "farmersdelight:cabbage",
+              "count": 5
+            },
+            {
+              "slot": 2,
+              "id": "farmersdelight:rope",
+              "count": 3
+            },
+            {
+              "slot": 3,
+              "id": "farmersdelight:iron_knife",
+              "count": 1
+            }
+          ]
+        },
+        "cutting_board": {
+          "id": "farmersdelight:cutting_board",
+          "inventory": []
+        }
+      },
+      "block_states": {
+        "source": {
+          "Name": "minecraft:chest",
+          "Properties": {
+            "type": "single",
+            "waterlogged": "false",
+            "facing": "north"
+          }
+        },
+        "hopper": {
+          "Name": "minecraft:hopper",
+          "Properties": {
+            "enabled": "true",
+            "facing": "down"
+          }
+        },
+        "sink": {
+          "Name": "farmersdelight:cooking_pot",
+          "Properties": {
+            "waterlogged": "false",
+            "support": "none",
+            "facing": "north"
+          }
+        },
+        "contents": {
+          "Name": "minecraft:chest",
+          "Properties": {
+            "type": "single",
+            "waterlogged": "false",
+            "facing": "north"
+          }
+        },
+        "cutting_board": {
+          "Name": "farmersdelight:cutting_board",
+          "Properties": {
+            "waterlogged": "false",
+            "facing": "north"
+          }
+        },
+        "stove": {
+          "Name": "farmersdelight:stove",
+          "Properties": {
+            "facing": "north",
+            "lit": "true"
+          }
+        }
+      },
+      "chunky_full_target_chunks": [
+        {
+          "x": 127,
+          "z": 127,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 127,
+          "z": 128,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 127,
+          "z": 129,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 128,
+          "z": 127,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 128,
+          "z": 128,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 128,
+          "z": 129,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 129,
+          "z": 127,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 129,
+          "z": 128,
+          "status": "minecraft:full"
+        },
+        {
+          "x": 129,
+          "z": 129,
+          "status": "minecraft:full"
+        }
+      ],
+      "all_target_chunks_full": true,
+      "on_disk_matches_console": true
+    },
+    "clumps": {
+      "passed": true,
+      "orb": {
+        "count": 1,
+        "clumped_map": {
+          "1": 1,
+          "3": 1,
+          "7": 2,
+          "37": 1,
+          "17": 1
+        },
+        "weighted_xp": 72,
+        "original_orb_multiplicity": 6,
+        "uuid": [
+          -1124117149,
+          -1314437549,
+          -1368172163,
+          1715303842
+        ],
+        "position": [
+          8.35,
+          100.1,
+          8.5
+        ],
+        "vanilla_value": 72,
+        "vanilla_count": 5,
+        "age": 317
+      },
+      "saved_data_marker": "clumps_forge_19_0_0_1_probe_v1",
+      "saved_data": {
+        "survivor": [
+          -1124117149,
+          -1314437549,
+          -1368172163,
+          1715303842
+        ],
+        "marker": "clumps_forge_19_0_0_1_probe_v1"
+      },
+      "entity_chunks_inspected": 9,
+      "empty_entity_region_placeholders": [
+        "entities/r.-1.0.mca",
+        "entities/r.0.-1.mca"
+      ],
+      "world_version": {
+        "Id": 3955,
+        "Name": "1.21.1",
+        "Series": "main",
+        "Snapshot": 0
+      },
+      "files": {
+        "level.dat": "b843b1de1be022610a0ceffdab11c8a0661e09d167a5f17a84f42b69c7a9ebdb",
+        "data/unified_clumps_probe.dat": "5300c5dee2d3fae18da5eedae9869b539ea0457a2e6b4b568c26f3487d753931",
+        "entities/r.-1.-1.mca": "fcd83d29c8e9cc193b19a682d054eae17f50e34da5dc3942b277ca5aecc27414",
+        "entities/r.-1.0.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "entities/r.0.0.mca": "8b1e8328873067b09dcc7a619c8437cf1f55e8735e482b608313f75f5435ee04",
+        "entities/r.3.4.mca": "2dec4f59b0123d0620deeea347ad8595e17944fee3fda157a6da4b80c2069bcc",
+        "entities/r.4.3.mca": "d1ef606a9e6f6845d69ba53898d0156ac5350a54f2c5e90ad14f43fa49e9cefc",
+        "entities/r.4.4.mca": "f06c13a5068419f4a8553f5a333df02d6545dd3de59cc3b33d45e896d2668846"
+      },
+      "schema_evidence": "Approved Clumps MixinExperienceOrb bytecode: clumpedMap compound, XP string keys, int multiplicities",
+      "scope": "One naturally merged six-orb clump persisted in a local world; no pickup, mending or player claim"
+    },
+    "quilt": {
+      "passed": true,
+      "saved_data_marker": "native_quilt_qsl_alpha5_v1",
+      "saved_data_version": 3955,
+      "world_version": {
+        "Id": 3955,
+        "Name": "1.21.1",
+        "Series": "main",
+        "Snapshot": 0
+      },
+      "saved_data_sha256": "39e5a3aea3408fc4ea8002cbeeec76ce8be0174a8ab6b9b3ebb11ad34248a9f2",
+      "scope": "SavedData roundtrip only; registry object identity is verified by the original runtime probe"
+    },
+    "canonical_chunky_targets": [
+      {
+        "x": 127,
+        "z": 127,
+        "sha256": "bf4e21047bd112164925627f1c386d1d361f486d2555b1f0f4567f8b6f7e47f6",
+        "native_equal": true
+      },
+      {
+        "x": 127,
+        "z": 128,
+        "sha256": "ae806539f259a4fefe9f1818239f4a6955251a814cc43ce850438c37a99287da",
+        "native_equal": true
+      },
+      {
+        "x": 127,
+        "z": 129,
+        "sha256": "e69adaa9ce4b54e8adc28ca2395e60c703506f642d67d40d1572021eb5ebda63",
+        "native_equal": true
+      },
+      {
+        "x": 128,
+        "z": 127,
+        "sha256": "ad92c39c90ce59d676d40d931651035fa9c6c1f7738b016b862c66fc6b657bc3",
+        "native_equal": true
+      },
+      {
+        "x": 128,
+        "z": 128,
+        "sha256": "02317f840d52d80fac6992cf45cb7d17a2578bd9018a2edf67bb5e5b7753c3d4",
+        "native_equal": true
+      },
+      {
+        "x": 128,
+        "z": 129,
+        "sha256": "f92019ec95280fb05da85a2a759f471d4399f13a931a1c2b418f9fad10c11fa4",
+        "native_equal": true
+      },
+      {
+        "x": 129,
+        "z": 127,
+        "sha256": "f916a5d200a743f464c08ec06ac668773603bbb954390309d73b8f8493ae6399",
+        "native_equal": true
+      },
+      {
+        "x": 129,
+        "z": 128,
+        "sha256": "0eedf36c6b834fb60347ae01404c9dc72a1e17e0e17e4db46ac148ae2cacd8dd",
+        "native_equal": true
+      },
+      {
+        "x": 129,
+        "z": 129,
+        "sha256": "f6d095c396e2430e8c117bc0df56c0f3df0749acba97b231d15ddb1522f52815",
+        "native_equal": true
+      }
+    ],
+    "forced_chunks": [
+      0
+    ],
+    "clumps_platform": {
+      "Name": "minecraft:stone"
+    },
+    "passed": true
+  },
+  "all_inputs_unchanged": true,
+  "command": [
+    ".toolchains/jdk-21.0.12.1+1/bin/java",
+    "-Xms512M",
+    "-Xmx2G",
+    "-Djava.awt.headless=true",
+    "-Dunified.clumpsProbe.phase=create",
+    "-Dunified.quiltProbe.phase=create",
+    "@libraries/net/neoforged/neoforge/21.1.219/unix_args.txt",
+    "nogui"
+  ],
+  "probe_barrier_passed": true,
+  "forced_chunk_query_count": 1,
+  "freeze_acknowledged": true,
+  "world_after": {
+    "DIM-1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "DIM-1/data/raids.dat": "71b645479daf2a26d76958c7ff6ff3694d2883fec2e64a30c9d53d4c71f4c9e5",
+    "DIM1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "DIM1/data/raids_end.dat": "71b645479daf2a26d76958c7ff6ff3694d2883fec2e64a30c9d53d4c71f4c9e5",
+    "data/chunks.dat": "06907f871ea2578a5cddc7d04798bf62bbb81aa07ae6e696fd99ea16fc984ee4",
+    "data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "data/raids.dat": "71b645479daf2a26d76958c7ff6ff3694d2883fec2e64a30c9d53d4c71f4c9e5",
+    "data/random_sequences.dat": "ec00f7f1219c75c33f31bcfca9777a864cd8256318b48faf02178ec01dd2d0f4",
+    "data/unified_clumps_probe.dat": "5300c5dee2d3fae18da5eedae9869b539ea0457a2e6b4b568c26f3487d753931",
+    "data/unified_quilt_probe.dat": "39e5a3aea3408fc4ea8002cbeeec76ce8be0174a8ab6b9b3ebb11ad34248a9f2",
+    "entities/r.-1.-1.mca": "fcd83d29c8e9cc193b19a682d054eae17f50e34da5dc3942b277ca5aecc27414",
+    "entities/r.-1.0.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "entities/r.0.0.mca": "8b1e8328873067b09dcc7a619c8437cf1f55e8735e482b608313f75f5435ee04",
+    "entities/r.3.4.mca": "2dec4f59b0123d0620deeea347ad8595e17944fee3fda157a6da4b80c2069bcc",
+    "entities/r.4.3.mca": "d1ef606a9e6f6845d69ba53898d0156ac5350a54f2c5e90ad14f43fa49e9cefc",
+    "entities/r.4.4.mca": "f06c13a5068419f4a8553f5a333df02d6545dd3de59cc3b33d45e896d2668846",
+    "level.dat": "b843b1de1be022610a0ceffdab11c8a0661e09d167a5f17a84f42b69c7a9ebdb",
+    "level.dat_old": "2db7f7b75074285258e08ff75d1a6d6e5614bab281783ca389fa408022b2f951",
+    "poi/r.-1.-1.mca": "bf857459335d8890ee52c9a91c3fc928a65041cd5e124e83d4db083afbbd9e82",
+    "region/r.-1.-1.mca": "80b8018c23507f1b8d16baaebc266ec47d2f4679b90ed024cc3d8c6c3d991d65",
+    "region/r.-1.0.mca": "77776e16e79a441f82ecc59164ee9c73c800a4a46d9520238dc214be364d53ae",
+    "region/r.0.-1.mca": "d49edfcea97b1e1231c068838cb1bec2c05b7ada12dcc7848ec1439b5f28180f",
+    "region/r.0.0.mca": "e40fa60e324941ca677645215807a5df5447487be1a9a453e8a6b930dece2a28",
+    "region/r.3.3.mca": "52eb6e2a6e7a3c1532bb88236f83ef587ce4bd561acd481dca2ae60c728b5e16",
+    "region/r.3.4.mca": "9c6f30703918aabba212801ccab6ed48fc12e7aba86cdc0f44ed25d9aebe2fd2",
+    "region/r.4.3.mca": "a0a430f572966210570b8fb3649242e56f418ca91a23b9f216c137bbb8317c87",
+    "region/r.4.4.mca": "2a5f60003c3f9c3991a86ad3b6e2bc1ec75e2d49fbbd8760e6554246ba27bafa",
+    "serverconfig/readme.txt": "b1022ab932f8f0ea0cf78d9f312e95b85a4f96f59ca430e63f9a435e512d1186",
+    "session.lock": "51643361c79ecaef25a8de802de24f570ba25d9c2df1d22d94fade11b4f466cc"
+  },
+  "log_sha256": "5ba302bca740ad085a17eb557132cb2a236fa71a8bc049025a96c13abe2350dd"
+}

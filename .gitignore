@@ -22,3 +22,22 @@ source-workspace/regression-tests/classes/
 !source-workspace/artifacts/
 source-workspace/artifacts/*
 !source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip
+
+# Deliberately tracked accepted source; generated rebuild directories remain ignored.
+!source-workspace/connector-four-loader/
+!source-workspace/connector-four-loader/**
+source-workspace/connector-four-loader/.git/
+source-workspace/connector-four-loader/.gradle/
+source-workspace/connector-four-loader/**/build/
+source-workspace/connector-four-loader/**/classes/
+source-workspace/connector-four-loader/**/test-classes/
+# Digest-pinned accepted probe source/build reports, not executable artifacts.
+!four-loader/clumps-probe/build/
+four-loader/clumps-probe/build/*
+!four-loader/clumps-probe/build/build-report.json
+!four-loader/quilt-probe/build/
+four-loader/quilt-probe/build/*
+!four-loader/quilt-probe/build/build-report.json
+source-workspace/connector-four-loader/**/.gradle/
+source-workspace/connector-four-loader/**/.git/
+source-workspace/connector-four-loader/**/run/

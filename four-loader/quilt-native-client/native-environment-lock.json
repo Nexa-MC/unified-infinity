@@ -1,0 +1,820 @@
+{
+  "result": "NATIVE_CLIENT_ACCEPTANCE_PASS",
+  "sourceInputs": {
+    "minecraft": "1.21.1",
+    "gameInputs": [
+      {
+        "source": "run/client-dev/versions/1.21.1/1.21.1.jar",
+        "path": "run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/minecraft-client.jar",
+        "sha1": "30c73b1c5da787909b2f73340419fdf13b9def88",
+        "sha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+        "url": "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar"
+      },
+      {
+        "source": "run/client-dev/gradle-cache/caches/neoformruntime/artifacts/minecraft_1.21.1_server.jar",
+        "path": "run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/minecraft-server.jar",
+        "sha1": "59353fb40c36d304f2035d51e7d6e6baa98dc05c",
+        "sha256": "e3bc55693e93cda0188f2e60aea28113fc647c5e85a15fa3d1b347349231b4bb",
+        "url": "https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar"
+      }
+    ],
+    "assetIndex": {
+      "id": "17",
+      "sha1": "9b16298b1dc0697878cec88bb2d96168f5239e4f",
+      "size": 449557,
+      "totalSize": 825003775,
+      "url": "https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json"
+    },
+    "assetObjects": 3888,
+    "mods": [
+      {
+        "source": "docs/four-loader/quilt/candidates/optab-2.0.0V1.21.1+1.21.jar",
+        "path": "run/quilt-native-client/original-mods/optab-2.0.0V1.21.1+1.21.jar",
+        "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296"
+      },
+      {
+        "source": "docs/four-loader/quilt/upstream/qsl_base-alpha5.jar",
+        "path": "run/quilt-native-client/original-mods/qsl_base-alpha5.jar",
+        "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+      },
+      {
+        "source": "docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar",
+        "path": "run/quilt-native-client/original-mods/lifecycle_events-alpha5.jar",
+        "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar",
+        "path": "run/quilt-native-client/original-mods/fabric-api-0.116.7+1.21.1.jar",
+        "sha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4"
+      }
+    ],
+    "sharedInputsReadOnly": true,
+    "gameLaunched": false,
+    "profileMode": "loom_named_classpath",
+    "loomInputClosure": [
+      {
+        "source": "docs/four-loader/quilt/candidates/optab-2.0.0V1.21.1+1.21.jar",
+        "path": "run/quilt-native-client/original-mods/optab-2.0.0V1.21.1+1.21.jar",
+        "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296"
+      },
+      {
+        "source": "docs/four-loader/quilt/upstream/qsl_base-alpha5.jar",
+        "path": "run/quilt-native-client/original-mods/qsl_base-alpha5.jar",
+        "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+      },
+      {
+        "source": "docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar",
+        "path": "run/quilt-native-client/original-mods/lifecycle_events-alpha5.jar",
+        "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar",
+        "path": "run/quilt-native-client/original-mods/fabric-api-0.116.7+1.21.1.jar",
+        "sha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-api-base-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-api-base-0.116.7.jar",
+        "sha256": "1def6e18f8b56c566b2b3d6ec40d3528457787fcaf09ad093312377b0ff24126"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-api-lookup-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-api-lookup-api-v1-0.116.7.jar",
+        "sha256": "a4395d9764b42e24a61c0dae1565ab83900a27b80d4669f69bc4de91273e9b7f"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-biome-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-biome-api-v1-0.116.7.jar",
+        "sha256": "26b727b72c9e3fe2dd53ffeaa93d1fda0366386bad4d0e699dcbff0ef545711d"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-block-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-block-api-v1-0.116.7.jar",
+        "sha256": "fb320332fc1afe7a3fc347df3657ae8d16014984c1c76f569358f185052e2f51"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-block-view-api-v2-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-block-view-api-v2-0.116.7.jar",
+        "sha256": "bb5bb230c3280908ffab5d6668aeafbee82c69fc65d1872ce1d6de614b5198d1"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-blockrenderlayer-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-blockrenderlayer-v1-0.116.7.jar",
+        "sha256": "62117a7371816d35e687585e810ca0ded4ba8c9d855d10f92cc27c1ec0811e82"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-client-tags-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-client-tags-api-v1-0.116.7.jar",
+        "sha256": "33c2fedb85e354b2cf97aa3efde8ff5543d160efffa7ba90fd16745c32e64390"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-command-api-v2-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-command-api-v2-0.116.7.jar",
+        "sha256": "80965ecb18507ad7abb020910a70b2d7249d22740cdbe629a5b187e83b7b7cea"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-content-registries-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-content-registries-v0-0.116.7.jar",
+        "sha256": "bf52fb53dee3cb32698238736ee2515e238127ee358b079b4d8bd8a66ecb2e53"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-convention-tags-v2-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-convention-tags-v2-0.116.7.jar",
+        "sha256": "dd30456bdbbe5fedcc1c4e966974d034955e95078b47da85d127a66b2f4cc0ae"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-crash-report-info-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-crash-report-info-v1-0.116.7.jar",
+        "sha256": "1d22cdbf0b54e4aa048622dc4f23d4ab6169d9e147aa490a68155f9be7696410"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-data-attachment-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-data-attachment-api-v1-0.116.7.jar",
+        "sha256": "45e398c25919df136cdbf293baed236d75b199b15029ddfe7f9185e33737496a"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-data-generation-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-data-generation-api-v1-0.116.7.jar",
+        "sha256": "2e485e2e79733db8b1910dcb022f2124b39dd28017cc1d2175385f53ce63993d"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-dimensions-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-dimensions-v1-0.116.7.jar",
+        "sha256": "e7bf78164562be93c572c75ffa288caf3c9f6fe5dd2eb1ac1c263a45a180bd42"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-entity-events-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-entity-events-v1-0.116.7.jar",
+        "sha256": "9da2bbd3f32dc82ff979f328fd08132941734f51494fe26341ee96335939ca55"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-events-interaction-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-events-interaction-v0-0.116.7.jar",
+        "sha256": "f64b3e72942185eb5c09e9e7bfe148d08772aa6ba29c766d8cb27109f14b16b2"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-game-rule-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-game-rule-api-v1-0.116.7.jar",
+        "sha256": "343c96795739d320e9b839e9ba000f2eba9106c68597d3d8caa2bde9911198d1"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-item-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-item-api-v1-0.116.7.jar",
+        "sha256": "07230cf952b5043f8694fdba21fcd779f31c6d0df2d93bf16f5eda3c8ae00d05"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-item-group-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-item-group-api-v1-0.116.7.jar",
+        "sha256": "2ff056897202cd243ad680ea7a0dd9a7aaf877d6f2330a7d45f018649cebee8f"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-key-binding-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-key-binding-api-v1-0.116.7.jar",
+        "sha256": "e5a4a7d9faf54048e404fa66ea5b748182fc90ccac32c74d2569665858f494d9"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-lifecycle-events-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-lifecycle-events-v1-0.116.7.jar",
+        "sha256": "010b9a23f98b7ff3fa1566ecd7581b82ccb43f14d9f0c8b00be836c57ec1db92"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-loot-api-v3-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-loot-api-v3-0.116.7.jar",
+        "sha256": "ee347abb17df6a4f3cd4a7fa433aa684949521bfb6d46ac9945d70448cfef1ac"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-message-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-message-api-v1-0.116.7.jar",
+        "sha256": "8fa5e66872e34a953671f8ea7c0132650779e962a5612e681e992f2f99e9bdb8"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-model-loading-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-model-loading-api-v1-0.116.7.jar",
+        "sha256": "9157276be22c7afde3f5200168c6dda55f7f3efa9a132b2d7b0a6b0f7f7b50c3"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-networking-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-networking-api-v1-0.116.7.jar",
+        "sha256": "f9b586dd364f0fe14350e0781b4532d944a3897112960062221614ff54654964"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-object-builder-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-object-builder-api-v1-0.116.7.jar",
+        "sha256": "1186aa5d88e39156718570e2be16f2d1092bf9f8739ae974baf8313cf2d7034f"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-particles-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-particles-v1-0.116.7.jar",
+        "sha256": "7e51865afc7131a1097ba5c9ce0e03eaa5bbe6ecc9a84f26a4a95f5aaaa16153"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-recipe-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-recipe-api-v1-0.116.7.jar",
+        "sha256": "49493f93ff35bbfbc88ad0290d7e8b72acf46d83b1b5fc0f6101f416b7776ff7"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-registry-sync-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-registry-sync-v0-0.116.7.jar",
+        "sha256": "7daf2718cc47833069b8ec0d3a85b6c19df10e1523aa4f52dd4434068662c975"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-renderer-api-v1-0.116.7.jar",
+        "sha256": "15dedfd61715dca38815063156cd81f6f2f31483e880e0cc86db231a19281925"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-indigo-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-renderer-indigo-0.116.7.jar",
+        "sha256": "a9b573164200862761aafbd0ece31f0043314886dfb2a554c0042c1b9a7d112b"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-fluids-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-rendering-fluids-v1-0.116.7.jar",
+        "sha256": "82c02d122663a7e989fa3a511c10232fea2d2f790aa65b19aedaacbe8d8cc244"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-rendering-v1-0.116.7.jar",
+        "sha256": "6fba0afe72dcaecfed6d6770d2dbbf0cfbd45d5cecdd257d8cc3f72214accc25"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-resource-conditions-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-resource-conditions-api-v1-0.116.7.jar",
+        "sha256": "a06601feb3a077657f03498c5ac9af630afca1fba3ac258f411715917148e944"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-resource-loader-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-resource-loader-v0-0.116.7.jar",
+        "sha256": "03c15ff10eb44e6402a8f40ee49d8fec19638c67951cd190184433de3557bff5"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-screen-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-screen-api-v1-0.116.7.jar",
+        "sha256": "404939a0039ec9db0d4157a62a6c6b16452683351fd8a55b163fced4ae66e13c"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-screen-handler-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-screen-handler-api-v1-0.116.7.jar",
+        "sha256": "c5b5a5c43bd9499c7cda37dbd1799941015f292eeb65139c9ec8fbe867d63a7f"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-sound-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-sound-api-v1-0.116.7.jar",
+        "sha256": "77401a74e7b67e3231d7604563045f45c7e2ff58ab5d64958ffc1f19542464f9"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-transfer-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-transfer-api-v1-0.116.7.jar",
+        "sha256": "7a5110a6eccea7166761dca98d335d37596783ddf26a6e3f7be26a05b10858a9"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-transitive-access-wideners-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-transitive-access-wideners-v1-0.116.7.jar",
+        "sha256": "5216609190bab0ea8a93ec6d371a4eec8927bbc0de75062f835163389f919e88"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-command-api-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-command-api-v1-0.116.7.jar",
+        "sha256": "bb4cbf193d66b86ebfc2a0e3c1ef649e444d15fe689c797c49d158a305b32245"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-commands-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-commands-v0-0.116.7.jar",
+        "sha256": "a1ac2cdd5761a50de675cf238001324e7e90e27bb03896402230d41fbe035b90"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-convention-tags-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-convention-tags-v1-0.116.7.jar",
+        "sha256": "515ca9175543e1e032c5bc64abbb94b9dc2f76c486a733ead4299fbf8694b9cf"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-keybindings-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-keybindings-v0-0.116.7.jar",
+        "sha256": "8f957af7bd46edecbfe3966792a84e62b1aba0c1a21d9257565b78ad74546d69"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-loot-api-v2-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-loot-api-v2-0.116.7.jar",
+        "sha256": "7cc99a3b4e622813bcea469c58ecf2df3ce48feb119dee75c03409dd55afef75"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-registries-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-renderer-registries-v1-0.116.7.jar",
+        "sha256": "dc95b2ed86791db0cfb66ca70f561fe1c3dcf1b4fbf0a6e4d02acff01f859ab0"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-data-attachment-v1-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-rendering-data-attachment-v1-0.116.7.jar",
+        "sha256": "c5ea50396f8c3f36970732ea9ff2c3cce543d6406f06cbc2c877f27b4de91ec3"
+      },
+      {
+        "source": "docs/research/upstream/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-v0-0.116.7.jar",
+        "path": "run/quilt-native-client/original-nested-mods/fabric-rendering-v0-0.116.7.jar",
+        "sha256": "ee621146f8dabafdcdeb1e46c445ca568a586aef15e863919fbfa4d44346489f"
+      }
+    ]
+  },
+  "sealedOfficialLaunch": {
+    "command": [
+      ".toolchains/jdk-21.0.12.1+1/bin/java",
+      "-Dfabric.dli.config=four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/launch.cfg",
+      "-Dfabric.dli.env=client",
+      "-Xms256M",
+      "-Xmx1536M",
+      "-XX:ActiveProcessorCount=2",
+      "-Dfabric.dli.main=org.quiltmc.loader.impl.launch.knot.KnotClient",
+      "-classpath",
+      "run/quilt-native-client/build/classes/java/main:run/quilt-native-client/build/resources/main:run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/mappings.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.17.3+mixin.0.8.7/41c4a3984a80f4679e759fb9f495587acc5cdac7/sponge-mixin-0.17.3+mixin.0.8.7.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.quiltmc/quilt-json5/1.0.4+final/c7705a5fca3d4e85a8c8a1fc0c6c5758c0a0325c/quilt-json5-1.0.4+final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm/9.10.1/ada2141c0cc52ee8f5c48cd5fa4ce0e794f22236/asm-9.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.10.1/8d49f14d51f632cb1d87c88d1ceaf50db0d8af1b/asm-analysis-9.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.10.1/4229e4c55fd8e01c23f9fe9884075cc628aacc50/asm-commons-9.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.10.1/e244332a17564c1d1572449399a842de35881be2/asm-tree-9.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.10.1/7bb9d450e8d4cbf9f9e04096c44bbfe7fba80b15/asm-util-9.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.quiltmc/quilt-config/1.3.3/545505bf3582359ec2bcafb14435a0621bca583/quilt-config-1.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.github.llamalad7/mixinextras-fabric/0.5.4/5e167154bcb9942111313a5e186e16cd7265f858/mixinextras-fabric-0.5.4.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.fabricmc/dev-launch-injector/0.2.1+build.8/da8bef7e6e2f952da707f282bdb46882a0fce5e3/dev-launch-injector-0.2.1+build.8.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.minecrell/terminalconsoleappender/1.3.0/b562e9bb61235c9520e26282cdee71f8f802d1fc/terminalconsoleappender-1.3.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.ibm.icu/icu4j/73.2/61ad4ef7f9131fcf6d25c34b817f90d6da06c9e9/icu4j-73.2.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/blocklist/1.0.10/5c685c5ffa94c4cd39496c7184c1d122e515ecef/blocklist-1.0.10.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/datafixerupper/8.0.16/67d4de6d7f95d89bcf5862995fb854ebaec02a34/datafixerupper-8.0.16.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/logging/1.2.7/24cb95ffb0e3433fd6e844c04e68009e504ca1c0/logging-1.2.7.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/patchy/2.2.10/da05971b07cbb379d002cf7eaec6a2048211fefc/patchy-2.2.10.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/text2speech/1.17.9/3cad216e3a7f0c19b4b394388bc9ffc446f13b14/text2speech-1.17.9.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/commons-codec/commons-codec/1.16.0/4e3eb3d79888d76b54e28b350915b5dc3919c9de/commons-codec-1.16.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.97.Final/f8f3d8644afa5e6e1a40a3a6aeb9d9aa970ecb4f/netty-buffer-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.97.Final/384ba4d75670befbedb45c4d3b497a93639c206d/netty-codec-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-common/4.1.97.Final/7cceacaf11df8dc63f23d0fb58e9d4640fc88404/netty-common-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.97.Final/abb86c6906bf512bf2b797a41cd7d2e8d3cd7c36/netty-handler-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.97.Final/cec8348108dc76c47cf87c669d514be52c922144/netty-resolver-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.97.Final/795da37ded759e862457a82d9d92c4d39ce8ecee/netty-transport-classes-epoll-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/5514744c588190ffda076b35a9b8c9f24946a960/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/54188f271e388e7f313aea995e82f58ce2cdb809/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.97.Final/d469d84265ab70095b01b40886cabdd433b6e664/netty-transport-native-unix-common-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.97.Final/f37380d23c9bb079bc702910833b2fd532c9abd0/netty-transport-4.1.97.Final.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.14.0/28934d48aed814f11e4c584da55c49fa7032b31b/jna-platform-5.14.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.14.0/67bf3eaea4f0718cb376a181a629e5f88fa1c9dd/jna-5.14.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.26.0/659feffdd12280201c8aacb8f7be94f9a883c824/commons-compress-1.26.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/51cf043c87253c9f58b539c9f7e44c8894223850/httpcore-4.4.16.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.22.1/7183a25510a02ad00cc6a95d3b3d2a7d3c5a8dc4/log4j-core-2.22.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.22.1/bea6fede6328fabafd7e68363161a7ea6605abd1/log4j-api-2.22.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.22.1/d7e6693c2606cb7e7335047d7bb96dec52db5665/log4j-slf4j2-impl-2.22.1.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/a0db6c84a8becc8ca05f9dbfa985edc348a824c7/lwjgl-freetype-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/149070a5480900347071b7074779531f25a6e3dc/lwjgl-freetype-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/efa1eb78c5ccd840e9f329717109b5e892d72f8e/lwjgl-glfw-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2/lwjgl-glfw-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/b543467b7ff3c6920539a88ee602d34098628be5/lwjgl-jemalloc-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/4f86728bf449b1dd61251c4e0ac01df1389cb51e/lwjgl-jemalloc-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/daada81ceb5fc0c291fbfdd4433cb8d9423577f2/lwjgl-openal-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/3037360cc4595079bea240af250b6d1a527e0905/lwjgl-openal-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/2f6b0147078396a58979125a4c947664e98293a/lwjgl-opengl-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/62c70a4b00ca5391882b0f4b787c1588d24f1c86/lwjgl-opengl-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/25dd6161988d7e65f71d5065c99902402ee32746/lwjgl-stb-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/fd1271ccd9d85eff2fa31f3fd543e02ccfaf5041/lwjgl-stb-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/82d755ca94b102e9ca77283b9e2dc46d1b15fbe5/lwjgl-tinyfd-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/d8d58daa0c3e5fd906fee96f5fddbcbc07cc308b/lwjgl-tinyfd-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/1713758e3660ba66e1e954396fd18126038b33c0/lwjgl-3.3.3-natives-linux.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/minecraftMaven/net/minecraft/minecraft-merged-a5118d8d39/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-merged-a5118d8d39-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.quiltmc/quilt-loader/0.30.1/2fa21d6438f63c8dd40f2e81290b0a09de1442b3/quilt-loader-0.30.1.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/optab-2.0.0V1.21.1+1.21/6121446645d4/optab-2.0.0V1.21.1+1.21-6121446645d4.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/qsl_base-alpha5/7eb4ec613f90/qsl_base-alpha5-7eb4ec613f90.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/lifecycle_events-alpha5/1a1f9b72c38e/lifecycle_events-alpha5-1a1f9b72c38e.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-0.116.7+1.21.1/08018cc48c97/fabric-api-0.116.7+1.21.1-08018cc48c97.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-base-0.116.7/1def6e18f8b5/fabric-api-base-0.116.7-1def6e18f8b5.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-lookup-api-v1-0.116.7/a4395d9764b4/fabric-api-lookup-api-v1-0.116.7-a4395d9764b4.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-biome-api-v1-0.116.7/26b727b72c9e/fabric-biome-api-v1-0.116.7-26b727b72c9e.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-block-api-v1-0.116.7/fb320332fc1a/fabric-block-api-v1-0.116.7-fb320332fc1a.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-block-view-api-v2-0.116.7/bb5bb230c328/fabric-block-view-api-v2-0.116.7-bb5bb230c328.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-blockrenderlayer-v1-0.116.7/62117a737181/fabric-blockrenderlayer-v1-0.116.7-62117a737181.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-client-tags-api-v1-0.116.7/33c2fedb85e3/fabric-client-tags-api-v1-0.116.7-33c2fedb85e3.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-command-api-v2-0.116.7/80965ecb1850/fabric-command-api-v2-0.116.7-80965ecb1850.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-content-registries-v0-0.116.7/bf52fb53dee3/fabric-content-registries-v0-0.116.7-bf52fb53dee3.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-convention-tags-v2-0.116.7/dd30456bdbbe/fabric-convention-tags-v2-0.116.7-dd30456bdbbe.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-crash-report-info-v1-0.116.7/1d22cdbf0b54/fabric-crash-report-info-v1-0.116.7-1d22cdbf0b54.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-data-attachment-api-v1-0.116.7/45e398c25919/fabric-data-attachment-api-v1-0.116.7-45e398c25919.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-data-generation-api-v1-0.116.7/2e485e2e7973/fabric-data-generation-api-v1-0.116.7-2e485e2e7973.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-dimensions-v1-0.116.7/e7bf78164562/fabric-dimensions-v1-0.116.7-e7bf78164562.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-entity-events-v1-0.116.7/9da2bbd3f32d/fabric-entity-events-v1-0.116.7-9da2bbd3f32d.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-events-interaction-v0-0.116.7/f64b3e729421/fabric-events-interaction-v0-0.116.7-f64b3e729421.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-game-rule-api-v1-0.116.7/343c96795739/fabric-game-rule-api-v1-0.116.7-343c96795739.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-item-api-v1-0.116.7/07230cf952b5/fabric-item-api-v1-0.116.7-07230cf952b5.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-item-group-api-v1-0.116.7/2ff056897202/fabric-item-group-api-v1-0.116.7-2ff056897202.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-key-binding-api-v1-0.116.7/e5a4a7d9faf5/fabric-key-binding-api-v1-0.116.7-e5a4a7d9faf5.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-lifecycle-events-v1-0.116.7/010b9a23f98b/fabric-lifecycle-events-v1-0.116.7-010b9a23f98b.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-loot-api-v3-0.116.7/ee347abb17df/fabric-loot-api-v3-0.116.7-ee347abb17df.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-message-api-v1-0.116.7/8fa5e66872e3/fabric-message-api-v1-0.116.7-8fa5e66872e3.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-model-loading-api-v1-0.116.7/9157276be22c/fabric-model-loading-api-v1-0.116.7-9157276be22c.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-networking-api-v1-0.116.7/f9b586dd364f/fabric-networking-api-v1-0.116.7-f9b586dd364f.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-object-builder-api-v1-0.116.7/1186aa5d88e3/fabric-object-builder-api-v1-0.116.7-1186aa5d88e3.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-particles-v1-0.116.7/7e51865afc71/fabric-particles-v1-0.116.7-7e51865afc71.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-recipe-api-v1-0.116.7/49493f93ff35/fabric-recipe-api-v1-0.116.7-49493f93ff35.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-registry-sync-v0-0.116.7/7daf2718cc47/fabric-registry-sync-v0-0.116.7-7daf2718cc47.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-api-v1-0.116.7/15dedfd61715/fabric-renderer-api-v1-0.116.7-15dedfd61715.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-indigo-0.116.7/a9b573164200/fabric-renderer-indigo-0.116.7-a9b573164200.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-fluids-v1-0.116.7/82c02d122663/fabric-rendering-fluids-v1-0.116.7-82c02d122663.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-v1-0.116.7/6fba0afe72dc/fabric-rendering-v1-0.116.7-6fba0afe72dc.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-resource-conditions-api-v1-0.116.7/a06601feb3a0/fabric-resource-conditions-api-v1-0.116.7-a06601feb3a0.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-resource-loader-v0-0.116.7/03c15ff10eb4/fabric-resource-loader-v0-0.116.7-03c15ff10eb4.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-screen-api-v1-0.116.7/404939a0039e/fabric-screen-api-v1-0.116.7-404939a0039e.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-screen-handler-api-v1-0.116.7/c5b5a5c43bd9/fabric-screen-handler-api-v1-0.116.7-c5b5a5c43bd9.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-sound-api-v1-0.116.7/77401a74e7b6/fabric-sound-api-v1-0.116.7-77401a74e7b6.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-transfer-api-v1-0.116.7/7a5110a6ecce/fabric-transfer-api-v1-0.116.7-7a5110a6ecce.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-transitive-access-wideners-v1-0.116.7/5216609190ba/fabric-transitive-access-wideners-v1-0.116.7-5216609190ba.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-command-api-v1-0.116.7/bb4cbf193d66/fabric-command-api-v1-0.116.7-bb4cbf193d66.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-commands-v0-0.116.7/a1ac2cdd5761/fabric-commands-v0-0.116.7-a1ac2cdd5761.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-convention-tags-v1-0.116.7/515ca9175543/fabric-convention-tags-v1-0.116.7-515ca9175543.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-keybindings-v0-0.116.7/8f957af7bd46/fabric-keybindings-v0-0.116.7-8f957af7bd46.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-loot-api-v2-0.116.7/7cc99a3b4e62/fabric-loot-api-v2-0.116.7-7cc99a3b4e62.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-registries-v1-0.116.7/dc95b2ed8679/fabric-renderer-registries-v1-0.116.7-dc95b2ed8679.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-data-attachment-v1-0.116.7/c5ea50396f8c/fabric-rendering-data-attachment-v1-0.116.7-c5ea50396f8c.jar:four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-v0-0.116.7/ee621146f8da/fabric-rendering-v0-0.116.7-ee621146f8da.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-reader/3.20.0/8f15415b022a25b473e8e16c28ae913186ffb9c4/jline-reader-3.20.0.jar:run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-terminal/3.20.0/d0ddcc708ddf527a3454c941b7b9225cc83a15ff/jline-terminal-3.20.0.jar",
+      "net.fabricmc.devlaunchinjector.Main"
+    ],
+    "workingDirectory": "run/quilt-native-client/game",
+    "manifestSha256": "bf7bb8dee6c2d5a3b33c5cf83729db92be33a96a91f37ebea8c05ff2af09733b",
+    "javaSha256": "2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d",
+    "officialClasspathArgfile": {
+      "originalTemporaryPath": "/tmp/loom-classpath16051973766716863056.args",
+      "capturedPath": "run/quilt-native-client/official-loom-classpath.args",
+      "sha256": "824e7e6a3c8b38bb8dd77b6f4ff5f583c25a93f85f0974488c0ea740a34108a9"
+    },
+    "launchConfigSha256": "a112d5c799c977cea452807bc305f6e9c05241be4a9799cc906e03ff1ff2c435",
+    "runtimeValidation": {
+      "classpathJars": 124,
+      "genuineQuiltLoaderSha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+      "mainClass": "net.fabricmc.devlaunchinjector.Main",
+      "launchConfigSha256": "a112d5c799c977cea452807bc305f6e9c05241be4a9799cc906e03ff1ff2c435",
+      "gameLaunched": false,
+      "derivedNamedMods": [
+        {
+          "id": "optab",
+          "version": "2.0.0V1.21.1+1.21",
+          "format": "quilt",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/optab-2.0.0V1.21.1+1.21/6121446645d4/optab-2.0.0V1.21.1+1.21-6121446645d4.jar",
+          "sha256": "80568e18fce5952675856cc7382cc2defea015d5974514500dcf2d4a012f5d7d",
+          "originalSha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296"
+        },
+        {
+          "id": "quilt_base",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "format": "quilt",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/qsl_base-alpha5/7eb4ec613f90/qsl_base-alpha5-7eb4ec613f90.jar",
+          "sha256": "7ffaeb0d353adadf52747a69f27100cbcd76b7f5dd9c75aa4e5925bce75264b6",
+          "originalSha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+        },
+        {
+          "id": "quilt_lifecycle_events",
+          "version": "10.0.0-alpha.5+1.21.1",
+          "format": "quilt",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/lifecycle_events-alpha5/1a1f9b72c38e/lifecycle_events-alpha5-1a1f9b72c38e.jar",
+          "sha256": "b6cca611a9bf338054aa4deea8a359ad1976f640b5f1344c9951c62e9b4ee97c",
+          "originalSha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+        },
+        {
+          "id": "fabric-api",
+          "version": "0.116.7+1.21.1",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-0.116.7+1.21.1/08018cc48c97/fabric-api-0.116.7+1.21.1-08018cc48c97.jar",
+          "sha256": "f99cc3070ce088d4b7b1ad785bd9e937a006f20e13064a3376d408729c03c7eb",
+          "originalSha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4"
+        },
+        {
+          "id": "fabric-api-base",
+          "version": "0.4.42+6573ed8c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-base-0.116.7/1def6e18f8b5/fabric-api-base-0.116.7-1def6e18f8b5.jar",
+          "sha256": "f9792cd3277a0fd5f9608b4c021f02ea7f3fcd622f07810138b96051eb6eabba",
+          "originalSha256": "1def6e18f8b56c566b2b3d6ec40d3528457787fcaf09ad093312377b0ff24126"
+        },
+        {
+          "id": "fabric-api-lookup-api-v1",
+          "version": "1.6.71+b559734419",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-api-lookup-api-v1-0.116.7/a4395d9764b4/fabric-api-lookup-api-v1-0.116.7-a4395d9764b4.jar",
+          "sha256": "4c57682a622bf327cebd847f8dd69b9d60517a8d94e63c83c51c91a35446f919",
+          "originalSha256": "a4395d9764b42e24a61c0dae1565ab83900a27b80d4669f69bc4de91273e9b7f"
+        },
+        {
+          "id": "fabric-biome-api-v1",
+          "version": "13.0.31+d527f9fd19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-biome-api-v1-0.116.7/26b727b72c9e/fabric-biome-api-v1-0.116.7-26b727b72c9e.jar",
+          "sha256": "361193a66b94fc8bdfd0346dcb6d3f9e84058f8b4804b4408df8eb008b631cc5",
+          "originalSha256": "26b727b72c9e3fe2dd53ffeaa93d1fda0366386bad4d0e699dcbff0ef545711d"
+        },
+        {
+          "id": "fabric-block-api-v1",
+          "version": "1.1.0+0bc3503219",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-block-api-v1-0.116.7/fb320332fc1a/fabric-block-api-v1-0.116.7-fb320332fc1a.jar",
+          "sha256": "6acddaa917119f793e3cead2121ceb707d1a70e941ab38c7a52383b7032b0b77",
+          "originalSha256": "fb320332fc1afe7a3fc347df3657ae8d16014984c1c76f569358f185052e2f51"
+        },
+        {
+          "id": "fabric-block-view-api-v2",
+          "version": "1.0.11+ebb2264e19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-block-view-api-v2-0.116.7/bb5bb230c328/fabric-block-view-api-v2-0.116.7-bb5bb230c328.jar",
+          "sha256": "17f726c6a453b6b9dd1657c33607b30c975e9007bb7a0ed47d67a15a9352f158",
+          "originalSha256": "bb5bb230c3280908ffab5d6668aeafbee82c69fc65d1872ce1d6de614b5198d1"
+        },
+        {
+          "id": "fabric-blockrenderlayer-v1",
+          "version": "1.1.52+0af3f5a719",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-blockrenderlayer-v1-0.116.7/62117a737181/fabric-blockrenderlayer-v1-0.116.7-62117a737181.jar",
+          "sha256": "b5aa922fa5bbf1990b25c70cf5033ee31cd1904772f634599e77b7899642eb27",
+          "originalSha256": "62117a7371816d35e687585e810ca0ded4ba8c9d855d10f92cc27c1ec0811e82"
+        },
+        {
+          "id": "fabric-client-tags-api-v1",
+          "version": "1.1.15+6573ed8c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-client-tags-api-v1-0.116.7/33c2fedb85e3/fabric-client-tags-api-v1-0.116.7-33c2fedb85e3.jar",
+          "sha256": "d5a08ec3e5aae92ecc3af585c24827eb3b24fa95f21d92027c8b113af36593f0",
+          "originalSha256": "33c2fedb85e354b2cf97aa3efde8ff5543d160efffa7ba90fd16745c32e64390"
+        },
+        {
+          "id": "fabric-command-api-v2",
+          "version": "2.2.28+6ced4dd919",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-command-api-v2-0.116.7/80965ecb1850/fabric-command-api-v2-0.116.7-80965ecb1850.jar",
+          "sha256": "4e19bb13116c39ee490eb81efac39057fe61f7dc21c2e0ef7296346317920bd6",
+          "originalSha256": "80965ecb18507ad7abb020910a70b2d7249d22740cdbe629a5b187e83b7b7cea"
+        },
+        {
+          "id": "fabric-content-registries-v0",
+          "version": "8.0.19+b559734419",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-content-registries-v0-0.116.7/bf52fb53dee3/fabric-content-registries-v0-0.116.7-bf52fb53dee3.jar",
+          "sha256": "9724107ae3d45d3eb527869ab060beb26bf9c0ce2e473a6957ba4f8e762eee3b",
+          "originalSha256": "bf52fb53dee3cb32698238736ee2515e238127ee358b079b4d8bd8a66ecb2e53"
+        },
+        {
+          "id": "fabric-convention-tags-v2",
+          "version": "2.11.1+a406e79519",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-convention-tags-v2-0.116.7/dd30456bdbbe/fabric-convention-tags-v2-0.116.7-dd30456bdbbe.jar",
+          "sha256": "90374dee1f8478520b5d70d701c2b11fcc1528fa1f42ef2791fa16fa071b6ac2",
+          "originalSha256": "dd30456bdbbe5fedcc1c4e966974d034955e95078b47da85d127a66b2f4cc0ae"
+        },
+        {
+          "id": "fabric-crash-report-info-v1",
+          "version": "0.2.29+0af3f5a719",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-crash-report-info-v1-0.116.7/1d22cdbf0b54/fabric-crash-report-info-v1-0.116.7-1d22cdbf0b54.jar",
+          "sha256": "17deb69afdd4ec266c24f97074c49bcfc7331399cee62b330d1e6a1de5651496",
+          "originalSha256": "1d22cdbf0b54e4aa048622dc4f23d4ab6169d9e147aa490a68155f9be7696410"
+        },
+        {
+          "id": "fabric-data-attachment-api-v1",
+          "version": "1.4.5+6116a37819",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-data-attachment-api-v1-0.116.7/45e398c25919/fabric-data-attachment-api-v1-0.116.7-45e398c25919.jar",
+          "sha256": "57bbb5a5d8160f6654e3236bd10bdf4791e40f0d522803e3f2b1f1eeea796d3b",
+          "originalSha256": "45e398c25919df136cdbf293baed236d75b199b15029ddfe7f9185e33737496a"
+        },
+        {
+          "id": "fabric-data-generation-api-v1",
+          "version": "20.2.34+37516cd619",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-data-generation-api-v1-0.116.7/2e485e2e7973/fabric-data-generation-api-v1-0.116.7-2e485e2e7973.jar",
+          "sha256": "fd35f9d143c764173bc2b1f19436a2357c7f3acdd4c7e4ff3bd2e6dfc3323c47",
+          "originalSha256": "2e485e2e79733db8b1910dcb022f2124b39dd28017cc1d2175385f53ce63993d"
+        },
+        {
+          "id": "fabric-dimensions-v1",
+          "version": "4.0.1+65213ef819",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-dimensions-v1-0.116.7/e7bf78164562/fabric-dimensions-v1-0.116.7-e7bf78164562.jar",
+          "sha256": "5290448dae412ed7073b179efb64b5a00513b4475e7da3623b3199c650330520",
+          "originalSha256": "e7bf78164562be93c572c75ffa288caf3c9f6fe5dd2eb1ac1c263a45a180bd42"
+        },
+        {
+          "id": "fabric-entity-events-v1",
+          "version": "1.8.0+2b27e0a419",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-entity-events-v1-0.116.7/9da2bbd3f32d/fabric-entity-events-v1-0.116.7-9da2bbd3f32d.jar",
+          "sha256": "fbbbdb15e8ce3c50901149210199b1314d1d4da215bb8290ada7f7c343bfa765",
+          "originalSha256": "9da2bbd3f32dc82ff979f328fd08132941734f51494fe26341ee96335939ca55"
+        },
+        {
+          "id": "fabric-events-interaction-v0",
+          "version": "0.7.13+ba9dae0619",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-events-interaction-v0-0.116.7/f64b3e729421/fabric-events-interaction-v0-0.116.7-f64b3e729421.jar",
+          "sha256": "dc84ab37716d5631e18eef39c148b6404eb272cb66f35bf646c4bed3ddaf9341",
+          "originalSha256": "f64b3e72942185eb5c09e9e7bfe148d08772aa6ba29c766d8cb27109f14b16b2"
+        },
+        {
+          "id": "fabric-game-rule-api-v1",
+          "version": "1.0.53+6ced4dd919",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-game-rule-api-v1-0.116.7/343c96795739/fabric-game-rule-api-v1-0.116.7-343c96795739.jar",
+          "sha256": "e7cd5eff2bcfc751a0c800207a2ab1fbf0155309ef418fffd055b14a0eb8bf5f",
+          "originalSha256": "343c96795739d320e9b839e9ba000f2eba9106c68597d3d8caa2bde9911198d1"
+        },
+        {
+          "id": "fabric-item-api-v1",
+          "version": "11.2.0+3b3cb2e819",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-item-api-v1-0.116.7/07230cf952b5/fabric-item-api-v1-0.116.7-07230cf952b5.jar",
+          "sha256": "14b38f223dc95096b28411f41e155d81acde83450f8d4e5f20d2c621e9783c1a",
+          "originalSha256": "07230cf952b5043f8694fdba21fcd779f31c6d0df2d93bf16f5eda3c8ae00d05"
+        },
+        {
+          "id": "fabric-item-group-api-v1",
+          "version": "4.1.7+def88e3a19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-item-group-api-v1-0.116.7/2ff056897202/fabric-item-group-api-v1-0.116.7-2ff056897202.jar",
+          "sha256": "424e0f6fa85f813074e998280b734ad93353fdd96422adca23e632b59a33f770",
+          "originalSha256": "2ff056897202cd243ad680ea7a0dd9a7aaf877d6f2330a7d45f018649cebee8f"
+        },
+        {
+          "id": "fabric-key-binding-api-v1",
+          "version": "1.0.47+0af3f5a719",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-key-binding-api-v1-0.116.7/e5a4a7d9faf5/fabric-key-binding-api-v1-0.116.7-e5a4a7d9faf5.jar",
+          "sha256": "a929cb98f9361298dce6d6635932c08a82f5cf2a952d9b0863567fe88618f36e",
+          "originalSha256": "e5a4a7d9faf54048e404fa66ea5b748182fc90ccac32c74d2569665858f494d9"
+        },
+        {
+          "id": "fabric-lifecycle-events-v1",
+          "version": "2.6.0+0865547519",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-lifecycle-events-v1-0.116.7/010b9a23f98b/fabric-lifecycle-events-v1-0.116.7-010b9a23f98b.jar",
+          "sha256": "0778a51338f7f659a04592dcf263d11e034a70d95b3453b536c6a8195f5b7dd5",
+          "originalSha256": "010b9a23f98b7ff3fa1566ecd7581b82ccb43f14d9f0c8b00be836c57ec1db92"
+        },
+        {
+          "id": "fabric-loot-api-v3",
+          "version": "1.0.3+3f89f5a519",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-loot-api-v3-0.116.7/ee347abb17df/fabric-loot-api-v3-0.116.7-ee347abb17df.jar",
+          "sha256": "90ca2b25dc5e272c8342712646e42557f82b263066b620687d267fae9240ba1c",
+          "originalSha256": "ee347abb17df6a4f3cd4a7fa433aa684949521bfb6d46ac9945d70448cfef1ac"
+        },
+        {
+          "id": "fabric-message-api-v1",
+          "version": "6.0.14+8aaf3aca19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-message-api-v1-0.116.7/8fa5e66872e3/fabric-message-api-v1-0.116.7-8fa5e66872e3.jar",
+          "sha256": "02ad2f634c05b7f334662ce07d15ec9f1807d189a94c544e90adbadcb5bd084b",
+          "originalSha256": "8fa5e66872e34a953671f8ea7c0132650779e962a5612e681e992f2f99e9bdb8"
+        },
+        {
+          "id": "fabric-model-loading-api-v1",
+          "version": "2.1.0+b4d813fc19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-model-loading-api-v1-0.116.7/9157276be22c/fabric-model-loading-api-v1-0.116.7-9157276be22c.jar",
+          "sha256": "736440d795bb5e73b62d0f46a503d81101656554553686120d38a1d083ebdebe",
+          "originalSha256": "9157276be22c7afde3f5200168c6dda55f7f3efa9a132b2d7b0a6b0f7f7b50c3"
+        },
+        {
+          "id": "fabric-networking-api-v1",
+          "version": "4.3.0+c7469b2119",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-networking-api-v1-0.116.7/f9b586dd364f/fabric-networking-api-v1-0.116.7-f9b586dd364f.jar",
+          "sha256": "fffcb93234c7c3fe0c3573e642eabe3936dd005fcdbc52b376a1a956d9212dda",
+          "originalSha256": "f9b586dd364f0fe14350e0781b4532d944a3897112960062221614ff54654964"
+        },
+        {
+          "id": "fabric-object-builder-api-v1",
+          "version": "15.2.1+40875a9319",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-object-builder-api-v1-0.116.7/1186aa5d88e3/fabric-object-builder-api-v1-0.116.7-1186aa5d88e3.jar",
+          "sha256": "aad8b67f4fa0d19dceb8adcac1007dabcea127c03d4aae1d7d489b120e960a9f",
+          "originalSha256": "1186aa5d88e39156718570e2be16f2d1092bf9f8739ae974baf8313cf2d7034f"
+        },
+        {
+          "id": "fabric-particles-v1",
+          "version": "4.0.2+6573ed8c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-particles-v1-0.116.7/7e51865afc71/fabric-particles-v1-0.116.7-7e51865afc71.jar",
+          "sha256": "a7b643a8e8fc0959cc63ceb9df92f85bc590aee191fc564582c3f07efdf0d314",
+          "originalSha256": "7e51865afc7131a1097ba5c9ce0e03eaa5bbe6ecc9a84f26a4a95f5aaaa16153"
+        },
+        {
+          "id": "fabric-recipe-api-v1",
+          "version": "5.0.15+2475392c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-recipe-api-v1-0.116.7/49493f93ff35/fabric-recipe-api-v1-0.116.7-49493f93ff35.jar",
+          "sha256": "1b02f671dd6dab86483303204dbe611280ca5fa0675983b2b2f5b4ad9a5cde88",
+          "originalSha256": "49493f93ff35bbfbc88ad0290d7e8b72acf46d83b1b5fc0f6101f416b7776ff7"
+        },
+        {
+          "id": "fabric-registry-sync-v0",
+          "version": "5.3.1+e3eddc2119",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-registry-sync-v0-0.116.7/7daf2718cc47/fabric-registry-sync-v0-0.116.7-7daf2718cc47.jar",
+          "sha256": "371152d017fe48eca9a5e3f405b2abd5b1a17f25996b6b5ab6b20bd6377f12ee",
+          "originalSha256": "7daf2718cc47833069b8ec0d3a85b6c19df10e1523aa4f52dd4434068662c975"
+        },
+        {
+          "id": "fabric-renderer-api-v1",
+          "version": "3.4.1+b4d813fc19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-api-v1-0.116.7/15dedfd61715/fabric-renderer-api-v1-0.116.7-15dedfd61715.jar",
+          "sha256": "813567087c1a2b38a6d7209ad4c95dff4abfe086b0538ee7038b9f55050fb9cb",
+          "originalSha256": "15dedfd61715dca38815063156cd81f6f2f31483e880e0cc86db231a19281925"
+        },
+        {
+          "id": "fabric-renderer-indigo",
+          "version": "1.7.1+c705a49c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-indigo-0.116.7/a9b573164200/fabric-renderer-indigo-0.116.7-a9b573164200.jar",
+          "sha256": "5fec0a36fc32ae3aeb513cbd7e99c45e8538430e300029b108168574a91f0afe",
+          "originalSha256": "a9b573164200862761aafbd0ece31f0043314886dfb2a554c0042c1b9a7d112b"
+        },
+        {
+          "id": "fabric-rendering-fluids-v1",
+          "version": "3.1.6+1daea21519",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-fluids-v1-0.116.7/82c02d122663/fabric-rendering-fluids-v1-0.116.7-82c02d122663.jar",
+          "sha256": "3620a1bd74d1fecf77fe08a3cebe79cf67cbe21bab2b417fb52af85a998e3c12",
+          "originalSha256": "82c02d122663a7e989fa3a511c10232fea2d2f790aa65b19aedaacbe8d8cc244"
+        },
+        {
+          "id": "fabric-rendering-v1",
+          "version": "5.1.0+ab4c25a019",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-v1-0.116.7/6fba0afe72dc/fabric-rendering-v1-0.116.7-6fba0afe72dc.jar",
+          "sha256": "82d8553fd41450360502b1d20960f5384da2a3f77061e0588b13ef47961b6efa",
+          "originalSha256": "6fba0afe72dcaecfed6d6770d2dbbf0cfbd45d5cecdd257d8cc3f72214accc25"
+        },
+        {
+          "id": "fabric-resource-conditions-api-v1",
+          "version": "4.3.0+8dc279b119",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-resource-conditions-api-v1-0.116.7/a06601feb3a0/fabric-resource-conditions-api-v1-0.116.7-a06601feb3a0.jar",
+          "sha256": "3ef4ee9fa746cc311b7f2d4fc005934f63b0e9c416628b57c0cd579fb28bf307",
+          "originalSha256": "a06601feb3a077657f03498c5ac9af630afca1fba3ac258f411715917148e944"
+        },
+        {
+          "id": "fabric-resource-loader-v0",
+          "version": "1.3.1+5b5275af19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-resource-loader-v0-0.116.7/03c15ff10eb4/fabric-resource-loader-v0-0.116.7-03c15ff10eb4.jar",
+          "sha256": "778e631df9cb30d858e1884c2c970417a143cdfcf6e5270c2754b84011484b0e",
+          "originalSha256": "03c15ff10eb44e6402a8f40ee49d8fec19638c67951cd190184433de3557bff5"
+        },
+        {
+          "id": "fabric-screen-api-v1",
+          "version": "2.0.25+8b68f1c719",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-screen-api-v1-0.116.7/404939a0039e/fabric-screen-api-v1-0.116.7-404939a0039e.jar",
+          "sha256": "af716de1891387bcd5cf3af6c34eebf67e30d1021e29dfd25888402aef52673d",
+          "originalSha256": "404939a0039ec9db0d4157a62a6c6b16452683351fd8a55b163fced4ae66e13c"
+        },
+        {
+          "id": "fabric-screen-handler-api-v1",
+          "version": "1.3.90+b559734419",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-screen-handler-api-v1-0.116.7/c5b5a5c43bd9/fabric-screen-handler-api-v1-0.116.7-c5b5a5c43bd9.jar",
+          "sha256": "a35038f271af68696fd5f8b6bf2b0efccd22a3578199cf26c11b4a16d1b26060",
+          "originalSha256": "c5b5a5c43bd9499c7cda37dbd1799941015f292eeb65139c9ec8fbe867d63a7f"
+        },
+        {
+          "id": "fabric-sound-api-v1",
+          "version": "1.0.23+6573ed8c19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-sound-api-v1-0.116.7/77401a74e7b6/fabric-sound-api-v1-0.116.7-77401a74e7b6.jar",
+          "sha256": "209b81914ecf8c05d256a6b7f0e57acd1562dcc0eff46dfddb18a4e99746015e",
+          "originalSha256": "77401a74e7b67e3231d7604563045f45c7e2ff58ab5d64958ffc1f19542464f9"
+        },
+        {
+          "id": "fabric-transfer-api-v1",
+          "version": "5.4.3+c24bd99419",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-transfer-api-v1-0.116.7/7a5110a6ecce/fabric-transfer-api-v1-0.116.7-7a5110a6ecce.jar",
+          "sha256": "d2508e8bfcb6d62d3fdf2eaa6bb7ff0d602ee6ed6b81069aa401a0937c00a753",
+          "originalSha256": "7a5110a6eccea7166761dca98d335d37596783ddf26a6e3f7be26a05b10858a9"
+        },
+        {
+          "id": "fabric-transitive-access-wideners-v1",
+          "version": "6.2.0+45b9699719",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-transitive-access-wideners-v1-0.116.7/5216609190ba/fabric-transitive-access-wideners-v1-0.116.7-5216609190ba.jar",
+          "sha256": "57d733f2446a72ccb119a0bbfc3d0f171e6ffc058590b9704bcbe06af205cf9e",
+          "originalSha256": "5216609190bab0ea8a93ec6d371a4eec8927bbc0de75062f835163389f919e88"
+        },
+        {
+          "id": "fabric-command-api-v1",
+          "version": "1.2.49+f71b366f19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-command-api-v1-0.116.7/bb4cbf193d66/fabric-command-api-v1-0.116.7-bb4cbf193d66.jar",
+          "sha256": "ced19be31b5cab7966e2e5866e44fe9033ad4e6f95e8f504acd6b72099cfc4a3",
+          "originalSha256": "bb4cbf193d66b86ebfc2a0e3c1ef649e444d15fe689c797c49d158a305b32245"
+        },
+        {
+          "id": "fabric-commands-v0",
+          "version": "0.2.66+df3654b319",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-commands-v0-0.116.7/a1ac2cdd5761/fabric-commands-v0-0.116.7-a1ac2cdd5761.jar",
+          "sha256": "965981b0f0a88987702fed139026b29e3cbb22e14335cc13adf01aa9e5d4a1c9",
+          "originalSha256": "a1ac2cdd5761a50de675cf238001324e7e90e27bb03896402230d41fbe035b90"
+        },
+        {
+          "id": "fabric-convention-tags-v1",
+          "version": "2.1.5+7f945d5b19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-convention-tags-v1-0.116.7/515ca9175543/fabric-convention-tags-v1-0.116.7-515ca9175543.jar",
+          "sha256": "16fca65e1634e93d333406e513ed9c5aa9dcc11645e3046499edbcb87bd7a6a9",
+          "originalSha256": "515ca9175543e1e032c5bc64abbb94b9dc2f76c486a733ead4299fbf8694b9cf"
+        },
+        {
+          "id": "fabric-keybindings-v0",
+          "version": "0.2.45+df3654b319",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-keybindings-v0-0.116.7/8f957af7bd46/fabric-keybindings-v0-0.116.7-8f957af7bd46.jar",
+          "sha256": "68ea9202fa97ab2ce86d3451753d4038ba05e278bc0411e33aa88734ae174715",
+          "originalSha256": "8f957af7bd46edecbfe3966792a84e62b1aba0c1a21d9257565b78ad74546d69"
+        },
+        {
+          "id": "fabric-loot-api-v2",
+          "version": "3.0.15+3f89f5a519",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-loot-api-v2-0.116.7/7cc99a3b4e62/fabric-loot-api-v2-0.116.7-7cc99a3b4e62.jar",
+          "sha256": "b20f1ed6db193c9cb71fd6f24e70d600235036a3ff306af4656390a390f58123",
+          "originalSha256": "7cc99a3b4e622813bcea469c58ecf2df3ce48feb119dee75c03409dd55afef75"
+        },
+        {
+          "id": "fabric-renderer-registries-v1",
+          "version": "3.2.69+df3654b319",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-renderer-registries-v1-0.116.7/dc95b2ed8679/fabric-renderer-registries-v1-0.116.7-dc95b2ed8679.jar",
+          "sha256": "063b16b9fab95476c56b6092bd4aeba973be64906f55648f9128b02f98b5beeb",
+          "originalSha256": "dc95b2ed86791db0cfb66ca70f561fe1c3dcf1b4fbf0a6e4d02acff01f859ab0"
+        },
+        {
+          "id": "fabric-rendering-data-attachment-v1",
+          "version": "0.3.49+73761d2e19",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-data-attachment-v1-0.116.7/c5ea50396f8c/fabric-rendering-data-attachment-v1-0.116.7-c5ea50396f8c.jar",
+          "sha256": "520f53e370034b34e0b1d38fac5f80913fc67e14512f975dd2e9ee43753eed5f",
+          "originalSha256": "c5ea50396f8c3f36970732ea9ff2c3cce543d6406f06cbc2c877f27b4de91ec3"
+        },
+        {
+          "id": "fabric-rendering-v0",
+          "version": "1.1.72+df3654b319",
+          "format": "fabric",
+          "nested": [],
+          "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/fabric-rendering-v0-0.116.7/ee621146f8da/fabric-rendering-v0-0.116.7-ee621146f8da.jar",
+          "sha256": "fc90807799ab325cdcac9cb8ec5ef78033fcb19078f68ec3243ceb0901bd992e",
+          "originalSha256": "ee621146f8dabafdcdeb1e46c445ca568a586aef15e863919fbfa4d44346489f"
+        }
+      ]
+    },
+    "derivation": "Exact official Quilt Loom runClient classpath and generated JVM/program arguments; only the temporary @classpath file is represented directly as -classpath, as in an IDE launch",
+    "accountArgumentsAdded": false
+  },
+  "acceptance": "four-loader/quilt-native-client/native-client-acceptance.json"
+}

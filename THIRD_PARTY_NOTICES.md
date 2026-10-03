@@ -47,3 +47,23 @@ No single project-wide reuse license is asserted for this mixed-license tree;
 this attribution update does not relicense any component. Frozen runtime evidence
 keeps its original tested hashes; the corrected host notice is a publication
 change and a future rebuilt host must be pinned and tested separately.
+
+## Accepted four-loader source publication
+
+The accepted98 complete source is under `source-workspace/connector-four-loader/`,
+with its exact 390-record identity in `docs/four-loader/accepted-build-identity-98d86a92.json`.
+The earlier M5 source archive remains historical corresponding source, not the
+complete source record for the newer four-loader core.
+
+The bounded Quilt API adaptations retain the original Quilt Loader Apache-2.0
+license and modification attribution under the core's `src/main/resources/META-INF/licenses/`.
+The host's internally supplied QSL base/lifecycle modules remain byte-identical
+upstream components with `runtime-bundle/src/main/resources/META-INF/licenses/QSL-*`
+license/source notices. No Quilt Loader runtime engine is embedded. Forge compatibility
+facades are a bounded source implementation, not a bundled Forge runtime or a claim
+of complete Forge API semantics. Original probe licenses remain with their sources.
+
+All existing Connector/Adapter MIT, FART LGPL-2.1, FFAPI/QSL Apache and other original
+notices remain. This does not relicense the combined project. Runtime resource notices
+are preserved as the frozen accepted source; this external clarification does not
+alter the hashes of already accepted core/host/provider binaries.

@@ -1,0 +1,820 @@
+[
+  {
+    "format": "quilt",
+    "id": "optab",
+    "version": "2.0.0V1.21.1+1.21",
+    "environment": "*",
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.16.0-"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.21"
+      }
+    ],
+    "entrypoints": {
+      "init": "io.github.betterclient.optab.OpTab"
+    },
+    "load_type": "always",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "source": "run/quilt-native-client/game/mods/optab-2.0.0V1.21.1+1.21.jar",
+    "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296"
+  },
+  {
+    "format": "quilt",
+    "id": "quilt_base",
+    "version": "10.0.0-alpha.5+1.21.1",
+    "environment": "*",
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.25.0"
+      },
+      {
+        "id": "minecraft",
+        "versions": {
+          "any": [
+            "=1.21.1",
+            "=1.21"
+          ]
+        }
+      }
+    ],
+    "entrypoints": {
+      "init": [
+        "org.quiltmc.qsl.base.impl.event.EventRegistry"
+      ]
+    },
+    "load_type": "if_possible",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "source": "run/quilt-native-client/game/mods/qsl_base-alpha5.jar",
+    "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+  },
+  {
+    "format": "quilt",
+    "id": "quilt_lifecycle_events",
+    "version": "10.0.0-alpha.5+1.21.1",
+    "environment": "*",
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.25.0"
+      },
+      {
+        "id": "minecraft",
+        "versions": {
+          "any": [
+            "=1.21.1",
+            "=1.21"
+          ]
+        }
+      },
+      {
+        "id": "quilt_base",
+        "versions": ">=10.0.0-alpha.5+1.21.1"
+      }
+    ],
+    "entrypoints": {},
+    "load_type": "if_possible",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "source": "run/quilt-native-client/game/mods/lifecycle_events-alpha5.jar",
+    "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-api",
+    "version": "0.116.7+1.21.1",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "java": ">=21",
+      "minecraft": ">=1.21- <1.21.2-"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar",
+    "sha256": "08018cc48c97415a38016a00dbd5a2c7a460ba6b7a051690a8cb3dbb5e8482a4"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-api-base",
+    "version": "0.4.42+6573ed8c19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-api-base-0.116.7.jar",
+    "sha256": "1def6e18f8b56c566b2b3d6ec40d3528457787fcaf09ad093312377b0ff24126"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-api-lookup-api-v1",
+    "version": "1.6.71+b559734419",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-lifecycle-events-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.lookup.ApiLookupImpl"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-api-lookup-api-v1-0.116.7.jar",
+    "sha256": "a4395d9764b42e24a61c0dae1565ab83900a27b80d4669f69bc4de91273e9b7f"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-biome-api-v1",
+    "version": "13.0.31+d527f9fd19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.16.2"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-biome-api-v1-0.116.7.jar",
+    "sha256": "26b727b72c9e3fe2dd53ffeaa93d1fda0366386bad4d0e699dcbff0ef545711d"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-block-api-v1",
+    "version": "1.1.0+0bc3503219",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-block-api-v1-0.116.7.jar",
+    "sha256": "fb320332fc1afe7a3fc347df3657ae8d16014984c1c76f569358f185052e2f51"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-block-view-api-v2",
+    "version": "1.0.11+ebb2264e19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-block-view-api-v2-0.116.7.jar",
+    "sha256": "bb5bb230c3280908ffab5d6668aeafbee82c69fc65d1872ce1d6de614b5198d1"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-blockrenderlayer-v1",
+    "version": "1.1.52+0af3f5a719",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.15-alpha.19.38.b",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-blockrenderlayer-v1-0.116.7.jar",
+    "sha256": "62117a7371816d35e687585e810ca0ded4ba8c9d855d10f92cc27c1ec0811e82"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-client-tags-api-v1",
+    "version": "1.1.15+6573ed8c19",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-client-tags-api-v1-0.116.7.jar",
+    "sha256": "33c2fedb85e354b2cf97aa3efde8ff5543d160efffa7ba90fd16745c32e64390"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-command-api-v2",
+    "version": "2.2.28+6ced4dd919",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "minecraft": ">1.19-alpha.22.11.a"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-command-api-v2-0.116.7.jar",
+    "sha256": "80965ecb18507ad7abb020910a70b2d7249d22740cdbe629a5b187e83b7b7cea"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-content-registries-v0",
+    "version": "8.0.19+b559734419",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-lifecycle-events-v1": "*",
+      "fabric-resource-loader-v0": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-content-registries-v0-0.116.7.jar",
+    "sha256": "bf52fb53dee3cb32698238736ee2515e238127ee358b079b4d8bd8a66ecb2e53"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-convention-tags-v2",
+    "version": "2.11.1+a406e79519",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.20.5-beta.1",
+      "fabric-lifecycle-events-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.tag.convention.v2.TranslationConventionLogWarnings"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-convention-tags-v2-0.116.7.jar",
+    "sha256": "dd30456bdbbe5fedcc1c4e966974d034955e95078b47da85d127a66b2f4cc0ae"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-crash-report-info-v1",
+    "version": "0.2.29+0af3f5a719",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-crash-report-info-v1-0.116.7.jar",
+    "sha256": "1d22cdbf0b54e4aa048622dc4f23d4ab6169d9e147aa490a68155f9be7696410"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-data-attachment-api-v1",
+    "version": "1.4.5+6116a37819",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-entity-events-v1": "*",
+      "fabric-object-builder-api-v1": "*",
+      "fabric-networking-api-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.attachment.AttachmentEntrypoint",
+        "net.fabricmc.fabric.impl.attachment.sync.AttachmentSync"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.attachment.client.AttachmentSyncClient"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-data-attachment-api-v1-0.116.7.jar",
+    "sha256": "45e398c25919df136cdbf293baed236d75b199b15029ddfe7f9185e33737496a"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-data-generation-api-v1",
+    "version": "20.2.34+37516cd619",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-data-generation-api-v1-0.116.7.jar",
+    "sha256": "2e485e2e79733db8b1910dcb022f2124b39dd28017cc1d2175385f53ce63993d"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-dimensions-v1",
+    "version": "4.0.1+65213ef819",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.16-rc.3",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-dimensions-v1-0.116.7.jar",
+    "sha256": "e7bf78164562be93c572c75ffa288caf3c9f6fe5dd2eb1ac1c263a45a180bd42"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-entity-events-v1",
+    "version": "1.8.0+2b27e0a419",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-entity-events-v1-0.116.7.jar",
+    "sha256": "9da2bbd3f32dc82ff979f328fd08132941734f51494fe26341ee96335939ca55"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-events-interaction-v0",
+    "version": "0.7.13+ba9dae0619",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-networking-api-v1": "*",
+      "minecraft": ">=1.15-alpha.19.37.a"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.event.interaction.InteractionEventsRouter"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.event.interaction.client.InteractionEventsRouterClient"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-events-interaction-v0-0.116.7.jar",
+    "sha256": "f64b3e72942185eb5c09e9e7bfe148d08772aa6ba29c766d8cb27109f14b16b2"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-game-rule-api-v1",
+    "version": "1.0.53+6ced4dd919",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-game-rule-api-v1-0.116.7.jar",
+    "sha256": "343c96795739d320e9b839e9ba000f2eba9106c68597d3d8caa2bde9911198d1"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-item-api-v1",
+    "version": "11.2.0+3b3cb2e819",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-item-api-v1-0.116.7.jar",
+    "sha256": "07230cf952b5043f8694fdba21fcd779f31c6d0df2d93bf16f5eda3c8ae00d05"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-item-group-api-v1",
+    "version": "4.1.7+def88e3a19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-resource-loader-v0": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-item-group-api-v1-0.116.7.jar",
+    "sha256": "2ff056897202cd243ad680ea7a0dd9a7aaf877d6f2330a7d45f018649cebee8f"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-key-binding-api-v1",
+    "version": "1.0.47+0af3f5a719",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-key-binding-api-v1-0.116.7.jar",
+    "sha256": "e5a4a7d9faf54048e404fa66ea5b748182fc90ccac32c74d2569665858f494d9"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-lifecycle-events-v1",
+    "version": "2.6.0+0865547519",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.event.lifecycle.LifecycleEventsImpl"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.client.event.lifecycle.ClientLifecycleEventsImpl"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-lifecycle-events-v1-0.116.7.jar",
+    "sha256": "010b9a23f98b7ff3fa1566ecd7581b82ccb43f14d9f0c8b00be836c57ec1db92"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-loot-api-v3",
+    "version": "1.0.3+3f89f5a519",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-resource-loader-v0": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-loot-api-v3-0.116.7.jar",
+    "sha256": "ee347abb17df6a4f3cd4a7fa433aa684949521bfb6d46ac9945d70448cfef1ac"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-message-api-v1",
+    "version": "6.0.14+8aaf3aca19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-message-api-v1-0.116.7.jar",
+    "sha256": "8fa5e66872e34a953671f8ea7c0132650779e962a5612e681e992f2f99e9bdb8"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-model-loading-api-v1",
+    "version": "2.1.0+b4d813fc19",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-model-loading-api-v1-0.116.7.jar",
+    "sha256": "9157276be22c7afde3f5200168c6dda55f7f3efa9a132b2d7b0a6b0f7f7b50c3"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-networking-api-v1",
+    "version": "4.3.0+c7469b2119",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.networking.CommonPacketsImpl::init",
+        "net.fabricmc.fabric.impl.networking.NetworkingImpl::init"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.networking.client.ClientNetworkingImpl::clientInit"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-networking-api-v1-0.116.7.jar",
+    "sha256": "f9b586dd364f0fe14350e0781b4532d944a3897112960062221614ff54654964"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-object-builder-api-v1",
+    "version": "15.2.1+40875a9319",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-object-builder-api-v1-0.116.7.jar",
+    "sha256": "1186aa5d88e39156718570e2be16f2d1092bf9f8739ae974baf8313cf2d7034f"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-particles-v1",
+    "version": "4.0.2+6573ed8c19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-particles-v1-0.116.7.jar",
+    "sha256": "7e51865afc7131a1097ba5c9ce0e03eaa5bbe6ecc9a84f26a4a95f5aaaa16153"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-recipe-api-v1",
+    "version": "5.0.15+2475392c19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-networking-api-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientInit",
+        "net.fabricmc.fabric.impl.recipe.ingredient.CustomIngredientSync"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.recipe.ingredient.client.CustomIngredientSyncClient"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-recipe-api-v1-0.116.7.jar",
+    "sha256": "49493f93ff35bbfbc88ad0290d7e8b72acf46d83b1b5fc0f6101f416b7776ff7"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-registry-sync-v0",
+    "version": "5.3.1+e3eddc2119",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-networking-api-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.registry.sync.FabricRegistryInit"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.client.registry.sync.FabricRegistryClientInit"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-registry-sync-v0-0.116.7.jar",
+    "sha256": "7daf2718cc47833069b8ec0d3a85b6c19df10e1523aa4f52dd4434068662c975"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-renderer-api-v1",
+    "version": "3.4.1+b4d813fc19",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.15-alpha.19.39.a",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-api-v1-0.116.7.jar",
+    "sha256": "15dedfd61715dca38815063156cd81f6f2f31483e880e0cc86db231a19281925"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-renderer-indigo",
+    "version": "1.7.1+c705a49c19",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.15-alpha.19.39.a",
+      "fabric-api-base": "*",
+      "fabric-renderer-api-v1": "*"
+    },
+    "entrypoints": {
+      "client": [
+        "net.fabricmc.fabric.impl.client.indigo.Indigo"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-indigo-0.116.7.jar",
+    "sha256": "a9b573164200862761aafbd0ece31f0043314886dfb2a554c0042c1b9a7d112b"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-rendering-fluids-v1",
+    "version": "3.1.6+1daea21519",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-fluids-v1-0.116.7.jar",
+    "sha256": "82c02d122663a7e989fa3a511c10232fea2d2f790aa65b19aedaacbe8d8cc244"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-rendering-v1",
+    "version": "5.1.0+ab4c25a019",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-v1-0.116.7.jar",
+    "sha256": "6fba0afe72dcaecfed6d6770d2dbbf0cfbd45d5cecdd257d8cc3f72214accc25"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-resource-conditions-api-v1",
+    "version": "4.3.0+8dc279b119",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.resource.conditions.ResourceConditionsImpl"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-resource-conditions-api-v1-0.116.7.jar",
+    "sha256": "a06601feb3a077657f03498c5ac9af630afca1fba3ac258f411715917148e944"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-resource-loader-v0",
+    "version": "1.3.1+5b5275af19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-resource-loader-v0-0.116.7.jar",
+    "sha256": "03c15ff10eb44e6402a8f40ee49d8fec19638c67951cd190184433de3557bff5"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-screen-api-v1",
+    "version": "2.0.25+8b68f1c719",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-screen-api-v1-0.116.7.jar",
+    "sha256": "404939a0039ec9db0d4157a62a6c6b16452683351fd8a55b163fced4ae66e13c"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-screen-handler-api-v1",
+    "version": "1.3.90+b559734419",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-networking-api-v1": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.screenhandler.Networking"
+      ],
+      "client": [
+        "net.fabricmc.fabric.impl.screenhandler.client.ClientNetworking"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-screen-handler-api-v1-0.116.7.jar",
+    "sha256": "c5b5a5c43bd9499c7cda37dbd1799941015f292eeb65139c9ec8fbe867d63a7f"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-sound-api-v1",
+    "version": "1.0.23+6573ed8c19",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.19.2"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-sound-api-v1-0.116.7.jar",
+    "sha256": "77401a74e7b67e3231d7604563045f45c7e2ff58ab5d64958ffc1f19542464f9"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-transfer-api-v1",
+    "version": "5.4.3+c24bd99419",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-lookup-api-v1": "*",
+      "fabric-rendering-fluids-v1": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-transfer-api-v1-0.116.7.jar",
+    "sha256": "7a5110a6eccea7166761dca98d335d37596783ddf26a6e3f7be26a05b10858a9"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-transitive-access-wideners-v1",
+    "version": "6.2.0+45b9699719",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-transitive-access-wideners-v1-0.116.7.jar",
+    "sha256": "5216609190bab0ea8a93ec6d371a4eec8927bbc0de75062f835163389f919e88"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-command-api-v1",
+    "version": "1.2.49+f71b366f19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-command-api-v2": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.command.v1.LegacyHandler"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-command-api-v1-0.116.7.jar",
+    "sha256": "bb4cbf193d66b86ebfc2a0e3c1ef649e444d15fe689c797c49d158a305b32245"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-commands-v0",
+    "version": "0.2.66+df3654b319",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-command-api-v2": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-commands-v0-0.116.7.jar",
+    "sha256": "a1ac2cdd5761a50de675cf238001324e7e90e27bb03896402230d41fbe035b90"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-convention-tags-v1",
+    "version": "2.1.5+7f945d5b19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.18.2"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.tag.convention.ConventionLogWarnings"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-convention-tags-v1-0.116.7.jar",
+    "sha256": "515ca9175543e1e032c5bc64abbb94b9dc2f76c486a733ead4299fbf8694b9cf"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-keybindings-v0",
+    "version": "0.2.45+df3654b319",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-key-binding-api-v1": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-keybindings-v0-0.116.7.jar",
+    "sha256": "8f957af7bd46edecbfe3966792a84e62b1aba0c1a21d9257565b78ad74546d69"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-loot-api-v2",
+    "version": "3.0.15+3f89f5a519",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-api-base": "*",
+      "fabric-resource-loader-v0": "*"
+    },
+    "entrypoints": {
+      "main": [
+        "net.fabricmc.fabric.impl.loot.v2.LootInitializer"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-loot-api-v2-0.116.7.jar",
+    "sha256": "7cc99a3b4e622813bcea469c58ecf2df3ce48feb119dee75c03409dd55afef75"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-renderer-registries-v1",
+    "version": "3.2.69+df3654b319",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.15-alpha.19.39.a",
+      "fabric-api-base": "*",
+      "fabric-rendering-v1": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-renderer-registries-v1-0.116.7.jar",
+    "sha256": "dc95b2ed86791db0cfb66ca70f561fe1c3dcf1b4fbf0a6e4d02acff01f859ab0"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-rendering-data-attachment-v1",
+    "version": "0.3.49+73761d2e19",
+    "environment": "*",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "fabric-block-view-api-v2": "*"
+    },
+    "entrypoints": {},
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-data-attachment-v1-0.116.7.jar",
+    "sha256": "c5ea50396f8c3f36970732ea9ff2c3cce543d6406f06cbc2c877f27b4de91ec3"
+  },
+  {
+    "format": "fabric",
+    "id": "fabric-rendering-v0",
+    "version": "1.1.72+df3654b319",
+    "environment": "client",
+    "depends": {
+      "fabricloader": ">=0.15.11",
+      "minecraft": ">=1.15-alpha.19.39.a",
+      "fabric-api-base": "*",
+      "fabric-rendering-v1": "*"
+    },
+    "entrypoints": {
+      "client": [
+        "net.fabricmc.fabric.impl.client.rendering.v0.RenderingCallbackInvoker"
+      ]
+    },
+    "source": "run/quilt-native-client/game/mods/fabric-api-0.116.7+1.21.1.jar!/META-INF/jars/fabric-rendering-v0-0.116.7.jar",
+    "sha256": "ee621146f8dabafdcdeb1e46c445ca568a586aef15e863919fbfa4d44346489f"
+  }
+]

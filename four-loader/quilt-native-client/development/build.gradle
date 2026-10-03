@@ -1,0 +1,49 @@
+plugins {
+    id 'org.quiltmc.loom' version '1.8.5'
+}
+
+layout.buildDirectory = file('../../../run/quilt-native-client/build')
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings 'net.fabricmc:yarn:1.21.1+build.3:v2'
+    modImplementation 'org.quiltmc:quilt-loader:0.30.1'
+    // Standard Loom file dependencies: immutable original inputs are pre-remapped
+    // by the official plugin. Exact nested closure avoids Maven-only test modules.
+    modRuntimeOnly files(new groovy.json.JsonSlurper().parse(file('../../../run/quilt-native-client/loom-original-inputs.json')).collect { file('../../../' + it.path) })
+}
+
+loom {
+    runs {
+        client {
+            client()
+            runDir '../../../run/quilt-native-client/game'
+            vmArgs '-Xms256M', '-Xmx1536M', '-XX:ActiveProcessorCount=2'
+        }
+    }
+}
+
+tasks.register('prepareClientLaunch') {
+    group = 'fabric'
+    description = 'Resolves genuine Quilt runClient inputs without launching Minecraft.'
+    dependsOn 'classes', 'configureClientLaunch'
+    doLast {
+        def run = tasks.named('runClient').get()
+        def files = run.classpath.files.toList()
+        def missing = files.findAll { it.name.endsWith('.jar') && !it.isFile() }
+        if (!missing.empty) throw new GradleException("Missing runtime JARs: ${missing}")
+        def sha = { f -> java.security.MessageDigest.getInstance('SHA-256').digest(f.bytes).encodeHex().toString() }
+        def manifest = [
+            mainClass: run.mainClass.get(),
+            classpath: files.collect { [path: it.absolutePath, sha256: it.isFile() ? sha(it) : null] },
+            jvmArgs: run.jvmArguments.get(),
+            args: run.argumentProviders.collectMany { it.asArguments().toList() },
+            gameDirectory: file('../../../run/quilt-native-client/game').absolutePath,
+            gameLaunched: false
+        ]
+        def out = file('../../../run/quilt-native-client/client-launch-inputs.json')
+        out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(manifest)) + '\n'
+        println "Resolved actual Quilt runClient runtime: ${files.size()} entries; game not launched."
+    }
+}

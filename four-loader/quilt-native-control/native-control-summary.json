@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "checks": {
+    "both_phases_passed": true,
+    "same_original_probe": true,
+    "same_runtime_lock": true,
+    "persisted_data_read_before_reopen": true,
+    "all_stages_exactly_once": true
+  },
+  "native_runtime": "Minecraft 1.21.1 / Quilt Loader 0.30.1 / original QSL base+lifecycle 10.0.0-alpha.5+1.21.1",
+  "probe_sha256": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04",
+  "timestamp_utc": "2026-10-03T11:07:54.624067+00:00",
+  "evidence": [
+    {
+      "path": "logs/native-create-3.json",
+      "sha256": "9b5f35020eec84f26cba8be96b448328567bcd5f090035343e0bca7d68aa05b5",
+      "log_path": "logs/native-create-3.log",
+      "log_sha256": "26bb3d95dfef3468ad3d75614093f2b65d54fe041b8c931f2efe72ec63642b7e"
+    },
+    {
+      "path": "logs/native-reopen-2.json",
+      "sha256": "4847e7c393413f6db7c6f40494ec0818b2d0b1e57554ca239dbfe54865c904bf",
+      "log_path": "logs/native-reopen-2.log",
+      "log_sha256": "1f7648e1d5092419fe830e7c6cb5b7502fa61b4abf7dd39ec915de38ca8c06b1"
+    }
+  ],
+  "scope": "Native control for own Quilt-only original probe. Does not prove Unified compatibility, arbitrary Quilt mods, clients, or OP Tab.",
+  "fixture_corrections": [
+    "create-1: separate ordinary entrypoint and Mixin packages",
+    "create-2/reopen-1: replace unsupported vanilla null DataFixTypes with SAVED_DATA_COMMAND_STORAGE"
+  ],
+  "fixture_corrections_scope": "Fixture owner corrected native portability defects only; no Unified adapter behavior change and no cross-version DFU claim"
+}

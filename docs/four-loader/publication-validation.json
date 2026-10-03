@@ -1,0 +1,138 @@
+{
+  "scope": "Publication-time static/source checks only; reuses historical accepted runtime reports",
+  "source_archive_sha256": "33c5a07665728637b5b412b0ab9e99c640b3af6f9efcbfd8d5d926a1af22049b",
+  "core_sha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+  "matched_core_source_records": 390,
+  "core_source_mismatches": 0,
+  "java_source_files": 382,
+  "accepted_dependency_records": 169,
+  "recovered_helpers": 9,
+  "host_provider_source_records": 28,
+  "python_syntax_files": 92,
+  "json_parse_files_at_check": 109,
+  "source_verifier_negative_control": "missing source rejected",
+  "not_run": [
+    "Java compilation",
+    "Gradle/dependency resolution",
+    "Minecraft client/server",
+    "gameplay or new UI acceptance",
+    "performance or OS-level isolation tests"
+  ],
+  "supplemented_from_exact_accepted_control_hashes": [
+    {
+      "path": "mixed-pack/harness/run_mixed_pack.py",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "14c533ba2cb98e6c10277d26f711ae61b67479ec6acd6a181d7248ba4c21ec2d",
+      "published_sha256": "14c533ba2cb98e6c10277d26f711ae61b67479ec6acd6a181d7248ba4c21ec2d",
+      "path_normalized": false
+    },
+    {
+      "path": "integration-tests/run_lithium_hopper_parity.py",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "675d4be91c4bf1e65e5de4dec2c0d5669e2472ec6a647f91ad3b685858fcb06b",
+      "published_sha256": "675d4be91c4bf1e65e5de4dec2c0d5669e2472ec6a647f91ad3b685858fcb06b",
+      "path_normalized": false
+    },
+    {
+      "path": "mixed-pack/harness/verify_saved_parity.py",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "84327a1773669b8e25482fdd063ceecc1d25aa87593e7235b53feac9cb17bce6",
+      "published_sha256": "84327a1773669b8e25482fdd063ceecc1d25aa87593e7235b53feac9cb17bce6",
+      "path_normalized": false
+    },
+    {
+      "path": "mixed-pack/logs/source-acceptance-v1-saved-worldgen-parity.json",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "358dfa2c40543ab737ac921b717796cf2241d7a2fb697b25e7d1cd092a559c4f",
+      "published_sha256": "358dfa2c40543ab737ac921b717796cf2241d7a2fb697b25e7d1cd092a559c4f",
+      "path_normalized": false
+    },
+    {
+      "path": "four-loader/clumps-probe/build/build-report.json",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "a4d4efe16d8ffffaea7f76bd24b6f0f280ebee24a5e485f3e5a6b53d4a9273c7",
+      "published_sha256": "a4d4efe16d8ffffaea7f76bd24b6f0f280ebee24a5e485f3e5a6b53d4a9273c7",
+      "path_normalized": false
+    },
+    {
+      "path": "four-loader/quilt-probe/build/build-report.json",
+      "source": "exact-accepted-control-lock-supplement",
+      "source_sha256": "1e533c17b2021860f9544a9be3f66254630d705ce8d93deb64879e5869d280f4",
+      "published_sha256": "1e533c17b2021860f9544a9be3f66254630d705ce8d93deb64879e5869d280f4",
+      "path_normalized": false
+    }
+  ],
+  "path_normalized_evidence": [
+    {
+      "path": "four-loader/quilt-native-client/native-environment-lock.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "cb2c32db17c5794af999c5a34bb321804dddfa5ecb518b75074d81e032d941ac",
+      "published_sha256": "254ca2059e6d4f514b16d78db8e07b0f2d4f14ba252b3e46d454c840e355ede3",
+      "path_normalized": true
+    },
+    {
+      "path": "four-loader/quilt-native-client/native-client-acceptance.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "aec10a6042d83eb9588777af80e03de400f88014d31f0bd89a8dcdc398fb5753",
+      "published_sha256": "bde36593722ed17ae32117e2c64ff35771fb1c181d96a0d686b199976149990b",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-combined-98d-retry2/create.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "ed9c5fdb0aa7682d3054d7f4773ecc3025ee74134024e9b5f06f58cba821efe6",
+      "published_sha256": "63b3f1cfae62855b09d7ef09e24a42eb0b1920c6deaf615c1949c7eb7f1ea299",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-combined-98d-retry2/reopen.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "de77702ff71bf3ec7ea2c63bf964805217665c1fedde3eb7494aa52edc247574",
+      "published_sha256": "faa55c846c3934a95bdeca0ee788e3c4372ebe87f89ffecb18904d872a4497bb",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-combined-98d-first/create.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "844f076fc1d024f97eee5a35a235e8075aa96eb59dbe52e7d8e402af50224335",
+      "published_sha256": "1257bd003413b3cf4314f4bbcf312e6c9bbc332e6d40c26bdb68f15c6bd8d276",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-combined-98d-retry1/create.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "b395e7a9eb927a0cbce6fc1876ead71ff896e74ef150e5f9a73b9aae66416539",
+      "published_sha256": "42d00f3754dd5a18146a286a885793d205dc3375ffc99b64f408a6a7ad9fbebb",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/forge-native-clumps/create.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "1d96e2f4582a51bc8122a17bb084ddfaf5213c880aee965606bfab310892b1ca",
+      "published_sha256": "2566643c9181cbd9fb1a775cfe1e14abae17947059bb0d550caabb63bf4c0069",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/forge-native-clumps/reopen.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "9668501ebb797faea59d6af6e87cad609a579a5e3e647e43f6ff5461f44f6d16",
+      "published_sha256": "7d3d43f2e1ee1507b3a61b5101046ea61fdae237ff66355e914873daa2d5f894",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-forge-clumps-26b/create.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "3ed53827ed25083aa4aa14cce4518d26f7f35f22d0e590627232607c347f916d",
+      "published_sha256": "d5a95706e04a69b5c9c92a6384d96d92e47b56164b6d5689204dde6b2ad4e281",
+      "path_normalized": true
+    },
+    {
+      "path": "logs/unified-forge-clumps-26b/reopen.json",
+      "source": "frozen-acceptance-archive",
+      "source_sha256": "18200ac6ee084990b7e2224217dd5b4bf82814d0b664318571326c751c6ce929",
+      "published_sha256": "58fa2da7323fd19d904221bfde4c4c859659d28399dfba1c9bae15a11ea7e265",
+      "path_normalized": true
+    }
+  ],
+  "historical_environment_limitation": "Accepted processes inherited their environment. A later key-name-only audit identified an inheritance risk. This is not OS-level isolation or proof of absence of data access/transmission; no credential values or key-name inventory is published."
+}

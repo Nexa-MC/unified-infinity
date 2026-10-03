@@ -1,0 +1,62 @@
+{
+  "archive_sha256": "33c5a07665728637b5b412b0ab9e99c640b3af6f9efcbfd8d5d926a1af22049b",
+  "patch_path": "docs/four-loader/implementation-patch/four-loader-source.patch",
+  "source_delta_path": "docs/four-loader/implementation-patch/source-delta.json",
+  "recovered_count": 9,
+  "files": [
+    {
+      "path": "four-loader/api-tests/.gitignore",
+      "sha256": "d9d8071aaef42d2d1f6e432aa3b09017eaa3bebd591ef77274a902bc02016e16",
+      "bytes": 25,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/LICENSE-quilt-loader.txt",
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/README.md",
+      "sha256": "b02c724ec560f24aafc70a3dc43c6aa97649f16d4e9ecece7d78574eda106c77",
+      "bytes": 4815,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/abi-result.json",
+      "sha256": "e4aa8700a683b5097649afd3511d9c5396ef569e5d2ad147624c41db7d9fdd6e",
+      "bytes": 2105,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/behavior-result.txt",
+      "sha256": "4e3380055938020eef95fac19f98a7248b53e6873cf381fd2a578fadab03f573",
+      "bytes": 78,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/qsl-linkage-result.json",
+      "sha256": "2dedec2a937a70465368499a4fe9a09cc02b84b21bac48b495beb99112137af6",
+      "bytes": 1155,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/run.sh",
+      "sha256": "d8acffb86d558d58a0de3efdd459e122892dcc9d582598c3fe37b3685134f25d",
+      "bytes": 1382,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/source-manifest.json",
+      "sha256": "77c001c15d93a20b3bf26f023e91a3c4b473f9b59c5416f264399c2049bb459d",
+      "bytes": 7761,
+      "verified": true
+    },
+    {
+      "path": "four-loader/api-tests/verify_api_abi.py",
+      "sha256": "db42e9ab9dfd3058cea32565f44143b91e00bd8ec94b07e413a4fe7665090c7e",
+      "bytes": 1913,
+      "verified": true
+    }
+  ]
+}

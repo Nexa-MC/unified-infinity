@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "profile": "run/unified-combined-98d-retry2",
+  "scope": "Combined server integration; original Fabric Lithium/Chunky, native NeoForge Farmers Delight, original Forge Clumps plus Forge companion, and project-owned native Quilt probe. Not OP Tab or client acceptance.",
+  "core_sha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+  "host_sha256": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+  "provider_sha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+  "original_mod_sha256": {
+    "Chunky-Fabric-1.4.23.jar": "3412b170247dde7351e0945d857e713bedf6fae05ab300aa74d06ffbde0ca07e",
+    "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+    "FarmersDelight-1.21.1-1.3.4.jar": "139ad7696462c89c03eea463f805abffa552526c5dadaadae221dd9624cb197c",
+    "lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+    "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+    "unified-infinity-0.1.0-dev.jar": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+    "unified-infinity-four-loader-98d86a92.jar": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+    "unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+    "unified-native-quilt-probe-0.1.0.jar": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+  },
+  "lock_sha256": "e918c7a3c4f5fc988207be6d639b86d054d4a52e3b13c634915ba6e49a5c8006",
+  "reports": {
+    "create": {
+      "path": "logs/unified-combined-98d-retry2/create.json",
+      "sha256": "ed9c5fdb0aa7682d3054d7f4773ecc3025ee74134024e9b5f06f58cba821efe6"
+    },
+    "reopen": {
+      "path": "logs/unified-combined-98d-retry2/reopen.json",
+      "sha256": "de77702ff71bf3ec7ea2c63bf964805217665c1fedde3eb7494aa52edc247574"
+    }
+  },
+  "processes_stopped_cleanly": true,
+  "same_world_manifest_preserved_before_reopen": true,
+  "lithium_zero_user_overrides_both_phases": true,
+  "mixed_pack": {
+    "create_exact_steps": [
+      8,
+      260
+    ],
+    "reopen_exact_steps": [
+      8,
+      32
+    ],
+    "create_cooked_rice_count": 2,
+    "create_snapshots": 1,
+    "reopen_snapshots": 2,
+    "canonical_native_equal_target_count": 9,
+    "all_saved_inventories_and_block_states_pass": true
+  },
+  "clumps": {
+    "weighted_xp": 72,
+    "logical_orb_units": 6,
+    "final_entity_count": 1,
+    "histogram": {
+      "1": 1,
+      "3": 1,
+      "7": 2,
+      "37": 1,
+      "17": 1
+    },
+    "survivor_uuid": "bcff5563-b1a7-4653-ae73-597d663d75a2",
+    "same_survivor_on_reopen": true,
+    "create_stages": [
+      "constructor",
+      "server_started",
+      "post_tick",
+      "seeded",
+      "merge",
+      "nbt_roundtrip",
+      "world_create",
+      "ready_to_save"
+    ],
+    "reopen_stages": [
+      "constructor",
+      "server_started",
+      "post_tick",
+      "world_reopen",
+      "nbt_roundtrip",
+      "ready_to_save"
+    ],
+    "reopen_forge_cache_hits": 2,
+    "original_absent_refmap_warning_retained": true
+  },
+  "quilt": {
+    "project_owned_probe": true,
+    "native_entrypoint_order_both_phases": true,
+    "stage_counts_create": {
+      "pre_launch": 1,
+      "init": 1,
+      "method_reference": 1,
+      "server_init": 1,
+      "automatic_ready": 1,
+      "ready": 1,
+      "ready_to_save": 1,
+      "stopped": 1
+    },
+    "stage_counts_reopen": {
+      "pre_launch": 1,
+      "init": 1,
+      "method_reference": 1,
+      "server_init": 1,
+      "automatic_ready": 1,
+      "ready": 1,
+      "ready_to_save": 1,
+      "stopped": 1
+    },
+    "saved_data_unchanged": true,
+    "marker": "native_quilt_qsl_alpha5_v1"
+  },
+  "one_host_mixin_service_both_phases": true,
+  "safeguard_zero_failed_both_phases": true,
+  "inputs_unchanged_both_phases": true,
+  "network": "Loopback only; root NeoForge LAN advertisement=false; online-mode=true; RCON/query/status off; no accounts/players",
+  "offline_tests": {
+    "test_methods": 17,
+    "log": "four-loader/combined-control/offline-tests-retry2.log",
+    "actual_query_response_regression": "four-loader/combined-control/actual-response-regression.json",
+    "all_retry1_poststop_guards_replayed": "four-loader/combined-control/retry1-full-poststop-dry-run.json"
+  },
+  "earlier_controller_failures_preserved": [
+    {
+      "profile": "unified-combined-98d-first",
+      "reason": "Strict forced-chunk dimension display expected minecraft:overworld; actual legitimate display is Overworld",
+      "evidence": "logs/unified-combined-98d-first/create.json"
+    },
+    {
+      "profile": "unified-combined-98d-retry1",
+      "reason": "Final raw properties guard did not decode Java serialization of minecraft\\:normal; actual runtime and saved-world checks passed",
+      "evidence": "logs/unified-combined-98d-retry1/create.json"
+    }
+  ],
+  "not_tested": [
+    "OP Tab/client acceptance",
+    "real-player XP pickup/cancellation/Mending",
+    "broad mod compatibility",
+    "performance"
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "filename": "quilt-meta-0.30.1.json",
+    "url": "https://meta.quiltmc.org/v3/versions/loader/1.21.1/0.30.1",
+    "final_url": "https://meta.quiltmc.org/v3/versions/loader/1.21.1/0.30.1",
+    "sha256": "da7c8b4609213c8481bd2adfee1f98e60d0eccba4b0d0be6b8be227825096198",
+    "bytes": 2558
+  },
+  {
+    "filename": "quilt-server-0.30.1.json",
+    "url": "https://meta.quiltmc.org/v3/versions/loader/1.21.1/0.30.1/server/json",
+    "final_url": "https://meta.quiltmc.org/v3/versions/loader/1.21.1/0.30.1/server/json",
+    "sha256": "fc9786c1e502508bdf98f8bc5d753104c6a7135a8f299e9984c09aeffef3687f",
+    "bytes": 1601
+  },
+  {
+    "filename": "quilt-loader-0.30.1.sha256",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar.sha256",
+    "final_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar.sha256",
+    "sha256": "a60c9dd429151c426b09b96147b76de1a7cf51c6ce47ee72be77acbdcc195b87",
+    "bytes": 64
+  },
+  {
+    "filename": "quilt-installer-0.15.1.jar",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.15.1/quilt-installer-0.15.1.jar",
+    "final_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.15.1/quilt-installer-0.15.1.jar",
+    "sha256": "0a229138caa1b87fd8f5622038410696f98bb85871a279640e7002404c4d0dc2",
+    "bytes": 8734533
+  },
+  {
+    "filename": "quilt-installer-0.15.1.sha256",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.15.1/quilt-installer-0.15.1.jar.sha256",
+    "final_url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-installer/0.15.1/quilt-installer-0.15.1.jar.sha256",
+    "sha256": "2bd88a1429eaeb3ce3f5e9c49c591c551012937b35bf332ca277b4d93d70408d",
+    "bytes": 64
+  }
+]

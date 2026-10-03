@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "scope": "First original native Quilt API/QSL server vertical slice, not all Quilt/QSL or client compatibility",
+  "inputs": {
+    "source-workspace/artifacts/unified-infinity-four-loader-201910d6.jar": "201910d6a80ff678919f6d0a86891030f105028fd28b3e84136f7eaec91014a0",
+    "runtime-bundle/build-quilt-candidate/libs/unified-infinity-0.1.0-dev.jar": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+    "run/source-built-lithium-unified/mods/unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+    "four-loader/quilt-probe/build/unified-native-quilt-probe-0.1.0.jar": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+  },
+  "stages_per_launch": {
+    "pre_launch": 1,
+    "init": 1,
+    "method_reference": 1,
+    "server_init": 1,
+    "automatic_ready": 1,
+    "ready": 1,
+    "ready_to_save": 1,
+    "stopped": 1
+  },
+  "create_report": "logs/unified-create-1.json",
+  "reopen_report": "logs/unified-reopen-1.json",
+  "native_control": "../quilt-native-control/native-control-summary.json",
+  "original_inputs_unchanged": true,
+  "saved_data_identical_before_after_reopen": true,
+  "warm_transform_cache_observation": {
+    "cold_log_contains_three_uncached": true,
+    "warm_log_has_no_transform_budget": true
+  },
+  "cached_derived_and_original_payloads": [
+    {
+      "path": "run/unified-quilt-probe-first/.cache/connector/lifecycle_events-1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4_mapped_moj_1.21.1.jar",
+      "sha256": "5f86bb887b3785baa046b4f7d2d2cb73111899cb79a57dad5dc6b1b51d42a5c1"
+    },
+    {
+      "path": "run/unified-quilt-probe-first/.cache/connector/managed-qsl/lifecycle_events-1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4.jar",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+    },
+    {
+      "path": "run/unified-quilt-probe-first/.cache/connector/managed-qsl/qsl_base-7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465.jar",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+    },
+    {
+      "path": "run/unified-quilt-probe-first/.cache/connector/qsl_base-7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465_mapped_moj_1.21.1.jar",
+      "sha256": "e65071f2c015a4953c72b46d27fa89c3bd6a9fc5217bb94956bc764c1b2917fa"
+    },
+    {
+      "path": "run/unified-quilt-probe-first/.cache/connector/unified-native-quilt-probe-0.1.0_mapped_moj_1.21.1.jar",
+      "sha256": "3485f66e0c495230346e879aae1362ca40785f05f0e84bdc91ef7e764f33595c"
+    }
+  ],
+  "network": {
+    "loopback_verified_both": true,
+    "create_caveat": "loopback listener 127.0.0.1:25621; online-mode=true; RCON/query/status disabled; no accounts. NeoForge default LAN advertisement attempted and failed with Network is unreachable; disabled for subsequent runs.",
+    "reopen": "loopback 127.0.0.1:25621; online-mode=true; RCON/query/status disabled; LAN advertisement configured off; no accounts",
+    "reopen_lan_advertiser_absent": true
+  },
+  "behavior_difference_to_review": "Cross-mod QSL automatic READY listener precedes own READY in native control but follows it under FML current entrypoint order. Both fire once before the first tick; per-mod entrypoint array order and lifecycle stages pass. Global same-phase callback ordering parity not claimed.",
+  "untested": [
+    "client path",
+    "AW use by probe",
+    "all other 28 available QSL modules",
+    "approved OP Tab client",
+    "full Quilt plugin/GUI/config APIs"
+  ]
+}

@@ -8,6 +8,11 @@ plugins {
 
 group = 'dev.modcompat'
 version = '0.1.0-dev'
+if (providers.gradleProperty('bundleBuildDir').isPresent()) {
+    def name = providers.gradleProperty('bundleBuildDir').get()
+    if (!(name ==~ /build[a-z0-9-]*/)) throw new GradleException('Use a build-prefixed local output directory')
+    layout.buildDirectory = layout.projectDirectory.dir(name)
+}
 
 // These versions come from the official Connector beta.17 release catalog and
 // NeoForge 21.1.219 POM. This tiny host uses no Minecraft classes, so a Minecraft
@@ -109,6 +114,8 @@ if (providers.gradleProperty('managedCoreJar').isPresent()) {
     }
 }
 
+apply from: 'qsl-bundle.gradle'
+
 def generatedResources = layout.buildDirectory.dir('generated/bundle-resources')
 def ffapiName = "forgified-fabric-api-${ffapiVersion}.jar"
 def connectorName = "connector-${connectorVersion}-full.jar"
@@ -131,17 +138,23 @@ tasks.register('verifyEmbeddedApi') {
 tasks.register('generateJarJarMetadata') {
     dependsOn 'verifyEmbeddedApi'
     inputs.property('ffapiVersion', ffapiVersion)
+    inputs.property('qslPins', qslEntries.collect { [it.id,it.version,it.sha256] })
     outputs.dir(generatedResources)
     doLast {
         File destination = generatedResources.get().file('META-INF/jarjar/metadata.json').asFile
         destination.parentFile.mkdirs()
         // Standard NeoForge JarJar format. Exact range avoids negotiating an
         // untested replacement. No relocations or invented Fabric module IDs.
-        destination.text = JsonOutput.prettyPrint(JsonOutput.toJson([jars: [[
+        def dependencies = [[
             identifier: [group: 'org.sinytra.forgified-fabric-api', artifact: 'forgified-fabric-api'],
             version: [range: "[${ffapiVersion}]", artifactVersion: ffapiVersion],
             path: "META-INF/jarjar/${ffapiName}"
-        ]]])) + '\n'
+        ]]
+        // Native QSL is admitted by the coordinated Connector inventory lane, not a second JarJar reader.
+        destination.text = JsonOutput.prettyPrint(JsonOutput.toJson([jars: dependencies])) + '\n'
+        File qslRecord = generatedResources.get().file('META-INF/unified-infinity/bundled-qsl.json').asFile
+        qslRecord.parentFile.mkdirs()
+        qslRecord.text = JsonOutput.prettyPrint(JsonOutput.toJson([schemaVersion: 1, runtimeTested: false, modules: qslEntries.collect { [id: it.id, group: it.group, artifact: it.artifact, version: it.version, sha256: it.sha256, path: it.path] }])) + '\n'
     }
 }
 
@@ -154,7 +167,8 @@ tasks.named('processResources') {
     inputs.property('managedConnectorSha256', connectorSha256)
     filesMatching('META-INF/neoforge.mods.toml') {
         expand(bundleVersion: version, neoForgeVersion: neoForgeVersion,
-            ffapiVersion: ffapiVersion, connectorVersion: connectorVersion)
+            ffapiVersion: ffapiVersion, connectorVersion: connectorVersion,
+            qslDependencies: qslEntries.collect { entry -> "\n[[dependencies.mod_compat_runtime]]\nmodId=\"${entry.id}\"\ntype=\"required\"\nversionRange=\"[${entry.version}]\"\nordering=\"AFTER\"\nside=\"BOTH\"\n" }.join(''))
     }
 }
 
@@ -173,6 +187,9 @@ tasks.named('jar') {
     from(configurations.embeddedApi) {
         into 'META-INF/jarjar'
         rename { ffapiName }
+    }
+    qslEntries.each { entry ->
+        from(entry.file) { into 'META-INF/jarjar'; rename { entry.artifact + '-' + entry.version + '.jar' } }
     }
     manifest.attributes(
         'Implementation-Title': 'Unified Infinity API Bundle',
@@ -211,6 +228,7 @@ tasks.register('verifyBundle', Exec) {
             '--bundle', tasks.jar.archiveFile.get().asFile,
             '--ffapi', configurations.embeddedApi.singleFile,
             '--report', layout.buildDirectory.file('reports/bundle-verification.json').get().asFile
+        if (providers.gradleProperty('qslInventory').isPresent()) args '--qsl-inventory', file(providers.gradleProperty('qslInventory').get())
     }
 }
 

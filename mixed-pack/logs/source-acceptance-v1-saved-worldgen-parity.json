@@ -1,0 +1,70 @@
+{
+  "run_id": "source-acceptance-v1",
+  "scope": "Read-only saved full target chunks: canonical block-state and biome arrays only; excludes ticking/entity/light/time metadata. Not a performance or broad-worldgen guarantee.",
+  "chunks": [
+    {
+      "x": 127,
+      "z": 127,
+      "native_neoforge_sha256": "bf4e21047bd112164925627f1c386d1d361f486d2555b1f0f4567f8b6f7e47f6",
+      "unified_sha256": "bf4e21047bd112164925627f1c386d1d361f486d2555b1f0f4567f8b6f7e47f6",
+      "equal": true
+    },
+    {
+      "x": 127,
+      "z": 128,
+      "native_neoforge_sha256": "ae806539f259a4fefe9f1818239f4a6955251a814cc43ce850438c37a99287da",
+      "unified_sha256": "ae806539f259a4fefe9f1818239f4a6955251a814cc43ce850438c37a99287da",
+      "equal": true
+    },
+    {
+      "x": 127,
+      "z": 129,
+      "native_neoforge_sha256": "e69adaa9ce4b54e8adc28ca2395e60c703506f642d67d40d1572021eb5ebda63",
+      "unified_sha256": "e69adaa9ce4b54e8adc28ca2395e60c703506f642d67d40d1572021eb5ebda63",
+      "equal": true
+    },
+    {
+      "x": 128,
+      "z": 127,
+      "native_neoforge_sha256": "ad92c39c90ce59d676d40d931651035fa9c6c1f7738b016b862c66fc6b657bc3",
+      "unified_sha256": "ad92c39c90ce59d676d40d931651035fa9c6c1f7738b016b862c66fc6b657bc3",
+      "equal": true
+    },
+    {
+      "x": 128,
+      "z": 128,
+      "native_neoforge_sha256": "02317f840d52d80fac6992cf45cb7d17a2578bd9018a2edf67bb5e5b7753c3d4",
+      "unified_sha256": "02317f840d52d80fac6992cf45cb7d17a2578bd9018a2edf67bb5e5b7753c3d4",
+      "equal": true
+    },
+    {
+      "x": 128,
+      "z": 129,
+      "native_neoforge_sha256": "f92019ec95280fb05da85a2a759f471d4399f13a931a1c2b418f9fad10c11fa4",
+      "unified_sha256": "f92019ec95280fb05da85a2a759f471d4399f13a931a1c2b418f9fad10c11fa4",
+      "equal": true
+    },
+    {
+      "x": 129,
+      "z": 127,
+      "native_neoforge_sha256": "f916a5d200a743f464c08ec06ac668773603bbb954390309d73b8f8493ae6399",
+      "unified_sha256": "f916a5d200a743f464c08ec06ac668773603bbb954390309d73b8f8493ae6399",
+      "equal": true
+    },
+    {
+      "x": 129,
+      "z": 128,
+      "native_neoforge_sha256": "0eedf36c6b834fb60347ae01404c9dc72a1e17e0e17e4db46ac148ae2cacd8dd",
+      "unified_sha256": "0eedf36c6b834fb60347ae01404c9dc72a1e17e0e17e4db46ac148ae2cacd8dd",
+      "equal": true
+    },
+    {
+      "x": 129,
+      "z": 129,
+      "native_neoforge_sha256": "f6d095c396e2430e8c117bc0df56c0f3df0749acba97b231d15ddb1522f52815",
+      "unified_sha256": "f6d095c396e2430e8c117bc0df56c0f3df0749acba97b231d15ddb1522f52815",
+      "equal": true
+    }
+  ],
+  "passed": true
+}

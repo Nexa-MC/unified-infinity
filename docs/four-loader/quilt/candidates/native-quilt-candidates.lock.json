@@ -1,0 +1,748 @@
+{
+  "schema_version": 1,
+  "target_minecraft": "1.21.1",
+  "checked_utc": "2026-10-03",
+  "scope": "official-author native Quilt candidate static shortlist; not runtime compatibility certification or security audit",
+  "candidates": [
+    {
+      "project": "optab",
+      "project_id": "JqlHhgpT",
+      "source_url": "https://github.com/betterclient/opitemsmod",
+      "version_id": "tcJK6pdC",
+      "version": "2.0.0V1.21.1+1.21",
+      "game_versions": [
+        "1.21",
+        "1.21.1"
+      ],
+      "loaders": [
+        "quilt"
+      ],
+      "published": "2024-08-31T19:59:03.042470Z",
+      "file": {
+        "id": "7TrLU83f",
+        "hashes": {
+          "sha512": "8c1fac43d5b71b825f1515fc877aeede48cd6076667714f047d5a1c0976b965b22b4eb59d3a48ca07599a83f8919f1ac7888153cc34d2787d5f4b16d4bba822b",
+          "sha1": "f18394658aca07185ffd742e9eba4cfc745795f4"
+        },
+        "url": "https://cdn.modrinth.com/data/JqlHhgpT/versions/tcJK6pdC/optab-2.0.0V1.21.1%2B1.21.jar",
+        "filename": "optab-2.0.0V1.21.1+1.21.jar",
+        "primary": true,
+        "size": 7643,
+        "file_type": null
+      },
+      "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296",
+      "sha512": "8c1fac43d5b71b825f1515fc877aeede48cd6076667714f047d5a1c0976b965b22b4eb59d3a48ca07599a83f8919f1ac7888153cc34d2787d5f4b16d4bba822b",
+      "metadata": {
+        "quilt.mod.json": {
+          "schema_version": 1,
+          "quilt_loader": {
+            "group": "io.github.betterclient",
+            "id": "optab",
+            "version": "2.0.0V1.21.1+1.21",
+            "metadata": {
+              "name": "Op Tab",
+              "description": "Adds /give items as a creative tab.",
+              "contributors": {
+                "BetterClient": "Owner"
+              },
+              "contact": {
+                "curseforge": "https://www.curseforge.com/minecraft/mc-mods/op-tab",
+                "modrinth": "https://modrinth.com/mod/optab",
+                "issues": "https://github.com/BetterClient/opitemsmod/issues",
+                "sources": "https://github.com/BetterClient/opitemsmod"
+              },
+              "icon": "assets/optab/icon.png"
+            },
+            "intermediate_mappings": "net.fabricmc:intermediary",
+            "entrypoints": {
+              "init": "io.github.betterclient.optab.OpTab"
+            },
+            "depends": [
+              {
+                "id": "quilt_loader",
+                "versions": ">=0.16.0-"
+              },
+              {
+                "id": "minecraft",
+                "versions": ">=1.21"
+              }
+            ]
+          }
+        }
+      },
+      "nested_jars": [],
+      "quilt_reference_classes": [
+        "io/github/betterclient/optab/OpTab.class"
+      ],
+      "modrinth_dependencies": [
+        {
+          "version_id": null,
+          "project_id": "qvIfYCYJ",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ],
+      "priority": 1,
+      "status": "preferred first client-only functional candidate; execution not authorized",
+      "coverage": [
+        "quilt.mod.json-only discovery",
+        "QSL init with ModContainer",
+        "FabricItemGroup through chosen compatible API stack",
+        "intermediary remapping of registry, item group, components and enchantments",
+        "creative inventory tab after joining throwaway world"
+      ],
+      "blockers": [
+        "Author tags both 1.21 and 1.21.1, but build catalog targets 1.21; 1.21.1 execution remains unverified.",
+        "JAR depends only on quilt_loader and minecraft despite bytecode requiring QSL base and Fabric item-group API. Modrinth requires qsl project without pinned version.",
+        "References client MinecraftClient and ClientWorld but metadata init is common and lacks minecraft.environment; do not treat it as dedicated-server safe.",
+        "Minecraft client and world-backed creative inventory check required; server-only launch cannot establish functional success.",
+        "Needs compatible remapping/API stack; do not substitute loader labels for ABI verification."
+      ],
+      "source_tag": "2.0.0-1.21",
+      "source_commit": "40dfbb16faf42235e64caa6adcd499ba1c80367d",
+      "author": "betterclient",
+      "declared_build_versions": {
+        "minecraft": "1.21",
+        "quilt_loader": "0.26.4-beta.5",
+        "qsl": "10.0.0-alpha.1+1.21",
+        "qfapi": "11.0.0-alpha.3+0.102.0-1.21"
+      },
+      "runtime_dependency_notes": [
+        "QSL base entrypoint interface (ModInitializer)",
+        "Fabric item-group API (FabricItemGroup.builder)",
+        "Minecraft/Java 21 and bundled Log4j API",
+        "No nested JARs or shaded third-party library classes found; one mod class."
+      ],
+      "project_url": "https://modrinth.com/mod/optab",
+      "release_url": "https://modrinth.com/mod/optab/version/tcJK6pdC",
+      "version_api_url": "https://api.modrinth.com/v2/version/tcJK6pdC",
+      "author_url": "https://modrinth.com/user/betterclient",
+      "source_files": {
+        "metadata": "https://github.com/betterclient/opitemsmod/blob/40dfbb16faf42235e64caa6adcd499ba1c80367d/src/main/resources/quilt.mod.json",
+        "build": "https://github.com/betterclient/opitemsmod/blob/40dfbb16faf42235e64caa6adcd499ba1c80367d/build.gradle",
+        "catalog": "https://github.com/betterclient/opitemsmod/blob/40dfbb16faf42235e64caa6adcd499ba1c80367d/gradle/libs.versions.toml"
+      },
+      "native_proof": {
+        "root_quilt_mod_json": true,
+        "root_fabric_mod_json": false,
+        "native_entrypoint_interfaces": {
+          "io/github/betterclient/optab/OpTab.class": {
+            "interfaces": [
+              "org/quiltmc/qsl/base/api/entrypoint/ModInitializer"
+            ],
+            "methods": [
+              {
+                "name": "onInitialize",
+                "descriptor": "(Lorg/quiltmc/loader/api/ModContainer;)V",
+                "access_flags": 1
+              }
+            ]
+          }
+        }
+      },
+      "quilt_method_references": {},
+      "vanilla_class_reference_count": 23,
+      "vanilla_class_references": [
+        "net/minecraft/class_1761",
+        "net/minecraft/class_1761$class_7704",
+        "net/minecraft/class_1761$class_7913",
+        "net/minecraft/class_1761$class_7914",
+        "net/minecraft/class_1761$class_8128",
+        "net/minecraft/class_1799",
+        "net/minecraft/class_1802",
+        "net/minecraft/class_1887",
+        "net/minecraft/class_1893",
+        "net/minecraft/class_2246",
+        "net/minecraft/class_2378",
+        "net/minecraft/class_2561",
+        "net/minecraft/class_2960",
+        "net/minecraft/class_310",
+        "net/minecraft/class_5321",
+        "net/minecraft/class_5455",
+        "net/minecraft/class_638",
+        "net/minecraft/class_6880",
+        "net/minecraft/class_7923",
+        "net/minecraft/class_7924",
+        "net/minecraft/class_9326",
+        "net/minecraft/class_9326$class_9327",
+        "net/minecraft/class_9334"
+      ],
+      "java_classfile_majors": [
+        65
+      ],
+      "class_count": 1,
+      "integrity": {
+        "sha512_matches_modrinth": true,
+        "sha1_matches_modrinth": true,
+        "sha256_computed_locally": true
+      },
+      "execution": "not performed; ZIP/JSON/classfile/static-source reads only"
+    },
+    {
+      "project": "lockable",
+      "project_id": "FZYbKATz",
+      "source_url": "https://github.com/justanoval/Lockable",
+      "version_id": "VQS2BLNZ",
+      "version": "1.0.1+1.21",
+      "game_versions": [
+        "1.21",
+        "1.21.1"
+      ],
+      "loaders": [
+        "quilt"
+      ],
+      "published": "2024-08-31T15:31:21.620623Z",
+      "file": {
+        "id": "dJnhbhMV",
+        "hashes": {
+          "sha512": "ce52ac378ba5d78608b2d559ff19cabfae5539b769b9334c0f212260a7f682abff1f3e8fbb5da8b0d9ecbf9416e304ec9e42241737b28db7e06588e5971ce275",
+          "sha1": "8d1c12f56051f832939269a517f2cca558944780"
+        },
+        "url": "https://cdn.modrinth.com/data/FZYbKATz/versions/VQS2BLNZ/lockable-1.0.1%2B1.21.jar",
+        "filename": "lockable-1.0.1+1.21.jar",
+        "primary": true,
+        "size": 456495,
+        "file_type": null
+      },
+      "sha256": "b2c0ad881046d0a9692bafb22ca438e442d61a0e79e7ed9e0860c2ee9bb3592b",
+      "sha512": "ce52ac378ba5d78608b2d559ff19cabfae5539b769b9334c0f212260a7f682abff1f3e8fbb5da8b0d9ecbf9416e304ec9e42241737b28db7e06588e5971ce275",
+      "metadata": {
+        "quilt.mod.json": {
+          "schema_version": 1,
+          "quilt_loader": {
+            "group": "io.github.justanoval.lockable",
+            "id": "lockable",
+            "version": "1.0.1+1.21",
+            "metadata": {
+              "name": "Lockable",
+              "description": "Adds locks and keys to allow players to protect their items, or steal from others.",
+              "contributors": {
+                "justan oval": "Author"
+              },
+              "contact": {
+                "homepage": "https://modrinth.com/mod/lockable",
+                "issues": "https://github.com/justanoval/Lockable/issues",
+                "sources": "https://github.com/justanoval/Lockable"
+              },
+              "icon": "assets/lockable/icon.png"
+            },
+            "intermediate_mappings": "net.fabricmc:intermediary",
+            "entrypoints": {
+              "init": "io.github.justanoval.lockable.LockableMod",
+              "client_init": "io.github.justanoval.lockable.client.LockableClientMod"
+            },
+            "depends": [
+              {
+                "id": "quilt_loader",
+                "versions": ">=0.19.1"
+              },
+              {
+                "id": "quilted_fabric_api",
+                "versions": ">=11.0.0-alpha.2+0.100.4-1.21"
+              },
+              {
+                "id": "minecraft",
+                "versions": ">=1.21"
+              }
+            ]
+          },
+          "mixin": "lockable.mixins.json",
+          "modmenu": {
+            "links": {
+              "modmenu.lockable.website": "https://justanoval.com/"
+            },
+            "update_checker": true
+          }
+        }
+      },
+      "nested_jars": [],
+      "quilt_reference_classes": [
+        "io/github/justanoval/lockable/LockableMod.class",
+        "io/github/justanoval/lockable/api/Lockable.class",
+        "io/github/justanoval/lockable/client/LockableClientMod.class",
+        "io/github/justanoval/lockable/config/LockableConfig$BoneKeyConfig.class",
+        "io/github/justanoval/lockable/config/LockableConfig$KeychainConfig.class",
+        "io/github/justanoval/lockable/config/LockableConfig$LockabilityConfig.class",
+        "io/github/justanoval/lockable/config/LockableConfig$WeatheredLockConfig.class",
+        "io/github/justanoval/lockable/config/LockableConfig.class",
+        "io/github/justanoval/lockable/items/LockableItems.class",
+        "io/github/justanoval/lockable/items/key/BoneKeyItem.class",
+        "io/github/justanoval/lockable/items/key/KeychainItem.class",
+        "io/github/justanoval/lockable/world/LockableLootTableHandler.class"
+      ],
+      "modrinth_dependencies": [],
+      "priority": 2,
+      "status": "second, broader client/server functional candidate; execution not authorized",
+      "coverage": [
+        "quilt.mod.json-only discovery",
+        "QSL common and client init with ModContainer",
+        "Quilt Loader Config v2 and reflective config",
+        "required common and client mixins with intermediary refmap",
+        "Fabric item-group, rendering, client lifecycle, loot v3 and events APIs",
+        "vanilla item/lock registration, persisted block-entity data, rendering and inventory interactions"
+      ],
+      "blockers": [
+        "Author explicitly tags both 1.21 and 1.21.1, but build catalog targets 1.21; 1.21.1 execution remains unverified.",
+        "Required quilted_fabric_api ID/version must be genuinely satisfied; a Fabric label or arbitrary alias is insufficient.",
+        "Quilt Config v2 and ReflectiveConfig implementations are required beyond entrypoint shims.",
+        "10 required mixins (8 common, 2 client), defaultRequire 1; changes to vanilla target ABI can fail class transformation.",
+        "Changes inventory, chest locks and block-entity persistent data; use only disposable worlds and isolated client/server directories.",
+        "Modrinth release dependencies array is empty despite JAR requiring QFAPI; launcher resolution cannot be trusted alone."
+      ],
+      "source_tag": "1.0.1+1.21",
+      "source_commit": "d2b379cbd21d5c045a11a085dad7043d8c8fc6b4",
+      "author": "justanoval",
+      "declared_build_versions": {
+        "minecraft": "1.21",
+        "quilt_loader": "0.26.4-beta.1",
+        "qsl": "10.0.0-alpha.1+1.21",
+        "qfapi": "11.0.0-alpha.3+0.100.7-1.21"
+      },
+      "runtime_dependency_notes": [
+        "QSL base common and client entrypoint interfaces",
+        "Quilt Loader Config v2 / Quilt Config (ReflectiveConfig, Section, TrackedValue, ValueList, annotations)",
+        "QFAPI minimum >=11.0.0-alpha.2+0.100.4-1.21 per quilt.mod.json",
+        "Fabric item-group, rendering, client lifecycle, events-base and loot v3 API classes",
+        "Minecraft bundled SLF4J, DFU Codec, JOML and loader Mixin runtime",
+        "No nested JARs or shaded third-party library classes found."
+      ],
+      "project_url": "https://modrinth.com/mod/lockable",
+      "release_url": "https://modrinth.com/mod/lockable/version/VQS2BLNZ",
+      "version_api_url": "https://api.modrinth.com/v2/version/VQS2BLNZ",
+      "author_url": "https://modrinth.com/user/justanoval",
+      "source_files": {
+        "metadata": "https://github.com/justanoval/Lockable/blob/d2b379cbd21d5c045a11a085dad7043d8c8fc6b4/src/main/resources/quilt.mod.json",
+        "build": "https://github.com/justanoval/Lockable/blob/d2b379cbd21d5c045a11a085dad7043d8c8fc6b4/build.gradle",
+        "catalog": "https://github.com/justanoval/Lockable/blob/d2b379cbd21d5c045a11a085dad7043d8c8fc6b4/gradle/libs.versions.toml"
+      },
+      "native_proof": {
+        "root_quilt_mod_json": true,
+        "root_fabric_mod_json": false,
+        "native_entrypoint_interfaces": {
+          "io/github/justanoval/lockable/LockableMod.class": {
+            "interfaces": [
+              "org/quiltmc/qsl/base/api/entrypoint/ModInitializer"
+            ],
+            "methods": [
+              {
+                "name": "onInitialize",
+                "descriptor": "(Lorg/quiltmc/loader/api/ModContainer;)V",
+                "access_flags": 1
+              }
+            ]
+          },
+          "io/github/justanoval/lockable/client/LockableClientMod.class": {
+            "interfaces": [
+              "org/quiltmc/qsl/base/api/entrypoint/client/ClientModInitializer"
+            ],
+            "methods": [
+              {
+                "name": "onInitializeClient",
+                "descriptor": "(Lorg/quiltmc/loader/api/ModContainer;)V",
+                "access_flags": 1
+              }
+            ]
+          }
+        }
+      },
+      "quilt_method_references": {
+        "io/github/justanoval/lockable/LockableMod.class": [
+          {
+            "owner": "org/quiltmc/loader/api/config/v2/QuiltConfig",
+            "name": "create",
+            "descriptor": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Class;)Lorg/quiltmc/config/api/ReflectiveConfig;"
+          }
+        ],
+        "io/github/justanoval/lockable/api/Lockable.class": [
+          {
+            "owner": "org/quiltmc/config/api/values/TrackedValue",
+            "name": "getRealValue",
+            "descriptor": "()Ljava/lang/Object;"
+          },
+          {
+            "owner": "org/quiltmc/config/api/values/ValueList",
+            "name": "iterator",
+            "descriptor": "()Ljava/util/Iterator;"
+          }
+        ],
+        "io/github/justanoval/lockable/config/LockableConfig$BoneKeyConfig.class": [
+          {
+            "owner": "org/quiltmc/config/api/ReflectiveConfig$Section",
+            "name": "<init>",
+            "descriptor": "()V"
+          }
+        ],
+        "io/github/justanoval/lockable/config/LockableConfig$KeychainConfig.class": [
+          {
+            "owner": "org/quiltmc/config/api/ReflectiveConfig$Section",
+            "name": "<init>",
+            "descriptor": "()V"
+          }
+        ],
+        "io/github/justanoval/lockable/config/LockableConfig$LockabilityConfig.class": [
+          {
+            "owner": "org/quiltmc/config/api/ReflectiveConfig$Section",
+            "name": "<init>",
+            "descriptor": "()V"
+          }
+        ],
+        "io/github/justanoval/lockable/config/LockableConfig$WeatheredLockConfig.class": [
+          {
+            "owner": "org/quiltmc/config/api/ReflectiveConfig$Section",
+            "name": "<init>",
+            "descriptor": "()V"
+          }
+        ],
+        "io/github/justanoval/lockable/config/LockableConfig.class": [
+          {
+            "owner": "org/quiltmc/config/api/ReflectiveConfig",
+            "name": "<init>",
+            "descriptor": "()V"
+          }
+        ],
+        "io/github/justanoval/lockable/items/key/BoneKeyItem.class": [
+          {
+            "owner": "org/quiltmc/config/api/values/TrackedValue",
+            "name": "getRealValue",
+            "descriptor": "()Ljava/lang/Object;"
+          }
+        ],
+        "io/github/justanoval/lockable/items/key/KeychainItem.class": [
+          {
+            "owner": "org/quiltmc/config/api/values/TrackedValue",
+            "name": "getRealValue",
+            "descriptor": "()Ljava/lang/Object;"
+          }
+        ],
+        "io/github/justanoval/lockable/world/LockableLootTableHandler.class": [
+          {
+            "owner": "org/quiltmc/config/api/values/TrackedValue",
+            "name": "value",
+            "descriptor": "()Ljava/lang/Object;"
+          }
+        ]
+      },
+      "vanilla_class_reference_count": 94,
+      "vanilla_class_references": [
+        "net/minecraft/class_124",
+        "net/minecraft/class_1268",
+        "net/minecraft/class_1304",
+        "net/minecraft/class_1542",
+        "net/minecraft/class_1657",
+        "net/minecraft/class_1661",
+        "net/minecraft/class_1735",
+        "net/minecraft/class_1750",
+        "net/minecraft/class_1792",
+        "net/minecraft/class_1792$class_1793",
+        "net/minecraft/class_1792$class_9635",
+        "net/minecraft/class_1799",
+        "net/minecraft/class_181",
+        "net/minecraft/class_1814",
+        "net/minecraft/class_1921",
+        "net/minecraft/class_1937",
+        "net/minecraft/class_2237",
+        "net/minecraft/class_2281",
+        "net/minecraft/class_2318",
+        "net/minecraft/class_2338",
+        "net/minecraft/class_2350",
+        "net/minecraft/class_2371",
+        "net/minecraft/class_2378",
+        "net/minecraft/class_2383",
+        "net/minecraft/class_243",
+        "net/minecraft/class_2487",
+        "net/minecraft/class_2561",
+        "net/minecraft/class_2586",
+        "net/minecraft/class_2595",
+        "net/minecraft/class_2615",
+        "net/minecraft/class_2622",
+        "net/minecraft/class_2624",
+        "net/minecraft/class_2680",
+        "net/minecraft/class_2745",
+        "net/minecraft/class_2746",
+        "net/minecraft/class_2960",
+        "net/minecraft/class_310",
+        "net/minecraft/class_3218",
+        "net/minecraft/class_3222",
+        "net/minecraft/class_3414",
+        "net/minecraft/class_3417",
+        "net/minecraft/class_3419",
+        "net/minecraft/class_3610",
+        "net/minecraft/class_3612",
+        "net/minecraft/class_3737",
+        "net/minecraft/class_39",
+        "net/minecraft/class_4184",
+        "net/minecraft/class_4587",
+        "net/minecraft/class_4588",
+        "net/minecraft/class_4597",
+        "net/minecraft/class_4608",
+        "net/minecraft/class_4739",
+        "net/minecraft/class_4970",
+        "net/minecraft/class_4970$class_2251",
+        "net/minecraft/class_52",
+        "net/minecraft/class_52$class_53",
+        "net/minecraft/class_5250",
+        "net/minecraft/class_5272",
+        "net/minecraft/class_5321",
+        "net/minecraft/class_55",
+        "net/minecraft/class_55$class_56",
+        "net/minecraft/class_5536",
+        "net/minecraft/class_5601",
+        "net/minecraft/class_5603",
+        "net/minecraft/class_5605",
+        "net/minecraft/class_5606",
+        "net/minecraft/class_5607",
+        "net/minecraft/class_5609",
+        "net/minecraft/class_5610",
+        "net/minecraft/class_5614",
+        "net/minecraft/class_5614$class_5615",
+        "net/minecraft/class_5630",
+        "net/minecraft/class_5819",
+        "net/minecraft/class_630",
+        "net/minecraft/class_638",
+        "net/minecraft/class_7225",
+        "net/minecraft/class_7225$class_7874",
+        "net/minecraft/class_761",
+        "net/minecraft/class_7695",
+        "net/minecraft/class_77",
+        "net/minecraft/class_7706",
+        "net/minecraft/class_7833",
+        "net/minecraft/class_79",
+        "net/minecraft/class_79$class_80",
+        "net/minecraft/class_7923",
+        "net/minecraft/class_827",
+        "net/minecraft/class_85",
+        "net/minecraft/class_85$class_86",
+        "net/minecraft/class_8567",
+        "net/minecraft/class_8567$class_8568",
+        "net/minecraft/class_9062",
+        "net/minecraft/class_9331",
+        "net/minecraft/class_9331$class_9332",
+        "net/minecraft/class_9334"
+      ],
+      "java_classfile_majors": [
+        61
+      ],
+      "class_count": 44,
+      "integrity": {
+        "sha512_matches_modrinth": true,
+        "sha1_matches_modrinth": true,
+        "sha256_computed_locally": true
+      },
+      "execution": "not performed; ZIP/JSON/classfile/static-source reads only"
+    },
+    {
+      "project": "better-log4j-config",
+      "project_id": "6gLXkYZq",
+      "source_url": "https://github.com/Pixelstormer/better_log4j_config/",
+      "version_id": "cLUupLck",
+      "version": "1.2.0",
+      "game_versions": [
+        "1.14",
+        "1.14.1",
+        "1.14.2",
+        "1.14.3",
+        "1.14.4",
+        "1.15",
+        "1.15.1",
+        "1.15.2",
+        "1.16",
+        "1.16.1",
+        "1.16.2",
+        "1.16.3",
+        "1.16.4",
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5"
+      ],
+      "loaders": [
+        "quilt"
+      ],
+      "published": "2023-08-29T18:04:46.204350Z",
+      "file": {
+        "id": "thZBwlHT",
+        "hashes": {
+          "sha512": "65fb93211e2fc149197fb83f6671775baa573491f7d26333caac2f839fe0cd36029e7fa6bed07c3de74ae8d9c910049da53c4f04a952f49abcca701393eb6ec1",
+          "sha1": "c001bc778063fc08728e9cd21693cc38d02b54de"
+        },
+        "url": "https://cdn.modrinth.com/data/6gLXkYZq/versions/cLUupLck/better_log4j_config-1.2.0-quilt.jar",
+        "filename": "better_log4j_config-1.2.0-quilt.jar",
+        "primary": true,
+        "size": 42110,
+        "file_type": null
+      },
+      "sha256": "085217ac9de735dff586bacb1c1ec6cd11c19ea928e48f5d754e223005ca38b3",
+      "sha512": "65fb93211e2fc149197fb83f6671775baa573491f7d26333caac2f839fe0cd36029e7fa6bed07c3de74ae8d9c910049da53c4f04a952f49abcca701393eb6ec1",
+      "metadata": {
+        "quilt.mod.json": {
+          "schema_version": 1,
+          "quilt_loader": {
+            "group": "com.pixelstorm",
+            "id": "better_log4j_config",
+            "version": "1.2.0",
+            "metadata": {
+              "name": "Better Log4j Config",
+              "description": "Automatically reconfigures Log4j to improve the formatting of log messages.",
+              "contributors": {
+                "Pixelstorm": "Owner"
+              },
+              "contact": {
+                "homepage": "https://modrinth.com/mod/better-log4j-config",
+                "issues": "https://github.com/Pixelstormer/better_log4j_config/issues",
+                "sources": "https://github.com/Pixelstormer/better_log4j_config/tree/quilt"
+              },
+              "icon": "assets/better_log4j_config/icon.png"
+            },
+            "intermediate_mappings": "net.fabricmc:intermediary",
+            "entrypoints": {
+              "pre_launch": "com.pixelstorm.better_log4j_config.BetterLog4jConfig"
+            },
+            "depends": [
+              {
+                "id": "quilt_loader",
+                "versions": "*"
+              }
+            ]
+          }
+        }
+      },
+      "nested_jars": [],
+      "quilt_reference_classes": [
+        "com/pixelstorm/better_log4j_config/ConfigFileHandler.class",
+        "com/pixelstorm/better_log4j_config/BetterLog4jConfig.class"
+      ],
+      "modrinth_dependencies": [],
+      "priority": 3,
+      "status": "deferred isolated loader-only prelaunch candidate; avoid first execution because it changes logging",
+      "coverage": [
+        "quilt.mod.json-only discovery",
+        "Quilt Loader pre_launch lifecycle",
+        "ModContainer classloader identity and resource lookup",
+        "QuiltLoader config-directory lookup",
+        "Log4j plugin discovery through mod classloader"
+      ],
+      "blockers": [
+        "Prelaunch changes global Log4j configuration and creates config/better_log4j_config.xml when missing, so can alter diagnostic evidence.",
+        "Run separately with pristine disposable config/log directories only after explicit execution approval; avoid production/shared instances.",
+        "No Minecraft class linkage, QSL or QFAPI, so success would prove loader prelaunch/resource APIs only.",
+        "Version is old but release explicitly lists 1.21.1 and implementation is Minecraft-independent; this is not a substitute older-Minecraft binary.",
+        "Source branch is pinned for inspection but build uses dynamic quilt_loader + and Log4j 2.+; binary reproducibility is not established."
+      ],
+      "source_tag": null,
+      "source_commit": "e7937219c6a121f1204700cb8d6e3d4f8d1662cb",
+      "author": "Pixelstormer",
+      "declared_build_versions": {
+        "minecraft": "none",
+        "quilt_loader": "+",
+        "log4j_api": "2.+",
+        "log4j_core": "2.+"
+      },
+      "runtime_dependency_notes": [
+        "Quilt Loader only in JAR metadata, version *",
+        "Log4j API/core from host; classes reference PluginRegistry, LoggerContext and other core APIs",
+        "No Minecraft references, QSL/Fabric API references, nested JARs or shaded library classes found."
+      ],
+      "project_url": "https://modrinth.com/mod/better-log4j-config",
+      "release_url": "https://modrinth.com/mod/better-log4j-config/version/cLUupLck",
+      "version_api_url": "https://api.modrinth.com/v2/version/cLUupLck",
+      "author_url": "https://modrinth.com/user/Pixelstormer",
+      "source_files": {
+        "metadata": "https://github.com/BigWingBeat/better_log4j_config/blob/e7937219c6a121f1204700cb8d6e3d4f8d1662cb/src/main/resources/quilt.mod.json",
+        "build": "https://github.com/BigWingBeat/better_log4j_config/blob/e7937219c6a121f1204700cb8d6e3d4f8d1662cb/build.gradle",
+        "catalog": "https://github.com/BigWingBeat/better_log4j_config/blob/e7937219c6a121f1204700cb8d6e3d4f8d1662cb/gradle/libs.versions.toml"
+      },
+      "native_proof": {
+        "root_quilt_mod_json": true,
+        "root_fabric_mod_json": false,
+        "native_entrypoint_interfaces": {
+          "com/pixelstorm/better_log4j_config/BetterLog4jConfig.class": {
+            "interfaces": [
+              "org/quiltmc/loader/api/entrypoint/PreLaunchEntrypoint"
+            ],
+            "methods": [
+              {
+                "name": "onPreLaunch",
+                "descriptor": "(Lorg/quiltmc/loader/api/ModContainer;)V",
+                "access_flags": 1
+              }
+            ]
+          }
+        }
+      },
+      "quilt_method_references": {
+        "com/pixelstorm/better_log4j_config/ConfigFileHandler.class": [
+          {
+            "owner": "org/quiltmc/loader/api/QuiltLoader",
+            "name": "getConfigDir",
+            "descriptor": "()Ljava/nio/file/Path;"
+          }
+        ],
+        "com/pixelstorm/better_log4j_config/BetterLog4jConfig.class": [
+          {
+            "owner": "org/quiltmc/loader/api/ModContainer",
+            "name": "getClassLoader",
+            "descriptor": "()Ljava/lang/ClassLoader;"
+          }
+        ]
+      },
+      "vanilla_class_reference_count": 0,
+      "vanilla_class_references": [],
+      "java_classfile_majors": [
+        52
+      ],
+      "class_count": 5,
+      "integrity": {
+        "sha512_matches_modrinth": true,
+        "sha1_matches_modrinth": true,
+        "sha256_computed_locally": true
+      },
+      "execution": "not performed; ZIP/JSON/classfile/static-source reads only"
+    }
+  ],
+  "exclusions": [
+    {
+      "project": "Planetarium",
+      "version": "2.1.0+mc1.21.1",
+      "reason": "Latest Fabric+Quilt labeled JAR has fabric.mod.json only and no org.quiltmc references; not native Quilt."
+    },
+    {
+      "project": "Simple End Disable",
+      "version": "1.0.0+1.19.2",
+      "reason": "Genuine Quilt metadata, author lists 1.21.1, but binary/version and source era target 1.19.2; omitted to avoid older-Minecraft substitution."
+    },
+    {
+      "project": "Restful Hellscape",
+      "version": "1.1.0+1.19.2",
+      "reason": "Genuine Quilt metadata, author lists 1.21.1, but binary/version and source era target 1.19.2; omitted to avoid older-Minecraft substitution."
+    },
+    {
+      "project": "Random Dropz",
+      "version": "1.0.4+1.21",
+      "reason": "Genuine native Quilt JAR found; broad >=1.20 predicate, very broad release game_versions and underdeclared dependencies make it less precise than selected 1.21/1.21.1 candidates."
+    },
+    {
+      "project": "Static Data",
+      "reason": "No version returned by explicit Quilt+1.21.1 release query."
+    }
+  ]
+}

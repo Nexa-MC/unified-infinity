@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "rejected_in_memory_pin_mismatches": {
+    "original_inputs": true,
+    "mods": true,
+    "libraries": true,
+    "harness_files": true,
+    "fixture_sources": true,
+    "config_files": true,
+    "server_properties": true
+  },
+  "profile_untouched": true
+}

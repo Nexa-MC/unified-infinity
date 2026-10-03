@@ -1,0 +1,50 @@
+{
+  "url": "https://api.modrinth.com/v2/project/optab/version?loaders=%5B%22quilt%22%5D&game_versions=%5B%221.21.1%22%5D",
+  "response": [
+    {
+      "game_versions": [
+        "1.21",
+        "1.21.1"
+      ],
+      "loaders": [
+        "quilt"
+      ],
+      "environment": "client_only",
+      "id": "tcJK6pdC",
+      "project_id": "JqlHhgpT",
+      "author_id": "Uu8kXYZO",
+      "featured": false,
+      "name": "2.0.0 for 1.21.1&1.21",
+      "version_number": "2.0.0V1.21.1+1.21",
+      "changelog": "Update to 1.21",
+      "changelog_url": null,
+      "date_published": "2024-08-31T19:59:03.042470Z",
+      "downloads": 893,
+      "version_type": "release",
+      "status": "listed",
+      "requested_status": null,
+      "files": [
+        {
+          "id": "7TrLU83f",
+          "hashes": {
+            "sha512": "8c1fac43d5b71b825f1515fc877aeede48cd6076667714f047d5a1c0976b965b22b4eb59d3a48ca07599a83f8919f1ac7888153cc34d2787d5f4b16d4bba822b",
+            "sha1": "f18394658aca07185ffd742e9eba4cfc745795f4"
+          },
+          "url": "https://cdn.modrinth.com/data/JqlHhgpT/versions/tcJK6pdC/optab-2.0.0V1.21.1%2B1.21.jar",
+          "filename": "optab-2.0.0V1.21.1+1.21.jar",
+          "primary": true,
+          "size": 7643,
+          "file_type": null
+        }
+      ],
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "qvIfYCYJ",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    }
+  ]
+}

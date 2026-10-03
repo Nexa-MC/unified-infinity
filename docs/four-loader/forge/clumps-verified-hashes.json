@@ -1,0 +1,11 @@
+{
+  "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+  "size": 18226,
+  "hashes": {
+    "sha1": "e075af7907303f429165d2265d77c0ecac2adcab",
+    "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+    "sha512": "8a172b05b9efe42dc2dfdab6c89fb94e9255b794996c416ab979cbf5688f4c37994db8f2660ceb271f8a5ee1c3ddc38808ebe1d2c683236a8eba989ac9b7e0bf"
+  },
+  "published_hashes_match": true,
+  "execution": false
+}

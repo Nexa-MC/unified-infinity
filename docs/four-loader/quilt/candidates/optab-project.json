@@ -1,0 +1,62 @@
+{
+  "client_side": "required",
+  "server_side": "unsupported",
+  "game_versions": [
+    "1.18.2",
+    "1.19.2",
+    "1.19.3",
+    "1.21",
+    "1.21.1"
+  ],
+  "environment": [
+    "client_only"
+  ],
+  "id": "JqlHhgpT",
+  "slug": "optab",
+  "project_type": "mod",
+  "team": "7yrVuP3F",
+  "organization": null,
+  "title": "OP Tab",
+  "description": "Adds a creative mode tab for items that are normally obtainable via /give.",
+  "body": "Adds a creative mode tab for items that are normally obtainable via /give.\n\nMenu:\n\n<a href=\"https://i.imgur.com/\">\n         <img alt=\"Menu\" src=\"https://i.imgur.com/S3QXXRJ.png\"\n         width=200\" height=\"200\">\n</a>\n\nThis includes items that have enchantments at level 127 and unstackable items stacked to 64.\n\nItems that have enchantments at level 127:\n\n<a href=\"https://i.imgur.com/\">\n         <img alt=\"Menu\" src=\"https://i.imgur.com/wPtVmM1.png\"\n         width=200\" height=\"200\">\n</a>\n\nUnstackable items stacked to 64 (incompatible with 1.19.3):\n\n<a href=\"https://i.imgur.com/\">\n         <img alt=\"Menu\" src=\"https://i.imgur.com/SgLzMSG.png\"\n         width=200\" height=\"200\">\n</a>",
+  "body_url": null,
+  "published": "2022-05-11T19:48:47.828173Z",
+  "updated": "2024-08-31T19:59:03.042470Z",
+  "approved": "2022-05-11T19:48:47.828173Z",
+  "queued": null,
+  "status": "approved",
+  "requested_status": null,
+  "moderator_message": null,
+  "license": {
+    "id": "CC0-1.0",
+    "name": "Creative Commons Zero v1.0 Universal",
+    "url": null
+  },
+  "downloads": 1731,
+  "followers": 12,
+  "categories": [
+    "utility"
+  ],
+  "additional_categories": [],
+  "loaders": [
+    "quilt"
+  ],
+  "versions": [
+    "ZqpTnsSV",
+    "hYCDHOtL",
+    "ksReShxZ",
+    "pduBjVJx",
+    "tcJK6pdC"
+  ],
+  "icon_url": "https://cdn.modrinth.com/data/JqlHhgpT/icon.png",
+  "raw_icon_url": "https://cdn.modrinth.com/data/JqlHhgpT/icon.png",
+  "issues_url": null,
+  "source_url": "https://github.com/betterclient/opitemsmod",
+  "wiki_url": "https://github.com/betterclient/opitemsmod/issues",
+  "discord_url": null,
+  "donation_urls": [],
+  "gallery": [],
+  "color": 10313516,
+  "thread_id": "JqlHhgpT",
+  "monetization_status": "monetized"
+}

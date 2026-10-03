@@ -1,0 +1,2246 @@
+{
+  "schema": 1,
+  "identity_sha256": "c5bc17c49d1a2e2f2eadbc51e2a23e2f7a2ecc4720d827b855047b22bdf83499",
+  "compiler_runtime": "21.0.12.1+1-LTS",
+  "scope": "All compiled component Java sources, build scripts, upstream pins and resolved external compile/runtime/shade dependency bytes",
+  "sources": [
+    {
+      "path": "build.gradle.kts",
+      "sha256": "fc18fde32b040c76c286abcd0a6dea199e1e7938994883a87249bf335d00b3f3"
+    },
+    {
+      "path": "components/infinity-adapter/build.gradle.kts",
+      "sha256": "b026c20989f3c66be30570122851ec2606c884ade8cb6e534176ed9139fc2614"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/InheritanceHandler.java",
+      "sha256": "678c33e30ee02b4715883fe86cac7352c9e801d23f2a96c05717db0e6f951638"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/InsnComparator.java",
+      "sha256": "eb0ab8e26521fe7516fa35d5f2eb0e2416c6a885924dded18c90269da515ae28"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/InstructionMatcher.java",
+      "sha256": "5b27ec51a37b6117730ff913c5e0faec1145f2fc56e04322d4feb509e926f14b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/MethodLabelComparator.java",
+      "sha256": "6f33b7c7b80cca75af590aa27102835da6121f07ea1da0e09b8b8a59a911553b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/MixinGroups.java",
+      "sha256": "d842324feae024141cd32d8e618d0f39e7fd944c6fd2560dea85bffb52ad8c78"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/locals/LVTSnapshot.java",
+      "sha256": "d3359e1556d29ef33e80a989cbd4c53ad8c808d1bab84075550fe2e27731c69c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/locals/LocalVarAnalyzer.java",
+      "sha256": "22f3629b0b1323970a8ee30f0655eb50356f417d9820ff1917aa27b7f613ee0e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/locals/LocalVariableLookup.java",
+      "sha256": "d40791cbf9dbc8325c7dc70ba763ed837a13f7f7895156264600706fcac57f76"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/method/AdvancedSourceInterpreter.java",
+      "sha256": "da7822adb6a7f0d8311407b0a94fa5b1bdfbf3426c9c20fdf32e72bbf9399ff3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/method/MethodAnalyzer.java",
+      "sha256": "6834514461e864594d6fdf9bdcc8a446e1d421630da9d58a7c537ac1faf2bd7b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/method/MethodCallAnalyzer.java",
+      "sha256": "f997ed9c71a09c9499f95c700632f3d3daaabede299df6d55b81dcba10a620c9"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/method/MethodInsnMatcher.java",
+      "sha256": "f29418bcba99da491f2a6ab6aeba5097f43ec16d46b8b09247747dedd69167f1"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/params/EnhancedParamsDiff.java",
+      "sha256": "aa9de5627c68cfe0c54ee58a36a5562c9999913e35c2a0b2231352efa278967c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/params/LayeredParamsDiffSnapshot.java",
+      "sha256": "676ea8749b932940f7dff8baa75f800cb304338687e042e5531fe3ce2fa2c04d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/params/ParametersDiff.java",
+      "sha256": "fda7b1608551adeedab327444aa54cd7a5883b10c18551304015f43738a35c34"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/params/ParamsDiffSnapshot.java",
+      "sha256": "6633aea1b89ce827937824062f8a3c738e3eababd9227705412ffa0f017c24b5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/params/ParamsDiffSnapshotBuilder.java",
+      "sha256": "de83930e1539c2a0c2fba9dd37434d7a837d7cfdba8da1f4b265a79b147b177b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/selector/AnnotationHandle.java",
+      "sha256": "464f09f48b1983cc284ce92975f21794e767950c8639b3b98af0b45a1c827169"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/selector/AnnotationValueHandle.java",
+      "sha256": "c48633cce35f40d91cfc9c4bf97f31120fbc81a3a9d6b3f7d27cda5cd3d86be0"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/analysis/selector/FrameUtil.java",
+      "sha256": "03b4a547e80584939c7f611dcfc8763b3d251d9f8bccbd745d99829a2f1a5d5a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/MockMixinRuntime.java",
+      "sha256": "a7c3db51a8bf818755fb8365afdabd262a92470f7c1cb0b8de0f4c2d99bfdc72"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ann/AtData.java",
+      "sha256": "ca2056a3ad039d9e8f2dfa5f4421ec425f1655c615a343d1dae1946c6f5e5f2d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ann/ClassTarget.java",
+      "sha256": "f2e352749edd4746a2b1bfa859fa1e19a9e0c430a3ff951ad1656cebaac5fae6"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ann/ConstantData.java",
+      "sha256": "c2f279c047e70a3afe84282478e9fd21b8eafe928ad8a7f6fcb7f8b18e11db59"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ann/SliceData.java",
+      "sha256": "d07eb92d7148f4146344e1c6138daa9714773da0c40d8fed0e99c7ad6f0a30bf"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/AuditTrail.java",
+      "sha256": "72ef8c4a13e16b7e3850717b6cbdc83fe3bea8d8bfb63aa73ab0c196051b37f1"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/AuditTrailImpl.java",
+      "sha256": "b21770d33481695d81df0930336411eb220a056302522910c76bd8055c6a089d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/Auditor.java",
+      "sha256": "58e0532f1c9c469ed7fe1a55ed40288b37c878b64336cacd29a51ccfb950b73a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/LocalVariable.java",
+      "sha256": "14c8acb2c731be95abdc8f10890e0fa9c615d2eac7511c33e6457606df52af89"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/MethodFinder.java",
+      "sha256": "f67e2c3f7cadb0aa613942e7b84b41556184b12ed153efaa77d16114972d5d68"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/MethodHelper.java",
+      "sha256": "b679d5dcfb814cf2f8128eb0187c882146ebe38fdee499aceabf84e7c1cc25eb"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/MixinClassGenerator.java",
+      "sha256": "331a3d63443d43a9e42cc47f78a5aff1b168827faaa7b44934a79e57eeec69bb"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/MixinClassGeneratorImpl.java",
+      "sha256": "139ddadd79ff2cc3c71a42c81b07852927f30b6781f1287d1231d1bfe84b387d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/MixinContext.java",
+      "sha256": "ee98265349edd1909317c2c38cc29202c0c6bdaf94e779022d3019345389220d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/PatchContext.java",
+      "sha256": "114aff9d112081527e24e1c2f3221e94f3e5969a34e34f03257e0e723f64310f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/PatchContextImpl.java",
+      "sha256": "2f7328a644f0b35dfb429ec80e169430ddbbfe61ac7296d9784252f59366dbf4"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/PatchEnvironment.java",
+      "sha256": "19f7e544c9698cbc03b4fd08e81a610d48e2b837938419ced399cde5cc4f553a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/PatchEnvironmentImpl.java",
+      "sha256": "01b48e08513be8a1a95af488ddc0bc62e0edc87ea53c851f4d60c688c9236251"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/PatchResult.java",
+      "sha256": "8d08c47fa4c71cc02fb8d3c4d78f0146969b4d547b3f2588f0405cbba8023d48"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/RefMapper.java",
+      "sha256": "8cf7a424a6f5c163c9fe28b80c7ad8035e47e669cef0a4f5bbf1f18f2c31e738"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/RefmapHolder.java",
+      "sha256": "1858b95c818b1eec7897b8d00eb9b62ff5262a139b9a2f0306c9fd11a2e06391"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/ctx/TargetPair.java",
+      "sha256": "3730a72b13aa000e30964ae037005423f62439882f4eea5fecb35be0d9c0eb0e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/Annotation.java",
+      "sha256": "70d8784589360322b4203b511b0268e014f7a2071045f7fc1ea5ce5a7c342590"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/Copiable.java",
+      "sha256": "744ffd636200b57fdb9df59c994814dccfdfd9c32e259c56eb44c6effdc41fd2"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/MethodParameters.java",
+      "sha256": "f05700318a1ac6c87229a062441045f42016c3eeb269e00080f959d1190a9674"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/ParamDiffResolver.java",
+      "sha256": "974d0a352a25c08d04c093217ba398827e98e5ddf524c12685db055c915c5539"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/Parameter.java",
+      "sha256": "6c94b631e1809f95c5c6adfd3f173333a29fbd81ce9866936d1c91c1afcb5575"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/param/Parameters.java",
+      "sha256": "b9fb3516042e6df6ff670a557e20cba5ac8770dfe73da9b94b6c47d27919e478"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/MixinAnnotationConstants.java",
+      "sha256": "7998cdeff00102f6bcd23d6d6a65d35ed3c18ecb1d5ae35717f1653349ce3d63"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/MixinAnnotations.java",
+      "sha256": "25515b5bcf0fd8d2f146e4dbd9dc066f9db67c70df472e45fc1458787ba6894c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/MixinUtil.java",
+      "sha256": "c27d79f7ac9b15e5053196dba6a316943847633cea820f1820f9a516f1e5fd32"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/OrderedRegistry.java",
+      "sha256": "e3c88a510427c62b70509bfc891affac24094ec719e70e11ea8421ace69ad590"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/TypeConstants.java",
+      "sha256": "cd2d447cdaa111fccbd580eebe0655fe9d182a463bbdafaf58726eb807024559"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/env/util/WeighedDisambiguation.java",
+      "sha256": "4dfc8a80d8c960d949c7fe7368435301c2baa3452c6e147521da4078c14e7c98"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/DynamicPatches.java",
+      "sha256": "280eca08d93a078e41d4b2c84a251ba02a01c5a8124b8f83949f32a9514b6583"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/MixinParser.java",
+      "sha256": "02d18cc25962e93982f1be0e48ecf3c0add2489614c0713a489e3e98ab8c7dc2"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/Patcher.java",
+      "sha256": "2a14e0287557bbc862e3dc5a3f37b3ec7ef36e1d5ee89cd9f61630af4d790344"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/Recipe.java",
+      "sha256": "83c9a5eb4fe52afbb9401da8e997d4d9a7a649689e15c303f4395ea57404fff8"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/TxPhase.java",
+      "sha256": "549cf61f7c3895af170ecf2b7ab4b66d902e7b719430db004e5093a94c5d6ede"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/TxResult.java",
+      "sha256": "ddd239af5ce11d81fa72261a7c0dbd3964c5fd283e9aa59872c0e671f725a63c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/BasePropertyContainer.java",
+      "sha256": "20238c579c8fd05a196c3fe3f55d81473f102199cb4af6855af1655c1dee84c2"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/Configuration.java",
+      "sha256": "e97b3ae8288d8fa549e4e65811621be323843369701b942cd2c5575f2e2721fe"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/ConfigurationImpl.java",
+      "sha256": "ca9bfecbf2b9f4ff4baae3375a807f6735496b2ec0578d455e4169f6b2404017"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/ConfigurationTemplates.java",
+      "sha256": "40fd202f04782d20707c191057f4f25715e79cab566675dfc5390e45675b1eff"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/Configurations.java",
+      "sha256": "bcf88c48f2ad8d90270045035e07c34f0de30afe00dd84d812ee063e06a163f5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/MutableConfiguration.java",
+      "sha256": "e1fec59159e9592de07be97b82ab6644688504da17af55fe8113c0b298e1ff16"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/MutablePropertyContainer.java",
+      "sha256": "6202eb1c79ef55a3f2f1dff1f48e2162f4ddaa260a3311e66029bffc6899e33e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/PropertyContainer.java",
+      "sha256": "35984e6b88c4bb5a2e8e06c26a2f81d6a51e75ddf0cb03d3036659e9ee2cf612"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/PropertyContainerTemplate.java",
+      "sha256": "e899e923a14e958cd61ba149091cf42a7eb20ccd7bebd8c118333447ec3e767a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/PropertyKey.java",
+      "sha256": "66b1f4a79c3b094421329094a5c4a4785f00fea3088a9f9a3304bc0883547ec0"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/key/ControlKeys.java",
+      "sha256": "6aef4a33a1189df6b696390fd3139fc7aaad0815a7599c91f5414c4f76ef8578"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/key/MixinKeys.java",
+      "sha256": "60fab5dc8de7641c6149ce101e407d6831d9419c361408bb20863fe7e39ae0fa"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/config/key/SpecialKeys.java",
+      "sha256": "15fa3b8472869e372b24c0a860a1e129689c2b5fb301aa22f5c7d316b9e57748"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/InjectMixin.java",
+      "sha256": "5b13fa28522c2c50c13e9badcf386a5d2fffe6e92d3a7dfd5e26f47e5e8a262a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/MixinFlag.java",
+      "sha256": "7874da61e9420c758f5d62f06db98e452543270674ea78abc64dd628e80a97b8"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/MixinType.java",
+      "sha256": "13eb8f5b4f71ee91376307996bbb8a3dc8df592c1c890194292de093fd910a5b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/MixinTypes.java",
+      "sha256": "d209e6ddd273b5681fe649f7199b6c5e81bc46de48de0c73b5ef9398b0dd48e7"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/ModifyArgMixin.java",
+      "sha256": "7490bce2500b481e1ab284741158ed6b5b3c14800e8015db5ffcc849fd352f63"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/ModifyExpressionValueMixin.java",
+      "sha256": "83b0ea920bb208e9208d9c4ac8ec07172596543b1ef536be552f2a9e1765bffb"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/ModifyReturnValueMixin.java",
+      "sha256": "530b0bafa53d72cf52b6a62dabcd20a398bd0c36df72a3412c58753f95e5955f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/ModifyVariableMixin.java",
+      "sha256": "8a7735808a8aba5162d20b15978356ca1702e7bea0a58e9abd96b2576fa0e0d4"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/RedirectMixin.java",
+      "sha256": "9d844dcd5171617f591f1beb8faad9a38552325dc4df6edcc0526a333fc7eed0"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/mixin/WrapOperationMixin.java",
+      "sha256": "c61c2badf2d19bd7d4bcc32519d26c1054263c3cf44543a782b17d63739147df"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/DisableMixinProcessor.java",
+      "sha256": "1cf0cdbd41be1cf625937f9de013f53b10f0d6fbbd49314ecd286ced8c778f5d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/MixinTypeProcessor.java",
+      "sha256": "111036170f9a071d9b2595994660e8ec53ed681e00c1bdac88e652ad6a498740"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/ParametersPostProcessor.java",
+      "sha256": "52a34f225b1ed81825e644d511f5134056f272be723f4ad5e524591c59295a99"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/ParametersProcessor.java",
+      "sha256": "e59c04f7cb708df10a27aa35df6fac24bcaab3214a26ea7e3f6c8bb818004e88"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/Processor.java",
+      "sha256": "0e166aabbad100852fe17db495433eda195e386bf7f6581210e7d4a531debca3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/Processors.java",
+      "sha256": "51a09e0980192c077aedb94a586603190158bca07650edd84843b52bbb04813e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/PropertyProcessor.java",
+      "sha256": "4f6dad6ad0eafdd90fe739f13cf45797ee40f4b191d23eceec0e565688a206d6"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/ReturnTypeProcessor.java",
+      "sha256": "680f0b760b9018e0b4076e9a0a1645d9a54c15f94c612ce134ae3bb08c7771db"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/StaticAccessProcessor.java",
+      "sha256": "f04f9667977c6df2b8e6ebbc259fe458001ea70a0f148b73d51f43cb525d1d41"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/TargetMethodProcessor.java",
+      "sha256": "4a5ddfe608690fdf9373021f8f76b7840a9272ac6d2b2478d255a0f0215bc333"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/extract/ExtractMixinProcessor.java",
+      "sha256": "18902219da8f33f859fe4c474f9949d41e575a905e814d043ec5466fe5755fa5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/extract/MirrorableExtractMixin.java",
+      "sha256": "4f872a0b1917c749875ad52779c031eeb9663fb5bf361ce15998db1c0a817bf0"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/extract/ProxyExtractMixinSub.java",
+      "sha256": "809baa21ec48ec74aad56dd6181488746bacb30615e93e9c0cf53ff8c146aa53"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/redirect/DivertRedirectProcessor.java",
+      "sha256": "de21762fb8a0a0e7cf80556bcdeaba4aca441f4f34c0b091624663e9f3ca5d9c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/redirect/ParameterUsageProcessor.java",
+      "sha256": "0d7ae3b71714a052948013b7ae47dcb44045f8d55f5ec1de400e0f2f05ac40be"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/wrapop/WrapOpAnalyzer.java",
+      "sha256": "f0714e6b15de3b7ff520aeca2476011921022105777b7d3d5413c501409aa7e3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/wrapop/WrapOpParamsProcessor.java",
+      "sha256": "b4bdab7eb10465eb2e7300f34d099cd4293ec94d1d76ec708d9b6b2b8936db88"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/processor/wrapop/WrapOpSurgeon.java",
+      "sha256": "90215944f716d799c896c6749904f0a38caeb19779b933f274d8a7ca6597cad1"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/CompoundResolver.java",
+      "sha256": "2a14c08c7c241762634ae2f6afe71385cbd9300184338cd1c10ed7bd0a4d9063"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/Resolver.java",
+      "sha256": "b8434403c52c54d6a36e63f28044ac0b627d86a9e9dd6c9895efd933d721434c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/Resolvers.java",
+      "sha256": "758125e5ce0f4da8731a0ba1fa2442afbd20c417d070c957bfeb90fdaf71b8ea"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/SubResolver.java",
+      "sha256": "9b575d76d0e8c1fb4a393dd6d862754533e5b4abe9ea1a2fb19371a693b043c6"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/ArbitraryInjectionPointSubResolver.java",
+      "sha256": "e427ea8e5c1e275d5613c1761738b4477394338cc4b73ee204b641d4d5bebcb8"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/AtVariableAssignStoreSubResolver.java",
+      "sha256": "64b40ceab6904027fcb815bb9da746f301462d235e82fc16656958868dda66a1"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/ComparingInjectionPointResolver.java",
+      "sha256": "bf10a458e2d05585f2ab40b0b24c81423df59fc6ba590af420d921c433e75f7f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/InheritedInjectionPointSubResolver.java",
+      "sha256": "a5ed657cb47e877315df2914dd15475c99f9cd188babd1dee5da6c915943f1c3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/InjectionPointResolver.java",
+      "sha256": "71c9a0bfbdaaaf4cd5bedca512ea876001f42edb6415e282713d28a1d838336d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/InjectionPointSubResolvers.java",
+      "sha256": "f6dc002f7d953b119775e67da2b9779b40fa99e95adcd00c3e3f5ad3d0caa390"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/ModifyVarInjectionPointSubResolver.java",
+      "sha256": "710b7a04acc824345b84a33dcde91d12bf2127efbd36a3addd3f4704dcde4a6c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/injection/OverloadedInjectionPointSubResolver.java",
+      "sha256": "18db2b952ce448b85d20e5814452a34d83b7390d1b12a0a2161953926849054e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/special/InjectorOrdinalResolver.java",
+      "sha256": "328471a4d0859073abc3bbd4ea6bedf02a604136b2ad551d40a715dbd15a3348"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/special/ModifyVarAtReturnResolver.java",
+      "sha256": "0e2895e95a41e4942e9ead4d95d9f9f91e03be98ca24bf57bd30f77a8f93e9f5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/special/ModifyVarUpgradeResolver.java",
+      "sha256": "2ac422bcaf420c35bd6edc3c2be5a0ce331b9bbe5cc47516094c650ae7778b56"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/special/ResolverSyntheticInstanceof.java",
+      "sha256": "5d2a66d15c6594ce3297c8e1c4d077732246339f5658d6ba13faaf8e34cf3146"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/special/SliceBoundaryResolver.java",
+      "sha256": "0e3affbeecdb6bcd3e2ade163fe80183366ea069e8e57727dd2d8aba5e1fb77a"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/target/SplitMethodCancellationHelper.java",
+      "sha256": "4b1fa7280dc829148503ba39fdd2e773c5c1206d378af3935327ca31b5c32e91"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/target/SplitTargetMethodSubResolver.java",
+      "sha256": "b16e72e420dd209c6bc2d7afe356c9640f7aa7941baa2320f0b7a24848b58b2c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/target/TargetMethodResolver.java",
+      "sha256": "681eedabe50885c5e9338e06fa498eac6528fb57ab83fca3688744ce77474da6"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/patch/resolver/target/TargetMethodSubResolvers.java",
+      "sha256": "17b2446b0c95182dff5139f839ba5ef288475612be48806a93359030dfefa2b2"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/ClassTransformer.java",
+      "sha256": "9e9a8551f9a85bff27b636d7f33a2bf4d2cc953b271d15e468f2d6e16ba1298f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/MethodTransformer.java",
+      "sha256": "f95e872c0ed1ccb1710f9148bfb39b37611b54ca5a53f622a349517bb3460f95"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/PipelineMethodTransformer.java",
+      "sha256": "7a85fbf721a081230b87889aec3fa7b6dc7599f71fd4c4911b421d61a5ebb499"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/cls/DynamicAnonClassIndexPatch.java",
+      "sha256": "5cd0735acc4bb062d0e52103a6dadd2e267e3e8f42199ffc25b724dfd158ca5c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/cls/DynamicAnonymousShadowFieldTypePatch.java",
+      "sha256": "f0437c4ef38c4765b73d1861e5c4c7516f817a56c860a2f6e3e3516edb29599e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/InjectParameterTransform.java",
+      "sha256": "ace62a124e037ac2906c7e50e2b1a6531e0d1ceb06028d9805ef5a8ac1376042"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/InlineParameterTransformer.java",
+      "sha256": "1154829ba7b9c0d0a06a549071fdaae0e7ce5349a8148bda65fa5fc047a00915"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/ModifyArgsOffsetUpgrader.java",
+      "sha256": "9a44da1e48584d4b9e59c112dd8af2071f3e17749013dc080506ea271d0993bc"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/MoveParametersTransformer.java",
+      "sha256": "0348ec184f511566347a68ea79db3432182298f4bfc4561b969eaf5b871fbc95"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/ParamTransformationUtil.java",
+      "sha256": "547aa771ec654e02d4ef431185611702371db6892fd1879f05b6bcf99a1dade5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/ParameterTransformer.java",
+      "sha256": "65b4b95f368f8acb24fc589ff41e560ac77cad91d4d618417ff624c10d6a3157"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/RemoveParameterTransformer.java",
+      "sha256": "e1ce40b765c582cfa937aefae0e0337b6a5f1234a4a55e44fc4ca19492bbd1c0"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/ReplaceParametersTransformer.java",
+      "sha256": "0ccf96170dddd369841dcc4e0b19420822adbe7df75b7e04b76b1f04ec5ac05c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/SubstituteParameterTransformer.java",
+      "sha256": "ddfd4520afeb8058fe392b94127a02a022ad680b51ed7d5da55c08e52010a01e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/SwapParametersTransformer.java",
+      "sha256": "3d6918d34a1ee925644df375dbcf181868e07cc7e7240b130cdc3ab0383369f3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/param/TransformParameters.java",
+      "sha256": "78506fc1cc2475c0f4df7eff432ac625f6a913a2d476d043d0eeb3cc85041195"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/ConfigurationMatcher.java",
+      "sha256": "0da582841195fdf86151d49ceacc85af791565a439627c7c17d8bb44ad39a78d"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatch.java",
+      "sha256": "48706e8dd666bb943166baeaabf82ea13da7dbc0f98197f2fc5ccea976fc9d2f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatchBuilder.java",
+      "sha256": "9d0cf7a8494cb17562de0718dc32ce64d916b71c9e8638b83c0e0dd919224e9c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatchBuilderImpl.java",
+      "sha256": "5805b3a41901cce1d5ad9c00e332403c63bb94efa0d100a3fdfcb5b206c6783c"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatchImpl.java",
+      "sha256": "f7f7c9ea39d66bf4d8aa4da3590477efd264a34a405d7ae66561f0d64fe2d895"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatchProcessor.java",
+      "sha256": "0ded0edccc4060f0e211b0e8c95935063957d727f67e24d8904b1a152109296b"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/patch/MethodPatchResolver.java",
+      "sha256": "1843973dbd90e6627bbbe0b21337c58113c859387929643b48c708c1cb47149f"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/transform/preprocess/LocalCaptureUpgradeTransformer.java",
+      "sha256": "ab731f997356228ab60e322aeb4d770da2337fba7dfd40342d2c3dfb420b3af5"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/BytecodeFixerJarGenerator.java",
+      "sha256": "1165519b4ec81228a1f54207dbc5fddb4a5e68eaa5d5911b39263a0801698f88"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/BytecodeFixerUpper.java",
+      "sha256": "0f31ef4e356ac87811291e58addecdbb53c82e24bba4b5c87543b2e0e6da0855"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/FieldAccessorTypeTransformer.java",
+      "sha256": "99b8b4cad607d7e58006f01e27e915edb48f60872c2981fdb196ddbe3f5a1c0e"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/FieldTypeUsageTransformer.java",
+      "sha256": "1331226a8a1d53eb64299448c6dd594e607c1f661f67fa802cdac8e7e14125a2"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/ObjectTypeAdapter.java",
+      "sha256": "48ec132f1276109fa4ab0713b1b2d623ab3de835aa5e8564dfa92659e504ed11"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/SimpleTypeAdapter.java",
+      "sha256": "563a52125f23f1466604466400916762b2d03adb0632497b2468f11b213f79c3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/SupplierTypeAdapter.java",
+      "sha256": "b7b7d0baf6e69634d613e99178a22e133c4c85416565928ea3535fddb1fa69ce"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/TypeAdapter.java",
+      "sha256": "bfbda470a2abdea5e94ec4037fcb13de7611cf57997a8c5b0720cd541f3d0fbb"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/types/TypeAdapterProvider.java",
+      "sha256": "23475c6d50f9e8def0e958f26ff7868af60197ec85365594b2f72d28acb1b8d4"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/AdapterUtil.java",
+      "sha256": "7463c3d39cd8bb881bacb52c693b2d5ef17f7e29361330efe4c96b72270031ff"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/GeneratedVariables.java",
+      "sha256": "90d3174ecbe15f2bbe240cee61f71971c68124d1897bc41c9908dd25cb8d28d1"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/MethodQualifier.java",
+      "sha256": "1c8b3af84e8f2d30a6dbef16e84385b9c2ca983d427c99962a68cea7e2523886"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/OpcodeUtil.java",
+      "sha256": "ac0864c7263f553806f23082f5e3f36d270a542f1e013e9ca484b3a38ade46d3"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/SingleValueHandle.java",
+      "sha256": "b60ed9b1549588fd000e7ace9ccdc6a277aee6f9ed1b4a2eea51430519fbd726"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/provider/ClassLookup.java",
+      "sha256": "350bdb8912c3c0c2e3e001ea6de52bac63a9410775a401f129255cda9dd3f6dd"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/provider/MixinClassLookup.java",
+      "sha256": "493df149b8e30f6003db92ca9e5adc403e42a1c3696a00c49c6821763595d4de"
+    },
+    {
+      "path": "components/infinity-adapter/src/main/java/org/sinytra/adapter/util/provider/ZipClassLookup.java",
+      "sha256": "e2b64c0c7590e647c660d8270dba84f0ec12357f9103aa088ab5575f791d353d"
+    },
+    {
+      "path": "components/infinity-core/build.gradle.kts",
+      "sha256": "271c2f86f90c92bff004c8aaa37f3554347555220874aa90ba25f5b130c47348"
+    },
+    {
+      "path": "components/infinity-core/src/main/java/org/sinytra/connector/infinity/BoundedBatch.java",
+      "sha256": "82f7cfdaa0838b6723fcda2defdd85000d6143d992f57746a0f6af3c68448e90"
+    },
+    {
+      "path": "components/infinity-core/src/main/java/org/sinytra/connector/infinity/LoadProgress.java",
+      "sha256": "abcffeda521010fb9fd725664762758f6fcd5026888a7905f69d01ae599ad567"
+    },
+    {
+      "path": "components/infinity-core/src/main/java/org/sinytra/connector/infinity/LoadingPolicy.java",
+      "sha256": "404ac2e403bb7ca062e3105204e19952801d7d581bd82368ac13bc1f8a969a36"
+    },
+    {
+      "path": "components/infinity-core/src/main/java/org/sinytra/connector/infinity/ResourceScope.java",
+      "sha256": "1dd63c25a1fce54075086c1b8e3e2db37840da060b77f89e1b1eeec623de1e82"
+    },
+    {
+      "path": "components/infinity-core/src/test/java/org/sinytra/connector/infinity/LoadingCoreTest.java",
+      "sha256": "1298ee17692653f5424122b18d762d802817d5f8ef0e7abb4187419092c6cc60"
+    },
+    {
+      "path": "components/infinity-fart/build.gradle.kts",
+      "sha256": "26b327e3cd8639d07903a269966bbb86f3ad3e400afedb35386b6a09c7233d97"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/Main.java",
+      "sha256": "720b9d4948ba6be6a1368c35781f32547335f173294c9638169362b97d88fcb7"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/ClassProvider.java",
+      "sha256": "beb8dc46a2cb11a78221846d252fc9b633aa7151e686ec80343e5b7c4d29d976"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/IdentifierFixerConfig.java",
+      "sha256": "92ffb1028801ef2ac7c679be83e1d58fb40fdd178355606b1235951213eeff49"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/Renamer.java",
+      "sha256": "958e8b3988e8d6451938c1e7c47daa1776e0ed0d8c163abbeec5f4c101a628ae"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/SignatureStripperConfig.java",
+      "sha256": "25b751b84b06d8b98456ded36bc0a964f7808c051d4771024a2fc4b5e47046f3"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/SourceFixerConfig.java",
+      "sha256": "ae049d99bf22d80896db9b107acc45c5535cefb66a083d5eb507c14f89c19f46"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/api/Transformer.java",
+      "sha256": "718589158eb02897a55070cac34fbc563d4d15c59d0f6d810af5bf7797e66cee"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/AsyncHelper.java",
+      "sha256": "2f4a385659aa9771ae3f7d7e6fdb6786a689dc23e47e786caf182a9ca7fbc764"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/ClassLoaderClassProvider.java",
+      "sha256": "10f18fab024991e5808980f91e372d9b945ce55f8ec7df7176d3d0c47e2ee934"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/ClassProviderBuilderImpl.java",
+      "sha256": "5d966dcb360efd63aacf83bfc8d767d0f802aa2c63bcf76dbc24fef1c44f8b5d"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/ClassProviderImpl.java",
+      "sha256": "f0bf2fda6d5b77d30dbc05654bc899243fdebb9a99af5490ee7f89e78e1f0e31"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/EnhancedClassRemapper.java",
+      "sha256": "7cd0a5a3701260a2e829e46dd83db493dcba1ad797d03df5cbc7ab76b75c976e"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/EnhancedRemapper.java",
+      "sha256": "d81b84204edaf0c515c1519f5634e2c6d40849cc2d5e8c58fd58d88cb76a8d73"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/EntryImpl.java",
+      "sha256": "b47dc2cd10378478ac15476421e47240e942a73f3d3f6547b0f7ca42fd73970f"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/FFLineFixer.java",
+      "sha256": "b5802141b6cf03b9920809267c1938c77b913d33dafec8c440c0a320cab65719"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/HashFunction.java",
+      "sha256": "477fa4652f91720b1a615ac6dde6e28e32598b0599d21636b3453cbd89fa6b4b"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/IdentifierFixer.java",
+      "sha256": "7d1dc744c97fdb3bb96ddf7f12cfb156a2620bd0c1fe7289dc119951aaf27e4c"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/OptionalChangeTransformer.java",
+      "sha256": "01c640a7d15c17d8678300c1f5f1af08ed32a60961dfae9238c3b2a89a8a470d"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/Pair.java",
+      "sha256": "e1b30ba67afa2adc84aa60bd148f8f47b609bc782f2c6aebefff97a2ef581527"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/ParameterAnnotationFixer.java",
+      "sha256": "2fefd5118022d372b3f1ab477b1ef4c322d19616bb3bd4c29d46e31e7042d1fe"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/RecordFixer.java",
+      "sha256": "ac7fae14db4309cfe1a7accc7428d559a4e0bb4976c7b0d9abafb2567aca75a6"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/RenamerBuilder.java",
+      "sha256": "2369670520ce7743aa5445418dc00dc45fe75eb74c5c255f39cf0dd487e4825c"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/RenamerImpl.java",
+      "sha256": "6748f5e967e56324970ee3e4a40a9f2f38a0f8b6c82f6f72c41d475d38649ac8"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/RenamingTransformer.java",
+      "sha256": "d0602df32d73c6b63cf48b00ca0f10a40671f47de2b0fcde602fa60c78d39b80"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/SignatureStripperTransformer.java",
+      "sha256": "77636db0e6e5a059c80a5c23d1410479a0c44d29a18015343e08280918aca29b"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/SortedClassProvider.java",
+      "sha256": "251fa3188f3b61a3e1b2174f9535b47c5eaf12184a2c7a6d5e14a79495334a36"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/SourceFixer.java",
+      "sha256": "47ffd2acc987617005c84fbe151edc51a64e8f5400b08cd6b47aecb8f3cf7192"
+    },
+    {
+      "path": "components/infinity-fart/src/main/java/net/minecraftforge/fart/internal/Util.java",
+      "sha256": "c9c300903668bbba5a780e3a1aa03c0fdf146735bb49cce971af6dcdc6294821"
+    },
+    {
+      "path": "components/infinity-fart/src/test/java/net/minecraftforge/fart/internal/DirectEntryTest.java",
+      "sha256": "e6e06bbb980bbddccb6581b77ec0ebd591cfb06aa36bf9ee7259d9e2bd7f0996"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52JarAdapter.java",
+      "sha256": "ed4e9021c14ecdd7e55d3955d5e344973929d51a950451ed4f18079587da485c"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52Metadata.java",
+      "sha256": "a43685ce2e1aa7927d1c7a7f53cea53ee067bd78dc6548144a0f57bf98f61495"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/Forge52Resources.java",
+      "sha256": "dd76f26b13c356d75e4786d16b09387e3096946667b3accf1042ed7472e2c819"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/discovery/ForgeModFileReader.java",
+      "sha256": "6af906ef081a535b3a9cab897e961289cd08424f2a426b4b3a73f35170615e24"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeEventBridge.java",
+      "sha256": "8999bb346553512f6e7ca16403eb4af089fca7993173ba213bc41aa0564dc67c"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeMod.java",
+      "sha256": "8d6770169d162246e901ead0299cab7d17590423fc6ec1b18a963d2bc9876c54"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModContainer.java",
+      "sha256": "17348d86881aeabf73708a3a42fecc71397de7a715228a76993abe9d97d563fb"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLanguageLoader.java",
+      "sha256": "5347110de7205645c110d2f982c3f118682d78901f67e7595cabbad4561c201f"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/loader/ForgeModLoadingContext.java",
+      "sha256": "abb821c30d2acc95ba4dfeb9269d9f1f4f807a996abc70bdbbb2c85ca8166f28"
+    },
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "sha256": "7f8f289b4b67d45a09d3c1d2decdb0d2e3b62a6ee4eead4c5bb41813a0628032"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/DeferredRegister.java",
+      "sha256": "a4c95b913fe4c9b55d05d176d0c79f97bd1d8e026da8203272850bc295b1cc86"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/Forge52Capability.java",
+      "sha256": "8df051b3e9bf521779922cfc5686a8301466729344ea93ab68c96e05009ac26e"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/ForgeRegistries.java",
+      "sha256": "5faea18134a0c131d3e16b22c0e8d43b4e509c643e2bd9ce245db12b468b6534"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/IForgeRegistry.java",
+      "sha256": "6f858d0061e70fa26b0de2a21022d9c72a71408cef3ce7fbb01a262958d8d0e1"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/RegistryObject.java",
+      "sha256": "72b4e915a7f5b44e80c68443874d39869ebb7954501e9ce126e6597c2c19cfcf"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/discovery/ForgeAdapterTest.java",
+      "sha256": "e77fc3e8b6e896f0b340cacb0532ed095333e40ef1e117c78697ed6e5b38cc4d"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/discovery/ForgeClumpsTransformTest.java",
+      "sha256": "0a96e05886f06f084c016324fcbfb3ad1b8ef1653b991cc148d8ccdb9a4093e0"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/events/ForgeEventBridgeTest.java",
+      "sha256": "e60db835004097beee869c7f5f61dbb198b137863e12d11368c488b222c88245"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/events/ForgeNativePickupXpTest.java",
+      "sha256": "34ac48afa83d5af4989261eab94a2eb98f2ca78afec18a297d01cce85643c3a0"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/loader/ForgeLoaderFacadeTest.java",
+      "sha256": "a5584b453d401c4be4da0593c782a7970ce95ca5eb439b6c3e6327e55d297994"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/loader/fixture/ForgeEntrypoints.java",
+      "sha256": "007da199fd9c25e90c67198839fa36759c319e26327377d0057f621ed1f45a3b"
+    },
+    {
+      "path": "components/infinity-forge/src/test/java/org/sinytra/connector/forge/runtime/ForgeRegistryFacadeTest.java",
+      "sha256": "6fd76184b974ec31a568c63285470e551ca6a824c1dc4fa6e7d44ceadb89304a"
+    },
+    {
+      "path": "components/infinity-host-neoforge/src/main/java/org/sinytra/connector/infinity/ManagedConnectorTransformerEnvironment.java",
+      "sha256": "a407518e2888b9e6e764978cdbf9b178172a2de871c5ce6270ceb63640f92a7a"
+    },
+    {
+      "path": "components/infinity-mc-1.21.1/src/main/java/org/sinytra/connector/infinity/mc1211/Minecraft1211ClassLookup.java",
+      "sha256": "6fc3f19c7e2110c78da7fdce8126304f88eec515e8a1e69e6e44629c537a3d82"
+    },
+    {
+      "path": "four-loader/api-tests/src/net/fabricmc/loader/impl/FabricLoaderImpl.java",
+      "sha256": "51ccb8ee978a873dd28d7255df77f0a293b8ffecffac0ab41c6a0a98e3f13118"
+    },
+    {
+      "path": "four-loader/api-tests/src/net/fabricmc/loader/impl/launch/FabricLauncherBase.java",
+      "sha256": "56394d3ff0f968ec9f621484f5d625af2ec4d7d7ce889c63bda46e6e365ff124"
+    },
+    {
+      "path": "four-loader/api-tests/src/org/sinytra/connector/quilt/QuiltApiTest.java",
+      "sha256": "00d49266d9f89acdd3b1a2e395a778fc3313707b201a451784f2eefdda5ff543"
+    },
+    {
+      "path": "gradle/infinity-upstream-pins.json",
+      "sha256": "9ce9d53f0ae4000729e7fe74175e9064a3e80cad039273074f3357d3279a6b5c"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "sha256": "9bd3db0099244f5bb50e4108cc4879ba1be22360da21ec16712b66c62ce5dffc"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "sha256": "3ab0614e0c114b61e73db1a4527e0c5d2348e2599afe25798aa0bcef5bcd5750"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LanguageAdapter.java",
+      "sha256": "d64be9796926b784e84b825599963f7364932094b4ec6d2c481ad5756d9eaaf8"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LanguageAdapterException.java",
+      "sha256": "eca5272c966389097ef834f68a13579d7972170b2dba17f33b20d46b5d19eb7c"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/LoaderValue.java",
+      "sha256": "f1c2c525819ead8322e027e13c5980a6d98f4d249cbd4070ed787cfb5b751d53"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/MappingResolver.java",
+      "sha256": "11efac96fe8eb56860bca1524b8e6aaee5cc4b6b5239a3f0a7eb128b7a6fd5d8"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModContainer.java",
+      "sha256": "7339d0989c5427b5a5092441e112f1d0c7b1d9ca9e64cf9b4d3f0d8849e48a6e"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModContributor.java",
+      "sha256": "e85e4b26342afa06ef2165a7009b14d49c5ebaa27039835a83ac9982cffb78e9"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModDependency.java",
+      "sha256": "2dcfb19c93ca4ebc97aad764d69bbed03fc4f11ef2bd8426e5e2e397039866f2"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModDependencyIdentifier.java",
+      "sha256": "38634f3bd861189b1cefc969c9f96e8e7831af5948d60b0490e579b6eb00e684"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModInternal.java",
+      "sha256": "e57f97773bdf79804de8bdcf84e69651742c11739735f5ae27a466d7a722a8a8"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModLicense.java",
+      "sha256": "969e2fc3c54ae223a67d2f5b2b6aa0065323ed669bc3d6d3696b1d58a7a67910"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/ModMetadata.java",
+      "sha256": "88c343d74bb30bd42cc641c0bde73365ebad9813cb92f0f9d0596cd4d3ca98da"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/QuiltLoader.java",
+      "sha256": "b98ce475b8db586f581d784f25359b9ebf25ec2d9905479c745cebf6466b09f1"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/Requires.java",
+      "sha256": "c150d97ab997a313539c31a032ff9f9f9e133c3c61cfcf5f63d7bfb16eb2bb4a"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/Version.java",
+      "sha256": "db7be049fb283522d23c7fab7229c61eabadc5f6e4df64d4f78cdb4cbe9c168d"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionConstraint.java",
+      "sha256": "4d855e48240ce1f75470a427003f016d73d1019d2e6ffd2ba06760c81b35defa"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionFormatException.java",
+      "sha256": "d031d9cfd6ded39e1e6fd5cc86c12a275a828ac89a1733cd03eaf89007a6e273"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionInterval.java",
+      "sha256": "35f53292ebb8aa2c97d3d9b979d544cc59bf76d82b7746e313605c50091a4ab7"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/VersionRange.java",
+      "sha256": "726183858a99560cb237f8199014d8fdd807ae83131d8bbfc88b1e968ce5c77b"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointContainer.java",
+      "sha256": "00561341b3d645d95eeb488bb4927bca50fbf3382d8d7589dceddb51d657f2e1"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointException.java",
+      "sha256": "cec589c427893370c2719caf4a054a15e933708c18a0146328f500c8b4d1507d"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/EntrypointUtil.java",
+      "sha256": "5b5a158480930702a35a0bd0ce25c98bf2ae28cf8629701a2a61cba4157ec36c"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/GameEntrypoint.java",
+      "sha256": "ca03b9d46759ebceee7bf83e87d509f691de3ed1bfe8bf048f93322b96e4938e"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/entrypoint/PreLaunchEntrypoint.java",
+      "sha256": "9f6aa1e59a05a43c1373c2d552dd9c357424f016ddf0a06e79db06cab946b31c"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/ClientOnly.java",
+      "sha256": "201f0fdfd38d19825796a6c4f61ccfa839f003bdfe3ec31f3ae21fac26c68c4e"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/DedicatedServerOnly.java",
+      "sha256": "00362fd0fc933646914a283bd20803778db9bf0a1b946e56ecc8ffcf300e91fa"
+    },
+    {
+      "path": "src/main/java/org/quiltmc/loader/api/minecraft/MinecraftQuiltLoader.java",
+      "sha256": "c4b87506e62550df47b2d972ceb65488aeb4c60ecbd66f74ce5be6f55cdddad7"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/ConnectorCoremods.java",
+      "sha256": "ca3fe8c9d0950ba8ad0c8eb938283c2ab33426323a1600aab17eeace7d4d94c8"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/ConnectorEarlyLoader.java",
+      "sha256": "4790488715bf996801bb55afbb6162aa9f20a2e74188c22300ae13363a1c4297"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ConnectorEarlyLocatorBootstrap.java",
+      "sha256": "8d0cd67c0a07fea1d51d0f344046a3f7dfecc27e8192a0302ef4adf72f38e2fb"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ConnectorFabricModMetadata.java",
+      "sha256": "cb39c41c12c903794c0560d68ad0ec69088637fea2c14cdec8d546e6306787d8"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ConnectorLocator.java",
+      "sha256": "b1559708815d3aa20b6b1dc62133e44632dd96671a6f6701142ccb3605aa0da5"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/DependencyResolver.java",
+      "sha256": "0efe5cbe3ef30827660ad90f7a8312ea0e0ae036d9244019a720fb639d375d4f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/EmbeddedDependencies.java",
+      "sha256": "d1cb49d6b2f636688bbe99d440f4b3d35d529d11b6c0eb1173ed321b89e7c686"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/FabricModMetadataParser.java",
+      "sha256": "cd9b178a80b325e9b9a5e70951d05d8caea50dd0502c80627ad838869bd1cd48"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/FabricModsDiscoverer.java",
+      "sha256": "20870ff0a38d6800ed0dc8a5b2ee46f2c3d7970d5346b98dc34e45393d9cdec9"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/ManagedQuiltModules.java",
+      "sha256": "fbcd3b3357d2113b08858bd9da100a4e98e12f7c58b43c1d8193f74e29e1248a"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/MixinTransformSafeguard.java",
+      "sha256": "e0dfd7cbb975c409dba3d356c94aba60c2a898eedbb0ba895c8f3b08831eb719"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/filter/ForgeModPackageFilter.java",
+      "sha256": "c335258624d98c3a08b8841ecfafbbcff88ff40ba6d69565a868545784602d0f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/filter/PackageTracker.java",
+      "sha256": "3053f631dde3639a7ca206ae7f61ea169bb91813649f9b8113636ac39f80db2f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/filter/SplitPackageMerger.java",
+      "sha256": "192defea53c99a07716bfe4577d43ab412ebea8bd707d1e1e23ece91341c3c25"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/transform/ConnectorTransformerEnvironment.java",
+      "sha256": "2dae2587b1c7b3764f66fa684b7ebe57ccb0fce04470eb7b78dbd6f0df7ce0b2"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/locator/transform/EarlyJSCoremodTransformer.java",
+      "sha256": "62af18daece16d16448070a8d21b440452a575c6ff9e498b91b31a01fb88520b"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/HostLanguageAdapter.java",
+      "sha256": "84f0501d8e12504fee9a0be67fadfa6db44b07831e8fcd7ead10c661e24c14e3"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltBridge.java",
+      "sha256": "fdce114326dedde7db01b07a187896a43528e118c2af7a919966e72eebb128be"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltLoaderProvider.java",
+      "sha256": "096cc2bd0f693148fa7bb05f72773e9d9fc07c24723a2a2531318c52d0bbb81e"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltModContainer.java",
+      "sha256": "1d3253c676bcb786a2940a38f3a1d835b59a690cd0abfe0cc8b7cf5e5bef58a4"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltModMetadata.java",
+      "sha256": "98cf40d8abbd2faa199f076128eb4582b2e50e8fac78acea51de039dd5e8ff50"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/QuiltValues.java",
+      "sha256": "541132734b006e24e29cf088f69ec4c215f14986f2867b58573b67e9268bb7ff"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/VersionIntervalImpl.java",
+      "sha256": "54ec0fe190bb08ac41d4e061b0eaf91b288de2b9f46deb299e79416938504955"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/VersionRangeImpl.java",
+      "sha256": "f7c67d9702d09afc57040b6c01ee2852c27138dfbe231b45eefaa716ef52ed26"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/GenericVersionImpl.java",
+      "sha256": "93103fca8440fcd709c061fa4acc2f934f4ab3433221f1e340c33a79495a4a3f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModContributorImpl.java",
+      "sha256": "f632b192bb38597ae8e6d526786509a5b49952e676dcdec8a9ebc0cc04b10a9d"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModDependencyIdentifierImpl.java",
+      "sha256": "6b95a5c729cc3e9e6566aed06da4c90a7ecc5dd289ca19c728fb24e98203c8df"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModDependencyImpl.java",
+      "sha256": "041f9e77887accb15f8db18d05ed20b737aebcb0e623cbb6f7101c24a19bdf2c"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/ModLicenseImpl.java",
+      "sha256": "11de862007db23525a82de5914a3832fb39eab03ed96beac4a2d322387473dbf"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/QmjMetadataInternalFactory.java",
+      "sha256": "755a209770691d4f879d0c1f9c9f50c4e702fbc22ec7ecffd07374c5015ac0f7"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/SemanticVersionImpl.java",
+      "sha256": "e80b6b90d3d32c36a3a7572eeaed7d757bfc7fbba109a1d1d524c8415d8c1d56"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/quilt/metadata/qmj/VersionConstraintImpl.java",
+      "sha256": "ae004b5c762e6b8a8c1b0ad6d0edf716acc9834b5c51550a49c43637a89904ea"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/ConnectorLoaderService.java",
+      "sha256": "a7bdb7119bfeca0af2b81d66350fffeb5b1257ceabfcc7cd8244db9b28eb3fef"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/ConnectorPreLaunchPlugin.java",
+      "sha256": "c6f7cc4b43f962b9798c370d045b48dede3840630243d7967820ffacf681ecc0"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/DummyVirtualJar.java",
+      "sha256": "dc4ab81a5ac80f221a585008e909c11c2dd823917cff6b13a9aea0d0480e2d6e"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/FabricMixinBootstrap.java",
+      "sha256": "a107d1290205852ecc734add788a1fd71ed2f43a7c43b06ee232bcb1acbcd039"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/hacks/ConnectorForkJoinThreadFactory.java",
+      "sha256": "3a92116e2cb04a9a5139bf1966deb8ec9b47d7e4e51130fbb956e970da197d26"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/hacks/FabricASMFixer.java",
+      "sha256": "7607c201dbeb486b41e03d456be3c85a511ce685fb9f6e95bfa037d0598f4ce9"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/hacks/LenientRuntimeEnumExtender.java",
+      "sha256": "e42f6f456b646d997503e9343613af0a22cdb41ac332b6ed5eba9eaf2b7304eb"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/service/hacks/ModuleLayerMigrator.java",
+      "sha256": "ff9ba9bbb4c2c7b1198715b63e7e500e83f103f7e90ad2eea839cdcb5fc4f2c1"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/util/ConnectorConfig.java",
+      "sha256": "186fa685a567de03e53c18a670894a33ea3916e6ed014bb1f6bb73b6f1b32ea6"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/util/ConnectorUtil.java",
+      "sha256": "91588dd5b1d85a558b1a6e916fab86b86548f9e2bbc3849e7efd1eea7d326e7f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/util/PriorityModLoadingException.java",
+      "sha256": "1b25196803631e0174c87c66cb4dc14f3d88718db2e1a8e7d213588004834f7f"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/ConnectorBootstrap.java",
+      "sha256": "8a27e5930358307aef9275269d99bd0ea90f9a78e28260f757ae5685d18c42b2"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/ConnectorLoader.java",
+      "sha256": "2d63a9bee63ce5110b36af603a1bb66ad2dbfd8d6d9ee5f15aa271e8ecbe1bd2"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/ConnectorMod.java",
+      "sha256": "0261580eb1968a3363d8871e8e55b94f9ff9ebcea996a7be69d74133f0996b86"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/ConnectorModClient.java",
+      "sha256": "c3e9645382c336402c1cc2c8d011c6a1376261e7ba3c12018ebd6697b8685543"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/CrashReportUpgrade.java",
+      "sha256": "2609b7fdad99767bd7291c0113d27e6e1791eae988d622bd79bf86055448b477"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/DummyTarget.java",
+      "sha256": "044883884ac903d3b7623f671e6a3536e91c0a2bd10fb8a9c454feeb5615268b"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/QuiltQslEntrypoints.java",
+      "sha256": "f950abbf8621574861aff14dc29891e3916146cabbf186c24a7ae774053a0cb8"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/EntityDataSerializersRegistry.java",
+      "sha256": "747fac7b02b4e3f1312eaf4454dc23a5e82f783a987b0f1aeb792c637dcf09f6"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/FluidHandlerCompat.java",
+      "sha256": "ef33c9daf298de4ea0bfbec88bbb09eefdb9386d51d920c81a763e3222db7fb3"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/FluidHandlerCompatClient.java",
+      "sha256": "fc68534e39c66cdf2ef3771b3f532b62ad0ca2061d189b754b1eeabef36de0c3"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/ItemStackExtensions.java",
+      "sha256": "1cf61b5f90b7939dc7f6667b757ed3c40b47225c8c9317e7796b700a2d9695da"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/LateRenderTypesInit.java",
+      "sha256": "dbfb1a4be4d6bb35c0c2a0a38d07f98184a98f9aada16b49ff42e738c4c10ae8"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/LateSheetsInit.java",
+      "sha256": "3cb1bb2d0f56167e4da3bfd119e2c61b45a5aeadfb1b2e5e9073d9f28153460a"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/LazyEntityAttributes.java",
+      "sha256": "d5b0df38173745270726ebc53b866cc7b83b98a42930833f497a78ebc4148660"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/fieldtypes/FieldTypeUtil.java",
+      "sha256": "1d727c48f559d38e32c1232dea45ad07578b1cb75250fe5698729bb0f0ba5d39"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/fieldtypes/RedirectingIdMapper.java",
+      "sha256": "5dd9cfbf47bfcced440ce30418192745e3d4e202913be5fd99e124d07120eac1"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/compat/fieldtypes/RedirectingInt2ObjectMap.java",
+      "sha256": "3540f559fee21f1693ef0815143129cde264f3a81c650f5578595664cb1db0d0"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/AttributeSupplierBuilderMixin.java",
+      "sha256": "e050dc18368afcf233d4cccfed7088b044faa5d0360027c0ca0e5bba41820056"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/ChunkGeneratorMixin.java",
+      "sha256": "079f165933b2ee30a87cafcb367deaa11befec10a5393e22751d882ed66e21bc"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/CommonHooksMixin.java",
+      "sha256": "2ac0af28c548d07aa82a44d5e8b83af37f0e523ebe64af943ed9ef07864c54f1"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/PlayerListMixin.java",
+      "sha256": "a2e67766225c187875a124ab38b753672fd3b9db8076b1b46444a7c91a4de784"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/block/IBlockExtensionMixin.java",
+      "sha256": "2a8a6495de2a413cea585811cd27db13117cb43e1864846e2e8eb8b69e8679ca"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/boot/DatagenModLoaderMixin.java",
+      "sha256": "17d4f28d09c626c2ba4ba48d8efdc12376303d5595561045b602172367d87e64"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/boot/MinecraftMixin.java",
+      "sha256": "00383009536175635f4463b6ad2f289c2ef5d45ce1d1e571df03629d64157f29"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/boot/ServerMainMixin.java",
+      "sha256": "6e2d5ee72def029558e87d2ae0b70a9b4cae1515fe1cfef076b2694a4ddc4e1e"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/BlockColorsMixin.java",
+      "sha256": "7640f0603396b3b0f8523b05d9a4ef254d8f7361482b86411e035a76c8b71c58"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/DebugScreenOverlayMixin.java",
+      "sha256": "ad9fe7081508025acc35a96bcdb881faa241c7e699beaa302a7e08c8781028c9"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/ForgeHooksClientMixin.java",
+      "sha256": "de2342dbf34e476f050fb928a71247b6af99aacc1dc11731cc637f068c9b0784"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/ItemColorsMixin.java",
+      "sha256": "296eb707c51165c663931791e2b8eab9bbd1d09dec8bb6e2188621fd6c40667a"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/ItemOverridesMixin.java",
+      "sha256": "682819cde7ae84be04b2d96abd4e6097bd692b25b7d220ab3e141a454ef208ea"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/KeyMappingMixin.java",
+      "sha256": "a73da470d2af5aad623ba113999a25e5518d978bbade9dc23d34c93aedc83f70"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/client/ParticleEngineMixin.java",
+      "sha256": "556eedcfcebddb6766e05d2837518bd079eb56264bb35ceb453ae342aebaf37a"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/item/IItemExtensionMixin.java",
+      "sha256": "4b1b58f1a1f4b12e1e3041f29a6afe57ff48030bc035d4d4b2c8f1b15d0b6eea"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/item/ItemStackMixin.java",
+      "sha256": "0b118290a29b3c8855cb5dcf2455b86f9d26e47e9d8a9898569aab28493fa694"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/network/BundlerInfoMixin.java",
+      "sha256": "5d3ed147bd81d684ac1caded09eabbd6edebee6c7b1c21860a21d018b068ba70"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/network/StreamCodecMixin.java",
+      "sha256": "49c4dfb7cdda47a7c3225b8f1e281a3e2360083f6e44d9bc223c495de4e975e2"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/recipebook/RecipeBookCategoriesAccessor.java",
+      "sha256": "059f2b905cd8a9d441e89acc0215f855a0a9ab57d9a2ab54cd9a08628f79f51a"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/recipebook/RecipeBookCategoriesMixin.java",
+      "sha256": "2325ad36544e22d662fac692dad5d6b52c774d5ef3de6e1ae0f32fe670e48307"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/recipebook/RecipeBookManagerMixin.java",
+      "sha256": "9360e88daceab9d75f5ce478ba48b7f0e0c6cbeb6e98c4c82f9e4492fe05ede5"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/BuiltInRegistriesMixin.java",
+      "sha256": "fc981930a57e68e36f8b5053b4912e9fddc888861bb82688020497be046449c2"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/DataPackRegistriesHooksAccessor.java",
+      "sha256": "40b9cd594fed27cdf29d65e70ab13f83ffe910fe4567cdb70c4229513409112b"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/EntityDataSerializersMixin.java",
+      "sha256": "345cdd708c2045d1f822af2d612b07455bab05a76572ecf33ff242b68649f2ef"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/ItemBlockRenderTypesMixin.java",
+      "sha256": "8b0123952ca49bb3bd0f30cf4ff01de298cc74fe0f546770ecb51d798ba84f36"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/MappedRegistryAccessor.java",
+      "sha256": "3a5120a6234a4959ead4cc8366a0e6df49b43faf30f6b6e3cb2282722bedf19a"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/NeoForgeRegistriesSetupAccessor.java",
+      "sha256": "89075a8045f565a33e6c6e2e9d898964dc89f23362e53a182e30c262076111dc"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/NeoForgeRegistriesSetupMixin.java",
+      "sha256": "76c88cfb764c7702d2e762191a2ab0c3ab0bafc35aad83df34fe2213a95346a4"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/NetworkRegistryMixin.java",
+      "sha256": "7ab3cc7cbed3349370c2ec02c5251cd2a6f067bc767f79950b778e88e4f60428"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/PoiTypesMixin.java",
+      "sha256": "b03cc6224acafe52aaf518c60005ee6f0e6572c567a71c31c56799d407d20fc9"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/mixin/registries/RegistryDataLoaderMixin.java",
+      "sha256": "92bfaeb0add26dcd978b0609fc971da29ec91d2ddf6f671a167a3167fd228826"
+    },
+    {
+      "path": "transformer/build.gradle.kts",
+      "sha256": "9626fd651099fa2f949f9be35686dbae04b2ac658a0c13afa9d98af0b994fc5c"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/TransformerEnvironment.java",
+      "sha256": "58f7c785071a89c8cdd7142b45e2d0d724ece59c5ecda1126b8734bc84aa850f"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/BytecodeFixerUpperFrontend.java",
+      "sha256": "07a9dfe6b3130670939ede4ea3d034c55aa7ceb150659f34ed028000e3515e41"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/FabricJarReader.java",
+      "sha256": "38ef5a8499ce14089558553f7b27ac870d0363a61aa019f210fc192dc2e71fce"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/FabricModFileMetadata.java",
+      "sha256": "0b16697abf9a6bed3ce43868c6d33baf2bb05cdaabbe4ee7b9fd9d0f31f89fbb"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/IntermediateMapping.java",
+      "sha256": "9de3f22a74585e4eab7d0633eb40a919ad4e8576fa49ffc82bf97316bc73c10b"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformInstance.java",
+      "sha256": "d6d4555309a11501e7b0f22cafbea4789830c4a981c66cf0a8e6c9b32c7c44fa"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/JarTransformer.java",
+      "sha256": "3d622a7b69434ee6c9abfb7d3ba22b849f7eb47456d636abbd59b90f19ca4064"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/jar/SimpleClassLookup.java",
+      "sha256": "ce1acc6e0020a3f396a30f43d17f8ed1856bae7ec03c3af1e845a6acc8a3cf93"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/AccessorToInvokerTransformer.java",
+      "sha256": "757f42447d95f90dedbf1a163362e5b56d496579593b17f84d190c8fdd748688"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/ClassAnalysingTransformer.java",
+      "sha256": "3e05a7ea72e368a09608042f7beb6df8de15822aadb4d72f402da9651c3e7e36"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/ClassNodeTransformer.java",
+      "sha256": "565dca45eab514d8ab166121e80560af5068355c61207e8042cc2fd83b541adc"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/ConnectorRefmapHolder.java",
+      "sha256": "f521f25a9833860fef7fed93cb39b661f34fd30b45d9f5a8694c3d5b2eb29bbb"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/EnvironmentStripperTransformer.java",
+      "sha256": "02fbaa4ecbbca2e27c779e1d0d2e1f2c728c9ebb9e8c766136b5d401bbbc21d7"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/patch/ReflectionRenamingTransformer.java",
+      "sha256": "8b4e1d1769af747f882fc41264cefff343c3592286a0f4588c01219d3cfefc7d"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/NativeQuiltMetadata.java",
+      "sha256": "709143069a862ee4b1eef611576299e681b4bd7959c039c3d66f028829a1c473"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/NativeQuiltSources.java",
+      "sha256": "dd28a729c970cd96ee100564555113bb4de6cc2b8ce0fc4633d608fa5613d093"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/quilt/QuiltJarAdapter.java",
+      "sha256": "bec2ad238f80d14e21fda1045b42585705250d8ff835e4fc39e0ba9118e9793b"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/AccessWidenerTransformer.java",
+      "sha256": "f1fa0097bd147536047a3dc7d9de943d5f57f4c2e3c59c48b16b7a24ddb91b27"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/AccessorRedirectTransformer.java",
+      "sha256": "2efa08467e5925e05ef40cbf662a49288faf8523f29f55735eee8e654c3aa6ba"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/FieldToMethodTransformer.java",
+      "sha256": "d77c0d23ac8a64f28c9f5a43ee8914ed0b5f37191f5c03f8676cff8d2f465cc6"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/InheritingClassWriter.java",
+      "sha256": "ef914552bd85f5a85c057c30f4324518173c704751ed5d8188d63a5a3c7d4f0d"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/JarSignatureStripper.java",
+      "sha256": "af2846ba19a0c864a47c78aacd4426d4441e34f1b895c1fa18a111d8d59da1c6"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/MappingAwareReferenceMapper.java",
+      "sha256": "5874f5c0703fe3b2eb40d6a91a169757e3d281f05f9d63c0f3fcc63cbed1038b"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/MixinPatchTransformer.java",
+      "sha256": "6f99298dc33cf80ea8e07a668e7d734b714be11f71203f6f699bb55679f85d03"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/MixinPatches.java",
+      "sha256": "63ffd4878485b4b41ae31dfdf9841eedad9cf550447c2b3471b1500e82cfb423"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/OptimizedRenamingTransformer.java",
+      "sha256": "4ab84cacfb217ddc75c229ad6abb7fa461d72343f2daad841cc35fb5b92aecee"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/RefmapRemapper.java",
+      "sha256": "58bffe98b5b25f4ed80553a002b36129ede6fd8e170153e95f466795683eac8a"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/TransformProgressMeter.java",
+      "sha256": "9126f3d49e29f05b6324d48b928acba0cce71160d1b54be772de151d2b57d97f"
+    },
+    {
+      "path": "transformer/src/main/java/org/sinytra/connector/transformer/transform/TransformerUtil.java",
+      "sha256": "c9be016976ee4a6e1541fba9bdd110ade90d4cd5f1930e3c435703697f54c325"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/PortableRuntimeEnvironment.java",
+      "sha256": "870bdca5018ea600f5b4f708c660ee5e063d5c3ac824d908002ce8510faafe16"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/PortableTransformerFrontend.java",
+      "sha256": "1d7261775bc3c2a7517b6de6f1138c5a1e02ad6583f51f1e36b80f3f0f60a787"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/cli/Main.java",
+      "sha256": "dff440bee117e1146df48e4d2b0edcbf424735c5687c96fc6e93512bbf6eb709"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/discovery/JarInspector.java",
+      "sha256": "6d7eab4ba668d6d440947afa17a32aeed4d6e74f57568f64538d52c100df17db"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/discovery/ProbeModDiscoverer.java",
+      "sha256": "96922a442351f523946d3a3e1f04435de1353493f9ef65fd21b164adc4cb7718"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/runtime/MixinServiceProbe.java",
+      "sha256": "7dc31cd2221a1cf52b62d1084736df4bdf48aa1ebe036808291205fc7b6496c7"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/runtime/ProbeBlackboard.java",
+      "sha256": "9673a2a77b3098b081d3aa93ae0664f386502ab6d349cec2ca97c85d5d4a6ee5"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/runtime/ProbeClassBytecodeProvider.java",
+      "sha256": "087ab0b6cafdb74eaa1da50486b1ed2a5bb33d3c1018fd7dd8971863788f393f"
+    },
+    {
+      "path": "transformer/src/runner/java/org/sinytra/connector/transformer/runner/runtime/ProbeClassProvider.java",
+      "sha256": "a28d01355c0a2f34c766c57ae177d28d51b6526e2e00ab1b24db6cc68528fba0"
+    },
+    {
+      "path": "transformer/src/test/java/org/sinytra/connector/transformer/quilt/NativeQuiltPrereleaseRegression.java",
+      "sha256": "a6f1f82652850d18cf446c5a410a0e09543092cea5091be816a8e6a259a56fae"
+    },
+    {
+      "path": "transformer/src/test/java/org/sinytra/connector/transformer/quilt/NativeQuiltRegression.java",
+      "sha256": "3144ddbb14508680441a5ef0994a3d8e929deea52395cc336b788daac5839cd1"
+    }
+  ],
+  "dependencies": [
+    {
+      "filename": "DevLaunch-1.0.2.jar",
+      "sha256": "366adc4e95ab9b32c8e33b9f449529c8937c6fc021ee0c6b25419ea2bb703740"
+    },
+    {
+      "filename": "JarJarFileSystems-0.4.1.jar",
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+    },
+    {
+      "filename": "JarJarMetadata-0.4.1.jar",
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+    },
+    {
+      "filename": "JarJarSelector-0.4.1.jar",
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+    },
+    {
+      "filename": "accesstransformers-10.0.1.jar",
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+    },
+    {
+      "filename": "annotations-13.0.jar",
+      "sha256": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478"
+    },
+    {
+      "filename": "annotations-24.0.1.jar",
+      "sha256": "61666dbce7e42e6c85b43c04fcfb8293a21dcb55b3c80e869270ce42c01a6b35"
+    },
+    {
+      "filename": "annotations-24.1.0.jar",
+      "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6"
+    },
+    {
+      "filename": "antlr4-runtime-4.13.1.jar",
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+    },
+    {
+      "filename": "asm-9.5.jar",
+      "sha256": "b62e84b5980729751b0458c534cf1366f727542bb8d158621335682a460f0353"
+    },
+    {
+      "filename": "asm-9.8.jar",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+    },
+    {
+      "filename": "asm-analysis-9.8.jar",
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+    },
+    {
+      "filename": "asm-commons-9.5.jar",
+      "sha256": "72eee9fbafb9de8d9463f20dd584a48ceeb7e5152ad4c987bfbe17dd4811c9ae"
+    },
+    {
+      "filename": "asm-commons-9.8.jar",
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+    },
+    {
+      "filename": "asm-tree-9.5.jar",
+      "sha256": "3c33a648191079aeaeaeb7c19a49b153952f9e40fe86fbac5205554ddd9acd94"
+    },
+    {
+      "filename": "asm-tree-9.8.jar",
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+    },
+    {
+      "filename": "asm-util-9.8.jar",
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+    },
+    {
+      "filename": "at-modlauncher-10.0.1.jar",
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935"
+    },
+    {
+      "filename": "authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "filename": "blocklist-1.0.10.jar",
+      "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+    },
+    {
+      "filename": "bootstraplauncher-2.0.2.jar",
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+    },
+    {
+      "filename": "brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "filename": "bus-8.0.5.jar",
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+    },
+    {
+      "filename": "checker-qual-3.33.0.jar",
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+    },
+    {
+      "filename": "class-tweaker-0.3.0.jar",
+      "sha256": "83bf284909d13c7b4ae953c3fe141628dfedbe56120217f61891c341f0be2f1f"
+    },
+    {
+      "filename": "commons-codec-1.16.0.jar",
+      "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+    },
+    {
+      "filename": "commons-compress-1.26.0.jar",
+      "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+    },
+    {
+      "filename": "commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+    },
+    {
+      "filename": "commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+    },
+    {
+      "filename": "commons-logging-1.2.jar",
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+    },
+    {
+      "filename": "core-3.8.3.jar",
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+    },
+    {
+      "filename": "coremods-7.0.3.jar",
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+    },
+    {
+      "filename": "datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "filename": "earlydisplay-4.0.42.jar",
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+    },
+    {
+      "filename": "error_prone_annotations-2.18.0.jar",
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+    },
+    {
+      "filename": "fabric-api-base-0.4.42+d1308ded19.jar",
+      "sha256": "28b6e741ab6f9ebb1319dca5fa2c5dabc5582b73b08abc7cbcb812d834046b38"
+    },
+    {
+      "filename": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+      "sha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8"
+    },
+    {
+      "filename": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+      "sha256": "252f4e91732cfffa3bef080be8424ee23ae1cbd271a3981cd9caad0a4449fcde"
+    },
+    {
+      "filename": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+      "sha256": "b3aa36fd2b2830d1e6cd99daa96b98bf3b5ac05b59b7b67780a95923b4a0f772"
+    },
+    {
+      "filename": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+      "sha256": "6de474a6ed584ec9545e8d69ef515ded73222470ad81d1064242c9784e43f4ac"
+    },
+    {
+      "filename": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+      "sha256": "22277b144bbf93694b10925afc5700633caba5439bce5afd284984ee02f40427"
+    },
+    {
+      "filename": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+      "sha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c"
+    },
+    {
+      "filename": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+      "sha256": "5d36aef269d68cc454dc14f63655b5631d1bec445228d482635eaa0147c2a732"
+    },
+    {
+      "filename": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+      "sha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba"
+    },
+    {
+      "filename": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+      "sha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448"
+    },
+    {
+      "filename": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+      "sha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f"
+    },
+    {
+      "filename": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+      "sha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb"
+    },
+    {
+      "filename": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+      "sha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066"
+    },
+    {
+      "filename": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+      "sha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce"
+    },
+    {
+      "filename": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+      "sha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70"
+    },
+    {
+      "filename": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+      "sha256": "623b4283718c1226e542a5ab61e3f8ec776cda5fc5d72c688d2b1205de011269"
+    },
+    {
+      "filename": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+      "sha256": "476168647007a3f9e2e81a7f484563d46e23ace76ad4fa5324c3b3c9d17b75dd"
+    },
+    {
+      "filename": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+      "sha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49"
+    },
+    {
+      "filename": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+      "sha256": "33fd75221240410042ae4354becdf7dc3574e07a8b8dbdfaa96d8c6ffe2c53d3"
+    },
+    {
+      "filename": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+      "sha256": "aadd1ac08758f0fe9d819179e7aed645c2367eb6190cd1c2eca8dfa5d7ab8fb6"
+    },
+    {
+      "filename": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+      "sha256": "e448755bf38bbff07f5d8d952b18fef2f7ae1ff7d1e7640121a2284b91e9e349"
+    },
+    {
+      "filename": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+      "sha256": "875e729220ddf60f12f0170427a5fc70d576d70b1f5e4adba92541eafb021ea8"
+    },
+    {
+      "filename": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+      "sha256": "ebd99e05b80ddc98ad57a9f1b2feb092b8d90b35a01ceb9a24991147a9a1fc53"
+    },
+    {
+      "filename": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+      "sha256": "7713de55f30cc67bf7c9e12b8e6f6354044590a9525c753722a21269f3c05c73"
+    },
+    {
+      "filename": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+      "sha256": "077f804b0e281e06b0297581431c70aed136a3bc3f53f437a87cb91e6835469e"
+    },
+    {
+      "filename": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+      "sha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888"
+    },
+    {
+      "filename": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+      "sha256": "d47501338613b39978db8adc399dc432b867206162777a5a6ecfec3d9d3be471"
+    },
+    {
+      "filename": "fabric-particles-v1-4.0.2+824f924c19.jar",
+      "sha256": "7602ecfd15c01cc354a13a873c10da9ede0f8a3b09b63810d1f79747bf871073"
+    },
+    {
+      "filename": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+      "sha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f"
+    },
+    {
+      "filename": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+      "sha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96"
+    },
+    {
+      "filename": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+      "sha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8"
+    },
+    {
+      "filename": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+      "sha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2"
+    },
+    {
+      "filename": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+      "sha256": "a68a5ad12233436778cd106bf1b5cac21062622f39580a72d1a9641cfc7eb928"
+    },
+    {
+      "filename": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+      "sha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a"
+    },
+    {
+      "filename": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+      "sha256": "f7b1c7c82677cb2718837d2b44d8653aa8b677abcc8274b49ea7abe01578aa30"
+    },
+    {
+      "filename": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+      "sha256": "9876eca7644ff5d1805b1ebecf708985a120c86d8826b6416538678c3d33894c"
+    },
+    {
+      "filename": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+      "sha256": "9eb65b0a9f069d0eeedbe85770b1562750b304f0fc17f9f94562d54f96034b10"
+    },
+    {
+      "filename": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+      "sha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998"
+    },
+    {
+      "filename": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+      "sha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5"
+    },
+    {
+      "filename": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+      "sha256": "0bac20f36a80beccdb22e26cd6041c67a7e107a34c248a8a1b368abd7b7ebe78"
+    },
+    {
+      "filename": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+      "sha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65"
+    },
+    {
+      "filename": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+      "sha256": "3410255c6a9cc84801a55e4fdce900a8facf5621b0aaf8b19c89bddd74fba035"
+    },
+    {
+      "filename": "failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "filename": "fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "filename": "forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar",
+      "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690"
+    },
+    {
+      "filename": "forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+      "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1"
+    },
+    {
+      "filename": "gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+    },
+    {
+      "filename": "guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "filename": "httpclient-4.5.13.jar",
+      "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+    },
+    {
+      "filename": "httpcore-4.4.16.jar",
+      "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+    },
+    {
+      "filename": "icu4j-73.2.jar",
+      "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+    },
+    {
+      "filename": "j2objc-annotations-2.8.jar",
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+    },
+    {
+      "filename": "java-objc-bridge-1.1.jar",
+      "sha256": "77e34a13bccffc6c8b1a0e3ed46ddb0ea7dd56f2104ecdfacaaec9e4054ac332"
+    },
+    {
+      "filename": "jline-reader-3.20.0.jar",
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+    },
+    {
+      "filename": "jline-terminal-3.20.0.jar",
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+    },
+    {
+      "filename": "jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+    },
+    {
+      "filename": "jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+    },
+    {
+      "filename": "joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "filename": "jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "filename": "jopt-simple-6.0-alpha-3.jar",
+      "sha256": "d440ceb839d6adb5cfa81aa321813d60255e68a3e9ca564c91126599310abde5"
+    },
+    {
+      "filename": "jorbis-0.0.17.jar",
+      "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+    },
+    {
+      "filename": "jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "filename": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "filename": "loader-4.0.42.jar",
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+    },
+    {
+      "filename": "log4j-api-2.19.0.jar",
+      "sha256": "5ccb24ad9f92e768d0bc456d3061a737951262df803e004d2cad096b75a88d60"
+    },
+    {
+      "filename": "log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+    },
+    {
+      "filename": "log4j-api-2.24.3.jar",
+      "sha256": "5b4a0a0cd0e751ded431c162442bdbdd53328d1f8bb2bae5fc1bbeee0f66d80f"
+    },
+    {
+      "filename": "log4j-core-2.19.0.jar",
+      "sha256": "b4a1796fab7bfc36df015c1b4052459147997e8d215a7199d71d05f9e747e4f4"
+    },
+    {
+      "filename": "log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+    },
+    {
+      "filename": "log4j-core-2.24.3.jar",
+      "sha256": "7eb4084596ae25bd3c61698e48e8d0ab65a9260758884ed5cbb9c6e55c44a56a"
+    },
+    {
+      "filename": "log4j-slf4j2-impl-2.19.0.jar",
+      "sha256": "825605eacb2d5605b105c53d4108c18125e0f82f62960d0be583278b9c524f3c"
+    },
+    {
+      "filename": "log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+    },
+    {
+      "filename": "log4j-slf4j2-impl-2.24.3.jar",
+      "sha256": "cdaac22e40ec30c4096e1ebe8c454c8826c0d1c378d7db5d7b3ad166354b0bd3"
+    },
+    {
+      "filename": "logging-1.1.1.jar",
+      "sha256": "c1756eaf0685da94142bacc84309bb7ccddf65e004638c3299ab645710b5938c"
+    },
+    {
+      "filename": "logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "filename": "lwjgl-3.3.3-natives-linux.jar",
+      "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9"
+    },
+    {
+      "filename": "lwjgl-3.3.3.jar",
+      "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+    },
+    {
+      "filename": "lwjgl-freetype-3.3.3-natives-linux.jar",
+      "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9"
+    },
+    {
+      "filename": "lwjgl-freetype-3.3.3.jar",
+      "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+    },
+    {
+      "filename": "lwjgl-glfw-3.3.3-natives-linux.jar",
+      "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8"
+    },
+    {
+      "filename": "lwjgl-glfw-3.3.3.jar",
+      "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+    },
+    {
+      "filename": "lwjgl-jemalloc-3.3.3-natives-linux.jar",
+      "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3"
+    },
+    {
+      "filename": "lwjgl-jemalloc-3.3.3.jar",
+      "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+    },
+    {
+      "filename": "lwjgl-openal-3.3.3-natives-linux.jar",
+      "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a"
+    },
+    {
+      "filename": "lwjgl-openal-3.3.3.jar",
+      "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+    },
+    {
+      "filename": "lwjgl-opengl-3.3.3-natives-linux.jar",
+      "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250"
+    },
+    {
+      "filename": "lwjgl-opengl-3.3.3.jar",
+      "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+    },
+    {
+      "filename": "lwjgl-stb-3.3.3-natives-linux.jar",
+      "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1"
+    },
+    {
+      "filename": "lwjgl-stb-3.3.3.jar",
+      "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+    },
+    {
+      "filename": "lwjgl-tinyfd-3.3.3-natives-linux.jar",
+      "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05"
+    },
+    {
+      "filename": "lwjgl-tinyfd-3.3.3.jar",
+      "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+    },
+    {
+      "filename": "lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+    },
+    {
+      "filename": "mapping-io-0.7.1.jar",
+      "sha256": "1419e8ee795ca3cf86f707a6a2f10e613257e9c1ce91a1101602c07b7cff7a48"
+    },
+    {
+      "filename": "maven-artifact-3.8.5.jar",
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+    },
+    {
+      "filename": "mergetool-2.0.0-api.jar",
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00"
+    },
+    {
+      "filename": "mergetool-2.0.3-api.jar",
+      "sha256": "e13e61c0437d6db17e7b3581ff261292015dcd9e11683f5a365b4b9a5c192283"
+    },
+    {
+      "filename": "mixinextras-common-0.3.1.jar",
+      "sha256": "0677ff4e6bd145a151b26af8a81b796b5ef98af778c09db410e4de96eae5e4bf"
+    },
+    {
+      "filename": "mixinextras-common-0.3.6.jar",
+      "sha256": "0220c4560e09808eb0533cf9dfb3d84770f8bec6b2269a661d9f3e4f54d42738"
+    },
+    {
+      "filename": "mixinextras-neoforge-0.5.0.jar",
+      "sha256": "9c617719248f8b89847348fc7ea5e705739c147ae5e172551264d225bc9f2507"
+    },
+    {
+      "filename": "modlauncher-11.0.4.jar",
+      "sha256": "790b76e93c1c21c7ab6086237c213bc5297663f9e65176ee5a5e56c40041dc51"
+    },
+    {
+      "filename": "modlauncher-11.0.5.jar",
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+    },
+    {
+      "filename": "nashorn-core-15.4.jar",
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+    },
+    {
+      "filename": "netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+    },
+    {
+      "filename": "netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+    },
+    {
+      "filename": "netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+    },
+    {
+      "filename": "netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+    },
+    {
+      "filename": "netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+    },
+    {
+      "filename": "netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+    },
+    {
+      "filename": "netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+    },
+    {
+      "filename": "netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+    },
+    {
+      "filename": "netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+    },
+    {
+      "filename": "netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+    },
+    {
+      "filename": "noexception-1.7.1.jar",
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+    },
+    {
+      "filename": "org.ow2.sat4j.core-2.3.6.jar",
+      "sha256": "0e7aacdd976dd958291e6a5599bdae0d40246fe1277b7b63a80db0fc92d469d7"
+    },
+    {
+      "filename": "org.ow2.sat4j.pb-2.3.6.jar",
+      "sha256": "24f88ed3315959c414334373ded1c1006278d90e691e6395caf72f1bbb91a7e5"
+    },
+    {
+      "filename": "oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+    },
+    {
+      "filename": "patchy-2.2.10.jar",
+      "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+    },
+    {
+      "filename": "picocli-4.7.7.jar",
+      "sha256": "f86e30fffd10d2b13b8caa8d4b237a7ee61f2ffccf5b1941de718b765d235bf8"
+    },
+    {
+      "filename": "plexus-utils-3.3.0.jar",
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+    },
+    {
+      "filename": "runtime-1.0.0+1.21.1.jar",
+      "sha256": "36de91a417138f01a1801b7e2ae59bb1052c8ddb23b1352d3fe952b3d33a5e06"
+    },
+    {
+      "filename": "securejarhandler-3.0.8.jar",
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+    },
+    {
+      "filename": "slf4j-api-2.0.0.jar",
+      "sha256": "a223e6df91b84f19d49c5ebc5f5f97c7f4438419f84a52fa05e1cfc6eed38aa9"
+    },
+    {
+      "filename": "slf4j-api-2.0.16.jar",
+      "sha256": "a12578dde1ba00bd9b816d388a0b879928d00bab3c83c240f7013bf4196c579a"
+    },
+    {
+      "filename": "slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    },
+    {
+      "filename": "sponge-mixin-0.14.0+mixin.0.8.6.jar",
+      "sha256": "3f22c86d1a89e0c2b1cdd4388d495b50c744add9a7f2e96a8937f0dfd8d0f0b1"
+    },
+    {
+      "filename": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+    },
+    {
+      "filename": "srgutils-0.4.15.jar",
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3"
+    },
+    {
+      "filename": "srgutils-0.5.1.jar",
+      "sha256": "b9bde328a5787c43a58e29305b6bcab31e63ea52244e3ac83a07a845ab3aaf30"
+    },
+    {
+      "filename": "srgutils-0.5.4.jar",
+      "sha256": "77bc2de440968713da0935708548d97c700074bfdbc776db0c2a8b54a0b27d2c"
+    },
+    {
+      "filename": "terminalconsoleappender-1.3.0.jar",
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+    },
+    {
+      "filename": "text2speech-1.17.9.jar",
+      "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+    },
+    {
+      "filename": "tiny-remapper-0.11.2.jar",
+      "sha256": "37c15670db5da17e6ffccc3fced1456e17c654d37878d1f85a4eef4bda220536"
+    },
+    {
+      "filename": "toml-3.8.3.jar",
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+    },
+    {
+      "filename": "typetools-0.6.3.jar",
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+    }
+  ]
+}

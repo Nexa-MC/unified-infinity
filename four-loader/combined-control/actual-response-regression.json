@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "actual_failed_attempt_response": "[05:07:01] [Server thread/INFO] [minecraft/MinecraftServer]: Chunk at [0, 0] in Overworld is marked for force loading",
+  "correct_chunk_and_loaded_state_required": true,
+  "wrong_coordinate_rejected": true,
+  "not_loaded_rejected": true,
+  "wrong_dimension_rejected": true,
+  "no_world_repair": true
+}

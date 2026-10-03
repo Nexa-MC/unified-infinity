@@ -1,0 +1,10 @@
+Quilt Standard Libraries, The Quilt Project and contributors
+https://github.com/QuiltMC/quilt-standard-libraries
+Apache License 2.0; full text: QSL-Apache-2.0.txt
+
+The selected official 10.0.0-alpha.5+1.21.1 module JARs declare Apache-2.0 in
+quilt.mod.json but do not contain a separate license-text file. The host supplies
+the standard Apache-2.0 text here without modifying those original payloads.
+Their original IDs, versions, contributor/contact metadata and resources remain.
+Selection and hashes are recorded in META-INF/unified-infinity/bundled-qsl.json.
+Bundling alone does not certify runtime compatibility of every QSL module.

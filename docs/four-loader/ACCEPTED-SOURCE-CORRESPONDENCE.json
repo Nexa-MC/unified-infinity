@@ -1,0 +1,7 @@
+{
+  "core_sha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+  "build_identity": "c5bc17c49d1a2e2f2eadbc51e2a23e2f7a2ecc4720d827b855047b22bdf83499",
+  "matched_source_records": 390,
+  "source_mismatches": 0,
+  "basis": "Frozen1216 source snapshot supplemented only by missing files that match the embedded accepted-core source hashes. In-progress successor policy/preload sources are not substituted."
+}

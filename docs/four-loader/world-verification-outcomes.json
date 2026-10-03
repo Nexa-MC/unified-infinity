@@ -1,0 +1,29 @@
+{
+  "scope": "Recorded native Quilt and Unified first-save/reopen offline-verifier outcomes; no new run",
+  "reports": [
+    {
+      "report": "four-loader/quilt-native-client/logs/client-3/world-first-save.json",
+      "original_report_sha256": "478a4bf98c19d5130280fa4c8740d9749f0d90a4ab49aaab424737092ede5cb8",
+      "result": "PASS",
+      "published_payload": "Only this outcome and original-report digest; detailed saved-state projection omitted"
+    },
+    {
+      "report": "four-loader/quilt-native-client/logs/client-3/world-reopened-save.json",
+      "original_report_sha256": "4679b201bddfe2d572b52aef19a401017c2539409f2516af674d8e3ad60947a9",
+      "result": "PASS",
+      "published_payload": "Only this outcome and original-report digest; detailed saved-state projection omitted"
+    },
+    {
+      "report": "four-loader/unified-client/evidence/client-2/world-first-save.json",
+      "original_report_sha256": "c836f2c2b17496c4f656b0932d59fa9e5fd31480474d936dec6ebba510ce7953",
+      "result": "PASS",
+      "published_payload": "Only this outcome and original-report digest; detailed saved-state projection omitted"
+    },
+    {
+      "report": "four-loader/unified-client/evidence/client-2/world-reopened-save.json",
+      "original_report_sha256": "ec06694424fa594ed0c28857d953ac8a08f854d22c63101aa6f7c3414bd0b116",
+      "result": "PASS",
+      "published_payload": "Only this outcome and original-report digest; detailed saved-state projection omitted"
+    }
+  ]
+}

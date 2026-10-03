@@ -1,0 +1,466 @@
+{
+  "profile": "run/forge-native-clumps",
+  "loader": "native",
+  "minecraft": "1.21.1",
+  "referenceForge": "52.1.0",
+  "nativeHost": "52.1.0",
+  "argfile": "libraries/net/minecraftforge/forge/1.21.1-52.1.0/unix_args.txt",
+  "probe_sha256": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+  "clumps_sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+  "mods": {
+    "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+    "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09"
+  },
+  "original_inputs": [
+    {
+      "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19"
+    },
+    {
+      "path": "four-loader/clumps-probe/build/unified-clumps-probe-0.1.0.jar",
+      "sha256": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09"
+    }
+  ],
+  "fixture_sources": [
+    {
+      "path": "four-loader/clumps-probe/src/dev/infinity/clumpsprobe/ClumpsProbe.java",
+      "sha256": "7151e9aed7333b857f0ba10ccc8bc67b63f9c7c8a07ef177ad5962bee5a83ca0"
+    },
+    {
+      "path": "four-loader/clumps-probe/src/dev/infinity/clumpsprobe/OrbTotals.java",
+      "sha256": "390cb02cc754ba7cb1be7c1de23a996a13fa4e99fa1feec87980e6033d7b2391"
+    },
+    {
+      "path": "four-loader/clumps-probe/resources/META-INF/LICENSE",
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "four-loader/clumps-probe/resources/META-INF/mods.toml",
+      "sha256": "1f6aa72d7d9d45a295518a5059450b9ef82b316cfab0e3378d2b220206b18be5"
+    }
+  ],
+  "runtime_files": [
+    {
+      "path": "run/forge-native-clumps/libraries/com/electronwill/night-config/core/3.7.4/core-3.7.4.jar",
+      "sha256": "ca45c88482c0f909810889df14a05350bf8ac7b82c57ebbbaf32aace8ddb6b52"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/electronwill/night-config/toml/3.7.4/toml-3.7.4.jar",
+      "sha256": "835783cb048326b02dd701e04a7edaf141068da1e4554a1f1d37466bb4d7810b"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/github/jponge/lzma-java/1.3/lzma-java-1.3.jar",
+      "sha256": "75ccc0e24d37ed5b8916e1bcffad1e067c2b1cfa21b635287f968db5c3c1963a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/github/oshi/oshi-core/6.4.10/oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/com/nothome/javaxdelta/2.0.1/javaxdelta-2.0.1.jar",
+      "sha256": "a661dfcb749053fc26eada2a0a8e619a8ead1ca9eda29e1698687aa2cdd80152"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/de/oceanlabs/mcp/mcp_config/1.21.1-20240808.132146/mcp_config-1.21.1-20240808.132146-srg2off.jar",
+      "sha256": "95a92957e05314dbdb01ec69d74dcf0ca651c5ce3cabd78a52900956d15fc9c9"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/de/siegmar/fastcsv/2.2.2/fastcsv-2.2.2.jar",
+      "sha256": "bfda71abcd7c2b62db498deba24c14aec0e9059a9c183477840ac1bae9c98ad2"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-buffer/4.1.97.Final/netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-codec/4.1.97.Final/netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-common/4.1.97.Final/netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-handler/4.1.97.Final/netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-resolver/4.1.97.Final/netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-transport/4.1.97.Final/netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-transport-classes-epoll/4.1.97.Final/netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/io/netty/netty-transport-native-unix-common/4.1.97.Final/netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraft/server/1.21.1/server-1.21.1-bundled.jar",
+      "sha256": "e3bc55693e93cda0188f2e60aea28113fc647c5e85a15fa3d1b347349231b4bb"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraft/server/1.21.1/server-1.21.1-official.jar",
+      "sha256": "11e94fe3e52746e49465c1f4082c57f5f2751ef90993dca14158962e512510ff"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraft/server/1.21.1/server-1.21.1-unpacked.jar",
+      "sha256": "c301de10f575027d13eac18c7f34409d60648cf56a35d566aa1f530ff617840a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/ForgeAutoRenamingTool/1.0.6/ForgeAutoRenamingTool-1.0.6.jar",
+      "sha256": "072368476225ff6d29468d07c49cd04aa5eae11b8ab99ab3dd05802b07bc22c4"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/JarJarFileSystems/0.3.26/JarJarFileSystems-0.3.26.jar",
+      "sha256": "906f3b4f5402dfae04a78369f2964cb3985b3e80701e66430622af81f97896da"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/JarJarMetadata/0.3.26/JarJarMetadata-0.3.26.jar",
+      "sha256": "ad79528d4a25cfd4a3db8046917e02a305d2d9a0ebaf59d8caa8e9729c097849"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/JarJarSelector/0.3.26/JarJarSelector-0.3.26.jar",
+      "sha256": "4d06aafefb10e91759932b896f8be364acac06ce5a84925dbeb73f208a5affcb"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/accesstransformers/8.2.2/accesstransformers-8.2.2.jar",
+      "sha256": "98fb8323a249f529215d27d312fc2c4bd934eb74617771f9a0887906e2f3c456"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/binarypatcher/1.2.0/binarypatcher-1.2.0.jar",
+      "sha256": "f52c278c1e8e741c79a5f4ab6aa8e9cf63df50c85b4acda5e1f045fc94ff31df"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/bootstrap/2.1.8/bootstrap-2.1.8.jar",
+      "sha256": "6b0641339bc8872c4eb6978e302935d74fcc93871e3ea2b1b81f03fb3b16e708"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/bootstrap-api/2.1.8/bootstrap-api-2.1.8.jar",
+      "sha256": "b9b5b5b3b441a42920eeaf181395e858642874f09f64cd7f9e4a0cd7a34b8938"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/coremods/5.2.6/coremods-5.2.6.jar",
+      "sha256": "2fd763b690e701eda11b7099ddbc17b2a4e2dd0969902793da78638ca8c8a8c8"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar",
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar",
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/fmlearlydisplay/1.21.1-52.1.0/fmlearlydisplay-1.21.1-52.1.0.jar",
+      "sha256": "2d7d8b752e7cf53c6276bca144e767b4229650531bb6c6b25076bf68c8a5801a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/fmlloader/1.21.1-52.1.0/fmlloader-1.21.1-52.1.0.jar",
+      "sha256": "6ca33b9f9e0bb6e58076c2e38002174eddf01d80b54c313824712a309d0183a9"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-server.jar",
+      "sha256": "2dea3fefad7ddf03e0a609cb2084a651732a35ae46dcf1d949d9359405a8621f"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-shim.jar",
+      "sha256": "f7b706c79896728723da0e4e8c5a6ecdb6a617ad4df9d7ea1ddc6367187bc291"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar",
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/forgespi/7.1.5/forgespi-7.1.5.jar",
+      "sha256": "6dc1df5e18479dce2d7d65a8b706e22f70448ee79fa9123825b459b458dabcb7"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/installertools/1.4.3/installertools-1.4.3.jar",
+      "sha256": "aa8f649a671c13e3335804c4a0add53d0f4fdbfc4ae7f3fa7717ca7784c9fbe9"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar",
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/lowcodelanguage/1.21.1-52.1.0/lowcodelanguage-1.21.1-52.1.0.jar",
+      "sha256": "478f89125b4fba50bea8f6f56144d4c6799b72a7b06608481fc0bda0a05099c6"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/mclanguage/1.21.1-52.1.0/mclanguage-1.21.1-52.1.0.jar",
+      "sha256": "e71cd1780856408c8e25c5241e775dac3f1ea801f2d19445f2da40fa0a88e707"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/mergetool-api/1.0/mergetool-api-1.0.jar",
+      "sha256": "100f0c4d658b9dd73600ce4bb9c75657e0651f0f0f5e0b2f977f85d8f495350b"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/modlauncher/10.2.4/modlauncher-10.2.4.jar",
+      "sha256": "fd5b1bec9c1700052959dd2a3a934496c68cd7c0ecb18aed4d1fba784122a134"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/securemodules/2.2.21/securemodules-2.2.21.jar",
+      "sha256": "a8254ac61485c95f652d1b3a92395fcee375fa7d12ae996efd672ed8beabb3a0"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/srgutils/0.5.1/srgutils-0.5.1.jar",
+      "sha256": "b9bde328a5787c43a58e29305b6bcab31e63ea52244e3ac83a07a845ab3aaf30"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/srgutils/0.5.10/srgutils-0.5.10.jar",
+      "sha256": "46e73138a2718dc2a378c2a0ac71756ce627819729c462b81dd54a60fb97387a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/srgutils/0.5.6/srgutils-0.5.6.jar",
+      "sha256": "1aaf0178677961242c52e101c1ba8e1ee96dad054295e20eb15b98f4e6fe2e3d"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/unsafe/0.9.2/unsafe-0.9.2.jar",
+      "sha256": "f5035ab2dd1c02aa354f948a28daf2ff4215956194a98634f076ad71610fe3a4"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecrell/terminalconsoleappender/1.2.0/terminalconsoleappender-1.2.0.jar",
+      "sha256": "912e432c9355c4b2025d788ed87fd72bb95542e2fc967ad6875fbbeb6e1c7a1c"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/sf/jopt-simple/jopt-simple/6.0-alpha-3/jopt-simple-6.0-alpha-3.jar",
+      "sha256": "d440ceb839d6adb5cfa81aa321813d60255e68a3e9ca564c91126599310abde5"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/apache/maven/maven-artifact/3.8.8/maven-artifact-3.8.8.jar",
+      "sha256": "813233a8485cbaf97b1f9a2c17cef723b068f7260a4319cf4958f221d04b9937"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/jline/jline-reader/3.25.1/jline-reader-3.25.1.jar",
+      "sha256": "26333a275de502adf1dd9e6ea50aa0b4021412c71490df9ed5e88a648886ee89"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/jline/jline-terminal/3.25.1/jline-terminal-3.25.1.jar",
+      "sha256": "c0f5d70901255da66a94e59778b265d19f9308342578e34c88fc92d1b0c65fef"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/jline/jline-terminal-jna/3.25.1/jline-terminal-jna-3.25.1.jar",
+      "sha256": "58ca9d719c373206af15775ee3cd5f268136ea0d0c4e009c3e96a6d4612d5c66"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/joml/joml/1.10.5/joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm/9.5/asm-9.5.jar",
+      "sha256": "b62e84b5980729751b0458c534cf1366f727542bb8d158621335682a460f0353"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm/9.7/asm-9.7.jar",
+      "sha256": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar",
+      "sha256": "8cadd43ac5eb6d09de05faecca38b917a040bb9139c7edeb4cc81c740b713281"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-analysis/9.7.1/asm-analysis-9.7.1.jar",
+      "sha256": "85b29371884ba31bb76edf22323c2c24e172c3267a67152eba3d1ccc2e041ef2"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-commons/9.5/asm-commons-9.5.jar",
+      "sha256": "72eee9fbafb9de8d9463f20dd584a48ceeb7e5152ad4c987bfbe17dd4811c9ae"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar",
+      "sha256": "389bc247958e049fc9a0408d398c92c6d370c18035120395d4cba1d9d9304b7a"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-commons/9.7.1/asm-commons-9.7.1.jar",
+      "sha256": "9a579b54d292ad9be171d4313fd4739c635592c2b5ac3a459bbd1049cddec6a0"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-tree/9.5/asm-tree-9.5.jar",
+      "sha256": "3c33a648191079aeaeaeb7c19a49b153952f9e40fe86fbac5205554ddd9acd94"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar",
+      "sha256": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar",
+      "sha256": "9929881f59eb6b840e86d54570c77b59ce721d104e6dfd7a40978991c2d3b41f"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/ow2/asm/asm-util/9.7.1/asm-util-9.7.1.jar",
+      "sha256": "f885be71b5c90556f5f1ad1c4f9276b29b96057c497d46666fe4ddbec3cb43c6"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/org/spongepowered/mixin/0.8.7/mixin-0.8.7.jar",
+      "sha256": "87aaa7ee080465ed7ea13616679534abcdbfdd636b4752d0eff0a00017e235c0"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/trove/trove/1.0.2/trove-1.0.2.jar",
+      "sha256": "ad68a86cfd0255a2bc0525ce11ec49640caea7e34ff91eb89c3193dcccd77f05"
+    },
+    {
+      "path": "run/forge-native-clumps/libraries/net/minecraftforge/forge/1.21.1-52.1.0/unix_args.txt",
+      "sha256": "07ec5c1ac3a3a28acd488dc410ccfa8d5e503ab19115efa9e3e9fa92cd1ff000"
+    },
+    {
+      "path": ".toolchains/jdk-21.0.12.1+1/bin/java",
+      "sha256": "2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d"
+    },
+    {
+      "path": "run/forge-native-clumps/forge-1.21.1-52.1.0-shim.jar",
+      "sha256": "f7b706c79896728723da0e4e8c5a6ecdb6a617ad4df9d7ea1ddc6367187bc291"
+    }
+  ],
+  "expected_stages": {
+    "create": [
+      "constructor",
+      "server_started",
+      "post_tick",
+      "seeded",
+      "merge",
+      "nbt_roundtrip",
+      "world_create",
+      "ready_to_save"
+    ],
+    "reopen": [
+      "constructor",
+      "server_started",
+      "post_tick",
+      "world_reopen",
+      "nbt_roundtrip",
+      "ready_to_save"
+    ]
+  },
+  "expected_saved_marker": "clumps_forge_19_0_0_1_probe_v1",
+  "expected_clumped_map": {
+    "1": 1,
+    "3": 1,
+    "7": 2,
+    "17": 1,
+    "37": 1
+  },
+  "expected_xp": 72,
+  "server_properties": {
+    "server-ip": "127.0.0.1",
+    "server-port": "25594",
+    "online-mode": "true",
+    "enable-rcon": "false",
+    "enable-query": "false",
+    "enable-status": "false",
+    "white-list": "true",
+    "enforce-whitelist": "true",
+    "enforce-secure-profile": "true",
+    "max-players": "1",
+    "level-name": "world",
+    "level-seed": "521019",
+    "view-distance": "2",
+    "simulation-distance": "2",
+    "spawn-protection": "0",
+    "difficulty": "peaceful",
+    "generate-structures": "false",
+    "sync-chunk-writes": "true",
+    "max-tick-time": "60000",
+    "pause-when-empty-seconds": "-1",
+    "motd": "Private Clumps behavior control"
+  },
+  "lan_disabled_config": "defaultconfigs/forge-server.toml",
+  "scope": "Exact original Clumps plus identical project-owned comparison companion; no accounts/public service",
+  "core_sha256": null,
+  "host_sha256": null,
+  "inherited_native_lock_sha256": "80e9f60265b6ed18512230ce7d1c5b358caeadb9a21968ee3b83e0c838ea87db",
+  "eula": "Reuses previously accepted local Minecraft test-server EULA"
+}

@@ -1,0 +1,7 @@
+{
+  "scope": "static downloaded byte identity and native metadata only; no Java code executed",
+  "quilt_source_files": 359,
+  "qsl_modules_verified": 30,
+  "native_mod_candidates_verified": 3,
+  "errors": []
+}

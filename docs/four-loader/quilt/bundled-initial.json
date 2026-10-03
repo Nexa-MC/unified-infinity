@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "scope": "Initial base/lifecycle deployment; runtime not yet verified",
+  "modules": [
+    {
+      "id": "quilt_base",
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "qsl_base",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+      "file": "upstream/qsl_base-alpha5.jar"
+    },
+    {
+      "id": "quilt_lifecycle_events",
+      "group": "org.quiltmc.qsl.core",
+      "artifact": "lifecycle_events",
+      "version": "10.0.0-alpha.5+1.21.1",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+      "file": "upstream/lifecycle_events-alpha5.jar"
+    }
+  ]
+}

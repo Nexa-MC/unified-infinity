@@ -1,0 +1,95 @@
+{
+  "result": "PASS",
+  "scope": "Genuine Quilt OP Tab 2.0.0V1.21.1+1.21 client creative-tab and local world persistence control",
+  "attempt": 3,
+  "minecraft": "1.21.1",
+  "quiltLoader": "0.30.1",
+  "sourceOpTabSha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296",
+  "runtimeOpTab": {
+    "id": "optab",
+    "version": "2.0.0V1.21.1+1.21",
+    "format": "quilt",
+    "nested": [],
+    "path": "four-loader/quilt-native-client/development/.gradle/quilt-loom-cache/remapped_mods/net_fabricmc_yarn_1_21_1_1_21_1_build_3_v2/unspecified/optab-2.0.0V1.21.1+1.21/6121446645d4/optab-2.0.0V1.21.1+1.21-6121446645d4.jar",
+    "sha256": "80568e18fce5952675856cc7382cc2defea015d5974514500dcf2d4a012f5d7d",
+    "originalSha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296"
+  },
+  "directOriginalModCount": 4,
+  "expandedOriginalModCount": 52,
+  "runtimeClasspathEntries": 126,
+  "entrypointInitializationCount": 1,
+  "visualChecks": [
+    "Native main menu footer Minecraft1.21.1/QuiltLoader0.30.1",
+    "Fresh creative superflat world quilt-optab-native, seed2026100302, structures off",
+    "Op Tab barrier-icon category visible on creative page2/2",
+    "19 expected entries shown",
+    "OP Sword custom name and four level127 enchantments visible",
+    "Sword and barrier moved to hotbar",
+    "Same saved world reopened; original hotbar items and Op Tab entries still present"
+  ],
+  "saveChecks": {
+    "first": "PASS",
+    "reopened": "PASS",
+    "inventoryByteSemanticsEqual": true,
+    "allDimensionsSavedCount": 2
+  },
+  "gameProcessExit": 0,
+  "boundedRuntime": {
+    "initialHeapMiB": 256,
+    "maxHeapMiB": 1536,
+    "activeProcessors": 2,
+    "concurrentGradle": false
+  },
+  "launchDerivation": "Official Quilt Loom1.8.5 named outputs and exact generated DevLaunchInjector/KnotClient IDE-style configuration; original sources unchanged",
+  "limitations": [
+    "No multiplayer, LAN, authenticated account or audio acceptance",
+    "Cloud environment has no sound device; Yggdrasil public-key fetch failed without an account flow",
+    "Cgroup counters cover shared activity: attempt3 client exited0 despite oom_kill26\u219227; no unrelated-process attribution",
+    "Attempts1/2 exit137 preserved; no performance comparison with those paths"
+  ],
+  "screenshots": [
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.21.11.png",
+      "sha256": "a5f68f21a357bcab7a95327d234e16d227a1f484f0103a0be955687f41c3b6e8"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.22.20.png",
+      "sha256": "48fe6ba6e3cc86250ca5d93489837ee1ee373df70e8cc495ffc80b906acbd7bb"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.22.30.png",
+      "sha256": "f2efbdef5cb0c70a4ccc08f6f96115f10b192d3f98a9b0dae3376b4a9a3e3c4b"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.24.15.png",
+      "sha256": "207b40d23b9f86ac9a742a381a6f2cb3156f5287f152d3014a09651f18379dfa"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.24.37.png",
+      "sha256": "7ef97f58e3918b0194bb8dd7be394bf4ac06bdb1b699b6b2df63483601ca119e"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.24.38.png",
+      "sha256": "d87fe062c65e6f3aa95e588ad12009a489ca200d6f24ca763bab550a2b1b84ee"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.27.24.png",
+      "sha256": "924b46a1faa3bac37786ce4259a0c3991a7ddf68f2ed4e396e32e8b1f007c98e"
+    },
+    {
+      "file": "four-loader/quilt-native-client/logs/client-3/screenshots/2026-10-03_21.27.59.png",
+      "sha256": "bc8e5d28b8832306086bea9216a9056c826adf249d3f7f545a080af1766bc9ff"
+    }
+  ],
+  "evidence": {
+    "firstSave": "world-first-save.json",
+    "reopenedSave": "world-reopened-save.json",
+    "firstSnapshot": "world-first-save/",
+    "reopenedSnapshot": "world-reopened-save/",
+    "resourcesBefore": "resources-before.json",
+    "resourcesAfter": "resources-after.json",
+    "directLaunch": "direct-launch-derivation.json",
+    "launchLog": "launch.log",
+    "postlaunchBytes": "postlaunch-verification.json"
+  }
+}

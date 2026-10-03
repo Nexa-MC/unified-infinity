@@ -1,0 +1,550 @@
+{
+  "repo": {
+    "id": 489939436,
+    "node_id": "R_kgDOHTPh7A",
+    "name": "opitemsmod",
+    "full_name": "betterclient/opitemsmod",
+    "private": false,
+    "owner": {
+      "login": "betterclient",
+      "id": 103489620,
+      "node_id": "U_kgDOBisgVA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/103489620?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/betterclient",
+      "html_url": "https://github.com/betterclient",
+      "followers_url": "https://api.github.com/users/betterclient/followers",
+      "following_url": "https://api.github.com/users/betterclient/following{/other_user}",
+      "gists_url": "https://api.github.com/users/betterclient/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/betterclient/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/betterclient/subscriptions",
+      "organizations_url": "https://api.github.com/users/betterclient/orgs",
+      "repos_url": "https://api.github.com/users/betterclient/repos",
+      "events_url": "https://api.github.com/users/betterclient/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/betterclient/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "html_url": "https://github.com/betterclient/opitemsmod",
+    "description": "Adds a creative tab for /give items",
+    "fork": false,
+    "url": "https://api.github.com/repos/betterclient/opitemsmod",
+    "forks_url": "https://api.github.com/repos/betterclient/opitemsmod/forks",
+    "keys_url": "https://api.github.com/repos/betterclient/opitemsmod/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/betterclient/opitemsmod/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/betterclient/opitemsmod/teams",
+    "hooks_url": "https://api.github.com/repos/betterclient/opitemsmod/hooks",
+    "issue_events_url": "https://api.github.com/repos/betterclient/opitemsmod/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/betterclient/opitemsmod/events",
+    "assignees_url": "https://api.github.com/repos/betterclient/opitemsmod/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/betterclient/opitemsmod/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/betterclient/opitemsmod/tags",
+    "blobs_url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/betterclient/opitemsmod/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/betterclient/opitemsmod/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/betterclient/opitemsmod/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/betterclient/opitemsmod/languages",
+    "stargazers_url": "https://api.github.com/repos/betterclient/opitemsmod/stargazers",
+    "contributors_url": "https://api.github.com/repos/betterclient/opitemsmod/contributors",
+    "subscribers_url": "https://api.github.com/repos/betterclient/opitemsmod/subscribers",
+    "subscription_url": "https://api.github.com/repos/betterclient/opitemsmod/subscription",
+    "commits_url": "https://api.github.com/repos/betterclient/opitemsmod/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/betterclient/opitemsmod/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/betterclient/opitemsmod/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/betterclient/opitemsmod/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/betterclient/opitemsmod/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/betterclient/opitemsmod/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/betterclient/opitemsmod/merges",
+    "archive_url": "https://api.github.com/repos/betterclient/opitemsmod/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/betterclient/opitemsmod/downloads",
+    "issues_url": "https://api.github.com/repos/betterclient/opitemsmod/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/betterclient/opitemsmod/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/betterclient/opitemsmod/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/betterclient/opitemsmod/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/betterclient/opitemsmod/labels{/name}",
+    "releases_url": "https://api.github.com/repos/betterclient/opitemsmod/releases{/id}",
+    "deployments_url": "https://api.github.com/repos/betterclient/opitemsmod/deployments",
+    "created_at": "2022-05-08T12:37:13Z",
+    "updated_at": "2024-09-01T10:20:05Z",
+    "pushed_at": "2024-08-31T20:39:13Z",
+    "git_url": "git://github.com/betterclient/opitemsmod.git",
+    "ssh_url": "git@github.com:betterclient/opitemsmod.git",
+    "clone_url": "https://github.com/betterclient/opitemsmod.git",
+    "svn_url": "https://github.com/betterclient/opitemsmod",
+    "homepage": null,
+    "size": 86,
+    "stargazers_count": 3,
+    "watchers_count": 3,
+    "language": "Java",
+    "has_issues": true,
+    "has_projects": true,
+    "has_downloads": false,
+    "has_wiki": true,
+    "has_pages": false,
+    "has_discussions": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "archived": false,
+    "disabled": false,
+    "open_issues_count": 0,
+    "license": {
+      "key": "cc0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal",
+      "spdx_id": "CC0-1.0",
+      "url": "https://api.github.com/licenses/cc0-1.0",
+      "node_id": "MDc6TGljZW5zZTY="
+    },
+    "allow_forking": true,
+    "is_template": false,
+    "web_commit_signoff_required": false,
+    "has_pull_requests": true,
+    "pull_request_creation_policy": "all",
+    "topics": [],
+    "visibility": "public",
+    "forks": 0,
+    "open_issues": 0,
+    "watchers": 3,
+    "default_branch": "main",
+    "temp_clone_token": null,
+    "template_repository": {
+      "id": 483746121,
+      "node_id": "R_kgDOHNVhSQ",
+      "name": "quilt-template-mod",
+      "full_name": "QuiltMC/quilt-template-mod",
+      "private": false,
+      "owner": {
+        "login": "QuiltMC",
+        "id": 78571508,
+        "node_id": "MDEyOk9yZ2FuaXphdGlvbjc4NTcxNTA4",
+        "avatar_url": "https://avatars.githubusercontent.com/u/78571508?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/QuiltMC",
+        "html_url": "https://github.com/QuiltMC",
+        "followers_url": "https://api.github.com/users/QuiltMC/followers",
+        "following_url": "https://api.github.com/users/QuiltMC/following{/other_user}",
+        "gists_url": "https://api.github.com/users/QuiltMC/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/QuiltMC/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/QuiltMC/subscriptions",
+        "organizations_url": "https://api.github.com/users/QuiltMC/orgs",
+        "repos_url": "https://api.github.com/users/QuiltMC/repos",
+        "events_url": "https://api.github.com/users/QuiltMC/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/QuiltMC/received_events",
+        "type": "Organization",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/QuiltMC/quilt-template-mod",
+      "description": "Official Quilt template mod.",
+      "fork": false,
+      "url": "https://api.github.com/repos/QuiltMC/quilt-template-mod",
+      "forks_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/forks",
+      "keys_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/teams",
+      "hooks_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/hooks",
+      "issue_events_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/events",
+      "assignees_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/tags",
+      "blobs_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/languages",
+      "stargazers_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/stargazers",
+      "contributors_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/contributors",
+      "subscribers_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/subscribers",
+      "subscription_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/subscription",
+      "commits_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/merges",
+      "archive_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/downloads",
+      "issues_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/labels{/name}",
+      "releases_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/QuiltMC/quilt-template-mod/deployments",
+      "created_at": "2022-04-20T17:14:49Z",
+      "updated_at": "2026-08-30T18:04:48Z",
+      "pushed_at": "2025-01-09T23:54:39Z",
+      "git_url": "git://github.com/QuiltMC/quilt-template-mod.git",
+      "ssh_url": "git@github.com:QuiltMC/quilt-template-mod.git",
+      "clone_url": "https://github.com/QuiltMC/quilt-template-mod.git",
+      "svn_url": "https://github.com/QuiltMC/quilt-template-mod",
+      "homepage": "",
+      "size": 343,
+      "stargazers_count": 187,
+      "watchers_count": 187,
+      "language": "Java",
+      "has_issues": true,
+      "has_projects": true,
+      "has_downloads": false,
+      "has_wiki": true,
+      "has_pages": false,
+      "has_discussions": false,
+      "forks_count": 53,
+      "mirror_url": null,
+      "archived": false,
+      "disabled": false,
+      "open_issues_count": 13,
+      "license": {
+        "key": "cc0-1.0",
+        "name": "Creative Commons Zero v1.0 Universal",
+        "spdx_id": "CC0-1.0",
+        "url": "https://api.github.com/licenses/cc0-1.0",
+        "node_id": "MDc6TGljZW5zZTY="
+      },
+      "allow_forking": true,
+      "is_template": true,
+      "web_commit_signoff_required": false,
+      "has_pull_requests": true,
+      "pull_request_creation_policy": "all",
+      "topics": [],
+      "visibility": "public",
+      "forks": 53,
+      "open_issues": 13,
+      "watchers": 187,
+      "default_branch": "1.20.6",
+      "temp_clone_token": null
+    },
+    "network_count": 0,
+    "subscribers_count": 2
+  },
+  "branches": [
+    {
+      "name": "1.18-1.18.1",
+      "commit": {
+        "sha": "4aa2b100cf523d4113f0dffa7c7397317c48830d",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/4aa2b100cf523d4113f0dffa7c7397317c48830d"
+      },
+      "protected": false
+    },
+    {
+      "name": "1.18.2",
+      "commit": {
+        "sha": "5ec78d85fde3464285a9243e1d214fc7d9b9ed7f",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/5ec78d85fde3464285a9243e1d214fc7d9b9ed7f"
+      },
+      "protected": false
+    },
+    {
+      "name": "main",
+      "commit": {
+        "sha": "40dfbb16faf42235e64caa6adcd499ba1c80367d",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/40dfbb16faf42235e64caa6adcd499ba1c80367d"
+      },
+      "protected": true
+    }
+  ],
+  "tags": [
+    {
+      "name": "2.0.0-1.21",
+      "zipball_url": "https://api.github.com/repos/betterclient/opitemsmod/zipball/refs/tags/2.0.0-1.21",
+      "tarball_url": "https://api.github.com/repos/betterclient/opitemsmod/tarball/refs/tags/2.0.0-1.21",
+      "commit": {
+        "sha": "40dfbb16faf42235e64caa6adcd499ba1c80367d",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/40dfbb16faf42235e64caa6adcd499ba1c80367d"
+      },
+      "node_id": "REF_kwDOHTPh7LRyZWZzL3RhZ3MvMi4wLjAtMS4yMQ"
+    },
+    {
+      "name": "1.0.1",
+      "zipball_url": "https://api.github.com/repos/betterclient/opitemsmod/zipball/refs/tags/1.0.1",
+      "tarball_url": "https://api.github.com/repos/betterclient/opitemsmod/tarball/refs/tags/1.0.1",
+      "commit": {
+        "sha": "da573226437e280d6d906451cdf6dcbebc249d35",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/da573226437e280d6d906451cdf6dcbebc249d35"
+      },
+      "node_id": "REF_kwDOHTPh7K9yZWZzL3RhZ3MvMS4wLjE"
+    },
+    {
+      "name": "1.0.1-1.19.3",
+      "zipball_url": "https://api.github.com/repos/betterclient/opitemsmod/zipball/refs/tags/1.0.1-1.19.3",
+      "tarball_url": "https://api.github.com/repos/betterclient/opitemsmod/tarball/refs/tags/1.0.1-1.19.3",
+      "commit": {
+        "sha": "0efbf2eac2096f953f0b7c870bfd7e5ccf20c89b",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/0efbf2eac2096f953f0b7c870bfd7e5ccf20c89b"
+      },
+      "node_id": "REF_kwDOHTPh7LZyZWZzL3RhZ3MvMS4wLjEtMS4xOS4z"
+    },
+    {
+      "name": "1.0.1-1.19.2",
+      "zipball_url": "https://api.github.com/repos/betterclient/opitemsmod/zipball/refs/tags/1.0.1-1.19.2",
+      "tarball_url": "https://api.github.com/repos/betterclient/opitemsmod/tarball/refs/tags/1.0.1-1.19.2",
+      "commit": {
+        "sha": "87860a239994434433ec872e7dedd5b89c5315d5",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/87860a239994434433ec872e7dedd5b89c5315d5"
+      },
+      "node_id": "REF_kwDOHTPh7LZyZWZzL3RhZ3MvMS4wLjEtMS4xOS4y"
+    },
+    {
+      "name": "1.0.0",
+      "zipball_url": "https://api.github.com/repos/betterclient/opitemsmod/zipball/refs/tags/1.0.0",
+      "tarball_url": "https://api.github.com/repos/betterclient/opitemsmod/tarball/refs/tags/1.0.0",
+      "commit": {
+        "sha": "d8945ee59a407fd4f9baaa17a6191377cce32977",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/commits/d8945ee59a407fd4f9baaa17a6191377cce32977"
+      },
+      "node_id": "REF_kwDOHTPh7K9yZWZzL3RhZ3MvMS4wLjA"
+    }
+  ],
+  "tree": {
+    "sha": "40dfbb16faf42235e64caa6adcd499ba1c80367d",
+    "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/40dfbb16faf42235e64caa6adcd499ba1c80367d",
+    "tree": [
+      {
+        "path": ".editorconfig",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "090815477a85198b2b26bbadad34989e5abcd32d",
+        "size": 432,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/090815477a85198b2b26bbadad34989e5abcd32d"
+      },
+      {
+        "path": ".github",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "f023a9a9131364404dabd0e3bc87ee09f6a9bfa3",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/f023a9a9131364404dabd0e3bc87ee09f6a9bfa3"
+      },
+      {
+        "path": ".github/workflows",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "8de43406606467662faba7525ade2112c9e5969d",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/8de43406606467662faba7525ade2112c9e5969d"
+      },
+      {
+        "path": ".github/workflows/gradle.yml",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "bc4263e286f3a2ffcf2147fb8f615d4169d32ab2",
+        "size": 1169,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/bc4263e286f3a2ffcf2147fb8f615d4169d32ab2"
+      },
+      {
+        "path": ".gitignore",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "785c6a719149776251a36a8ffd007c0fa47316ec",
+        "size": 207,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/785c6a719149776251a36a8ffd007c0fa47316ec"
+      },
+      {
+        "path": "LICENSE-TEMPLATE.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "f3ede1fc3318f8d794e2cb51924186c62f02f71a",
+        "size": 6962,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/f3ede1fc3318f8d794e2cb51924186c62f02f71a"
+      },
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "eaaeafdbaa005b022cd3f60a9f2a6ac6ac2255ee",
+        "size": 268,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/eaaeafdbaa005b022cd3f60a9f2a6ac6ac2255ee"
+      },
+      {
+        "path": "build.gradle",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "5e66fa4ff840dd1e74dbfcc667055378bf6c4c7b",
+        "size": 960,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/5e66fa4ff840dd1e74dbfcc667055378bf6c4c7b"
+      },
+      {
+        "path": "gradle.properties",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "7d65426534699637c493f8df23384c2b23bef92c",
+        "size": 143,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/7d65426534699637c493f8df23384c2b23bef92c"
+      },
+      {
+        "path": "gradle",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "c92b77cd51b9554ff7891108ec481210dff9383f",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/c92b77cd51b9554ff7891108ec481210dff9383f"
+      },
+      {
+        "path": "gradle/libs.versions.toml",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "63cbf47132844fa1a9054cfb880cbccd20657873",
+        "size": 752,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/63cbf47132844fa1a9054cfb880cbccd20657873"
+      },
+      {
+        "path": "gradle/wrapper",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "4cd83173946130785d16ac8f2b0a4a0553ee6874",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/4cd83173946130785d16ac8f2b0a4a0553ee6874"
+      },
+      {
+        "path": "gradle/wrapper/gradle-wrapper.jar",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "41d9927a4d4fb3f96a785543079b8df6723c946b",
+        "size": 59821,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/41d9927a4d4fb3f96a785543079b8df6723c946b"
+      },
+      {
+        "path": "gradle/wrapper/gradle-wrapper.properties",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "19cfad969bafd581907bf37ef79470a80d807b45",
+        "size": 200,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/19cfad969bafd581907bf37ef79470a80d807b45"
+      },
+      {
+        "path": "gradlew",
+        "mode": "100755",
+        "type": "blob",
+        "sha": "1b6c787337ffb79f0e3cf8b1e9f00f680a959de1",
+        "size": 8070,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/1b6c787337ffb79f0e3cf8b1e9f00f680a959de1"
+      },
+      {
+        "path": "gradlew.bat",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "107acd32c4e687021ef32db511e8a206129b88ec",
+        "size": 2674,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/107acd32c4e687021ef32db511e8a206129b88ec"
+      },
+      {
+        "path": "settings.gradle",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d969e34241b378e1a0b2000b52c68424cc9393f5",
+        "size": 295,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/d969e34241b378e1a0b2000b52c68424cc9393f5"
+      },
+      {
+        "path": "src",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "43a80d1e163538ac2a87c33442fcf4ab044dd152",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/43a80d1e163538ac2a87c33442fcf4ab044dd152"
+      },
+      {
+        "path": "src/main",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "d8f4df57023775847f090ca39414662ff2927aab",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/d8f4df57023775847f090ca39414662ff2927aab"
+      },
+      {
+        "path": "src/main/java",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "2a718c27ae7cc27d80ecf4b5422bdc6e396cfd7e",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/2a718c27ae7cc27d80ecf4b5422bdc6e396cfd7e"
+      },
+      {
+        "path": "src/main/java/io",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "0b329089ba4e594e4d2880a68ec033e5966de70d",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/0b329089ba4e594e4d2880a68ec033e5966de70d"
+      },
+      {
+        "path": "src/main/java/io/github",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "53ba59fa40e7691e8fcbe55aca2a554f9ec485b5",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/53ba59fa40e7691e8fcbe55aca2a554f9ec485b5"
+      },
+      {
+        "path": "src/main/java/io/github/betterclient",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "e90ece300149378f5f5d06b9e45a403fdec3f9b1",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/e90ece300149378f5f5d06b9e45a403fdec3f9b1"
+      },
+      {
+        "path": "src/main/java/io/github/betterclient/optab",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "4243448505ace3aae06a12b37d199319e845e850",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/4243448505ace3aae06a12b37d199319e845e850"
+      },
+      {
+        "path": "src/main/java/io/github/betterclient/optab/OpTab.java",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "8a586b52545841b2a5def653390cd09be27364cf",
+        "size": 8560,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/8a586b52545841b2a5def653390cd09be27364cf"
+      },
+      {
+        "path": "src/main/resources",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "88f04fca5d4172bd7e54945b208f9f35e3a78a4a",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/88f04fca5d4172bd7e54945b208f9f35e3a78a4a"
+      },
+      {
+        "path": "src/main/resources/assets",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "4417b970b9c9adf08dbc85c644c539b9748433d0",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/4417b970b9c9adf08dbc85c644c539b9748433d0"
+      },
+      {
+        "path": "src/main/resources/assets/optab",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "54ffa398b5931514aa0c450ec060ac8f0628ea58",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/54ffa398b5931514aa0c450ec060ac8f0628ea58"
+      },
+      {
+        "path": "src/main/resources/assets/optab/icon.png",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "21e4e95c3f9976c307bd169d37b45de99b3a1a3a",
+        "size": 2543,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/21e4e95c3f9976c307bd169d37b45de99b3a1a3a"
+      },
+      {
+        "path": "src/main/resources/assets/optab/lang",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "38e6b2219ce3bcba5d1d1b1b3faa30ada0f401bf",
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/trees/38e6b2219ce3bcba5d1d1b1b3faa30ada0f401bf"
+      },
+      {
+        "path": "src/main/resources/assets/optab/lang/en_us.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "1a46873cf85a0e9d52ff1010e77fbc19442f2143",
+        "size": 41,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/1a46873cf85a0e9d52ff1010e77fbc19442f2143"
+      },
+      {
+        "path": "src/main/resources/quilt.mod.json",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "d0977d66a93c0a82783e05d5558deac350f0e9f4",
+        "size": 864,
+        "url": "https://api.github.com/repos/betterclient/opitemsmod/git/blobs/d0977d66a93c0a82783e05d5558deac350f0e9f4"
+      }
+    ],
+    "truncated": false
+  }
+}

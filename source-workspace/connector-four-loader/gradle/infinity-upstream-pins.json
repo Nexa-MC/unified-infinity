@@ -1,0 +1,55 @@
+{
+  "adapter_core_sources_sha256": "7fe14fb8f5c4a737ac5e7e8d9c563b698f3341fc2a58c9074d4d3f2b08e9f4f8",
+  "adapter_patch_sha256": "2285ce0c9fc5da8632b6ed6d47370ec5b3a24532756334f0122b5746adb9dfe1",
+  "adapter_userdev_snapshot": {
+    "artifacts": [
+      {
+        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter.userdev/org.sinytra.adapter.userdev.gradle.plugin/1.2.1-SNAPSHOT/7d0f3e3543a62d85dcaf73689fea6f0ce7b97a61/org.sinytra.adapter.userdev.gradle.plugin-1.2.1-SNAPSHOT.pom",
+        "sha256": "7a7da8f9212265c91f5ee0b86815915c1512e3bcae8ec3ae54f76f319c515ac7",
+        "size": 670
+      },
+      {
+        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/6822d09917333282500427ccb45a4c20aa041185/userdev-1.2.1-SNAPSHOT.module",
+        "sha256": "b4bb6cc3b4e5a3d0621121545957a10bf620fec65f66d6ea5c25d21995720b14",
+        "size": 1928
+      },
+      {
+        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/9156c904b22cbbbd1c24271c0da3487be52dad06/userdev-1.2.1-SNAPSHOT.jar",
+        "sha256": "f3eb4336e3f8890a057fbfef8e132d3642386c391842131042d2ad4bdb4ce36a",
+        "size": 8141
+      },
+      {
+        "path": "gradle-cache/caches/modules-2/files-2.1/org.sinytra.adapter/userdev/1.2.1-SNAPSHOT/e87c5e26978f1abd478e04da90e91e6210dee891/userdev-1.2.1-SNAPSHOT.pom",
+        "sha256": "74c9e5aa15f127b078661f9b89452e63bc004d04fa05e33b6c8c77ce037bbec4",
+        "size": 766
+      }
+    ],
+    "declared_version": "1.2.1-SNAPSHOT",
+    "evidence": "logs/full-source-baseline-build-02.log contains the timestamped download URLs",
+    "resolved_implementation_timestamped_version": "1.2.1-20260813.224440-42",
+    "resolved_marker_timestamped_version": "1.2.1-20260813.224440-41",
+    "schema": 1
+  },
+  "artifact_kind": "research-source-build",
+  "connector_commit": "8b27f1ad042aae8037bcc522b321c03fcce1a12a",
+  "fart_sources_sha256": "1cf3acb13c14360805a84040266cb12ad467bdd98238b3ba8ec1b115be79782a",
+  "java_major": 21,
+  "minecraft": "1.21.1",
+  "native_quilt": {
+    "loader_api_reference": {
+      "runtime_engine_bundled": false,
+      "sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+      "version": "0.30.1"
+    },
+    "profile": "native-quilt-v1",
+    "qsl": {
+      "initial_selected_modules": 2,
+      "quilt_base": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+      "quilt_lifecycle_events": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+      "runtime_validation": "separate launch report required",
+      "upstream_modules_available": 30,
+      "version": "10.0.0-alpha.5+1.21.1"
+    }
+  },
+  "schema": 1
+}

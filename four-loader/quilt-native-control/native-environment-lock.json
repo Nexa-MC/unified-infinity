@@ -1,0 +1,323 @@
+{
+  "loader": "0.30.1",
+  "minecraft": "1.21.1",
+  "qsl": "10.0.0-alpha.5+1.21.1",
+  "probe_sha256": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04",
+  "mods": [
+    "lifecycle_events-alpha5.jar",
+    "qsl_base-alpha5.jar",
+    "unified-native-quilt-probe-0.1.0.jar"
+  ],
+  "java_sha256": "2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d",
+  "runtime_files": [
+    {
+      "path": "run/quilt-native-probe/libraries/com/github/oshi/oshi-core/6.4.10/oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-buffer/4.1.97.Final/netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-codec/4.1.97.Final/netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-common/4.1.97.Final/netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-handler/4.1.97.Final/netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-resolver/4.1.97.Final/netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-transport/4.1.97.Final/netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-transport-classes-epoll/4.1.97.Final/netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/io/netty/netty-transport-native-unix-common/4.1.97.Final/netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/net/fabricmc/intermediary/1.21.1/intermediary-1.21.1.jar",
+      "sha256": "6059157dfb4a536ec151697004f74f6004b7d346b289c2f89849e0e585aa36fa"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/net/fabricmc/sponge-mixin/0.17.3+mixin.0.8.7/sponge-mixin-0.17.3+mixin.0.8.7.jar",
+      "sha256": "9e90efec71d2bad5b96c9089f019d14a8603227d3c5f408d12f53fae89d99d41"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/joml/joml/1.10.5/joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar",
+      "sha256": "ed825d10ab1399c8c0cb669e688cf0c8c82629b4c8399b58352b68e92ca10fcb"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar",
+      "sha256": "dede75a21306b65974ecd8f87114ff6970f09fb794157a4ca09ab25c888c2bfc"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar",
+      "sha256": "6d0abefb7cbf972ea16edb37ec14835372505063a45f976ab7ea889ed9497895"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar",
+      "sha256": "3dfb0d5b6a106cd40b5b250e39935fbf2f927f4477546a5369a3ac609cf0506b"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar",
+      "sha256": "1bb99d091fba2597dc6d51193e9bbcf0d8447e7ed96bd8f0198b18152f09655c"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/hashed/1.21.1/hashed-1.21.1.jar",
+      "sha256": "efb6f3a6b82d9a8d30ca5d4fce2a699347bd8fb0fe21d0734107d159ed9324cb"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-config/1.3.3/quilt-config-1.3.3.jar",
+      "sha256": "891fe9eb45fa8bd83e27925264e75e9b2e592d3ead7e494af9638d3006c51e27"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-json5/1.0.4+final/quilt-json5-1.0.4+final.jar",
+      "sha256": "c07d781820af7dc304de7c7fda9c4dd9c479851d451b1cb473851d6af226ac37"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar",
+      "sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb"
+    },
+    {
+      "path": "run/quilt-native-probe/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    },
+    {
+      "path": "run/quilt-native-probe/mods/lifecycle_events-alpha5.jar",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+    },
+    {
+      "path": "run/quilt-native-probe/mods/qsl_base-alpha5.jar",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465"
+    },
+    {
+      "path": "run/quilt-native-probe/mods/unified-native-quilt-probe-0.1.0.jar",
+      "sha256": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+    },
+    {
+      "path": "run/quilt-native-probe/quilt-server-launch.jar",
+      "sha256": "631bbc572ad2f61f0da2079d8fc9a352466db6dcb5ff5527ff6b5c4d7603e000"
+    },
+    {
+      "path": "run/quilt-native-probe/server.jar",
+      "sha256": "e3bc55693e93cda0188f2e60aea28113fc647c5e85a15fa3d1b347349231b4bb"
+    },
+    {
+      "path": "run/quilt-native-probe/versions/1.21.1/server-1.21.1.jar",
+      "sha256": "c301de10f575027d13eac18c7f34409d60648cf56a35d566aa1f530ff617840a"
+    }
+  ],
+  "library_official_checksums": [
+    {
+      "coordinate": "net.fabricmc:sponge-mixin:0.17.3+mixin.0.8.7",
+      "path": "run/quilt-native-probe/libraries/net/fabricmc/sponge-mixin/0.17.3+mixin.0.8.7/sponge-mixin-0.17.3+mixin.0.8.7.jar",
+      "sha256": "9e90efec71d2bad5b96c9089f019d14a8603227d3c5f408d12f53fae89d99d41",
+      "url": "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.17.3+mixin.0.8.7/sponge-mixin-0.17.3+mixin.0.8.7.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "9e90efec71d2bad5b96c9089f019d14a8603227d3c5f408d12f53fae89d99d41"
+    },
+    {
+      "coordinate": "org.quiltmc:quilt-json5:1.0.4+final",
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-json5/1.0.4+final/quilt-json5-1.0.4+final.jar",
+      "sha256": "c07d781820af7dc304de7c7fda9c4dd9c479851d451b1cb473851d6af226ac37",
+      "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-json5/1.0.4+final/quilt-json5-1.0.4+final.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "c07d781820af7dc304de7c7fda9c4dd9c479851d451b1cb473851d6af226ac37"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm:9.10.1",
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar",
+      "sha256": "ed825d10ab1399c8c0cb669e688cf0c8c82629b4c8399b58352b68e92ca10fcb",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm/9.10.1/asm-9.10.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "ed825d10ab1399c8c0cb669e688cf0c8c82629b4c8399b58352b68e92ca10fcb"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-analysis:9.10.1",
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar",
+      "sha256": "dede75a21306b65974ecd8f87114ff6970f09fb794157a4ca09ab25c888c2bfc",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-analysis/9.10.1/asm-analysis-9.10.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "dede75a21306b65974ecd8f87114ff6970f09fb794157a4ca09ab25c888c2bfc"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-commons:9.10.1",
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar",
+      "sha256": "6d0abefb7cbf972ea16edb37ec14835372505063a45f976ab7ea889ed9497895",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-commons/9.10.1/asm-commons-9.10.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "6d0abefb7cbf972ea16edb37ec14835372505063a45f976ab7ea889ed9497895"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-tree:9.10.1",
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar",
+      "sha256": "3dfb0d5b6a106cd40b5b250e39935fbf2f927f4477546a5369a3ac609cf0506b",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-tree/9.10.1/asm-tree-9.10.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "3dfb0d5b6a106cd40b5b250e39935fbf2f927f4477546a5369a3ac609cf0506b"
+    },
+    {
+      "coordinate": "org.ow2.asm:asm-util:9.10.1",
+      "path": "run/quilt-native-probe/libraries/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar",
+      "sha256": "1bb99d091fba2597dc6d51193e9bbcf0d8447e7ed96bd8f0198b18152f09655c",
+      "url": "https://maven.fabricmc.net/org/ow2/asm/asm-util/9.10.1/asm-util-9.10.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "1bb99d091fba2597dc6d51193e9bbcf0d8447e7ed96bd8f0198b18152f09655c"
+    },
+    {
+      "coordinate": "org.quiltmc:quilt-config:1.3.3",
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-config/1.3.3/quilt-config-1.3.3.jar",
+      "sha256": "891fe9eb45fa8bd83e27925264e75e9b2e592d3ead7e494af9638d3006c51e27",
+      "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-config/1.3.3/quilt-config-1.3.3.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "891fe9eb45fa8bd83e27925264e75e9b2e592d3ead7e494af9638d3006c51e27"
+    },
+    {
+      "coordinate": "org.quiltmc:quilt-loader:0.30.1",
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar",
+      "sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+      "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb"
+    },
+    {
+      "coordinate": "org.quiltmc:hashed:1.21.1",
+      "path": "run/quilt-native-probe/libraries/org/quiltmc/hashed/1.21.1/hashed-1.21.1.jar",
+      "sha256": "efb6f3a6b82d9a8d30ca5d4fce2a699347bd8fb0fe21d0734107d159ed9324cb",
+      "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/hashed/1.21.1/hashed-1.21.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "efb6f3a6b82d9a8d30ca5d4fce2a699347bd8fb0fe21d0734107d159ed9324cb"
+    },
+    {
+      "coordinate": "net.fabricmc:intermediary:1.21.1",
+      "path": "run/quilt-native-probe/libraries/net/fabricmc/intermediary/1.21.1/intermediary-1.21.1.jar",
+      "sha256": "6059157dfb4a536ec151697004f74f6004b7d346b289c2f89849e0e585aa36fa",
+      "url": "https://maven.fabricmc.net/net/fabricmc/intermediary/1.21.1/intermediary-1.21.1.jar",
+      "official_checksum_algorithm": "sha256",
+      "official_checksum": "6059157dfb4a536ec151697004f74f6004b7d346b289c2f89849e0e585aa36fa"
+    }
+  ],
+  "minecraft_official_download": {
+    "sha1": "59353fb40c36d304f2035d51e7d6e6baa98dc05c",
+    "size": 51627615,
+    "url": "https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar"
+  },
+  "loader_meta_checksum_defect": {
+    "sha1": {
+      "artifact_hash": "2fa21d6438f63c8dd40f2e81290b0a09de1442b3",
+      "meta_hash": "d057a81ff6252a795ba688ddd2431e5f88df1b35",
+      "matches_hash_of_checksum_text": true
+    },
+    "sha256": {
+      "artifact_hash": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+      "meta_hash": "a60c9dd429151c426b09b96147b76de1a7cf51c6ce47ee72be77acbdcc195b87",
+      "matches_hash_of_checksum_text": true
+    },
+    "sha512": {
+      "artifact_hash": "cc575e8243051ef15bd3c581a5d76c1b03e00de558180b6255a20694963875e9cdfe24a3f17cd218e11d0d1c5c5f1d4072369f7631eee54ccf97a2fbd10e5aa5",
+      "meta_hash": "a4ed7b9ff9e67275117dab95338e503ccc833ad76cec64ce50560f3e474f2d9c5db80d62c09ac1f5cd848a85e5e37ee272af50dda8a37983c0df000cbbf08349",
+      "matches_hash_of_checksum_text": true
+    }
+  },
+  "licenses": {
+    "Quilt Loader": "Apache-2.0, official repository and bundled sources",
+    "QSL Base and Lifecycle": "Apache-2.0, original module quilt.mod.json and sources",
+    "probe": "Project-owned MIT fixture",
+    "Minecraft": "Mojang proprietary; preapproved local server EULA; not redistributed"
+  },
+  "installer_sha256": "0a229138caa1b87fd8f5622038410696f98bb85871a279640e7002404c4d0dc2",
+  "install_method": "Official Quilt installer CLI, 1.21.1 + 0.30.1, original generated launch JAR; no hand-assembled launcher",
+  "network": "Loopback only, online-mode=true, query/RCON/status disabled, no LAN advertiser, no accounts"
+}

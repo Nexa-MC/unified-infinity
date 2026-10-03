@@ -1,0 +1,1296 @@
+{
+  "files": [
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-AttachCapabilitiesEvent.java",
+      "size": 2805,
+      "sha256": "1f4df0690ad728971064fe95cd86b2e05b1ce750c273af7ea38436a1ebde8d8a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/event/AttachCapabilitiesEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-AutomaticEventSubscriber.java",
+      "size": 4365,
+      "sha256": "3966b53c4c946671ae044bcd4795b7ef2b40ca803aaf2174e6c2cee4e45b6f1e",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "net/minecraftforge/fml/javafmlmod/AutomaticEventSubscriber.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-Cancelable.java",
+      "size": 521,
+      "sha256": "987a31b3c12ef575551ec6da66cb2cc1b6b00419196258e6af08698356ecc8b4",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "net/minecraftforge/eventbus/api/Cancelable.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-Capability.java",
+      "size": 2128,
+      "sha256": "103f5431b31d1a596958749c04b7186d6802b3955630d83756cf5afd7aa9ace0",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/capabilities/Capability.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-CapabilityProvider.java",
+      "size": 6121,
+      "sha256": "6c681bce1c56176d18d600542dedf67b1917081fdc4e5b2538d8d31dd37a1331",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/capabilities/CapabilityProvider.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ClasspathLocator.java",
+      "size": 4040,
+      "sha256": "571548babe5e42bfa65f5e9c15af5281f99e5c4b7ea32ad34fdca543e8d30b62",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/moddiscovery/ClasspathLocator.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-DeferredRegister.bytecode.txt",
+      "size": 14820,
+      "sha256": "23ea5b1325f3d21e8e748f3211eda0e4d03253661ca74cbef1b719ecfa1973d8",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-DeferredRegister.java",
+      "size": 18770,
+      "sha256": "8c5ac8e8ea0606ce712db1256f0f1b820327e8b837db41f68ffdafdcc9c85d5a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/registries/DeferredRegister.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-DeferredRegister.javap.txt",
+      "size": 6129,
+      "sha256": "497533360b798949c2402428e92eb0f38e66004d8a1fc073230694055674c072",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-DeferredRegister.srg-bytecode.txt",
+      "size": 14776,
+      "sha256": "98e1fc3d7ca32fac6e84ec2617521cc314d18287edbc66e27ccadd7dd6dbbd66",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-Event.java",
+      "size": 4806,
+      "sha256": "f1f633db5fcd92415876ef88f2179d802b8f0367274e3362f59e58f13a1652c0",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "net/minecraftforge/eventbus/api/Event.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-EventPriority.java",
+      "size": 968,
+      "sha256": "2fb590487cf661c12d78c38abb6a695d03bbce8ccfd218d81ff6b8bcd92f78ef",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "net/minecraftforge/eventbus/api/EventPriority.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLCommonSetupEvent.java",
+      "size": 1368,
+      "sha256": "336a35fae6779df1476e2368aeffaa55b0276aed0a7b13b03683e83ba39bfd8f",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/fml/event/lifecycle/FMLCommonSetupEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLCommonSetupEvent.javap.txt",
+      "size": 429,
+      "sha256": "6ba72f88501bb12c947e062a13c8a30725837169f44da39e656dbcab3d619351",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLEnvironment.java",
+      "size": 1165,
+      "sha256": "c1c8c430a92477d38b8f0c282d5f2bc33f7fb1c6a1d9ab5051b72f17f309515a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/FMLEnvironment.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLJavaModLanguageProvider.java",
+      "size": 4859,
+      "sha256": "bcb18b7aff2580a838e8aa18f5c58224d05288aab9e925380d0ea202f44787bc",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "net/minecraftforge/fml/javafmlmod/FMLJavaModLanguageProvider.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLJavaModLoadingContext.java",
+      "size": 1331,
+      "sha256": "6f6bdfda1fd0f85ae842f216fd42f082fe658720616cf99c6088cd39cdd82f98",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLJavaModLoadingContext.javap.txt",
+      "size": 1058,
+      "sha256": "f51454addcf5329aeabf6234ca6deb084f5818d0032b7c0bf4c5e35282cfd57c",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLLoader.java",
+      "size": 10988,
+      "sha256": "ee79984e05470c0eec4b30a07fa974d005842817ba73a4b77defad32a7644b9a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/FMLLoader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-FMLModContainer.java",
+      "size": 9747,
+      "sha256": "2a5e026acd834ffce7ff29f8c6803de7dddc755191bd2fe999444a03fa0774d9",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "net/minecraftforge/fml/javafmlmod/FMLModContainer.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ForgeConfigSpec.java",
+      "size": 48030,
+      "sha256": "aa169b7baa6b4f7edd27c0ebb87e10835b975bc77dde0c8cca37690d49116388",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/ForgeConfigSpec.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ForgeRegistries.java",
+      "size": 13264,
+      "sha256": "834fa244283c91cbf678c6b434b43846ffe745164b3b8cec6076d013aa23fede",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/registries/ForgeRegistries.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-IEventBus.java",
+      "size": 8612,
+      "sha256": "2d0b40d8f691c9eca5ebc3c3447a8652a539eba1baebcc79608e2903ddf0b37f",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "net/minecraftforge/eventbus/api/IEventBus.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-IEventBus.javap.txt",
+      "size": 3524,
+      "sha256": "c15d2bfba6f0715a7d61ba82988f2515e3f50a798a5e2cc050b77f76a5edb695",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-IForgeRegistry.javap.txt",
+      "size": 4086,
+      "sha256": "43a9bb6fe63799eb656e1f1d2920e90df1bcd2a9d6961dbdb786bcc9818b3a8b",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-LazyOptional.java",
+      "size": 12731,
+      "sha256": "fc2b511ed836b9d70dca8294fc35eba1d94946cd646b9d4e6b3130283fd1e0c6",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/util/LazyOptional.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-MinecraftForge.java",
+      "size": 3963,
+      "sha256": "e334a050c591e0edb01ae14d069cba4268c333137053d8c7e50368112d834857",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/MinecraftForge.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-MinecraftForge.javap.txt",
+      "size": 1822,
+      "sha256": "35186b058912f79524e28cc14e1d9f8ba6c5c94df2cca4f1720197df927b24b8",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-MinecraftLocator.java",
+      "size": 2414,
+      "sha256": "5cb7fcfe2803b28ee65cba0eac98a9df24ba0bb5361391bb0c395dd1fd95dfab",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/moddiscovery/MinecraftLocator.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-Mod.java",
+      "size": 3344,
+      "sha256": "df720074ce2ef9e86e30db0b1af83eb7822d328a515c85ad04c50da7116718d0",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "net/minecraftforge/fml/common/Mod.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModContainer.java",
+      "size": 7508,
+      "sha256": "863f8abc03e0c1edac4280a66a3607d101075627eae313c87f5bfab9658ff835",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+          "member": "net/minecraftforge/fml/ModContainer.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModFileInfo.java",
+      "size": 10331,
+      "sha256": "db02cbebb1319222764e15ff7da855b3d2543680afdc05aaab4c85ca39433a97",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/moddiscovery/ModFileInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModFileParser.java",
+      "size": 2885,
+      "sha256": "1c9c98ca3caf9e8201d9d6966bab7b4e8a448cc4f7e1431f11c159848d9d76ed",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/moddiscovery/ModFileParser.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModInfo.java",
+      "size": 10402,
+      "sha256": "cc95efa34f5b3226cbeff041f3ff57ff9373ef755ce360c8f9fa46ad7d404efd",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "net/minecraftforge/fml/loading/moddiscovery/ModInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModLifecycleEvent.java",
+      "size": 1386,
+      "sha256": "38d4f9a7408218dfe42d32da8599a1eb84f6628381ab8b5cb764633fcc93afc4",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/fml/event/lifecycle/ModLifecycleEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModList.java",
+      "size": 9134,
+      "sha256": "2928923593663625da77b356059e3e736e2267a162f8b9e4fd7538dbece167a4",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+          "member": "net/minecraftforge/fml/ModList.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModLoader.java",
+      "size": 20617,
+      "sha256": "5d804357947221729895ace1f590b9e516a6c38147fce9566d71e29908d5b794",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+          "member": "net/minecraftforge/fml/ModLoader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ModLoadingContext.java",
+      "size": 5883,
+      "sha256": "6383af5c2fb33efe7e823c06fc2e5eca187454a175789f572a7361ef836da58b",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+          "member": "net/minecraftforge/fml/ModLoadingContext.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ParallelDispatchEvent.java",
+      "size": 1230,
+      "sha256": "f1e4cae0a8d390de676b5458f4c114c6f5d63af4188a36d53adb814f9d6c2bcd",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/fml/event/lifecycle/ParallelDispatchEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ParallelDispatchEvent.javap.txt",
+      "size": 1809,
+      "sha256": "c2d8e8df073d6f7097e36adc5db5daef33724944d1aaec13d372aadc9c6c42a9",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-RegisterCapabilitiesEvent.java",
+      "size": 1284,
+      "sha256": "9e9a99b8fe7589a5aaf9ad6e5144d16390312989364c67d4c4c60623b218aebd",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/common/capabilities/RegisterCapabilitiesEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-RegisterEvent.java",
+      "size": 5362,
+      "sha256": "45b16e83945f0a4ae7dfccbbc13a8f27f5b61e5a1af5c1e887edfeaa8161e51d",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/registries/RegisterEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-RegistryObject.java",
+      "size": 20562,
+      "sha256": "489415a72eb651c88284ac9445f29731fffca47c344bd19de7280e0e015b0855",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/registries/RegistryObject.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-RegistryObject.javap.txt",
+      "size": 7083,
+      "sha256": "81760a50af7a522d00d67fb22a52dc01c2d44b6603d59ad3251ba1c7cf61438d",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ServerStartedEvent.java",
+      "size": 473,
+      "sha256": "4599984688f70244123cc4d136f1a2f831feff5913f01e45d3c519c1635038c8",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/event/server/ServerStartedEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-ServerStoppingEvent.java",
+      "size": 465,
+      "sha256": "85eda01ad26d918fa6e5f5774b6a28f7d3a43e95006316635534cdfd224de732",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/event/server/ServerStoppingEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-SubscribeEvent.java",
+      "size": 989,
+      "sha256": "064e3084a9d7eac95f1451c960b01aa4f1a4816e8750bddad1419b11a1594bde",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "net/minecraftforge/eventbus/api/SubscribeEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-TickEvent$ServerTickEvent$Post.javap.txt",
+      "size": 397,
+      "sha256": "415943697bca5cd8b32ebbb89f06aa14916af1ea38d86b1e9f26524a98a44a54",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/Forge-TickEvent.java",
+      "size": 5217,
+      "sha256": "ef2239befa62a8c5337f35a59226db3919a13adc2b0a6903aefc9b1086bfbb09",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "net/minecraftforge/event/TickEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-BuiltInLanguageLoader.java",
+      "size": 840,
+      "sha256": "04b2e205ff98108c1d78bfea6b5c626d082c1d2426e084a4bcf4b98edf31aa17",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/BuiltInLanguageLoader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-Capabilities.java",
+      "size": 3078,
+      "sha256": "5725d2a67d4a18e09d9f5a5e02fd18122c3ca1baaa75d8d6b4d1d7b9376fe629",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/capabilities/Capabilities.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-DeferredHolder.java",
+      "size": 9946,
+      "sha256": "fcf213851ff116181dae65facee465f922db6804d843635741b5c5fb3149559c",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/registries/DeferredHolder.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-DeferredHolder.javap.txt",
+      "size": 3828,
+      "sha256": "5ae099c0e48619174a77fb4c80430bea079df65bb0026aa9b3c697f3aea198a3",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-DeferredRegister.java",
+      "size": 36433,
+      "sha256": "725f5b09cd0b356c8371358a78d0ed2457cb2f14a0586d7179bf42ab02dd6163",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/registries/DeferredRegister.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-DeferredRegister.javap.txt",
+      "size": 7005,
+      "sha256": "4f921277bf694f4aeee02b8a145e24a7a7024f4531162d2ad31ce8f398dbdaaf",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-EventBusSubscriber.java",
+      "size": 3453,
+      "sha256": "95065607ee6e1063f118e9d0c53ab5b0c7acbd1e121b1a6c387f8ed77ac10500",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/common/EventBusSubscriber.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-FMLCommonSetupEvent.java",
+      "size": 1289,
+      "sha256": "d313c7da038b60059268ffa85e153150edb6aef9988147ccbc4ce7ee16a94391",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/event/lifecycle/FMLCommonSetupEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-FMLJavaModLanguageProvider.java",
+      "size": 2545,
+      "sha256": "9be9fbc90070d7bb27543f04084822c56b9b909c9f89dbe3e4f68a5e0cdf7ec0",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/javafmlmod/FMLJavaModLanguageProvider.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-FMLModContainer.java",
+      "size": 6490,
+      "sha256": "495e5777b85d06c496646f3da150c5544dd8fc45ee3c35e5d200f36be7108701",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/javafmlmod/FMLModContainer.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ICoreMod.java",
+      "size": 351,
+      "sha256": "e1debac82504f877f8f5d32ccd8265962aa90f9b2fbe421ff61be3371ef697bc",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/coremod/ICoreMod.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IDiscoveryPipeline.java",
+      "size": 3873,
+      "sha256": "ccb8014d2c86a2a1966566aa575f80390557c15d5c645ed9d89ce99b7f7cad70",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/locating/IDiscoveryPipeline.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IEventBus.javap.txt",
+      "size": 2434,
+      "sha256": "bd501787239c5c23acd98ee70113b28dd4c85bd97e577ecb4a18ba9d0f661ec8",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IModFileInfo.java",
+      "size": 774,
+      "sha256": "14479503df8b00b22a6f512df06425413ff55bb158efa7b8189fd093c6a0c0a6",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/language/IModFileInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IModFileReader.java",
+      "size": 1198,
+      "sha256": "d603206f1863c1fee2925482d3cebe24f3a73684d10b4fd83c796d1fe72e97aa",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/locating/IModFileReader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IModInfo.java",
+      "size": 2750,
+      "sha256": "03fb678b2616c8118a45d3c5739a6d5534fe363abcafb08d4b2eaf5f9030cb8f",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/language/IModInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IModLanguageLoader.java",
+      "size": 2532,
+      "sha256": "110e6d1ed07603ba8dee6dfbcae4ca01cf0e13e53b95c35c1746ac8cd3b6a877",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/language/IModLanguageLoader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IncompatibleFileReporting.java",
+      "size": 1903,
+      "sha256": "8cef153c4840cdaed9c84e12a6caad4e6da5dfbe6a337eede06eba0d801ec704",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/neoforgespi/locating/IncompatibleFileReporting.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-IncompatibleModReason.java",
+      "size": 1560,
+      "sha256": "a6ef54443838d74419e22fce1b3f0a9d55bf93433ef9ee6d595b6709c3d0376b",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/IncompatibleModReason.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-JarModsDotTomlModFileReader.java",
+      "size": 5783,
+      "sha256": "34a924221e7158bbc3a8fdd9e204ec1d09a2996e7063bd8dd454a22633479016",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/readers/JarModsDotTomlModFileReader.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-MinecraftModInfo.java",
+      "size": 1533,
+      "sha256": "15cd540898c17573b1350524b1bf2a231a25e868dba53205e6c816c1963257cc",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/locators/MinecraftModInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-Mod.java",
+      "size": 1483,
+      "sha256": "3e136fee675697eeeb27a6c9a89d4359eddf1f7d803ac18937babce175eb70c2",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/common/Mod.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModContainer.java",
+      "size": 6837,
+      "sha256": "f36e326da0b19624e147efbcdd3db29b5c10cbb564763e30b3b73e73f8777dc9",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/ModContainer.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModDiscoverer.java",
+      "size": 14653,
+      "sha256": "2827525fdc9bdd1be04e7547a09eed94f45d33302f3680e03375c180543da84a",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/ModDiscoverer.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModFileInfo.java",
+      "size": 8253,
+      "sha256": "3f56de672051967e1d6ad118145d809259b47901dc2cb24649f7c829548d0af9",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/ModFileInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModFileParser.java",
+      "size": 6208,
+      "sha256": "db38439fe630e7f3a81490b88502be1f922af43c42769d905f0f1aca569104c3",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/ModFileParser.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModInfo.java",
+      "size": 10560,
+      "sha256": "bc1b148bff1265e46c3bbc68331da9b7e397e972023e268acfb6ade990195fcf",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/loading/moddiscovery/ModInfo.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ModLifecycleEvent.java",
+      "size": 1360,
+      "sha256": "79a3d6a372c99c8522a711de9fdfce06adfcc8e948d2ccf5bf3b0ea338c0fca3",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/event/lifecycle/ModLifecycleEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-NeoForge.java",
+      "size": 742,
+      "sha256": "17c527cf78cce08c409e7934e56e2c6ea4d545ffcffe697d126ad0ecb078638d",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/common/NeoForge.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ParallelDispatchEvent.java",
+      "size": 861,
+      "sha256": "727c482cb6eec415f5c2c12f4173020cf0d45d883df2c3d302c457cc29efb10f",
+      "extracted_from": [
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "net/neoforged/fml/event/lifecycle/ParallelDispatchEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-RegisterCapabilitiesEvent.java",
+      "size": 6474,
+      "sha256": "fac84e68a0d7ba0bf8deca6323c735a19ef4d418f3d3599151942dd559966f34",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/capabilities/RegisterCapabilitiesEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-RegisterEvent.java",
+      "size": 4374,
+      "sha256": "1bfad86e21a378b2bd46e8b9691b23fb38aa6912f577e5706946ab943541b0b1",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/registries/RegisterEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ServerStartedEvent.java",
+      "size": 472,
+      "sha256": "2a07c31b46d3deeb4f3ab7827e1df39c852611aeb1229ab3a378f7e0994f7c17",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/event/server/ServerStartedEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ServerStoppingEvent.java",
+      "size": 465,
+      "sha256": "ca8be23a05f6c84a58dcf90010331acd0e739983673370f8ee312492ef06de3a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/event/server/ServerStoppingEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ServerTickEvent$Post.javap.txt",
+      "size": 400,
+      "sha256": "0482b95ad21d8c695f2af68ecb28b5a2cf82a2827f0ff6a3b5abfc89b4b5b8e8",
+      "derived_by": "JDK 21.0.12.1+1 javap -p -s (signatures) or -c (bytecode); exact Forge reference binary or pinned Neo host binary; no class initialization"
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/NF-ServerTickEvent.java",
+      "size": 1808,
+      "sha256": "24508a59c2c5beeb2cdbc5430d73b0bd7b6920de4b04c83e17431e8099820b38",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "net/neoforged/neoforge/event/tick/ServerTickEvent.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-installer.jar-META-INF_MANIFEST.MF",
+      "size": 343,
+      "sha256": "1fec6f787d8a7ff03bb042e079082c30398a6e838070789f68be0aee2a6e85b3",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-installer.jar",
+          "archive_sha256": "f1b620f2879ad6a5bbe15daba4d8f81eab9f5e08004967604960b98996bdebc4",
+          "member": "META-INF/MANIFEST.MF"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-installer.jar-install_profile.json",
+      "size": 28893,
+      "sha256": "af8e4f8d6792d443aed4eee2d33956f4cfa61a06ea503d3bbd9a8160f2003546",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-installer.jar",
+          "archive_sha256": "f1b620f2879ad6a5bbe15daba4d8f81eab9f5e08004967604960b98996bdebc4",
+          "member": "install_profile.json"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-installer.jar-version.json",
+      "size": 24738,
+      "sha256": "ffc362096eda0a43093ea85eee7accf45a161e661e37d692a0439dafbd94f962",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-installer.jar",
+          "archive_sha256": "f1b620f2879ad6a5bbe15daba4d8f81eab9f5e08004967604960b98996bdebc4",
+          "member": "version.json"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-universal.jar-META-INF_MANIFEST.MF",
+      "size": 603,
+      "sha256": "bb6c17dee9cbc9b4f7815620f6fdf12b7b06c5ad49bf541bea27c2857affd777",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+          "archive_sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+          "member": "META-INF/MANIFEST.MF"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-universal.jar-META-INF_mods.toml",
+      "size": 540,
+      "sha256": "960c9b78e00d5b8745e723cd7df360c584d36418954d2b5d3b3ef0689277def0",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+          "archive_sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+          "member": "META-INF/mods.toml"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-userdev.jar-META-INF_MANIFEST.MF",
+      "size": 25,
+      "sha256": "566ad1a80220026d05099562645ce968ff0e7c36cde22634332605bb34cc3eff",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-userdev.jar",
+          "archive_sha256": "9aa2e6aad9655935affefa8df0b9673ff415c511e7428231ced59e5d6dc0c283",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+          "archive_sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+          "archive_sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+          "archive_sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+          "member": "META-INF/MANIFEST.MF"
+        },
+        {
+          "archive": "docs/integration-audit/sources/fml-loader-sources.jar",
+          "archive_sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+          "member": "META-INF/MANIFEST.MF"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/forge-1.21.1-52.1.0-userdev.jar-config.json",
+      "size": 4461,
+      "sha256": "d31acc392aa2ea61badcc1a153d1afdb584b74e70cedcadbef840b8a848ccc4a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-userdev.jar",
+          "archive_sha256": "9aa2e6aad9655935affefa8df0b9673ff415c511e7428231ced59e5d6dc0c283",
+          "member": "config.json"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-build.gradle",
+      "size": 10368,
+      "sha256": "a947671abe8b9d8704e6effad4430afd7d35448e311026ca6e7cd4ab9aaa6b6f",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "build.gradle"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-gradle.properties",
+      "size": 3441,
+      "sha256": "2ce0f7735546fc024410198387be2465d6b884c570c61451164b847502a3fea4",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "gradle.properties"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-gradle_wrapper_gradle-wrapper.properties",
+      "size": 253,
+      "sha256": "c1429f70e761715cb16567c7865f1c2f72752aca7810dbf0400ae25b3f53256e",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "gradle/wrapper/gradle-wrapper.properties"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-settings.gradle",
+      "size": 289,
+      "sha256": "21c8c1cfea9f78f7fed6d7ad325aafa24e0d1bd330a40719997c303d2217b830",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "settings.gradle"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.0.1-mdk.zip",
+          "archive_sha256": "8caf7668220cc88da4be50ba45aa1aed378db7ea3fa1126b17614e835e0fe93a",
+          "member": "settings.gradle"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-src_main_java_com_example_examplemod_Config.java",
+      "size": 2746,
+      "sha256": "26cc2be70afc033681acd0bf14118453b4fa4f65e2a757605b30505885587089",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "src/main/java/com/example/examplemod/Config.java"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.0.1-mdk.zip",
+          "archive_sha256": "8caf7668220cc88da4be50ba45aa1aed378db7ea3fa1126b17614e835e0fe93a",
+          "member": "src/main/java/com/example/examplemod/Config.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-src_main_java_com_example_examplemod_ExampleMod.java",
+      "size": 6515,
+      "sha256": "64de0492d6f3b2535bc80b17dfc038cd18bf98cb76cc082d8876059fa6a5b7b7",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "src/main/java/com/example/examplemod/ExampleMod.java"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/mdk-src_main_resources_META-INF_mods.toml",
+      "size": 5079,
+      "sha256": "ed0e7e454f6f1c1ffbfcabdece14ded32321450a23e7203acf1382523b87415a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+          "archive_sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+          "member": "src/main/resources/META-INF/mods.toml"
+        },
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.0.1-mdk.zip",
+          "archive_sha256": "8caf7668220cc88da4be50ba45aa1aed378db7ea3fa1126b17614e835e0fe93a",
+          "member": "src/main/resources/META-INF/mods.toml"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/inspection/old-mdk-52.0.1-build.gradle",
+      "size": 10441,
+      "sha256": "981c48e2cc41ba481211b2958cd9d36c0d758ff570a0305082028a394835a30a",
+      "extracted_from": [
+        {
+          "archive": "docs/four-loader/forge/upstream/forge-1.21.1-52.0.1-mdk.zip",
+          "archive_sha256": "8caf7668220cc88da4be50ba45aa1aed378db7ea3fa1126b17614e835e0fe93a",
+          "member": "build.gradle"
+        }
+      ]
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/META-INF_MANIFEST.MF",
+      "size": 319,
+      "sha256": "d2a1ad9b01be4feabefc03f0e1b2b47dac3dd70499f4b0d4e34a47f7e273af40",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/META-INF_mods.toml",
+      "size": 700,
+      "sha256": "0dd2f196acf46563dcd20cb6d1013a8181f6a69bfe8a43a90c2407a18dcffdaa",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/META-INF_services_com.blamejared.clumps.platform.IEventHelper",
+      "size": 48,
+      "sha256": "801adca506f19f49c642f800c4101603721ef2f615f4a332a550b070ed76c91f",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/META-INF_services_com.blamejared.clumps.platform.IPlatformHelper",
+      "size": 50,
+      "sha256": "c691162ef5f94aa945ad9a5a3c5d15f3ca6942212b9f3a2be9bce39422c77555",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/api-reference-inventory.json",
+      "size": 42986,
+      "sha256": "d3577a61a77c6a4d9d67a4c3c97676545cdfff3e8679b9350172739129134e55",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/archive-inventory.json",
+      "size": 3321,
+      "sha256": "cf1ec135b9e853db1c2717e67360785df8f85ee03c3f02f11bbafee522297b55",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/clumps.mixins.json",
+      "size": 275,
+      "sha256": "3271010461a0bdf6670b0784945afdde29ac3672100326ddff236f6c075c2ccb",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_Clumps.javap.txt",
+      "size": 10161,
+      "sha256": "1151e837d1888b057ea269e4cd69d4a1f72a7256f6742c2e6f5f7e3f4dd64ce6",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_ClumpsCommon.javap.txt",
+      "size": 9225,
+      "sha256": "42e5cf1215d6147add26cafb4cfb31e5ae0ebc18ac6884d1262374872d9972a0",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_api_events_IEventHandler.javap.txt",
+      "size": 1742,
+      "sha256": "741a1ec0030397cf53a376f0cb82678e58476a27c44e2ecf0840a273d69f4732",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_api_events_IRepairEvent.javap.txt",
+      "size": 1753,
+      "sha256": "64331510dd5c39aaca8fba5795d2daae3df2c2cc6f4c0ca0e893fb43f8dbb845",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_api_events_IValueEvent.javap.txt",
+      "size": 1745,
+      "sha256": "e8ef9739d939a549646d5758a2f21ede0253ec5982b7956fd92f2ad7164971d5",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_api_events_RepairEvent.javap.txt",
+      "size": 5466,
+      "sha256": "679351611e5ef1c18205849f23e3271ca78594fe9374db9b7a365ce7284fdc5c",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_api_events_ValueEvent.javap.txt",
+      "size": 5447,
+      "sha256": "69ec9cf61aa9f13b569351ff95f6ac34904c9c2cf0d04c9838871d84078f3dbc",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_helper_IClumpedOrb.javap.txt",
+      "size": 2728,
+      "sha256": "a6aea8a6accd3f092065bc510040d79e31327cf1240eb2457de3cdf1be0585d0",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_mixin_ExperienceOrbAccess.javap.txt",
+      "size": 2640,
+      "sha256": "7e97901af9dac501529e79d07315cd80bf2359bcbc67a09b92f332e87e0a524d",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_mixin_MixinExperienceOrb.javap.txt",
+      "size": 114166,
+      "sha256": "58b2d437a9b15eb9e0fdcd03ccb7f3993ca878c77273e4cc5181dda4919050e3",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_platform_ForgeEventHandler.javap.txt",
+      "size": 9167,
+      "sha256": "82c6f8275069aecc56184c60af68028bd5d52babf738a1160a0e251dfa2f4049",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_platform_ForgePlatformHelper.javap.txt",
+      "size": 2293,
+      "sha256": "282aac5d4dd2ade63e2d6df45f2292ab476598562a4095afbaef4b61cd22191d",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_platform_IEventHelper.javap.txt",
+      "size": 2735,
+      "sha256": "be1737095ed23784a1459ff4984ee4595533582b5d4dde32c84367267cf41762",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_platform_IPlatformHelper.javap.txt",
+      "size": 2096,
+      "sha256": "5b6bfd2ed00ba721eb3b1a3126710043fa0e4d22c67bbf314c0e84036c099e79",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    },
+    {
+      "path": "docs/four-loader/forge/clumps-inspection/com_blamejared_clumps_platform_Services.javap.txt",
+      "size": 16186,
+      "sha256": "2fde21e457d8a1e936b3710c19cdeb0c4aa844e8d062f87288a81c97366a98ed",
+      "derived_from": "Hash-verified Clumps 19.0.0.1 archive; raw resource extraction, JVM constant-pool parser, or javap -p -c -v. No class initialization."
+    }
+  ]
+}

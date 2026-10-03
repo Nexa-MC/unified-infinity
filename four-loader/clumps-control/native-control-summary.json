@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "timestamp_utc": "2026-10-03T11:37:35.745899+00:00",
+  "scope": "Native Forge52.1.0 / Minecraft1.21.1 reference for exact original Clumps19.0.0.1",
+  "mods": {
+    "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+    "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09"
+  },
+  "environment_lock_sha256": "5902f1ca9ea1ab43b9ea006302b5eab86443389face9990a52e3b0db33cfa4d1",
+  "profile": "run/forge-native-clumps",
+  "phase_durations_seconds": {
+    "create": 27.899,
+    "reopen": 14.393
+  },
+  "create": {
+    "runtime_passed": true,
+    "initial_offline_verifier_passed": false,
+    "offline_verifier_recheck_passed": true,
+    "refinement": "Recognize exactly zero-byte unopened Minecraft region placeholders; preserve nonzero truncation failure checks and all original reports"
+  },
+  "reopen": {
+    "passed": true,
+    "runtime_read_before_write": true,
+    "same_survivor_uuid": true
+  },
+  "initial_entities": 6,
+  "saved_entities": 1,
+  "weighted_xp": 72,
+  "exact_histogram": {
+    "1": 1,
+    "3": 1,
+    "37": 1,
+    "17": 1,
+    "7": 2
+  },
+  "saved_survivor_uuid_int_array": [
+    1073470895,
+    735463618,
+    -1568442325,
+    -1331657140
+  ],
+  "vanilla_count_observed": 5,
+  "vanilla_count_note": "Upstream behavior; not used as conserved original-orb multiplicity",
+  "warnings_preserved": {
+    "absent_clumps_refmap": [
+      [
+        "\u001b[m\u001b[33m[04:33:33] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message"
+      ],
+      [
+        "\u001b[m\u001b[33m[04:35:45] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message"
+      ]
+    ],
+    "network": "Forge/Clumps update checks and Mojang public-key fetch fail in restricted test environment; no login/player action required"
+  },
+  "coverage": [
+    "genuine Forge startup",
+    "original Clumps required Mixin acceptance",
+    "IClumpedOrb injection",
+    "natural six-to-one orb merge",
+    "every-observed-tick XP histogram/multiplicity/weighted-total conservation",
+    "actual Clumps save/read hooks",
+    "independent persisted entity NBT",
+    "same-world reopen without respawn or evidence repair",
+    "freeze/save/clean stop"
+  ],
+  "not_tested": [
+    "XP pickup",
+    "PlayerXpEvent cancellation",
+    "mending/RepairEvent",
+    "ValueEvent",
+    "client rendering",
+    "external or real players"
+  ],
+  "reports": {
+    "logs/forge-native-clumps/create.json": "1d96e2f4582a51bc8122a17bb084ddfaf5213c880aee965606bfab310892b1ca",
+    "logs/forge-native-clumps/create-verifier-recheck.json": "d6959f82b1b2a2632a3cbac9e48a9be6866e8565ccc1e0f1fc37b2c32aac7e05",
+    "logs/forge-native-clumps/reopen.json": "9668501ebb797faea59d6af6e87cad609a579a5e3e647e43f6ff5461f44f6d16"
+  },
+  "harness_tests": {
+    "count": 11,
+    "result": "PASS",
+    "log": "four-loader/clumps-control/harness-unit-tests-after-native.log"
+  },
+  "remaining": "Run the identical frozen companion and original Clumps in the matched Unified profile; compare bounded behavior only"
+}

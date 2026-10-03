@@ -1,0 +1,286 @@
+{
+  "result": "PASS_SCOPED_REAL_FOUR_LOADER_CLIENT",
+  "test": "08-four-loader-real-client",
+  "attempt": 2,
+  "gameProcessExit": 0,
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.219",
+  "fml": "4.0.42",
+  "coreSha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+  "hostSha256": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+  "providerSha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+  "directOriginalJars": [
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-four-loader-98d86a92.jar",
+      "source": "source-workspace/artifacts/unified-infinity-four-loader-98d86a92.jar",
+      "sha256": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+      "bytes": 5106409
+    },
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-0.1.0-dev.jar",
+      "source": "runtime-bundle/build-quilt-range-candidate/libs/unified-infinity-0.1.0-dev.jar",
+      "sha256": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+      "bytes": 5628998
+    },
+    {
+      "path": "run/client-dev/development-game/mods/unified-infinity-preload-0.1.0-dev.jar",
+      "source": "preload-ui/build/libs/unified-infinity-preload-0.1.0-dev.jar",
+      "sha256": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+      "bytes": 48945
+    },
+    {
+      "path": "run/client-dev/development-game/mods/lithium-fabric-0.15.4+mc1.21.1.jar",
+      "source": "docs/real-mod-trial/lithium-fabric-0.15.4+mc1.21.1.jar",
+      "sha256": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+      "bytes": 797454
+    },
+    {
+      "path": "run/client-dev/development-game/mods/Chunky-Fabric-1.4.23.jar",
+      "source": "mixed-pack/research/archives/Chunky-Fabric-1.4.23.jar",
+      "sha256": "3412b170247dde7351e0945d857e713bedf6fae05ab300aa74d06ffbde0ca07e",
+      "bytes": 342979
+    },
+    {
+      "path": "run/client-dev/development-game/mods/FarmersDelight-1.21.1-1.3.4.jar",
+      "source": "mixed-pack/research/archives/FarmersDelight-1.21.1-1.3.4.jar",
+      "sha256": "139ad7696462c89c03eea463f805abffa552526c5dadaadae221dd9624cb197c",
+      "bytes": 3160490
+    },
+    {
+      "path": "run/client-dev/development-game/mods/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "source": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "bytes": 18226
+    },
+    {
+      "path": "run/client-dev/development-game/mods/optab-2.0.0V1.21.1+1.21.jar",
+      "source": "docs/four-loader/quilt/candidates/optab-2.0.0V1.21.1+1.21.jar",
+      "sha256": "6121446645d4521ddb5deae40e506fb02a7d4f06c0ce049fabc6ecaed548c296",
+      "bytes": 7643
+    }
+  ],
+  "directOriginalJarCount": 8,
+  "realThirdPartyModCount": 5,
+  "mainMenuLogicalModCount": 56,
+  "minecraftAccountArgumentsSupplied": false,
+  "externalGameServerJoined": false,
+  "launch": {
+    "route": "Sealed exact official ModDevGradle DevLaunch/forgeclientdev IDE-style arguments after Gradle exited",
+    "runtimeClasspathEntries": 97,
+    "heapMiB": [
+      256,
+      1536
+    ],
+    "activeProcessors": 2,
+    "concurrentGradle": false,
+    "headroomGate": "PASS immediately before spawn",
+    "warmness": "Warm committed transform cache from failed attempt1; no cold-vs-warm performance comparison claimed",
+    "warmCommitElapsedMs": 617
+  },
+  "modList": {
+    "identities": "PASS all5 exactly once in name-filtered built-in list; screenshots recorded",
+    "entries": [
+      {
+        "id": "lithium",
+        "displayName": "Lithium",
+        "displayVersion": "0.15.4_mc1.21.1",
+        "ecosystemOfOriginal": "Fabric",
+        "visibleMatches": 1,
+        "state": "loaded",
+        "screenshot": "2026-10-03_21.57.36.png"
+      },
+      {
+        "id": "chunky",
+        "displayName": "Chunky",
+        "displayVersion": "1.4.23",
+        "ecosystemOfOriginal": "Fabric",
+        "visibleMatches": 1,
+        "state": "loaded",
+        "screenshot": "2026-10-03_21.58.14.png"
+      },
+      {
+        "id": "clumps",
+        "displayName": "Clumps",
+        "displayVersion": "19.0.0.1",
+        "ecosystemOfOriginal": "Forge",
+        "visibleMatches": 1,
+        "state": "loaded",
+        "screenshot": "2026-10-03_21.58.29.png"
+      },
+      {
+        "id": "optab",
+        "displayName": "Op Tab",
+        "displayVersion": "2.0.0V1.21.1+1.21",
+        "ecosystemOfOriginal": "Quilt native quilt.mod.json",
+        "visibleMatches": 1,
+        "state": "loaded",
+        "screenshot": "2026-10-03_21.58.52.png"
+      },
+      {
+        "id": "farmersdelight",
+        "displayName": "Farmer's Delight",
+        "displayVersion": "1.3.4",
+        "ecosystemOfOriginal": "NeoForge",
+        "visibleMatches": 1,
+        "state": "loaded",
+        "screenshot": "2026-10-03_21.59.58.png"
+      }
+    ],
+    "apiGrouping": "Not implemented in this frozen baseline; bundled API rows remain in the56logical count",
+    "searchObservation": "After previously scrolling, name filtering retained an offscreen scroll position; scrolling to top revealed the expected single match",
+    "newSummaryRowRequirement": "NOT_TESTED_NOT_IMPLEMENTED in this baseline"
+  },
+  "world": {
+    "name": "unified-four-loader",
+    "mode": "creative",
+    "type": "superflat",
+    "seed": 2026100302,
+    "generateStructures": false,
+    "actualUiChecks": [
+      "OP Tab page2/2,19entries",
+      "OP Sword custom name and sharpness/fire_aspect/mending/unbreaking level127",
+      "Barrier transferred to hotbar",
+      "Farmer\u2019s Delight creative tab and cooking-pot item",
+      "Placed cooking-pot model at(0,-60,1)",
+      "Cooking-pot container and recipe book",
+      "Tomato transferred to input0",
+      "Same world reopened: pot, tomato, sword and barrier retained; OP Tab remains usable"
+    ],
+    "positioning": "Local creative /tp command set player0.5,-60,0.5 facing0/60 for precise real block placement; no save/NBT data was synthesized",
+    "firstSave": "PASS",
+    "reopenedSave": "PASS",
+    "playerInventoryEqual": true,
+    "cookingPotStateEqual": true,
+    "bothIntegratedShutdownsSavedAllDimensions": true
+  },
+  "lifecycle": {
+    "opTabInitializationCount": 1,
+    "hostResourceReload": "succeeded",
+    "earlyWindowContextHandoff": "completed",
+    "renderResources": "closed"
+  },
+  "resources": {
+    "cgroupLimitBytes": 8589934592,
+    "beforeCurrentBytes": 6482104320,
+    "afterCurrentBytes": 6643642368,
+    "localAndHierarchicalOomKills": [
+      31,
+      31
+    ],
+    "newOomKillsDuringAcceptedRun": 0
+  },
+  "presentationFindings": {
+    "preloadLetterboxing": "CONFIRMED: live1180x812window displayed1180x~664content with~74px black bands top/bottom",
+    "preloadWindowObservedUtc": "2026-10-03T12:53:30Z",
+    "desktopDimensions": [
+      1364,
+      1024
+    ],
+    "liveWindowDimensions": [
+      1180,
+      812
+    ],
+    "providerUnchanged": true,
+    "bundledApiListGrouping": "Known pending successor UI projection; this run validates original56-row view"
+  },
+  "limitations": [
+    "Specific approved5-mod, MC1.21.1 sample only; not universal loader or cross-version compatibility",
+    "No new Chunky pre-generation or Clumps XP merge functionality claim from this client; separate server controls own those results",
+    "No heated cooking recipe or sound-device acceptance",
+    "Public Yggdrasil key fetch and sound-device errors occurred; no account login or external game-server join",
+    "Historical inherited process environment was not recorded; post-exit key-name-only hygiene audit is separate"
+  ],
+  "evidence": {
+    "root": "four-loader/unified-client/evidence/client-2",
+    "firstSave": "world-first-save.json",
+    "reopenedSave": "world-reopened-save.json",
+    "firstWorldSnapshot": "world-first-save/",
+    "reopenedWorldSnapshot": "world-reopened-save/",
+    "launchDerivation": "launch-derivation.json",
+    "postlaunchInputHashes": "postlaunch-inputs.json",
+    "headroom": "headroom-gate.json",
+    "preloadLifecycle": "preload-qa/lifecycle.jsonl",
+    "screenshots": "screenshots/",
+    "bestOpTabScreenshot": "screenshots/2026-10-03_22.03.22.png",
+    "bestReopenedPotScreenshot": "screenshots/2026-10-03_22.08.37.png",
+    "bestReopenedInventoryScreenshot": "screenshots/2026-10-03_22.09.09.png"
+  },
+  "screenshots": [
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.55.09.png",
+      "sha256": "4256879224c14068de0343342f341e0d1fb4829c1686cd4f0b452d15bb037fdb"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.55.32.png",
+      "sha256": "ee019ac2dbe7e32f8021f6fbf7d855e0cc9108dcf6952d00e637fccc76c10e0a"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.57.36.png",
+      "sha256": "fb5a5961544f791486fa7cf8e03f3cd1e097ba15e99e588fbc2fbf8ce7cde438"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.58.14.png",
+      "sha256": "a2fc1cf7174ef5e3299be0f09ae8e963ba55eeed3a80db3d6280ecc91aaedf5a"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.58.29.png",
+      "sha256": "63f24e17518498290a225348ba73e66ba2e8ab2c66e2c99fedc1effa754e21f7"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.58.52.png",
+      "sha256": "3918d55d118139426af02059e29c70aa6ab1ad4f116bda5da9f430437f788366"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_21.59.58.png",
+      "sha256": "2435205ccd164dd66f65536fbf610ae6caa52a708e8725dd581e0b6c5d8b5ee8"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.01.25.png",
+      "sha256": "b90429bdf249f3a79d97b3ec2e361224252dd582d5a2f5ae81d0abc424f8df21"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.01.35.png",
+      "sha256": "1bb46e1b6d4424081c1cead0a9ffe9f79277d7caa1986dc0644e73f716a306bc"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.03.11.png",
+      "sha256": "c6b6df7a110b6afed4c89ca4fa4a55b8a08b878f3851ddde64de4290bb7d3fef"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.03.22.png",
+      "sha256": "920c710c3122fe21184db94fae93c99aa2703fb968ff6f39389baf6c0335a69a"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.03.38.png",
+      "sha256": "fb6a880b44d6b782236c3cc5fe37122f1948fc890eff46eb49d1dda07ef05e99"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.03.50.png",
+      "sha256": "0db74bfaa9303b29988241ca70b2df2665772093b4fbdcaebe8aa0cc813821d3"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.04.47.png",
+      "sha256": "a78ab607fee7ad3d18254d5222d9748bb36613b8fa806ae59946b4df96725f6b"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.05.10.png",
+      "sha256": "51541e3779cc4c8c58f1c94a4c6bca6305d189a3d58a7248049feb4f950d0940"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.06.01.png",
+      "sha256": "26f11a8c06fd6aebd03c8d024c4a49582a083a0bc085423a1e0c3618b2b132ba"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.07.49.png",
+      "sha256": "7d4d05af82aa0755276693225e02d3e9d5ad532818eb765170018e34c61354ec"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.08.37.png",
+      "sha256": "c739a345b614c012cc2e2842d83146d7efbf195f3d26604872013a39c43c3c57"
+    },
+    {
+      "file": "four-loader/unified-client/evidence/client-2/screenshots/2026-10-03_22.09.09.png",
+      "sha256": "d01c262accc17f2aca73ce1f009a3f8b6976fd5fd9bd786f6b3240989a367e16"
+    }
+  ]
+}

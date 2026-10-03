@@ -1,0 +1,1458 @@
+{
+  "observed_utc": "2026-10-03T10:16:00Z",
+  "scope": "Minecraft1.21.1; static read-only audit; no downloaded mod execution",
+  "loader_reference": {
+    "version": "0.30.1",
+    "tag_commit": "b33861b30a815f327652015018d2d1262f12b63a",
+    "jar_sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+    "sources_sha256": "66d1b1214179306574b730f0841a63d9499d47d1ea16b912ef336f6a2c62a08a"
+  },
+  "qsl_reference": {
+    "version": "10.0.0-alpha.5+1.21.1",
+    "base_sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+    "lifecycle_sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+  },
+  "source_files": [
+    {
+      "path": "upstream/loader-0.30.1-sources/net/fabricmc/loader/impl/util/DefaultLanguageAdapter.java",
+      "sha256": "2d402d15c71bb0831aca138879a9b5ef25bf8d3ac102d36ed36c81643bcc673c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/net/fabricmc/loader/util/DefaultLanguageAdapter.java",
+      "sha256": "53c0aeae929e028e6f4e4c4669c7458aabdc9b792220e550623718243afc579e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/CachedFileSystem.java",
+      "sha256": "c48682b5d4f42baddf433642670658ff5e8f7ba23977bb18835914b1b5d17f77"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ExtendedFileSystem.java",
+      "sha256": "55e4953e6a0e270cfbb61bd4dc0615b9e293b3e542ca4e999d989829bb35c746"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ExtendedFiles.java",
+      "sha256": "09f8e3234142ea3f0b738b38269d90e6061ef9e2926070a1afb0417ae20ed258"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/FasterFileSystem.java",
+      "sha256": "1356897325a5c551b95d1b024d36f66cf808525a8804795ae28e4bc8673cf503"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/FasterFiles.java",
+      "sha256": "b911788ec927d5c7f3deade64da3f164e6d911a339978ce745bf0539375aec40"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/LanguageAdapter.java",
+      "sha256": "325db9e244e5a706b55eae3a92dbdf08ef5fca7c9ba5cdecbae96afd557294e8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/LanguageAdapterException.java",
+      "sha256": "eca5272c966389097ef834f68a13579d7972170b2dba17f33b20d46b5d19eb7c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/LoaderValue.java",
+      "sha256": "f1c2c525819ead8322e027e13c5980a6d98f4d249cbd4070ed787cfb5b751d53"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/MappingResolver.java",
+      "sha256": "11efac96fe8eb56860bca1524b8e6aaee5cc4b6b5239a3f0a7eb128b7a6fd5d8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModContainer.java",
+      "sha256": "7339d0989c5427b5a5092441e112f1d0c7b1d9ca9e64cf9b4d3f0d8849e48a6e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModContributor.java",
+      "sha256": "81ed23ceac672105e6f0bb4c629b7a704414d190d891b4490f9d39724b2479f7"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModDependency.java",
+      "sha256": "d23a1313af30fcf253bcc49d332422fcdb1a7f09d553bd7c6e68726e8bd040ed"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModDependencyIdentifier.java",
+      "sha256": "661843192e20a4456e6d771a673790752eb1830bbe40c5f151af18c155d4fbf3"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModInternal.java",
+      "sha256": "e57f97773bdf79804de8bdcf84e69651742c11739735f5ae27a466d7a722a8a8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModLicense.java",
+      "sha256": "835f58498ea52d5b99951ab946ce9549ef54b1805d2adfdae1b7628a925a4bd3"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModMetadata.java",
+      "sha256": "88c343d74bb30bd42cc641c0bde73365ebad9813cb92f0f9d0596cd4d3ca98da"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/ModMetadataToBeMovedToPlugins.java",
+      "sha256": "56fba30f535f189d84c93ec56479f924a49d2928919c88ce4e6c091bf4aa6c7d"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/MountOption.java",
+      "sha256": "4f7b29aad80d5307ffb1af58f59d5d613eea1007db37b81f6f3da86eed12d83e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/QuiltFileSystems.java",
+      "sha256": "ae876460d51745e0adb5a7c6fc73237e3e808f80797f25df1c63155948276a1c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/QuiltLoader.java",
+      "sha256": "cad886802e41125f6c113d919bb390dd4bb43ce6397a17223ad8d10d86b148f0"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/Requires.java",
+      "sha256": "c150d97ab997a313539c31a032ff9f9f9e133c3c61cfcf5f63d7bfb16eb2bb4a"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/Version.java",
+      "sha256": "c99ff0001b09021e8c78b6a2b5cd50db336b5e3e7ff82e188905660dcd31b870"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/VersionConstraint.java",
+      "sha256": "605eed2e4966d332b759b0c047518d8449337a37348bf800554415d0d0e57f07"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/VersionFormatException.java",
+      "sha256": "d031d9cfd6ded39e1e6fd5cc86c12a275a828ac89a1733cd03eaf89007a6e273"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/VersionInterval.java",
+      "sha256": "718c7b568704867276941403281c7f45d549dc6b3f297f40ad5558229e59e340"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/VersionRange.java",
+      "sha256": "212adf0507e57c2ae6720c5fc53e79860f3ea422c626c977d41bb23c71cad22c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/config/QuiltConfig.java",
+      "sha256": "ea62a79786e24ec67d04c52c1ce909c843307c165679dd8fdc60ca76094fdb78"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/config/v2/QuiltConfig.java",
+      "sha256": "d1824952d58f95ced98373242e23c3a315798a1c0cddd884777f5a4304c317ba"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/entrypoint/EntrypointContainer.java",
+      "sha256": "00561341b3d645d95eeb488bb4927bca50fbf3382d8d7589dceddb51d657f2e1"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/entrypoint/EntrypointException.java",
+      "sha256": "cec589c427893370c2719caf4a054a15e933708c18a0146328f500c8b4d1507d"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/entrypoint/EntrypointUtil.java",
+      "sha256": "3a48a749183a642a695da4a108f5300c97a93ea14b6db14fc7c4c03d67b075af"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/entrypoint/GameEntrypoint.java",
+      "sha256": "ca03b9d46759ebceee7bf83e87d509f691de3ed1bfe8bf048f93322b96e4938e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/entrypoint/PreLaunchEntrypoint.java",
+      "sha256": "9f6aa1e59a05a43c1373c2d552dd9c357424f016ddf0a06e79db06cab946b31c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/LoaderGuiClosed.java",
+      "sha256": "395971b0e81158e90e77f4520a6fca53e115a91f02b659035279d4a4d5093a6e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/LoaderGuiException.java",
+      "sha256": "04dffaeaae9d1199973c2d1aecfc3740e4a24be7f55efb14e40daae41f27411e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltBasicWindow.java",
+      "sha256": "f5fcf87fa1847bf8e5193685c97dbb1fdbb851049a49cb707e1b8eba1a811c80"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltDisplayedError.java",
+      "sha256": "65ebfc9daa014c75344516a14777d9c7b73914227eb37ba92a5e06ed5db453f1"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltGuiButtonContainer.java",
+      "sha256": "cef1d9f0bf70729025b89312811956068be1ffd81fff2801913641ea23503ef7"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltGuiMessagesTab.java",
+      "sha256": "db8d307b80dc0551b5a3aff60e390d64267d9787138e4e199ad39dddf25675f1"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltGuiTab.java",
+      "sha256": "d911e0ae155687fc2708fa4774f6097a6af4f25cd8fac67881bd0be2062f9bc6"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltGuiTreeTab.java",
+      "sha256": "ec7c74e48a7a7384391f5d797675967b709d144699a755d69b35a9b127f83d56"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltLoaderGui.java",
+      "sha256": "5db756b2a74ec407ca3c7c1c6019534bae56e05387ed22ed53a63d4a65ace56f"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltLoaderIcon.java",
+      "sha256": "83f715e5af020334ea6bb3dc61e68bca37687ad56a57a069813cdcacf880308d"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltLoaderText.java",
+      "sha256": "22a3c6b78876e32b87d55c2317be5bbeb6dff1de8da03649ee3ab9e20b4373c9"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltLoaderWindow.java",
+      "sha256": "b50cf304219c29b9562272ac4bee81bbf4e4a587684f511bf3721d5c82c0155c"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltTreeNode.java",
+      "sha256": "652632efbf008f780cc4d03ab1dcd7b20b1c2be44531311513ef50229f9c4987"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/gui/QuiltWarningLevel.java",
+      "sha256": "cf7fdcb4fc035d16d319f54adbeb51c3ed44af7d2e302b87199ae59de2a23857"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/minecraft/ClientOnly.java",
+      "sha256": "201f0fdfd38d19825796a6c4f61ccfa839f003bdfe3ec31f3ae21fac26c68c4e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/minecraft/DedicatedServerOnly.java",
+      "sha256": "00362fd0fc933646914a283bd20803778db9bf0a1b946e56ecc8ffcf300e91fa"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/minecraft/MinecraftQuiltLoader.java",
+      "sha256": "56eee8f869892746a806797e2e29025c1ef4a3d6bcb4127e1048088f3db28e6f"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/LoaderValueFactory.java",
+      "sha256": "c1044d9f6fb0bedf9d9e2a6e24ec311509aec512b062af8c85eed33f17b223cb"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/ModContainerExt.java",
+      "sha256": "656c2131a285a418a598e43e663d603bc9d62807dbba11e741c1ad93c8b5f903"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/ModLocation.java",
+      "sha256": "94e86eb337fc87bba5b06ec7b8835a579e24304094ed8a6d9e67a6364faa7ec0"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/ModMetadataExt.java",
+      "sha256": "c4faab98078a65cfd667b759c9b41d072be97602fb63568236cf70c498306eca"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/NonZipException.java",
+      "sha256": "041af7f41635be21c860d7f39f3b8e134447bf5dff397a7545124fcbb42945ff"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/PluginScanResult.java",
+      "sha256": "4590f2659ac48b0dabbb17318a4cab447c23c4fa6a36c8c28dbe0f2b36364a43"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/QuiltLoaderPlugin.java",
+      "sha256": "ca418bcbc7e3ac5f3a3f008fd75d4b8d5aab7f879113a4e9d0d0f4b4cddb8b2a"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/QuiltPluginContext.java",
+      "sha256": "054085bffef14a4c9c2ea328cc7fb29f957d2037be3b32b5f614101754900dac"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/QuiltPluginManager.java",
+      "sha256": "d55505c164ac6b0ad31e41f882b48b9a64b2132339610c3e9aa5a30eb8e9c5bd"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/gui/PluginGuiManager.java",
+      "sha256": "2f8a984f591ab2cb3b6c791cab67bd9050bd6d69609e56963bab4d85416de30a"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/gui/PluginGuiTreeNode.java",
+      "sha256": "e687616bd30b2bb49ac5842a87d1e2c6a7207951241afb993989237084734fa1"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/gui/package-info.java",
+      "sha256": "dc9aa481a265ffa8d1982070ab1ea06c3aba0d4532269e6ac2b661217a1579a1"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/AliasedLoadOption.java",
+      "sha256": "f93af06b7f3a7dbf99ca241f22f75de50a751c570601a9aac81118fea1dc61e6"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/LoadOption.java",
+      "sha256": "aec97194baa8335f11f99041a3f387260d0e0e32747dec9d400aa71e90ab6c83"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/ModLoadOption.java",
+      "sha256": "ff28aff215e582f02a260afc378bdb327223366204519253fc38201d0403bbb8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/ModSolveResult.java",
+      "sha256": "7e7af979b5ff55cfc3e6f6878bf916b22d198ffc6ff2bcd44aca67816d5e7283"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/NegatedLoadOption.java",
+      "sha256": "fc935ca721f6f1c3f0543ea78315e283a94d3a552623c91e67c3c2552cfeaa61"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/QuiltFileHasher.java",
+      "sha256": "a8494939be0a42a923793e61cf94c00e84ff2991401e05fffa315bfb964bfdbb"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/Rule.java",
+      "sha256": "12dbc6b151301d5da15e3535833134b878fb6c0349867e2765daddff176f2994"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/RuleContext.java",
+      "sha256": "a72baf1487e3e08d22e9b864001e7d7057a59e52625db4bd7803ba0f3c60ea7f"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/RuleDefiner.java",
+      "sha256": "08f5dd2e1364c8a03440a5b14607ffc068f1a0c014e32ab433250dc68c154599"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/api/plugin/solver/TentativeLoadOption.java",
+      "sha256": "15004cc372f1c62c76d5368a2a569848f1a85d7fd9335b319e4437d9c8673898"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/QuiltLoaderImpl.java",
+      "sha256": "eed1ca99c90c6debb4c7fa64e8154a477b891075e9fcb5c769bff42836b1c1c5"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/entrypoint/EntrypointStorage.java",
+      "sha256": "67b2982bcad030c87e41599721cb442a1ad6d98bb21f60e54810472334518a93"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/entrypoint/QuiltEntrypointException.java",
+      "sha256": "5041cfbe6e1d062f8f686165772f5190992eb6c652d59a082a6a478b92a69aec"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/launch/common/QuiltMixinBootstrap.java",
+      "sha256": "d693848d7034a032a82c862b3fe0a126d0b2df16285aa82a7777279a6e0edc77"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/ModDependencyImpl.java",
+      "sha256": "2f7f6fcd1479dafb32dd04e263e0eebccbe080d1b0905906f1eda8814a0ad6fb"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/ModMetadataReader.java",
+      "sha256": "af6de221b9f9257dcdacc337d2d799aa0366122386c54c4118d0f8c3849c6da4"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/QuiltModMetadataWrapperFabric.java",
+      "sha256": "36078fbb5d0517a03d996354bfc8c8acfa71ce90fce18b06f034cbfff67b07f8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/V1ModMetadataBuilder.java",
+      "sha256": "4d47ffc292bcbc44e3f9d00da306cf089310ee61dc49ab0730b212badcc7280d"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/V1ModMetadataImpl.java",
+      "sha256": "be1e28a589a543d3b982b26813be818375795ca6de47541045d9799943a8fbc6"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/metadata/qmj/V1ModMetadataReader.java",
+      "sha256": "b36e130764ee6902610744e44776d6835c48b0b2d5a296b6bab60954861ee4d0"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/BuiltinQuiltPlugin.java",
+      "sha256": "d4bfc4d41d50f9baf264808d1129a0ef6997f7283791dcb84416689947b06f96"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/QuiltPluginClassLoader.java",
+      "sha256": "5a8c16cbb85bac2a7cb244587d37c76955257d5c40f8544a60c267808a752d03"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/QuiltPluginContextImpl.java",
+      "sha256": "1a753d400f061edcc8e7b8038dbb5aec119fe59c9fc03723e2ab0133020409c8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/QuiltPluginManagerImpl.java",
+      "sha256": "3e9a2a42fbce56aebdf299225a6ccdcca2936b424bd9d762c0704fd9c834205f"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/quilt/QuiltModOption.java",
+      "sha256": "51f6eb18e18e6da517d110a926f96f542f7bb59b23cd0b931583da46004ae3ee"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/plugin/quilt/StandardQuiltPlugin.java",
+      "sha256": "487c1455a43765b3e053cb7b5212ff593c522db6357367241519cd131bf0cd94"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/transformer/EnvironmentStrippingData.java",
+      "sha256": "34e14ecb169e67c4ef941bc7ffac302de1fde268874de6e488729d386664c5e0"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/transformer/PackageEnvironmentStrippingData.java",
+      "sha256": "e21b3cdb266de9ae368a92b9e1d5c0e74071882cc3d5a9aa688a5fd48da301b8"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/util/DefaultLanguageAdapter.java",
+      "sha256": "866af28cdb4aa2cc19938aa94459c9a79eee3c5035cd9fc37b44f522e656746e"
+    },
+    {
+      "path": "upstream/loader-0.30.1-sources/org/quiltmc/loader/impl/util/mappings/QuiltMappingResolver.java",
+      "sha256": "56e19ac657934c3e126804c54fcb12efe10919e6da4a8894765624aa3c7abce8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/assets/quilt_registry/lang/en_us.json",
+      "sha256": "9d9eb06ca5ef45b5be5731751140ed16ecbdd31fe0eec81d6a0b732d82d93612"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/entrypoint/ModInitializer.java",
+      "sha256": "59e4eeac2bc5fa2709e950ef768e3b4c71cf2f575ace3c4f274e063d5efc3c72"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/entrypoint/client/ClientModInitializer.java",
+      "sha256": "f1ea1ab70bd4c21fc55cf3982606b4c8c463afe795e96bbdd781896af3db8d93"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/entrypoint/package-info.java",
+      "sha256": "e9ef8bdbc579fa1c06ac6f2d5785239b6dcc18fe4e07372d4df68e35697c1bad"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/entrypoint/server/DedicatedServerModInitializer.java",
+      "sha256": "563a29f66d8711a22349a930099a1a4d7c774b62839dd838ba85254737bf770d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/Event.java",
+      "sha256": "2633c939bd6facefcfd2f3994a20c6e3945c7c6ddad9428c354f1bf78185420d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/EventAwareListener.java",
+      "sha256": "44d2556c81ffcb478a831d0298ab143098d3a821a5e88a27fab866e26c0bbab1"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/ListenerPhase.java",
+      "sha256": "29f395aae58693dfa001b69a1de76b2b47d606f06bcd168a9b5d8c86596f4925"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/ParameterInvokingEvent.java",
+      "sha256": "10e22abf2f452e7eaef56d63c3029597bc7c743c0e383db9ab96719ff6ce07b9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/client/ClientEventAwareListener.java",
+      "sha256": "da29ca713929787276064c47de8e78eb6bbea04e431f02c0faf727432e663f4a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/package-info.java",
+      "sha256": "3903f926e2210389c5de604cbb94db1c3c6862ac899618ef7e97837646d706ea"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/event/server/DedicatedServerEventAwareListener.java",
+      "sha256": "803db444105e0e24e588f48dba09e4bcc8dec3fcc3cde10883113c6b55c9b946"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/package-info.java",
+      "sha256": "6b592631df4530b8edbcf75e6e4c79fc061cefb987f6c441b8d12adcc8d1ec1a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/phase/PhaseData.java",
+      "sha256": "85e6b9419760a3b4e173a20750ce1a58ee9da9313ae544fdfb4b6f2394819530"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/phase/PhaseSorting.java",
+      "sha256": "bcea410daedadd4812587edd14dfa1febe5bb5c7180d8f54d3c5397178bb5c14"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/phase/package-info.java",
+      "sha256": "c6a43429f66db7be9eacee169604cdc24721f9d457982d1557f0af362b0be87d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/util/InjectedInterface.java",
+      "sha256": "a231010f1eddb7bd1f3904ef73049b5a740de8b111c588c9195c5cd3191a4103"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/util/QuiltAssertions.java",
+      "sha256": "a0a2d66e10bfc832e5856b2cc8c4967976e39eaf5dcaa0fe415b12a18fb1dc10"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/api/util/TriState.java",
+      "sha256": "6e8486f1c04dc5655d2c89b93b583137d3959ca9c46dbd9eabdafed5791945c3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/impl/QuiltBaseImpl.java",
+      "sha256": "4f574e662557819661fbb1037e1a47fa3d5b10d2b51b3706fa3c686b028ef17a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/impl/event/EventPhaseData.java",
+      "sha256": "0d71f6b2d50ed74e8dbc52c4a611d4ba180f2ec6c43996b21d53ba9b06135f4b"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/impl/event/EventRegistry.java",
+      "sha256": "9ca5db474d6c2ed68267eff8fdd68da823d5777bd224581a8b18964f1dcbaeec"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/mixin/BootstrapAccessor.java",
+      "sha256": "9fd87af0b536c63cb2890be4326bceb22d57a9a88d18818ae86708d5187712db"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/mixin/MinecraftServerMixin.java",
+      "sha256": "9e0fe8157ad8b2ba75c4e3ad70a4ee3093c82bf336d48158a0a3681c78f6a196"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/mixin/RegistriesMixin.java",
+      "sha256": "9cacc6ba5b779cacad31500f27d83e7d5ca5d9541b100bae3d7b46db2dc71b5b"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/mixin/client/MinecraftClientMixin.java",
+      "sha256": "c20bef16ae8eb2e3055e02b510af555dafc7af14b38f1ae186d76a357937f237"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/base/mixin/server/MainMixin.java",
+      "sha256": "3c00de62808a28c9c3db4f3370f44a4c57a9f4b6044bb7bb2cc86ddaf05de4e3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/api/CrashReportEvents.java",
+      "sha256": "b97216412973edb57940cd5a480f63afd182a4f98c347c74a3fb7714b45372ab"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/impl/CrashInfoImpl.java",
+      "sha256": "00fcebf2e71a1729a88f921671d39ca532836de4555c44bc7c1cbc7ca718e67d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/BlockEntityMixin.java",
+      "sha256": "d62eb62510f1efdbe1ba80b37f476753a387354d1684006b66d4e01abff6da0d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/CrashReportMixin.java",
+      "sha256": "a4c1bd51c5be1c281ea1471e04abf7bcc00724af9c2deadca0bb33df2bb545d5"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/CrashReportSectionMixin.java",
+      "sha256": "72c0e153e9ed9cf426f9e57772983fe0fa5b53005f1294bf29217911f91c4dd0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/EntityMixin.java",
+      "sha256": "275dc62ec6f4bd25db78b01f73684a63b03d44e43abcd899768729a2885d0100"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/SystemDetailsMixin.java",
+      "sha256": "a0bce967ea4686120e1a168358db4a07c47cdeabe0663efafddb3bb30cd12bdd"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/crash/mixin/WorldMixin.java",
+      "sha256": "5c4efd5f8646bdd800ce3735994ef143bf1e0259e91da668726ec349cad3f685"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/client/event/ClientLifecycleEvents.java",
+      "sha256": "a8800fa9f874b5c0572f029643bdd4b5f9dddb610220d18dd5b40002389cce44"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/client/event/ClientTickEvents.java",
+      "sha256": "d36e06ce846766c06898c383396290622f4baf27e9a793f8d9dcb287409908d2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/client/event/ClientWorldTickEvents.java",
+      "sha256": "8dcdf93355dac0b561200d8b7e613f1d6202dea03ece39fda6a5daa863b67598"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/client/event/package-info.java",
+      "sha256": "2585cb9b0caec5a6254ea5e730d347245e53fe0f1a5b75ff75bce7b0f34cc61f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/event/ServerLifecycleEvents.java",
+      "sha256": "3c953593a0d708d25483750289b47a7cfbe0718d42ce7589415b2604599e6ce7"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/event/ServerTickEvents.java",
+      "sha256": "f73145d14cdd119033981d7d8ee2525ba8e785edaa13a861e738b736af83e074"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/event/ServerWorldLoadEvents.java",
+      "sha256": "b78eb3068505718f76c4a35c9d0cfd093b6d36f9074bd713bcb9bb4f9d548fba"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/event/ServerWorldTickEvents.java",
+      "sha256": "c1c0e40b575556c0353158715a120967f4917e7c241ba8633f680d8caef2bd37"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/api/event/package-info.java",
+      "sha256": "f7ca5c010d43da199d419e4b2d6ca4f71456b89f89ef2a420e0aee8b663cc63c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/mixin/MinecraftServerMixin.java",
+      "sha256": "3cac399e87ab5154d5a3b7f9e139cadaadfff465fd0d3733911931ffc551b3b8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/mixin/ServerWorldMixin.java",
+      "sha256": "af15855a211ba03c3b41e58c9b4378048c064d1d630fb4159d5e1b56b57d1434"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/mixin/client/ClientWorldMixin.java",
+      "sha256": "b075d5ce7283359d104e94068d3c109d746d227e11378f57ef32a7a0948e801e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/lifecycle/mixin/client/MinecraftClientMixin.java",
+      "sha256": "712ad76c83c5111c4f801d7a92a6958ac76a98e98d04c7c691b5859ca31594c1"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/EntityTrackingEvents.java",
+      "sha256": "8c72c8d78c978e389eb60f93221c3ab27f18ac67e2829b54b564a57435f9f009"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/FutureListeners.java",
+      "sha256": "f482bb25fe500de8d206c4d23aeb4a3b48c1ac660c1d9eb425fca1128f30ea90"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/LoginPacketSender.java",
+      "sha256": "d5c3d808f82c21885a7b3f4651a73586926e8a77298d48631c5d68c8f0e133bd"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/PacketByteBufs.java",
+      "sha256": "8c9c737f56de30e8571a50da459e5a88251c5b62c85b4fe58279b393377dadc9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/PacketSendListeners.java",
+      "sha256": "d086c1373a37d1703e8862f54668872303ec58e8c11e91acb53eb79084488a6f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/PacketSender.java",
+      "sha256": "e918d5b122cd49be8c7b5460e6359b4ca2b7df4049d80d6862ad91ac4807372c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/PayloadTypeRegistry.java",
+      "sha256": "0cdabad306311f15e4f744631a90cee810d11f0c72567f585f530022037f0284"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/PlayerLookup.java",
+      "sha256": "a66e9b89898dd85f67c8c0f1531b8be19b2a529ab407c85db1a8ce3492b4ec70"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/C2SConfigurationChannelEvents.java",
+      "sha256": "d0bfacf6df41d0be1051b16d7ea2f90b3d16218a105dad1236740798e077471a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/C2SPlayChannelEvents.java",
+      "sha256": "6ee738ad2f9eda6c7fb741eb203911be967c2df58971e8bca6b7d674f024e412"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientConfigurationConnectionEvents.java",
+      "sha256": "cfe4856ddd6ecda65d287576ff7ec23f91577cb41ab90ad3d1319660e35af3a7"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientConfigurationNetworking.java",
+      "sha256": "224096d5031a880373741b499d1b772739e61435ab087e249940a80c1d8f3b80"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientLoginConnectionEvents.java",
+      "sha256": "c637be0c0ddd0d9932542adaacb6cba3739ca8cfb8fdea5fc894ad664843133d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientLoginNetworking.java",
+      "sha256": "ff5bd7252b80bfff876e8072ec95b023bc195da5c56fe54658e1e6cd1fc39690"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientPlayConnectionEvents.java",
+      "sha256": "241ca5ad20169df36a8869df7e0e24722081af400ce29ff4bd112b354671ad2f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/ClientPlayNetworking.java",
+      "sha256": "bf347483e3d700e784e560f11635d7da66e7fcfcbb1e9c9df0a83a4c0cdda175"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/client/package-info.java",
+      "sha256": "a57015d8c5bc119c925d4fc0b67cabd84c7d779f8a84bd1c1f14020abbbb7790"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/S2CConfigurationChannelEvents.java",
+      "sha256": "1ded7723e97aea0a7601a7862d9b730a6120767fbab7787582b3ffa6dd2435b5"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/S2CPlayChannelEvents.java",
+      "sha256": "4cb6ad758a0526e0840924de6c2b3efe6bb485cbeb921d93fc86347464b5a45e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerConfigurationConnectionEvents.java",
+      "sha256": "875733b98c1a9b66b12eb919221949e44cb0acd756edfc8635b030a811e7a0b8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerConfigurationNetworking.java",
+      "sha256": "02fb8ea50560e1453904e2df39f126d58a53f061068ddcdb16356278e539fbeb"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerConfigurationTaskManager.java",
+      "sha256": "3c5b8d579300ef07ff5e43d0737bd22d5e10cd51a3705fd06e9bd945c2404718"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerLoginConnectionEvents.java",
+      "sha256": "246364c0425235aedf068b135af100783a516eec19f3a62feb3ec1c1346a54f6"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerLoginNetworking.java",
+      "sha256": "708288f055e98e6e819131934e9c1508089f53cfa9070858a20d8d52139343fa"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerPlayConnectionEvents.java",
+      "sha256": "df84d96fd33d2930297b765636d795b350a8061149e58a3484c021438503782d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/ServerPlayNetworking.java",
+      "sha256": "7db52a3eaffbba39a4c6cc77ae200e551a9ab072e3d4d4585886a3f770e37102"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/api/server/package-info.java",
+      "sha256": "535bcca6c22beddd8740be9731f2e54f6d669356f3c11edcd67d4c69aa4960c5"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/AbstractChanneledNetworkAddon.java",
+      "sha256": "19f047ccd64bee8f338cb2bf33ec3bba925b3a3fb30d8e4367e748eeaf150eca"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/AbstractNetworkAddon.java",
+      "sha256": "1ff95b671125b4851402af9182a7037430c1ea1481d845a921554e0818926f66"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/ChannelInfoHolder.java",
+      "sha256": "d71aacdb5778ce100d94cef070caa475aeab97554b546dedc5eaeb88af87030e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/DisconnectPacketSource.java",
+      "sha256": "25e68c6d82618979265afa22f6c75763d013d119df4c65ea6a1436bb41d3992e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/GlobalReceiverRegistry.java",
+      "sha256": "b968c3289bc2bbfc5cc6cc70753fe5c554c4c6faacd5b25074261016cb06c50d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/NetworkHandlerExtensions.java",
+      "sha256": "e577d751a4747395de069ceb338e0a284390b7273866cf56149592cd563abb66"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/NetworkingImpl.java",
+      "sha256": "51799b8cc4307dfbb7904667a0983e817bea2f8a91add99ef1f96999ab6a7c8c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/PacketCallbackListener.java",
+      "sha256": "5d28f3212b2c8acf660a698a1751822f111014617d13045cc29f6a45860f0a4d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/PayloadTypeRegistryImpl.java",
+      "sha256": "2ee60871bb2c60c8886b40f83491c753a48eb9aa168ce247e283acb696faf35e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/QuiltCustomPayloadPacketCodec.java",
+      "sha256": "1e513dc9991a5cae0c6e4c8e9208ec465bccff7c75a4e9eca6ffba914854f7b4"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/client/ClientConfigurationNetworkAddon.java",
+      "sha256": "7817026ef835f05a4b4d3728670aa71b101a72d5eb07a9fad8fb6456e36e0131"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/client/ClientLoginNetworkAddon.java",
+      "sha256": "61bae6b99a99754dfe340b3d092b4214bda886dddf8368cb81d973bbc4da8685"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/client/ClientNetworkingImpl.java",
+      "sha256": "67e1e1777f9a921349fefeccf9a91da0bcb3d77d685478732022b046564d6891"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/client/ClientPlayNetworkAddon.java",
+      "sha256": "e08717b17d264020c254b0043ab7dfef3ce0d15ddf2ba226dc5e724c91251a3a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/common/CommonPacketHandler.java",
+      "sha256": "205ed6823dd2d063d748082291900274072a81d668503b0251d5424800733413"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/common/CommonPacketsImpl.java",
+      "sha256": "71b9a062ad813778863d1afa5cf8939d497ca89d9649d0333d7fcfc18b9687c8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/common/CommonRegisterPayload.java",
+      "sha256": "449158eb9512ab6e47d504c69069877662df54f6c147191a98eb8508dc2b5614"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/common/CommonVersionPayload.java",
+      "sha256": "2f5ca9d01e7dd06c768c80de19622fffe3795a374b595b67dc2d1b58db99b23d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/payload/ChannelPayload.java",
+      "sha256": "4bbc8c82d420a3efd73345126c21997bee62e09dfb5937c17b575743a4bc68c2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/payload/PacketByteBufLoginQueryRequestPayload.java",
+      "sha256": "8e768bd700463028ab5492b1a96ec720b189934386089083be6ce575d194ec91"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/payload/PacketByteBufLoginQueryResponsePayload.java",
+      "sha256": "b3338b26fdefe2219b6bfadc3eff0a2df8a5e4ae8af383701f627697047380dd"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/QueryIdFactory.java",
+      "sha256": "73fc93780b90245dcf4ca6e70e0f27173cab766ba3e40aae81d36f52a10ff190"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/SendChannelsTask.java",
+      "sha256": "81c602e8ffedf21da18ce36de7c998892c525203e102a53c92ac22b9061d909f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/ServerConfigurationNetworkAddon.java",
+      "sha256": "eb96135890c4e6aac2f1dc14e81dde99c8b7d4c273478534823bab6fb5dd41ec"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/ServerConfigurationNetworkHandlerKnowingTask.java",
+      "sha256": "aa5054ae432fe2b561d67f915f8a2dfdf42b662b490beacb480c8dbe7dcbc5e9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/ServerLoginNetworkAddon.java",
+      "sha256": "fa1bbbb958c7ed4a640aebaca8c4f86ef6aa119480c45dce42fbd5d5424c501e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/ServerNetworkingImpl.java",
+      "sha256": "b6ede14f235fed1753675200a52eef341b8a049eab1289d2de9d9c2127b28ada"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/impl/server/ServerPlayNetworkAddon.java",
+      "sha256": "ff295a2c696bae3cca577950fc4cef133414480e7c3a91e22d629bc2b46be901"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/ClientConnectionMixin.java",
+      "sha256": "f31ff6cfbb93b6e1bf1b905c89ca331833bc3dd677853242fba8a2fcbed8177f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/CustomPayloadC2SPacketMixin.java",
+      "sha256": "28b7e63de2ee44116d6cc5faefcfc0732a1d9a7e951829ade455ef959c3527b5"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/CustomPayloadPacketCodecMixin.java",
+      "sha256": "1a1e688730c596c902e26ddab47d5bf18602784e47d020561036195639c3a64b"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/CustomPayloadS2CPacketMixin.java",
+      "sha256": "7b3844e282bb0d117800c012e7a63eb0b8b757ca5a230381409f702b81776025"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/EntityTrackerEntryMixin.java",
+      "sha256": "c5da88bf1c22a40855303770b4ad2a9b8dd98aca89380ef7a9c6c88f35904d8b"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/JoinWorldConfigurationTaskMixin.java",
+      "sha256": "95d6f5e238459b6afd2e514fed97dda5e91615aa53de7121db67fb4195f8bba1"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/LoginQueryRequestS2CPacketMixin.java",
+      "sha256": "e33d57eaa427446c445dd28262e85a22a2c9d1e01d36eb41b439ae3dae1573df"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/LoginQueryResponseC2SPacketMixin.java",
+      "sha256": "1d05842a436c5dd2828ab1d72b2690ecf73cc67ae35d26828245fe9d491932da"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/PacketBundleMixin.java",
+      "sha256": "83eb86912bd2d329d22237b905897078ae83701752bddc50bd06bbb09641dcd4"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/PacketDispatchCodecMixin.java",
+      "sha256": "64e87382a03bd60063393a11aa46048429045fb98d30c94c3c3732bb8e990536"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/PlayerManagerMixin.java",
+      "sha256": "70ade5be80177b59087b24a685ce1cd1d4516fc6eaf0ff6cfcb63b51257fe630"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/AbstractClientNetworkHandlerAccessor.java",
+      "sha256": "3167a73bab0e3bda3817e0bdbe6e7028a0f7f5ff71c2f2d706f589e9f90572af"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/AbstractServerPacketHandlerAccessor.java",
+      "sha256": "782700c151c94488191cca2122539d05d6363d414ec8f7a59bf5704c4a3ad2df"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ClientConfigurationNetworkHandlerAccessor.java",
+      "sha256": "030372925add33856f4ff93625a8534520592c1863e87b4325772346ecfeb0c9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ClientLoginNetworkHandlerAccessor.java",
+      "sha256": "25fdaaef3f34dc99d4a51e781ff5329159811306514fd63ea08a452f3f05e1c3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ConnectScreenAccessor.java",
+      "sha256": "1080fb4519034a875a1e9cee12d4d372c340344191488f8631e5ca6ce2acf558"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/EntityTrackerAccessor.java",
+      "sha256": "0241fc6a6d01f1bab1b713dcc2586fc4ee3026ea18c2f6e8f57c9e11c1d75bc3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/MinecraftClientAccessor.java",
+      "sha256": "7a5981514cfec47e7411a3f356da7ae3778c3bf30967350decefcf4fc8e97337"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ServerConfigurationNetworkHandlerAccessor.java",
+      "sha256": "03b5b579d95afe9c8b215c3f009538d9d88fcf426724759f03cac1f17e58350c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ServerLoginNetworkHandlerAccessor.java",
+      "sha256": "0c251fb5ab45833936aff1dd583a6f796e7f622fa1e3e03b1e1ab9f2d2872e00"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/accessor/ThreadedChunkManagerAccessor.java",
+      "sha256": "8a474122e1879a727a0cc0822fd532d7a79a1baba48609bfc082c5eab0e91f7a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/client/AbstractClientNetworkHandlerMixin.java",
+      "sha256": "8e14bce2f22ba702ff9f7d081343ee9e48cbc9ebd4869e02857194558a091865"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/client/ClientConfigurationNetworkHandlerMixin.java",
+      "sha256": "1deb93223c55527fade12082cdac4d6b6ddd170bf93181d0e1500b065e28d83a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/client/ClientLoginNetworkHandlerMixin.java",
+      "sha256": "139ec9e98607549adc6ef3c40d052eb68353267b301f35aa9b5e8c65972d7c17"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/client/ClientPlayNetworkHandlerMixin.java",
+      "sha256": "6cc0fb6e0d40cc185310afb1c9e189b83280ec283ad909d45f4ea29124015714"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/server/AbstractServerPacketHandlerMixin.java",
+      "sha256": "06ff84c32abbd8dc8f515cdc2d10360168ac1e6eea32dff8a38273ca7a79dc7d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/server/ServerConfigurationNetworkHandlerMixin.java",
+      "sha256": "ae025523ae4b7978c10452836d4d07202ea79adf9f144d0276c142545087bf2f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/server/ServerLoginNetworkHandlerMixin.java",
+      "sha256": "ef3095ceb5834a8c7ae9c8d3666c678e3926e3ebff09bd580c780092c2e7f3a8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/networking/mixin/server/ServerPlayNetworkHandlerMixin.java",
+      "sha256": "bf0e9ce0948cad1ee0e5a4b2e6b56b302f7530081b04be3fe4ec0a4c6ff48731"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/dynamic/DynamicMetaRegistry.java",
+      "sha256": "c2982d9c7566659e4955c9dfe79e65f697c28de303993dd4ead231067101628d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/dynamic/DynamicRegistryFlag.java",
+      "sha256": "668de6f9282414b2ba04f5030f0cdca7e31cd0c0bbc238b575c289598ba84f20"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/event/DynamicRegistryManagerSetupContext.java",
+      "sha256": "173f1da07d5fab7266d51566e68194590b7b822e8eef9daaf1dc9ca077991d79"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/event/RegistryEntryContext.java",
+      "sha256": "aca1b77c0033a90883718e42c103d88226d0d5e3046ddb7647eba35e09e1d8f3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/event/RegistryEvents.java",
+      "sha256": "440c8cb3c5e7e37d49c3cebc076b17794f7caba1e9c8ee77026f7c4eb4b37816"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/event/RegistryMonitor.java",
+      "sha256": "5474d186d2edbe9d240be88516d798e79cbdf2ea585d53b4007405fdbab47b33"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/event/package-info.java",
+      "sha256": "904025fea21c3c0112fc89b2690ebe56fb14013f570a33766c0c5d96aac21b56"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/sync/ModProtocols.java",
+      "sha256": "5496fff797b4194091f05f49f1ee3c0cee2c6ed958c3fe8ef15b92178d6d2869"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/api/sync/RegistrySynchronization.java",
+      "sha256": "ecdc72699992ed72cb33d16948cd051496ae58a8fbfb87c790dc7b99876f6ced"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/DynamicRegistryManagerSetupContextImpl.java",
+      "sha256": "7e2d934855d4c65d5d5204c144ab011955ee5870a6541bacf6b547631b65c62c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/RegistryConfig.java",
+      "sha256": "ee23453d648a7a3c13b34360285a8c0b144d43deccd0bbda4b27d7656d040dc8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/dynamic/DynamicMetaRegistryImpl.java",
+      "sha256": "f4d1f8b398e99bc90f9f49c690a7f4de359cf767a7f82b6503e197554689060b"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/dynamic/DynamicRegistryFlagManager.java",
+      "sha256": "4545aa2853b6cfccb4b0df6148c1b5af9e27f8fb581234fbfa00e6bd98bf4636"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/event/DelayedRegistry.java",
+      "sha256": "ef921a82b3a35c8ae6742d640cab2cd705e7cdb1c8d4f87e059f70f3b90ad542"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/event/MutableRegistryEntryContextImpl.java",
+      "sha256": "3f8aacefbf336a12a98a8308beee72fe5a0cfcbec7d9630348ca1f3c4609d77f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/event/RegistryEventStorage.java",
+      "sha256": "ebd40234567c05ac544b741e30fa5c8400eec40487f5ea70686d5f34b9c2d241"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/event/RegistryMonitorImpl.java",
+      "sha256": "4df8fa8dad16416cc32acbf4e087ec29ec0999ff2116eabf5f035ffeb86fb72f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/ClientPackets.java",
+      "sha256": "05f7355b92a7a933128db79c359ea25a99813c392fe216c79c698a18fa90efb2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/ProtocolVersions.java",
+      "sha256": "21ea24f66693a5992c49eb56d9b78b91ef5e89cb8532774036001780207de0fa"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/RegistrySyncInitializer.java",
+      "sha256": "f28f656f5b096082401c631eaa80d887fe316bf38dafbd8e583a23c015ae79e0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/RegistrySyncText.java",
+      "sha256": "bfbe789953e9cf6360cb1534619557d0d51b53475713881e3c6726710f4cc009"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/ServerPackets.java",
+      "sha256": "35e3a607ce04e608edf9dbf6470ba6bef692c43cfa7e063d1e2bf0ab10978856"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/ClientRegistrySync.java",
+      "sha256": "7d16606a92a1b4d2897623dec5d277168beee2f3ae8c9d03a16714d86cd9be26"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/LogBuilder.java",
+      "sha256": "535d3a2a59005cef5004a3486abbe0a0b281360b7b30f86f77ee3f52ac155806"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/RebuildableIdModelHolder.java",
+      "sha256": "2336df23f63a25e025b84e9dc5f069b5a6e2d6bc5c1356da2e4455783e9831d5"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/RegistrySyncClientInitializer.java",
+      "sha256": "efefceed324ba2b79c00f96ae5d19b34a0ad27eeb6303a6ed5185cc286593c64"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/screen/ScrollableMultiTextWidget.java",
+      "sha256": "6ad0bd0d14900cf0009a002535388158f8941fa6b05d649a0472dfb8ce44743c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/client/screen/SyncLogScreen.java",
+      "sha256": "2610843c621b44bd2095816d79d47b0bcdf52b9ed1d99faad9adeae8de54cd10"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/mod_protocol/ModProtocolContainer.java",
+      "sha256": "492ca89ecdd2a8f6122a07de98b1d7a625b93dc92db84b33935fa48b0330fc10"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/mod_protocol/ModProtocolDef.java",
+      "sha256": "30ed3ea5516bd40d54793f967ae6cf7d9d11f22ad964d1090662503189a36a45"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/mod_protocol/ModProtocolImpl.java",
+      "sha256": "ed982e306e03456caea1b3a5032f07ae0dbbdf67727a84e20318c55a8630af38"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/registry/RegistryFlag.java",
+      "sha256": "9c3c556c28a3ad24a7ed1b240344012c00b20789b5d824fb1d0ab6e5fee7b22c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/registry/SynchronizedIdList.java",
+      "sha256": "3e76733de4d72f019567c77eb61704dc3af2ec6c35a7ec9069eca0313d57914c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/registry/SynchronizedInt2ObjectMap.java",
+      "sha256": "fc46b49a35e31a2904c642d3035c6462d9d557d802fbbb4acfa5b43177df0a65"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/registry/SynchronizedRegistry.java",
+      "sha256": "c6124e3be66b566e73389aba03bcbd986f39854b6740edb77aaaa8594d92eb1d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/server/ExtendedConnectionClient.java",
+      "sha256": "72e2f37a200f2eab72772ff6bbb51679d0caed00a31824424b21eb89504aeba9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/server/QuiltSyncTask.java",
+      "sha256": "d9f08702cfddf9853531347f1c4948df812c5045ec12729bcec6d12db32969ce"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/server/ServerRegistrySync.java",
+      "sha256": "80f7d4b7c1dc7c57f55fc68e0e95dfef839afd9e5cce4a0af9b79dbca9f6f93a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/impl/sync/server/SetupSyncTask.java",
+      "sha256": "8512c1121f8a417054c5ae1a578b84de4da6b0ed4ee09b631fe88ecaf755f0a3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/AbstractServerPacketHandlerAccessor.java",
+      "sha256": "5438a631c028654fde8a7270a007973c3e32cfa8cd8c28761ade9d9292d5f5cd"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/BlocksMixin.java",
+      "sha256": "7169b8df05948c391b88b831e4457f352c21d191f611e6bdcaf2ab74b699e9b0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/ClientConnectionMixin.java",
+      "sha256": "eb7f53c8f077f067d8a545c6f7dd492ad4bcc070ffc2f895189846536b4b4015"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/DebugChunkGeneratorAccessor.java",
+      "sha256": "b6be2eaaab790ce0c9248c2d4bc862b67c7a89f62c5e9fd5a722ad4d5636be62"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/DynamicRegistrySyncMixin.java",
+      "sha256": "801651c1595b28d2ef225b688c6edea66975c3fb8288727daee3bd6ee2095424"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/FluidsMixin.java",
+      "sha256": "f6b5091d8d9c416bc046d946f27f17ffa15bbba8f2bccbfde7b365a046429f15"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/IdListMixin.java",
+      "sha256": "858c5bc0cd26976fd12c27d669ceccab68b71e13d744625e6ea319ed911cdbb2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/ItemsMixin.java",
+      "sha256": "760f4f74e77e6cdeb59593d7e6b746765051031b48593bf32923e589443431d3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/RegistriesMixin.java",
+      "sha256": "837bd38d1fc886d311588f15b389197234c811c1a5aae8608cb3f14af0119edd"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/RegistryKeysMixin.java",
+      "sha256": "917700cf015bece8abb7c6e7061d569459d217e7925ccef19d6fa72265db1511"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/RegistryLoaderMixin.java",
+      "sha256": "c04afa17068c93326c304a747584fbc35d73ae56c79631898dac75bcb2cd3a70"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/ServerMetadataVersionMixin.java",
+      "sha256": "635d6fbd8273928bb3b0d850448e95e568cc34a4ffa8848ca2bf8626218e4e75"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/SimpleRegistryMixin.java",
+      "sha256": "f36bc7a5e0b92f36804be5a0ec0c9ee70bdc09418ed802df9785794f1eb82827"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/BlockColorMapMixin.java",
+      "sha256": "18d75b8cd3d6e7d2fb2a8380050a2cea0d460f202f25b633b53ee7829e3dca79"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ConnectScreenMixin.java",
+      "sha256": "6bc0946073c5fb0a2cfb4948f2c77746c49d29654eb1b97d55aeb1fa98339953"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/DisconnectedScreenMixin.java",
+      "sha256": "9c423a47b8b4484eefa88f96bd710c73d5848f31a2e5b840982aaff62b4c9cbf"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ItemColorsMixin.java",
+      "sha256": "9b06004a7162d1c20f722efd66807df90b15cb966de92caff492667f8cb9dcc0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ItemModelsMixin.java",
+      "sha256": "7173e5e1de8625bfbb2ab566ec82484ba92f3de3c252344a594dc2f296d99183"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ItemRendererAccessor.java",
+      "sha256": "9b1747b96dddb325763076c5b814ed48a42b79b70e0f4586c7d9d88a5e185992"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/MinecraftClientMixin.java",
+      "sha256": "c92fd92889a1fdfa214826cd77b3214862be00e3fe92c7c8711d654601e2339f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/MultiplayerServerListPingerMixin.java",
+      "sha256": "584b99823c030ad8406fea08d7017a3bc6c5a466c6ab4553b7bc6263a519110f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/MultiplayerServerListWidgetServerEntryMixin.java",
+      "sha256": "568c3d18b301f4205f2cbba52566c62c480b97fc047986b105bd303a38a65d33"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ParticleManagerMixin.java",
+      "sha256": "252b39b8b9ae8cbf186b3fc64a82b4815039ac72a8eb8b8fd23e3cc913f3a367"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/client/ServerInfoMixin.java",
+      "sha256": "686e6a2ff1e9c470c2e70c9481054c1540f14cd1490e602db69d13abd2489a7f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/registry/mixin/compat/StatusEffectFixMixin.java",
+      "sha256": "1e0b9b463aacbe75a086a3b6991363a1289029a5690d9117a923ce08ba9698ea"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/GroupPack.java",
+      "sha256": "ee07b3949a50ec5262febe1bf39cc8b4a79b9a5a5a9db5966f09895bae557979"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/InMemoryPack.java",
+      "sha256": "ea5b9cdd6db29a3dc4dead8384d7390394480eaef01f37b4f0b667e5c4fbb22e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/MutablePack.java",
+      "sha256": "a54fe0788aa1925861bc67d63bbcb4b926af49e42000b2a46850004e1e7652dc"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/PackActivationType.java",
+      "sha256": "ba4bb27320f01d8b221be9be91f16adc4c297eb30b11564502ad22ab1199062a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/PackRegistrationContext.java",
+      "sha256": "eb921b2c81ba23e17c65ce9ea9425eea90a812909ef898f913a81d9689adbcde"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/QuiltPack.java",
+      "sha256": "65229a797b0cda418fd9fc89219229efa19bc64b2e0bdb07b721d1b32622f773"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/QuiltPackProfile.java",
+      "sha256": "8f3f7ff91a64fa06732cbee143f8ea6a924e8459b1186896db5843c8ea828c4e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/ResourceLoader.java",
+      "sha256": "e9b0e8683ee347badb48bd0154139f802746bb1b9286856f96a0bc5685181bdf"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/ResourceLoaderEvents.java",
+      "sha256": "dcb923848c2d6bf3c0564662fbbbf691aac548c6f47388f0bb45f26e4afe3b86"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/client/ClientResourceLoaderEvents.java",
+      "sha256": "3a7e742f2c9732958e6b93b1baa9756c88f58f1fc039e131530e58f2cc0aca55"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/client/package-info.java",
+      "sha256": "7f824612aac874c80bd406e9eab88b82986b5fc9d8158d836238b1a814253f5a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/package-info.java",
+      "sha256": "1d69cd7bc37fdde511b1316362c89a05379481b252730d84b7c8f5bf9555098e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/reloader/IdentifiableResourceReloader.java",
+      "sha256": "e07bd21d5cf5ef326902161fafd215eff5363fa0a0bb936d4548fbae5f1898de"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/reloader/ResourceReloaderKeys.java",
+      "sha256": "b08935248cfd86a7efcf2ff55837b05987a02fd0ca1c5025a9f285d96db482ae"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/reloader/SimpleResourceReloader.java",
+      "sha256": "c3976f0984a68048f47af877054941995f931f806528aac03e45912431f51b0e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/reloader/SimpleSynchronousResourceReloader.java",
+      "sha256": "1d6c22479bc83905ac7f43fca1249128c2fc0798573588023dc429c2853fadf0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/api/reloader/package-info.java",
+      "sha256": "7eb4fc5360a47fb7cc84705bfe21b5b6249af865c0b635c882152e69237e8318"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModFileOps.java",
+      "sha256": "a21c28492f9c0f07789d3764a1dd425ae3e40d29d66934c6fde32dd5a1111c7e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModIoOps.java",
+      "sha256": "2b14558840e2dd18c89c93cc3adf67a224e8a6a2ac593309ef04eef115879404"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModNioOps.java",
+      "sha256": "65ce53e7baf9c0201e0a2e2bb0d70d501a81c79e6de919cd0554e5c509f310e1"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModNioPack.java",
+      "sha256": "f6778717392295a6f3e56878e0936336aee49b2e48e94178686775dcdb410947"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModPackProvider.java",
+      "sha256": "75b9fece53d42556d306b939f6d0b046db719a2075bb824dd281061d798fc376"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ModPackUtil.java",
+      "sha256": "63db37b24b39a1464dd7e4e3c81264ccc5a941019effb4ad98b90f37361e257a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/PackRegistrationContextImpl.java",
+      "sha256": "13bc4e13f0fe19382a23eb4032a7d14bf15e351fee5224a5d3a9029c0dbc2f53"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/QuiltBuiltinPackProfile.java",
+      "sha256": "d55307bb04553e30895c6d6477c0d9c8e8068f0ee5ffa71372341985552ec07d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/QuiltMultiPackResourceManagerHooks.java",
+      "sha256": "94103bea60a51d9c1453e19c01346b0e787b721a2fc70489340ae4375379d523"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ResourceLoaderEventContextsImpl.java",
+      "sha256": "0a7b869d6917d7540fc395bc368ffa37b7c872cfb96dba50c796c161637097f7"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ResourceLoaderImpl.java",
+      "sha256": "7fc4097754a738143a6cac29f443c9b421b040bceed190dec0b0c0b934785a80"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/ResourceReloaderPhaseData.java",
+      "sha256": "8ae7be443efc433896df82d33b4c25fb3ab00e1051a6b6b66344080d05f4252e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/cache/CacheTree.java",
+      "sha256": "ab3148436c982566909cdf65081075fb76c58b1d26d6396f39044510bcd2ab43"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/cache/EntryType.java",
+      "sha256": "6afd56062cb6cdf133541f434bbc48b95e04e049026715ee5f58b690d1c8e0c7"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/cache/ResourceAccess.java",
+      "sha256": "4585a59e48450b551115396e2341d2cd581187b46e15ef927442ff9f358df4fb"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/cache/ResourceTreeCache.java",
+      "sha256": "62dce6c6c6a56bad473735fea1184defb847d7193d2a4b02f126a11064e3a91e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/client/ClientResourceLoaderEventContextsImpl.java",
+      "sha256": "6449e972a64e7c59ed4777acafd998f74628fa965deca9322fcd49882b3951f7"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/client/ClientResourceLoaderImpl.java",
+      "sha256": "691cb94a661eb73fad017cb361069cdb1aece3bb89cc4c83a42c6a34266e8c52"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/impl/client/PackScreenTooltips.java",
+      "sha256": "20e14a3993d1a2589e7fccf08e0237d38ae976441654a2d8dbd12cb8a9a0a53d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/BuiltinPackProvider$WrapToFactory$PackFactoryMixin.java",
+      "sha256": "df6c6a1e4e86454099cf52847311ff64ae79e5d969b9d70d71e42f84219bf16f"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/BuiltinPackProviderMixin.java",
+      "sha256": "b78b58ed52094aa21b93d39ee3429b5f66fea2b4b85a350f01bdf8839ca582bf"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/IdentifierAccessor.java",
+      "sha256": "0e00027014eccfa0b0f0ac0e7d4b7eb2c46411ac21a124bda404a7cbabd53bf2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/KeyedResourceReloaderMixin.java",
+      "sha256": "108a4d762f7b130197417c23aa5b5d958f5dd681ba42d5a7e42019d888a1831c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/MinecraftServerMixin.java",
+      "sha256": "2c820a57f5fc610ab0e566e8d0ed93d3c90c97cd415ae62fea99b9ca8f5f2ed8"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/MultiPackResourceManagerMixin.java",
+      "sha256": "f58af111a18cea6b0fe04198999b69fb4295544418a5cf8b04db70e85b00a161"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/PackMixin.java",
+      "sha256": "79fd9d926cc0eee4c3b57fe22eedb92b3d944364994437b46e26a879d797b67c"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/PackProfileMixin.java",
+      "sha256": "bcf1d847830cb005863877a5288749c516f6b1e3ce270502fa7f56056d169e8d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/ReloadableResourceManagerMixin.java",
+      "sha256": "7c235eaa920249efae28c35441d91c1be6f36af9196fc5b76fe3bd989896d839"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/ServerReloadableResourcesMixin.java",
+      "sha256": "a5e56d710b0e47359159587b35ba35f086c9a12feb2717bbfc2cfc5a16f94bcf"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/TestServerMixin.java",
+      "sha256": "0e8502cf52ce6e85eab4e2bd5e36654dd8968c05630e9e9df545aa4835f33fff"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/VanillaDataPackProviderAccessor.java",
+      "sha256": "8c229af7ced20cdf2d170d165fdf57e5ced814133cdfbef4140c2171e5a10a22"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/VanillaDataPackProviderMixin.java",
+      "sha256": "db8aadbccf9b0099ccdb1c3f5488fda60bb9ac213bc985056fb3d7d15e3a0592"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/WorldLoaderMixin.java",
+      "sha256": "85656737d576a2ce169fdcc090331b8c71d5c9ca36496f5d6dcd1a401755aed9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/ClientBuiltinResourcePackProviderMixin.java",
+      "sha256": "6d8932dd2e0fb3f400e737993a86afdfde6b7517e28f616d26526164824d4e77"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/CreateWorldScreenMixin.java",
+      "sha256": "1637ee203e0f6aab64bb42a47b681697bfaf8206c17c6d009bd54799862bf7c2"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/GameOptionsMixin.java",
+      "sha256": "4702386a40ecfdee374d042fe61023e4f07db487e44349b1bbe2f91b2a347afb"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/IntegratedServerLoaderMixin.java",
+      "sha256": "affa8079de6424224fa022e5e8ea6f085450efc140c23b8e84f4a757e8f6a443"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/KeyedClientResourceReloaderMixin.java",
+      "sha256": "2a64129f0043bd0e1bd1d13dbb27dcbd64c940f8eb14856b8911df8260de542d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/MinecraftClientMixin.java",
+      "sha256": "4c27ba62e032c9607fff4bfd42d4a484bb586b8221122a4f3c1a7bf8f8c59ab9"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/PackScreenAccessor.java",
+      "sha256": "4256493fc8e5a22de002fc3caeaee1561b65d0777ee42e9d906d3c67c5c06459"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/ReloadableResourceManagerMixin.java",
+      "sha256": "9e7bd3b6f527d6ee202b6cc9f4590c8cdd2d922af343af1924f66e58cf039578"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/ResourcePackEntryAccessor.java",
+      "sha256": "f290cb76622b84eaeb0910d699772e4f6431dfccee926bf39792de1430b0a3db"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/client/ShaderResourceReloadListenerMixin.java",
+      "sha256": "9dac395cf56edcfbaefb33cc2a9343303c023abe73d62a77e8490f7d6b7719a3"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/server/LanguageMixin.java",
+      "sha256": "a5c1c2bb282e21e456fbdce5a30dcd5703771b35b807277ad15e6779a37c764d"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/org/quiltmc/qsl/resource/loader/mixin/server/MainMixin.java",
+      "sha256": "76d158fd5360c19b0ff47c654d9a17e1118192d114a8329cac7cb785ccc0c9ea"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt.mod.json",
+      "sha256": "91ca99d34bce210bb2a61f3feb8662966b676068ac315a51501fe8e2bfdb4aaa"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_base.mixins.json",
+      "sha256": "db88e2f012dba29b5dabc0558866f144d5dbe0c1936e69fa126d9a68effad074"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_crash_info.mixins.json",
+      "sha256": "ee15c1b650820e2016084fa5960e7a90c49923bc28ddfd597367035dd827d17a"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_lifecycle_events.mixins.json",
+      "sha256": "9de931d5959ccaae53a12f64d527543c01973d446cf30022e95e50c4766d2bc0"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_networking.mixins.json",
+      "sha256": "9997108e2ef07d46d605d7424572d662f218614b69fd788a539f3ccb443c047e"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_registry.mixins.json",
+      "sha256": "cdb3c0d4f1451caf4c45f91e3ed18c061e2348b8cdfc54de6278133a1941c273"
+    },
+    {
+      "path": "upstream/qsl-alpha5-sources/quilt_resource_loader.mixins.json",
+      "sha256": "ce5adc49dfa71f61543efa1b232e778b734db8f24b3373d8016100d6d7e1f3b2"
+    }
+  ],
+  "current_core": {
+    "path": "source-workspace/artifacts/unified-infinity-source-connector-adapter-fart-1.21.1.jar",
+    "sha256": "c8921d6a6d3ff3bb47e12913fb867344d1fab7c233e5bce7a9f35a53fef5e65e",
+    "quilt_class_definitions": []
+  }
+}

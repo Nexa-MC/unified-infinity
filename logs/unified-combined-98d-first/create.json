@@ -1,0 +1,274 @@
+{
+  "passed": false,
+  "phase": "create",
+  "profile": "run/unified-combined-98d-first",
+  "timestamp_utc": "2026-10-03T12:06:28.285010+00:00",
+  "lock_sha256": "a55306c525d84d55d072c6870d294c7c44f4369e2a7b02e9d31bcbe8d9f6a0d7",
+  "scope": "Combined server integration; original Fabric Lithium/Chunky, native NeoForge Farmers Delight, original Forge Clumps plus Forge companion, and project-owned native Quilt probe. Not OP Tab or client acceptance.",
+  "world_before": {},
+  "offline_world_before_launch": null,
+  "network": "Loopback only; root NeoForge LAN advertisement=false; online-mode=true; RCON/query/status off; no accounts/players",
+  "not_tested": [
+    "OP Tab/client acceptance",
+    "real-player XP pickup/cancellation/Mending",
+    "broad mod compatibility",
+    "performance"
+  ],
+  "failure": "AssertionError: ['[05:07:01] [Server thread/INFO] [minecraft/MinecraftServer]: Chunk at [0, 0] in Overworld is marked for force loading', '[05:07:01] [Server thread/INFO] [minecraft/MinecraftServer]: [Not Secure] [Server] MIXED_ACK_00012']",
+  "mixed_pack": {
+    "profile": "unified",
+    "cycle": 1,
+    "tag": "unified-combined-98d-first-create",
+    "ready": true,
+    "saved": false,
+    "exit_code": 0,
+    "duration_seconds": 37.944,
+    "input_mod_sha256": {
+      "Chunky-Fabric-1.4.23.jar": "3412b170247dde7351e0945d857e713bedf6fae05ab300aa74d06ffbde0ca07e",
+      "Clumps-forge-1.21.1-19.0.0.1.jar": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "FarmersDelight-1.21.1-1.3.4.jar": "139ad7696462c89c03eea463f805abffa552526c5dadaadae221dd9624cb197c",
+      "lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+      "unified-clumps-probe-0.1.0.jar": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+      "unified-infinity-0.1.0-dev.jar": "746ca5e3fcaf64ae7b67836535d8aa0bcb5d1cb4fe37161cc811784cca5adbd4",
+      "unified-infinity-four-loader-98d86a92.jar": "98d86a92e91a20df980cc95abc8ced4972476edff7ec982d08c88e3d4e8579fd",
+      "unified-infinity-preload-0.1.0-dev.jar": "7b549d3725cbf63a529cf543aafa9ce1f9d0d65d3fe3cac93411f429e0955d99",
+      "unified-native-quilt-probe-0.1.0.jar": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04"
+    },
+    "jvm_flags": [
+      "-Xms512M",
+      "-Xmx2G"
+    ],
+    "lithium_config_executed_zero_overrides": true,
+    "versions_recognized": {
+      "lithium": true,
+      "chunky": true,
+      "farmersdelight": true
+    },
+    "chunky": {
+      "selection": "[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: [Chunky] Current selection\n[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: World: minecraft:overworld\n[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: Shape: square\n[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: Center: 2048, 2048\n[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: Radius: 16\n[05:06:59] [Server thread/INFO] [minecraft/MinecraftServer]: [Not Secure] [Server] MIXED_ACK_00009",
+      "completion": "[05:07:01] [Server thread/INFO] [minecraft/MinecraftServer]: [Chunky] Task finished for minecraft:overworld. Processed: 9 chunks (100.00%), Total time: 0:00:01",
+      "processed_chunks": 9,
+      "maximum_target_chunks": 9,
+      "deadline_seconds": 120,
+      "elapsed_seconds": 1.553,
+      "target_chunks": [
+        [
+          127,
+          127
+        ],
+        [
+          127,
+          128
+        ],
+        [
+          127,
+          129
+        ],
+        [
+          128,
+          127
+        ],
+        [
+          128,
+          128
+        ],
+        [
+          128,
+          129
+        ],
+        [
+          129,
+          127
+        ],
+        [
+          129,
+          128
+        ],
+        [
+          129,
+          129
+        ]
+      ],
+      "passed": true
+    },
+    "snapshots": [],
+    "exact_tick_steps": [],
+    "commands": [
+      "gamerule randomTickSpeed 0",
+      "say MIXED_ACK_00001",
+      "gamerule doMobSpawning false",
+      "say MIXED_ACK_00002",
+      "gamerule doDaylightCycle false",
+      "say MIXED_ACK_00003",
+      "gamerule doWeatherCycle false",
+      "say MIXED_ACK_00004",
+      "chunky world minecraft:overworld",
+      "say MIXED_ACK_00005",
+      "chunky shape square",
+      "say MIXED_ACK_00006",
+      "chunky center 2048 2048",
+      "say MIXED_ACK_00007",
+      "chunky radius 16",
+      "say MIXED_ACK_00008",
+      "chunky selection",
+      "say MIXED_ACK_00009",
+      "chunky start",
+      "say MIXED_ACK_00010",
+      "tick freeze",
+      "say MIXED_ACK_00011",
+      "forceload query 0 0",
+      "say MIXED_ACK_00012",
+      "chunky pause",
+      "stop"
+    ],
+    "safeguard_audit_zero_failed": true,
+    "safeguard_audit": "==== Connector Mixin Patch Audit Summary ====\nSuccessful: 7\nPartial: 0\nFailed: 0\nSuccess rate: 100.00%        Accuracy: 100.00%\n=============================================\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/block/hopper/LevelMixin updateHopperOnUpdateSuppression(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to markAndNotifyBlock(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;II)V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/Level;onBlockStateChange(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=markAndNotifyBlock, desc=(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;II)V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n     - Change descriptor to (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;IILorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/world/level/chunk/LevelChunk;Lnet/minecraft/world/level/block/Block;Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/block/state/BlockState;)V\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/entity/collisions/fluid/EntityMixin tryShortcutFluidPushing(Lnet/minecraft/tags/TagKey;DLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;IIIIII)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to updateFluidHeightAndDoFluidPushing()V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/entity/Entity;isPushedByFluid()Z, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=updateFluidHeightAndDoFluidPushing, desc=()V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;IIIIII)V\n\nMixin method net/caffeinemc/mods/lithium/fabric/mixin/experimental/entity/block_caching/fluid_pushing/EntityMixin cacheFluidSearchResult(Lnet/minecraft/tags/TagKey;DLorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;DZLnet/minecraft/world/phys/Vec3;)V\n  >> Using org.sinytra.adapter.patch.resolver.target.SplitTargetMethodSubResolver\n     - Adjusting split method target to lambda$updateFluidHeightAndDoFluidPushing$22(Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;)V\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{ordinal=0, target=Lnet/minecraft/world/phys/Vec3;length()D, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=lambda$updateFluidHeightAndDoFluidPushing$22, desc=(Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;)V]\n  >> Using org.sinytra.adapter.patch.processor.ParametersProcessor\n     - Change descriptor to (Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfoReturnable;DZLnet/minecraft/world/phys/Vec3;)V\n     - Change descriptor to (Lnet/neoforged/neoforge/fluids/FluidType;Lnet/minecraft/world/entity/Entity$1InterimCalculation;Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;DZLnet/minecraft/world/phys/Vec3;)V\n\nMixin method net/caffeinemc/mods/lithium/mixin/minimal_nonvanilla/world/expiring_chunk_tickets/DistanceManagerMixin removeIfEmpty(Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lit/unimi/dsi/fastutil/objects/ObjectIterator;Lit/unimi/dsi/fastutil/longs/Long2ObjectMap$Entry;)V\n  >> Using org.sinytra.adapter.transform.preprocess.LocalCaptureUpgradeTransformer\n     - Change descriptor to (Lorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lit/unimi/dsi/fastutil/longs/Long2ObjectMap$Entry;)V\n     - Upgrade captured locals\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin getNull(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/LevelReader;getFluidState(Lnet/minecraft/core/BlockPos;)Lnet/minecraft/world/level/material/FluidState;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin skipFluidCheck(Lnet/minecraft/world/level/material/FluidState;)Lnet/minecraft/world/level/material/Fluid;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/material/FluidState;getType()Lnet/minecraft/world/level/material/Fluid;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\nMixin method net/caffeinemc/mods/lithium/mixin/world/chunk_ticking/spread_ice/BiomeMixin fluidCheckAndGetBlock(Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/Block;\n  >> Using org.sinytra.adapter.patch.processor.PropertyProcessor\n     - Set property 'at' to: AtData{target=Lnet/minecraft/world/level/block/state/BlockState;getBlock()Lnet/minecraft/world/level/block/Block;, value=INVOKE}\n     - Set property 'method' to: MethodQualifier[owner=null, name=shouldFreeze, desc=(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z]\n\n",
+    "error_log_lines": [
+      "[05:06:46] [Yggdrasil Key Fetcher/ERROR] [mojang/YggdrasilServicesKeyInfo]: Failed to request yggdrasil public key"
+    ],
+    "fatal_compatibility_exception": false,
+    "passed": false
+  },
+  "command": [
+    ".toolchains/jdk-21.0.12.1+1/bin/java",
+    "-Xms512M",
+    "-Xmx2G",
+    "-Djava.awt.headless=true",
+    "-Dunified.clumpsProbe.phase=create",
+    "-Dunified.quiltProbe.phase=create",
+    "@libraries/net/neoforged/neoforge/21.1.219/unix_args.txt",
+    "nogui"
+  ],
+  "probe_barrier_passed": true,
+  "forced_chunk_query_count": 0,
+  "freeze_acknowledged": true,
+  "world_after": {
+    "DIM-1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "DIM-1/data/raids.dat": "2126e78c640b9dbdaa1f4dfefb572094ce2ad5f86dc2d3f80ddbf85ea096ee07",
+    "DIM1/data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "DIM1/data/raids_end.dat": "2126e78c640b9dbdaa1f4dfefb572094ce2ad5f86dc2d3f80ddbf85ea096ee07",
+    "data/chunks.dat": "06907f871ea2578a5cddc7d04798bf62bbb81aa07ae6e696fd99ea16fc984ee4",
+    "data/neoforge_data_attachments.dat": "95486bd4cbd73d4d98f343e42a5792ef5315214015acca508842844d73247562",
+    "data/raids.dat": "2126e78c640b9dbdaa1f4dfefb572094ce2ad5f86dc2d3f80ddbf85ea096ee07",
+    "data/random_sequences.dat": "9a62921103a874c568845905e0c0c355fa3486a0c56dd87402c7d848724e54b8",
+    "data/unified_clumps_probe.dat": "050e53106571bf956027f6f63e556bfab5e46b6e5b48be221e7e1852b235688c",
+    "data/unified_quilt_probe.dat": "39e5a3aea3408fc4ea8002cbeeec76ce8be0174a8ab6b9b3ebb11ad34248a9f2",
+    "entities/r.-1.-1.mca": "c7c2b6d3aff5866f1c0a44a7fd5eabf048b86eb830e8028c60bd9c1c2803d312",
+    "entities/r.-1.0.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "entities/r.0.0.mca": "551191afe4913bf534e99e7b9389310073f48186ea7bdf0b8682b80d3aedb108",
+    "entities/r.3.4.mca": "215d5271818147737e4a0dc23385c7e1566ce032ca3625258c282baa3a3c0978",
+    "entities/r.4.3.mca": "9b60649392c7870224118fd0a9d0c08dd3321be0fea4aa611e955d048f44592f",
+    "entities/r.4.4.mca": "8d1397f22a562bfacab9394aa97169d09de5c11c77aaec5b86ba91e3bf8a1290",
+    "level.dat": "716c485e7c83417b2553bfdfc8ed97d916fbc5ef836f9aa09411fbf37ede04f5",
+    "level.dat_old": "61757796ddcd7d0c658ceaf7665a927048a8a2c9b278e10be892372fd874dfd4",
+    "poi/r.-1.-1.mca": "8a7f18e6b596601b158ee1b8a07bc0c92eebb9584595f209642304d2dbb00c75",
+    "region/r.-1.-1.mca": "e7d38ea72a78a2a8d7a99cfeac9eeb8d60b3d12d3577bcf4b97acd930e5e72d8",
+    "region/r.-1.0.mca": "5290ece136edaa59835ce28b53ac84d4fbb65c0511e67572f85438d895177e0e",
+    "region/r.0.-1.mca": "f0b86a9b6ba7547780573b14e411c8dcc9a44c1adcc81d1ec85a9a6472c4105c",
+    "region/r.0.0.mca": "25e26f8951dfa86b612db9bd709ec1646d05c2e8e02cf91627fc69f30b544569",
+    "region/r.3.3.mca": "dd6581fb23554d0cdbfbb02d5e503cb192713cd8e333a5c10b61e7a350b12608",
+    "region/r.3.4.mca": "3237b1ac9bb60bde96e94149fa86c5579fed0c6a1f717950b57cdd801db64d2f",
+    "region/r.4.3.mca": "2eaf1913f45c346abc637e77d47d11b6a100c91818558b5e08c3c02350e6663b",
+    "region/r.4.4.mca": "21a1028f05386295eb12c208cbcb6502448d0c69de4a14156e769b543b1087b1",
+    "serverconfig/readme.txt": "b1022ab932f8f0ea0cf78d9f312e95b85a4f96f59ca430e63f9a435e512d1186",
+    "session.lock": "51643361c79ecaef25a8de802de24f570ba25d9c2df1d22d94fade11b4f466cc"
+  },
+  "log_sha256": "adf954df131c8914bdb916829ed2a3e32b4841185726c7c8f1d1302033104a16",
+  "probes": {
+    "quilt": {
+      "markers": [
+        "\u001b[mNATIVE_QUILT_PROBE CLASS_DEFINED",
+        "NATIVE_QUILT_PROBE PASS stage=pre_launch count=1 native_id=unified-quilt-probe group=dev.infinity.probes version=0.1.0+native source=run/unified-combined-98d-first/mods/unified-native-quilt-probe-0.1.0.jar sha256=f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04",
+        "NATIVE_QUILT_PROBE PASS stage=init count=1 registry=unified_quilt_probe:anchor",
+        "NATIVE_QUILT_PROBE PASS stage=method_reference count=1 order=after_init",
+        "NATIVE_QUILT_PROBE PASS stage=server_init count=1",
+        "NATIVE_QUILT_PROBE PASS stage=automatic_ready count=1",
+        "NATIVE_QUILT_PROBE PASS stage=ready phase=create marker=native_quilt_qsl_alpha5_v1 read_before_write=false",
+        "NATIVE_QUILT_PROBE PASS stage=ready_to_save ticks=5 mixin_ticks=5 auto_ready=1 phase=create",
+        "NATIVE_QUILT_PROBE PASS stage=stopped ticks=75"
+      ],
+      "stage_counts": {
+        "pre_launch": 1,
+        "init": 1,
+        "method_reference": 1,
+        "server_init": 1,
+        "automatic_ready": 1,
+        "ready": 1,
+        "ready_to_save": 1,
+        "stopped": 1
+      },
+      "class_defined_count": 1,
+      "entrypoint_order_valid": true,
+      "original_jar_identity_verified": true,
+      "saved_data_phase_verified": true,
+      "qsl_and_mixin_tick_verified": true,
+      "loopback_binding_verified": true,
+      "server_ready": true,
+      "save_acknowledged": false,
+      "all_dimensions_saved": true,
+      "no_probe_failure": true,
+      "passed": false
+    },
+    "clumps": {
+      "markers": [
+        "UNIFIED_CLUMPS_PROBE PASS stage=constructor count=1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=server_started phase=create players=0 max_post_ticks=200",
+        "UNIFIED_CLUMPS_PROBE PASS stage=post_tick count=1 haveTime=false",
+        "UNIFIED_CLUMPS_PROBE PASS stage=seeded entities=6 units=6 xp=72 map=1:1,3:1,7:2,17:1,37:1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=merge initial_entities=6 final_entities=1 units=6 xp=72 stable_observations=5 post_ticks=34",
+        "UNIFIED_CLUMPS_PROBE PASS stage=nbt_roundtrip entities=1 units=6 xp=72 clumped_map=true in_memory=true",
+        "UNIFIED_CLUMPS_PROBE PASS stage=world_create survivor=04b0b4c6-5241-42cb-9693-e9b53b4acb2a saved_data=clumps_forge_19_0_0_1_probe_v1",
+        "UNIFIED_CLUMPS_PROBE PASS stage=ready_to_save phase=create post_ticks=34 xp=72"
+      ],
+      "stage_order": [
+        "constructor",
+        "server_started",
+        "post_tick",
+        "seeded",
+        "merge",
+        "nbt_roundtrip",
+        "world_create",
+        "ready_to_save"
+      ],
+      "expected_stage_order": [
+        "constructor",
+        "server_started",
+        "post_tick",
+        "seeded",
+        "merge",
+        "nbt_roundtrip",
+        "world_create",
+        "ready_to_save"
+      ],
+      "stage_counts": {
+        "constructor": 1,
+        "server_started": 1,
+        "post_tick": 1,
+        "seeded": 1,
+        "merge": 1,
+        "nbt_roundtrip": 1,
+        "world_create": 1,
+        "ready_to_save": 1
+      },
+      "passed": true
+    },
+    "passed": false
+  },
+  "host_evidence": {
+    "forge_prepared_lines": [
+      "\u001b[m\u001b[32m[05:06:30.861] [main/INFO] [forge.discovery.ForgeModFileReader/]: Unified Forge ABI slice prepared source=run/unified-combined-98d-first/mods/Clumps-forge-1.21.1-19.0.0.1.jar sha256=e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19 derived=run/unified-combined-98d-first/.cache/connector/forge52/6339158ea75ad1531559dbac22ff4b0b591c7fcdce05f4f3e3049fd7c1e73844.jar cacheHit=false ",
+      "\u001b[m\u001b[32m[05:06:30.909] [main/INFO] [forge.discovery.ForgeModFileReader/]: Unified Forge ABI slice prepared source=run/unified-combined-98d-first/mods/unified-clumps-probe-0.1.0.jar sha256=b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09 derived=run/unified-combined-98d-first/.cache/connector/forge52/5293114caf491c0a55ed109d95a1207651eb7d795dfb18cc787aef198f2ffb2a.jar cacheHit=false "
+    ],
+    "forge_two_originals_exactly_once": true,
+    "forge_cache_hits": 0,
+    "one_host_mixin_service": true,
+    "mixin_service_lines": [
+      "\u001b[m\u001b[32m[05:06:30.320] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.7 Source=union:run/unified-combined-98d-first/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar%2373!/ Service=ModLauncher Env=SERVER "
+    ],
+    "original_absent_refmap_warning": [
+      "\u001b[m\u001b[33m[05:06:36.949] [main/WARN] [mixin/]: Reference map 'clumps.refmap.json' for clumps.mixins.json could not be read. If this is a development environment you can ignore this message "
+    ],
+    "native_host_launch": true
+  }
+}

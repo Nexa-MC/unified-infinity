@@ -1,0 +1,40 @@
+{
+  "probe": "four-loader/clumps-probe/build/unified-clumps-probe-0.1.0.jar",
+  "sha256": "b8b6822fc80d53b9a44daa994abeaa53b19ec0838649d9eb7e55f1a766bb6d09",
+  "clumps_sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+  "build_report_sha256": "a4d4efe16d8ffffaea7f76bd24b6f0f280ebee24a5e485f3e5a6b53d4a9273c7",
+  "builds_with_identical_hash": 2,
+  "compile": "PASS",
+  "pure_arithmetic_assertions": 20,
+  "packaging_test_methods": 3,
+  "runtime_validation": "NOT RUN",
+  "phase_property": "unified.clumpsProbe.phase",
+  "marker": "clumps_forge_19_0_0_1_probe_v1",
+  "create_stages": [
+    "constructor",
+    "server_started",
+    "post_tick",
+    "seeded",
+    "merge",
+    "nbt_roundtrip",
+    "world_create",
+    "ready_to_save"
+  ],
+  "reopen_stages": [
+    "constructor",
+    "server_started",
+    "post_tick",
+    "world_reopen",
+    "nbt_roundtrip",
+    "ready_to_save"
+  ],
+  "expected_histogram": {
+    "1": 1,
+    "3": 1,
+    "7": 2,
+    "17": 1,
+    "37": 1
+  },
+  "expected_xp": 72,
+  "max_post_ticks": 200
+}

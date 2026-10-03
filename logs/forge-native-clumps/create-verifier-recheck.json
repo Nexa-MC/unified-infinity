@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "phase": "create",
+  "timestamp_utc": "2026-10-03T11:35:27.104760+00:00",
+  "original_report": "logs/forge-native-clumps/create.json",
+  "original_report_sha256": "1d96e2f4582a51bc8122a17bb084ddfaf5213c880aee965606bfab310892b1ca",
+  "original_failure": "Independent verifier rejected legitimate zero-byte entity-region placeholders; runtime and save completed successfully",
+  "change": "Recognize only exactly zero-byte entity-region placeholders as empty; nonzero short headers still rejected. Added regression test. No Minecraft/world/Clumps/companion input changed. No extra game launch.",
+  "offline_world_after_stop": {
+    "passed": true,
+    "orb": {
+      "count": 1,
+      "clumped_map": {
+        "1": 1,
+        "3": 1,
+        "37": 1,
+        "17": 1,
+        "7": 2
+      },
+      "weighted_xp": 72,
+      "original_orb_multiplicity": 6,
+      "uuid": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ],
+      "position": [
+        8.35,
+        100.1,
+        8.5
+      ],
+      "vanilla_value": 72,
+      "vanilla_count": 5,
+      "age": 6
+    },
+    "saved_data_marker": "clumps_forge_19_0_0_1_probe_v1",
+    "saved_data": {
+      "marker": "clumps_forge_19_0_0_1_probe_v1",
+      "survivor": [
+        1073470895,
+        735463618,
+        -1568442325,
+        -1331657140
+      ]
+    },
+    "entity_chunks_inspected": 3,
+    "empty_entity_region_placeholders": [
+      "entities/r.-1.-1.mca",
+      "entities/r.0.-1.mca"
+    ],
+    "world_version": {
+      "Snapshot": 0,
+      "Series": "main",
+      "Id": 3955,
+      "Name": "1.21.1"
+    },
+    "files": {
+      "level.dat": "f766b9abe188e4ba1d082eb8e90720e98f8a5fe4bb53b7ab766b56c029b84046",
+      "data/unified_clumps_probe.dat": "1d9c15abfc03ad8bc81d8cfcb7fd03c7b8be83e05386170131dd005ca0758a8f",
+      "entities/r.-1.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.-1.0.mca": "18cb74b3bb5684ccf1dfffc2f2e6947f706e58a1bf86f29c1ed81cdaeb62c74d",
+      "entities/r.0.-1.mca": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "entities/r.0.0.mca": "c82a315247f0a23701acad6e3149b683b3d760c8c381a947a3c8eaf0da0e18f5"
+    },
+    "schema_evidence": "Approved Clumps MixinExperienceOrb bytecode: clumpedMap compound, XP string keys, int multiplicities",
+    "scope": "One naturally merged six-orb clump persisted in a local world; no pickup, mending or player claim"
+  },
+  "verifier_sha256": "24ef3e2ce1f83f13b923a4f5257021516acc38ddd98b066a683f28a506739d4e"
+}

@@ -1,0 +1,28 @@
+{
+  "production_namespace": "mojang",
+  "source_mdks": [
+    "52.1.0",
+    "52.0.1"
+  ],
+  "refmap_test": "not present in official MDK; unverified",
+  "bytecode_crosschecks": [
+    {
+      "artifact": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "class_name": "net/minecraftforge/common/ForgeHooks.class",
+      "srg_shaped_distinct_constants": 0,
+      "class_sha256": "94f8334347c01881b275428dab5229c2c6c0be90e3c4bf3408e0c48dde792ec3"
+    },
+    {
+      "artifact": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal-srg.jar",
+      "class_name": "net/minecraftforge/common/ForgeHooks.class",
+      "srg_shaped_distinct_constants": 178,
+      "class_sha256": "fb87aba8b1603f5fd10bdbb0c8a88f52d4ebc5506f2876aff1dab19b905a4bfa"
+    }
+  ],
+  "installer_stages": [
+    "DOWNLOAD_MOJMAPS",
+    "rename vanilla to MC_OFF",
+    "patch MC_OFF"
+  ],
+  "note": "Do not identify arbitrary mod namespaces by loader name or this regex alone"
+}
