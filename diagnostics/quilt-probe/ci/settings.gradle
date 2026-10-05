@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        maven {
+            name = 'VerifiedPublicInputs'
+            url = file('maven').toURI()
+            metadataSources { gradleMetadata(); mavenPom(); artifact() }
+        }
+    }
+    resolutionStrategy.eachPlugin {
+        if (requested.id.id == 'org.quiltmc.loom') useModule('org.quiltmc:loom:1.8.5')
+    }
+}
+rootProject.name = 'original-api1-quilt-probe-mappings'

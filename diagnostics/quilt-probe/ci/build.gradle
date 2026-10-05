@@ -1,0 +1,46 @@
+plugins {
+    id 'org.quiltmc.loom' version '1.8.5'
+}
+
+// The official plugin performs the complete vanilla merge/remap pipeline.
+// The original probe is compiled separately by its unchanged, pinned builder.
+layout.buildDirectory = file('../diagnostic-output/loom-build')
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+repositories {
+    maven {
+        name = 'VerifiedPublicInputs'
+        url = file('maven').toURI()
+        metadataSources { gradleMetadata(); mavenPom(); artifact() }
+    }
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings 'net.fabricmc:yarn:1.21.1+build.3:v2'
+}
+
+loom {
+    // Supported Loom API, pointing to the exact official version metadata.
+    // Python seeds its original verified bytes; Gradle runs strictly offline.
+    customMinecraftMetadata = 'https://piston-meta.mojang.com/v1/packages/22a1966494dfa4eeb5ee778c8e6ed5b774839582/1.21.1.json'
+}
+
+tasks.register('prepareProbeMappings') {
+    description = 'Generate the official merged Minecraft/mapping inputs for the original probe builder.'
+    dependsOn 'classes'
+    doLast {
+        println 'Official Quilt Loom mapping/class preparation completed; Minecraft was not launched.'
+    }
+}
+
+gradle.taskGraph.whenReady { graph ->
+    def forbidden = graph.allTasks.findAll {
+        it.name.toLowerCase().contains('asset') ||
+        it.name.toLowerCase().startsWith('run') ||
+        it.name.toLowerCase().contains('launch') ||
+        it.name.toLowerCase().contains('gensource') ||
+        it instanceof JavaExec || it instanceof Test
+    }
+    if (!forbidden.empty) throw new GradleException("Out-of-scope diagnostic task graph: ${forbidden*.path}")
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "dev.infinity.probes",
+    "id": "unified-quilt-tooltip-probe",
+    "version": "0.1.0+native",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "metadata": {
+      "name": "Native Quilt Tooltip ABI Probe",
+      "license": "MIT",
+      "description": "Self-authored native Quilt/QSL tooltip contract fixture, compiled against original pinned official ABI"
+    },
+    "entrypoints": {
+      "init": "dev.infinity.quilttooltipprobe.CommonProbe",
+      "server_init": "dev.infinity.quilttooltipprobe.CommonProbe",
+      "client_init": "dev.infinity.quilttooltipprobe.ClientProbe::INSTANCE",
+      "client_events": "dev.infinity.quilttooltipprobe.ClientProbe::INSTANCE"
+    },
+    "depends": [
+      {"id": "minecraft", "versions": "=1.21.1"},
+      {"id": "java", "versions": ">=21"},
+      {"id": "quilt_loader", "versions": ">=0.25.0"},
+      {"id": "quilt_base", "versions": "=10.0.0-alpha.5+1.21.1"},
+      {"id": "quilt_lifecycle_events", "versions": "=10.0.0-alpha.5+1.21.1"},
+      {"id": "quilt_tooltip", "versions": "=10.0.0-alpha.5+1.21.1"}
+    ]
+  }
+}

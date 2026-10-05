@@ -1,0 +1,37 @@
+{
+  "probeSha256": "9106f5a6629d3e3f2206bc967d77aaff228f67ef6e216cd8f27f79139e743dfe",
+  "probeMaxBytes": 65536,
+  "builderInputPins": {
+    "docs/four-loader/quilt/upstream/loader-0.30.1.jar": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+    "docs/four-loader/quilt/upstream/qsl_base-alpha5.jar": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+    "docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+    "docs/four-loader/quilt/upstream/qsl-alpha5-artifacts/tooltip.jar": "1d78ca2f96f1610a5905d0b9b7b833871aa112ab90b35ad524ca66e22ecd76b2",
+    "run/quilt-native-client/gradle-cache/caches/quilt-loom/minecraftMaven/net/minecraft/minecraft-merged-intermediary/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-merged-intermediary-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar": "bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.jetbrains/annotations/24.0.1/13c5c75c4206580aa4d683bffee658caae6c9f43/annotations-24.0.1.jar": "61666dbce7e42e6c85b43c04fcfb8293a21dcb55b3c80e869270ce42c01a6b35",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/datafixerupper/8.0.16/67d4de6d7f95d89bcf5862995fb854ebaec02a34/datafixerupper-8.0.16.jar": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+    "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b",
+    "docs/api-coverage/quilt/upstream/tooltip-10.0.0-alpha.5+1.21.1-sources.jar": "125fcada141104a29a98cc0e88c63bed0325271eb99219d7068c9c17a42a931c",
+    "run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/minecraft-client.jar": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+    "run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/mappings.tiny": "0656f2619dc6e63f1fbfb06c2e4eaf541cec91853afb8ecd37588b229eca40f7",
+    ".toolchains/jdk-21.0.12.1+1/bin/javac": "55859b80e7a9c4c4736be19ad3addeb35112ca6d17a30c4e0e116afc0a499bdb",
+    ".toolchains/jdk-21.0.12.1+1/lib/modules": "70c5465dabf8e1bec2860631ea3ffd342f0ec23a5e2efd3a389d2abe32448f98",
+    ".toolchains/jdk-21.0.12.1+1/release": "ebbd70bf00bab6d39addf51969c5ff244030b86b29de400b9fb10612ebd3ceec"
+  },
+  "generatedPins": {
+    "run/quilt-native-client/gradle-cache/caches/quilt-loom/minecraftMaven/net/minecraft/minecraft-merged-intermediary/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-merged-intermediary-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar": "bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90",
+    "run/quilt-native-client/gradle-cache/caches/quilt-loom/1.21.1/net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/mappings.tiny": "0656f2619dc6e63f1fbfb06c2e4eaf541cec91853afb8ecd37588b229eca40f7"
+  },
+  "toolchainFiles": {
+    ".toolchains/jdk-21.0.12.1+1/bin/javac": "55859b80e7a9c4c4736be19ad3addeb35112ca6d17a30c4e0e116afc0a499bdb",
+    ".toolchains/jdk-21.0.12.1+1/lib/modules": "70c5465dabf8e1bec2860631ea3ffd342f0ec23a5e2efd3a389d2abe32448f98",
+    ".toolchains/jdk-21.0.12.1+1/release": "ebbd70bf00bab6d39addf51969c5ff244030b86b29de400b9fb10612ebd3ceec"
+  }
+}
