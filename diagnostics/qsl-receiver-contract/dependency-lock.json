@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "java": "21.0.12.1+1",
+  "source_lock": "portable-bootstrap/quilt-probe-ci-staging/diagnostics/quilt-probe/ci/dependency-lock.json",
+  "source_lock_sha256": "269acee989712d874b423fd5b654ab0e6583594fc352b27b1a549553c77d4eab",
+  "allowed_download_hosts": [
+    "github.com",
+    "release-assets.githubusercontent.com",
+    "objects.githubusercontent.com",
+    "repo.maven.apache.org"
+  ],
+  "artifacts": [
+    {
+      "path": "jdk21.tar.gz",
+      "sha256": "ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94",
+      "bytes": 207473347,
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz",
+      "source_lock_path": ".toolchains/jdk21.tar.gz"
+    },
+    {
+      "path": "fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4",
+      "bytes": 23326598,
+      "url": "https://repo.maven.apache.org/maven2/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "source_lock_path": "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar"
+    },
+    {
+      "path": "slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "bytes": 64579,
+      "url": "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "source_lock_path": "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar"
+    },
+    {
+      "path": "annotations-24.0.1.jar",
+      "sha256": "61666dbce7e42e6c85b43c04fcfb8293a21dcb55b3c80e869270ce42c01a6b35",
+      "bytes": 30651,
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/24.0.1/annotations-24.0.1.jar",
+      "source_lock_path": "run/quilt-native-client/gradle-cache/caches/modules-2/files-2.1/org.jetbrains/annotations/24.0.1/13c5c75c4206580aa4d683bffee658caae6c9f43/annotations-24.0.1.jar"
+    }
+  ]
+}

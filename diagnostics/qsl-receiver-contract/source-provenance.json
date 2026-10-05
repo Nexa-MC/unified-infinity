@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "archive": {
+    "artifact": "org.quiltmc.qsl.core:networking:10.0.0-alpha.5+1.21.1:sources",
+    "url": "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/networking/10.0.0-alpha.5+1.21.1/networking-10.0.0-alpha.5+1.21.1-sources.jar",
+    "sha256": "de0717376f53cfa5f120fbff662d99baea9778502190454589db62d084f50bad",
+    "bytes": 123472
+  },
+  "unchanged_upstream": [
+    {
+      "path": "upstream/org/quiltmc/qsl/networking/impl/GlobalReceiverRegistry.java",
+      "archive_entry": "org/quiltmc/qsl/networking/impl/GlobalReceiverRegistry.java",
+      "sha256": "b968c3289bc2bbfc5cc6cc70753fe5c554c4c6faacd5b25074261016cb06c50d",
+      "bytes": 5772
+    },
+    {
+      "path": "upstream/org/quiltmc/qsl/networking/impl/AbstractNetworkAddon.java",
+      "archive_entry": "org/quiltmc/qsl/networking/impl/AbstractNetworkAddon.java",
+      "sha256": "1ff95b671125b4851402af9182a7037430c1ea1481d845a921554e0818926f66",
+      "bytes": 4585
+    }
+  ],
+  "candidate_origin": "work/network-api-receiver-next",
+  "candidate_status": "Source-only; unchanged 24-case suite copied; not run during preparation",
+  "scope": "Original registry/addon receiver selection only. Minecraft ID/phase/side, NetworkingImpl and PayloadTypeRegistryImpl are explicit test doubles; no native game, Netty, wire, mapped ABI, codec or loader acceptance."
+}

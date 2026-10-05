@@ -1,0 +1,32 @@
+name: QSL receiver source contract diagnostic
+
+on:
+  push:
+    branches:
+      - diagnostic/qsl-receiver-contract-20261005-a
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qsl-receiver-contract-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  receiver-contracts:
+    if: github.repository == 'Nexa-MC/unified-infinity' && github.ref == 'refs/heads/diagnostic/qsl-receiver-contract-20261005-a'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI: 'true'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Check out reviewed diagnostic source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # official v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify bounded source and dependency manifests
+        run: python3 diagnostics/qsl-receiver-contract/bootstrap.py check
+      - name: Compile and compare original QSL core with candidate
+        run: python3 diagnostics/qsl-receiver-contract/bootstrap.py run

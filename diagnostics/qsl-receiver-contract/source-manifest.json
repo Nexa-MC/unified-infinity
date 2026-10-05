@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "files": {
+    "LICENSES/Apache-2.0.txt": {
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+      "bytes": 11357
+    },
+    "LICENSES/Project-MIT.txt": {
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb",
+      "bytes": 1086
+    },
+    "README.md": {
+      "sha256": "789b272947101bf6996034df34ba04690478c57730437ccfa9afd279b4c3cf3b",
+      "bytes": 3442
+    },
+    "bootstrap.py": {
+      "sha256": "f0a297d3efa19349063b5ae1f1b456a9008b04d32257548c4b425463c3209d8e",
+      "bytes": 6276
+    },
+    "dependency-lock.json": {
+      "sha256": "5aa584b7ef03d20dd6a146cedbc9ad6a2c00fd28cd9aa574b54c626039149769",
+      "bytes": 2119
+    },
+    "source-provenance.json": {
+      "sha256": "fb172ae6607e5873e078ac717980f35b16376dddb105290075b38307c1bcde4f",
+      "bytes": 1363
+    },
+    "src/main/java/org/sinytra/connector/network/qsl/internal/PlayChannelId.java": {
+      "sha256": "cd4c9a8db4f8cf98a8d6fc9bec8b7facf2b29ad59ede868685392e1a5cd01e32",
+      "bytes": 802
+    },
+    "src/main/java/org/sinytra/connector/network/qsl/internal/QslPlayConnection.java": {
+      "sha256": "03693c0e4dc9386d35541f8e0cd56857b8b5bcd50bc3c83122360781aeceee94",
+      "bytes": 8854
+    },
+    "src/main/java/org/sinytra/connector/network/qsl/internal/QslPlayReceivers.java": {
+      "sha256": "fe9d4d12288e7ea551a8c4dc81ca500b335c9f7808863f4ccf46226d8b78c782",
+      "bytes": 5342
+    },
+    "src/test/java/org/sinytra/connector/network/qsl/internal/QslOriginalCoreDifferentialTest.java": {
+      "sha256": "7a29970fdf6547e0e83200067a175498276d89bb33334dbb314196930bec0796",
+      "bytes": 11212
+    },
+    "src/test/java/org/sinytra/connector/network/qsl/internal/QslPlayReceiverContractTest.java": {
+      "sha256": "ddabd3a75fe9b8b670425d31fac538099de6d3fe7960cc30b30f020d2f538d06",
+      "bytes": 28105
+    },
+    "test-doubles/net/minecraft/class_2539.java": {
+      "sha256": "6aa03fa687ab82a38072035e58ddfeaec38aeb18b818cd868f7e6f813d230fe6",
+      "bytes": 129
+    },
+    "test-doubles/net/minecraft/class_2598.java": {
+      "sha256": "437e9f076258be1daf673954c774b8c84b95614b3b96e6e267f8ba91e77ecd60",
+      "bytes": 149
+    },
+    "test-doubles/net/minecraft/class_8710.java": {
+      "sha256": "c11a8aacfc3facaa18cac25c5c2c201a8e81d68669255ee8c8ecbfc73e43b481",
+      "bytes": 227
+    },
+    "test-doubles/org/quiltmc/qsl/networking/impl/NetworkingImpl.java": {
+      "sha256": "48f9cf487f374655dbc3e499ed86381c6e895b5b4f8daffe6e97034deeeeccf7",
+      "bytes": 380
+    },
+    "test-doubles/org/quiltmc/qsl/networking/impl/PayloadTypeRegistryImpl.java": {
+      "sha256": "810ce50d53b9af1a05e9ad91ee02e76e3d573dabdeaf770dcf02998846a6a894",
+      "bytes": 636
+    },
+    "upstream/org/quiltmc/qsl/networking/impl/AbstractNetworkAddon.java": {
+      "sha256": "1ff95b671125b4851402af9182a7037430c1ea1481d845a921554e0818926f66",
+      "bytes": 4585
+    },
+    "upstream/org/quiltmc/qsl/networking/impl/GlobalReceiverRegistry.java": {
+      "sha256": "b968c3289bc2bbfc5cc6cc70753fe5c554c4c6faacd5b25074261016cb06c50d",
+      "bytes": 5772
+    }
+  }
+}
