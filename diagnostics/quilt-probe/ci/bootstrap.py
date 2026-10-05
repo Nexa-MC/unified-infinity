@@ -81,6 +81,7 @@ def check_sources(require_ready=False):
     require(EXPECTED['probeSha256'] == '9106f5a6629d3e3f2206bc967d77aaff228f67ef6e216cd8f27f79139e743dfe', 'Changed original probe target')
     require(len(EXPECTED['builderInputPins']) == 22, 'Changed original builder input count')
     require(EXPECTED['probeMaxBytes'] == 65536, 'Changed probe transport bound')
+    validate_recovery_policy(json.loads((CI / 'recovery-policy.json').read_text()))
     seen = set()
     for row in LOCK['artifacts']:
         destination(row['path'])
@@ -101,6 +102,45 @@ def check_sources(require_ready=False):
         require(LOCK['closureStatus'] == 'PINNED' and not LOCK['missingPrerequisites'],
                 'Unresolved prerequisite pins: ' + '; '.join(LOCK['missingPrerequisites']))
     return manifest
+
+
+def validate_recovery_policy(policy):
+    require(policy['adaptation'] == 'CI_ONLY_SINGLE_GENERATED_COMPILER_INPUT', 'Unexpected recovery adaptation')
+    name = policy['generatedInputPath']
+    require(name in EXPECTED['generatedPins'] and name in EXPECTED['builderInputPins']
+            and name.endswith('.jar'), 'Recovery must target the original single generated JAR')
+    require(policy['historicalWholeJarSha256'] == EXPECTED['generatedPins'][name]
+            == EXPECTED['builderInputPins'][name]
+            == 'bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90', 'Historical whole-JAR pin changed')
+    require(policy['recoverySortedEntryContentSha256']
+            == '2a3f775046bf277ef041dca2666ccc6b33933bec769e55ae35ca12f1f15e5ae8', 'Unapproved recovery content identity')
+    require(policy['historicalEntryEquivalence'] == 'UNKNOWN', 'Unproven historical entry equivalence')
+
+
+def recovery_input_record():
+    """Reverify every locked input, with one explicit generated-content gate."""
+    check_sources(require_ready=True)
+    policy = json.loads((CI / 'recovery-policy.json').read_text())
+    validate_recovery_policy(policy)
+    for row in LOCK['artifacts']:
+        verify(row, destination(row['path']))
+    name = policy['generatedInputPath']
+    for input_name, expected in EXPECTED['builderInputPins'].items():
+        if input_name != name:
+            path = destination(input_name)
+            require(path.is_file() and digest(path) == expected, 'Unchanged original builder pin mismatch: ' + input_name)
+    path = destination(name)
+    require(path.is_file() and 0 < path.stat().st_size <= MAX_INPUT_BYTES, 'Recovery generated input missing or oversized')
+    metadata = zip_metadata(path)
+    require(metadata['sortedEntryContentSha256'] == policy['recoverySortedEntryContentSha256'],
+            'Recovery sorted-entry content identity mismatch; no further relaxation')
+    return {'path': name, 'sha256': digest(path), 'bytes': path.stat().st_size,
+            'sortedEntryContentSha256': metadata['sortedEntryContentSha256'],
+            'historicalWholeJarSha256': policy['historicalWholeJarSha256'],
+            'matchesHistoricalWholeJarPin': digest(path) == policy['historicalWholeJarSha256'],
+            'historicalEntryEquivalence': 'UNKNOWN', 'officialInputsReverified': len(LOCK['artifacts']),
+            'unchangedBuilderInputsReverified': len(EXPECTED['builderInputPins']) - 1,
+            'mappingsOriginalPinMatch': True, 'zipMetadata': metadata}
 
 
 def restore(row, deadline):
@@ -274,32 +314,29 @@ def build(fetch):
                  environment, 720, receipt)
     finally:
         record_generated_inputs(receipt)
-    for name, expected in EXPECTED['generatedPins'].items():
-        require(destination(name).is_file(), 'Official Loom expected output is missing: ' + name)
-        actual = digest(destination(name))
-        require(actual == expected, 'Official Loom output SHA256 differs from original API1 pin: '
-                + name + '; expected=' + expected + '; actual=' + actual)
-    # Require every one of the unchanged builder's inputs before invoking it.
-    for name, expected in EXPECTED['builderInputPins'].items():
-        require(destination(name).is_file() and digest(destination(name)) == expected, 'Original builder pin mismatch: ' + name)
-    run_step('original-probe-builder', ['python3', ROOT / 'four-loader/quilt-api-probe/build.py', '--compile'], environment, 180, receipt)
+    receipt['recoveryInputPreflight'] = recovery_input_record()
+    run_step('documented-recovery-adapter', ['python3', CI / 'recovery-builder.py', '--compile'], environment, 180, receipt)
     probe = destination(PROBE)
     require(probe.stat().st_size <= EXPECTED['probeMaxBytes'] and digest(probe) == EXPECTED['probeSha256'],
             'Original probe output mismatch; return transport forbidden')
     check_sources(require_ready=True)
-    receipt.update({'status': 'PASS_ORIGINAL_PROBE_STATIC_BUILD_ONLY', 'probeSha256': digest(probe), 'probeBytes': probe.stat().st_size,
-                    'generatedInputPins': EXPECTED['generatedPins']})
+    recovery_receipt = json.loads((REPORT / 'recovery-receipt.json').read_text())
+    require(recovery_receipt['status'] == 'PASS_RECOVERY_ADAPTER_EXACT_ORIGINAL_PROBE', 'Recovery adapter did not pass')
+    receipt.update({'status': 'PASS_RECOVERY_ADAPTER_EXACT_ORIGINAL_PROBE', 'probeSha256': digest(probe), 'probeBytes': probe.stat().st_size,
+                    'historicalGeneratedInputPins': EXPECTED['generatedPins'], 'recovery': recovery_receipt,
+                    'builderExecution': 'UNCHANGED_SOURCE_WITH_ONE_IN_MEMORY_INPUT_PIN_ADAPTATION',
+                    'historicalEntryEquivalence': 'UNKNOWN'})
     (REPORT / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
     print(json.dumps(receipt, indent=2))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
-            summary.write('Original API1 Quilt probe compiled with its exact original SHA-256: ' + digest(probe) + '. Static build only; runtime acceptance remains NOT RUN.\n')
+            summary.write('CI recovery adapter compiled the original API1 Quilt probe source bytes with the exact original output SHA-256: ' + digest(probe) + '. One generated compiler-input pin was adapted after the approved content gate; historical entry equivalence remains unknown. Static build only; runtime acceptance remains NOT RUN.\n')
 
 
 def emit_probe():
     check_sources(require_ready=True)
     receipt = json.loads((REPORT / 'receipt.json').read_text())
-    require(receipt['status'] == 'PASS_ORIGINAL_PROBE_STATIC_BUILD_ONLY', 'No successful exact-build receipt')
+    require(receipt['status'] == 'PASS_RECOVERY_ADAPTER_EXACT_ORIGINAL_PROBE', 'No successful exact recovery-build receipt')
     probe = destination(PROBE)
     require(0 < probe.stat().st_size <= EXPECTED['probeMaxBytes'] and digest(probe) == EXPECTED['probeSha256'], 'Probe transport gate failed')
     resource_root = ROOT / 'four-loader/quilt-api-probe/resources'

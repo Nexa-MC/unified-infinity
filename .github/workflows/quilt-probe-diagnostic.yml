@@ -28,12 +28,13 @@ jobs:
           fetch-depth: 1
       - name: Verify source bytes and complete input pins
         run: python3 diagnostics/quilt-probe/ci/bootstrap.py check --require-ready
-      - name: Generate pinned mappings and compile the unchanged probe
+      - name: Generate pinned mappings and compile through the documented recovery adapter
         run: python3 diagnostics/quilt-probe/ci/bootstrap.py build --fetch
       - name: Return only the exact small self-authored probe
         run: python3 diagnostics/quilt-probe/ci/bootstrap.py emit-probe
       - name: Record the diagnostic boundary
         if: always()
         run: |
-          echo 'Build-only diagnostic: official unmodified Quilt Loom 1.8.5 and original API1 probe sources. No Minecraft launch, client assets, Fabric API, OPTab, or complex-mod test is performed.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Build-only diagnostic: official unmodified Quilt Loom 1.8.5 and original API1 probe source bytes, with a documented single-input CI recovery adapter. Historical intermediary whole-JAR identity remains a failed gate; historical entry equivalence is unknown.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'No Minecraft launch, client assets, Fabric API, OPTab, or complex-mod test is performed.' >> "$GITHUB_STEP_SUMMARY"
           echo 'Minecraft inputs and generated Minecraft binaries stay on this ephemeral runner. No Actions cache or artifact uploads are configured.' >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,83 @@
+{
+  "status": "BLOCKED_GENERATED_INTERMEDIARY_JAR_BYTE_PIN_MISMATCH",
+  "repository": "Nexa-MC/unified-infinity",
+  "repositoryId": 1402805491,
+  "visibility": "private",
+  "branch": "diagnostic/quilt-loom-api1-20261005-0934",
+  "commit": "36dc07a946297b689db7599121bbd0e58b488fc1",
+  "tree": "0f3ccd6e8c0f3874aa19c3966a9eb4b834cd2461",
+  "unchangedMain": "e527f35b852ba1cb66b0fa11aff3df55ec60ad34",
+  "runId": 37293698265,
+  "runUrl": "https://github.com/Nexa-MC/unified-infinity/actions/runs/37293698265",
+  "conclusion": "failure",
+  "officialLoomUnmodified": true,
+  "officialLoomOfflinePass": true,
+  "mappingsOriginalPinMatch": true,
+  "intermediaryJar": {
+    "bytes": 27065087,
+    "exists": true,
+    "expectedSha256": "bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90",
+    "matchesOriginalPin": false,
+    "path": "run/quilt-native-client/gradle-cache/caches/quilt-loom/minecraftMaven/net/minecraft/minecraft-merged-intermediary/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-merged-intermediary-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar",
+    "sha256": "29fa361fe275f2e779f1cfd13fafb214d1a3deb4d5222906b699e016470b707e",
+    "zipMetadata": {
+      "compressedBytes": 21918857,
+      "compressionMethods": [
+        0,
+        8
+      ],
+      "contentDigestFormat": "SHA256(compact ASCII JSON of filename-sorted [name,size,SHA256(uncompressed bytes)] for non-directory entries)",
+      "distinctTimestampCount": 4,
+      "entryCount": 24018,
+      "entryOrderSha256": "de7c7eac530a7d2849e1e70750cc50a78e8e29292a7849816997800dc43445c0",
+      "fileEntryCount": 23517,
+      "sortedEntryContentSha256": "2a3f775046bf277ef041dca2666ccc6b33933bec769e55ae35ca12f1f15e5ae8",
+      "timestampsFirst16": [
+        [
+          2026,
+          10,
+          5,
+          10,
+          0,
+          38
+        ],
+        [
+          2026,
+          10,
+          5,
+          10,
+          0,
+          40
+        ],
+        [
+          2026,
+          10,
+          5,
+          10,
+          0,
+          42
+        ],
+        [
+          2026,
+          10,
+          5,
+          10,
+          0,
+          44
+        ]
+      ],
+      "uncompressedBytes": 52938119
+    }
+  },
+  "timestampOnlyDifferenceProven": false,
+  "originalContentDigestAvailable": false,
+  "originalProbeCompiled": false,
+  "probeEmitted": false,
+  "gameLaunched": false,
+  "expectedPinsChanged": false,
+  "nextStep": "Scope decision for documented compiler-input reconstruction; no blind retry",
+  "logSha256": "58bb94853e47bce95c766e2048a40cacd23de44eb9776eab1b77bf0bd231916b",
+  "checkedUtc": "2026-10-05T10:04:03.521452+00:00",
+  "originalReceiptSha256": "64f9c7abb8b3dcab95ed1ca42f7ea0bf1f370cc43b69a85e7c4ca1e014ea8cca",
+  "publicationNormalization": "Removed budget/billing coordination fields; all technical failure facts retained."
+}

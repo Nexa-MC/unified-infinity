@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "adaptation": "CI_ONLY_SINGLE_GENERATED_COMPILER_INPUT",
+  "generatedInputPath": "run/quilt-native-client/gradle-cache/caches/quilt-loom/minecraftMaven/net/minecraft/minecraft-merged-intermediary/1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2/minecraft-merged-intermediary-1.21.1-net.fabricmc.yarn.1_21_1.1.21.1+build.3-v2.jar",
+  "historicalWholeJarSha256": "bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90",
+  "recoverySortedEntryContentSha256": "2a3f775046bf277ef041dca2666ccc6b33933bec769e55ae35ca12f1f15e5ae8",
+  "historicalEntryEquivalence": "UNKNOWN",
+  "timestampOnlyDifferenceProven": false,
+  "observedRecoveryInputRun": "https://github.com/Nexa-MC/unified-infinity/actions/runs/37293698265",
+  "observedRecoveryWholeJarSha256": "29fa361fe275f2e779f1cfd13fafb214d1a3deb4d5222906b699e016470b707e",
+  "observedRecoveryBytes": 27065087,
+  "ownProbeRequiredSha256": "9106f5a6629d3e3f2206bc967d77aaff228f67ef6e216cd8f27f79139e743dfe",
+  "scope": "Retain original sources and all other pins. Replace only the imported builder single generated input pin in memory after independent content and provenance verification. No archive rewriting or broader relaxation."
+}
