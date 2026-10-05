@@ -30,7 +30,29 @@ tasks.register('prepareProbeMappings') {
     description = 'Generate the official merged Minecraft/mapping inputs for the original probe builder.'
     dependsOn 'classes'
     doLast {
-        println 'Official Quilt Loom mapping/class preparation completed; Minecraft was not launched.'
+        // Loom 1.8.5 creates intermediary and named outputs eagerly during its
+        // after-evaluation hook, even when compileJava is NO-SOURCE. Resolve the
+        // official compile configuration explicitly and report provider outputs.
+        def compileFiles = configurations.getByName('minecraftNamedCompile').resolve()
+        def extension = net.fabricmc.loom.LoomGradleExtension.get(project)
+        def root = file('..').toPath().toAbsolutePath().normalize()
+        def describe = { path ->
+            def normalized = path.toAbsolutePath().normalize()
+            def target = normalized.toFile()
+            [path: root.relativize(normalized).toString(), exists: target.isFile(),
+             bytes: target.isFile() ? target.length() : null]
+        }
+        def outputs = [
+            minecraftNamedCompileFiles: compileFiles.size(),
+            intermediary: extension.getIntermediaryMinecraftProvider().getMinecraftJarPaths().collect(describe),
+            named: extension.getNamedMinecraftProvider().getMinecraftJarPaths().collect(describe),
+            mappings: describe(extension.getMappingConfiguration().tinyMappings)
+        ]
+        def out = file('../diagnostic-output/loom-provider-outputs.json')
+        out.parentFile.mkdirs()
+        out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(outputs)) + '\n'
+        println 'OFFICIAL_LOOM_PROVIDER_OUTPUTS ' + groovy.json.JsonOutput.toJson(outputs)
+        println 'Official Quilt Loom output resolution completed; Minecraft was not launched.'
     }
 }
 

@@ -195,6 +195,57 @@ def run_step(name, command, environment, timeout, receipt):
     require(result.returncode == 0, name + ' failed; no successful-build claim')
 
 
+def zip_metadata(path):
+    """Describe packaging and hash sorted entry contents without returning them."""
+    with zipfile.ZipFile(path) as archive:
+        entries = archive.infolist()
+        require(len(entries) <= 100000, 'Unexpected generated ZIP entry count')
+        require(sum(entry.file_size for entry in entries) <= 1024 * 1024 * 1024, 'Oversized generated ZIP contents')
+        timestamps = sorted({entry.date_time for entry in entries})
+        content = []
+        for entry in sorted(entries, key=lambda item: item.filename):
+            if not entry.is_dir():
+                with archive.open(entry) as stream:
+                    content.append([entry.filename, entry.file_size, hashlib.file_digest(stream, 'sha256').hexdigest()])
+        canonical = json.dumps(content, ensure_ascii=True, separators=(',', ':')).encode('ascii')
+        order = json.dumps([entry.filename for entry in entries], ensure_ascii=True, separators=(',', ':')).encode('ascii')
+        return {'entryCount': len(entries), 'fileEntryCount': len(content),
+                'compressedBytes': sum(entry.compress_size for entry in entries),
+                'uncompressedBytes': sum(entry.file_size for entry in entries),
+                'compressionMethods': sorted({entry.compress_type for entry in entries}),
+                'distinctTimestampCount': len(timestamps), 'timestampsFirst16': timestamps[:16],
+                'entryOrderSha256': hashlib.sha256(order).hexdigest(),
+                'sortedEntryContentSha256': hashlib.sha256(canonical).hexdigest(),
+                'contentDigestFormat': 'SHA256(compact ASCII JSON of filename-sorted [name,size,SHA256(uncompressed bytes)] for non-directory entries)'}
+
+
+def record_generated_inputs(receipt):
+    """Print only bounded path/size/hash metadata, never Minecraft payload bytes."""
+    cache = destination('run/quilt-native-client/gradle-cache/caches/quilt-loom')
+    names = set(EXPECTED['generatedPins'])
+    if cache.exists():
+        names.update(path.relative_to(ROOT).as_posix() for path in cache.rglob('*')
+                     if path.is_file() and (path.suffix in ('.jar', '.tiny') or path.name.endswith('.jar.backup')))
+    require(len(names) <= 128, 'Unexpected generated-input inventory size')
+    inventory = []
+    for name in sorted(names):
+        path = destination(name)
+        row = {'path': name, 'exists': path.is_file()}
+        if path.is_file():
+            require(path.stat().st_size <= MAX_INPUT_BYTES, 'Oversized generated input')
+            row.update({'bytes': path.stat().st_size, 'sha256': digest(path)})
+        if name in EXPECTED['generatedPins']:
+            row['expectedSha256'] = EXPECTED['generatedPins'][name]
+            row['matchesOriginalPin'] = row.get('sha256') == row['expectedSha256']
+            if path.is_file() and path.suffix == '.jar' and not row['matchesOriginalPin']:
+                row['zipMetadata'] = zip_metadata(path)
+        inventory.append(row)
+    receipt['generatedInputInventory'] = inventory
+    (REPORT / 'generated-input-inventory.json').write_text(json.dumps(inventory, indent=2) + '\n')
+    (REPORT / 'receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+    print('OFFICIAL_LOOM_GENERATED_INPUT_INVENTORY ' + json.dumps(inventory, sort_keys=True), flush=True)
+
+
 def build(fetch):
     require(fetch, 'Build requires explicit --fetch')
     require(os.environ.get('GITHUB_ACTIONS') == 'true' and os.environ.get('GITHUB_REPOSITORY') == REPOSITORY
@@ -217,12 +268,17 @@ def build(fetch):
         environment.pop(variable, None)
     environment.update({'JAVA_HOME': str(jdk), 'GRADLE_USER_HOME': str(ROOT / 'run/quilt-native-client/gradle-cache'),
                         'PATH': str(jdk / 'bin') + os.pathsep + environment['PATH'], 'LC_ALL': 'C.UTF-8', 'TZ': 'UTC'})
-    run_step('official-loom-mappings', [gradle, '--offline', '--no-daemon', '--no-parallel', '--max-workers=1',
-             '--console=plain', '-p', CI, '-Porg.gradle.java.installations.paths=' + str(jdk), 'prepareProbeMappings'],
-             environment, 720, receipt)
+    try:
+        run_step('official-loom-mappings', [gradle, '--offline', '--no-daemon', '--no-parallel', '--max-workers=1',
+                 '--console=plain', '-p', CI, '-Porg.gradle.java.installations.paths=' + str(jdk), 'prepareProbeMappings'],
+                 environment, 720, receipt)
+    finally:
+        record_generated_inputs(receipt)
     for name, expected in EXPECTED['generatedPins'].items():
-        require(destination(name).is_file() and digest(destination(name)) == expected,
-                'Official Loom output differs from original API1 pin: ' + name)
+        require(destination(name).is_file(), 'Official Loom expected output is missing: ' + name)
+        actual = digest(destination(name))
+        require(actual == expected, 'Official Loom output SHA256 differs from original API1 pin: '
+                + name + '; expected=' + expected + '; actual=' + actual)
     # Require every one of the unchanged builder's inputs before invoking it.
     for name, expected in EXPECTED['builderInputPins'].items():
         require(destination(name).is_file() and digest(destination(name)) == expected, 'Original builder pin mismatch: ' + name)

@@ -29,12 +29,22 @@ upstream authorship and licenses; this stage does not relicense those inputs.
 4. Run the official plugin strictly offline in a new cache, with one Gradle worker
    and a 1,280 MiB heap, to generate the merged/intermediary Minecraft and tiny maps.
    The minimal mapping project has no mod source and requests only
-   `prepareProbeMappings` and its `classes` dependency. It does not resolve or run
+   `prepareProbeMappings` and its `classes` dependency. The diagnostic explicitly
+   resolves `minecraftNamedCompile` and reports the official providers' output paths;
+   Loom 1.8.5 creates intermediary and named Minecraft outputs during evaluation.
+   It does not resolve or run
    the real-mod test set. A task-graph guard rejects assets, launch/run, JavaExec,
    tests, and source-decompilation tasks.
 5. Require the original generated input hashes:
    - merged/intermediary Minecraft: `bd5e9b18303dfbd03365286b126dfde5c688861307e0ed541e16313e6aca1d90`
    - mappings.tiny: `0656f2619dc6e63f1fbfb06c2e4eaf541cec91853afb8ecd37588b229eca40f7`
+   Before this gate, log a bounded path/existence/size/SHA-256 inventory of generated
+   JARs and tiny maps. Failure messages distinguish a missing path from a hash
+   mismatch. The inventory contains metadata only, never Minecraft payload bytes.
+   An existing mismatched expected JAR also reports entry counts, compressed and
+   uncompressed totals, timestamp/method metadata, entry-order hash, and a
+   deterministic digest of sorted entry names, sizes, and content hashes. These
+   diagnostics do not change or normalize any generated JAR or acceptance pin.
 6. Require all 22 original builder input hashes and invoke the unchanged builder.
    Require the original probe JAR hash:
    `9106f5a6629d3e3f2206bc967d77aaff228f67ef6e216cd8f27f79139e743dfe`.
