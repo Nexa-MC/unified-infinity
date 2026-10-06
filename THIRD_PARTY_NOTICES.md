@@ -2,7 +2,9 @@
 
 Unified ∞ Infinity is an R&D source integration using credited upstream software.
 It is not presented as a clean-room implementation of Fabric, NeoForge, Connector,
-FFAPI, Mixin or their authors' work. No public release is authorized.
+FFAPI, Mixin or their authors' work. Original project code/documentation licensing
+is now described in `LICENSING.md`; component licenses remain unchanged. This
+source publication does not certify a combined binary distribution.
 
 - Sinytra Connector2.0.0-beta.17+1.21.1: MIT. The integrated-loader artifact is a
   disclosed source-derived build; its changed-source patch, original-source hashes,
@@ -43,8 +45,9 @@ not an unchanged upstream binary. Its complete corresponding source ZIP is
 `source-workspace/artifacts/unified-infinity-complete-connector-fart-adapter-sources.zip`.
 See `source-workspace/source-lock.json`, the original licenses under
 `source-workspace/upstream/`, and `docs/full-source-build/README.md`.
-No single project-wide reuse license is asserted for this mixed-license tree;
-this attribution update does not relicense any component. Frozen runtime evidence
+No single license replaces all component licenses in this mixed-license tree.
+The original M5 attribution update did not relicense any component; the later
+root grant is scoped by `LICENSING.md` and preserves these existing terms. Frozen runtime evidence
 keeps its original tested hashes; the corrected host notice is a publication
 change and a future rebuilt host must be pinned and tested separately.
 
@@ -77,3 +80,23 @@ The v6 source snapshot includes modified FancyModLoader4.0.42 sources under
 and Adapter retain original Sinytra attribution; modified FART retains LGPL-2.1
 and corresponding source. Original component licenses apply independently;
 this project does not replace them with a blanket license.
+
+## Open-source documentation update (2026-10-06)
+
+Original project code and documentation, to the extent contributors have the
+right to license them and where no existing component grant applies, use
+LGPL-2.1-or-later under `LICENSING.md` and `LICENSE`. This does not replace
+Connector/Adapter MIT, FML/FART LGPL-2.1-only, Quilt/Fabric Apache-2.0 or any
+other upstream terms. Existing MIT probe/admission grants remain in place.
+
+The retained DevLaunch 1.0.2, JarJarSelector 0.4.1 and BootstrapLauncher 2.0.2
+source JARs in `source-workspace/fml-unified/provenance/` have accompanying
+license texts and archive-specific notices in `LICENSES/`. They are reference
+source archives, not shipped executable JARs. Their original bytes are unchanged.
+The pinned BootstrapLauncher source specifically declares LGPL version 3; it
+is not covered by the root version-2.1-or-later grant.
+
+Original user-supplied and upstream branding assets are excluded from the new
+code/documentation license grant. See `LICENSING.md` for scope and redistribution
+limits. Frozen runtime notices and source identities are historical evidence;
+this documentation-only update does not change any accepted runtime artifact.
