@@ -1,0 +1,468 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Network Control Probe closed protocol, schema 1",
+  "description": "Prepared contract only. Positive nonce is a correlation value, not a credential. Input/release additionally require exact canonical ASCII bytes and final LF. Process and socket evidence must be independently observed.",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/input"
+    },
+    {
+      "$ref": "#/$defs/release"
+    },
+    {
+      "$ref": "#/$defs/pass"
+    },
+    {
+      "$ref": "#/$defs/fail"
+    },
+    {
+      "$ref": "#/$defs/ready"
+    },
+    {
+      "$ref": "#/$defs/disconnected"
+    }
+  ],
+  "$defs": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "nonce": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "sequence": {
+          "const": 1
+        },
+        "port": {
+          "enum": [
+            25631,
+            25632
+          ]
+        }
+      },
+      "required": [
+        "schema",
+        "nonce",
+        "sequence",
+        "port"
+      ],
+      "additionalProperties": false
+    },
+    "release": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "nonce": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "sequence": {
+          "const": 1
+        }
+      },
+      "required": [
+        "schema",
+        "nonce",
+        "sequence"
+      ],
+      "additionalProperties": false
+    },
+    "pass": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "role": {
+          "enum": [
+            "client",
+            "server"
+          ]
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "start_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "status": {
+          "const": "PASS"
+        },
+        "nonce": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "sequence": {
+          "const": 1
+        },
+        "counter_before": {
+          "const": 0
+        },
+        "counter_after": {
+          "const": 1
+        },
+        "player_uuid": {
+          "const": "dd29b97d-cafa-3d53-94e1-f85f75bcf1f6"
+        },
+        "player_name": {
+          "const": "APILocal"
+        },
+        "port": {
+          "enum": [
+            25631,
+            25632
+          ]
+        },
+        "main_thread": {
+          "const": true
+        },
+        "loopback": {
+          "const": true
+        },
+        "memory_connection": {
+          "const": false
+        },
+        "dedicated_server": {
+          "type": "boolean"
+        },
+        "remote_join": {
+          "type": "boolean"
+        },
+        "code": {
+          "const": "ok"
+        },
+        "phase": {
+          "const": "PLAY"
+        },
+        "flow": {
+          "enum": [
+            "SERVERBOUND",
+            "CLIENTBOUND"
+          ]
+        }
+      },
+      "required": [
+        "schema",
+        "role",
+        "pid",
+        "start_ticks",
+        "status",
+        "nonce",
+        "sequence",
+        "counter_before",
+        "counter_after",
+        "player_uuid",
+        "player_name",
+        "port",
+        "main_thread",
+        "loopback",
+        "memory_connection",
+        "dedicated_server",
+        "remote_join",
+        "code",
+        "phase",
+        "flow"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "server"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "dedicated_server": {
+                "const": true
+              },
+              "remote_join": {
+                "const": false
+              },
+              "flow": {
+                "const": "SERVERBOUND"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "dedicated_server": {
+                "const": false
+              },
+              "remote_join": {
+                "const": true
+              },
+              "flow": {
+                "const": "CLIENTBOUND"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "fail": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "role": {
+          "enum": [
+            "client",
+            "server"
+          ]
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "start_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "status": {
+          "const": "FAIL"
+        },
+        "code": {
+          "enum": [
+            "already_failed",
+            "callback_duplicate",
+            "callback_missing",
+            "client_already_failed",
+            "client_disconnect_mismatch",
+            "client_duplicate_join",
+            "client_duplicate_or_unsolicited_reply",
+            "client_early_disconnect",
+            "client_integrated_server",
+            "client_join_failure",
+            "client_join_timeout",
+            "client_logout_failure",
+            "client_release_timeout",
+            "client_reply_failure",
+            "client_reply_mismatch",
+            "client_reply_timeout",
+            "client_setup_failure",
+            "client_tick_failure",
+            "client_wrong_connection",
+            "client_wrong_direction",
+            "client_wrong_identity",
+            "client_wrong_thread",
+            "connection_closed",
+            "duplicate_result",
+            "input_io",
+            "input_nonce_range",
+            "input_not_ascii",
+            "input_not_regular",
+            "input_schema",
+            "input_too_large",
+            "memory_connection",
+            "not_ipv4_loopback",
+            "not_tcp_address",
+            "process_identity",
+            "release_nonce",
+            "release_nonce_range",
+            "release_schema",
+            "reply_domain",
+            "reply_size",
+            "request_domain",
+            "request_size",
+            "result_direction",
+            "result_io",
+            "result_symlink",
+            "result_too_large",
+            "server_already_failed",
+            "server_counter",
+            "server_duplicate",
+            "server_duplicate_request",
+            "server_handler_failure",
+            "server_has_nonce_input",
+            "server_not_dedicated",
+            "server_setup_failure",
+            "server_wrong_direction",
+            "server_wrong_identity",
+            "server_wrong_instance",
+            "server_wrong_player_type",
+            "server_wrong_thread",
+            "stale_release",
+            "stale_result",
+            "wrong_port"
+          ]
+        }
+      },
+      "required": [
+        "schema",
+        "role",
+        "pid",
+        "start_ticks",
+        "status",
+        "code"
+      ],
+      "additionalProperties": false
+    },
+    "ready": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "role": {
+          "const": "server"
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "start_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "port": {
+          "enum": [
+            25631,
+            25632
+          ]
+        },
+        "main_thread": {
+          "const": true
+        },
+        "dedicated_server": {
+          "const": true
+        }
+      },
+      "required": [
+        "schema",
+        "role",
+        "pid",
+        "start_ticks",
+        "port",
+        "main_thread",
+        "dedicated_server"
+      ],
+      "additionalProperties": false
+    },
+    "disconnected": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": 1
+        },
+        "role": {
+          "const": "client"
+        },
+        "pid": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "start_ticks": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "nonce": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9223372036854775807
+        },
+        "sequence": {
+          "const": 1
+        },
+        "player_uuid": {
+          "const": "dd29b97d-cafa-3d53-94e1-f85f75bcf1f6"
+        },
+        "code": {
+          "const": "ok"
+        }
+      },
+      "required": [
+        "schema",
+        "role",
+        "pid",
+        "start_ticks",
+        "nonce",
+        "sequence",
+        "player_uuid",
+        "code"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "x-profileFiles": {
+    "network-control-input.json": {
+      "maxBytes": 128,
+      "definition": "input",
+      "onlyRole": "client",
+      "canonicalOrder": [
+        "schema",
+        "nonce",
+        "sequence",
+        "port"
+      ],
+      "spaces": false,
+      "finalLf": true
+    },
+    "network-control-release.json": {
+      "maxBytes": 96,
+      "definition": "release",
+      "onlyRole": "client",
+      "canonicalOrder": [
+        "schema",
+        "nonce",
+        "sequence"
+      ],
+      "spaces": false,
+      "finalLf": true
+    },
+    "network-control-client-result.json": {
+      "maxBytes": 2048,
+      "definition": [
+        "pass",
+        "fail"
+      ],
+      "role": "client"
+    },
+    "network-control-server-result.json": {
+      "maxBytes": 2048,
+      "definition": [
+        "pass",
+        "fail"
+      ],
+      "role": "server"
+    }
+  },
+  "x-markers": {
+    "NETWORK_CONTROL_READY": "ready",
+    "NETWORK_CONTROL_JSON": [
+      "pass",
+      "fail"
+    ],
+    "NETWORK_CONTROL_DISCONNECTED": "disconnected"
+  },
+  "x-deadlinesSeconds": {
+    "joinFromClientSetup": 90,
+    "replyFromSend": 20,
+    "releaseAndLogoutFromReply": 15
+  },
+  "x-wirePayloadBytes": {
+    "network_control:request": 12,
+    "network_control:reply": 16
+  }
+}

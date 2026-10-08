@@ -1,0 +1,737 @@
+{
+  "schema": 1,
+  "status": "CONCRETE_COLD_DIAGNOSTIC_SOURCE_EXECUTION_UNTESTED",
+  "repository": "Nexa-MC/unified-infinity",
+  "branch": "diagnostic/network-pair-20261006-a",
+  "remotePublished": false,
+  "downloadsExecuted": false,
+  "jvmStarted": false,
+  "gameLaunched": false,
+  "files": [
+    {
+      "path": ".github/workflows/network-pair.yml",
+      "bytes": 1242,
+      "sha256": "ac87ff7d30f53c36bcee5fb58f43799a50fadb0abdf285b027dd4d30f450918b"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-assets-lock.json",
+      "bytes": 1307151,
+      "sha256": "c264be3ec7e2485997848f3e3a5af4690b91ab7370a605b35934364e57e034ba"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-index-lock.json",
+      "bytes": 5258,
+      "sha256": "1a353dbaec3fe9173257574040eb3d9a6f86eec60e03f7b14a80f02970ad433b"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-platform-verified.json",
+      "bytes": 25123,
+      "sha256": "7e41a44a355907b1668b894c8750cbf632f8f7d430b722815662387b32fe0929"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/seal_official_client.py",
+      "bytes": 3930,
+      "sha256": "190e0bd38098827cc7d0d44f94e325caa780f47834a0ecb9ec90b26e34d0e13c"
+    },
+    {
+      "path": "portable-bootstrap/frozen/api1-recovery-bootstrap-sources-and-evidence.zip",
+      "bytes": 583475,
+      "sha256": "fce90a02d07167567aed14b03c5bc643dfc3910f92697c1facbd8c0c09f9361f"
+    },
+    {
+      "path": "portable-bootstrap/game-input-lock.json",
+      "bytes": 8324,
+      "sha256": "703f06f260f55ae8e51187fb942a7da11a10454a784cd89e0556105d767d1a91"
+    },
+    {
+      "path": "portable-bootstrap/input-lock.json",
+      "bytes": 50631,
+      "sha256": "c69d9d5ee9646979e8a6fee9144f80b5cf7bebd888173af7984888a2d4a8211c"
+    },
+    {
+      "path": "portable-bootstrap/prepare_toolchains.py",
+      "bytes": 1913,
+      "sha256": "4876b3b93aea42d3f7786cbdbb1427b1fecfa3777bf3de7de36bbad8ff45667a"
+    },
+    {
+      "path": "portable-bootstrap/restore_inputs.py",
+      "bytes": 4925,
+      "sha256": "26a69bd13798939dd606fe7069380eed6cffadf4659f88182471e3a4d48bb859"
+    },
+    {
+      "path": "recovery/api1/sources/accepted-v6-reconstruction-base.zip",
+      "bytes": 4697414,
+      "sha256": "655c90673ce9f6d1cc0783037fe9a066dfaa774c3f347752f8ece8035c5c1762"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/client-development/build.gradle",
+      "bytes": 2542,
+      "sha256": "9a5d81f0e54ee4bcb30536fb7ef13874bd8da82c55e38aeec08a1210acca531f"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/client-development/settings.gradle",
+      "bytes": 176,
+      "sha256": "f27254c4998ea3d52595efdbb5c7c0ff7ba67ad304935296fd3f3da412e4538c"
+    },
+    {
+      "path": "work/api1/four-loader/forge-probe/unified-forge-probe-final26b-environment-lock.json",
+      "bytes": 22914,
+      "sha256": "037020ef98eed6ee8c8fc5af8359058cedb248d87d3b3acf756129b22c60b652"
+    },
+    {
+      "path": "work/api1/run/api1-unified-client-build/client-launch-inputs.json",
+      "bytes": 56099,
+      "sha256": "174b8e73aa76bc54378de04ba7b773feed87603991489a2088212581bc6b0d23"
+    },
+    {
+      "path": "work/api1/run/api1-unified-client-build/official-client-launch-seal.json",
+      "bytes": 66217,
+      "sha256": "fa801636e708c10bf1d1c412e30417d2bb5b756e866175cf075b3567e6d2cd25"
+    },
+    {
+      "path": "work/emi-render-integration/candidate-complete-core-sources.zip",
+      "bytes": 1152426,
+      "sha256": "f22095224db189603b74ef4b147a5c8eae0caed5c2abdeaf1ae02e3b2215f111"
+    },
+    {
+      "path": "work/emi-render-integration/emi-render-source-checkpoint.zip",
+      "bytes": 1262683,
+      "sha256": "6279d3f2c1af2c3ef42a7a6f647402ad2514e4ac1d9612b59a80a2cb5daf4d70"
+    },
+    {
+      "path": "work/network-ci-native-probe/LICENSE",
+      "bytes": 1091,
+      "sha256": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc"
+    },
+    {
+      "path": "work/network-ci-native-probe/PROVENANCE.json",
+      "bytes": 12548,
+      "sha256": "9a080bbd19a8641b4afa729e04a60dfa8cba37778304379fb4919da91ee848a9"
+    },
+    {
+      "path": "work/network-ci-native-probe/README.md",
+      "bytes": 9158,
+      "sha256": "a19589816051134418da1db71b6783af2f21f37997432f1f30d34bf2627216e9"
+    },
+    {
+      "path": "work/network-ci-native-probe/build.gradle",
+      "bytes": 1063,
+      "sha256": "9179c78ee2335d29dccdb6ddeb90cb5862d59e4fc367c1c0042552bbd5c28e78"
+    },
+    {
+      "path": "work/network-ci-native-probe/gradle/verification-metadata.xml",
+      "bytes": 197245,
+      "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
+    },
+    {
+      "path": "work/network-ci-native-probe/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 311,
+      "sha256": "175642bb790475fe367024eae6bfcf9436d9e2ccc73304edeab1e971e80ce028"
+    },
+    {
+      "path": "work/network-ci-native-probe/gradle.properties",
+      "bytes": 176,
+      "sha256": "611299f50709cf84f013bda519f2ed68479927fa0721207e23a745c3dbff7b88"
+    },
+    {
+      "path": "work/network-ci-native-probe/protocol-schema.json",
+      "bytes": 10527,
+      "sha256": "702565002e3acdf9dcb475f15242e9bbe2e6636a7c6cdef70e334b2c524e840b"
+    },
+    {
+      "path": "work/network-ci-native-probe/settings.gradle",
+      "bytes": 181,
+      "sha256": "6682da512209e782fa5a519385a50c9c9b890fba5748e576fedaf53b612ecb29"
+    },
+    {
+      "path": "work/network-ci-native-probe/source-manifest.json",
+      "bytes": 2775,
+      "sha256": "65cf1c852d6e07226fcd7d2f66df8d202f3a6e70cd4d8f963c6dc40b28554909"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/main/java/dev/infinity/networkcontrol/NonceProbe.java",
+      "bytes": 13723,
+      "sha256": "7953143c51da07de058193dc5330794b9e41d9182bf69b6bb350fc9dee16a106"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/main/java/dev/infinity/networkcontrol/NonceProbeClient.java",
+      "bytes": 6924,
+      "sha256": "8c2fd2d5ea8c0e2bb44856a49a9d36c6736fb2fd90e14d88f2c498edf2aa7234"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/main/java/dev/infinity/networkcontrol/NonceReply.java",
+      "bytes": 1477,
+      "sha256": "b0aeb0ff146b938bf163f8ba3d3b800725d5ef2fdc17849f2794c62087c1bf87"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/main/java/dev/infinity/networkcontrol/NonceRequest.java",
+      "bytes": 1388,
+      "sha256": "e598d8e93e77a3a4864a7f8411a8575af7d3ab2c6f6d604c2f2e25f2a6b66ba8"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/main/resources/META-INF/neoforge.mods.toml",
+      "bytes": 497,
+      "sha256": "39885ff481c3c4b5505df879f23a8610b92c72dab13661d73d240d8ae5e23762"
+    },
+    {
+      "path": "work/network-ci-native-probe/src/test/java/dev/infinity/networkcontrol/PreparedCodecTest.java",
+      "bytes": 5093,
+      "sha256": "84a6aa53aec28d3654461bc2c1443c105494cf91ab1a8feceab80aa116cfa5fc"
+    },
+    {
+      "path": "work/network-ci-native-probe/verify_source.py",
+      "bytes": 3818,
+      "sha256": "b9df26983fb0f8d876c3eb129e4dd1a687d4efe974fc67bcae43c61d6d9b94e6"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/PAIR-SPEC.md",
+      "bytes": 14056,
+      "sha256": "5fd417e7956810712f49dcc8bd1a4431f08a7100301180cf9e37e458eb16718a"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/PROVENANCE.json",
+      "bytes": 3164,
+      "sha256": "48c3836b2a75870caa2fd4dbe04b4cd31240116287843f8930e4e8560719f5c2"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/README.md",
+      "bytes": 7751,
+      "sha256": "c0f6108474ac615f1388ca218423677a278ffb6d7634307583fc1610bf59d3a7"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/evidence/actual-input-audit.json",
+      "bytes": 827,
+      "sha256": "7f051081aaa2614d0efd711ad5c22e773ce4e2045c43f8f09e8ec8dade7d52cb"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/evidence/source-checks.json",
+      "bytes": 4781,
+      "sha256": "7858c17ff535b5d52014b8365d7c7f0068b5d504f76ccc573a0d0f5dbe0ab813"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/evidence/supervisor.diff",
+      "bytes": 14177,
+      "sha256": "fd4dd40a722857fa03c12fbce2589aa8df1238ae225e9c77324b850d88a5952a"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/evidence/synthetic-tests.txt",
+      "bytes": 16163,
+      "sha256": "9ddb803a14e3986a91ecac342d7ed449c16c55214b4b7af1129fc4da5c926379"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/source-manifest.json",
+      "bytes": 2281,
+      "sha256": "6c94bfd342ef1faa97f42e88952df2a5f3c0b15da38e0ec56658523a9d6f2075"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/supervisor.py",
+      "bytes": 72783,
+      "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_control_serialization.py",
+      "bytes": 17401,
+      "sha256": "16c2a91331981d0c65a6a494ea51c7b7fbe1ecd2fd5e2ee5bdc5bd2c220d3d3b"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_input_modes.py",
+      "bytes": 10452,
+      "sha256": "111756e5e674c36edc9651ab75f739c2b9b1b88d95c682643526ebc48859f8a4"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_legal_links.py",
+      "bytes": 9038,
+      "sha256": "dd05360544fd9e59dd349c41480978f67e7cd5b927cc8822225e17e640de800b"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_portability.py",
+      "bytes": 18922,
+      "sha256": "ccea61c659337ed812dd8af7b382fa4329bcfac5928c8296d8834dd1a2481996"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_supervisor.py",
+      "bytes": 25543,
+      "sha256": "f078276bb371b4ffe5227a8d9c01938b44a73e9f046cab471285677cbab3e3d8"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/LOCK-CONTRACT.md",
+      "bytes": 5435,
+      "sha256": "3be0f86cc0fcc5e4ad19e28aee2b7554c779396ee3b75dc0ce2ba9c6cbbdcf90"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/PROVENANCE.json",
+      "bytes": 1620,
+      "sha256": "0d39919f7a83acb4c04ed3da82888ab51125a76cee1960e277e5bf9873c61b21"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/README.md",
+      "bytes": 6650,
+      "sha256": "5adedaec6a5530ec82069669c52096c095db17c76517d1832d4c6f6c92dd0d50"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/evidence/source-checks.json",
+      "bytes": 1779,
+      "sha256": "1553c431daf339eb508da3935c02f7b74efb9c79e4a121a8f071abff1fcc1c75"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/evidence/synthetic-tests.txt",
+      "bytes": 4985,
+      "sha256": "b198e70115ad41fa3a223df718ea0151d756bb7cfee2632df11466e6e0b2348e"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/graphics_preflight.py",
+      "bytes": 24107,
+      "sha256": "82283cb5b254f1102a6022b95433f38b6fccf9f99aa8b8f3abc004d9f2507946"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/official-input-research.json",
+      "bytes": 4700,
+      "sha256": "2a2c8bc5a96f5397a45170dd5555379639ad83d9ee4e0eeadba9a49fa1f2949a"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/source-manifest.json",
+      "bytes": 1641,
+      "sha256": "f49f0f9864d80f8af32e12cd56da0e1408e30c212f2c2a78089b34402f98c26b"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/test_graphics_preflight.py",
+      "bytes": 9395,
+      "sha256": "e33305a9fd2a4d3eed81eb3fd675de4cdce4b8df56c64aa17049e0b9f9006d9c"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/test_installed_provenance.py",
+      "bytes": 9592,
+      "sha256": "7d67ec532b38344462e27b9cbc2f31b40d145f0eeb17287f585ff25a96b9dac4"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/LICENSE-Connector-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/LICENSE-Control-Sources-MIT.txt",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/LICENSE-FML-LGPL-2.1.txt",
+      "bytes": 26526,
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/README.md",
+      "bytes": 6040,
+      "sha256": "8de68b5136bcc817135d925b14871b0a3410a7eb63f14bb652e6b8d3bcfd086f"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/assemble_pairs.py",
+      "bytes": 18565,
+      "sha256": "e3a54d562339ebdb090231e4b50e6d2055139deb06983109d715e8edcc6a75f1"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/evidence/source-postcheck.json",
+      "bytes": 1078,
+      "sha256": "2e12e2b36d6c6b2df0cd3293c72f8bb8768afb2949bf5cb7f9921eee820ca46e"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/evidence/transform-tests.txt",
+      "bytes": 1104,
+      "sha256": "a1d490dcf5c95b419cc838c8ac8c19da6acd1e389256d8ca0d93f2baa3627529"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/input-lock.json",
+      "bytes": 10071,
+      "sha256": "616469fb3005028cedb6e6ec0c72e2aec6749bc17162cea9f347b7cfa2ce43dd"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/four-loader/api-contract-controls/common.py",
+      "bytes": 5307,
+      "sha256": "919b8924e9542790bee9bfc13d90341021e79d3db60899444eedf38e441a47ef"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/four-loader/api-contract-controls/prepare_unified.py",
+      "bytes": 12444,
+      "sha256": "7d6dc41b05c0659403c3e0c0894601d4d7936897a6ffb7c42f904b6ebed6ab23"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/connector.json",
+      "bytes": 176,
+      "sha256": "67bee06b2b321ed25e0d4e9b5bac7ab76c8ae76442de6caf11f463ce2ae1ac5e"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/emi.css",
+      "bytes": 10180,
+      "sha256": "4358863687c3f314650c9d739938877f77c3b00ccabab474c5659a8c92710d75"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/fabric/indigo-renderer.properties",
+      "bytes": 281,
+      "sha256": "6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "030c703a4f13baa0a8d21015304d5c00612e60ff1fd5b7d72507ba1d6be37bdd"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "7c3f7da02b719316b5120e8714c45fc3ba762dcff57d738e3f3ebe8b091e5fcf"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/emi.css",
+      "bytes": 10186,
+      "sha256": "631c92dbdb06aa6377e2d99d86678833c897a88cc3841d6378f717c2ba09b451"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "2f62e5714f62538754a8b1948cb36153debab67b86de667be71b8475310bbd0d"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "369c950d99ff8a2bf1231f000851d4e5bbc299f65f59361be85e65c9bad1b75f"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/run/api1-unified-server-4/server.properties",
+      "bytes": 1397,
+      "sha256": "721c63af82e1e39385ec4f0734857d34c0d6081504855d795787dacf8105604e"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/source-workspace/fml-unified/tools/assemble_installation.py",
+      "bytes": 12433,
+      "sha256": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/api1/source-workspace/fml-unified/tools/validate_launch.py",
+      "bytes": 10432,
+      "sha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/network-pair-ci-next/normalize_exports.py",
+      "bytes": 9501,
+      "sha256": "f9bd77441554f24751bb20d0a6c9a1bcee19686e90a2bea80fc530d27d8b45b1"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs/work/network-pair-ci-next/prepare_profiles.py",
+      "bytes": 8827,
+      "sha256": "b885be6cd412aabe9ef7ca73c2ae7c13965b9a36d76d89a768820dcfb8440772"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/required-text-inputs.json",
+      "bytes": 9423,
+      "sha256": "cee61fb4bd359450973bf7d38b975c1b7a9d8df663aa5e504bc2aa0bce4debd9"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/source-manifest.json",
+      "bytes": 7975,
+      "sha256": "39d42049548a6e5b5c6b87730922c382e45a75ef40c0d6f7f40a359c95b39942"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/test_assembly.py",
+      "bytes": 3486,
+      "sha256": "64a495ef05504d942cb3cee8dfbc2736ba6781605b8aed45370797225f51a016"
+    },
+    {
+      "path": "work/network-pair-assembly-local1/verify_assembly.py",
+      "bytes": 3901,
+      "sha256": "0a6abe308114cabe88cad873988d03f8a7c1accf90fe376754bc404a15cbf3bb"
+    },
+    {
+      "path": "work/network-pair-cold-glue/CORE-DEPENDENCIES.md",
+      "bytes": 3731,
+      "sha256": "7e70102acba0071ef78413e82c52175864c0e4aed2a1e13ad8c0ef0944305639"
+    },
+    {
+      "path": "work/network-pair-cold-glue/PAIR-ASSEMBLY.md",
+      "bytes": 7022,
+      "sha256": "5a824172291d6bf22541039c5c78e3be7843b1377b2f14321134796e3739a308"
+    },
+    {
+      "path": "work/network-pair-cold-glue/README.md",
+      "bytes": 6570,
+      "sha256": "f50707a59b90b7c3b506d108a71adb106154c5abb2b05028fa262796c9faeaa3"
+    },
+    {
+      "path": "work/network-pair-cold-glue/SOURCE-MATERIALIZATION.md",
+      "bytes": 5597,
+      "sha256": "3fbde992d970e56acc2cc111d1176183001fd3d823a50bcb6441d02f7665e86a"
+    },
+    {
+      "path": "work/network-pair-cold-glue/bounded_process.py",
+      "bytes": 2042,
+      "sha256": "f2ce2dddd4007953046b55c0f9946b662013b0b1652c713abdce940e13e45d9b"
+    },
+    {
+      "path": "work/network-pair-cold-glue/build_candidate.py",
+      "bytes": 12529,
+      "sha256": "1dae2d61d34ce4f3ab44fe91f0989149d24b5d41dc3dcd26673527d7af6f70fb"
+    },
+    {
+      "path": "work/network-pair-cold-glue/capture_core_dependencies.py",
+      "bytes": 14914,
+      "sha256": "8031b1b3643fc6e99e96c40e9871458245f1a9c0cde2838a14d0f7bb1c5531c0"
+    },
+    {
+      "path": "work/network-pair-cold-glue/check_stage.py",
+      "bytes": 1632,
+      "sha256": "04c1da8d828805f970da58e3d29c42491b7ce7159fbab3f068da013084925b94"
+    },
+    {
+      "path": "work/network-pair-cold-glue/compile_probe.py",
+      "bytes": 8778,
+      "sha256": "3583f8b8574a50c0cb53bb9aefa3280b7ef94039d41cabd1781d1bea5924b4aa"
+    },
+    {
+      "path": "work/network-pair-cold-glue/core-dependency-lock.json",
+      "bytes": 1319498,
+      "sha256": "8b5f08ec1ef07a8c646e855d01a01bb9d4797b8d821c87820ec3285cf23ba993"
+    },
+    {
+      "path": "work/network-pair-cold-glue/core-dependency-validation.json",
+      "bytes": 2052,
+      "sha256": "81a883513a9fd0a5cd1f0575d028d254c91cf49dcff0725b5d1e516615a90890"
+    },
+    {
+      "path": "work/network-pair-cold-glue/driver.py",
+      "bytes": 16012,
+      "sha256": "8db334be3c90bf37a878fb7cb817cd306264b8aeb0e8e636a91578c1cce2f6b7"
+    },
+    {
+      "path": "work/network-pair-cold-glue/graphics-runner-notes.md",
+      "bytes": 3903,
+      "sha256": "5f18793591e08fe274edd14aa6e8b493ee67b135ca1598af5a7d70f67a67cfe1"
+    },
+    {
+      "path": "work/network-pair-cold-glue/graphics-source-checks.json",
+      "bytes": 1107,
+      "sha256": "f9225d7cae595b345e281e199857367073da68ef78dc291794c827c36873e2f6"
+    },
+    {
+      "path": "work/network-pair-cold-glue/graphics_runner.py",
+      "bytes": 23223,
+      "sha256": "128aad1fc5f35443e811b89c362acd76c564e0187dd50b6d745c000734d8007d"
+    },
+    {
+      "path": "work/network-pair-cold-glue/lifetime-cleanup-checks.json",
+      "bytes": 1857,
+      "sha256": "64b2c436b2a40f364687210ec69f4f96e493744d0eb73939138d638800db2ce2"
+    },
+    {
+      "path": "work/network-pair-cold-glue/network-pair.yml",
+      "bytes": 1242,
+      "sha256": "ac87ff7d30f53c36bcee5fb58f43799a50fadb0abdf285b027dd4d30f450918b"
+    },
+    {
+      "path": "work/network-pair-cold-glue/original-mod-lock.json",
+      "bytes": 1539,
+      "sha256": "7f8f9173abde03471f0ca1002d8773f5ee0b10e6c5885823f58e509612f21dba"
+    },
+    {
+      "path": "work/network-pair-cold-glue/pair-assembly-validation.json",
+      "bytes": 1832,
+      "sha256": "8b3c31383e23cc4fd33fec4522561f6b450a647fb084d637cda959aa607373fb"
+    },
+    {
+      "path": "work/network-pair-cold-glue/pair_assembly.py",
+      "bytes": 22736,
+      "sha256": "671362dd95860fc3fa11b13e2ffbc7eeb80ad8851a557d8c156cb6f7c8a81a7c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/product-input-lock.json",
+      "bytes": 4183,
+      "sha256": "4131605fee6cf17b321f787c0b84ddc94fd00d2f417b39c1b85a42d8814cdc0c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/runtime-inputs.lock.json",
+      "bytes": 122749,
+      "sha256": "744be4c4fd9464e77e94f88db87f7f4a2e07d5aa2c50c97fce7927b92a07a2e0"
+    },
+    {
+      "path": "work/network-pair-cold-glue/runtime-restore-notes.md",
+      "bytes": 5173,
+      "sha256": "114bad7d14424ba3dfc13fa9c7af956cd090a444d57f8693c3b074fc3eb1c397"
+    },
+    {
+      "path": "work/network-pair-cold-glue/runtime-source-checks.json",
+      "bytes": 1593,
+      "sha256": "bd398759ef54fabc6092591bb66b629e22a078fdf5424b4991ec1d4fbfb32255"
+    },
+    {
+      "path": "work/network-pair-cold-glue/runtime_restore.py",
+      "bytes": 31138,
+      "sha256": "69cb54d57dc114624573c34d4efd645a02e9671d6daffdaaa4201378cfbac533"
+    },
+    {
+      "path": "work/network-pair-cold-glue/seal_pair.py",
+      "bytes": 5156,
+      "sha256": "8bfddfb2a91b0081dc83b64eaa1b00252f65416b350191a7fd8477d87d8ab4e3"
+    },
+    {
+      "path": "work/network-pair-cold-glue/source-manifest.json",
+      "bytes": 665191,
+      "sha256": "7c5bd0cd8eee33f33e9d5b52a94a1767bdeaf8adeb8e3b3c47d5df8b01a8a861"
+    },
+    {
+      "path": "work/network-pair-cold-glue/source-validation.json",
+      "bytes": 1922,
+      "sha256": "e572c7d519b6740f4ac14550146166d3ae517a0ef6e0a4567d4512924f37ee5e"
+    },
+    {
+      "path": "work/network-pair-cold-glue/source_materialize.py",
+      "bytes": 14317,
+      "sha256": "8a511da9d20a66daa72a4ccf13b0927c34ab8fae5968c6752e9acc8d59f5201c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_driver_cleanup.py",
+      "bytes": 13736,
+      "sha256": "440d6451839d1ad6193699f0c6d73b7e0ef6cc691f98a874eb109b259702d12c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_graphics_runner.py",
+      "bytes": 9898,
+      "sha256": "8f9b518af7bcc62b0eed3fa7aa3569b45739891713d8984a80dbc517dad4c159"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_runtime_restore.py",
+      "bytes": 4528,
+      "sha256": "fcbde24cfeaffb7c8908e3627b9882ad770415133332b7cccea7adaa4c73d8b9"
+    },
+    {
+      "path": "work/network-pair-finalizer/LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "work/network-pair-finalizer/README.md",
+      "bytes": 4453,
+      "sha256": "bf49327d011a3c2a2338f97d2cc8547d9a601015df5cc46c9334aa7fd0241522"
+    },
+    {
+      "path": "work/network-pair-finalizer/finalize_pair.py",
+      "bytes": 4349,
+      "sha256": "3dfd555d10ec85b29c8bb59e6256425fc540f860de74624d079855b6028567a1"
+    },
+    {
+      "path": "work/network-pair-finalizer/prepare_inputs.py",
+      "bytes": 8524,
+      "sha256": "3fe5393ffc0dfe6a7bfe4a23ac9fe55dc133913a66e1908d7ff03e34ce44249e"
+    },
+    {
+      "path": "work/network-pair-finalizer/public-reference-derivative.json",
+      "bytes": 367,
+      "sha256": "3d0a097b9c56d95f9879799095af35158608181542c1f416dd2a01b94b3bec2f"
+    },
+    {
+      "path": "work/network-pair-finalizer/source-checks.json",
+      "bytes": 489,
+      "sha256": "5788370e857f0bc7c66f4ddf32ea49b4d923de8c81d085bc9eb42f017a212dc5"
+    },
+    {
+      "path": "work/network-pair-finalizer/source-manifest.json",
+      "bytes": 1210,
+      "sha256": "61791c502c8d5a8d0472f71e78f6b8d14b4bc3723db7ae38e784986668f8464e"
+    },
+    {
+      "path": "work/network-pair-finalizer/test_finalizer.py",
+      "bytes": 2266,
+      "sha256": "a8685fdf0cc2cc2999fb0942bbc491bbd4f302c4d4d47efb9bcefe8c8b344d99"
+    },
+    {
+      "path": "work/network-probe-compile-ci/diagnostics/neoforge-nonce-compile/dependency-lock.json",
+      "bytes": 174264,
+      "sha256": "7017831aed76945547d484599f4d6d5b250c3db814fed710ace8661f3d2889a6"
+    },
+    {
+      "path": "work/network-probe-compile-ci/diagnostics/neoforge-nonce-compile/probe/gradle/verification-metadata.xml",
+      "bytes": 197245,
+      "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
+    }
+  ],
+  "privateConversationIdentifiersIncluded": false,
+  "binaryDependenciesIncluded": false,
+  "publicationOnlyDerivative": "work/network-pair-finalizer/public-reference-derivative.json",
+  "lifetimeDerivative": {
+    "sourceOnly": true,
+    "workSeconds": 2520,
+    "cleanupReserveSeconds": 180,
+    "previousStagePreserved": true,
+    "collectorStartupOwnershipContinuous": true
+  }
+}

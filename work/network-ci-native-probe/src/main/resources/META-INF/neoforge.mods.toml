@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[mods]]
+modId="network_control"
+version="0.1.0"
+displayName="Bounded Network Control Probe"
+description='''Source-owned, single-operation PLAY payload diagnostic. No game acceptance has been run.'''
+
+[[dependencies.network_control]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.219]"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.network_control]]
+modId="minecraft"
+type="required"
+versionRange="[1.21.1]"
+ordering="NONE"
+side="BOTH"

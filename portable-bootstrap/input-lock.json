@@ -1,0 +1,1127 @@
+{
+  "schema": 1,
+  "rootPolicy": "All paths relative to explicit isolated reconstructed root",
+  "allowedHosts": [
+    "repo.maven.apache.org",
+    "repo1.maven.org",
+    "maven.neoforged.net",
+    "maven.minecraftforge.net",
+    "libraries.minecraft.net",
+    "piston-meta.mojang.com",
+    "piston-data.mojang.com",
+    "maven.fabricmc.net",
+    "maven.quiltmc.org",
+    "maven.su5ed.dev",
+    "maven.sinytra.org",
+    "services.gradle.org",
+    "downloads.gradle.org",
+    "github.com",
+    "release-assets.githubusercontent.com",
+    "objects.githubusercontent.com",
+    "cdn.modrinth.com"
+  ],
+  "artifacts": [
+    {
+      "path": ".toolchains/jdk21.tar.gz",
+      "sha256": "ce79869e1307ed8ee1e2baa86a412b1eb5b75d10a01006d788a6f968bcfaee94",
+      "bytes": 207473347,
+      "urls": [
+        "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.12.1%2B1/OpenJDK21U-jdk_x64_linux_hotspot_21.0.12.1_1.tar.gz"
+      ],
+      "kind": "official-jdk",
+      "tranche": "toolchains",
+      "phase": "toolchains"
+    },
+    {
+      "path": ".toolchains/gradle-8.11.1-bin.zip",
+      "sha256": "f397b287023acdba1e9f6fc5ea72d22dd63669d59ed4a289a29b1a76eee151c6",
+      "bytes": 136920070,
+      "urls": [
+        "https://services.gradle.org/distributions/gradle-8.11.1-bin.zip"
+      ],
+      "kind": "official-gradle",
+      "tranche": "full-module",
+      "phase": "toolchains"
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar",
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar",
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/github/oshi/oshi-core/6.4.10/oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/github/oshi/oshi-core/6.4.10/oshi-core-6.4.10.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar",
+      "sha256": "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar",
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar",
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/ibm/icu/icu4j/73.2/icu4j-73.2.jar",
+      "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/73.2/icu4j-73.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/authlib/6.0.54/authlib-6.0.54.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/blocklist/1.0.10/blocklist-1.0.10.jar",
+      "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/blocklist/1.0.10/blocklist-1.0.10.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/blocklist/1.0.10/blocklist-1.0.10.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/logging/1.2.7/logging-1.2.7.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/patchy/2.2.10/patchy-2.2.10.jar",
+      "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/patchy/2.2.10/patchy-2.2.10.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/patchy/2.2.10/patchy-2.2.10.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/text2speech/1.17.9/text2speech-1.17.9.jar",
+      "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/text2speech/1.17.9/text2speech-1.17.9.jar",
+        "https://repo.maven.apache.org/maven2/com/mojang/text2speech/1.17.9/text2speech-1.17.9.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/com/opencsv/opencsv/4.4/opencsv-4.4.jar",
+      "sha256": "5d8969c14c7acecc318a9321d34b1289afd1bdd41c0e772667fd0a4f53e291a0",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/com/opencsv/opencsv/4.4/opencsv-4.4.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar",
+      "sha256": "c058e39c7c64203d3a448f3adb588cb03d6378ed808485618f26e137f29dae73",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar",
+      "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.16.0/commons-codec-1.16.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/commons-logging/commons-logging/1.2/commons-logging-1.2.jar",
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar",
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar",
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar",
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar",
+      "sha256": "665d52cb6f35ca236919be9ac81653c208628507f91d6bf13479bc11496db616",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-buffer/4.1.97.Final/netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.97.Final/netty-buffer-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-codec/4.1.97.Final/netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.97.Final/netty-codec-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-common/4.1.97.Final/netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.97.Final/netty-common-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-handler/4.1.97.Final/netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.97.Final/netty-handler-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-resolver/4.1.97.Final/netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.97.Final/netty-resolver-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-transport/4.1.97.Final/netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.97.Final/netty-transport-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-transport-classes-epoll/4.1.97.Final/netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-transport-classes-epoll/4.1.97.Final/netty-transport-classes-epoll-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/io/netty/netty-transport-native-unix-common/4.1.97.Final/netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/io/netty/netty-transport-native-unix-common/4.1.97.Final/netty-transport-native-unix-common-4.1.97.Final.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5",
+      "urls": [
+        "https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar",
+      "sha256": "a47cd9a3db46a0cc3b769bd19a2a91d4ad0e9d019153d186f099bbaf5db16445",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar",
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar",
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar",
+      "sha256": "43fcb978664ba04fc0b3b1b1a14eccabb4bc87b7a415e0eb8bdd1c2f12324321",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar",
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar",
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar",
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar",
+      "sha256": "9d73d565b775c8ec9da83da6d2a25454c7aad95eba22f64def9261f214cc49ba",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar",
+      "sha256": "023a5a0cc7579fbf10a0bdd2a47a8ac1a10046a6432fef36ec850ab1ccf5504d",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar",
+      "sha256": "fc695a63f7cdc7f673f7a94d94c9f35518850594bd8fa5c933b0fff38352d8bb",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar",
+      "sha256": "fe98ac94c75afcf77b1b6156effcffe72140d861f7e165303c35a5abe1a4f834",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar",
+      "sha256": "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar",
+      "sha256": "16663ae2504a0522cca386af6c11281d3fde61d25b6bd2690d7200e900b26c36",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar",
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar",
+      "sha256": "6a594721d51444fd97b3eaefc998a77f606dedb03def494f74755aead3c9df3e",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.jar",
+      "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-compress/1.26.0/commons-compress-1.26.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar",
+      "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-text/1.3/commons-text-1.3.jar",
+      "sha256": "8185b3a5311092d83ed1f184c2d093b3105d726bbd76867c32b3511542bb99a8",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/commons/commons-text/1.3/commons-text-1.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar",
+      "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar",
+      "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar",
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar",
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar",
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.jar",
+      "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar",
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar",
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/joml/joml/1.10.5/joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/joml/joml/1.10.5/joml-1.10.5.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3-natives-linux.jar",
+      "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3.jar",
+      "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl/3.3.3/lwjgl-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-freetype/3.3.3/lwjgl-freetype-3.3.3-natives-linux.jar",
+      "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-freetype/3.3.3/lwjgl-freetype-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-freetype/3.3.3/lwjgl-freetype-3.3.3.jar",
+      "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-freetype/3.3.3/lwjgl-freetype-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3-natives-linux.jar",
+      "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3.jar",
+      "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-glfw/3.3.3/lwjgl-glfw-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-jemalloc/3.3.3/lwjgl-jemalloc-3.3.3-natives-linux.jar",
+      "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-jemalloc/3.3.3/lwjgl-jemalloc-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-jemalloc/3.3.3/lwjgl-jemalloc-3.3.3.jar",
+      "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-jemalloc/3.3.3/lwjgl-jemalloc-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-openal/3.3.3/lwjgl-openal-3.3.3-natives-linux.jar",
+      "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-openal/3.3.3/lwjgl-openal-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-openal/3.3.3/lwjgl-openal-3.3.3.jar",
+      "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-openal/3.3.3/lwjgl-openal-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3-natives-linux.jar",
+      "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3.jar",
+      "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-opengl/3.3.3/lwjgl-opengl-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-stb/3.3.3/lwjgl-stb-3.3.3-natives-linux.jar",
+      "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-stb/3.3.3/lwjgl-stb-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-stb/3.3.3/lwjgl-stb-3.3.3.jar",
+      "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-stb/3.3.3/lwjgl-stb-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-tinyfd/3.3.3/lwjgl-tinyfd-3.3.3-natives-linux.jar",
+      "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-tinyfd/3.3.3/lwjgl-tinyfd-3.3.3-natives-linux.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lwjgl/lwjgl-tinyfd/3.3.3/lwjgl-tinyfd-3.3.3.jar",
+      "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lwjgl/lwjgl-tinyfd/3.3.3/lwjgl-tinyfd-3.3.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar",
+      "sha256": "1263369b59e29c943918de11d6d6152e2ec6085ce63e5710516f8c67d368e4bc",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.3/asm-9.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm/9.8/asm-9.8.jar",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.8/asm-9.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar",
+      "sha256": "37fd5392bb2cf4c15f202ffefd46d0e92bb34ff848c549f30d426a60d6b29495",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar",
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar",
+      "sha256": "a347c24732db2aead106b6e5996a015b06a3ef86e790a4f75b61761f0d2f7f39",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar",
+      "sha256": "ae629c2609f39681ef8d140a42a23800464a94f2d23e36d8f25cd10d5e4caff4",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar",
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "run/client-dev/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jetbrains/annotations/24.1.0/7af6a669488450c4a07c2c3254e2151df42d7d04/annotations-24.1.0.jar",
+      "sha256": "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/jetbrains/annotations/24.1.0/annotations-24.1.0.jar"
+      ],
+      "phase": "fml-public"
+    },
+    {
+      "path": "docs/research/upstream/neoforge-21.1.219-installer.jar",
+      "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44",
+      "bytes": 6961236,
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-installer.jar"
+      ],
+      "phase": "installer"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+      "bytes": 2617057,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-installer.jar",
+      "sha256": "f1b620f2879ad6a5bbe15daba4d8f81eab9f5e08004967604960b98996bdebc4",
+      "bytes": 6377616,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-installer.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999",
+      "bytes": 58819,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15",
+      "bytes": 19235,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a",
+      "bytes": 122624,
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "bytes": 18226,
+      "urls": [
+        "https://cdn.modrinth.com/data/Wnxd13zP/versions/aeoQuGBI/Clumps-forge-1.21.1-19.0.0.1.jar"
+      ],
+      "phase": "forge"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar",
+      "bytes": 504899,
+      "sha1": "76e15f98bf676fb44b36c5e776f52a55581ec43a",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar"
+      ],
+      "phase": "installer-processors",
+      "pinSource": "embedded manifest in SHA256-pinned official installer",
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip",
+      "bytes": 1683830,
+      "sha1": "811e2bd86fa2cda2812e5e8e51d718ea8bd6d3f4",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip"
+      ],
+      "phase": "installer-processors",
+      "pinSource": "embedded manifest in SHA256-pinned official installer",
+      "sha256": "3fcdf0f0d115774cfceaf206a05a6dc964e2189bfd00f5b5f863e37f4b7733c7"
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/guava/20.0/guava-20.0.jar",
+      "bytes": 2442625,
+      "sha1": "89507701249388e1ed5ddcf8c41f4ce1be7831ef",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/google/guava/guava/20.0/guava-20.0.jar"
+      ],
+      "phase": "installer-processors",
+      "pinSource": "embedded manifest in SHA256-pinned official installer"
+    }
+  ],
+  "generatedFmlInputs": [
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "sha256": "fd02f80f4eec9dfaa1714cb62595d013cbac03d52d19dd0623d1922b999c40b7",
+      "filename": "client-1.21.1-20240808.144430-extra.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:extra",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "extra",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "sha256": "93224371dda52351038d0957e392729e692dce031f55ae29ea4b47d909433a5c",
+      "filename": "client-1.21.1-20240808.144430-slim.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:slim",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "slim",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "sha256": "a649bd3ce77f122d0f83ae1b37b4b303e662470f928b9bee5fbc76580805ffd4",
+      "filename": "client-1.21.1-20240808.144430-srg.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:srg",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "srg",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-client.jar",
+      "sha256": "c9a2df004c3b4e07572f6c6cf4221cc076b5501b9cc5badc293bd8320d57b1f9",
+      "filename": "neoforge-21.1.219-client.jar",
+      "coordinates": "net.neoforged:neoforge:21.1.219:client",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.neoforged",
+      "artifact": "neoforge",
+      "version": "21.1.219",
+      "classifier": "client",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    }
+  ]
+}

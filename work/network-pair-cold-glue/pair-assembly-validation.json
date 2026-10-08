@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "status": "PASS_SOURCE_GLUE_CHECKS",
+  "checks": [
+    {
+      "check": "27 exact source/config resources, extra import helper, licenses and source metadata restored; identical repeat accepted",
+      "status": "PASS"
+    },
+    {
+      "check": "unchanged source helper import succeeds with recovered game_environment.py",
+      "status": "PASS"
+    },
+    {
+      "check": "missing fresh runtime/build/probe receipts",
+      "status": "PASS"
+    },
+    {
+      "check": "missing cold receipts create no profiles or assembled output",
+      "status": "PASS"
+    },
+    {
+      "check": "assembly outside consumer",
+      "status": "PASS"
+    },
+    {
+      "check": "missing authorization references",
+      "status": "PASS"
+    },
+    {
+      "check": "changed frozen derivative shape",
+      "status": "PASS"
+    },
+    {
+      "check": "derivative binds ROOT, API, fresh tuple and side-specific fixture paths to consumer",
+      "status": "PASS"
+    },
+    {
+      "check": "all 11 unchanged frozen launch transformation regressions pass against consumer derivative",
+      "status": "PASS"
+    },
+    {
+      "check": "changed existing config refused",
+      "status": "PASS"
+    },
+    {
+      "check": "existing differing config was not overwritten",
+      "status": "PASS"
+    }
+  ],
+  "frozenTransformationRegressions": 11,
+  "pairAssemblySha256": "671362dd95860fc3fa11b13e2ffbc7eeb80ad8851a557d8c156cb6f7c8a81a7c",
+  "sourceAssemblerSha256": "e3a54d562339ebdb090231e4b50e6d2055139deb06983109d715e8edcc6a75f1",
+  "fullFourRoleAssemblyExecuted": false,
+  "reason": "Fresh consumer runtime, actual cold tuple build and probe compile receipts are required; no historical success receipts were fabricated.",
+  "javaStarted": false,
+  "gradleStarted": false,
+  "gameLaunched": false,
+  "networkUsed": false
+}

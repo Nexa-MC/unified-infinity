@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "runtimeStatus": "UNRUN",
+  "checkedUtc": "2026-10-06T03:02:59.311225+00:00",
+  "pythonTests": {
+    "count": 111,
+    "passed": true,
+    "log": {
+      "path": "evidence/synthetic-tests.txt",
+      "bytes": 16163,
+      "sha256": "9ddb803a14e3986a91ecac342d7ed449c16c55214b4b7af1129fc4da5c926379"
+    }
+  },
+  "allPythonSourcesCompileWithoutExecution": true,
+  "topLevelAssignmentsAstUnchanged": true,
+  "originalThirtyTestSourceUnchanged": true,
+  "frozenPortable1AndPortable2FullyReverified": true,
+  "changedExistingDefinitionsAgainstPortable2": [
+    "file_pin",
+    "verify_server_properties",
+    "verify_spec",
+    "Pair",
+    "main"
+  ],
+  "newDefinitionsAgainstPortable2": [
+    "owned_directory_chain",
+    "owned_preparation_access",
+    "preparation_root",
+    "verify_jdk_legal_links",
+    "verify_pair_seal",
+    "verify_preparation_roots"
+  ],
+  "unchangedDefinitionAstSha256": {
+    "require": "0f4163611ce0bc40358ee49a9ef0fc10b5a6a2c2f0ec03bd30dfdc6b54a6af7f",
+    "exact_keys": "e7e2fe82c73b6dd28628b35a137657b6939801cbf1bae0c4cdbd7966e6b76741",
+    "integer": "bed7a1718904d7a8d13aa9d71f0f54fb45ca1b44a557154de85cb28f80e05d0d",
+    "digest": "06061c903aa4eae4c3e381cf8edd661ba1acd6fdf7767e32f5bb332679cfcec4",
+    "unique_object": "b8f45dadc087eb36ba66c32b37bba5abdf452239f828486740c402d8621d13f8",
+    "decode_json": "05a28f973ca73a12cd7ab470451eacd2a2b8f14c1c820c1d332c595e2832b600",
+    "read_bounded": "2c6ca1132938725b44cd0419e1b6d03ff2224046f91bea2a492990f44e555193",
+    "write_new": "eac81068cd619b16ab0e2ddea8c67bbd54618ffeaaa492e5ad561988009dbf7a",
+    "publish_release": "abed8158c01c0986a96830fb00883bf18bdd3c87a90832d1353387232482631d",
+    "clean_path": "6c54528947cb00108ee8545b6a86dfcd263cec2fd107a10fedfa54ba48f0282a",
+    "unprivileged_runner": "f5857bab67978a733c0d30e2907570eed543ddc765af1396d12f8c3d5995a550",
+    "trusted_system_file_access": "b9d21fb99491577efd9402bdd7a2887c59ac82108eab8869f5a50d7b7a8bc3f2",
+    "property_unescape": "422e9859560d178bf66e174640af26dd00499c329f0ae60319e50f163c8220a6",
+    "parse_properties": "6b5eaf23527bec0ae68355045b56feece8fa9e79ff3b67c42f3a0963c8515976",
+    "property_values": "7589a1f4e678c5b33b082b654fe8c76f8003d7bd8575a9b8ef06db0834dd7c7c",
+    "capture_server_properties": "f3091e38b763fd6e2ff58bf67e955107364cfe0bdca717014050eed536515684",
+    "verify_listeners": "09b8ea83766917486a146bfbf04a82e9a912d166d58a00286ff7403faba5665d",
+    "Proc": "60d9afb472c9bf3444af4a103d0d9f4f91b0d28bace3a1e18f47c45b4b197a3e",
+    "verify_environment": "c304e68a00b057f9ec04cc4cb37e699940f2fae04054b9b24341b72c23811a70",
+    "one_argument": "70521ec52d678c3208b2488ae5d929c5aefeb281e16bc1429d7e3d836bba14f1",
+    "verify_graphics": "309f04feee1e87da9cfa9be4056a306569632c0933a7ce4583b2e00181b3fadd",
+    "cgroup_directories": "c7d1d6b978f0ec49167be5963926008f333b48d858d8a76cf9d8141d50fda282",
+    "measured_integer": "39d544762d776235e1e841875e080c56e19499a28085f8a61d2738a9ddb25a56",
+    "measured_counters": "7147c7bc6dee55c5f77532bb0c939469b1b3fe7a374850df2ca5acdb7ab070ef",
+    "measured_kib": "3f95b631af5cd75b6c985015ff7068c0e5175075a7189ccf495fd46045afd025",
+    "memory_gate": "36be8fab6a926f3709b949521ec1218842d885086b33b2fd0f28bd29f48aafdc",
+    "no_new_oom_events": "17becf53b66de5ec4366814794e625a92e326387c312cc94a33135e0447946ca",
+    "become_subreaper": "c1aa0b8ceb269d7dddb55202b076fa9060e9c19cb23dec61b5a88486afa6c512",
+    "validate_probe": "af36184879ef8d30c496d479feb16a0a87d713646beff84fcf35b63eed4e05e7",
+    "validate_ready": "9610a505a9b0e0fdbddc8567002bc3bf1bc24ba5cfc0730d2661457d1264eb96",
+    "validate_disconnect": "e3c38e9751a27f0a02ffdb74086158bba88183dc52800c6e4b33167155a3a6ca",
+    "Capture": "36d3405822db86c9837dc15d021a16d0ece2a6ee1ec16290d3ee8d04589b38d5"
+  },
+  "pairAstBoundary": "Exact entire original Pair after normalizing only three property-verification and two seal-verification calls; tested",
+  "cliAstBoundary": "Exact portable2 main after normalizing digest/ownership admission of pair seal only; tested",
+  "pinAstBoundary": "Exact portable2 file_pin and property verifier after normalizing only owned-mode admission; tested",
+  "specAstBoundary": "Exact original verify_spec core after normalizing v2 roots/schema admission, property pin dispatch and JDK legal-tree inventory; tested",
+  "actualInputAudit": {
+    "path": "evidence/actual-input-audit.json",
+    "bytes": 827,
+    "sha256": "7f051081aaa2614d0efd711ad5c22e773ce4e2045c43f8f09e8ec8dade7d52cb"
+  },
+  "finalLegalScopeReverified": {
+    "aliases": 205,
+    "canonicalPinnedTargets": 4,
+    "legalSubtreeOnly": true
+  },
+  "runtimeChecksExecuted": false,
+  "runtimeInputPermissionsChanged": false,
+  "jdkCopied": false
+}

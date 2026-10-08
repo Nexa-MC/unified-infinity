@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "rootPolicy": "Relative to consumer/work/api1",
+  "allowedHosts": [
+    "cdn.modrinth.com",
+    "downloads.gradle.org",
+    "github.com",
+    "libraries.minecraft.net",
+    "maven.fabricmc.net",
+    "maven.minecraftforge.net",
+    "maven.neoforged.net",
+    "maven.quiltmc.org",
+    "maven.sinytra.org",
+    "maven.su5ed.dev",
+    "objects.githubusercontent.com",
+    "piston-data.mojang.com",
+    "piston-meta.mojang.com",
+    "release-assets.githubusercontent.com",
+    "repo.maven.apache.org",
+    "repo1.maven.org",
+    "services.gradle.org"
+  ],
+  "artifacts": [
+    {
+      "path": "docs/four-loader/quilt/upstream/qsl_base-alpha5.jar",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl",
+      "bytes": 33867
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl",
+      "bytes": 29191
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/qsl-alpha5-artifacts/tooltip.jar",
+      "sha256": "1d78ca2f96f1610a5905d0b9b7b833871aa112ab90b35ad524ca66e22ecd76b2",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/tooltip/10.0.0-alpha.5+1.21.1/tooltip-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl",
+      "bytes": 10611
+    },
+    {
+      "path": "docs/research/upstream/ffapi-baseline.jar",
+      "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+      "bytes": 5563831,
+      "urls": [
+        "https://maven.sinytra.org/org/sinytra/forgified-fabric-api/forgified-fabric-api/0.116.7+2.2.1+1.21.1/forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar"
+      ],
+      "phase": "ffapi"
+    },
+    {
+      "path": "source-workspace/pinned-maven/org/sinytra/adapter/userdev/org.sinytra.adapter.userdev.gradle.plugin/1.2.1-SNAPSHOT/org.sinytra.adapter.userdev.gradle.plugin-1.2.1-SNAPSHOT.pom",
+      "sha256": "7a7da8f9212265c91f5ee0b86815915c1512e3bcae8ec3ae54f76f319c515ac7",
+      "bytes": 670,
+      "urls": [
+        "https://maven.su5ed.dev/releases/org/sinytra/adapter/userdev/org.sinytra.adapter.userdev.gradle.plugin/1.2.1-SNAPSHOT/org.sinytra.adapter.userdev.gradle.plugin-1.2.1-20260813.224440-41.pom"
+      ],
+      "phase": "snapshot",
+      "pinSource": "retained timestamped snapshot provenance"
+    },
+    {
+      "path": "source-workspace/pinned-maven/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-SNAPSHOT.module",
+      "sha256": "b4bb6cc3b4e5a3d0621121545957a10bf620fec65f66d6ea5c25d21995720b14",
+      "bytes": 1928,
+      "urls": [
+        "https://maven.su5ed.dev/releases/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-20260813.224440-42.module"
+      ],
+      "phase": "snapshot",
+      "pinSource": "retained timestamped snapshot provenance"
+    },
+    {
+      "path": "source-workspace/pinned-maven/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-SNAPSHOT.jar",
+      "sha256": "f3eb4336e3f8890a057fbfef8e132d3642386c391842131042d2ad4bdb4ce36a",
+      "bytes": 8141,
+      "urls": [
+        "https://maven.su5ed.dev/releases/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-20260813.224440-42.jar"
+      ],
+      "phase": "snapshot",
+      "pinSource": "retained timestamped snapshot provenance"
+    },
+    {
+      "path": "source-workspace/pinned-maven/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-SNAPSHOT.pom",
+      "sha256": "74c9e5aa15f127b078661f9b89452e63bc004d04fa05e33b6c8c77ce037bbec4",
+      "bytes": 766,
+      "urls": [
+        "https://maven.su5ed.dev/releases/org/sinytra/adapter/userdev/1.2.1-SNAPSHOT/userdev-1.2.1-20260813.224440-42.pom"
+      ],
+      "phase": "snapshot",
+      "pinSource": "retained timestamped snapshot provenance"
+    }
+  ]
+}

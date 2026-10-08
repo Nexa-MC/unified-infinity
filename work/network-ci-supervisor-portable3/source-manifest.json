@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "runtimeStatus": "UNRUN",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "PAIR-SPEC.md",
+      "bytes": 14056,
+      "sha256": "5fd417e7956810712f49dcc8bd1a4431f08a7100301180cf9e37e458eb16718a"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 3164,
+      "sha256": "48c3836b2a75870caa2fd4dbe04b4cd31240116287843f8930e4e8560719f5c2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7751,
+      "sha256": "c0f6108474ac615f1388ca218423677a278ffb6d7634307583fc1610bf59d3a7"
+    },
+    {
+      "path": "evidence/actual-input-audit.json",
+      "bytes": 827,
+      "sha256": "7f051081aaa2614d0efd711ad5c22e773ce4e2045c43f8f09e8ec8dade7d52cb"
+    },
+    {
+      "path": "evidence/source-checks.json",
+      "bytes": 4781,
+      "sha256": "7858c17ff535b5d52014b8365d7c7f0068b5d504f76ccc573a0d0f5dbe0ab813"
+    },
+    {
+      "path": "evidence/supervisor.diff",
+      "bytes": 14177,
+      "sha256": "fd4dd40a722857fa03c12fbce2589aa8df1238ae225e9c77324b850d88a5952a"
+    },
+    {
+      "path": "evidence/synthetic-tests.txt",
+      "bytes": 16163,
+      "sha256": "9ddb803a14e3986a91ecac342d7ed449c16c55214b4b7af1129fc4da5c926379"
+    },
+    {
+      "path": "supervisor.py",
+      "bytes": 72783,
+      "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf"
+    },
+    {
+      "path": "test_control_serialization.py",
+      "bytes": 17401,
+      "sha256": "16c2a91331981d0c65a6a494ea51c7b7fbe1ecd2fd5e2ee5bdc5bd2c220d3d3b"
+    },
+    {
+      "path": "test_input_modes.py",
+      "bytes": 10452,
+      "sha256": "111756e5e674c36edc9651ab75f739c2b9b1b88d95c682643526ebc48859f8a4"
+    },
+    {
+      "path": "test_legal_links.py",
+      "bytes": 9038,
+      "sha256": "dd05360544fd9e59dd349c41480978f67e7cd5b927cc8822225e17e640de800b"
+    },
+    {
+      "path": "test_portability.py",
+      "bytes": 18922,
+      "sha256": "ccea61c659337ed812dd8af7b382fa4329bcfac5928c8296d8834dd1a2481996"
+    },
+    {
+      "path": "test_supervisor.py",
+      "bytes": 25543,
+      "sha256": "f078276bb371b4ffe5227a8d9c01938b44a73e9f046cab471285677cbab3e3d8"
+    }
+  ]
+}

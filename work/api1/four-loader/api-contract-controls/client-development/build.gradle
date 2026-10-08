@@ -1,0 +1,40 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.140'
+}
+layout.buildDirectory = file('../../../run/api1-unified-client-build/build')
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    enable { version = '21.1.219'; disableRecompilation = true }
+    runs {
+        client {
+            client()
+            jvmArguments = ['-Xms256M', '-Xmx1280M', '-XX:ActiveProcessorCount=2']
+            gameDirectory = file('../../../run/api1-unified-client-build/game')
+            systemProperty 'unified.infinity.maxWorkers', '2'
+            systemProperty 'connector.clean.path', file('../../../run/api1-unified-client-build/build/moddev/artifacts/minecraft-1.21.1-clean.jar').absolutePath
+            systemProperty 'unified.infinity.progressFile', file('../../../run/api1-unified-client-build/game/compat-progress.json').absolutePath
+        }
+    }
+}
+tasks.named('createMinecraftArtifacts') {
+    additionalResults.put('vanillaDeobfuscated', file('../../../run/api1-unified-client-build/build/moddev/artifacts/minecraft-1.21.1-clean.jar'))
+}
+tasks.register('prepareClientLaunch') {
+    dependsOn 'classes', 'prepareClientRun'
+    doLast {
+        def run = tasks.named('runClient').get()
+        def files = (run.classpath.files + run.classpathProvider.files).toList().unique()
+        def sha = { f -> java.security.MessageDigest.getInstance('SHA-256').digest(f.bytes).encodeHex().toString() }
+        def missing = files.findAll { it.name.endsWith('.jar') && !it.isFile() }
+        if (!missing.empty) throw new GradleException("Missing official runtime files: ${missing}")
+        def env = run.environmentProperty.get()
+        if (env.get('MOD_CLASSES') || run.jvmArgs.any { it.contains('fml.modFolders') }) throw new GradleException('Unexpected extra project implementation roots')
+        def manifest = [schema:1, mainClass:run.mainClass.get(), gameDirectory:run.gameDirectory.get().asFile.absolutePath,
+            classpath:files.collect { it.absolutePath }, inputs:files.findAll { it.isFile() }.collect { [path:it.absolutePath, sha256:sha(it)] },
+            jvmArgs:run.jvmArgs, args:run.args, environment:env, gameLaunched:false,
+            provenance:'Fresh official ModDevGradle 2.0.140 / NeoForge 21.1.219 binary-only client preparation; no project mod roots']
+        def out = file('../../../run/api1-unified-client-build/client-launch-inputs.json')
+        out.parentFile.mkdirs();out.text=groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson(manifest))+'\n'
+    }
+}

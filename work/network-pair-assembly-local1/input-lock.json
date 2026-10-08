@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "files": [
+    {
+      "path": "work/api1/source-workspace/fml-unified/tools/assemble_installation.py",
+      "bytes": 12433,
+      "sha256": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a"
+    },
+    {
+      "path": "work/api1/source-workspace/fml-unified/tools/validate_launch.py",
+      "bytes": 10432,
+      "sha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/prepare_unified.py",
+      "bytes": 12444,
+      "sha256": "7d6dc41b05c0659403c3e0c0894601d4d7936897a6ffb7c42f904b6ebed6ab23"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/common.py",
+      "bytes": 5307,
+      "sha256": "919b8924e9542790bee9bfc13d90341021e79d3db60899444eedf38e441a47ef"
+    },
+    {
+      "path": "work/network-pair-ci-next/normalize_exports.py",
+      "bytes": 9501,
+      "sha256": "f9bd77441554f24751bb20d0a6c9a1bcee19686e90a2bea80fc530d27d8b45b1"
+    },
+    {
+      "path": "work/network-pair-ci-next/prepare_profiles.py",
+      "bytes": 8827,
+      "sha256": "b885be6cd412aabe9ef7ca73c2ae7c13965b9a36d76d89a768820dcfb8440772"
+    },
+    {
+      "path": "work/api1/run/api1-unified-client-build/official-client-launch-seal.json",
+      "bytes": 66217,
+      "sha256": "fa801636e708c10bf1d1c412e30417d2bb5b756e866175cf075b3567e6d2cd25"
+    },
+    {
+      "path": "work/api1/four-loader/forge-probe/unified-forge-probe-final26b-environment-lock.json",
+      "bytes": 22914,
+      "sha256": "037020ef98eed6ee8c8fc5af8359058cedb248d87d3b3acf756129b22c60b652"
+    },
+    {
+      "path": "work/emi-render-integration/built-tuple-artifacts.json",
+      "bytes": 857,
+      "sha256": "1834aef6b2b1cbb075d7e855ec465e415fa2d82edbcabc48399b26db39e16508"
+    },
+    {
+      "path": "work/emi-render-integration/fml-base-build-receipt.json",
+      "bytes": 31592,
+      "sha256": "368ccf35a31cf68b31f8dbb35fb11070ba6d9f7ddc3cee7d3c972e381d307c3f"
+    },
+    {
+      "path": "work/network-pair-profiles-local1/native-neoforge/profile-preparation.json",
+      "bytes": 8075,
+      "sha256": "2f610d0b2c874bb7113eeeb57f53199dc85724c4e85e8578441dcaa4fcd31dc2"
+    },
+    {
+      "path": "work/network-pair-profiles-local1/unified/profile-preparation.json",
+      "bytes": 7956,
+      "sha256": "0255db3f77630d83de23c3dbde5a67f0325da98e76f8bfb0e1270a70436037d9"
+    },
+    {
+      "path": "work/api1/run/api1-unified-server-4/server.properties",
+      "bytes": 1397,
+      "sha256": "721c63af82e1e39385ec4f0734857d34c0d6081504855d795787dacf8105604e"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/emi.css",
+      "bytes": 10186,
+      "sha256": "631c92dbdb06aa6377e2d99d86678833c897a88cc3841d6378f717c2ba09b451"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "2f62e5714f62538754a8b1948cb36153debab67b86de667be71b8475310bbd0d"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "369c950d99ff8a2bf1231f000851d4e5bbc299f65f59361be85e65c9bad1b75f"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/emi.css",
+      "bytes": 10180,
+      "sha256": "4358863687c3f314650c9d739938877f77c3b00ccabab474c5659a8c92710d75"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "030c703a4f13baa0a8d21015304d5c00612e60ff1fd5b7d72507ba1d6be37bdd"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "7c3f7da02b719316b5120e8714c45fc3ba762dcff57d738e3f3ebe8b091e5fcf"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/connector.json",
+      "bytes": 176,
+      "sha256": "67bee06b2b321ed25e0d4e9b5bac7ab76c8ae76442de6caf11f463ce2ae1ac5e"
+    },
+    {
+      "path": "work/api1/run/api1-client-combined-plugin1/config/fabric/indigo-renderer.properties",
+      "bytes": 281,
+      "sha256": "6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b"
+    }
+  ],
+  "acceptedConfigSources": {
+    "native-neoforge": {
+      "client": [
+        "work/api1/run/api1-native-emi-backpacks/config/emi.css",
+        "work/api1/run/api1-native-emi-backpacks/config/fml.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/neoforge-client.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/neoforge-common.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/neoforge-server.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-common.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-server.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-client.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-common.toml"
+      ],
+      "server": [
+        "work/api1/run/api1-native-emi-backpacks/config/fml.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/neoforge-common.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/neoforge-server.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-common.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-server.toml",
+        "work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-common.toml"
+      ]
+    },
+    "unified": {
+      "client": [
+        "work/api1/run/api1-client-combined-plugin1/config/emi.css",
+        "work/api1/run/api1-client-combined-plugin1/config/fml.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/neoforge-client.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/neoforge-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/neoforge-server.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-server.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-client.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/connector.json",
+        "work/api1/run/api1-client-combined-plugin1/config/fabric/indigo-renderer.properties"
+      ],
+      "server": [
+        "work/api1/run/api1-client-combined-plugin1/config/fml.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/neoforge-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/neoforge-server.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-server.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-common.toml",
+        "work/api1/run/api1-client-combined-plugin1/config/connector.json"
+      ]
+    }
+  },
+  "configNote": "Exact accepted native or Unified config bytes for only the selected three real mods; no unrelated mod configs. Unified EMI fluid-unit default differs legitimately from NeoForge EMI.",
+  "serverPropertiesBasis": "Complete existing accepted MC1.21.1 server file, with explicit reviewed loopback/offline/nonce fixture overrides; timestamp/comment regeneration remains a supervisor postcheck limitation."
+}

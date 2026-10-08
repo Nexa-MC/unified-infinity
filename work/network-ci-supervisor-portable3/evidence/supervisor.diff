@@ -1,0 +1,240 @@
+--- portable2/supervisor.py
++++ portable3/supervisor.py
+@@ -168,16 +168,121 @@
+             'Trusted system input has an actually writable parent directory')
+ 
+ 
+-def file_pin(row):
++def owned_directory_chain(path, root):
++    """Explicit preparation root, never a guessed common ancestor."""
++    require(path == root or root in path.parents, 'Owned path escapes preparation root')
++    for directory in (path, *path.parents):
++        current = directory.stat()
++        require(stat.S_ISDIR(current.st_mode) and current.st_uid == os.geteuid() and
++                stat.S_IMODE(current.st_mode) in (0o700, 0o750, 0o755),
++                'Preparation directories must be owned and not group/world writable')
++        require(os.access(directory, os.R_OK | os.X_OK, effective_ids=True), 'Preparation directory access denied')
++        if directory == root:
++            break
++
++
++def owned_preparation_access(path, info, root):
++    """Ordinary owned files remain exactly byte-pinned without chmod or copying."""
++    root = clean_path(str(root))
++    uid = os.geteuid()
++    require(uid > 0 and os.getuid() == uid, 'Owned preparation requires nonroot runner')
++    require(root in path.parents, 'Owned input escapes preparation root')
++    require(info.st_uid == uid and info.st_nlink == 1 and
++            stat.S_IMODE(info.st_mode) in (0o400, 0o440, 0o444, 0o500, 0o550, 0o555,
++                                          0o600, 0o640, 0o644, 0o700, 0o750, 0o755),
++            'Input must be singly linked, runner-owned and not special or group/world writable')
++    owned_directory_chain(path.parent, root)
++    access = os.R_OK | (os.X_OK if info.st_mode & 0o111 else 0)
++    require(os.access(path, access, effective_ids=True), 'Owned input actual read/execute access denied')
++    if info.st_mode & 0o200:
++        require(os.access(path, os.W_OK, effective_ids=True), 'Owned input owner-write claim is false')
++
++
++def preparation_root(roots, value):
++    path = Path(value)
++    return next((root for root in roots if root in path.parents or root == path), None)
++
++
++def verify_preparation_roots(values):
++    require(isinstance(values, list) and 1 <= len(values) <= 64, 'Bounded explicit preparation roots required')
++    require(os.geteuid() > 0 and os.getuid() == os.geteuid(), 'Owned preparation requires nonroot runner')
++    roots = [clean_path(value) for value in values]
++    for index, root in enumerate(roots):
++        require(all(root != other and root not in other.parents and other not in root.parents
++                    for other in roots[:index]), 'Duplicate or overlapping preparation roots')
++        owned_directory_chain(root, root)
++    return roots
++
++
++def verify_jdk_legal_links(spec, pins, roots):
++    """Only manifest-pinned legal-file aliases; no executable/directory aliases."""
++    rows = spec.get('jdk_legal_links', [])
++    require(isinstance(rows, list) and len(rows) <= 1024, 'JDK legal link bound exceeded')
++    jdks = {Path(spec[role]['command'][0]).parent.parent for role in ('server', 'client')}
++    links = {}
++    for row in rows:
++        exact_keys(row, ('path', 'link_text', 'resolved_path', 'jdk_root'), 'JDK legal link')
++        jdk = clean_path(row['jdk_root'])
++        path = Path(row['path'])
++        require(jdk in jdks and str(jdk) in spec['immutable_trees'], 'Legal link must use the exact command JDK root')
++        require(path.is_absolute() and '..' not in path.parts and str(path) == row['path'] and
++                jdk / 'legal' in path.parents, 'Only legal-file aliases inside the JDK are allowed')
++        clean_path(str(path.parent))
++        root = preparation_root(roots, str(path))
++        require(root is not None, 'Legal link outside explicit preparation roots')
++        owned_directory_chain(path.parent, root)
++        require(path.is_symlink() and path.lstat().st_uid == os.geteuid(), 'Legal alias must be an owned symlink')
++        require(str(path) not in links and str(path) not in pins, 'Duplicate or file-pinned legal alias')
++        require(isinstance(row['link_text'], str) and 1 <= len(row['link_text']) <= 4096 and
++                '\x00' not in row['link_text'] and not Path(row['link_text']).is_absolute(), 'Bounded relative legal link text required')
++        require(os.readlink(path) == row['link_text'], 'JDK legal link text changed')
++        target = clean_path(row['resolved_path'])
++        require(jdk / 'legal' in target.parents and target.is_file() and str(target) in pins,
++                'Legal target must be a canonical pinned file inside the exact JDK')
++        links[str(path)] = row
++    for initial, row in links.items():
++        current, seen = Path(initial), set()
++        jdk = Path(row['jdk_root'])
++        for _ in range(8):
++            require(str(current) not in seen, 'JDK legal link cycle')
++            seen.add(str(current))
++            require(str(current) in links and links[str(current)]['jdk_root'] == str(jdk), 'Unsealed intermediate legal alias')
++            hop = links[str(current)]
++            require(os.readlink(current) == hop['link_text'], 'JDK legal link text changed during resolution')
++            current = Path(os.path.normpath(current.parent / hop['link_text']))
++            require(jdk / 'legal' in current.parents, 'JDK legal link escapes exact JDK legal subtree')
++            if not current.is_symlink():
++                require(str(clean_path(str(current))) == row['resolved_path'] and str(current) in pins,
++                        'JDK legal link resolved target changed')
++                break
++        else:
++            raise ValueError('JDK legal link depth exceeds eight')
++    return set(links)
++
++
++def file_pin(row, owned_profile=None):
+     exact_keys(row, ('path', 'bytes', 'sha256'), 'input pin')
+     path = clean_path(row['path'])
+     require(integer(row['bytes'], 1) and re.fullmatch('[0-9a-f]{64}', row['sha256']), 'Invalid pin')
+     info = path.stat()
+     require(stat.S_ISREG(info.st_mode) and info.st_size == row['bytes'], 'Input size/type changed')
+-    if info.st_mode & 0o222:
++    if owned_profile is not None:
++        owned_preparation_access(path, info, owned_profile)
++    elif info.st_mode & 0o222:
+         trusted_system_file_access(path, info)
+     require(digest(path) == row['sha256'], 'Sealed input digest changed')
+     return path
++
++
++def verify_pair_seal(path, sha256, spec):
++    path = clean_path(str(path))
++    root = None
++    if spec.get('schema') == 'network-ci-pair-v2':
++        root = preparation_root(verify_preparation_roots(spec['preparation_roots']), str(path))
++        require(root is not None, 'Pair seal outside explicit preparation roots')
++    else:
++        require(path.stat().st_mode & 0o222 == 0, 'Read-only pair spec seal required')
++    file_pin({'path': str(path), 'bytes': path.stat().st_size, 'sha256': sha256}, root)
+ 
+ 
+ def property_unescape(text):
+@@ -255,7 +360,7 @@
+     return raw
+ 
+ 
+-def verify_server_properties(row, before, receipt_path):
++def verify_server_properties(row, before, receipt_path, owned_profile=None):
+     """One named lifecycle exception; all other input pins use file_pin unchanged."""
+     exact_keys(row, ('path', 'bytes', 'sha256'), 'input pin')
+     require(integer(row['bytes'], 1) and re.fullmatch('[0-9a-f]{64}', row['sha256']), 'Invalid pin')
+@@ -273,7 +378,7 @@
+     try:
+         # Retain original regular-file, path and permission rules. Verify that
+         # bytes did not change while computing this semantic receipt.
+-        file_pin(dict(row, bytes=len(after), sha256=receipt['after']['sha256']))
++        file_pin(dict(row, bytes=len(after), sha256=receipt['after']['sha256']), owned_profile)
+         expected, actual = parse_properties(before), parse_properties(after)
+         receipt['added_keys'] = sorted(actual.keys() - expected.keys())
+         receipt['removed_keys'] = sorted(expected.keys() - actual.keys())
+@@ -430,10 +535,21 @@
+ 
+ 
+ def verify_spec(spec, server_properties_before=None, property_receipt=None):
+-    exact_keys(spec, ('schema', 'target', 'port', 'authorization', 'inputs', 'immutable_trees',
++    keys = ('schema', 'target', 'port', 'authorization', 'inputs', 'immutable_trees',
+                      'graphics', 'server', 'client', 'probe_path', 'probe_source_manifest',
+-                     'probe_build_receipt', 'pair_lock', 'source_receipts'), 'pair spec')
+-    require(spec['schema'] == 'network-ci-pair-v1', 'Unknown pair schema')
++                     'probe_build_receipt', 'pair_lock', 'source_receipts')
++    if spec.get('schema') == 'network-ci-pair-v2':
++        exact_keys(spec, (*keys, 'preparation_roots', 'jdk_legal_links'), 'pair spec')
++        roots = verify_preparation_roots(spec['preparation_roots'])
++        for role in ('server', 'client'):
++            profile = clean_path(spec[role]['cwd'])
++            root = preparation_root(roots, str(profile))
++            require(root is not None, 'Profile outside explicit preparation roots')
++            owned_directory_chain(profile, root)
++    else:
++        exact_keys(spec, keys, 'pair spec')
++        require(spec['schema'] == 'network-ci-pair-v1', 'Unknown pair schema')
++        roots = []
+     require(spec['target'] in ('native-neoforge', 'unified'), 'Unknown target')
+     require(spec['port'] == (25631 if spec['target'] == 'native-neoforge' else 25632), 'Assigned port mismatch')
+     exact_keys(spec['authorization'], ('offline_identity_reference', 'eula_reference', 'ci_pair_review_reference'), 'authorization')
+@@ -441,10 +557,13 @@
+     require(isinstance(spec['inputs'], list) and 1 <= len(spec['inputs']) <= 16000, 'Input inventory bound')
+     pins = {}
+     for row in spec['inputs']:
++        config_root = preparation_root(roots, row['path'])
++        if spec['schema'] == 'network-ci-pair-v2' and config_root is None:
++            require(clean_path(row['path']).stat().st_uid == 0, 'Owned input outside explicit preparation roots')
+         if server_properties_before is not None and row.get('path') == str(Path(spec['server']['cwd']) / 'server.properties'):
+-            path = verify_server_properties(row, server_properties_before, property_receipt)
++            path = verify_server_properties(row, server_properties_before, property_receipt, config_root)
+         else:
+-            path = file_pin(row)
++            path = file_pin(row, config_root)
+         require(str(path) not in pins, 'Duplicate sealed file')
+         pins[str(path)] = row
+     require(spec['probe_path'] in pins and spec['probe_path'].endswith('.jar'), 'Built probe must be pinned')
+@@ -472,18 +591,24 @@
+     require(isinstance(spec['source_receipts'], list) and len(spec['source_receipts']) >= 2, 'Native/portable generation receipts required')
+     require(all(p in pins for p in spec['source_receipts']), 'Producer receipt is not sealed')
+     require(isinstance(spec['immutable_trees'], list) and spec['immutable_trees'], 'Complete immutable trees required')
++    legal_links = verify_jdk_legal_links(spec, pins, roots)
++    observed_links = set()
+     trees = []
+     for value in spec['immutable_trees']:
+         root = clean_path(value)
+         require(root.is_dir(), 'Missing immutable directory')
+         actual = set()
+         for path in root.rglob('*'):
+-            require(not path.is_symlink(), 'Redirected immutable entry')
++            if path.is_symlink():
++                require(str(path) in legal_links, 'Redirected immutable entry')
++                observed_links.add(str(path))
++                continue
+             if path.is_file():
+                 actual.add(str(path))
+                 require(str(path) in pins, 'Unsealed file in immutable tree')
+         require(actual, 'Empty immutable tree')
+         trees.append(root)
++    require(observed_links == legal_links, 'Legal link manifest is not the complete observed tree inventory')
+     exact_keys(spec['graphics'], ('display', 'pid', 'start_ticks', 'executable', 'preflight', 'reserve_bytes'), 'graphics')
+     graphics = spec['graphics']
+     require(re.fullmatch(r':\d{1,5}', graphics['display']) is not None, 'Literal local DISPLAY required')
+@@ -1010,7 +1135,7 @@
+             lock_path = clean_path(self.spec['pair_lock'])
+             lock = os.fdopen(os.open(lock_path, os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW, 0o600), 'r+')
+             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+-            require(seal_path.stat().st_mode & 0o222 == 0 and digest(seal_path) == seal_sha, 'Pair spec changed before launch')
++            verify_pair_seal(seal_path, seal_sha, self.spec)
+             server_properties_before = capture_server_properties(self.spec)
+             require(not any(p['ppid'] == os.getpid() for p in self.proc.all_identities()), 'CI supervisor requires no preexisting child processes')
+             become_subreaper()
+@@ -1068,7 +1193,7 @@
+             self.probe_results(nonce)
+             verify_spec(self.spec, server_properties_before, self.destination / 'server-properties-after-stop.json')
+             no_new_oom_events(self.report['initial_memory_gate'])
+-            require(seal_path.stat().st_mode & 0o222 == 0 and digest(seal_path) == seal_sha, 'Pair spec changed during run')
++            verify_pair_seal(seal_path, seal_sha, self.spec)
+             self.report['pair_spec_unchanged'] = True
+             world = clean_path(str(Path(self.spec['server']['cwd']) / 'world/level.dat'))
+             require(world.is_file() and 0 < world.stat().st_size <= 2*MIB, 'Saved world metadata missing or unbounded')
+@@ -1118,8 +1243,9 @@
+     args = parser.parse_args()
+     require(re.fullmatch('[0-9a-f]{64}', args.sha256) is not None, 'Expected exact pair-spec SHA-256')
+     path = clean_path(str(args.spec))
+-    require(path.stat().st_mode & 0o222 == 0 and digest(path) == args.sha256, 'Read-only pair spec seal mismatch')
++    require(digest(path) == args.sha256, 'Pair spec digest mismatch')
+     spec = decode_json(read_bounded(path, 8*MIB), 8*MIB)
++    verify_pair_seal(path, args.sha256, spec)
+     verify_spec(spec)
+     if not args.execute_reviewed_ci_pair:
+         print(json.dumps({'status': 'STATIC_INPUTS_VERIFIED_ONLY', 'game_launched': False,

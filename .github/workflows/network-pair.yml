@@ -1,0 +1,29 @@
+name: Native and Unified nonce pair diagnostic
+on:
+  push:
+    branches: [diagnostic/network-pair-20261006-a]
+permissions:
+  contents: read
+concurrency:
+  group: native-unified-nonce-pair
+  cancel-in-progress: false
+jobs:
+  serial-pair:
+    if: github.repository == 'Nexa-MC/unified-infinity' && github.ref == 'refs/heads/diagnostic/network-pair-20261006-a'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      CI: 'true'
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - name: Check out reviewed diagnostic source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify the complete source-only publication
+        run: python3 work/network-pair-cold-glue/check_stage.py
+      - name: Materialize isolated consumer sources and serial plans
+        run: python3 work/network-pair-cold-glue/driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair"
+      - name: Restore, build, and run native then Unified with the same nonce probe
+        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair"

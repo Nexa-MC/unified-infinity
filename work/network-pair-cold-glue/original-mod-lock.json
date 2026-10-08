@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "allowedHosts": [
+    "cdn.modrinth.com"
+  ],
+  "artifacts": [
+    {
+      "path": "complex-mod-research/emi-1.1.24+1.21.1+fabric.jar",
+      "bytes": 1098223,
+      "sha256": "56ecd418e988cba23dd653d498309fd7b886265708253d5ca7a8fb621dcc5db4",
+      "urls": [
+        "https://cdn.modrinth.com/data/fRiHVvU7/versions/on5GT1qh/emi-1.1.24%2B1.21.1%2Bfabric.jar"
+      ],
+      "phase": "approved-originals"
+    },
+    {
+      "path": "complex-mod-research/emi-1.1.24+1.21.1+neoforge.jar",
+      "bytes": 1111538,
+      "sha256": "b68691f94f0727fc517cac2ab55bd6658d1179cc8cc715fe610b60c37469bc4c",
+      "urls": [
+        "https://cdn.modrinth.com/data/fRiHVvU7/versions/5sIPA1To/emi-1.1.24%2B1.21.1%2Bneoforge.jar"
+      ],
+      "phase": "approved-originals"
+    },
+    {
+      "path": "complex-mod-research/sophisticatedcore-1.21.1-1.4.11.1553.jar",
+      "bytes": 1466731,
+      "sha256": "acafbe72eb161b0b763feb61eba06584e97e48f563de75f767611ee520dfcad7",
+      "urls": [
+        "https://cdn.modrinth.com/data/nmoqTijg/versions/ouCrOg4N/sophisticatedcore-1.21.1-1.4.11.1553.jar"
+      ],
+      "phase": "approved-originals"
+    },
+    {
+      "path": "complex-mod-research/sophisticatedbackpacks-1.21.1-3.25.34.1604.jar",
+      "bytes": 1015490,
+      "sha256": "889fb2af58e9f7951d0553033a856078b28fcdf802ca13eb432336b2b7b9780c",
+      "urls": [
+        "https://cdn.modrinth.com/data/TyCTlI4b/versions/h91LKaZD/sophisticatedbackpacks-1.21.1-3.25.34.1604.jar"
+      ],
+      "phase": "approved-originals"
+    }
+  ]
+}

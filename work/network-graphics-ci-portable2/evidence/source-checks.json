@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "status": "SOURCE_CHECKS_AND_SYNTHETIC_TESTS_ONLY",
+  "checkedUtc": "2026-10-06T03:04:15.715648+00:00",
+  "syntheticTests": {
+    "count": 32,
+    "passed": 32,
+    "inherited": 15,
+    "added": 17,
+    "log": "evidence/synthetic-tests.txt",
+    "originalBodiesUnchanged": true,
+    "nativeProcessGuard": true,
+    "ranAgainstFinalPortable3Helper": true,
+    "onlyOriginalHelperPathRepinned": true
+  },
+  "allExistingFunctionsAndClassesExceptLockValidatorAstIdentical": true,
+  "signedReceiptValidationBranchAstIdentical": true,
+  "originalGraphicsManifestAndEveryFileUnchanged": true,
+  "reviewedSupervisorSha256Verified": true,
+  "reviewedSupervisorManifestSha256Verified": true,
+  "observedReceiptClaimsArchiveSignatureVerification": false,
+  "graphicsExecuted": false,
+  "jvmOrGameExecuted": false,
+  "packageCommandsExecuted": false,
+  "packageBinaryDownloaded": false,
+  "packageInstalled": false,
+  "networkOperations": false,
+  "ciDispatched": false,
+  "cuaUsed": false,
+  "hostChanges": false,
+  "runtimeAcceptance": false,
+  "completeGraphicsLock": false,
+  "pairReady": false,
+  "remainingRequirements": [
+    "Reviewed actual official runner installed-package/file observations or optional verified archive-chain receipt",
+    "Exact canonical runtime file pins and complete reviewed graphics lock",
+    "Future authorized genuine GLX/process/RSS preflight and host/cgroup memory observations"
+  ],
+  "signedAptClosureMandatoryForInstalledPackageObservationMode": false,
+  "reviewedSupervisor": {
+    "path": "work/network-ci-supervisor-portable3/supervisor.py",
+    "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf",
+    "source_manifest_sha256": "6c94bfd342ef1faa97f42e88952df2a5f3c0b15da38e0ec56658523a9d6f2075"
+  }
+}

@@ -1,0 +1,313 @@
+{
+  "schema": 1,
+  "status": "SOURCE_PREPARED_UNCOMPILED_GAME_UNRUN",
+  "sourceApi": {
+    "coordinate": "net.neoforged:neoforge:21.1.219:sources",
+    "sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+    "membersInspected": [
+      {
+        "path": "net/neoforged/neoforge/network/event/RegisterPayloadHandlersEvent.java",
+        "sha256": "df017442c784c0e2c08ebf5151e5c6b4dd53c030fee099b04c33de4ae6442abd"
+      },
+      {
+        "path": "net/neoforged/neoforge/network/registration/PayloadRegistrar.java",
+        "sha256": "13cb3618443703abdc3d4daf63a174ea599ee125ef2ee3fdeade636ff1fdab84"
+      },
+      {
+        "path": "net/neoforged/neoforge/network/handling/IPayloadContext.java",
+        "sha256": "486062496df8ec2414b2fdcbeba3b0939dca1d3364fbbe60ca34982600000ed4"
+      },
+      {
+        "path": "net/neoforged/neoforge/client/event/ClientPlayerNetworkEvent.java",
+        "sha256": "37ec55273c3480d2a8b0ca48aa334a9e1b1ccbc511a3ddbcccb3c0e22800fc49"
+      },
+      {
+        "path": "net/neoforged/neoforge/network/PacketDistributor.java",
+        "sha256": "8667ae4bda3eb511337c6cb79ca30fc646a8d3131f0a8ff7ebc4fcbcf6c55d74"
+      },
+      {
+        "path": "net/neoforged/neoforge/event/server/ServerStartedEvent.java",
+        "sha256": "2a07c31b46d3deeb4f3ab7827e1df39c852611aeb1229ab3a378f7e0994f7c17"
+      },
+      {
+        "path": "net/neoforged/neoforge/client/event/ClientTickEvent.java",
+        "sha256": "4dc447e101d22000e46ab838eeb2b4edd861eab2395ef55507c9bab09ece2811"
+      },
+      {
+        "path": "net/neoforged/neoforge/client/ClientHooks.java",
+        "sha256": "616798c1ce8f8b865277a8d76ccce747e07bab3761fb28512e2d8cc6f9872807"
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/client/Minecraft.class",
+        "methods": [
+          {
+            "name": "stop",
+            "descriptor": "()V",
+            "access": 1
+          },
+          {
+            "name": "disconnect",
+            "descriptor": "()V",
+            "access": 1
+          },
+          {
+            "name": "disconnect",
+            "descriptor": "(Lnet/minecraft/client/gui/screens/Screen;)V",
+            "access": 1
+          },
+          {
+            "name": "disconnect",
+            "descriptor": "(Lnet/minecraft/client/gui/screens/Screen;Z)V",
+            "access": 1
+          },
+          {
+            "name": "getConnection",
+            "descriptor": "()Lnet/minecraft/client/multiplayer/ClientPacketListener;",
+            "access": 1
+          },
+          {
+            "name": "hasSingleplayerServer",
+            "descriptor": "()Z",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/network/Connection.class",
+        "methods": [
+          {
+            "name": "getRemoteAddress",
+            "descriptor": "()Ljava/net/SocketAddress;",
+            "access": 1
+          },
+          {
+            "name": "disconnect",
+            "descriptor": "(Lnet/minecraft/network/chat/Component;)V",
+            "access": 1
+          },
+          {
+            "name": "disconnect",
+            "descriptor": "(Lnet/minecraft/network/DisconnectionDetails;)V",
+            "access": 1
+          },
+          {
+            "name": "isMemoryConnection",
+            "descriptor": "()Z",
+            "access": 1
+          },
+          {
+            "name": "isConnected",
+            "descriptor": "()Z",
+            "access": 1
+          },
+          {
+            "name": "channel",
+            "descriptor": "()Lio/netty/channel/Channel;",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/server/MinecraftServer.class",
+        "methods": [
+          {
+            "name": "getPort",
+            "descriptor": "()I",
+            "access": 1
+          },
+          {
+            "name": "isDedicatedServer",
+            "descriptor": "()Z",
+            "access": 1025
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/world/entity/Entity.class",
+        "methods": [
+          {
+            "name": "getUUID",
+            "descriptor": "()Ljava/util/UUID;",
+            "access": 1
+          },
+          {
+            "name": "getServer",
+            "descriptor": "()Lnet/minecraft/server/MinecraftServer;",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/world/entity/player/Player.class",
+        "methods": [
+          {
+            "name": "getGameProfile",
+            "descriptor": "()Lcom/mojang/authlib/GameProfile;",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/util/thread/BlockableEventLoop.class",
+        "methods": [
+          {
+            "name": "isSameThread",
+            "descriptor": "()Z",
+            "access": 1
+          },
+          {
+            "name": "execute",
+            "descriptor": "(Ljava/lang/Runnable;)V",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a",
+        "path": "net/minecraft/network/RegistryFriendlyByteBuf.class",
+        "methods": [
+          {
+            "name": "<init>",
+            "descriptor": "(Lio/netty/buffer/ByteBuf;Lnet/minecraft/core/RegistryAccess;)V",
+            "access": 1
+          },
+          {
+            "name": "<init>",
+            "descriptor": "(Lio/netty/buffer/ByteBuf;Lnet/minecraft/core/RegistryAccess;Lnet/neoforged/neoforge/network/connection/ConnectionType;)V",
+            "access": 1
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6",
+        "path": "net/neoforged/fml/common/Mod.class",
+        "methods": [
+          {
+            "name": "value",
+            "descriptor": "()Ljava/lang/String;",
+            "access": 1025
+          },
+          {
+            "name": "dist",
+            "descriptor": "()[Lnet/neoforged/api/distmarker/Dist;",
+            "access": 1025
+          }
+        ]
+      },
+      {
+        "binarySignatureInspectionOnly": true,
+        "archiveSha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6",
+        "path": "net/neoforged/fml/loading/FMLPaths.class",
+        "methods": [
+          {
+            "name": "get",
+            "descriptor": "()Ljava/nio/file/Path;",
+            "access": 1
+          }
+        ]
+      }
+    ]
+  },
+  "buildPins": {
+    "minecraft": "1.21.1",
+    "neoforge": "21.1.219",
+    "moddevGradle": "2.0.140",
+    "java": 21,
+    "gradle": "8.11.1",
+    "gradleSha256": "f397b287023acdba1e9f6fc5ea72d22dd63669d59ed4a289a29b1a76eee151c6"
+  },
+  "sourceBuildPattern": {
+    "path": "work/api1/four-loader/api-contract-controls/client-development/build.gradle",
+    "sha256": "9a5d81f0e54ee4bcb30536fb7ef13874bd8da82c55e38aeec08a1210acca531f"
+  },
+  "verificationMetadata": {
+    "path": "gradle/verification-metadata.xml",
+    "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f",
+    "source": "portable-bootstrap/verification-metadata.xml",
+    "scope": "Copied intact; closure sufficiency and all resolutions remain untested. Strict mode required; no new acceptance exceptions."
+  },
+  "contractDerivation": {
+    "path": "work/network-api-next/contracts/src/main/java/org/sinytra/connector/network/contract/PlayNonceContract.java",
+    "sha256": "d7af5a570f363e0c55baf62163cf62085653c20f9d1676d733676cc333447b16",
+    "license": "MIT",
+    "description": "Independently implemented small equivalent using nonce/sequence/counter equality and authoritative server counter semantics. Domain narrowed to positive signed-long nonce and sequence exactly 1. Server learns nonce from actual first request, instead of constructing a contract with a pre-shared nonce. No production dependency or copied runtime class."
+  },
+  "validation": {
+    "sourceApiArchiveHashReverified": true,
+    "selectedBinarySignaturesReadWithoutJvm": true,
+    "javaCompiled": false,
+    "preparedCodecTestRun": false,
+    "clientOrServerLaunched": false,
+    "networkAcceptance": false,
+    "downloads": false,
+    "remoteWrites": false,
+    "ciDispatched": false
+  },
+  "licenses": {
+    "ownFiles": "MIT",
+    "upstreamSourceInspectionOnly": "NeoForge LGPL-2.1-only; no upstream source or binary included"
+  },
+  "entrypointAndOutputReview": {
+    "status": "STATIC_SOURCE_REVIEW_ONLY",
+    "fmlVersion": "4.0.42",
+    "upstreamSourceRecord": "work/api1/source-workspace/fml-unified/provenance/upstream-source.json",
+    "upstreamSourceRecordSha256": "a583830cc1ce7d47800ef3ca4f5dd5bb71c01b1792300b10d8403a7b6eaac606",
+    "recordedSourceArchiveSha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+    "sourceArchiveReverifiedThisReview": false,
+    "reverifiedUnchangedSources": [
+      {
+        "source": "work/api1/source-workspace/fml-unified/src/main/java/net/neoforged/fml/common/Mod.java",
+        "upstreamMember": "net/neoforged/fml/common/Mod.java",
+        "sha256": "3e136fee675697eeeb27a6c9a89d4359eddf1f7d803ac18937babce175eb70c2",
+        "matchesRecordedUpstream": true
+      },
+      {
+        "source": "work/api1/source-workspace/fml-unified/src/main/java/net/neoforged/fml/javafmlmod/FMLJavaModLanguageProvider.java",
+        "upstreamMember": "net/neoforged/fml/javafmlmod/FMLJavaModLanguageProvider.java",
+        "sha256": "9be9fbc90070d7bb27543f04084822c56b9b909c9f89dbe3e4f68a5e0cdf7ec0",
+        "matchesRecordedUpstream": true
+      },
+      {
+        "source": "work/api1/source-workspace/fml-unified/src/main/java/net/neoforged/fml/javafmlmod/FMLModContainer.java",
+        "upstreamMember": "net/neoforged/fml/javafmlmod/FMLModContainer.java",
+        "sha256": "495e5777b85d06c496646f3da150c5544dd8fc45ee3c35e5d200f36be7108701",
+        "matchesRecordedUpstream": true
+      },
+      {
+        "source": "work/api1/source-workspace/fml-unified/src/main/java/net/neoforged/fml/javafmlmod/AutomaticEventSubscriber.java",
+        "upstreamMember": "net/neoforged/fml/javafmlmod/AutomaticEventSubscriber.java",
+        "sha256": "ce30ec13a45327b6ee8918695b7a867ca661f28b0e95ffd86f063398949afd36",
+        "matchesRecordedUpstream": true
+      },
+      {
+        "source": "work/api1/source-workspace/fml-unified/src/main/java/net/neoforged/fml/loading/FMLPaths.java",
+        "upstreamMember": "net/neoforged/fml/loading/FMLPaths.java",
+        "sha256": "ae9dc95511cf4491996c9600be0815b682426467b09b05eeef65a7b7121c719a",
+        "matchesRecordedUpstream": true
+      }
+    ],
+    "findings": [
+      "The JavaFML provider selects all matching mod-ID entrypoints, filters by actual physical side, and sorts common sides before a single side.",
+      "The mod container loads only selected entrypoint classes and injects the same IEventBus into both authorized constructors.",
+      "The common probe never references the physical-client class; it registers common indirection and client setup installs the callback.",
+      "FMLPaths.GAMEDIR resolves the official launch game directory; fixture paths are fixed literal children.",
+      "Both result files and temporary siblings plus release must be absent at setup. The server must not have client nonce input.",
+      "First result creation rejects any existing target or symlink; failure may replace only a role result previously written by the current process. Private supervisor-owned profile roots remain a requirement.",
+      "PASS phase and flow are encoded from actual IPayloadContext enum values after assertions, with a second closed-domain check before writing."
+    ]
+  }
+}

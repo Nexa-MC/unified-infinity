@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "scope": "Only private conversation identifiers in authorization-reference text replaced by public-readable test scope. Execution behavior and compiled sources unchanged.",
+  "originalSha256": "ec8e94590943bd753308b5329125fe2d3576e1de792440ed3645ab648b5c67b5",
+  "publicSha256": "3fe5393ffc0dfe6a7bfe4a23ac9fe55dc133913a66e1908d7ff03e34ce44249e"
+}

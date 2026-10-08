@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "status": "READ_ONLY_SOURCE_INPUT_AUDIT_NOT_RUNTIME_ACCEPTANCE",
+  "gameLaunched": false,
+  "actualRoleSealFilesChecked": 462,
+  "actualRoleSealPinFailures": [],
+  "jdkLegalLinksChecked": 205,
+  "jdkDistinctCanonicalLegalTargets": 4,
+  "readOnlyAuditRoot": "/workspace/scratch/414822c1ef1a/mod-compat-runtime",
+  "notRuntimeAcceptance": true,
+  "adjacentLifecycleChoices": {
+    "server.properties": "original exact prestart bytes, then exact decoded values and byte diffs",
+    "whitelist.json and ops.json": "seed exact schema serialization; retain exact byte pins",
+    "client options.txt": "omit from final immutable inputs; retain original byte provenance in producer/prestart receipt",
+    "config/defaultconfigs": "normal owned modes; exact byte pins and complete directory inventories remain"
+  }
+}

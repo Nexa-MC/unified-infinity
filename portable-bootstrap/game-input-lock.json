@@ -1,0 +1,180 @@
+{
+  "schema": 1,
+  "rootPolicy": "All paths relative to explicit isolated reconstructed root",
+  "allowedHosts": [
+    "repo.maven.apache.org",
+    "repo1.maven.org",
+    "maven.neoforged.net",
+    "maven.minecraftforge.net",
+    "libraries.minecraft.net",
+    "piston-meta.mojang.com",
+    "piston-data.mojang.com",
+    "maven.fabricmc.net",
+    "maven.quiltmc.org",
+    "maven.su5ed.dev",
+    "maven.sinytra.org",
+    "services.gradle.org",
+    "downloads.gradle.org",
+    "github.com",
+    "release-assets.githubusercontent.com",
+    "objects.githubusercontent.com",
+    "cdn.modrinth.com"
+  ],
+  "artifacts": [
+    {
+      "path": "run/client-dev/versions/1.21.1/1.21.1.jar",
+      "sha1": "30c73b1c5da787909b2f73340419fdf13b9def88",
+      "bytes": 26836906,
+      "urls": [
+        "https://piston-data.mojang.com/v1/objects/30c73b1c5da787909b2f73340419fdf13b9def88/client.jar"
+      ],
+      "phase": "minecraft-official",
+      "pinSource": "Minecraft 1.21.1 metadata SHA256 458f2fbabc75a1cf79e5853c067f5ad95fca2163941c343b56c5c55b9127c8df"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1/server-1.21.1.jar",
+      "sha1": "59353fb40c36d304f2035d51e7d6e6baa98dc05c",
+      "bytes": 51627615,
+      "urls": [
+        "https://piston-data.mojang.com/v1/objects/59353fb40c36d304f2035d51e7d6e6baa98dc05c/server.jar"
+      ],
+      "phase": "minecraft-official",
+      "pinSource": "Minecraft 1.21.1 metadata SHA256 458f2fbabc75a1cf79e5853c067f5ad95fca2163941c343b56c5c55b9127c8df"
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-mappings.txt",
+      "sha1": "2244b6f072256667bcd9a73df124d6c58de77992",
+      "bytes": 9598610,
+      "urls": [
+        "https://piston-data.mojang.com/v1/objects/2244b6f072256667bcd9a73df124d6c58de77992/client.txt"
+      ],
+      "phase": "minecraft-official",
+      "pinSource": "Minecraft 1.21.1 metadata SHA256 458f2fbabc75a1cf79e5853c067f5ad95fca2163941c343b56c5c55b9127c8df"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-mappings.txt",
+      "sha1": "03f8985492bda0afc0898465341eb0acef35f570",
+      "bytes": 7456063,
+      "urls": [
+        "https://piston-data.mojang.com/v1/objects/03f8985492bda0afc0898465341eb0acef35f570/server.txt"
+      ],
+      "phase": "minecraft-official",
+      "pinSource": "Minecraft 1.21.1 metadata SHA256 458f2fbabc75a1cf79e5853c067f5ad95fca2163941c343b56c5c55b9127c8df"
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/qsl_base-alpha5.jar",
+      "sha256": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/qsl_base/10.0.0-alpha.5+1.21.1/qsl_base-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl"
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar",
+      "sha256": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/core/lifecycle_events/10.0.0-alpha.5+1.21.1/lifecycle_events-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl"
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/qsl-alpha5-artifacts/tooltip.jar",
+      "sha256": "1d78ca2f96f1610a5905d0b9b7b833871aa112ab90b35ad524ca66e22ecd76b2",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/qsl/gui/tooltip/10.0.0-alpha.5+1.21.1/tooltip-10.0.0-alpha.5+1.21.1.jar"
+      ],
+      "phase": "qsl"
+    },
+    {
+      "path": "docs/research/upstream/ffapi-baseline.jar",
+      "sha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+      "bytes": 5563831,
+      "urls": [
+        "https://maven.sinytra.org/org/sinytra/forgified-fabric-api/forgified-fabric-api/0.116.7+2.2.1+1.21.1/forgified-fabric-api-0.116.7+2.2.1+1.21.1.jar"
+      ],
+      "phase": "ffapi"
+    }
+  ],
+  "generatedFmlInputs": [
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "sha256": "fd02f80f4eec9dfaa1714cb62595d013cbac03d52d19dd0623d1922b999c40b7",
+      "filename": "client-1.21.1-20240808.144430-extra.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:extra",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "extra",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "sha256": "93224371dda52351038d0957e392729e692dce031f55ae29ea4b47d909433a5c",
+      "filename": "client-1.21.1-20240808.144430-slim.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:slim",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "slim",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "sha256": "a649bd3ce77f122d0f83ae1b37b4b303e662470f928b9bee5fbc76580805ffd4",
+      "filename": "client-1.21.1-20240808.144430-srg.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:srg",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "srg",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-client.jar",
+      "sha256": "c9a2df004c3b4e07572f6c6cf4221cc076b5501b9cc5badc293bd8320d57b1f9",
+      "filename": "neoforge-21.1.219-client.jar",
+      "coordinates": "net.neoforged:neoforge:21.1.219:client",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.neoforged",
+      "artifact": "neoforge",
+      "version": "21.1.219",
+      "classifier": "client",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    }
+  ]
+}

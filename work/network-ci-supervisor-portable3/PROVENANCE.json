@@ -1,0 +1,66 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "runtimeStatus": "UNRUN",
+  "derivative": "network-ci-supervisor-portable3",
+  "preparedUtc": "2026-10-06T03:02:59.196672+00:00",
+  "license": "MIT; inherited frozen source and preparation listener validator",
+  "frozenSource": {
+    "path": "work/network-ci-supervisor-portable2/source-manifest.json",
+    "bytes": 1805,
+    "sha256": "22c92c8f4e1c0ee00cc251998e34b0fff9e0c150cebca773cc8d60bc7edb9aac",
+    "preservedExactly": true
+  },
+  "pipelineReady": false,
+  "gameLaunched": false,
+  "authorityBoundary": "Source changes and read-only source/input checks, local synthetic Python tests only; no JVM/game/graphics/network/CI/Git/CUA, security-setting changes, runtime-input chmod or JDK copying",
+  "finalScope": [
+    "V2 explicit owned preparation roots with exact byte pins and actual file access; normal owned config/JAR/JDK/receipt/pair-spec modes accepted without chmod",
+    "Only manifest-pinned owned legal-file aliases within exact command JDK legal subtree; complete inventory, pinned canonical target, max eight hops/cycle rejection",
+    "Original server.properties prestart bytes captured; both post-start checks require all identical decoded keys/values and exact byte/diff receipts",
+    "No JSON mutation exception; producer seeds exact controls; mutable client options excluded from immutable inputs with original provenance retained in role receipt",
+    "Preserve all real memory/socket/probe/graphics/process/lifecycle gates and original source versions"
+  ],
+  "sources": [
+    {
+      "path": "work/api1/four-loader/api-contract-controls/prepare_network_profiles.py",
+      "bytes": 8107,
+      "sha256": "effd845cb6b8673f6e3be7d2a8ce10b6675a9ea281540c46817b25a25ae32c85"
+    },
+    {
+      "path": "work/api1/run/api1-unified-server-4/server.properties",
+      "bytes": 1397,
+      "sha256": "721c63af82e1e39385ec4f0734857d34c0d6081504855d795787dacf8105604e"
+    },
+    {
+      "path": "work/network-pair-assembled-local4/assembly-result.json",
+      "bytes": 3581,
+      "sha256": "b6dc08093e520ebfbc27b3eeec40de0d7fd9dae002f422ad0cf45c5c9efa7496"
+    },
+    {
+      "path": "work/network-pair-assembled-local4/native-neoforge/server-launch-seal.json",
+      "bytes": 49268,
+      "sha256": "6e55728cc15892cf42dc84029a4c41c8724bc543cbeb0c4918bb74cbde2a893b"
+    },
+    {
+      "path": "work/network-pair-assembled-local4/native-neoforge/client-launch-seal.json",
+      "bytes": 91253,
+      "sha256": "935e0f43d20fba06909d3c23f34e3d9b8ab8eca211a354c41f6d9fa4029219d7"
+    },
+    {
+      "path": "work/network-pair-assembled-local4/unified/server-launch-seal.json",
+      "bytes": 82353,
+      "sha256": "0a1ea0a487c3e01e32c49108156da254ef3ab24d9a234b44ec44106559fdb6f1"
+    },
+    {
+      "path": "work/network-pair-assembled-local4/unified/client-launch-seal.json",
+      "bytes": 127333,
+      "sha256": "e84350a884a9e1f1758c16f27f2cc3cbd42c7b90c0a52507ba89afc3aae740a8"
+    }
+  ],
+  "sourceOnlyInputAudit": {
+    "path": "evidence/actual-input-audit.json",
+    "bytes": 827,
+    "sha256": "7f051081aaa2614d0efd711ad5c22e773ce4e2045c43f8f09e8ec8dade7d52cb"
+  }
+}

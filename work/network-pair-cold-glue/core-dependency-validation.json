@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "deterministic recapture equals delivered index",
+      "status": "PASS"
+    },
+    {
+      "check": "706 unique verified destinations",
+      "status": "PASS"
+    },
+    {
+      "check": "full 670 source plus 169 dependency reference digest reproduced",
+      "status": "PASS"
+    },
+    {
+      "check": "only six source-substituted external artifacts omitted",
+      "status": "PASS"
+    },
+    {
+      "check": "58 unrelated and one strict-hash-mismatch cache files excluded",
+      "status": "PASS"
+    },
+    {
+      "check": "URL schemes and host allowlist checked; all four timestamped SNAPSHOT sources retained",
+      "status": "PASS"
+    },
+    {
+      "check": "changed strict verification XML rejected",
+      "status": "PASS"
+    }
+  ],
+  "capture_script_sha256": "8031b1b3643fc6e99e96c40e9871458245f1a9c0cde2838a14d0f7bb1c5531c0",
+  "core_dependency_lock_sha256": "8b5f08ec1ef07a8c646e855d01a01bb9d4797b8d821c87820ec3285cf23ba993",
+  "counts": {
+    "strict_components": 347,
+    "strict_artifact_entries": 712,
+    "observed_cache_files": 761,
+    "observed_cache_bytes": 265043504,
+    "included_cache_files": 702,
+    "included_pinned_snapshot_files": 4,
+    "included_artifacts": 706,
+    "included_bytes": 247379240,
+    "identity_dependencies": 169,
+    "excluded_cache_files": 59,
+    "omitted_strict_entries": 6,
+    "artifact_extensions": {
+      ".jar": 237,
+      ".module": 123,
+      ".pom": 344,
+      ".zip": 2
+    }
+  },
+  "reference_identity_verification": {
+    "source_records": 670,
+    "dependency_records": 169,
+    "compiler_runtime_literal": "21.0.12.1+1-LTS",
+    "combined_digest": "54e5f302c1bad0de54a6845a50b128d6a2aa9f4fb9d44ec14c84c754d7fb21f6",
+    "exact_match": true,
+    "scope": "Pure-Python recomputation from pinned source archive and locally observed verified dependency bytes; no consumer build or JVM"
+  },
+  "network_used": false,
+  "java_started": false,
+  "gradle_started": false,
+  "clean_runner_build_verified": false
+}

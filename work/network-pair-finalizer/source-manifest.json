@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "SOURCE_CHECKED_NOT_RUNTIME_ACCEPTANCE",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4453,
+      "sha256": "bf49327d011a3c2a2338f97d2cc8547d9a601015df5cc46c9334aa7fd0241522"
+    },
+    {
+      "path": "finalize_pair.py",
+      "bytes": 4349,
+      "sha256": "3dfd555d10ec85b29c8bb59e6256425fc540f860de74624d079855b6028567a1"
+    },
+    {
+      "path": "prepare_inputs.py",
+      "bytes": 8524,
+      "sha256": "3fe5393ffc0dfe6a7bfe4a23ac9fe55dc133913a66e1908d7ff03e34ce44249e"
+    },
+    {
+      "path": "source-checks.json",
+      "bytes": 489,
+      "sha256": "5788370e857f0bc7c66f4ddf32ea49b4d923de8c81d085bc9eb42f017a212dc5"
+    },
+    {
+      "path": "test_finalizer.py",
+      "bytes": 2266,
+      "sha256": "a8685fdf0cc2cc2999fb0942bbc491bbd4f302c4d4d47efb9bcefe8c8b344d99"
+    },
+    {
+      "path": "public-reference-derivative.json",
+      "bytes": 367,
+      "sha256": "3d0a097b9c56d95f9879799095af35158608181542c1f416dd2a01b94b3bec2f"
+    }
+  ],
+  "publicationDerivative": "public-reference-derivative.json"
+}

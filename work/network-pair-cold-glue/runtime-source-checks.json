@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "status": "PASS_SOURCE_ONLY_RUNTIME_GLUE",
+  "checks": {
+    "behavioralTests": 3,
+    "allPassed": true,
+    "unchangedCompileRecords": 360,
+    "downloadRecords": 4270,
+    "downloadBytes": 1482465250,
+    "nativeServerFiles": 95,
+    "generatedFmlInputs": 4,
+    "generatedDevelopmentOutputs": 2,
+    "additionalCleanOutput": true,
+    "clientClasspathIdentities": 95,
+    "assetObjects": 3888
+  },
+  "missingOfficialInputs": [],
+  "coldExecutionVerified": false,
+  "jvmStarted": false,
+  "downloadsStarted": false,
+  "gameLaunched": false,
+  "gitOrCiUsed": false,
+  "frozenSourcesChanged": false,
+  "remaining": [
+    "Cold official installer invocation and full before/after closure",
+    "Cold prepareClientLaunch against local-only Maven mirror",
+    "Cold consumer-local client seal and assembly",
+    "NFRT has a separate downloader; before/after public closure checks do not claim OS-level network isolation"
+  ],
+  "files": [
+    {
+      "path": "runtime_restore.py",
+      "bytes": 31138,
+      "sha256": "69cb54d57dc114624573c34d4efd645a02e9671d6daffdaaa4201378cfbac533"
+    },
+    {
+      "path": "runtime-inputs.lock.json",
+      "bytes": 122749,
+      "sha256": "744be4c4fd9464e77e94f88db87f7f4a2e07d5aa2c50c97fce7927b92a07a2e0"
+    },
+    {
+      "path": "test_runtime_restore.py",
+      "bytes": 4528,
+      "sha256": "fcbde24cfeaffb7c8908e3627b9882ad770415133332b7cccea7adaa4c73d8b9"
+    },
+    {
+      "path": "runtime-restore-notes.md",
+      "bytes": 5173,
+      "sha256": "114bad7d14424ba3dfc13fa9c7af956cd090a444d57f8693c3b074fc3eb1c397"
+    }
+  ]
+}

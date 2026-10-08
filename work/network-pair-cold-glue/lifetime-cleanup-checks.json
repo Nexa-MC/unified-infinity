@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "status": "PASS_PYTHON_SOURCE_AND_MOCK_CHECKS_ONLY",
+  "driverAndGlueTestsPassed": 29,
+  "inheritedGraphicsTestsPassed": 32,
+  "graphicsBaselineFixture": "Existing work/network-graphics-ci-portable1 supplied read-only in the validation harness; this historical comparison fixture is not part of the publication stage.",
+  "workSeconds": 2520,
+  "serialPairSeconds": [
+    650,
+    650
+  ],
+  "pairCleanupSeconds": 30,
+  "graphicsCleanupSeconds": 20,
+  "workflowMinutes": 45,
+  "collectorReceiptMatchesActualLifetime": true,
+  "termIntHupCleanupTested": true,
+  "unreapedPairFailsClosed": true,
+  "cleanupFailurePreservesPrimaryAndFinalReceipt": true,
+  "realProcessesStarted": false,
+  "downloadsExecuted": false,
+  "jvmStarted": false,
+  "gameLaunched": false,
+  "remoteWrites": false,
+  "files": [
+    {
+      "path": "work/network-pair-cold-glue/driver.py",
+      "bytes": 16012,
+      "sha256": "8db334be3c90bf37a878fb7cb817cd306264b8aeb0e8e636a91578c1cce2f6b7"
+    },
+    {
+      "path": "work/network-pair-cold-glue/graphics_runner.py",
+      "bytes": 23223,
+      "sha256": "128aad1fc5f35443e811b89c362acd76c564e0187dd50b6d745c000734d8007d"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_driver_cleanup.py",
+      "bytes": 13736,
+      "sha256": "440d6451839d1ad6193699f0c6d73b7e0ef6cc691f98a874eb109b259702d12c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_graphics_runner.py",
+      "bytes": 9898,
+      "sha256": "8f9b518af7bcc62b0eed3fa7aa3569b45739891713d8984a80dbc517dad4c159"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/graphics_preflight.py",
+      "bytes": 24107,
+      "sha256": "82283cb5b254f1102a6022b95433f38b6fccf9f99aa8b8f3abc004d9f2507946"
+    }
+  ],
+  "collectorStartupOwnershipAndHandoffTested": true,
+  "repeatedSignalsDuringStartupAndFinalCleanupTested": true
+}

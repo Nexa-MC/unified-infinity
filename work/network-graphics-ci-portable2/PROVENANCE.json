@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "preparedUtc": "2026-10-06T03:04:15.715648+00:00",
+  "license": "MIT; unchanged original graphics source license",
+  "owned_scope": "work/network-graphics-ci-portable2 only",
+  "parent_graphics_manifest_sha256": "8a9b455fe3dc0d4db1f0d0dc165e10f064d5b5d8414d7719dd5d0fa97b0343df",
+  "reviewed_supervisor": {
+    "path": "work/network-ci-supervisor-portable3/supervisor.py",
+    "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf",
+    "source_manifest_sha256": "6c94bfd342ef1faa97f42e88952df2a5f3c0b15da38e0ec56658523a9d6f2075"
+  },
+  "change": "Add explicitly observed installed-package receipt branch; existing signed receipt validation and all graphics execution functions/classes preserved. No verified archive chain claimed for observations. Repinned only the helper source constant and original test helper path to final portable3; original test bodies retained.",
+  "authorityBoundary": "Authorized separate source derivative, focused provenance checks and inherited synthetic tests only. No graphics/JVM/game, package command/download/install, network, CI, CUA or host changes.",
+  "pipelineReady": false,
+  "graphicsLockSupplied": false,
+  "runtimeAcceptance": false,
+  "lifetimeDerivative": {
+    "change": "Raise only MAX_LIFETIME from 900 to 2520 seconds for two serial 650-second pairs under the driver 42-minute work deadline; all collector function and class bodies remain unchanged.",
+    "collectorSha256": "82283cb5b254f1102a6022b95433f38b6fccf9f99aa8b8f3abc004d9f2507946",
+    "runtimeExecuted": false
+  }
+}

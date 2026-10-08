@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "rootPolicy": "All paths relative to explicit isolated reconstructed root",
+  "allowedHosts": [
+    "repo.maven.apache.org",
+    "repo1.maven.org",
+    "maven.neoforged.net",
+    "maven.minecraftforge.net",
+    "libraries.minecraft.net",
+    "piston-meta.mojang.com",
+    "piston-data.mojang.com",
+    "maven.fabricmc.net",
+    "maven.quiltmc.org",
+    "maven.su5ed.dev",
+    "maven.sinytra.org",
+    "services.gradle.org",
+    "downloads.gradle.org",
+    "github.com",
+    "release-assets.githubusercontent.com",
+    "objects.githubusercontent.com",
+    "cdn.modrinth.com",
+    "resources.download.minecraft.net"
+  ],
+  "artifacts": [
+    {
+      "path": "run/client-dev/assets/indexes/17.json",
+      "sha1": "9b16298b1dc0697878cec88bb2d96168f5239e4f",
+      "bytes": 449557,
+      "urls": [
+        "https://piston-meta.mojang.com/v1/packages/9b16298b1dc0697878cec88bb2d96168f5239e4f/17.json"
+      ],
+      "phase": "client-asset-index"
+    }
+  ],
+  "generatedFmlInputs": [
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "sha256": "fd02f80f4eec9dfaa1714cb62595d013cbac03d52d19dd0623d1922b999c40b7",
+      "filename": "client-1.21.1-20240808.144430-extra.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:extra",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "extra",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "sha256": "93224371dda52351038d0957e392729e692dce031f55ae29ea4b47d909433a5c",
+      "filename": "client-1.21.1-20240808.144430-slim.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:slim",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "slim",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "sha256": "a649bd3ce77f122d0f83ae1b37b4b303e662470f928b9bee5fbc76580805ffd4",
+      "filename": "client-1.21.1-20240808.144430-srg.jar",
+      "coordinates": "net.minecraft:client:1.21.1-20240808.144430:srg",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.minecraft",
+      "artifact": "client",
+      "version": "1.21.1-20240808.144430",
+      "classifier": "srg",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-client.jar",
+      "sha256": "c9a2df004c3b4e07572f6c6cf4221cc076b5501b9cc5badc293bd8320d57b1f9",
+      "filename": "neoforge-21.1.219-client.jar",
+      "coordinates": "net.neoforged:neoforge:21.1.219:client",
+      "coordinate_evidence": "Maven layout of the exact locked local path",
+      "group": "net.neoforged",
+      "artifact": "neoforge",
+      "version": "21.1.219",
+      "classifier": "client",
+      "extension": "jar",
+      "input_kind": "derived_installer_artifact",
+      "repository_candidates": [],
+      "restore": "Produce through the pinned official NeoForge installer/NeoForm/ModDevGradle pipeline; require this exact SHA-256 before use. This is a local synthetic coordinate, not a claimed downloadable Maven release.",
+      "recipe_evidence": [
+        "tools/client-setup/README.md",
+        "tools/client-setup/install_official.py",
+        "tools/client-setup/development/build.gradle"
+      ]
+    }
+  ]
+}

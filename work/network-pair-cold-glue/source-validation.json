@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "unsafe path '../escape'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path '/absolute'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path 'a\\\\escape'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path 'a//b'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path 'a/./b'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path 'a/../b'",
+      "status": "PASS"
+    },
+    {
+      "check": "unsafe path 'C:/escape'",
+      "status": "PASS"
+    },
+    {
+      "check": "existing consumer root",
+      "status": "PASS"
+    },
+    {
+      "check": "symlink consumer ancestor",
+      "status": "PASS"
+    },
+    {
+      "check": "traversal member",
+      "status": "PASS"
+    },
+    {
+      "check": "symlink member",
+      "status": "PASS"
+    },
+    {
+      "check": "compiled class",
+      "status": "PASS"
+    },
+    {
+      "check": "binary disguised as source",
+      "status": "PASS"
+    },
+    {
+      "check": "runtime jar",
+      "status": "PASS"
+    },
+    {
+      "check": "unrecognized modified archive",
+      "status": "PASS"
+    },
+    {
+      "check": "fresh source reconstruction",
+      "status": "PASS",
+      "files": 801,
+      "source_records": 670,
+      "dependency_records": 169,
+      "fml_java_sources": 184
+    },
+    {
+      "check": "changed reconstructed identity source",
+      "status": "PASS"
+    },
+    {
+      "check": "all original archives retain pins after verification",
+      "status": "PASS"
+    }
+  ],
+  "source_materialize_sha256": "8a511da9d20a66daa72a4ccf13b0927c34ab8fae5968c6752e9acc8d59f5201c",
+  "source_manifest_sha256": "7c5bd0cd8eee33f33e9d5b52a94a1767bdeaf8adeb8e3b3c47d5df8b01a8a861",
+  "java_started": false,
+  "gradle_started": false,
+  "network_used": false,
+  "combined_identity_recomputed": false,
+  "runtime_ready": false
+}

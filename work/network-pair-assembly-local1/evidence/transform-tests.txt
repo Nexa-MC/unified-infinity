@@ -1,0 +1,16 @@
+test_account_extra (test_assembly.TransformChecks.test_account_extra) ... ok
+test_duplicate_selector_rejected (test_assembly.TransformChecks.test_duplicate_selector_rejected) ... ok
+test_heap_override (test_assembly.TransformChecks.test_heap_override) ... ok
+test_hidden_response_file (test_assembly.TransformChecks.test_hidden_response_file) ... ok
+test_literal_client_role (test_assembly.TransformChecks.test_literal_client_role) ... ok
+test_literal_server_role (test_assembly.TransformChecks.test_literal_server_role) ... ok
+test_missing_selector_value_rejected (test_assembly.TransformChecks.test_missing_selector_value_rejected) ... ok
+test_native_server_keeps_official_library_paths (test_assembly.TransformChecks.test_native_server_keeps_official_library_paths) ... ok
+test_remote_endpoint (test_assembly.TransformChecks.test_remote_endpoint) ... ok
+test_unpinned_code (test_assembly.TransformChecks.test_unpinned_code) ... ok
+test_wrong_side (test_assembly.TransformChecks.test_wrong_side) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.006s
+
+OK

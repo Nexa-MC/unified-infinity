@@ -1,0 +1,598 @@
+{
+  "schema": 1,
+  "status": "OFFICIAL_CLIENT_COMMAND_SEALED_ASSETS_AND_PROBE_PENDING",
+  "workingDirectory": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/game",
+  "command": [
+    "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/.toolchains/jdk-21.0.12.1+1/bin/java",
+    "@/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientRunVmArgs.txt",
+    "-cp",
+    "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/classes/java/main:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/resources/main:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/artifacts/neoforge-21.1.219.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/artifacts/neoforge-21.1.219-client-extra-aka-minecraft-resources.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/DevLaunch/1.0.2/2e0e9a67793d5bfdedee4f9ea00934dbf3f2e22d/DevLaunch-1.0.2.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.fancymodloader/earlydisplay/4.0.42/46555dbfff14e9e052f1f693aed14d542a74e111/earlydisplay-4.0.42.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.fancymodloader/loader/4.0.42/76e15f98bf676fb44b36c5e776f52a55581ec43a/loader-4.0.42.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.accesstransformers/at-modlauncher/10.0.1/5aba50202aceead086bc09fbc2751c9f05cb4890/at-modlauncher-10.0.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/accesstransformers/10.0.1/fd83b5725f76eae9115e9355fa1c456a6a441400/accesstransformers-10.0.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/bus/8.0.5/5b2d33285ab5d1554e9798ad98c40d6ea3868bd5/bus-8.0.5.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/coremods/7.0.3/9147e6f638b4272b3bd5fc8f92ad37802512c6c/coremods-7.0.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/modlauncher/11.0.5/b8f0d49294f733fdb6173931b263553e943dc950/modlauncher-11.0.5.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/mergetool/2.0.0/52fe1949be64e3303aabaaa21e315f551db9c9f4/mergetool-2.0.0-api.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.3/90b2fd6efcb4a7d5b9810cf78f9d824994d717f2/toml-3.8.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.3/b442a95f09e349927f5a945ecb594455870fcf4f/core-3.8.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarSelector/0.4.1/fb3cc7a58af22ad2880adb98af6d518128c47dae/JarJarSelector-0.4.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarMetadata/0.4.1/f8da03683dc81694556dc3e177c5e3bb77ae6fcb/JarJarMetadata-0.4.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.8.5/4433f50c07debefaed0553bd0068f4f48d449313/maven-artifact-3.8.5.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.jodah/typetools/0.6.3/a01aaa6ddaea9ec07ec4f209487b7a46a526283a/typetools-0.6.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.minecrell/terminalconsoleappender/1.3.0/b562e9bb61235c9520e26282cdee71f8f802d1fc/terminalconsoleappender-1.3.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.openjdk.nashorn/nashorn-core/15.4/f67f5ffaa5f5130cf6fb9b133da00c7df3b532a5/nashorn-core-15.4.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/bootstraplauncher/2.0.2/1a2d076cbc33b0520cbacd591224427b2a20047d/bootstraplauncher-2.0.2.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/securejarhandler/3.0.8/c0ef95cecd8699a0449053ac7d9c160748d902cd/securejarhandler-3.0.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.8/36e4d212970388e5bd2c5180292012502df461bb/asm-commons-9.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.8/395f1c1f035258511f27bc9b2583d76e4b143f59/asm-util-9.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.8/b9747a320844b6cb1eacd90d8ecfd260a16c01d3/asm-analysis-9.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.8/18419ca5b77a2f81097c741e7872e6ab8d2f40d/asm-tree-9.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm/9.8/dc19ecb3f7889b7860697215cae99c0f9b6f6b4b/asm-9.8.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarFileSystems/0.4.1/78f59f89defcd032ed788b151ca6a0d40ace796a/JarJarFileSystems-0.4.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/logging/1.2.7/24cb95ffb0e3433fd6e844c04e68009e504ca1c0/logging-1.2.7.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.22.1/d7e6693c2606cb7e7335047d7bb96dec52db5665/log4j-slf4j2-impl-2.22.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.22.1/7183a25510a02ad00cc6a95d3b3d2a7d3c5a8dc4/log4j-core-2.22.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.22.1/bea6fede6328fabafd7e68363161a7ea6605abd1/log4j-api-2.22.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.13.1/17125bae1d965624e265ef49552f6465a2bfa307/antlr4-runtime-4.13.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.minecraftforge/srgutils/0.4.15/ca408b131759478f164e010fae0d73997e125fb5/srgutils-0.4.15.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.3.0/cf43b5391de623b36fe066a21127baef82c64022/plexus-utils-3.3.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-reader/3.20.0/8f15415b022a25b473e8e16c28ae913186ffb9c4/jline-reader-3.20.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.machinezoo.noexception/noexception/1.7.1/b65330c98e38a1f915fa54a6e5eca496505e3f0a/noexception-1.7.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.ibm.icu/icu4j/73.2/61ad4ef7f9131fcf6d25c34b817f90d6da06c9e9/icu4j-73.2.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/blocklist/1.0.10/5c685c5ffa94c4cd39496c7184c1d122e515ecef/blocklist-1.0.10.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/datafixerupper/8.0.16/67d4de6d7f95d89bcf5862995fb854ebaec02a34/datafixerupper-8.0.16.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/patchy/2.2.10/da05971b07cbb379d002cf7eaec6a2048211fefc/patchy-2.2.10.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/text2speech/1.17.9/3cad216e3a7f0c19b4b394388bc9ffc446f13b14/text2speech-1.17.9.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-codec/commons-codec/1.16.0/4e3eb3d79888d76b54e28b350915b5dc3919c9de/commons-codec-1.16.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.97.Final/f8f3d8644afa5e6e1a40a3a6aeb9d9aa970ecb4f/netty-buffer-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.97.Final/384ba4d75670befbedb45c4d3b497a93639c206d/netty-codec-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-common/4.1.97.Final/7cceacaf11df8dc63f23d0fb58e9d4640fc88404/netty-common-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.97.Final/abb86c6906bf512bf2b797a41cd7d2e8d3cd7c36/netty-handler-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.97.Final/cec8348108dc76c47cf87c669d514be52c922144/netty-resolver-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.97.Final/795da37ded759e862457a82d9d92c4d39ce8ecee/netty-transport-classes-epoll-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.97.Final/d469d84265ab70095b01b40886cabdd433b6e664/netty-transport-native-unix-common-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.97.Final/f37380d23c9bb079bc702910833b2fd532c9abd0/netty-transport-4.1.97.Final.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.14.0/28934d48aed814f11e4c584da55c49fa7032b31b/jna-platform-5.14.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.14.0/67bf3eaea4f0718cb376a181a629e5f88fa1c9dd/jna-5.14.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.26.0/659feffdd12280201c8aacb8f7be94f9a883c824/commons-compress-1.26.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/51cf043c87253c9f58b539c9f7e44c8894223850/httpcore-4.4.16.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/a0db6c84a8becc8ca05f9dbfa985edc348a824c7/lwjgl-freetype-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/149070a5480900347071b7074779531f25a6e3dc/lwjgl-freetype-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/efa1eb78c5ccd840e9f329717109b5e892d72f8e/lwjgl-glfw-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2/lwjgl-glfw-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/b543467b7ff3c6920539a88ee602d34098628be5/lwjgl-jemalloc-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/4f86728bf449b1dd61251c4e0ac01df1389cb51e/lwjgl-jemalloc-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/daada81ceb5fc0c291fbfdd4433cb8d9423577f2/lwjgl-openal-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/3037360cc4595079bea240af250b6d1a527e0905/lwjgl-openal-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/2f6b0147078396a58979125a4c947664e98293a/lwjgl-opengl-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/62c70a4b00ca5391882b0f4b787c1588d24f1c86/lwjgl-opengl-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/25dd6161988d7e65f71d5065c99902402ee32746/lwjgl-stb-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/fd1271ccd9d85eff2fa31f3fd543e02ccfaf5041/lwjgl-stb-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/82d755ca94b102e9ca77283b9e2dc46d1b15fbe5/lwjgl-tinyfd-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/d8d58daa0c3e5fd906fee96f5fddbcbc07cc308b/lwjgl-tinyfd-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/1713758e3660ba66e1e954396fd18126038b33c0/lwjgl-3.3.3-natives-linux.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-terminal/3.20.0/d0ddcc708ddf527a3454c941b7b9225cc83a15ff/jline-terminal-3.20.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/5514744c588190ffda076b35a9b8c9f24946a960/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/54188f271e388e7f313aea995e82f58ce2cdb809/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.18.0/89b684257096f548fa39a7df9fdaa409d4d4df91/error_prone_annotations-2.18.0.jar:/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/2.8/c85270e307e7b822f1086b93689124b89768e273/j2objc-annotations-2.8.jar",
+    "net.neoforged.devlaunch.Main",
+    "@/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientRunProgramArgs.txt"
+  ],
+  "files": [
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/client-launch-inputs.json",
+      "sha256": "174b8e73aa76bc54378de04ba7b773feed87603991489a2088212581bc6b0d23"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/artifacts/neoforge-21.1.219.jar",
+      "sha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/artifacts/neoforge-21.1.219-client-extra-aka-minecraft-resources.jar",
+      "sha256": "8e9cf6f4b6eafb1c6bf745a67a61dd1736f31865cad409e5b2bec918667dab5e"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/DevLaunch/1.0.2/2e0e9a67793d5bfdedee4f9ea00934dbf3f2e22d/DevLaunch-1.0.2.jar",
+      "sha256": "366adc4e95ab9b32c8e33b9f449529c8937c6fc021ee0c6b25419ea2bb703740"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.fancymodloader/earlydisplay/4.0.42/46555dbfff14e9e052f1f693aed14d542a74e111/earlydisplay-4.0.42.jar",
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.fancymodloader/loader/4.0.42/76e15f98bf676fb44b36c5e776f52a55581ec43a/loader-4.0.42.jar",
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.accesstransformers/at-modlauncher/10.0.1/5aba50202aceead086bc09fbc2751c9f05cb4890/at-modlauncher-10.0.1.jar",
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/accesstransformers/10.0.1/fd83b5725f76eae9115e9355fa1c456a6a441400/accesstransformers-10.0.1.jar",
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/bus/8.0.5/5b2d33285ab5d1554e9798ad98c40d6ea3868bd5/bus-8.0.5.jar",
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/coremods/7.0.3/9147e6f638b4272b3bd5fc8f92ad37802512c6c/coremods-7.0.3.jar",
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/modlauncher/11.0.5/b8f0d49294f733fdb6173931b263553e943dc950/modlauncher-11.0.5.jar",
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/mergetool/2.0.0/52fe1949be64e3303aabaaa21e315f551db9c9f4/mergetool-2.0.0-api.jar",
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.electronwill.night-config/toml/3.8.3/90b2fd6efcb4a7d5b9810cf78f9d824994d717f2/toml-3.8.3.jar",
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.electronwill.night-config/core/3.8.3/b442a95f09e349927f5a945ecb594455870fcf4f/core-3.8.3.jar",
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarSelector/0.4.1/fb3cc7a58af22ad2880adb98af6d518128c47dae/JarJarSelector-0.4.1.jar",
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarMetadata/0.4.1/f8da03683dc81694556dc3e177c5e3bb77ae6fcb/JarJarMetadata-0.4.1.jar",
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.maven/maven-artifact/3.8.5/4433f50c07debefaed0553bd0068f4f48d449313/maven-artifact-3.8.5.jar",
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.jodah/typetools/0.6.3/a01aaa6ddaea9ec07ec4f209487b7a46a526283a/typetools-0.6.3.jar",
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.minecrell/terminalconsoleappender/1.3.0/b562e9bb61235c9520e26282cdee71f8f802d1fc/terminalconsoleappender-1.3.0.jar",
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/2af2f021d8e02a0220dc27a7a72b4666d66d44ca/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.openjdk.nashorn/nashorn-core/15.4/f67f5ffaa5f5130cf6fb9b133da00c7df3b532a5/nashorn-core-15.4.jar",
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.14.0/1ed471194b02f2c6cb734a0cd6f6f107c673afae/commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/bootstraplauncher/2.0.2/1a2d076cbc33b0520cbacd591224427b2a20047d/bootstraplauncher-2.0.2.jar",
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/cpw.mods/securejarhandler/3.0.8/c0ef95cecd8699a0449053ac7d9c160748d902cd/securejarhandler-3.0.8.jar",
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-commons/9.8/36e4d212970388e5bd2c5180292012502df461bb/asm-commons-9.8.jar",
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-util/9.8/395f1c1f035258511f27bc9b2583d76e4b143f59/asm-util-9.8.jar",
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-analysis/9.8/b9747a320844b6cb1eacd90d8ecfd260a16c01d3/asm-analysis-9.8.jar",
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm-tree/9.8/18419ca5b77a2f81097c741e7872e6ab8d2f40d/asm-tree-9.8.jar",
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.ow2.asm/asm/9.8/dc19ecb3f7889b7860697215cae99c0f9b6f6b4b/asm-9.8.jar",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/JarJarFileSystems/0.4.1/78f59f89defcd032ed788b151ca6a0d40ace796a/JarJarFileSystems-0.4.1.jar",
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.4/4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c/jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-io/commons-io/2.15.1/f11560da189ab563a5c8e351941415430e9304ea/commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/logging/1.2.7/24cb95ffb0e3433fd6e844c04e68009e504ca1c0/logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-slf4j2-impl/2.22.1/d7e6693c2606cb7e7335047d7bb96dec52db5665/log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.22.1/7183a25510a02ad00cc6a95d3b3d2a7d3c5a8dc4/log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.22.1/bea6fede6328fabafd7e68363161a7ea6605abd1/log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/guava/32.1.2-jre/5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318/guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.antlr/antlr4-runtime/4.13.1/17125bae1d965624e265ef49552f6465a2bfa307/antlr4-runtime-4.13.1.jar",
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.minecraftforge/srgutils/0.4.15/ca408b131759478f164e010fae0d73997e125fb5/srgutils-0.4.15.jar",
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.3.0/cf43b5391de623b36fe066a21127baef82c64022/plexus-utils-3.3.0.jar",
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-reader/3.20.0/8f15415b022a25b473e8e16c28ae913186ffb9c4/jline-reader-3.20.0.jar",
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.machinezoo.noexception/noexception/1.7.1/b65330c98e38a1f915fa54a6e5eca496505e3f0a/noexception-1.7.1.jar",
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.github.oshi/oshi-core/6.4.10/b1d8ab82d11d92fd639b56d639f8f46f739dd5fa/oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.ibm.icu/icu4j/73.2/61ad4ef7f9131fcf6d25c34b817f90d6da06c9e9/icu4j-73.2.jar",
+      "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/authlib/6.0.54/de8bc95660e1b2fe8793fd427a7a10dcec5b3ea7/authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/blocklist/1.0.10/5c685c5ffa94c4cd39496c7184c1d122e515ecef/blocklist-1.0.10.jar",
+      "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/brigadier/1.3.10/d15b53a14cf20fdcaa98f731af5dda654452c010/brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/datafixerupper/8.0.16/67d4de6d7f95d89bcf5862995fb854ebaec02a34/datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/patchy/2.2.10/da05971b07cbb379d002cf7eaec6a2048211fefc/patchy-2.2.10.jar",
+      "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.mojang/text2speech/1.17.9/3cad216e3a7f0c19b4b394388bc9ffc446f13b14/text2speech-1.17.9.jar",
+      "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-codec/commons-codec/1.16.0/4e3eb3d79888d76b54e28b350915b5dc3919c9de/commons-codec-1.16.0.jar",
+      "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/commons-logging/commons-logging/1.2/4bfc12adfe4842bf07b657f0369c4cb522955686/commons-logging-1.2.jar",
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.97.Final/f8f3d8644afa5e6e1a40a3a6aeb9d9aa970ecb4f/netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.97.Final/384ba4d75670befbedb45c4d3b497a93639c206d/netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-common/4.1.97.Final/7cceacaf11df8dc63f23d0fb58e9d4640fc88404/netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.97.Final/abb86c6906bf512bf2b797a41cd7d2e8d3cd7c36/netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.97.Final/cec8348108dc76c47cf87c669d514be52c922144/netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-classes-epoll/4.1.97.Final/795da37ded759e862457a82d9d92c4d39ce8ecee/netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-unix-common/4.1.97.Final/d469d84265ab70095b01b40886cabdd433b6e664/netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.97.Final/f37380d23c9bb079bc702910833b2fd532c9abd0/netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/it.unimi.dsi/fastutil/8.5.12/c24946d46824bd528054bface3231d2ecb7e95e8/fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna-platform/5.14.0/28934d48aed814f11e4c584da55c49fa7032b31b/jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.14.0/67bf3eaea4f0718cb376a181a629e5f88fa1c9dd/jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.26.0/659feffdd12280201c8aacb8f7be94f9a883c824/commons-compress-1.26.0.jar",
+      "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.13/e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada/httpclient-4.5.13.jar",
+      "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.16/51cf043c87253c9f58b539c9f7e44c8894223850/httpcore-4.4.16.jar",
+      "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar",
+      "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.joml/joml/1.10.5/22566d58af70ad3d72308bab63b8339906deb649/joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/a0db6c84a8becc8ca05f9dbfa985edc348a824c7/lwjgl-freetype-3.3.3.jar",
+      "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/149070a5480900347071b7074779531f25a6e3dc/lwjgl-freetype-3.3.3-natives-linux.jar",
+      "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/efa1eb78c5ccd840e9f329717109b5e892d72f8e/lwjgl-glfw-3.3.3.jar",
+      "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2/lwjgl-glfw-3.3.3-natives-linux.jar",
+      "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/b543467b7ff3c6920539a88ee602d34098628be5/lwjgl-jemalloc-3.3.3.jar",
+      "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/4f86728bf449b1dd61251c4e0ac01df1389cb51e/lwjgl-jemalloc-3.3.3-natives-linux.jar",
+      "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/daada81ceb5fc0c291fbfdd4433cb8d9423577f2/lwjgl-openal-3.3.3.jar",
+      "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/3037360cc4595079bea240af250b6d1a527e0905/lwjgl-openal-3.3.3-natives-linux.jar",
+      "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/2f6b0147078396a58979125a4c947664e98293a/lwjgl-opengl-3.3.3.jar",
+      "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/62c70a4b00ca5391882b0f4b787c1588d24f1c86/lwjgl-opengl-3.3.3-natives-linux.jar",
+      "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/25dd6161988d7e65f71d5065c99902402ee32746/lwjgl-stb-3.3.3.jar",
+      "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/fd1271ccd9d85eff2fa31f3fd543e02ccfaf5041/lwjgl-stb-3.3.3-natives-linux.jar",
+      "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/82d755ca94b102e9ca77283b9e2dc46d1b15fbe5/lwjgl-tinyfd-3.3.3.jar",
+      "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/d8d58daa0c3e5fd906fee96f5fddbcbc07cc308b/lwjgl-tinyfd-3.3.3-natives-linux.jar",
+      "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/29589b5f87ed335a6c7e7ee6a5775f81f97ecb84/lwjgl-3.3.3.jar",
+      "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/1713758e3660ba66e1e954396fd18126038b33c0/lwjgl-3.3.3-natives-linux.jar",
+      "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.jline/jline-terminal/3.20.0/d0ddcc708ddf527a3454c941b7b9225cc83a15ff/jline-terminal-3.20.0.jar",
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/5514744c588190ffda076b35a9b8c9f24946a960/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/54188f271e388e7f313aea995e82f58ce2cdb809/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/b421526c5f297295adef1c886e5246c39d4ac629/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.2/25ea2e8b0c338a877313bd4672d3fe056ea78f0d/jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.33.0/de2b60b62da487644fc11f734e73c8b0b431238f/checker-qual-3.33.0.jar",
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.errorprone/error_prone_annotations/2.18.0/89b684257096f548fa39a7df9fdaa409d4d4df91/error_prone_annotations-2.18.0.jar",
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.j2objc/j2objc-annotations/2.8/c85270e307e7b822f1086b93689124b89768e273/j2objc-annotations-2.8.jar",
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientRunVmArgs.txt",
+      "sha256": "276f75b571a2f837166265794722cc8a31e266d8ce6b8ba4dddc27e3568e617e"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientRunProgramArgs.txt",
+      "sha256": "f2bbe8ccb4bbbd181727bb82c515887bc50e8b337eee38c308228491193473b9"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/.toolchains/jdk-21.0.12.1+1/bin/java",
+      "sha256": "2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientLog4j2.xml",
+      "sha256": "c030dc5b9a8973363bc89d49ba493f5f48b770a21bfc67a53d6ec5c98a2bc1a6"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/clientLegacyClasspath.txt",
+      "sha256": "3cfc74cbb941138570dcd032561cbb57088c963d243a41de3d830ec0570dc592"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/artifacts/minecraft-1.21.1-clean.jar",
+      "sha256": "26a29a83d298df77d4bc78e7029ffb453e479a0e4fd2d7f7a0ac84b6726fdf3c"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/client-dev/assets/indexes/17.json",
+      "sha256": "49b23c3977d27aa18a2aa4541f3f8a8c1e8bff238cd8c307e975a019c8153ab2"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/moddev/minecraft_assets.properties",
+      "sha256": "62c4cbcf2d38402d0b59a1d66117f77f5578c1fa2402e3fcfc652bb018de7c91"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/classes/java/main",
+      "sha256": null,
+      "kind": "declared-empty-source-output"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/resources/main",
+      "sha256": null,
+      "kind": "declared-empty-source-output"
+    }
+  ],
+  "environment": {},
+  "emptyDevelopmentRoots": [
+    "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/classes/java/main",
+    "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/build/resources/main"
+  ],
+  "manifest": {
+    "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/api1-unified-client-build/client-launch-inputs.json",
+    "sha256": "174b8e73aa76bc54378de04ba7b773feed87603991489a2088212581bc6b0d23"
+  },
+  "preparation": "Official ModDevGradle 2.0.140 / NeoForge 21.1.219 binary-only; task prepareClientLaunch, never runClient",
+  "gameLaunched": false,
+  "heapMiB": 1280,
+  "activeProcessors": 2,
+  "assetIndex": {
+    "id": "17",
+    "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/run/client-dev/assets/indexes/17.json",
+    "sha1": "9b16298b1dc0697878cec88bb2d96168f5239e4f",
+    "sha256": "49b23c3977d27aa18a2aa4541f3f8a8c1e8bff238cd8c307e975a019c8153ab2"
+  },
+  "assetObjectsGate": "Require completed independent original-index object verification before any launch",
+  "nativeLibraries": {
+    "status": "Original native resources pinned; extraction/loading not yet executed",
+    "jars": [
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.java.dev.jna/jna/5.14.0/67bf3eaea4f0718cb376a181a629e5f88fa1c9dd/jna-5.14.0.jar",
+          "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+        },
+        "entries": {
+          "com/sun/jna/linux-x86/libjnidispatch.so": "caf3d95b12a6f907fa0b647e1d785c6505415fc266e11733b24eec22da6ae3d9",
+          "com/sun/jna/linux-x86-64/libjnidispatch.so": "c0ff03e4593fedd2fa96bd76a66ee9dab7a057df8739a7a38133cb5f21d12552",
+          "com/sun/jna/linux-arm/libjnidispatch.so": "00a35890dde5b4174d6646d1ebdc553bac3b7d99c1a793899eddaa002b5a16a2",
+          "com/sun/jna/linux-armel/libjnidispatch.so": "257d627bce7ddccf539f8a32dd293e4d0ed8ba64070dab07d5ae40d4932d60a6",
+          "com/sun/jna/linux-aarch64/libjnidispatch.so": "5c894177c2c4a1a422047886f5f526959e4f1a8c1561bb3cb2277fe0da85b744",
+          "com/sun/jna/linux-ppc/libjnidispatch.so": "c974c4ec9701655a30d7601389c3b3246447fdbc90240e809b37cb283224a2ff",
+          "com/sun/jna/linux-ppc64le/libjnidispatch.so": "bb026410e75b3e928cb3ccddc0f9418e3fb40aad1f6c80cf046b72d62e5eb062",
+          "com/sun/jna/linux-mips64el/libjnidispatch.so": "5e7a37f9cc6c0dc7cfa2b6d0944788c448ff2e87d4aab894a241269a8b6335ed",
+          "com/sun/jna/linux-loongarch64/libjnidispatch.so": "2e91afb910bf56ca578786861fb87845f7bae1dc91b3ec6374540f3a946f170a",
+          "com/sun/jna/linux-s390x/libjnidispatch.so": "3f33fab801dc3a43a5d269fa0e8f43e54b0f7e29f02c4821901c62aafb3aee6c",
+          "com/sun/jna/linux-riscv64/libjnidispatch.so": "938f42166508c30d5b5ed3eb094219f9b2df736b1ea38ed7586c0ce79c12ee97",
+          "com/sun/jna/sunos-x86/libjnidispatch.so": "7af04db1da25981579214bdcbf761a8cd1ac5a76c9ac95fc226303ee65dfaeba",
+          "com/sun/jna/sunos-x86-64/libjnidispatch.so": "7af04db1da25981579214bdcbf761a8cd1ac5a76c9ac95fc226303ee65dfaeba",
+          "com/sun/jna/sunos-sparc/libjnidispatch.so": "58e637222be67679df8f2473967555b9697908e65ca2ddf32719d1d5e35769db",
+          "com/sun/jna/sunos-sparcv9/libjnidispatch.so": "58e637222be67679df8f2473967555b9697908e65ca2ddf32719d1d5e35769db",
+          "com/sun/jna/freebsd-x86/libjnidispatch.so": "c1d200c601baf9f26db1b0ba0d152fb517dd929f01cbbe1ac3320bbe40adb827",
+          "com/sun/jna/freebsd-x86-64/libjnidispatch.so": "13281e25bf8614ab1aeb5f93d32ce4af02d986b0ca49f7692d08fce981eb1d5e",
+          "com/sun/jna/openbsd-x86/libjnidispatch.so": "c99db52a1c9ffd791ec0dda9b39ad8aec0b7514dce881e230882210dfc9d9fb7",
+          "com/sun/jna/openbsd-x86-64/libjnidispatch.so": "f15ad5da6b5ab33a9fe51992247fa3fe4da6a6ec0a4678d186611bb1258b4fff"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-freetype/3.3.3/149070a5480900347071b7074779531f25a6e3dc/lwjgl-freetype-3.3.3-natives-linux.jar",
+          "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/freetype/libfreetype.so": "44122ebab680e24e7cf24086e6c90fe600db73e92fdcab2de1d9c266b53d491a"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-glfw/3.3.3/a03684c5e4b1b1dbbe0d29dbbdc27b985b6840f2/lwjgl-glfw-3.3.3-natives-linux.jar",
+          "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/glfw/libglfw.so": "f95f570d56ecafc7adfa4f16b384106644689fccd7d45df06deceed80a43a91f"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-jemalloc/3.3.3/4f86728bf449b1dd61251c4e0ac01df1389cb51e/lwjgl-jemalloc-3.3.3-natives-linux.jar",
+          "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/jemalloc/libjemalloc.so": "26cfa8fa9bef2d5eb6812472d6b3d55776b5f4fcd13fd0aef93c9579f57f1031"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-openal/3.3.3/3037360cc4595079bea240af250b6d1a527e0905/lwjgl-openal-3.3.3-natives-linux.jar",
+          "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/openal/libopenal.so": "524b44b55a27a0176bf5baaf6b860f4aa8c511550b9a6fdab486819feecf3063"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-opengl/3.3.3/62c70a4b00ca5391882b0f4b787c1588d24f1c86/lwjgl-opengl-3.3.3-natives-linux.jar",
+          "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/opengl/liblwjgl_opengl.so": "db299a8336fadb6c9be27a55d3ff17d9c2c2f683b7947f0cb988185db1ca1298"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-stb/3.3.3/fd1271ccd9d85eff2fa31f3fd543e02ccfaf5041/lwjgl-stb-3.3.3-natives-linux.jar",
+          "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/stb/liblwjgl_stb.so": "67bfb70131582e153aadb73f05463fe14d9da7d7d0590a9cdb6ecf7988a3aeba"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl-tinyfd/3.3.3/d8d58daa0c3e5fd906fee96f5fddbcbc07cc308b/lwjgl-tinyfd-3.3.3-natives-linux.jar",
+          "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/tinyfd/liblwjgl_tinyfd.so": "260089011d06d43e1033f781b56d92ba80d91574c69d22ca9a0bb061e912c980"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lwjgl/lwjgl/3.3.3/1713758e3660ba66e1e954396fd18126038b33c0/lwjgl-3.3.3-natives-linux.jar",
+          "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9"
+        },
+        "entries": {
+          "linux/x64/org/lwjgl/liblwjgl.so": "4b1bd42c05e0c11c01b9ef24272523e278f6a5a9464747a5dfdb12f990798291"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.lz4/lz4-java/1.8.0/4b986a99445e49ea5fbf5d149c4b63f6ed6c6780/lz4-java-1.8.0.jar",
+          "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+        },
+        "entries": {
+          "net/jpountz/util/linux/aarch64/liblz4-java.so": "25f2e16f54b0232d281fc882ba88c3fb6a4d4ae80c9df35d3c3e19457be8b7cc",
+          "net/jpountz/util/linux/amd64/liblz4-java.so": "9008c9b9ae43485c1b6a2c87e3109b1b6ec99684f5f6b3b935026dc001fed77f",
+          "net/jpountz/util/linux/i386/liblz4-java.so": "f72fff01f82b13bf54e945d1d9158a4b6c10caabca0a102fba5477c8d8baa8b4",
+          "net/jpountz/util/linux/ppc64le/liblz4-java.so": "92a09b1f08e94416641b573416fafd95861d7d99585bb5e1041f27b958529048",
+          "net/jpountz/util/linux/s390x/liblz4-java.so": "88f490d7b1de453830b04a527d4fea48276652a15052446414bb16024759722f",
+          "net/jpountz/util/win32/amd64/liblz4-java.so": "885eca7cafb15f380271af76bd69f9fc2899b356ac2943894ccaad6eb729b391"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/5514744c588190ffda076b35a9b8c9f24946a960/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+          "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+        },
+        "entries": {
+          "META-INF/native/libnetty_transport_native_epoll_aarch_64.so": "517f396fbaa5147adb215d17a9d923126208ca0c58ba41e5620b08f8740ce20b"
+        }
+      },
+      {
+        "jar": {
+          "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/io.netty/netty-transport-native-epoll/4.1.97.Final/54188f271e388e7f313aea995e82f58ce2cdb809/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+          "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+        },
+        "entries": {
+          "META-INF/native/libnetty_transport_native_epoll_x86_64.so": "1d6ac594f52ec9cc645ace4f912b31653e6138f5f5d86653c834bcf73daac99b"
+        }
+      }
+    ]
+  },
+  "compiledSourceTuple": "portable-bootstrap/manifest-main-candidate/candidate-seal.json"
+}

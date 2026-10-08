@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "status": "SOURCE_CHECKED_NOT_RUNTIME_ACCEPTANCE",
+  "gameLaunched": false,
+  "remoteWrites": false,
+  "pythonTests": 7,
+  "testsPassed": true,
+  "reviewedSupervisorSha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf",
+  "actualInputPreparation": "work/network-pair-input-bases-local1/preparation-result.json",
+  "actualInputPreparationSha256": "ae8c59a62dc2d40f9f1839542aca267f56ede9f59ee3c49228bac5345d39e12c",
+  "finalBindingExecuted": false
+}

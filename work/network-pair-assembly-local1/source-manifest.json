@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ASSEMBLY_CHECKED_GAME_UNRUN",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "LICENSE-Connector-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "LICENSE-Control-Sources-MIT.txt",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "LICENSE-FML-LGPL-2.1.txt",
+      "bytes": 26526,
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6040,
+      "sha256": "8de68b5136bcc817135d925b14871b0a3410a7eb63f14bb652e6b8d3bcfd086f"
+    },
+    {
+      "path": "assemble_pairs.py",
+      "bytes": 18565,
+      "sha256": "e3a54d562339ebdb090231e4b50e6d2055139deb06983109d715e8edcc6a75f1"
+    },
+    {
+      "path": "evidence/source-postcheck.json",
+      "bytes": 1078,
+      "sha256": "2e12e2b36d6c6b2df0cd3293c72f8bb8768afb2949bf5cb7f9921eee820ca46e"
+    },
+    {
+      "path": "evidence/transform-tests.txt",
+      "bytes": 1104,
+      "sha256": "a1d490dcf5c95b419cc838c8ac8c19da6acd1e389256d8ca0d93f2baa3627529"
+    },
+    {
+      "path": "input-lock.json",
+      "bytes": 10071,
+      "sha256": "616469fb3005028cedb6e6ec0c72e2aec6749bc17162cea9f347b7cfa2ce43dd"
+    },
+    {
+      "path": "required-text-inputs/work/api1/four-loader/api-contract-controls/common.py",
+      "bytes": 5307,
+      "sha256": "919b8924e9542790bee9bfc13d90341021e79d3db60899444eedf38e441a47ef"
+    },
+    {
+      "path": "required-text-inputs/work/api1/four-loader/api-contract-controls/prepare_unified.py",
+      "bytes": 12444,
+      "sha256": "7d6dc41b05c0659403c3e0c0894601d4d7936897a6ffb7c42f904b6ebed6ab23"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/connector.json",
+      "bytes": 176,
+      "sha256": "67bee06b2b321ed25e0d4e9b5bac7ab76c8ae76442de6caf11f463ce2ae1ac5e"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/emi.css",
+      "bytes": 10180,
+      "sha256": "4358863687c3f314650c9d739938877f77c3b00ccabab474c5659a8c92710d75"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/fabric/indigo-renderer.properties",
+      "bytes": 281,
+      "sha256": "6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "030c703a4f13baa0a8d21015304d5c00612e60ff1fd5b7d72507ba1d6be37bdd"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-client-combined-plugin1/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "7c3f7da02b719316b5120e8714c45fc3ba762dcff57d738e3f3ebe8b091e5fcf"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/emi.css",
+      "bytes": 10186,
+      "sha256": "631c92dbdb06aa6377e2d99d86678833c897a88cc3841d6378f717c2ba09b451"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/fml.toml",
+      "bytes": 1518,
+      "sha256": "cc127c6067eb9e23289edc1c774afd71456456eef06c688af6731a72d3bba5e5"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-client.toml",
+      "bytes": 570,
+      "sha256": "a5f0eb38f8daf8574f7672a8393a0ab5c668d6ec6e7ae43fc8669e928786929d"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-common.toml",
+      "bytes": 764,
+      "sha256": "e6f7578cf8c11ade0a47e36bf3863fc96f84cdf4bb679c0fceabb1e8a2f42399"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/neoforge-server.toml",
+      "bytes": 1168,
+      "sha256": "680abc46fe86fca345f0762bc2e822123376b76eb7f6844a79e1f0d3065d20c7"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-common.toml",
+      "bytes": 114,
+      "sha256": "ce60ba4ebdbb1ba959f3ee6be206f84f2221b8dc436140c92cda412ef33f10e6"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedbackpacks-server.toml",
+      "bytes": 21135,
+      "sha256": "2f62e5714f62538754a8b1948cb36153debab67b86de667be71b8475310bbd0d"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-client.toml",
+      "bytes": 465,
+      "sha256": "8a01f9564b7d6f79767d6fe3aed4cf14d3c30697e4bd3ed26a5087da79a6aa1d"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-native-emi-backpacks/config/sophisticatedcore-common.toml",
+      "bytes": 2921,
+      "sha256": "369c950d99ff8a2bf1231f000851d4e5bbc299f65f59361be85e65c9bad1b75f"
+    },
+    {
+      "path": "required-text-inputs/work/api1/run/api1-unified-server-4/server.properties",
+      "bytes": 1397,
+      "sha256": "721c63af82e1e39385ec4f0734857d34c0d6081504855d795787dacf8105604e"
+    },
+    {
+      "path": "required-text-inputs/work/api1/source-workspace/fml-unified/tools/assemble_installation.py",
+      "bytes": 12433,
+      "sha256": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a"
+    },
+    {
+      "path": "required-text-inputs/work/api1/source-workspace/fml-unified/tools/validate_launch.py",
+      "bytes": 10432,
+      "sha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451"
+    },
+    {
+      "path": "required-text-inputs/work/network-pair-ci-next/normalize_exports.py",
+      "bytes": 9501,
+      "sha256": "f9bd77441554f24751bb20d0a6c9a1bcee19686e90a2bea80fc530d27d8b45b1"
+    },
+    {
+      "path": "required-text-inputs/work/network-pair-ci-next/prepare_profiles.py",
+      "bytes": 8827,
+      "sha256": "b885be6cd412aabe9ef7ca73c2ae7c13965b9a36d76d89a768820dcfb8440772"
+    },
+    {
+      "path": "required-text-inputs.json",
+      "bytes": 9423,
+      "sha256": "cee61fb4bd359450973bf7d38b975c1b7a9d8df663aa5e504bc2aa0bce4debd9"
+    },
+    {
+      "path": "test_assembly.py",
+      "bytes": 3486,
+      "sha256": "64a495ef05504d942cb3cee8dfbc2736ba6781605b8aed45370797225f51a016"
+    },
+    {
+      "path": "verify_assembly.py",
+      "bytes": 3901,
+      "sha256": "0a6abe308114cabe88cad873988d03f8a7c1accf90fe376754bc404a15cbf3bb"
+    }
+  ]
+}

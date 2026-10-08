@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "status": "SOURCE_POSTCHECK_PASSED",
+  "inputLockSha256": "616469fb3005028cedb6e6ec0c72e2aec6749bc17162cea9f347b7cfa2ce43dd",
+  "allLockedSourceInputsUnchanged": true,
+  "lockedSourceCount": 33,
+  "previousAttempt": {
+    "path": "/workspace/scratch/414822c1ef1a/mod-compat-runtime/work/network-pair-assembled-local1",
+    "status": "STATIC_PREPARATION_FAILED_NO_JVM",
+    "failure": "Native property relocation initially rewrote the first legacy classpath entry; corrected to preserve official legacyClassPath/libraryDirectory and verified by focused regression.",
+    "filesPreserved": 17
+  },
+  "intermediateAssemblies": [
+    "network-pair-assembled-local2",
+    "network-pair-assembled-local3"
+  ],
+  "finalAssembly": "network-pair-assembled-local4",
+  "finalCorrections": [
+    "Preserve accepted Unified initial-enabled-packs vanilla,fabric; native retains vanilla.",
+    "Carry accepted Connector platform config on both Unified sides and Indigo config on client, with directory paths preserved."
+  ],
+  "gameLaunched": false,
+  "jvmStarted": false
+}

@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1086,
+      "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
+    },
+    {
+      "path": "LOCK-CONTRACT.md",
+      "bytes": 5435,
+      "sha256": "3be0f86cc0fcc5e4ad19e28aee2b7554c779396ee3b75dc0ce2ba9c6cbbdcf90"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 1620,
+      "sha256": "0d39919f7a83acb4c04ed3da82888ab51125a76cee1960e277e5bf9873c61b21"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6650,
+      "sha256": "5adedaec6a5530ec82069669c52096c095db17c76517d1832d4c6f6c92dd0d50"
+    },
+    {
+      "path": "evidence/source-checks.json",
+      "bytes": 1779,
+      "sha256": "1553c431daf339eb508da3935c02f7b74efb9c79e4a121a8f071abff1fcc1c75"
+    },
+    {
+      "path": "evidence/synthetic-tests.txt",
+      "bytes": 4985,
+      "sha256": "b198e70115ad41fa3a223df718ea0151d756bb7cfee2632df11466e6e0b2348e"
+    },
+    {
+      "path": "graphics_preflight.py",
+      "bytes": 24107,
+      "sha256": "82283cb5b254f1102a6022b95433f38b6fccf9f99aa8b8f3abc004d9f2507946"
+    },
+    {
+      "path": "official-input-research.json",
+      "bytes": 4700,
+      "sha256": "2a2c8bc5a96f5397a45170dd5555379639ad83d9ee4e0eeadba9a49fa1f2949a"
+    },
+    {
+      "path": "test_graphics_preflight.py",
+      "bytes": 9395,
+      "sha256": "e33305a9fd2a4d3eed81eb3fd675de4cdce4b8df56c64aa17049e0b9f9006d9c"
+    },
+    {
+      "path": "test_installed_provenance.py",
+      "bytes": 9592,
+      "sha256": "7d67ec532b38344462e27b9cbc2f31b40d145f0eeb17287f585ff25a96b9dac4"
+    }
+  ]
+}

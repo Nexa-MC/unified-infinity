@@ -1,0 +1,2796 @@
+{
+  "schema": "consumer-official-runtime-inputs-v1",
+  "versions": {
+    "java": "21.0.12.1+1",
+    "gradle": "8.11.1",
+    "neoforge": "21.1.219",
+    "moddev": "2.0.140",
+    "neoformRuntime": "2.0.18"
+  },
+  "sources": [
+    {
+      "path": "portable-bootstrap/restore_inputs.py",
+      "bytes": 4925,
+      "sha256": "26a69bd13798939dd606fe7069380eed6cffadf4659f88182471e3a4d48bb859"
+    },
+    {
+      "path": "portable-bootstrap/prepare_toolchains.py",
+      "bytes": 1913,
+      "sha256": "4876b3b93aea42d3f7786cbdbb1427b1fecfa3777bf3de7de36bbad8ff45667a"
+    },
+    {
+      "path": "portable-bootstrap/input-lock.json",
+      "bytes": 50631,
+      "sha256": "c69d9d5ee9646979e8a6fee9144f80b5cf7bebd888173af7984888a2d4a8211c"
+    },
+    {
+      "path": "portable-bootstrap/game-input-lock.json",
+      "bytes": 8324,
+      "sha256": "703f06f260f55ae8e51187fb942a7da11a10454a784cd89e0556105d767d1a91"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-index-lock.json",
+      "bytes": 5258,
+      "sha256": "1a353dbaec3fe9173257574040eb3d9a6f86eec60e03f7b14a80f02970ad433b"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-assets-lock.json",
+      "bytes": 1307151,
+      "sha256": "c264be3ec7e2485997848f3e3a5af4690b91ab7370a605b35934364e57e034ba"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/client-platform-verified.json",
+      "bytes": 25123,
+      "sha256": "7e41a44a355907b1668b894c8750cbf632f8f7d430b722815662387b32fe0929"
+    },
+    {
+      "path": "portable-bootstrap/client-restoration/seal_official_client.py",
+      "bytes": 3930,
+      "sha256": "190e0bd38098827cc7d0d44f94e325caa780f47834a0ecb9ec90b26e34d0e13c"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/client-development/build.gradle",
+      "bytes": 2542,
+      "sha256": "9a5d81f0e54ee4bcb30536fb7ef13874bd8da82c55e38aeec08a1210acca531f"
+    },
+    {
+      "path": "work/api1/four-loader/api-contract-controls/client-development/settings.gradle",
+      "bytes": 176,
+      "sha256": "f27254c4998ea3d52595efdbb5c7c0ff7ba67ad304935296fd3f3da412e4538c"
+    },
+    {
+      "path": "work/network-probe-compile-ci/diagnostics/neoforge-nonce-compile/dependency-lock.json",
+      "bytes": 174264,
+      "sha256": "7017831aed76945547d484599f4d6d5b250c3db814fed710ace8661f3d2889a6"
+    },
+    {
+      "path": "work/network-probe-compile-ci/diagnostics/neoforge-nonce-compile/probe/gradle/verification-metadata.xml",
+      "bytes": 197245,
+      "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
+    },
+    {
+      "path": "work/api1/four-loader/forge-probe/unified-forge-probe-final26b-environment-lock.json",
+      "bytes": 22914,
+      "sha256": "037020ef98eed6ee8c8fc5af8359058cedb248d87d3b3acf756129b22c60b652"
+    },
+    {
+      "path": "work/api1/run/api1-unified-client-build/client-launch-inputs.json",
+      "bytes": 56099,
+      "sha256": "174b8e73aa76bc54378de04ba7b773feed87603991489a2088212581bc6b0d23"
+    },
+    {
+      "path": "work/api1/run/api1-unified-client-build/official-client-launch-seal.json",
+      "bytes": 66217,
+      "sha256": "fa801636e708c10bf1d1c412e30417d2bb5b756e866175cf075b3567e6d2cd25"
+    }
+  ],
+  "supplementalArtifacts": [
+    {
+      "path": "run/client-dev/libraries/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar"
+      ],
+      "bytes": 261718,
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec",
+      "sha1": "46555dbfff14e9e052f1f693aed14d542a74e111",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.fancymodloader:earlydisplay:4.0.42",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar"
+      ],
+      "bytes": 504899,
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6",
+      "sha1": "76e15f98bf676fb44b36c5e776f52a55581ec43a",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.fancymodloader:loader:4.0.42",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+      ],
+      "bytes": 2347,
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935",
+      "sha1": "5aba50202aceead086bc09fbc2751c9f05cb4890",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.accesstransformers:at-modlauncher:10.0.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+      ],
+      "bytes": 67234,
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1",
+      "sha1": "fd83b5725f76eae9115e9355fa1c456a6a441400",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:accesstransformers:10.0.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+      ],
+      "bytes": 30340,
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a",
+      "sha1": "5b2d33285ab5d1554e9798ad98c40d6ea3868bd5",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:bus:8.0.5",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+      ],
+      "bytes": 22659,
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a",
+      "sha1": "09147e6f638b4272b3bd5fc8f92ad37802512c6c",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:coremods:7.0.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar"
+      ],
+      "bytes": 116486,
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24",
+      "sha1": "b8f0d49294f733fdb6173931b263553e943dc950",
+      "phase": "official-installer-library",
+      "coordinate": "cpw.mods:modlauncher:11.0.5",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+      ],
+      "bytes": 2550,
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00",
+      "sha1": "52fe1949be64e3303aabaaa21e315f551db9c9f4",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:mergetool:2.0.0:api",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+      ],
+      "bytes": 39516,
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f",
+      "sha1": "90b2fd6efcb4a7d5b9810cf78f9d824994d717f2",
+      "phase": "official-installer-library",
+      "coordinate": "com.electronwill.night-config:toml:3.8.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+      ],
+      "bytes": 382911,
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79",
+      "sha1": "b442a95f09e349927f5a945ecb594455870fcf4f",
+      "phase": "official-installer-library",
+      "coordinate": "com.electronwill.night-config:core:3.8.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+      ],
+      "bytes": 17168,
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400",
+      "sha1": "fb3cc7a58af22ad2880adb98af6d518128c47dae",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:JarJarSelector:0.4.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+      ],
+      "bytes": 15648,
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546",
+      "sha1": "f8da03683dc81694556dc3e177c5e3bb77ae6fcb",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:JarJarMetadata:0.4.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar"
+      ],
+      "bytes": 58077,
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee",
+      "sha1": "4433f50c07debefaed0553bd0068f4f48d449313",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.maven:maven-artifact:3.8.5",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+      ],
+      "bytes": 18281,
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d",
+      "sha1": "a01aaa6ddaea9ec07ec4f209487b7a46a526283a",
+      "phase": "official-installer-library",
+      "coordinate": "net.jodah:typetools:0.6.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/jodah/typetools/0.6.3/typetools-0.6.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+      ],
+      "bytes": 16949,
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985",
+      "sha1": "b562e9bb61235c9520e26282cdee71f8f802d1fc",
+      "phase": "official-installer-library",
+      "coordinate": "net.minecrell:terminalconsoleappender:1.3.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+      ],
+      "bytes": 1494751,
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5",
+      "sha1": "2af2f021d8e02a0220dc27a7a72b4666d66d44ca",
+      "phase": "official-installer-library",
+      "coordinate": "net.fabricmc:sponge-mixin:0.15.2+mixin.0.8.7",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+      ],
+      "bytes": 2167292,
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f",
+      "sha1": "f67f5ffaa5f5130cf6fb9b133da00c7df3b532a5",
+      "phase": "official-installer-library",
+      "coordinate": "org.openjdk.nashorn:nashorn-core:15.4",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+      ],
+      "bytes": 657952,
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c",
+      "sha1": "1ed471194b02f2c6cb734a0cd6f6f107c673afae",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.commons:commons-lang3:3.14.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+      ],
+      "bytes": 11116,
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49",
+      "sha1": "1a2d076cbc33b0520cbacd591224427b2a20047d",
+      "phase": "official-installer-library",
+      "coordinate": "cpw.mods:bootstraplauncher:2.0.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+      ],
+      "bytes": 103765,
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d",
+      "sha1": "c0ef95cecd8699a0449053ac7d9c160748d902cd",
+      "phase": "official-installer-library",
+      "coordinate": "cpw.mods:securejarhandler:3.0.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+      ],
+      "bytes": 73498,
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4",
+      "sha1": "36e4d212970388e5bd2c5180292012502df461bb",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-commons:9.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+      ],
+      "bytes": 94559,
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15",
+      "sha1": "395f1c1f035258511f27bc9b2583d76e4b143f59",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-util:9.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+      ],
+      "bytes": 35151,
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9",
+      "sha1": "b9747a320844b6cb1eacd90d8ecfd260a16c01d3",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-analysis:9.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+      ],
+      "bytes": 51934,
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+      "sha1": "018419ca5b77a2f81097c741e7872e6ab8d2f40d",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-tree:9.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm/9.8/asm-9.8.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm/9.8/asm-9.8.jar"
+      ],
+      "bytes": 126113,
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+      "sha1": "dc19ecb3f7889b7860697215cae99c0f9b6f6b4b",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm:9.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm/9.8/asm-9.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm/9.8/asm-9.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+      ],
+      "bytes": 31807,
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab",
+      "sha1": "78f59f89defcd032ed788b151ca6a0d40ace796a",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:JarJarFileSystems:0.4.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+      "urls": [
+        "https://libraries.minecraft.net/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+      ],
+      "bytes": 78146,
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28",
+      "sha1": "4fdac2fbe92dfad86aa6e9301736f6b4342a3f5c",
+      "phase": "official-installer-library",
+      "coordinate": "net.sf.jopt-simple:jopt-simple:5.0.4",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      ],
+      "bytes": 64579,
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "sha1": "7cf2726fdcfbc8610f9a71fb3ed639871f315340",
+      "phase": "official-installer-library",
+      "coordinate": "org.slf4j:slf4j-api:2.0.9",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar"
+      ],
+      "bytes": 326305,
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505",
+      "sha1": "17125bae1d965624e265ef49552f6465a2bfa307",
+      "phase": "official-installer-library",
+      "coordinate": "org.antlr:antlr4-runtime:4.13.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/mojang/logging/1.2.7/logging-1.2.7.jar"
+      ],
+      "bytes": 15343,
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c",
+      "sha1": "24cb95ffb0e3433fd6e844c04e68009e504ca1c0",
+      "phase": "official-installer-library",
+      "coordinate": "com.mojang:logging:1.2.7",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/mojang/logging/1.2.7/logging-1.2.7.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+      ],
+      "bytes": 27364,
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97",
+      "sha1": "d7e6693c2606cb7e7335047d7bb96dec52db5665",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.logging.log4j:log4j-slf4j2-impl:2.22.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+      ],
+      "bytes": 1900022,
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+      "sha1": "7183a25510a02ad00cc6a95d3b3d2a7d3c5a8dc4",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.logging.log4j:log4j-core:2.22.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+      ],
+      "bytes": 335001,
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53",
+      "sha1": "bea6fede6328fabafd7e68363161a7ea6605abd1",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.logging.log4j:log4j-api:2.22.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+      ],
+      "bytes": 171052,
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0",
+      "sha1": "8f15415b022a25b473e8e16c28ae913186ffb9c4",
+      "phase": "official-installer-library",
+      "coordinate": "org.jline:jline-reader:3.20.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+      ],
+      "bytes": 228481,
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43",
+      "sha1": "d0ddcc708ddf527a3454c941b7b9225cc83a15ff",
+      "phase": "official-installer-library",
+      "coordinate": "org.jline:jline-terminal:3.20.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+      ],
+      "bytes": 501218,
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154",
+      "sha1": "f11560da189ab563a5c8e351941415430e9304ea",
+      "phase": "official-installer-library",
+      "coordinate": "commons-io:commons-io:2.15.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+      ],
+      "bytes": 69393,
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3",
+      "sha1": "ca408b131759478f164e010fae0d73997e125fb5",
+      "phase": "official-installer-library",
+      "coordinate": "net.minecraftforge:srgutils:0.4.15",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+      ],
+      "bytes": 3041591,
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce",
+      "sha1": "5e64ec7e056456bef3a4bc4c6fdaef71e8ab6318",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.guava:guava:32.1.2-jre",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+      ],
+      "bytes": 4617,
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "sha1": "1dcf1de382a0bf95a3d8b0849546c88bac1292c9",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.guava:failureaccess:1.0.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      ],
+      "bytes": 2199,
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "sha1": "b421526c5f297295adef1c886e5246c39d4ac629",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+      ],
+      "bytes": 19936,
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "sha1": "25ea2e8b0c338a877313bd4672d3fe056ea78f0d",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.code.findbugs:jsr305:3.0.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar"
+      ],
+      "bytes": 223979,
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1",
+      "sha1": "de2b60b62da487644fc11f734e73c8b0b431238f",
+      "phase": "official-installer-library",
+      "coordinate": "org.checkerframework:checker-qual:3.33.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar"
+      ],
+      "bytes": 16017,
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae",
+      "sha1": "89b684257096f548fa39a7df9fdaa409d4d4df91",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.errorprone:error_prone_annotations:2.18.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar"
+      ],
+      "bytes": 9301,
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed",
+      "sha1": "c85270e307e7b822f1086b93689124b89768e273",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.j2objc:j2objc-annotations:2.8",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+      ],
+      "bytes": 283367,
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+      "sha1": "b3add478d4382b78ea20b1671390a858002feb6c",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.code.gson:gson:2.10.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar"
+      ],
+      "bytes": 263253,
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce",
+      "sha1": "cf43b5391de623b36fe066a21127baef82c64022",
+      "phase": "official-installer-library",
+      "coordinate": "org.codehaus.plexus:plexus-utils:3.3.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+      ],
+      "bytes": 250861,
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816",
+      "sha1": "b65330c98e38a1f915fa54a6e5eca496505e3f0a",
+      "phase": "official-installer-library",
+      "coordinate": "com.machinezoo.noexception:noexception:1.7.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip"
+      ],
+      "bytes": 1683830,
+      "sha256": "3fcdf0f0d115774cfceaf206a05a6dc964e2189bfd00f5b5f863e37f4b7733c7",
+      "sha1": "811e2bd86fa2cda2812e5e8e51d718ea8bd6d3f4",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:neoform:1.21.1-20240808.144430@zip",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/neoform/1.21.1-20240808.144430/neoform-1.21.1-20240808.144430.zip"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar"
+      ],
+      "bytes": 624217,
+      "sha256": "9d73d565b775c8ec9da83da6d2a25454c7aad95eba22f64def9261f214cc49ba",
+      "sha1": "759b63ef393ed80418ec1ea4d233cd6152d02637",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.installertools:binarypatcher:2.1.2:fatjar",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar"
+      ],
+      "bytes": 746919,
+      "sha256": "43fcb978664ba04fc0b3b1b1a14eccabb4bc87b7a415e0eb8bdd1c2f12324321",
+      "sha1": "d9890c71b4366f886c2b1006782043a6a6816eb6",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:AutoRenamingTool:2.0.3:all",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar"
+      ],
+      "bytes": 83543,
+      "sha256": "fc695a63f7cdc7f673f7a94d94c9f35518850594bd8fa5c933b0fff38352d8bb",
+      "sha1": "72524c0362f812d8aa4cdb4c03e9b45e2b71ae3b",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.installertools:installertools:2.1.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar"
+      ],
+      "bytes": 71421,
+      "sha256": "16663ae2504a0522cca386af6c11281d3fde61d25b6bd2690d7200e900b26c36",
+      "sha1": "b9fe6cdab494983217cbc14cc6f92c8e6c616526",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:srgutils:1.0.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar"
+      ],
+      "bytes": 88737,
+      "sha256": "a47cd9a3db46a0cc3b769bd19a2a91d4ad0e9d019153d186f099bbaf5db16445",
+      "sha1": "43b84c4bb8d01cf90a29dfeec1c958a4b64baf46",
+      "phase": "official-installer-library",
+      "coordinate": "net.md-5:SpecialSource:1.11.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar"
+      ],
+      "bytes": 258075,
+      "sha256": "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e",
+      "sha1": "8a432c1d6825781e21a02db2e2c33c5fde2833b9",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.code.gson:gson:2.8.9",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/code/gson/gson/2.8.9/gson-2.8.9.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar"
+      ],
+      "bytes": 29476,
+      "sha256": "665d52cb6f35ca236919be9ac81653c208628507f91d6bf13479bc11496db616",
+      "sha1": "b615f26c03edeac966618b93b9ee4f4eed50aae1",
+      "phase": "official-installer-library",
+      "coordinate": "de.siegmar:fastcsv:2.0.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar"
+      ],
+      "bytes": 72716,
+      "sha256": "a347c24732db2aead106b6e5996a015b06a3ef86e790a4f75b61761f0d2f7f39",
+      "sha1": "1f2a432d1212f5c352ae607d7b61dcae20c20af5",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-commons:9.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar"
+      ],
+      "bytes": 9379,
+      "sha256": "023a5a0cc7579fbf10a0bdd2a47a8ac1a10046a6432fef36ec850ab1ccf5504d",
+      "sha1": "e5a3115eb9e299117472675946be8a72e4990ad6",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.installertools:cli-utils:2.1.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/google/guava/guava/20.0/guava-20.0.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/google/guava/guava/20.0/guava-20.0.jar"
+      ],
+      "bytes": 2442625,
+      "sha256": "36a666e3b71ae7f0f0dca23654b67e086e6c93d192f60ba5dfd5519db6c288c8",
+      "sha1": "89507701249388e1ed5ddcf8c41f4ce1be7831ef",
+      "phase": "official-installer-library",
+      "coordinate": "com.google.guava:guava:20.0",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/google/guava/guava/20.0/guava-20.0.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/google/guava/guava/20.0/guava-20.0.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/com/opencsv/opencsv/4.4/opencsv-4.4.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/com/opencsv/opencsv/4.4/opencsv-4.4.jar"
+      ],
+      "bytes": 167167,
+      "sha256": "5d8969c14c7acecc318a9321d34b1289afd1bdd41c0e772667fd0a4f53e291a0",
+      "sha1": "525932a1edf46c9ca75aa9c83d31dc180c186865",
+      "phase": "official-installer-library",
+      "coordinate": "com.opencsv:opencsv:4.4",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "com/opencsv/opencsv/4.4/opencsv-4.4.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/com/opencsv/opencsv/4.4/opencsv-4.4.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar"
+      ],
+      "bytes": 34276,
+      "sha256": "37fd5392bb2cf4c15f202ffefd46d0e92bb34ff848c549f30d426a60d6b29495",
+      "sha1": "4b071f211b37c38e0e9f5998550197c8593f6ad8",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-analysis:9.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar"
+      ],
+      "bytes": 52669,
+      "sha256": "ae629c2609f39681ef8d140a42a23800464a94f2d23e36d8f25cd10d5e4caff4",
+      "sha1": "78d2ecd61318b5a58cd04fb237636c0e86b77d97",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm-tree:9.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar",
+      "urls": [
+        "https://libraries.minecraft.net/org/ow2/asm/asm/9.3/asm-9.3.jar"
+      ],
+      "bytes": 122176,
+      "sha256": "1263369b59e29c943918de11d6d6152e2ec6085ce63e5710516f8c67d368e4bc",
+      "sha1": "8e6300ef51c1d801a7ed62d07cd221aca3a90640",
+      "phase": "official-installer-library",
+      "coordinate": "org.ow2.asm:asm:9.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/ow2/asm/asm/9.3/asm-9.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-text/1.3/commons-text-1.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/apache/commons/commons-text/1.3/commons-text-1.3.jar"
+      ],
+      "bytes": 182954,
+      "sha256": "8185b3a5311092d83ed1f184c2d093b3105d726bbd76867c32b3511542bb99a8",
+      "sha1": "9abf61708a66ab5e55f6169a200dbfc584b546d9",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.commons:commons-text:1.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/commons/commons-text/1.3/commons-text-1.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/commons/commons-text/1.3/commons-text-1.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar"
+      ],
+      "bytes": 501879,
+      "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+      "sha1": "6505a72a097d9270f7a9e7bf42c4238283247755",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.commons:commons-lang3:3.8.1",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar"
+      ],
+      "bytes": 246174,
+      "sha256": "c058e39c7c64203d3a448f3adb588cb03d6378ed808485618f26e137f29dae73",
+      "sha1": "c845703de334ddc6b4b3cd26835458cb1cba1f3d",
+      "phase": "official-installer-library",
+      "coordinate": "commons-beanutils:commons-beanutils:1.9.3",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar"
+      ],
+      "bytes": 752798,
+      "sha256": "6a594721d51444fd97b3eaefc998a77f606dedb03def494f74755aead3c9df3e",
+      "sha1": "54ebea0a5b653d3c680131e73fe807bb8f78c4ed",
+      "phase": "official-installer-library",
+      "coordinate": "org.apache.commons:commons-collections4:4.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/commons-logging/commons-logging/1.2/commons-logging-1.2.jar",
+      "urls": [
+        "https://libraries.minecraft.net/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"
+      ],
+      "bytes": 61829,
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "sha1": "4bfc12adfe4842bf07b657f0369c4cb522955686",
+      "phase": "official-installer-library",
+      "coordinate": "commons-logging:commons-logging:1.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "commons-logging/commons-logging/1.2/commons-logging-1.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+      ],
+      "bytes": 588337,
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8",
+      "sha1": "8ad72fe39fa8c91eaaf12aadb21e0c3661fe26d5",
+      "phase": "official-installer-library",
+      "coordinate": "commons-collections:commons-collections:3.2.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar"
+      ],
+      "bytes": 7790,
+      "sha256": "fe98ac94c75afcf77b1b6156effcffe72140d861f7e165303c35a5abe1a4f834",
+      "sha1": "8a7916be0a0e589897beab7c839072631067e48e",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged.installertools:jarsplitter:2.1.2",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar"
+      ]
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar"
+      ],
+      "bytes": 3524551,
+      "sha256": "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd",
+      "sha1": "300c6ecf584eab19b4dca5e69cc2ee68d0d21f1f",
+      "phase": "official-installer-library",
+      "coordinate": "net.neoforged:neoforge:21.1.219:universal",
+      "provenance": {
+        "installer": {
+          "bytes": 6961236,
+          "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+        },
+        "member": "install_profile.json",
+        "officialPath": "net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar"
+      },
+      "also_seed": [
+        "run/neoforge-native/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar"
+      ]
+    },
+    {
+      "path": "ci/runtime-maven/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.jar",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.jar"
+      ],
+      "bytes": 3352,
+      "sha256": "366adc4e95ab9b32c8e33b9f449529c8937c6fc021ee0c6b25419ea2bb703740",
+      "phase": "client-runtime-extension",
+      "kind": "maven",
+      "coordinate": "net.neoforged:DevLaunch:1.0.2",
+      "provenance": "Exact SHA-256 already present in unchanged original strict probe/gradle/verification-metadata.xml and captured official Gradle resolution. NeoForge releases Maven repository/layout matches the verified exporter. Jar digest independently declared by captured module metadata. No HTTP fetch in source-only task."
+    },
+    {
+      "path": "ci/runtime-maven/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.module",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.module"
+      ],
+      "bytes": 2662,
+      "sha256": "30a811979ec04fccbd1f78d4b1c387913acd08c52ebd0c97f87db08b0e61fddc",
+      "phase": "client-runtime-extension",
+      "kind": "maven",
+      "coordinate": "net.neoforged:DevLaunch:1.0.2",
+      "provenance": "Exact SHA-256 already present in unchanged original strict probe/gradle/verification-metadata.xml and captured official Gradle resolution. NeoForge releases Maven repository/layout matches the verified exporter. Jar digest independently declared by captured module metadata. No HTTP fetch in source-only task."
+    },
+    {
+      "path": "ci/runtime-maven/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.pom",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/DevLaunch/1.0.2/DevLaunch-1.0.2.pom"
+      ],
+      "bytes": 753,
+      "sha256": "49ba05392f1bf4a513da8ce72377230eec261b6e13a019b6df526dd22d2cbc30",
+      "phase": "client-runtime-extension",
+      "kind": "maven",
+      "coordinate": "net.neoforged:DevLaunch:1.0.2",
+      "provenance": "Exact SHA-256 already present in unchanged original strict probe/gradle/verification-metadata.xml and captured official Gradle resolution. NeoForge releases Maven repository/layout matches the verified exporter. Jar digest independently declared by captured module metadata. No HTTP fetch in source-only task."
+    }
+  ],
+  "serverClosure": [
+    {
+      "path": "run/neoforge-native/libraries/com/electronwill/night-config/core/3.8.3/core-3.8.3.jar",
+      "bytes": 382911,
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/electronwill/night-config/toml/3.8.3/toml-3.8.3.jar",
+      "bytes": 39516,
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/github/oshi/oshi-core/6.4.10/oshi-core-6.4.10.jar",
+      "bytes": 979212,
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar",
+      "bytes": 19936,
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "bytes": 283367,
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/code/gson/gson/2.8.9/gson-2.8.9.jar",
+      "bytes": 258075,
+      "sha256": "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0.jar",
+      "bytes": 16017,
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1.jar",
+      "bytes": 4617,
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/guava/20.0/guava-20.0.jar",
+      "bytes": 2442625,
+      "sha256": "36a666e3b71ae7f0f0dca23654b67e086e6c93d192f60ba5dfd5519db6c288c8",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre.jar",
+      "bytes": 3041591,
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "bytes": 2199,
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8.jar",
+      "bytes": 9301,
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/machinezoo/noexception/noexception/1.7.1/noexception-1.7.1.jar",
+      "bytes": 250861,
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/authlib/6.0.54/authlib-6.0.54.jar",
+      "bytes": 115242,
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+      "bytes": 80082,
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+      "bytes": 724313,
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/mojang/logging/1.2.7/logging-1.2.7.jar",
+      "bytes": 15343,
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/com/opencsv/opencsv/4.4/opencsv-4.4.jar",
+      "bytes": 167167,
+      "sha256": "5d8969c14c7acecc318a9321d34b1289afd1bdd41c0e772667fd0a4f53e291a0",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar",
+      "bytes": 246174,
+      "sha256": "c058e39c7c64203d3a448f3adb588cb03d6378ed808485618f26e137f29dae73",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar",
+      "bytes": 588337,
+      "sha256": "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/commons-io/commons-io/2.15.1/commons-io-2.15.1.jar",
+      "bytes": 501218,
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/commons-logging/commons-logging/1.2/commons-logging-1.2.jar",
+      "bytes": 61829,
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/cpw/mods/bootstraplauncher/2.0.2/bootstraplauncher-2.0.2.jar",
+      "bytes": 11116,
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/cpw/mods/modlauncher/11.0.5/modlauncher-11.0.5.jar",
+      "bytes": 116486,
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/cpw/mods/securejarhandler/3.0.8/securejarhandler-3.0.8.jar",
+      "bytes": 103765,
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/de/siegmar/fastcsv/2.0.0/fastcsv-2.0.0.jar",
+      "bytes": 29476,
+      "sha256": "665d52cb6f35ca236919be9ac81653c208628507f91d6bf13479bc11496db616",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-buffer/4.1.97.Final/netty-buffer-4.1.97.Final.jar",
+      "bytes": 306590,
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-codec/4.1.97.Final/netty-codec-4.1.97.Final.jar",
+      "bytes": 345274,
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-common/4.1.97.Final/netty-common-4.1.97.Final.jar",
+      "bytes": 659930,
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-handler/4.1.97.Final/netty-handler-4.1.97.Final.jar",
+      "bytes": 560040,
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-resolver/4.1.97.Final/netty-resolver-4.1.97.Final.jar",
+      "bytes": 37792,
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-transport/4.1.97.Final/netty-transport-4.1.97.Final.jar",
+      "bytes": 489624,
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-transport-classes-epoll/4.1.97.Final/netty-transport-classes-epoll-4.1.97.Final.jar",
+      "bytes": 147139,
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "bytes": 40427,
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-transport-native-epoll/4.1.97.Final/netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "bytes": 38954,
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/io/netty/netty-transport-native-unix-common/4.1.97.Final/netty-transport-native-unix-common-4.1.97.Final.jar",
+      "bytes": 43897,
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+      "bytes": 23326598,
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/fabricmc/sponge-mixin/0.15.2+mixin.0.8.7/sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "bytes": 1494751,
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/java/dev/jna/jna/5.14.0/jna-5.14.0.jar",
+      "bytes": 1878533,
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/java/dev/jna/jna-platform/5.14.0/jna-platform-5.14.0.jar",
+      "bytes": 1369287,
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/jodah/typetools/0.6.3/typetools-0.6.3.jar",
+      "bytes": 18281,
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0.jar",
+      "bytes": 88737,
+      "sha256": "a47cd9a3db46a0cc3b769bd19a2a91d4ad0e9d019153d186f099bbaf5db16445",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1/server-1.21.1.jar",
+      "bytes": 51627615,
+      "sha256": "e3bc55693e93cda0188f2e60aea28113fc647c5e85a15fa3d1b347349231b4bb",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-extra.jar",
+      "bytes": 6591051,
+      "sha256": "24a5d2d162cfad2a1a574c4d552e99dc6c6303a49d1e68b43a7b638f3b0930fd",
+      "origin": "official-installer-generated"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-slim.jar",
+      "bytes": 11044900,
+      "sha256": "659cfec827631791508b58754bbaeb4061b80cd653ce5e3b8e3ef15d875ae45f",
+      "origin": "official-installer-generated"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-srg.jar",
+      "bytes": 14246609,
+      "sha256": "26ca9c40d7e1681190b428583c38816852218e78df3f8bdb60a59a78503aec71",
+      "origin": "official-installer-generated"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-unpacked.jar",
+      "bytes": 17635929,
+      "sha256": "c301de10f575027d13eac18c7f34409d60648cf56a35d566aa1f530ff617840a",
+      "origin": "official-installer-generated"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecraftforge/srgutils/0.4.15/srgutils-0.4.15.jar",
+      "bytes": 69393,
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/minecrell/terminalconsoleappender/1.3.0/terminalconsoleappender-1.3.0.jar",
+      "bytes": 16949,
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/AutoRenamingTool/2.0.3/AutoRenamingTool-2.0.3-all.jar",
+      "bytes": 746919,
+      "sha256": "43fcb978664ba04fc0b3b1b1a14eccabb4bc87b7a415e0eb8bdd1c2f12324321",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/JarJarFileSystems/0.4.1/JarJarFileSystems-0.4.1.jar",
+      "bytes": 31807,
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/JarJarMetadata/0.4.1/JarJarMetadata-0.4.1.jar",
+      "bytes": 15648,
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/JarJarSelector/0.4.1/JarJarSelector-0.4.1.jar",
+      "bytes": 17168,
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/accesstransformers/10.0.1/accesstransformers-10.0.1.jar",
+      "bytes": 67234,
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/accesstransformers/at-modlauncher/10.0.1/at-modlauncher-10.0.1.jar",
+      "bytes": 2347,
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "bytes": 30340,
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/coremods/7.0.3/coremods-7.0.3.jar",
+      "bytes": 22659,
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/fancymodloader/earlydisplay/4.0.42/earlydisplay-4.0.42.jar",
+      "bytes": 261718,
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar",
+      "bytes": 504899,
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/installertools/binarypatcher/2.1.2/binarypatcher-2.1.2-fatjar.jar",
+      "bytes": 624217,
+      "sha256": "9d73d565b775c8ec9da83da6d2a25454c7aad95eba22f64def9261f214cc49ba",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/installertools/cli-utils/2.1.2/cli-utils-2.1.2.jar",
+      "bytes": 9379,
+      "sha256": "023a5a0cc7579fbf10a0bdd2a47a8ac1a10046a6432fef36ec850ab1ccf5504d",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/installertools/installertools/2.1.2/installertools-2.1.2.jar",
+      "bytes": 83543,
+      "sha256": "fc695a63f7cdc7f673f7a94d94c9f35518850594bd8fa5c933b0fff38352d8bb",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/installertools/jarsplitter/2.1.2/jarsplitter-2.1.2.jar",
+      "bytes": 7790,
+      "sha256": "fe98ac94c75afcf77b1b6156effcffe72140d861f7e165303c35a5abe1a4f834",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/mergetool/2.0.0/mergetool-2.0.0-api.jar",
+      "bytes": 2550,
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-server.jar",
+      "bytes": 5670483,
+      "sha256": "73bfa2b1e1fe9958b9bebac7b0161fc5bdf1f2197a4ef67193c2b49641f86405",
+      "origin": "official-installer-generated"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar",
+      "bytes": 3524551,
+      "sha256": "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/srgutils/1.0.0/srgutils-1.0.0.jar",
+      "bytes": 71421,
+      "sha256": "16663ae2504a0522cca386af6c11281d3fde61d25b6bd2690d7200e900b26c36",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/sf/jopt-simple/jopt-simple/5.0.4/jopt-simple-5.0.4.jar",
+      "bytes": 78146,
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/antlr/antlr4-runtime/4.13.1/antlr4-runtime-4.13.1.jar",
+      "bytes": 326305,
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/commons/commons-collections4/4.2/commons-collections4-4.2.jar",
+      "bytes": 752798,
+      "sha256": "6a594721d51444fd97b3eaefc998a77f606dedb03def494f74755aead3c9df3e",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/commons/commons-lang3/3.14.0/commons-lang3-3.14.0.jar",
+      "bytes": 657952,
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar",
+      "bytes": 501879,
+      "sha256": "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/commons/commons-text/1.3/commons-text-1.3.jar",
+      "bytes": 182954,
+      "sha256": "8185b3a5311092d83ed1f184c2d093b3105d726bbd76867c32b3511542bb99a8",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar",
+      "bytes": 335001,
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "bytes": 1900022,
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/logging/log4j/log4j-slf4j2-impl/2.22.1/log4j-slf4j2-impl-2.22.1.jar",
+      "bytes": 27364,
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/apache/maven/maven-artifact/3.8.5/maven-artifact-3.8.5.jar",
+      "bytes": 58077,
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0.jar",
+      "bytes": 223979,
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/codehaus/plexus/plexus-utils/3.3.0/plexus-utils-3.3.0.jar",
+      "bytes": 263253,
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/jline/jline-reader/3.20.0/jline-reader-3.20.0.jar",
+      "bytes": 171052,
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/jline/jline-terminal/3.20.0/jline-terminal-3.20.0.jar",
+      "bytes": 228481,
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/joml/joml/1.10.5/joml-1.10.5.jar",
+      "bytes": 712082,
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar",
+      "bytes": 682804,
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/openjdk/nashorn/nashorn-core/15.4/nashorn-core-15.4.jar",
+      "bytes": 2167292,
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm/9.3/asm-9.3.jar",
+      "bytes": 122176,
+      "sha256": "1263369b59e29c943918de11d6d6152e2ec6085ce63e5710516f8c67d368e4bc",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm/9.8/asm-9.8.jar",
+      "bytes": 126113,
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-analysis/9.3/asm-analysis-9.3.jar",
+      "bytes": 34276,
+      "sha256": "37fd5392bb2cf4c15f202ffefd46d0e92bb34ff848c549f30d426a60d6b29495",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-analysis/9.8/asm-analysis-9.8.jar",
+      "bytes": 35151,
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-commons/9.3/asm-commons-9.3.jar",
+      "bytes": 72716,
+      "sha256": "a347c24732db2aead106b6e5996a015b06a3ef86e790a4f75b61761f0d2f7f39",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-commons/9.8/asm-commons-9.8.jar",
+      "bytes": 73498,
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-tree/9.3/asm-tree-9.3.jar",
+      "bytes": 52669,
+      "sha256": "ae629c2609f39681ef8d140a42a23800464a94f2d23e36d8f25cd10d5e4caff4",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar",
+      "bytes": 51934,
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/ow2/asm/asm-util/9.8/asm-util-9.8.jar",
+      "bytes": 94559,
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "bytes": 64579,
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "origin": "official-public-input"
+    },
+    {
+      "path": "run/neoforge-native/libraries/net/neoforged/neoforge/21.1.219/unix_args.txt",
+      "bytes": 6044,
+      "sha256": "e8f7d96cabecb000771ff4e878ef348d7282532c2be6d46cfd41f94eda065ab6",
+      "origin": "official-installer-generated"
+    }
+  ],
+  "generatedFmlInputs": [
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-extra.jar",
+      "bytes": 12372293,
+      "sha256": "fd02f80f4eec9dfaa1714cb62595d013cbac03d52d19dd0623d1922b999c40b7"
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-slim.jar",
+      "bytes": 14464635,
+      "sha256": "93224371dda52351038d0957e392729e692dce031f55ae29ea4b47d909433a5c"
+    },
+    {
+      "path": "run/client-dev/libraries/net/minecraft/client/1.21.1-20240808.144430/client-1.21.1-20240808.144430-srg.jar",
+      "bytes": 18725656,
+      "sha256": "a649bd3ce77f122d0f83ae1b37b4b303e662470f928b9bee5fbc76580805ffd4"
+    },
+    {
+      "path": "run/client-dev/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-client.jar",
+      "bytes": 5670483,
+      "sha256": "c9a2df004c3b4e07572f6c6cf4221cc076b5501b9cc5badc293bd8320d57b1f9"
+    }
+  ],
+  "generatedDevelopmentOutputs": [
+    {
+      "path": "build/moddev/artifacts/neoforge-21.1.219.jar",
+      "bytes": 22675471,
+      "sha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a"
+    },
+    {
+      "path": "build/moddev/artifacts/neoforge-21.1.219-client-extra-aka-minecraft-resources.jar",
+      "bytes": 9361844,
+      "sha256": "8e9cf6f4b6eafb1c6bf745a67a61dd1736f31865cad409e5b2bec918667dab5e"
+    }
+  ],
+  "missingOfficialInputs": [],
+  "unverifiedExecution": [
+    "Cold official installer invocation and full before/after closure",
+    "Cold prepareClientLaunch against local-only Maven mirror",
+    "Cold consumer-local client seal and assembly",
+    "NFRT has a separate downloader; before/after public closure checks do not claim OS-level network isolation"
+  ],
+  "installerMetadata": {
+    "installer": {
+      "path": "docs/research/upstream/neoforge-21.1.219-installer.jar",
+      "bytes": 6961236,
+      "sha256": "140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44"
+    },
+    "profileSha256": "29d08371291b6cfdcebb5bfa7502fd7dba5a585f33da5b2e262dbcc2474c6244",
+    "versionSha256": "0a8f19b3983aa217a849241663986a38a46d0c8a7255f6f64bee1d9c65cfc448",
+    "profileLibraries": 70,
+    "serverArgsEmbeddedSha256": "e8f7d96cabecb000771ff4e878ef348d7282532c2be6d46cfd41f94eda065ab6"
+  },
+  "additionalCleanOutput": {
+    "path": "build/moddev/artifacts/minecraft-1.21.1-clean.jar",
+    "bytes": 18887912,
+    "sha256": "26a29a83d298df77d4bc78e7029ffb453e479a0e4fd2d7f7a0ac84b6726fdf3c",
+    "reason": "Original verified exporter additionalResults vanillaDeobfuscated and connector.clean.path; required in addition to two compile outputs"
+  },
+  "clientClasspathIdentities": [
+    {
+      "name": "neoforge-21.1.219.jar",
+      "sha256": "28ad092c1c1ec388dcb051bb60b89a9ba7e443ce27ca7dba6dc99a5d2c54c57a"
+    },
+    {
+      "name": "neoforge-21.1.219-client-extra-aka-minecraft-resources.jar",
+      "sha256": "8e9cf6f4b6eafb1c6bf745a67a61dd1736f31865cad409e5b2bec918667dab5e"
+    },
+    {
+      "name": "DevLaunch-1.0.2.jar",
+      "sha256": "366adc4e95ab9b32c8e33b9f449529c8937c6fc021ee0c6b25419ea2bb703740"
+    },
+    {
+      "name": "earlydisplay-4.0.42.jar",
+      "sha256": "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec"
+    },
+    {
+      "name": "loader-4.0.42.jar",
+      "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+    },
+    {
+      "name": "at-modlauncher-10.0.1.jar",
+      "sha256": "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935"
+    },
+    {
+      "name": "accesstransformers-10.0.1.jar",
+      "sha256": "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1"
+    },
+    {
+      "name": "bus-8.0.5.jar",
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a"
+    },
+    {
+      "name": "coremods-7.0.3.jar",
+      "sha256": "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a"
+    },
+    {
+      "name": "modlauncher-11.0.5.jar",
+      "sha256": "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24"
+    },
+    {
+      "name": "mergetool-2.0.0-api.jar",
+      "sha256": "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00"
+    },
+    {
+      "name": "toml-3.8.3.jar",
+      "sha256": "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f"
+    },
+    {
+      "name": "core-3.8.3.jar",
+      "sha256": "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79"
+    },
+    {
+      "name": "JarJarSelector-0.4.1.jar",
+      "sha256": "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400"
+    },
+    {
+      "name": "JarJarMetadata-0.4.1.jar",
+      "sha256": "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546"
+    },
+    {
+      "name": "maven-artifact-3.8.5.jar",
+      "sha256": "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee"
+    },
+    {
+      "name": "typetools-0.6.3.jar",
+      "sha256": "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d"
+    },
+    {
+      "name": "terminalconsoleappender-1.3.0.jar",
+      "sha256": "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985"
+    },
+    {
+      "name": "sponge-mixin-0.15.2+mixin.0.8.7.jar",
+      "sha256": "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5"
+    },
+    {
+      "name": "nashorn-core-15.4.jar",
+      "sha256": "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f"
+    },
+    {
+      "name": "commons-lang3-3.14.0.jar",
+      "sha256": "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c"
+    },
+    {
+      "name": "bootstraplauncher-2.0.2.jar",
+      "sha256": "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49"
+    },
+    {
+      "name": "securejarhandler-3.0.8.jar",
+      "sha256": "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d"
+    },
+    {
+      "name": "asm-commons-9.8.jar",
+      "sha256": "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4"
+    },
+    {
+      "name": "asm-util-9.8.jar",
+      "sha256": "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15"
+    },
+    {
+      "name": "asm-analysis-9.8.jar",
+      "sha256": "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9"
+    },
+    {
+      "name": "asm-tree-9.8.jar",
+      "sha256": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1"
+    },
+    {
+      "name": "asm-9.8.jar",
+      "sha256": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051"
+    },
+    {
+      "name": "JarJarFileSystems-0.4.1.jar",
+      "sha256": "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab"
+    },
+    {
+      "name": "jopt-simple-5.0.4.jar",
+      "sha256": "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28"
+    },
+    {
+      "name": "commons-io-2.15.1.jar",
+      "sha256": "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154"
+    },
+    {
+      "name": "logging-1.2.7.jar",
+      "sha256": "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c"
+    },
+    {
+      "name": "log4j-slf4j2-impl-2.22.1.jar",
+      "sha256": "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97"
+    },
+    {
+      "name": "log4j-core-2.22.1.jar",
+      "sha256": "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d"
+    },
+    {
+      "name": "log4j-api-2.22.1.jar",
+      "sha256": "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53"
+    },
+    {
+      "name": "guava-32.1.2-jre.jar",
+      "sha256": "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce"
+    },
+    {
+      "name": "gson-2.10.1.jar",
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593"
+    },
+    {
+      "name": "slf4j-api-2.0.9.jar",
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c"
+    },
+    {
+      "name": "antlr4-runtime-4.13.1.jar",
+      "sha256": "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505"
+    },
+    {
+      "name": "srgutils-0.4.15.jar",
+      "sha256": "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3"
+    },
+    {
+      "name": "plexus-utils-3.3.0.jar",
+      "sha256": "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce"
+    },
+    {
+      "name": "jline-reader-3.20.0.jar",
+      "sha256": "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0"
+    },
+    {
+      "name": "noexception-1.7.1.jar",
+      "sha256": "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816"
+    },
+    {
+      "name": "oshi-core-6.4.10.jar",
+      "sha256": "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310"
+    },
+    {
+      "name": "failureaccess-1.0.1.jar",
+      "sha256": "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26"
+    },
+    {
+      "name": "icu4j-73.2.jar",
+      "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9"
+    },
+    {
+      "name": "authlib-6.0.54.jar",
+      "sha256": "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b"
+    },
+    {
+      "name": "blocklist-1.0.10.jar",
+      "sha256": "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44"
+    },
+    {
+      "name": "brigadier-1.3.10.jar",
+      "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75"
+    },
+    {
+      "name": "datafixerupper-8.0.16.jar",
+      "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d"
+    },
+    {
+      "name": "patchy-2.2.10.jar",
+      "sha256": "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a"
+    },
+    {
+      "name": "text2speech-1.17.9.jar",
+      "sha256": "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af"
+    },
+    {
+      "name": "commons-codec-1.16.0.jar",
+      "sha256": "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d"
+    },
+    {
+      "name": "commons-logging-1.2.jar",
+      "sha256": "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636"
+    },
+    {
+      "name": "netty-buffer-4.1.97.Final.jar",
+      "sha256": "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea"
+    },
+    {
+      "name": "netty-codec-4.1.97.Final.jar",
+      "sha256": "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38"
+    },
+    {
+      "name": "netty-common-4.1.97.Final.jar",
+      "sha256": "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17"
+    },
+    {
+      "name": "netty-handler-4.1.97.Final.jar",
+      "sha256": "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de"
+    },
+    {
+      "name": "netty-resolver-4.1.97.Final.jar",
+      "sha256": "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1"
+    },
+    {
+      "name": "netty-transport-classes-epoll-4.1.97.Final.jar",
+      "sha256": "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5"
+    },
+    {
+      "name": "netty-transport-native-unix-common-4.1.97.Final.jar",
+      "sha256": "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6"
+    },
+    {
+      "name": "netty-transport-4.1.97.Final.jar",
+      "sha256": "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407"
+    },
+    {
+      "name": "fastutil-8.5.12.jar",
+      "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4"
+    },
+    {
+      "name": "jna-platform-5.14.0.jar",
+      "sha256": "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449"
+    },
+    {
+      "name": "jna-5.14.0.jar",
+      "sha256": "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6"
+    },
+    {
+      "name": "commons-compress-1.26.0.jar",
+      "sha256": "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9"
+    },
+    {
+      "name": "httpclient-4.5.13.jar",
+      "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743"
+    },
+    {
+      "name": "httpcore-4.4.16.jar",
+      "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f"
+    },
+    {
+      "name": "jorbis-0.0.17.jar",
+      "sha256": "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e"
+    },
+    {
+      "name": "joml-1.10.5.jar",
+      "sha256": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a"
+    },
+    {
+      "name": "lwjgl-freetype-3.3.3.jar",
+      "sha256": "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8"
+    },
+    {
+      "name": "lwjgl-freetype-3.3.3-natives-linux.jar",
+      "sha256": "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9"
+    },
+    {
+      "name": "lwjgl-glfw-3.3.3.jar",
+      "sha256": "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259"
+    },
+    {
+      "name": "lwjgl-glfw-3.3.3-natives-linux.jar",
+      "sha256": "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8"
+    },
+    {
+      "name": "lwjgl-jemalloc-3.3.3.jar",
+      "sha256": "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516"
+    },
+    {
+      "name": "lwjgl-jemalloc-3.3.3-natives-linux.jar",
+      "sha256": "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3"
+    },
+    {
+      "name": "lwjgl-openal-3.3.3.jar",
+      "sha256": "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95"
+    },
+    {
+      "name": "lwjgl-openal-3.3.3-natives-linux.jar",
+      "sha256": "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a"
+    },
+    {
+      "name": "lwjgl-opengl-3.3.3.jar",
+      "sha256": "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e"
+    },
+    {
+      "name": "lwjgl-opengl-3.3.3-natives-linux.jar",
+      "sha256": "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250"
+    },
+    {
+      "name": "lwjgl-stb-3.3.3.jar",
+      "sha256": "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93"
+    },
+    {
+      "name": "lwjgl-stb-3.3.3-natives-linux.jar",
+      "sha256": "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1"
+    },
+    {
+      "name": "lwjgl-tinyfd-3.3.3.jar",
+      "sha256": "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b"
+    },
+    {
+      "name": "lwjgl-tinyfd-3.3.3-natives-linux.jar",
+      "sha256": "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05"
+    },
+    {
+      "name": "lwjgl-3.3.3.jar",
+      "sha256": "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4"
+    },
+    {
+      "name": "lwjgl-3.3.3-natives-linux.jar",
+      "sha256": "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9"
+    },
+    {
+      "name": "lz4-java-1.8.0.jar",
+      "sha256": "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef"
+    },
+    {
+      "name": "jline-terminal-3.20.0.jar",
+      "sha256": "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43"
+    },
+    {
+      "name": "netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar",
+      "sha256": "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac"
+    },
+    {
+      "name": "netty-transport-native-epoll-4.1.97.Final-linux-x86_64.jar",
+      "sha256": "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0"
+    },
+    {
+      "name": "listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar",
+      "sha256": "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99"
+    },
+    {
+      "name": "jsr305-3.0.2.jar",
+      "sha256": "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7"
+    },
+    {
+      "name": "checker-qual-3.33.0.jar",
+      "sha256": "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1"
+    },
+    {
+      "name": "error_prone_annotations-2.18.0.jar",
+      "sha256": "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae"
+    },
+    {
+      "name": "j2objc-annotations-2.8.jar",
+      "sha256": "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed"
+    }
+  ],
+  "assetIndex": {
+    "id": "17",
+    "sha1": "9b16298b1dc0697878cec88bb2d96168f5239e4f",
+    "uniqueObjects": 3888
+  },
+  "publicArtifactSizes": {
+    "971dc88c1c22085611ee1c300f5bbf8595938178e819befbb5e98c3cbd272b79": 382911,
+    "ccb92882264bf071e3916ab122fe5ea3e211b8ebf199201698a1324f151f928f": 39516,
+    "fef001a7a13515c273f30915915580782afbc45273cc07aa15994e51563ef310": 979212,
+    "766ad2a0783f2687962c8ad74ceecc38a28b9f72a2d085ee438b7813e928d0c7": 19936,
+    "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593": 283367,
+    "d3999291855de495c94c743761b8ab5176cfeabe281a5ab0d8e8d45326fd703e": 258075,
+    "9e6814cb71816988a4fd1b07a993a8f21bb7058d522c162b1de849e19bea54ae": 16017,
+    "a171ee4c734dd2da837e4b16be9df4661afab72a41adaf31eb84dfdaf936ca26": 4617,
+    "bc65dea7cfd9e4dacf8419d8af0e741655857d27885bb35d943d7187fc3a8fce": 3041591,
+    "b372a037d4230aa57fbeffdef30fd6123f9c0c2db85d0aced00c91b974f33f99": 2199,
+    "f02a95fa1a5e95edb3ed859fd0fb7df709d121a35290eff8b74dce2ab7f4d6ed": 9301,
+    "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9": 14567819,
+    "3d70aaea3904918587a21bdf99ab6ade9ab1dd0eaf6119344ba513f60f575816": 250861,
+    "319ea7b53b5e52f62ad3e2b81e9db7f0751240edac548bd74f5f19e35dc21a3b": 115242,
+    "830bfd639c8db49236bbd8e45d3a2b8c96c56ff654a10118654958a6235d4c44": 964,
+    "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75": 80082,
+    "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d": 724313,
+    "3dc3190204bac5f4184d8405bfe1f724f73a6a15a0d3f36ec7f69e6872c1a76c": 15343,
+    "16d70e7968b45caffc81576268eb000f473fb60bf257182d3447dea8ec919d5a": 4439,
+    "c2a95b499e76fada7dd63e9b0ec797b678d411c2b0ee6f37f4dc674662bfb0af": 12243,
+    "5d8969c14c7acecc318a9321d34b1289afd1bdd41c0e772667fd0a4f53e291a0": 167167,
+    "c058e39c7c64203d3a448f3adb588cb03d6378ed808485618f26e137f29dae73": 246174,
+    "56595fb20b0b85bc91d0d503dad50bb7f1b9afc0eed5dffa6cbb25929000484d": 360738,
+    "eeeae917917144a68a741d4c0dff66aa5c5c5fd85593ff217bced3fc8ca783b8": 588337,
+    "a58af12ee1b68cfd2ebb0c27caef164f084381a00ec81a48cc275fd7ea54e154": 501218,
+    "daddea1ea0be0f56978ab3006b8ac92834afeefbd9b7e4e6316fca57df0fa636": 61829,
+    "d3f29309140540570fd6c709509706aa8fb133c1c8aef24491688f1a3f4e1d49": 11116,
+    "fd9b9fc7cf043d2264ea0113eac6b258f0a71fece5b00e831bfbdf9726c78a24": 116486,
+    "945c63d6deafc821616b0380c23867d9b8c2852438f8a6df72732ab933fc587d": 103765,
+    "665d52cb6f35ca236919be9ac81653c208628507f91d6bf13479bc11496db616": 29476,
+    "a4393f5b395486cc74d0325c9b41311abb9513ba0fd7ef8cf46e9345c3bffbea": 306590,
+    "bcc96737a0f912fcf031cf8c45ebda352a90a40437db0832caad3d5a63618b38": 345274,
+    "a8aca0c8e9347acc75c885ecc749195d9775369aa520b9276f2d1128210a6c17": 659930,
+    "bd4771d19149cbc9c7464ed2d58035d79cdfed7adb59d38718b0d8e7a3dcc2de": 560040,
+    "38a018c6d9fb2cb11b72881354782b45080bbd20b9a0ad6cde28b80d431ed0b1": 37792,
+    "197fd2d6c6b4afe677d9e95bf2e36b49a0bcabdfce0583683fb73f29a3f5a407": 489624,
+    "ee65fa17fe65f18fd22269f92bddad85bfb3a263cf65eba01e116a2f30b86ff5": 147139,
+    "93b5fe8f3829dcb5e033d8d40d59159366ff4cf8266c903bbd6a4aeed9e59bac": 40427,
+    "1e83fc9f82e5415cdbb688c6a5c6bbbd7d198e9fdd6fdf64b3dc5d54dd1acfd0": 38954,
+    "412fe140257c2dda5a5e15bee911298bd61928d03ee6be4db588e82c196c5dc6": 43897,
+    "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4": 23326598,
+    "1d45cfe3ae4a2eab38dc74276803748cf799088986260d6d912e50ddb35d15c5": 1494751,
+    "34ed1e1f27fa896bca50dbc4e99cf3732967cec387a7a0d5e3486c09673fe8c6": 1878533,
+    "ae4caceb3840730c2537f9b7fb55a01baba580286b4122951488bcee558c2449": 1369287,
+    "408300867804be05d1083cc0287dd3a21295a9e76090e288013ba5a4182dc96d": 18281,
+    "a47cd9a3db46a0cc3b769bd19a2a91d4ad0e9d019153d186f099bbaf5db16445": 88737,
+    "f6bdebb7fae108329acddfc812f237c7f6328a98e3f282a105edfc161d0215e3": 69393,
+    "1afea1bca095068f7f4483f061feed94753be34233ddb0df9ec380fc14d5a985": 16949,
+    "43fcb978664ba04fc0b3b1b1a14eccabb4bc87b7a415e0eb8bdd1c2f12324321": 746919,
+    "d9f88af1223ff23395c64ff0b0fe367563288a37bd38709bf667b6b39944bfab": 31807,
+    "05d7b89f09c6de1a9b61d0e786c8fd808aed044babf321653e14abd6740d5546": 15648,
+    "f34bab02a5e967650dc52b7cb37a200051a7078f7d1868597699d78697da2400": 17168,
+    "89fb0dc3d68f8a5961f309ee110dad7d2c1094ba204595602b71e02e104838a1": 67234,
+    "2a4b447c6944a2b89e383c1eed9a26bb5cc60330a5bb26ef0a912a38d52df935": 2347,
+    "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a": 30340,
+    "d24c0d3e31af23cac36a0f9f98654b875f678b27ddccd8b28d331c1878a6de4a": 22659,
+    "6410270f0749c4d4666ad9259a97f4066cd2c8cdb88b70b017145df6cf1502ec": 261718,
+    "9d73d565b775c8ec9da83da6d2a25454c7aad95eba22f64def9261f214cc49ba": 624217,
+    "023a5a0cc7579fbf10a0bdd2a47a8ac1a10046a6432fef36ec850ab1ccf5504d": 9379,
+    "fc695a63f7cdc7f673f7a94d94c9f35518850594bd8fa5c933b0fff38352d8bb": 83543,
+    "fe98ac94c75afcf77b1b6156effcffe72140d861f7e165303c35a5abe1a4f834": 7790,
+    "0260881294d8b218afe3d673f084d3745a55c28b35205d07d5e62d7f22202a00": 2550,
+    "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd": 3524551,
+    "16663ae2504a0522cca386af6c11281d3fde61d25b6bd2690d7200e900b26c36": 71421,
+    "df26cc58f235f477db07f753ba5a3ab243ebe5789d9f89ecf68dd62ea9a66c28": 78146,
+    "54665d2838cc66458343468efc539e454fc95b46a8a04b13c6ac43fc9be63505": 326305,
+    "6a594721d51444fd97b3eaefc998a77f606dedb03def494f74755aead3c9df3e": 752798,
+    "051aceb8bbcc62d0f5b2b8ac72c53767f9c59bfbd050151e65bef6f51c8ed9c9": 1078328,
+    "7b96bf3ee68949abb5bc465559ac270e0551596fa34523fddf890ec418dde13c": 657952,
+    "dac807f65b07698ff39b1b07bfef3d87ae3fd46d91bbf8a2bc02b2a831616f68": 501879,
+    "8185b3a5311092d83ed1f184c2d093b3105d726bbd76867c32b3511542bb99a8": 182954,
+    "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743": 780321,
+    "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f": 327891,
+    "5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53": 335001,
+    "46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d": 1900022,
+    "1920cd69d8682c7ef249bb407a3d0685723aa1785867cf4c53258da6bf14da97": 27364,
+    "91172bc294d6eab02fc9f45f4ea01fd0e418962d128cf489abea7b6957d988ee": 58077,
+    "e316255bbfcd9fe50d165314b85abb2b33cb2a66a93c491db648e498a82c2de1": 223979,
+    "76d174792540e2775af94d03d10fb2d3c776e2cd0ac0ebf427d3e570072bb9ce": 263253,
+    "e067f29a3701426b67ed973036949c6e58ca5bb53eef7240b2e71e286d252a9e": 99701,
+    "acd1c94d1e228aa7b7962f69b21ed3a9fd828eb3a63e4baf9086954e626af1f0": 171052,
+    "12125170e795519ba6dc8010c070b53c76aae92b485c1e37530e54ab5dd08d43": 228481,
+    "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a": 712082,
+    "e663738c519a06f6d659882fa8e4e09af7f10e921929ee5cc54a7587f62ed4c9": 114627,
+    "dc9c7b2d48e8396d68895f8902ffa01e46253de44dfe927533ff09457ebfeec4": 785029,
+    "9fc63518a27b8ff1ab78196343710ce28e8000ce88f60be851a2d3db5beab8e9": 1245129,
+    "e1a7ab07106349d9a8a68f6860b7b73b353c502b81e662aca77f931c6fdd3de8": 450896,
+    "b8306062b17741f34269088751421f1ac21a597bfbbd0c6c61226301cde744b8": 118478,
+    "bedc757fd2b1b255146db26b74b9cbd1fcf5644b89b47b104fa721c741604259": 135546,
+    "4e4a13d7015d42605bbcf7ef9faead46deac6409e4377a8ed4aea815f14634b3": 206779,
+    "e99e31269e6678a4bfc62ef24c50a481c01cbdd004861ece9a59ba12768c6516": 43896,
+    "9030fed928a71eac2fdf4ce1643cc4ec724d8710e3b437bdce750bdc9e982b2a": 573224,
+    "ae0e82767cacf08921f578fba9d84753ddeb00ceada0510a2b4a882be28fbf95": 110586,
+    "d823a92c6a2810b5112da304dcc6abcd4cb102706f74f7e934a223cea2051250": 80463,
+    "5062da750e5f7ec89e27e8b67b7d40fa8c4b16890159e35f828116ce6c8eca1e": 929192,
+    "c4489068ddc6dc44b103071943f801a2d076634d4b74db470927f84a308219e1": 231820,
+    "0cff7aa46ea9d70fcc20857015293ea80fbf21adcac34600c84da9b81a44ca93": 120283,
+    "a076fa05a4d174762eab5852ee72c29d14ab10a5654f27fb00664ef1b52c0c05": 44192,
+    "ee0515054ee19a3f4088426fee9d879eb2ee657b07e5064e4e2c851f6adcf14b": 13400,
+    "d74a3334fb35195009b338a951f918203d6bbca3d1d359033dc33edd1cadc9ef": 682804,
+    "6f816e84dfd63a81d4eaa7829c08337bbaff3ec683ff3bf6bbd90d017a00dc6f": 2167292,
+    "1263369b59e29c943918de11d6d6152e2ec6085ce63e5710516f8c67d368e4bc": 122176,
+    "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051": 126113,
+    "37fd5392bb2cf4c15f202ffefd46d0e92bb34ff848c549f30d426a60d6b29495": 34276,
+    "e640732fbcd3c6271925a504f125e38384688f4dfbbf92c8622dfcee0d09edb9": 35151,
+    "a347c24732db2aead106b6e5996a015b06a3ef86e790a4f75b61761f0d2f7f39": 72716,
+    "3301a1c1cb4c59fcc5292648dac1d7c5aed4c0f067dfbe88873b8cdfe77404f4": 73498,
+    "ae629c2609f39681ef8d140a42a23800464a94f2d23e36d8f25cd10d5e4caff4": 52669,
+    "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1": 51934,
+    "8ba0460ecb28fd0e2980e5f3ef3433a513a457bc077f81a53bdc75b587a08d15": 94559,
+    "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c": 64579,
+    "27a770dc7ce50500918bb8c3c0660c98290630ec796b5e3cf6b90f403b3033c6": 30570
+  }
+}
