@@ -261,6 +261,6 @@ def execute(repo,consumer,allow_runner_package=False):
     return result
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-package',action='store_true');a=p.parse_args()
-    value=prepare(a.repo_root,a.consumer) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_package)
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true');a=p.parse_args()
+    value=prepare(a.repo_root,a.consumer) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

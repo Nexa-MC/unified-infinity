@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "COHERENT_SOURCE_SUCCESSOR_TARGET_CORRECTED_RUNTIME_UNRUN",
+  "status": "UBUNTU_GRAPHICS_CLOSURE_SOURCE_PREPARED_RUNTIME_UNRUN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -17,12 +17,12 @@
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 1276,
-      "sha256": "6ccdfb9d170cbb901e895545932b45aa00aeb088364ed5fc180222754b4a3186"
+      "sha256": "a54efccf800e5c6ea8b03ca5a19c7fb321cfe78dba6d6413a02bf4625ae21506"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
-      "bytes": 4569,
-      "sha256": "a4b8ba7fcfeb0f889c5c342cdacb1038acdc05b4540845fdb2307f6d38c981e0"
+      "bytes": 4621,
+      "sha256": "90e916c55aef35f015d1cacb6b359e2923fd1c7152d239c37cb2a91820835085"
     },
     {
       "path": "RECOVERED-INPUT-PROVENANCE.json",
@@ -646,8 +646,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/RUNNER-DEPENDENCY-PROPOSAL.md",
-      "bytes": 5331,
-      "sha256": "b998c84ea1e824f91e48032f82584d322de8eee3e186aefafd4291d2fb881697"
+      "bytes": 5644,
+      "sha256": "8b2622cba218959cb9589efdabdb2a9c9a70f290ad237e82a54205d5018f8eaa"
     },
     {
       "path": "work/network-pair-cold-glue/SOURCE-MATERIALIZATION.md",
@@ -757,7 +757,7 @@
     {
       "path": "work/network-pair-cold-glue/driver.py",
       "bytes": 16299,
-      "sha256": "a4211fce496a45f80bbaa67c829a66081b02b78cdc9d1b0d1a6a15df6e8f5a89"
+      "sha256": "a99935b7559cc71c8b4cf677f48f19c0efd02890ed24ae46c9995405bf83bb3e"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -837,7 +837,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 1276,
-      "sha256": "6ccdfb9d170cbb901e895545932b45aa00aeb088364ed5fc180222754b4a3186"
+      "sha256": "a54efccf800e5c6ea8b03ca5a19c7fb321cfe78dba6d6413a02bf4625ae21506"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -866,8 +866,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/runner_dependencies.py",
-      "bytes": 9894,
-      "sha256": "31f04dab1a259798e685487283e46e63c59c85c2e60594db3d7f9fd1c73dd0bd"
+      "bytes": 19417,
+      "sha256": "145bd5884ef1084095d9907e666c2d079781238010b646a06279a957d214d5db"
     },
     {
       "path": "work/network-pair-cold-glue/runtime-inputs.lock.json",
@@ -926,8 +926,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_owned_spawn_cleanup.py",
-      "bytes": 6979,
-      "sha256": "1fcb4a0f0d17a0182e616388c65886db85a8b5e1253289a84b8af3c0a7732924"
+      "bytes": 6919,
+      "sha256": "d4871c578e9483524e59346e0771e7d799390271d6043e5380a0b9f496b6e895"
     },
     {
       "path": "work/network-pair-cold-glue/test_recovered_source_closure.py",
@@ -936,8 +936,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_runner_dependencies.py",
-      "bytes": 7214,
-      "sha256": "afc47dbf87b7b4eb1648c32035ab02060e5f4253418df9cf38d37dce98ac6064"
+      "bytes": 19819,
+      "sha256": "bd56e3a270ef08d7891e3d80ddac863c2f35119e9113e4fdb593898f61e96eac"
     },
     {
       "path": "work/network-pair-cold-glue/test_runtime_restore.py",
@@ -948,6 +948,21 @@
       "path": "work/network-pair-cold-glue/test_seal_lifecycle.py",
       "bytes": 2645,
       "sha256": "bac42c8a5f1274fdb7ced59177305112ab83dc191b263fdb02dfd68dbad451fe"
+    },
+    {
+      "path": "work/network-pair-cold-glue/ubuntu-graphics-candidates.json",
+      "bytes": 5033,
+      "sha256": "fdcdd96f2c270b3741d84e80cc1a42562b60da7e42105c808361ad4691c804f5"
+    },
+    {
+      "path": "work/network-pair-cold-glue/ubuntu-graphics-reference.json",
+      "bytes": 102492,
+      "sha256": "2cda4335f5aceeabe6262e1e9e8c6c71cbdff400ea2ce9cb8b9b93011ddfe477"
+    },
+    {
+      "path": "work/network-pair-cold-glue/ubuntu-graphics.Packages",
+      "bytes": 10645,
+      "sha256": "0f936bae8be7cb6a5a128fe079c950d6b3efad923c05b7c112c40fc081072d35"
     },
     {
       "path": "work/network-pair-finalizer/LICENSE",
@@ -1000,6 +1015,6 @@
       "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
     }
   ],
-  "revision": 3,
-  "previousReviewManifestSha256": "d1b56f06489f8de63f3b92022af8f1a83905b2d22ade5ea60a9e4d071e495350"
+  "revision": 4,
+  "previousReviewManifestSha256": "a464e25ca35e992243e3cfd165d6da9119378dedb682f98b8502a5af33280fdb"
 }

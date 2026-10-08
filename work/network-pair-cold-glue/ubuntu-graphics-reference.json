@@ -1,0 +1,3963 @@
+{
+  "description": "Complete hard-dependency reference closure from official Ubuntu metadata. Selected unobserved versions are a coherent reference solution, not proof of installed versions and NOT an installation list. Keep every already-installed package that satisfies all actual dependencies. Only inspect/install the bounded missing candidates; fail closed rather than upgrading Mesa companions or unseen dependencies.",
+  "source_read_utc": "2026-10-08T09:33:00Z",
+  "roots": [
+    "mesa-utils-bin",
+    "libdecor-0-0",
+    "libegl1",
+    "libgles2",
+    "libxkbcommon-x11-0"
+  ],
+  "observed_installed": {
+    "libc6": "2.39-0ubuntu8.9",
+    "libgl1": "1.7.0-1build1",
+    "libvulkan1": "1.3.275.0-1build1",
+    "libwayland-client0": "1.22.0-2.1build1",
+    "libwayland-egl1": "1.22.0-2.1build1",
+    "libx11-6": "2:1.8.7-1build1",
+    "libxcb1": "1.15-1ubuntu2",
+    "libxkbcommon0": "1.6.0-1build1",
+    "xvfb": "2:21.1.12-1ubuntu1.8",
+    "libgl1-mesa-dri": "25.2.8-0ubuntu0.24.04.2",
+    "dpkg": "1.22.6ubuntu6.6",
+    "libc-bin": "2.39-0ubuntu8.9"
+  },
+  "pins_for_reference": {
+    "libc6": "2.39-0ubuntu8.9",
+    "libgl1": "1.7.0-1build1",
+    "libvulkan1": "1.3.275.0-1build1",
+    "libwayland-client0": "1.22.0-2.1build1",
+    "libwayland-egl1": "1.22.0-2.1build1",
+    "libx11-6": "2:1.8.7-1build1",
+    "libxcb1": "1.15-1ubuntu2",
+    "libxkbcommon0": "1.6.0-1build1",
+    "xvfb": "2:21.1.12-1ubuntu1.8",
+    "libgl1-mesa-dri": "25.2.8-0ubuntu0.24.04.2",
+    "dpkg": "1.22.6ubuntu6.6",
+    "libc-bin": "2.39-0ubuntu8.9",
+    "libegl-mesa0": "25.2.8-0ubuntu0.24.04.2",
+    "libgbm1": "25.2.8-0ubuntu0.24.04.2",
+    "mesa-libgallium": "25.2.8-0ubuntu0.24.04.2",
+    "libglx-mesa0": "25.2.8-0ubuntu0.24.04.2"
+  },
+  "bounded_install_candidates": [
+    {
+      "Package": "libdecor-0-0",
+      "Version": "0.2.2-1build2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libwayland-client0 (>= 1.20.0)",
+      "Recommends": "default-libdecor-0-plugin-1 | libdecor-0-plugin-1",
+      "Conflicts": "libdecor",
+      "Replaces": "libdecor",
+      "Filename": "pool/main/libd/libdecor-0/libdecor-0-0_0.2.2-1build2_amd64.deb",
+      "Size": "16508",
+      "SHA256": "64bf085d16e504e9ed39b91d2a46748fb8881ad7f3603fbacef6c11c04aa7064",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdecor-0/libdecor-0-0_0.2.2-1build2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libegl-mesa0",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm2 (>= 2.4.125-1), libexpat1 (>= 2.0.1), libgbm1 (= 25.2.8-0ubuntu0.24.04.2), libgcc-s1 (>= 3.4), libwayland-client0 (>= 1.20.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6), mesa-libgallium (= 25.2.8-0ubuntu0.24.04.2)",
+      "Provides": "libegl-vendor",
+      "Filename": "pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "117222",
+      "SHA256": "8ccb85abbc76d53d47d952c975c5630bf305244a2af20e2b262725d1378d73c1",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libegl1",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libglvnd0 (= 1.7.0-1build1), libegl-mesa0",
+      "Filename": "pool/main/libg/libglvnd/libegl1_1.7.0-1build1_amd64.deb",
+      "Size": "28670",
+      "SHA256": "e549f7776216f7bd3b1c216729fb40a97a562e2eb7c563cde632b4931f9a4e57",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libegl1_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libgles2",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34), libglvnd0 (= 1.7.0-1build1)",
+      "Filename": "pool/main/libg/libglvnd/libgles2_1.7.0-1build1_amd64.deb",
+      "Size": "17122",
+      "SHA256": "9dec2d79a2eebb80522f7cce77995f7a8ded22f0e3916f13353d066c62f97fac",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgles2_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-xkb1",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.14), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-xkb1_1.15-1ubuntu2_amd64.deb",
+      "Size": "32302",
+      "SHA256": "53bc0a58834c981fa8ce5c3ab6195387e5c8a417039d82cc7a8b49724fa53228",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xkb1_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxkbcommon-x11-0",
+      "Version": "1.6.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libxkbcommon0 (= 1.6.0-1build1), libc6 (>= 2.4), libxcb-xkb1, libxcb1 (>= 1.6)",
+      "Filename": "pool/main/libx/libxkbcommon/libxkbcommon-x11-0_1.6.0-1build1_amd64.deb",
+      "Size": "14536",
+      "SHA256": "3befe840ce612ddfc0998d8610c6eed295726722a78e75cd08520bbd75065a23",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxkbcommon/libxkbcommon-x11-0_1.6.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "mesa-utils-bin",
+      "Version": "9.0.0-2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdecor-0-0 (>= 0.1.0), libegl1, libgl1, libgles2, libvulkan1 (>= 1.2.131.2), libwayland-client0 (>= 1.20.0), libwayland-egl1 (>= 1.15.0), libx11-6, libxcb1, libxkbcommon-x11-0 (>= 0.5.0), libxkbcommon0 (>= 0.5.0)",
+      "Filename": "pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "Size": "164440",
+      "SHA256": "d64539eb18416708948d7857506946a024637e4c6147d91a28a42868e038cb00",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "observed_installed_version": null
+    }
+  ],
+  "reference_closure": [
+    {
+      "Package": "gcc-14-base",
+      "Version": "14-20240412-0ubuntu1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Breaks": "gnat (<< 7)",
+      "Filename": "pool/main/g/gcc-14/gcc-14-base_14-20240412-0ubuntu1_amd64.deb",
+      "Size": "47612",
+      "SHA256": "bc5a682c694a1ce5af50772b7c737a21e9a74f0f0edaae98e97bc9c4af583fef",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14/gcc-14-base_14-20240412-0ubuntu1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libbsd0",
+      "Version": "0.12.1-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libmd0 (>= 1.0.3-2)",
+      "Filename": "pool/main/libb/libbsd/libbsd0_0.12.1-1build1_amd64.deb",
+      "Size": "41194",
+      "SHA256": "8e97b7d541416512a81e7845c5f21910344c9c5c610893cf265d3298e0caad6b",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libb/libbsd/libbsd0_0.12.1-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libc6",
+      "Version": "2.39-0ubuntu8.9",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libgcc-s1",
+      "Recommends": "libidn2-0 (>= 2.0.5~)",
+      "Breaks": "chrony (<< 4.2-3~), cyrus-imapd (<< 3.6.1-2ubuntu1), fakechroot (<< 2.19-3.5), firefox (<< 91~), firefox-esr (<< 91~), gnumach-image-1.8-486 (<< 2:1.8+git20210923~), gnumach-image-1.8-486-dbg (<< 2:1.8+git20210923~), gnumach-image-1.8-xen-486 (<< 2:1.8+git20210923~), gnumach-image-1.8-xen-486-dbg (<< 2:1.8+git20210923~), hurd (<< 1:0.9.git20220301-2), locales (<< 2.39), locales-all (<< 2.39), nscd (<< 2.39), python3-iptables (<< 1.0.0-2), scipy (<< 1.10.1-10build1), tinydns (<< 1:1.05-14), valgrind (<< 1:3.19.0-1~)",
+      "Replaces": "libc6-amd64",
+      "Filename": "pool/main/g/glibc/libc6_2.39-0ubuntu8.9_amd64.deb",
+      "Size": "3264314",
+      "SHA256": "ff5557d99b51f761c4b7c92368b9cc45565eda17df9bf9eb4b134d09825008be",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/libc6_2.39-0ubuntu8.9_amd64.deb",
+      "observed_installed_version": "2.39-0ubuntu8.9"
+    },
+    {
+      "Package": "libdecor-0-0",
+      "Version": "0.2.2-1build2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libwayland-client0 (>= 1.20.0)",
+      "Recommends": "default-libdecor-0-plugin-1 | libdecor-0-plugin-1",
+      "Conflicts": "libdecor",
+      "Replaces": "libdecor",
+      "Filename": "pool/main/libd/libdecor-0/libdecor-0-0_0.2.2-1build2_amd64.deb",
+      "Size": "16508",
+      "SHA256": "64bf085d16e504e9ed39b91d2a46748fb8881ad7f3603fbacef6c11c04aa7064",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdecor-0/libdecor-0-0_0.2.2-1build2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libdrm-amdgpu1",
+      "Version": "2.4.125-1ubuntu0.1~24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm2 (>= 2.4.108)",
+      "Filename": "pool/main/libd/libdrm/libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "Size": "21374",
+      "SHA256": "aa29b7898bae596bf07e55ba178cf8d5ea698fe83688e1b34520d86010251a7a",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-amdgpu1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libdrm-common",
+      "Version": "2.4.125-1ubuntu0.1~24.04.2",
+      "Architecture": "all",
+      "Multi-Arch": "foreign",
+      "Filename": "pool/main/libd/libdrm/libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb",
+      "Size": "9250",
+      "SHA256": "0b60996bc18fa1545e60a47bb0fe1a7f360ec06fe62ba35fb8d8ba2a54e62166",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-common_2.4.125-1ubuntu0.1~24.04.2_all.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libdrm-intel1",
+      "Version": "2.4.125-1ubuntu0.1~24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34), libdrm2 (>= 2.4.108), libpciaccess0",
+      "Filename": "pool/main/libd/libdrm/libdrm-intel1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "Size": "63868",
+      "SHA256": "847195765b9ef7e7886677aeae9987aa54e496758b4e6e5a4ed2cb580b252244",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm-intel1_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libdrm2",
+      "Version": "2.4.125-1ubuntu0.1~24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libdrm-common (>= 2.4.125-1ubuntu0.1~24.04.2), libc6 (>= 2.38)",
+      "Filename": "pool/main/libd/libdrm/libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "Size": "41388",
+      "SHA256": "4d3e858dd57be617c49d87c5ddcdb35df744a4f0a559981256ae2ba174718584",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libd/libdrm/libdrm2_2.4.125-1ubuntu0.1~24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libedit2",
+      "Version": "3.1-20230828-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libbsd0 (>= 0.1.3), libc6 (>= 2.38), libtinfo6 (>= 6)",
+      "Replaces": "libedit-dev (<< 3.1-20180525-2~)",
+      "Filename": "pool/main/libe/libedit/libedit2_3.1-20230828-1build1_amd64.deb",
+      "Size": "97586",
+      "SHA256": "3afbc8ddf835049dd4d88275b9d13680e4c4cdd59e191cbd63424152cc08e00e",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libe/libedit/libedit2_3.1-20230828-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libegl-mesa0",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm2 (>= 2.4.125-1), libexpat1 (>= 2.0.1), libgbm1 (= 25.2.8-0ubuntu0.24.04.2), libgcc-s1 (>= 3.4), libwayland-client0 (>= 1.20.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6), mesa-libgallium (= 25.2.8-0ubuntu0.24.04.2)",
+      "Provides": "libegl-vendor",
+      "Filename": "pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "117222",
+      "SHA256": "8ccb85abbc76d53d47d952c975c5630bf305244a2af20e2b262725d1378d73c1",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libegl1",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libglvnd0 (= 1.7.0-1build1), libegl-mesa0",
+      "Filename": "pool/main/libg/libglvnd/libegl1_1.7.0-1build1_amd64.deb",
+      "Size": "28670",
+      "SHA256": "e549f7776216f7bd3b1c216729fb40a97a562e2eb7c563cde632b4931f9a4e57",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libegl1_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libelf1t64",
+      "Version": "0.190-1.1build4",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)",
+      "Breaks": "libelf1 (<< 0.190-1.1build4)",
+      "Replaces": "libelf1",
+      "Provides": "libelf1 (= 0.190-1.1build4)",
+      "Filename": "pool/main/e/elfutils/libelf1t64_0.190-1.1build4_amd64.deb",
+      "Size": "57594",
+      "SHA256": "b277e52769302778bd052376ac6687b52954b6605dd5f781bff8631e3504d58f",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/elfutils/libelf1t64_0.190-1.1build4_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libexpat1",
+      "Version": "2.6.1-2build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38)",
+      "Filename": "pool/main/e/expat/libexpat1_2.6.1-2build1_amd64.deb",
+      "Size": "86992",
+      "SHA256": "730b29497212289cda8a3139e693a3538af0cb57846c24f807d1bb293a591c5e",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/e/expat/libexpat1_2.6.1-2build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libffi8",
+      "Version": "3.4.6-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34)",
+      "Breaks": "libffi8ubuntu1 (<< 3.4.2-1)",
+      "Replaces": "libffi8ubuntu1 (<< 3.4.2-1)",
+      "Provides": "libffi8ubuntu1 (= 3.4.6-1build1)",
+      "Filename": "pool/main/libf/libffi/libffi8_3.4.6-1build1_amd64.deb",
+      "Size": "24718",
+      "SHA256": "637e6a7744de08cd331a41f4efd0d24e6ea9064843dea9d1c6ca87bdb5f038a2",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libf/libffi/libffi8_3.4.6-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libgbm1",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm2 (>= 2.4.125-1), libexpat1 (>= 2.0.1), mesa-libgallium (= 25.2.8-0ubuntu0.24.04.2)",
+      "Filename": "pool/main/m/mesa/libgbm1_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "34172",
+      "SHA256": "1c0b8daf0130d68de428334ce6d1e11bd11f7369bf9099bbc65ac88117336dc3",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgbm1_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libgcc-s1",
+      "Version": "14-20240412-0ubuntu1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "gcc-14-base (= 14-20240412-0ubuntu1), libc6 (>= 2.35)",
+      "Replaces": "libgcc1 (<< 1:10)",
+      "Provides": "libgcc1 (= 1:14-20240412-0ubuntu1)",
+      "Filename": "pool/main/g/gcc-14/libgcc-s1_14-20240412-0ubuntu1_amd64.deb",
+      "Size": "78484",
+      "SHA256": "a39efdcaa2245f026dc3254ce14fcff255fc430a17064632b6ba7c5da974a912",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14/libgcc-s1_14-20240412-0ubuntu1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libgl1",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34), libglvnd0 (= 1.7.0-1build1), libglx0 (= 1.7.0-1build1)",
+      "Filename": "pool/main/libg/libglvnd/libgl1_1.7.0-1build1_amd64.deb",
+      "Size": "101990",
+      "SHA256": "e2b2fadeb883f073b566ad1d7874f6702397514d258473e96152a89d4d502a09",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgl1_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": "1.7.0-1build1"
+    },
+    {
+      "Package": "libgl1-mesa-dri",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libgbm1 (= 25.2.8-0ubuntu0.24.04.2), libvulkan1, libc6 (>= 2.34)",
+      "Filename": "pool/main/m/mesa/libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "37884",
+      "SHA256": "cb46b5d0cdaa9174b7f5362ead3f794d1e3674fcdfb9631950216f5acc9c591d",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libgl1-mesa-dri_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": "25.2.8-0ubuntu0.24.04.2"
+    },
+    {
+      "Package": "libgles2",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34), libglvnd0 (= 1.7.0-1build1)",
+      "Filename": "pool/main/libg/libglvnd/libgles2_1.7.0-1build1_amd64.deb",
+      "Size": "17122",
+      "SHA256": "9dec2d79a2eebb80522f7cce77995f7a8ded22f0e3916f13353d066c62f97fac",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libgles2_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libglvnd0",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38)",
+      "Breaks": "libgldispatch0-nvidia",
+      "Replaces": "libgldispatch0-nvidia",
+      "Filename": "pool/main/libg/libglvnd/libglvnd0_1.7.0-1build1_amd64.deb",
+      "Size": "69594",
+      "SHA256": "33f5e07c74f73c2bfb44086ae0f9e6da52acd6c104d30ffe8fd768d8253d5e82",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglvnd0_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libglx-mesa0",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm2 (>= 2.4.125-1), libexpat1 (>= 2.0.1), libx11-6 (>= 2:1.4.99.1), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0, libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-shm0, libxcb-xfixes0, libxcb1, libxext6, libxxf86vm1, mesa-libgallium (= 25.2.8-0ubuntu0.24.04.2), libgl1-mesa-dri",
+      "Breaks": "glx-diversions (<< 0.8.4~), libopengl-perl (<< 0.6704+dfsg-2)",
+      "Provides": "libglx-vendor",
+      "Filename": "pool/main/m/mesa/libglx-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "110124",
+      "SHA256": "83ff69f8d68c073efd1e1ea66e5709562b677d0e3e17b8bcd65850cab887c4f6",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/libglx-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libglx0",
+      "Version": "1.7.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libglvnd0 (= 1.7.0-1build1), libx11-6 (>= 2:1.4.99.1), libglx-mesa0",
+      "Filename": "pool/main/libg/libglvnd/libglx0_1.7.0-1build1_amd64.deb",
+      "Size": "38558",
+      "SHA256": "aa4953182f30abde90cb5b072e83d7286b557b325769b8686196a7bd396d8795",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libg/libglvnd/libglx0_1.7.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libicu74",
+      "Version": "74.2-1ubuntu3",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libgcc-s1 (>= 3.3.1), libstdc++6 (>= 13.1)",
+      "Breaks": "libiculx63 (<< 63.1-5), openttd (<< 1.8.0-2~)",
+      "Replaces": "libiculx63 (<< 63.1-5)",
+      "Filename": "pool/main/i/icu/libicu74_74.2-1ubuntu3_amd64.deb",
+      "Size": "10860410",
+      "SHA256": "d29c97a21a3e3254731cfac186e4d4e611e5e67d2c9a0430f6acfbd9acaefa2e",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu74_74.2-1ubuntu3_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libllvm20",
+      "Version": "1:20.1.2-0ubuntu1~24.04.3",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libedit2 (>= 2.11-20080614-0), libffi8 (>= 3.4), libgcc-s1 (>= 3.3), libstdc++6 (>= 13.1), libxml2 (>= 2.7.4), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.0)",
+      "Breaks": "llvm-20-dev (<< 1:20~++20240830999999+99)",
+      "Replaces": "llvm-20-dev (<< 1:20~++20240830999999+99)",
+      "Filename": "pool/main/l/llvm-toolchain-20/libllvm20_20.1.2-0ubuntu1~24.04.3_amd64.deb",
+      "Size": "30574382",
+      "SHA256": "f018e71c72c7a4742fb1aff9dc98b45586f42e6ea464d4918af7e3772b7f0658",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/llvm-toolchain-20/libllvm20_20.1.2-0ubuntu1~24.04.3_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "liblzma5",
+      "Version": "5.6.1+really5.4.5-1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34)",
+      "Breaks": "liblzma2 (<< 5.1.1alpha+20110809-3~)",
+      "Filename": "pool/main/x/xz-utils/liblzma5_5.6.1+really5.4.5-1_amd64.deb",
+      "Size": "126916",
+      "SHA256": "28851b3997e4ba74bb3197bd58796bd3041c204c21df85fe0ddafdcaced647f0",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xz-utils/liblzma5_5.6.1+really5.4.5-1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libmd0",
+      "Version": "1.1.0-2build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.33)",
+      "Filename": "pool/main/libm/libmd/libmd0_1.1.0-2build1_amd64.deb",
+      "Size": "27002",
+      "SHA256": "77f8cdbf03a43656bbf6604e18bd16834fc8bf2c949d4fbdf24ac297869b667a",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libm/libmd/libmd0_1.1.0-2build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libpciaccess0",
+      "Version": "0.17-3build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), zlib1g (>= 1:1.1.4)",
+      "Filename": "pool/main/libp/libpciaccess/libpciaccess0_0.17-3build1_amd64.deb",
+      "Size": "18632",
+      "SHA256": "deef4184b5b4ae4d87574ee5abbf2f2707ef81d153729620c65912591fd5cfdc",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libp/libpciaccess/libpciaccess0_0.17-3build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libsensors-config",
+      "Version": "1:3.6.0-9build1",
+      "Architecture": "all",
+      "Multi-Arch": "foreign",
+      "Breaks": "libsensors4",
+      "Replaces": "libsensors4",
+      "Filename": "pool/main/l/lm-sensors/libsensors-config_3.6.0-9build1_all.deb",
+      "Size": "5546",
+      "SHA256": "148103a436fd273dabfe0fe41dc54873df46227b59b2c7ac7339d7e2ddfd033b",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/lm-sensors/libsensors-config_3.6.0-9build1_all.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libsensors5",
+      "Version": "1:3.6.0-9build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libsensors-config, libc6 (>= 2.38)",
+      "Filename": "pool/main/l/lm-sensors/libsensors5_3.6.0-9build1_amd64.deb",
+      "Size": "26600",
+      "SHA256": "515ed1fbe2bc99926c44fe10b1beb9c3510068c344adda334303098d669ba1e5",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/l/lm-sensors/libsensors5_3.6.0-9build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libstdc++6",
+      "Version": "14-20240412-0ubuntu1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "gcc-14-base (= 14-20240412-0ubuntu1), libc6 (>= 2.38), libgcc-s1 (>= 4.3)",
+      "Breaks": "gcc-4.3 (<< 4.3.6-1), gcc-4.4 (<< 4.4.6-4), gcc-4.5 (<< 4.5.3-2)",
+      "Conflicts": "scim (<< 1.4.2-1)",
+      "Replaces": "libstdc++6-14-dbg (<< 4.9.0-3)",
+      "Filename": "pool/main/g/gcc-14/libstdc++6_14-20240412-0ubuntu1_amd64.deb",
+      "Size": "795158",
+      "SHA256": "4863e880d6ee538e4734c430c5579c1ac933b88a42c25bc9980d0f148c54b21e",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/g/gcc-14/libstdc++6_14-20240412-0ubuntu1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libtinfo6",
+      "Version": "6.4+20240113-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34)",
+      "Breaks": "tmux (<< 3.3a-4)",
+      "Filename": "pool/main/n/ncurses/libtinfo6_6.4+20240113-1ubuntu2_amd64.deb",
+      "Size": "107794",
+      "SHA256": "53e1e1753729d04cf65b05e6e58abe06e2bb76cc07eff0e1b2a638a638ca209b",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/n/ncurses/libtinfo6_6.4+20240113-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libvulkan1",
+      "Version": "1.3.275.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38)",
+      "Recommends": "mesa-vulkan-drivers | vulkan-icd",
+      "Breaks": "libvulkan-dev (<< 1.1.70+dfsg1-2), vulkan-loader",
+      "Replaces": "libvulkan-dev (<< 1.1.70+dfsg1-2), vulkan-loader",
+      "Filename": "pool/main/v/vulkan-loader/libvulkan1_1.3.275.0-1build1_amd64.deb",
+      "Size": "142010",
+      "SHA256": "ccf4fe8f4461442f27ea2494c7ae650b60bd396fec2688b0c44a27d66a222f74",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/v/vulkan-loader/libvulkan1_1.3.275.0-1build1_amd64.deb",
+      "observed_installed_version": "1.3.275.0-1build1"
+    },
+    {
+      "Package": "libwayland-client0",
+      "Version": "1.22.0-2.1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libffi8 (>= 3.4)",
+      "Conflicts": "libwayland0 (<< 1.1.0-1)",
+      "Replaces": "libwayland0 (<< 1.1.0-1)",
+      "Filename": "pool/main/w/wayland/libwayland-client0_1.22.0-2.1build1_amd64.deb",
+      "Size": "26406",
+      "SHA256": "6af0aed41d75149bea22fa468f01eb058ffe3e35ef07ff2f13fb88a90387881d",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-client0_1.22.0-2.1build1_amd64.deb",
+      "observed_installed_version": "1.22.0-2.1build1"
+    },
+    {
+      "Package": "libwayland-egl1",
+      "Version": "1.22.0-2.1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.2.5)",
+      "Breaks": "libwayland-egl1-mesa (<< 18.0.5-0)",
+      "Replaces": "libwayland-egl1-mesa (<< 18.0.5-0)",
+      "Provides": "libwayland-egl1-mesa",
+      "Filename": "pool/main/w/wayland/libwayland-egl1_1.22.0-2.1build1_amd64.deb",
+      "Size": "5628",
+      "SHA256": "76cd17d2776428e0a0551b8f8fd954eeb3d39ca8ed2f88a38a5e4ce3ce3b2f16",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/w/wayland/libwayland-egl1_1.22.0-2.1build1_amd64.deb",
+      "observed_installed_version": "1.22.0-2.1build1"
+    },
+    {
+      "Package": "libx11-6",
+      "Version": "2:1.8.7-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libxcb1 (>= 1.11.1), libx11-data",
+      "Breaks": "libx11-xcb1 (<< 2:1.7.0-2)",
+      "Filename": "pool/main/libx/libx11/libx11-6_1.8.7-1build1_amd64.deb",
+      "Size": "649780",
+      "SHA256": "397f84347476a3c5786b39f3ff6f0f82866eb3d8be6d2ad3efeadf019efe5b80",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-6_1.8.7-1build1_amd64.deb",
+      "observed_installed_version": "2:1.8.7-1build1"
+    },
+    {
+      "Package": "libx11-data",
+      "Version": "2:1.8.7-1build1",
+      "Architecture": "all",
+      "Multi-Arch": "foreign",
+      "Filename": "pool/main/libx/libx11/libx11-data_1.8.7-1build1_all.deb",
+      "Size": "115446",
+      "SHA256": "9ae01f7747e7f479394c697c55acf11d3baf139e8e54b7c4adfb55ef9c50de08",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-data_1.8.7-1build1_all.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libx11-xcb1",
+      "Version": "2:1.8.7-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libx11-6 (= 2:1.8.7-1build1)",
+      "Filename": "pool/main/libx/libx11/libx11-xcb1_1.8.7-1build1_amd64.deb",
+      "Size": "7800",
+      "SHA256": "7d0d357e47cd6e1042be34da1d37cea313420b000035e71e855087c8268ab127",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libx11/libx11-xcb1_1.8.7-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxau6",
+      "Version": "1:1.0.9-1build6",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.33)",
+      "Filename": "pool/main/libx/libxau/libxau6_1.0.9-1build6_amd64.deb",
+      "Size": "7160",
+      "SHA256": "e40d29f1d1a62393bacaedebe0da3d9006084152a9f7e5e029293f08ce1c5c80",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxau/libxau6_1.0.9-1build6_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-dri3-0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1 (>= 1.12)",
+      "Filename": "pool/main/libx/libxcb/libxcb-dri3-0_1.15-1ubuntu2_amd64.deb",
+      "Size": "7142",
+      "SHA256": "3d3d0e95e56ae16010a84883196b8153cba62d6831f9aaee2a68c46f20c7c004",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-dri3-0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-glx0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-glx0_1.15-1ubuntu2_amd64.deb",
+      "Size": "24774",
+      "SHA256": "d07cde26c70fe92df7c327928371e495cc4570fed2d6518758a5db5715cb34c1",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-glx0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-present0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-present0_1.15-1ubuntu2_amd64.deb",
+      "Size": "5676",
+      "SHA256": "2e36e6557e87dbfd64df3143cbf81a4f75c3447501a545b4730511d228b0dd17",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-present0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-randr0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1 (>= 1.9.2)",
+      "Filename": "pool/main/libx/libxcb/libxcb-randr0_1.15-1ubuntu2_amd64.deb",
+      "Size": "17862",
+      "SHA256": "b5cb519823a05a617b543dc9b6a9289b7648b20048244abe021caa706309835a",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-randr0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-shm0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1 (>= 1.12)",
+      "Filename": "pool/main/libx/libxcb/libxcb-shm0_1.15-1ubuntu2_amd64.deb",
+      "Size": "5756",
+      "SHA256": "229d1280d459f1ba44c22939d3f9b61d9d20932d9a646b3fe4ce50be4cdf2325",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-shm0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-sync1",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.14), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-sync1_1.15-1ubuntu2_amd64.deb",
+      "Size": "9312",
+      "SHA256": "14286795a258593259923619073e50c15345673befae2733f7b0577b07359aa8",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-sync1_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-xfixes0",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-xfixes0_1.15-1ubuntu2_amd64.deb",
+      "Size": "10190",
+      "SHA256": "0b2ab64af92a71e3d1a35e3c819880ee28d04bfac81360df68ae8d8e9663ebd2",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xfixes0_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb-xkb1",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.14), libxcb1",
+      "Filename": "pool/main/libx/libxcb/libxcb-xkb1_1.15-1ubuntu2_amd64.deb",
+      "Size": "32302",
+      "SHA256": "53bc0a58834c981fa8ce5c3ab6195387e5c8a417039d82cc7a8b49724fa53228",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb-xkb1_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxcb1",
+      "Version": "1.15-1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libxau6 (>= 1:1.0.9), libxdmcp6",
+      "Breaks": "alsa-utils (<< 1.0.24.2-5)",
+      "Filename": "pool/main/libx/libxcb/libxcb1_1.15-1ubuntu2_amd64.deb",
+      "Size": "47730",
+      "SHA256": "e1c6611d11ad7398326f1bf028afc34c3b14c51d917a3426b966ed4b9687fa58",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxcb/libxcb1_1.15-1ubuntu2_amd64.deb",
+      "observed_installed_version": "1.15-1ubuntu2"
+    },
+    {
+      "Package": "libxdmcp6",
+      "Version": "1:1.1.3-0ubuntu6",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libbsd0 (>= 0.2.0), libc6 (>= 2.4)",
+      "Filename": "pool/main/libx/libxdmcp/libxdmcp6_1.1.3-0ubuntu6_amd64.deb",
+      "Size": "10254",
+      "SHA256": "bcd336fce11ce2a45f34d0f95e6980af22529f22147e8f98c156e5cee8ee42bb",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxdmcp/libxdmcp6_1.1.3-0ubuntu6_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxext6",
+      "Version": "2:1.3.4-1build2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.14), libx11-6 (>= 2:1.6.0)",
+      "Filename": "pool/main/libx/libxext/libxext6_1.3.4-1build2_amd64.deb",
+      "Size": "30406",
+      "SHA256": "45783969a9ece9d7b7b733b8c60981584c53c6bc5ee3b42d295d2f80d1285679",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxext/libxext6_1.3.4-1build2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxkbcommon-x11-0",
+      "Version": "1.6.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libxkbcommon0 (= 1.6.0-1build1), libc6 (>= 2.4), libxcb-xkb1, libxcb1 (>= 1.6)",
+      "Filename": "pool/main/libx/libxkbcommon/libxkbcommon-x11-0_1.6.0-1build1_amd64.deb",
+      "Size": "14536",
+      "SHA256": "3befe840ce612ddfc0998d8610c6eed295726722a78e75cd08520bbd75065a23",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxkbcommon/libxkbcommon-x11-0_1.6.0-1build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxkbcommon0",
+      "Version": "1.6.0-1build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "xkb-data, libc6 (>= 2.38)",
+      "Filename": "pool/main/libx/libxkbcommon/libxkbcommon0_1.6.0-1build1_amd64.deb",
+      "Size": "121944",
+      "SHA256": "2b9caeb423efb540296a1cb20b872cc630c23908407ecb5c1c787a617622d664",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxkbcommon/libxkbcommon0_1.6.0-1build1_amd64.deb",
+      "observed_installed_version": "1.6.0-1build1"
+    },
+    {
+      "Package": "libxml2",
+      "Version": "2.9.14+dfsg-1.3ubuntu3",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libicu74 (>= 74.1-1~), liblzma5 (>= 5.1.1alpha+20120614), zlib1g (>= 1:1.2.3.3)",
+      "Conflicts": "w3c-dtd-xhtml",
+      "Filename": "pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3_amd64.deb",
+      "Size": "762198",
+      "SHA256": "8c4efd7abe155df3cf0f9b64d659f2d866215785f8e8c44234fbb341d58cc967",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxshmfence1",
+      "Version": "1.3-1build5",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.27)",
+      "Filename": "pool/main/libx/libxshmfence/libxshmfence1_1.3-1build5_amd64.deb",
+      "Size": "4764",
+      "SHA256": "bc6de4bfaf9050a8ba83d4bcfb114131b081084a7972c03417f8523d52b5c742",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxshmfence/libxshmfence1_1.3-1build5_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libxxf86vm1",
+      "Version": "1:1.1.4-1build4",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.4), libx11-6 (>= 2:1.6.0), libxext6",
+      "Filename": "pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1build4_amd64.deb",
+      "Size": "9282",
+      "SHA256": "48b2799f52b86505d2bc91dcb1bfa6536545635b9849cb693d274d934116a8da",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxxf86vm/libxxf86vm1_1.1.4-1build4_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "libzstd1",
+      "Version": "1.5.5+dfsg2-2build1",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.34)",
+      "Filename": "pool/main/libz/libzstd/libzstd1_1.5.5+dfsg2-2build1_amd64.deb",
+      "Size": "299490",
+      "SHA256": "4dcc3ba9606a5837a55248d08162a5b426dd621f75c0eb24d86409e0d0e71d52",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/libz/libzstd/libzstd1_1.5.5+dfsg2-2build1_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "mesa-libgallium",
+      "Version": "25.2.8-0ubuntu0.24.04.2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.125-1), libdrm-intel1 (>= 2.4.125-1), libdrm2 (>= 2.4.125-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libllvm20, libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.1.4)",
+      "Filename": "pool/main/m/mesa/mesa-libgallium_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "Size": "10783204",
+      "SHA256": "e46e42e305339765f51f994543cef2a8bf4a7d9ab7004161db1a6d1f291694de",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/m/mesa/mesa-libgallium_25.2.8-0ubuntu0.24.04.2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "mesa-utils-bin",
+      "Version": "9.0.0-2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.38), libdecor-0-0 (>= 0.1.0), libegl1, libgl1, libgles2, libvulkan1 (>= 1.2.131.2), libwayland-client0 (>= 1.20.0), libwayland-egl1 (>= 1.15.0), libx11-6, libxcb1, libxkbcommon-x11-0 (>= 0.5.0), libxkbcommon0 (>= 0.5.0)",
+      "Filename": "pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "Size": "164440",
+      "SHA256": "d64539eb18416708948d7857506946a024637e4c6147d91a28a42868e038cb00",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "xkb-data",
+      "Version": "2.41-2ubuntu1",
+      "Architecture": "all",
+      "Multi-Arch": "foreign",
+      "Breaks": "x11-xkb-utils (<< 7.7+5)",
+      "Filename": "pool/main/x/xkeyboard-config/xkb-data_2.41-2ubuntu1_all.deb",
+      "Size": "395132",
+      "SHA256": "5f0a5188398b606d723f1bed48ee38c11eaeb98357ab29a3bf33c451056815d1",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/x/xkeyboard-config/xkb-data_2.41-2ubuntu1_all.deb",
+      "observed_installed_version": null
+    },
+    {
+      "Package": "zlib1g",
+      "Version": "1:1.3.dfsg-3.1ubuntu2",
+      "Architecture": "amd64",
+      "Multi-Arch": "same",
+      "Depends": "libc6 (>= 2.14)",
+      "Breaks": "libxml2 (<< 2.7.6.dfsg-2), texlive-binaries (<< 2023.20230311.66589-8)",
+      "Conflicts": "zlib1 (<= 1:1.0.4-7)",
+      "Provides": "libz1",
+      "Filename": "pool/main/z/zlib/zlib1g_1.3.dfsg-3.1ubuntu2_amd64.deb",
+      "Size": "62784",
+      "SHA256": "0b93d16d7498f092fa3070fbbad28cdbc6b3d640f1a7681b96fc37f20d1219f1",
+      "metadata_url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/main/z/zlib/zlib1g_1.3.dfsg-3.1ubuntu2_amd64.deb",
+      "observed_installed_version": null
+    }
+  ],
+  "dependency_edges": [
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libdecor-0-0",
+      "constraint": [
+        ">=",
+        "0.1.0"
+      ],
+      "alternatives": [
+        [
+          "libdecor-0-0",
+          [
+            ">=",
+            "0.1.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libegl1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libegl1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libgl1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libgl1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libgles2",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libgles2",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libvulkan1",
+      "constraint": [
+        ">=",
+        "1.2.131.2"
+      ],
+      "alternatives": [
+        [
+          "libvulkan1",
+          [
+            ">=",
+            "1.2.131.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libwayland-client0",
+      "constraint": [
+        ">=",
+        "1.20.0"
+      ],
+      "alternatives": [
+        [
+          "libwayland-client0",
+          [
+            ">=",
+            "1.20.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libwayland-egl1",
+      "constraint": [
+        ">=",
+        "1.15.0"
+      ],
+      "alternatives": [
+        [
+          "libwayland-egl1",
+          [
+            ">=",
+            "1.15.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libx11-6",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libxkbcommon-x11-0",
+      "constraint": [
+        ">=",
+        "0.5.0"
+      ],
+      "alternatives": [
+        [
+          "libxkbcommon-x11-0",
+          [
+            ">=",
+            "0.5.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-utils-bin",
+      "type": "Depends",
+      "to": "libxkbcommon0",
+      "constraint": [
+        ">=",
+        "0.5.0"
+      ],
+      "alternatives": [
+        [
+          "libxkbcommon0",
+          [
+            ">=",
+            "0.5.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdecor-0-0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdecor-0-0",
+      "type": "Depends",
+      "to": "libwayland-client0",
+      "constraint": [
+        ">=",
+        "1.20.0"
+      ],
+      "alternatives": [
+        [
+          "libwayland-client0",
+          [
+            ">=",
+            "1.20.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl1",
+      "type": "Depends",
+      "to": "libglvnd0",
+      "constraint": [
+        "=",
+        "1.7.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libglvnd0",
+          [
+            "=",
+            "1.7.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl1",
+      "type": "Depends",
+      "to": "libegl-mesa0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libegl-mesa0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libgles2",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgles2",
+      "type": "Depends",
+      "to": "libglvnd0",
+      "constraint": [
+        "=",
+        "1.7.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libglvnd0",
+          [
+            "=",
+            "1.7.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon-x11-0",
+      "type": "Depends",
+      "to": "libxkbcommon0",
+      "constraint": [
+        "=",
+        "1.6.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libxkbcommon0",
+          [
+            "=",
+            "1.6.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon-x11-0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon-x11-0",
+      "type": "Depends",
+      "to": "libxcb-xkb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-xkb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon-x11-0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.6"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.6"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libc6",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libgcc-s1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libgl1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgl1",
+      "type": "Depends",
+      "to": "libglvnd0",
+      "constraint": [
+        "=",
+        "1.7.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libglvnd0",
+          [
+            "=",
+            "1.7.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgl1",
+      "type": "Depends",
+      "to": "libglx0",
+      "constraint": [
+        "=",
+        "1.7.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libglx0",
+          [
+            "=",
+            "1.7.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libvulkan1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libwayland-client0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libwayland-client0",
+      "type": "Depends",
+      "to": "libffi8",
+      "constraint": [
+        ">=",
+        "3.4"
+      ],
+      "alternatives": [
+        [
+          "libffi8",
+          [
+            ">=",
+            "3.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libwayland-egl1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.2.5"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.2.5"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libx11-6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libx11-6",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.11.1"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.11.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libx11-6",
+      "type": "Depends",
+      "to": "libx11-data",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libx11-data",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxcb1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb1",
+      "type": "Depends",
+      "to": "libxau6",
+      "constraint": [
+        ">=",
+        "1:1.0.9"
+      ],
+      "alternatives": [
+        [
+          "libxau6",
+          [
+            ">=",
+            "1:1.0.9"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb1",
+      "type": "Depends",
+      "to": "libxdmcp6",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxdmcp6",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon0",
+      "type": "Depends",
+      "to": "xkb-data",
+      "constraint": null,
+      "alternatives": [
+        [
+          "xkb-data",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxkbcommon0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglvnd0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libexpat1",
+      "constraint": [
+        ">=",
+        "2.0.1"
+      ],
+      "alternatives": [
+        [
+          "libexpat1",
+          [
+            ">=",
+            "2.0.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libgbm1",
+      "constraint": [
+        "=",
+        "25.2.8-0ubuntu0.24.04.2"
+      ],
+      "alternatives": [
+        [
+          "libgbm1",
+          [
+            "=",
+            "25.2.8-0ubuntu0.24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": [
+        ">=",
+        "3.4"
+      ],
+      "alternatives": [
+        [
+          "libgcc-s1",
+          [
+            ">=",
+            "3.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libwayland-client0",
+      "constraint": [
+        ">=",
+        "1.20.0"
+      ],
+      "alternatives": [
+        [
+          "libwayland-client0",
+          [
+            ">=",
+            "1.20.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libx11-xcb1",
+      "constraint": [
+        ">=",
+        "2:1.8.7"
+      ],
+      "alternatives": [
+        [
+          "libx11-xcb1",
+          [
+            ">=",
+            "2:1.8.7"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb-dri3-0",
+      "constraint": [
+        ">=",
+        "1.13"
+      ],
+      "alternatives": [
+        [
+          "libxcb-dri3-0",
+          [
+            ">=",
+            "1.13"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb-present0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-present0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb-randr0",
+      "constraint": [
+        ">=",
+        "1.3"
+      ],
+      "alternatives": [
+        [
+          "libxcb-randr0",
+          [
+            ">=",
+            "1.3"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb-shm0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-shm0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb-xfixes0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-xfixes0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.6"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.6"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libegl-mesa0",
+      "type": "Depends",
+      "to": "mesa-libgallium",
+      "constraint": [
+        "=",
+        "25.2.8-0ubuntu0.24.04.2"
+      ],
+      "alternatives": [
+        [
+          "mesa-libgallium",
+          [
+            "=",
+            "25.2.8-0ubuntu0.24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-xkb1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.14"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.14"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-xkb1",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libgcc-s1",
+      "type": "Depends",
+      "to": "gcc-14-base",
+      "constraint": [
+        "=",
+        "14-20240412-0ubuntu1"
+      ],
+      "alternatives": [
+        [
+          "gcc-14-base",
+          [
+            "=",
+            "14-20240412-0ubuntu1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgcc-s1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.35"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.35"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx0",
+      "type": "Depends",
+      "to": "libglvnd0",
+      "constraint": [
+        "=",
+        "1.7.0-1build1"
+      ],
+      "alternatives": [
+        [
+          "libglvnd0",
+          [
+            "=",
+            "1.7.0-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx0",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": [
+        ">=",
+        "2:1.4.99.1"
+      ],
+      "alternatives": [
+        [
+          "libx11-6",
+          [
+            ">=",
+            "2:1.4.99.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx0",
+      "type": "Depends",
+      "to": "libglx-mesa0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libglx-mesa0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libffi8",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxau6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.33"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.33"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxdmcp6",
+      "type": "Depends",
+      "to": "libbsd0",
+      "constraint": [
+        ">=",
+        "0.2.0"
+      ],
+      "alternatives": [
+        [
+          "libbsd0",
+          [
+            ">=",
+            "0.2.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxdmcp6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm2",
+      "type": "Depends",
+      "to": "libdrm-common",
+      "constraint": [
+        ">=",
+        "2.4.125-1ubuntu0.1~24.04.2"
+      ],
+      "alternatives": [
+        [
+          "libdrm-common",
+          [
+            ">=",
+            "2.4.125-1ubuntu0.1~24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm2",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libexpat1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgbm1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgbm1",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgbm1",
+      "type": "Depends",
+      "to": "libexpat1",
+      "constraint": [
+        ">=",
+        "2.0.1"
+      ],
+      "alternatives": [
+        [
+          "libexpat1",
+          [
+            ">=",
+            "2.0.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgbm1",
+      "type": "Depends",
+      "to": "mesa-libgallium",
+      "constraint": [
+        "=",
+        "25.2.8-0ubuntu0.24.04.2"
+      ],
+      "alternatives": [
+        [
+          "mesa-libgallium",
+          [
+            "=",
+            "25.2.8-0ubuntu0.24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libx11-xcb1",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": [
+        "=",
+        "2:1.8.7-1build1"
+      ],
+      "alternatives": [
+        [
+          "libx11-6",
+          [
+            "=",
+            "2:1.8.7-1build1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-dri3-0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-dri3-0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.12"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.12"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-present0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-present0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-randr0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-randr0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.9.2"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.9.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-shm0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-shm0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.12"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.12"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-xfixes0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-xfixes0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libdrm-amdgpu1",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm-amdgpu1",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libdrm-intel1",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm-intel1",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libelf1t64",
+      "constraint": [
+        ">=",
+        "0.142"
+      ],
+      "alternatives": [
+        [
+          "libelf1t64",
+          [
+            ">=",
+            "0.142"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libexpat1",
+      "constraint": [
+        ">=",
+        "2.0.1"
+      ],
+      "alternatives": [
+        [
+          "libexpat1",
+          [
+            ">=",
+            "2.0.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": [
+        ">=",
+        "3.4"
+      ],
+      "alternatives": [
+        [
+          "libgcc-s1",
+          [
+            ">=",
+            "3.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libllvm20",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libllvm20",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libsensors5",
+      "constraint": [
+        ">=",
+        "1:3.5.0"
+      ],
+      "alternatives": [
+        [
+          "libsensors5",
+          [
+            ">=",
+            "1:3.5.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libstdc++6",
+      "constraint": [
+        ">=",
+        "11"
+      ],
+      "alternatives": [
+        [
+          "libstdc++6",
+          [
+            ">=",
+            "11"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libx11-xcb1",
+      "constraint": [
+        ">=",
+        "2:1.8.7"
+      ],
+      "alternatives": [
+        [
+          "libx11-xcb1",
+          [
+            ">=",
+            "2:1.8.7"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb-dri3-0",
+      "constraint": [
+        ">=",
+        "1.13"
+      ],
+      "alternatives": [
+        [
+          "libxcb-dri3-0",
+          [
+            ">=",
+            "1.13"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb-present0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-present0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb-randr0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-randr0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb-sync1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-sync1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb-xfixes0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-xfixes0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": [
+        ">=",
+        "1.9.2"
+      ],
+      "alternatives": [
+        [
+          "libxcb1",
+          [
+            ">=",
+            "1.9.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libxshmfence1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxshmfence1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "libzstd1",
+      "constraint": [
+        ">=",
+        "1.5.5"
+      ],
+      "alternatives": [
+        [
+          "libzstd1",
+          [
+            ">=",
+            "1.5.5"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "mesa-libgallium",
+      "type": "Depends",
+      "to": "zlib1g",
+      "constraint": [
+        ">=",
+        "1:1.1.4"
+      ],
+      "alternatives": [
+        [
+          "zlib1g",
+          [
+            ">=",
+            "1:1.1.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.125-1"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.125-1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libexpat1",
+      "constraint": [
+        ">=",
+        "2.0.1"
+      ],
+      "alternatives": [
+        [
+          "libexpat1",
+          [
+            ">=",
+            "2.0.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": [
+        ">=",
+        "2:1.4.99.1"
+      ],
+      "alternatives": [
+        [
+          "libx11-6",
+          [
+            ">=",
+            "2:1.4.99.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libx11-xcb1",
+      "constraint": [
+        ">=",
+        "2:1.8.7"
+      ],
+      "alternatives": [
+        [
+          "libx11-xcb1",
+          [
+            ">=",
+            "2:1.8.7"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb-dri3-0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-dri3-0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb-glx0",
+      "constraint": [
+        ">=",
+        "1.8"
+      ],
+      "alternatives": [
+        [
+          "libxcb-glx0",
+          [
+            ">=",
+            "1.8"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb-present0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-present0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb-shm0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-shm0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb-xfixes0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb-xfixes0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxext6",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxext6",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libxxf86vm1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxxf86vm1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "mesa-libgallium",
+      "constraint": [
+        "=",
+        "25.2.8-0ubuntu0.24.04.2"
+      ],
+      "alternatives": [
+        [
+          "mesa-libgallium",
+          [
+            "=",
+            "25.2.8-0ubuntu0.24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libglx-mesa0",
+      "type": "Depends",
+      "to": "libgl1-mesa-dri",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libgl1-mesa-dri",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libbsd0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libbsd0",
+      "type": "Depends",
+      "to": "libmd0",
+      "constraint": [
+        ">=",
+        "1.0.3-2"
+      ],
+      "alternatives": [
+        [
+          "libmd0",
+          [
+            ">=",
+            "1.0.3-2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm-amdgpu1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm-amdgpu1",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.108"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.108"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm-intel1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm-intel1",
+      "type": "Depends",
+      "to": "libdrm2",
+      "constraint": [
+        ">=",
+        "2.4.108"
+      ],
+      "alternatives": [
+        [
+          "libdrm2",
+          [
+            ">=",
+            "2.4.108"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libdrm-intel1",
+      "type": "Depends",
+      "to": "libpciaccess0",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libpciaccess0",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libelf1t64",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libelf1t64",
+      "type": "Depends",
+      "to": "libzstd1",
+      "constraint": [
+        ">=",
+        "1.5.5"
+      ],
+      "alternatives": [
+        [
+          "libzstd1",
+          [
+            ">=",
+            "1.5.5"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libelf1t64",
+      "type": "Depends",
+      "to": "zlib1g",
+      "constraint": [
+        ">=",
+        "1:1.1.4"
+      ],
+      "alternatives": [
+        [
+          "zlib1g",
+          [
+            ">=",
+            "1:1.1.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libedit2",
+      "constraint": [
+        ">=",
+        "2.11-20080614-0"
+      ],
+      "alternatives": [
+        [
+          "libedit2",
+          [
+            ">=",
+            "2.11-20080614-0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libffi8",
+      "constraint": [
+        ">=",
+        "3.4"
+      ],
+      "alternatives": [
+        [
+          "libffi8",
+          [
+            ">=",
+            "3.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": [
+        ">=",
+        "3.3"
+      ],
+      "alternatives": [
+        [
+          "libgcc-s1",
+          [
+            ">=",
+            "3.3"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libstdc++6",
+      "constraint": [
+        ">=",
+        "13.1"
+      ],
+      "alternatives": [
+        [
+          "libstdc++6",
+          [
+            ">=",
+            "13.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libxml2",
+      "constraint": [
+        ">=",
+        "2.7.4"
+      ],
+      "alternatives": [
+        [
+          "libxml2",
+          [
+            ">=",
+            "2.7.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "libzstd1",
+      "constraint": [
+        ">=",
+        "1.5.5"
+      ],
+      "alternatives": [
+        [
+          "libzstd1",
+          [
+            ">=",
+            "1.5.5"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libllvm20",
+      "type": "Depends",
+      "to": "zlib1g",
+      "constraint": [
+        ">=",
+        "1:1.2.0"
+      ],
+      "alternatives": [
+        [
+          "zlib1g",
+          [
+            ">=",
+            "1:1.2.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libsensors5",
+      "type": "Depends",
+      "to": "libsensors-config",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libsensors-config",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libsensors5",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libstdc++6",
+      "type": "Depends",
+      "to": "gcc-14-base",
+      "constraint": [
+        "=",
+        "14-20240412-0ubuntu1"
+      ],
+      "alternatives": [
+        [
+          "gcc-14-base",
+          [
+            "=",
+            "14-20240412-0ubuntu1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libstdc++6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libstdc++6",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": [
+        ">=",
+        "4.3"
+      ],
+      "alternatives": [
+        [
+          "libgcc-s1",
+          [
+            ">=",
+            "4.3"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-sync1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.14"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.14"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-sync1",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxshmfence1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.27"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.27"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libzstd1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "zlib1g",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.14"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.14"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-glx0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxcb-glx0",
+      "type": "Depends",
+      "to": "libxcb1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxcb1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libxext6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.14"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.14"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxext6",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": [
+        ">=",
+        "2:1.6.0"
+      ],
+      "alternatives": [
+        [
+          "libx11-6",
+          [
+            ">=",
+            "2:1.6.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxxf86vm1",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.4"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxxf86vm1",
+      "type": "Depends",
+      "to": "libx11-6",
+      "constraint": [
+        ">=",
+        "2:1.6.0"
+      ],
+      "alternatives": [
+        [
+          "libx11-6",
+          [
+            ">=",
+            "2:1.6.0"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxxf86vm1",
+      "type": "Depends",
+      "to": "libxext6",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libxext6",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libgl1-mesa-dri",
+      "type": "Depends",
+      "to": "libgbm1",
+      "constraint": [
+        "=",
+        "25.2.8-0ubuntu0.24.04.2"
+      ],
+      "alternatives": [
+        [
+          "libgbm1",
+          [
+            "=",
+            "25.2.8-0ubuntu0.24.04.2"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libgl1-mesa-dri",
+      "type": "Depends",
+      "to": "libvulkan1",
+      "constraint": null,
+      "alternatives": [
+        [
+          "libvulkan1",
+          null
+        ]
+      ]
+    },
+    {
+      "from": "libgl1-mesa-dri",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libmd0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.33"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.33"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libpciaccess0",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libpciaccess0",
+      "type": "Depends",
+      "to": "zlib1g",
+      "constraint": [
+        ">=",
+        "1:1.1.4"
+      ],
+      "alternatives": [
+        [
+          "zlib1g",
+          [
+            ">=",
+            "1:1.1.4"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libedit2",
+      "type": "Depends",
+      "to": "libbsd0",
+      "constraint": [
+        ">=",
+        "0.1.3"
+      ],
+      "alternatives": [
+        [
+          "libbsd0",
+          [
+            ">=",
+            "0.1.3"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libedit2",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libedit2",
+      "type": "Depends",
+      "to": "libtinfo6",
+      "constraint": [
+        ">=",
+        "6"
+      ],
+      "alternatives": [
+        [
+          "libtinfo6",
+          [
+            ">=",
+            "6"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxml2",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxml2",
+      "type": "Depends",
+      "to": "libicu74",
+      "constraint": [
+        ">=",
+        "74.1-1~"
+      ],
+      "alternatives": [
+        [
+          "libicu74",
+          [
+            ">=",
+            "74.1-1~"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxml2",
+      "type": "Depends",
+      "to": "liblzma5",
+      "constraint": [
+        ">=",
+        "5.1.1alpha+20120614"
+      ],
+      "alternatives": [
+        [
+          "liblzma5",
+          [
+            ">=",
+            "5.1.1alpha+20120614"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libxml2",
+      "type": "Depends",
+      "to": "zlib1g",
+      "constraint": [
+        ">=",
+        "1:1.2.3.3"
+      ],
+      "alternatives": [
+        [
+          "zlib1g",
+          [
+            ">=",
+            "1:1.2.3.3"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libtinfo6",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libicu74",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.38"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.38"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libicu74",
+      "type": "Depends",
+      "to": "libgcc-s1",
+      "constraint": [
+        ">=",
+        "3.3.1"
+      ],
+      "alternatives": [
+        [
+          "libgcc-s1",
+          [
+            ">=",
+            "3.3.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "libicu74",
+      "type": "Depends",
+      "to": "libstdc++6",
+      "constraint": [
+        ">=",
+        "13.1"
+      ],
+      "alternatives": [
+        [
+          "libstdc++6",
+          [
+            ">=",
+            "13.1"
+          ]
+        ]
+      ]
+    },
+    {
+      "from": "liblzma5",
+      "type": "Depends",
+      "to": "libc6",
+      "constraint": [
+        ">=",
+        "2.34"
+      ],
+      "alternatives": [
+        [
+          "libc6",
+          [
+            ">=",
+            "2.34"
+          ]
+        ]
+      ]
+    }
+  ],
+  "source_hashes": [
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble/InRelease",
+      "local_filename": "noble_InRelease",
+      "size": 255850,
+      "sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble/Release",
+      "local_filename": "noble_Release",
+      "size": 254968,
+      "sha256": "26758a13cecfaff9ff274d31ea9a4633674a999bd130c09f6ecd66a4b8071184"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble/main/binary-amd64/Packages.xz",
+      "local_filename": "noble_main_binary-amd64_Packages.xz",
+      "size": 1401160,
+      "sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble/universe/binary-amd64/Packages.xz",
+      "local_filename": "noble_universe_binary-amd64_Packages.xz",
+      "size": 15037908,
+      "sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/InRelease",
+      "local_filename": "noble-updates_InRelease",
+      "size": 126125,
+      "sha256": "23d0cc537f13aead7bab160048cfb90251b69b96336530af194f49385f3f7b98"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/Release",
+      "local_filename": "noble-updates_Release",
+      "size": 125243,
+      "sha256": "8dbb6ce99e31f3610820f628a913745e98dc4ff3bd781b670f9278859417ef06"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/main/binary-amd64/Packages.xz",
+      "local_filename": "noble-updates_main_binary-amd64_Packages.xz",
+      "size": 1374836,
+      "sha256": "3ec3c18993414db1a8146c7c5bf35cf36f18b739de946dcf1d3c292045bf5118"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-updates/universe/binary-amd64/Packages.xz",
+      "local_filename": "noble-updates_universe_binary-amd64_Packages.xz",
+      "size": 1701904,
+      "sha256": "c5717072edff98ed519e2029151446517fe5e612cf2ac4fff1a5dafcc9a88965"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/InRelease",
+      "local_filename": "noble-security_InRelease",
+      "size": 126127,
+      "sha256": "8398a7b7719c777fded0b28706174ca75af6755d04fc5ab38773bfb29901c5bf"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/Release",
+      "local_filename": "noble-security_Release",
+      "size": 125245,
+      "sha256": "a6e2e9c10c328470844c646ee7910803e5b688c3dda002f83f1ee55681e68ee1"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/main/binary-amd64/Packages.xz",
+      "local_filename": "noble-security_main_binary-amd64_Packages.xz",
+      "size": 1073784,
+      "sha256": "37cfbdde1663a6f9c22113c1eaf37a106c2991deedbaf09655757ae57e183575"
+    },
+    {
+      "url": "https://archive.ubuntu.com/ubuntu/dists/noble-security/universe/binary-amd64/Packages.xz",
+      "local_filename": "noble-security_universe_binary-amd64_Packages.xz",
+      "size": 1218324,
+      "sha256": "def7eb1b6cf61e2b02b7bc7e3e2faffbddac98eed6a42d0ce05a6116914ae6f7"
+    }
+  ],
+  "source_verification": [
+    {
+      "suite": "noble",
+      "component": "main",
+      "release_sha256": "26758a13cecfaff9ff274d31ea9a4633674a999bd130c09f6ecd66a4b8071184",
+      "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "2a6a199e1031a5c279cb346646d594993f35b1c03dd4a82aaa0323980dd92451",
+      "index_size": 1401160,
+      "index_hash_matches_release": true
+    },
+    {
+      "suite": "noble",
+      "component": "universe",
+      "release_sha256": "26758a13cecfaff9ff274d31ea9a4633674a999bd130c09f6ecd66a4b8071184",
+      "inrelease_sha256": "cdb2f31d809f589719a53c6ad15f255b27569c4059542ada282aaa21b8e164b0",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "ba9057fa1b91438cc8a1d26808d00c85389fe101d0c1496254df97236405599a",
+      "index_size": 15037908,
+      "index_hash_matches_release": true
+    },
+    {
+      "suite": "noble-updates",
+      "component": "main",
+      "release_sha256": "8dbb6ce99e31f3610820f628a913745e98dc4ff3bd781b670f9278859417ef06",
+      "inrelease_sha256": "23d0cc537f13aead7bab160048cfb90251b69b96336530af194f49385f3f7b98",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "3ec3c18993414db1a8146c7c5bf35cf36f18b739de946dcf1d3c292045bf5118",
+      "index_size": 1374836,
+      "index_hash_matches_release": true
+    },
+    {
+      "suite": "noble-updates",
+      "component": "universe",
+      "release_sha256": "8dbb6ce99e31f3610820f628a913745e98dc4ff3bd781b670f9278859417ef06",
+      "inrelease_sha256": "23d0cc537f13aead7bab160048cfb90251b69b96336530af194f49385f3f7b98",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "c5717072edff98ed519e2029151446517fe5e612cf2ac4fff1a5dafcc9a88965",
+      "index_size": 1701904,
+      "index_hash_matches_release": true
+    },
+    {
+      "suite": "noble-security",
+      "component": "main",
+      "release_sha256": "a6e2e9c10c328470844c646ee7910803e5b688c3dda002f83f1ee55681e68ee1",
+      "inrelease_sha256": "8398a7b7719c777fded0b28706174ca75af6755d04fc5ab38773bfb29901c5bf",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "37cfbdde1663a6f9c22113c1eaf37a106c2991deedbaf09655757ae57e183575",
+      "index_size": 1073784,
+      "index_hash_matches_release": true
+    },
+    {
+      "suite": "noble-security",
+      "component": "universe",
+      "release_sha256": "a6e2e9c10c328470844c646ee7910803e5b688c3dda002f83f1ee55681e68ee1",
+      "inrelease_sha256": "8398a7b7719c777fded0b28706174ca75af6755d04fc5ab38773bfb29901c5bf",
+      "release_content_matches_inrelease": true,
+      "index_sha256": "def7eb1b6cf61e2b02b7bc7e3e2faffbddac98eed6a42d0ce05a6116914ae6f7",
+      "index_size": 1218324,
+      "index_hash_matches_release": true
+    }
+  ],
+  "verification_limitations": [
+    "No binary package was downloaded; listed package sizes and SHA256 values are official index claims.",
+    "Release bodies were matched to InRelease signed message text; InRelease signature was not independently verified.",
+    "Runner has terminated and full dpkg status is unavailable; only observed versions are actual runtime evidence.",
+    "Some chosen reference versions may be older than versions actually installed; do not downgrade or enforce these exact versions except strict equality constraints and bounded package candidates."
+  ]
+}

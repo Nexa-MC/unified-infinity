@@ -1,0 +1,171 @@
+Package: libdecor-0-0
+Architecture: amd64
+Version: 0.2.2-1build2
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libdecor-0
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 58
+Depends: libc6 (>= 2.38), libwayland-client0 (>= 1.20.0)
+Recommends: default-libdecor-0-plugin-1 | libdecor-0-plugin-1
+Conflicts: libdecor
+Replaces: libdecor
+Filename: pool/main/libd/libdecor-0/libdecor-0-0_0.2.2-1build2_amd64.deb
+Size: 16508
+MD5sum: b79dd87d948f9a11ddbfea956ae653dd
+SHA1: d6566cbba54619c27e2b5f0de98e958dfad098bc
+SHA256: 64bf085d16e504e9ed39b91d2a46748fb8881ad7f3603fbacef6c11c04aa7064
+SHA512: 377702402d7c497ae34d3e168dd777b64eb23492f4ba53d6fa6d0f264404b859558d1df2e733b1a721b30c156ef33da62ae9dce36568547b12bfb88fd77b1787
+Homepage: https://gitlab.freedesktop.org/libdecor/libdecor
+Description: client-side window decoration library
+Task: ubuntu-desktop-minimal, ubuntu-desktop, kubuntu-desktop, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: f83ec4ce171f899bc2e972cc4d5edfc7
+
+Package: libegl-mesa0
+Source: mesa
+Priority: optional
+Section: libs
+Installed-Size: 391
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Architecture: amd64
+Version: 25.2.8-0ubuntu0.24.04.2
+Provides: libegl-vendor
+Depends: libc6 (>= 2.38), libdrm2 (>= 2.4.125-1), libexpat1 (>= 2.0.1), libgbm1 (= 25.2.8-0ubuntu0.24.04.2), libgcc-s1 (>= 3.4), libwayland-client0 (>= 1.20.0), libx11-xcb1 (>= 2:1.8.7), libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6), mesa-libgallium (= 25.2.8-0ubuntu0.24.04.2)
+Filename: pool/main/m/mesa/libegl-mesa0_25.2.8-0ubuntu0.24.04.2_amd64.deb
+Size: 117222
+MD5sum: 0b68b12b8dcde0d0e53abe9b6f68cfca
+SHA1: 5988964fd2f617dd45b864eb0577f13bb740614c
+SHA256: 8ccb85abbc76d53d47d952c975c5630bf305244a2af20e2b262725d1378d73c1
+SHA512: 770135ed374ed923d3df2c8a160d60350f25e3fca7b33b205f69bcfc8220637fbd9e27bad18446a5238df1bb64e786714978e0cf8634a33b9938ec71306d43a3
+Homepage: https://mesa3d.org/
+Description: free implementation of the EGL API -- Mesa vendor library
+Description-md5: b66a0a444abc380f2430455fec07e449
+Multi-Arch: same
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Origin: Ubuntu
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-wsl, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+
+Package: libegl1
+Architecture: amd64
+Version: 1.7.0-1build1
+Multi-Arch: same
+Priority: extra
+Section: libs
+Source: libglvnd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 99
+Depends: libc6 (>= 2.38), libglvnd0 (= 1.7.0-1build1), libegl-mesa0
+Filename: pool/main/libg/libglvnd/libegl1_1.7.0-1build1_amd64.deb
+Size: 28670
+MD5sum: fdd5744f9f5e3ca95a87991fbd8e69e5
+SHA1: f6e12517a00251d2e4468fefcd9a743ff6ce9bec
+SHA256: e549f7776216f7bd3b1c216729fb40a97a562e2eb7c563cde632b4931f9a4e57
+SHA512: 478b0bc4f9986048b5820fa258e66042269cd541e6f60773f1ad4486462663345cb9b02e199edc742c6dc1a8d37c7e2e53d07d79e1a5c511e3c88259afc5c99c
+Homepage: https://gitlab.freedesktop.org/glvnd/libglvnd
+Description: Vendor neutral GL dispatch library -- EGL support
+Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-wsl, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: 1c6433db289e1066e3e6d8226697cf51
+
+Package: libgles2
+Architecture: amd64
+Version: 1.7.0-1build1
+Multi-Arch: same
+Priority: extra
+Section: libs
+Source: libglvnd
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 105
+Depends: libc6 (>= 2.34), libglvnd0 (= 1.7.0-1build1)
+Filename: pool/main/libg/libglvnd/libgles2_1.7.0-1build1_amd64.deb
+Size: 17122
+MD5sum: 10138631619c259e72e405bc502d354f
+SHA1: 1d9203e79ad927af0236d43f2c4e51200ae276e1
+SHA256: 9dec2d79a2eebb80522f7cce77995f7a8ded22f0e3916f13353d066c62f97fac
+SHA512: fc8686d635199853f388f7af191b7e57c35314011e4d436edc203af940e6cf23c4b7acc8b731988ec35aeda06b899b1206940fa5634d4b63eb8aa97ca9933eb1
+Homepage: https://gitlab.freedesktop.org/glvnd/libglvnd
+Description: Vendor neutral GL dispatch library -- GLESv2 support
+Task: ubuntu-desktop-minimal, ubuntu-desktop, ubuntu-desktop-raspi, kubuntu-desktop, xubuntu-minimal, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: 0725f3178300d18b01b52f872108cba5
+
+Package: libxcb-xkb1
+Architecture: amd64
+Version: 1.15-1ubuntu2
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libxcb
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 151
+Depends: libc6 (>= 2.14), libxcb1
+Filename: pool/main/libx/libxcb/libxcb-xkb1_1.15-1ubuntu2_amd64.deb
+Size: 32302
+MD5sum: e6271ed2564634662dcefdb87441cc82
+SHA1: 146d2ba714829679231459ccdcecd98e48c74290
+SHA256: 53bc0a58834c981fa8ce5c3ab6195387e5c8a417039d82cc7a8b49724fa53228
+SHA512: 519a84e5376a7aa69cb9636735530f721d03ec5d7ae6f520ddd2ce89cafd53d0097f2abb680c654c7c15e98497e000efe06937b4f44534182332b5a4e170e74e
+Homepage: https://xcb.freedesktop.org
+Description: X C Binding, XKEYBOARD extension
+Task: ubuntu-desktop-minimal, ubuntu-desktop, kubuntu-desktop, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: 265aa28a89cf5ce7330ef13f8d25ed2c
+
+Package: libxkbcommon-x11-0
+Architecture: amd64
+Version: 1.6.0-1build1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: libxkbcommon
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 57
+Depends: libxkbcommon0 (= 1.6.0-1build1), libc6 (>= 2.4), libxcb-xkb1, libxcb1 (>= 1.6)
+Filename: pool/main/libx/libxkbcommon/libxkbcommon-x11-0_1.6.0-1build1_amd64.deb
+Size: 14536
+MD5sum: fce36e212be335ffc5b931665383da46
+SHA1: 44368075f6a1c544306d0f474311147b949173da
+SHA256: 3befe840ce612ddfc0998d8610c6eed295726722a78e75cd08520bbd75065a23
+SHA512: e70392bd86aa668a31787cec3850b512367cf97c1eee9952d5b68a5ed20da0ce9893d5bda32d281a2ec07b7139265854db466a7b21d622cadbddeb887c809252
+Homepage: https://www.xkbcommon.org/
+Description: library to create keymaps with the XKB X11 protocol
+Task: ubuntu-desktop-minimal, ubuntu-desktop, kubuntu-desktop, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntukylin-desktop, ubuntukylin-desktop-minimal, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, edubuntu-desktop-gnome-minimal, edubuntu-desktop-gnome, edubuntu-desktop-gnome-raspi, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: 2be59c31381cd21c6a93029b61d195d6
+
+Package: mesa-utils-bin
+Architecture: amd64
+Version: 9.0.0-2
+Multi-Arch: same
+Priority: optional
+Section: universe/x11
+Source: mesa-demos
+Origin: Ubuntu
+Maintainer: Ubuntu Developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Original-Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Bugs: https://bugs.launchpad.net/ubuntu/+filebug
+Installed-Size: 866
+Depends: libc6 (>= 2.38), libdecor-0-0 (>= 0.1.0), libegl1, libgl1, libgles2, libvulkan1 (>= 1.2.131.2), libwayland-client0 (>= 1.20.0), libwayland-egl1 (>= 1.15.0), libx11-6, libxcb1, libxkbcommon-x11-0 (>= 0.5.0), libxkbcommon0 (>= 0.5.0)
+Filename: pool/universe/m/mesa-demos/mesa-utils-bin_9.0.0-2_amd64.deb
+Size: 164440
+MD5sum: 454d7a15522d12af80c10e18508c0dbf
+SHA1: c32036446ca644a919f2ffb814ac39684a8449c5
+SHA256: d64539eb18416708948d7857506946a024637e4c6147d91a28a42868e038cb00
+SHA512: 56c9d9d718616cdc9d318f840ecaec0ec81147e16fbffdc383181ba5a86fe60e1cdfc788ef61e4a3e00c3c717d26a85cb2ba29fdd10b90ca2630bd826dad34f7
+Homepage: https://mesa3d.org/
+Description: Miscellaneous Mesa utilities -- native applications
+Task: kubuntu-desktop, xubuntu-desktop, lubuntu-desktop, ubuntustudio-desktop-core, ubuntustudio-desktop, ubuntu-mate-core, ubuntu-mate-desktop, ubuntu-budgie-desktop-minimal, ubuntu-budgie-desktop, ubuntu-budgie-desktop-raspi, ubuntu-unity-desktop, ubuntucinnamon-desktop-minimal, ubuntucinnamon-desktop-raspi
+Description-md5: c07b3c02475d22644c1ecc91cdac0d9f

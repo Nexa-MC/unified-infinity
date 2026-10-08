@@ -119,12 +119,12 @@ class OwnedSpawnTests(unittest.TestCase):
             if spawn:spawn(state)
             return process
         with tempfile.TemporaryDirectory() as folder, state.patches(), \
-             mock.patch.object(package,'SIZE',len(content)), \
-             mock.patch.object(package,'SHA256',hashlib.sha256(content).hexdigest()), \
-             mock.patch.object(package,'query',return_value=mock.Mock(returncode=0,stdout='Package: mesa-utils-bin\nVersion: 9.0.0-2\nArchitecture: amd64\n')), \
+             mock.patch.object(package,'verify_deb',return_value={'controlVerified':True}), \
+             mock.patch.object(package,'require_status_unchanged'), \
              mock.patch.object(package.subprocess,'Popen',side_effect=create):
             path=Path(folder)/'fixture';path.write_bytes(content)
-            try:return package.install_deb(path,time.monotonic()+120)
+            item={'path':str(path),'candidate':package.load_candidates()[-1]}
+            try:return package.install_debs([item],time.monotonic()+120,'0'*64)
             finally:self.assertEqual(state.handlers,state.original)
 
     def test_package_spawn_stop_waits_for_owned_root_timeout(self):
@@ -139,7 +139,7 @@ class OwnedSpawnTests(unittest.TestCase):
 
     def test_exact_post_spawn_line_is_inside_package_cleanup(self):
         p=mock.Mock();p.wait.return_value=0
-        self.post_spawn_interrupt(package.install_deb.__code__,p,lambda:self.install(p))
+        self.post_spawn_interrupt(package.install_debs.__code__,p,lambda:self.install(p))
         p.wait.assert_called_once_with(timeout=70)
 
     def test_package_spawn_failure_has_no_unowned_wait(self):

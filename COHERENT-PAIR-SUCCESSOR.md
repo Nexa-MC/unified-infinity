@@ -47,8 +47,8 @@ the known byte-identical base artifact gates. Offline installers receive their
 deterministic verified Mojang text-resource archive.
 
 The Ubuntu prerequisite proposal checks canonical glxinfo and, only if absent
-with all declared dependencies satisfied, installs the single exact pinned
-mesa-utils-bin9.0.0-2 package. It preserves later package-owner, graphics and
+with all declared dependencies satisfied, installs the bounded seven-package official
+graphics closure after a complete actual/proposed APT dependency check. It preserves later package-owner, graphics and
 memory checks. The packet contains source recipes only, never the package.
 
 Runtime controls retain strict initial inputs and exact directory membership.
