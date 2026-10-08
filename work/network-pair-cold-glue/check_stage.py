@@ -24,4 +24,4 @@ for row in manifest['files']:
 for row in source_materialize._load_manifest()['archives'].values():
     path=ROOT/row['path'];source_materialize._source_only(path.read_bytes(),path.name)
 print(json.dumps({'status':'PUBLICATION_SOURCE_VERIFIED','files':len(expected),
-                  'sourceArchives':4,'coldExecutionVerified':False,'downloads':False,'jvmStarted':False}))
+                  'sourceArchives':len(source_materialize._load_manifest()['archives']),'coldExecutionVerified':False,'downloads':False,'jvmStarted':False}))

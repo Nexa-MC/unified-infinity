@@ -17,6 +17,7 @@ import pair_assembly
 import graphics_runner
 import seal_pair
 import bounded_process
+import runner_dependencies
 
 HERE=Path(__file__).resolve().parent
 REPO='Nexa-MC/unified-infinity'
@@ -131,7 +132,7 @@ def cleanup_pair(active):
     return result
 
 
-def execute(repo,consumer):
+def execute(repo,consumer,allow_runner_package=False):
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
             and os.environ.get('GITHUB_REF')=='refs/heads/'+BRANCH and os.environ.get('GITHUB_EVENT_NAME')=='push',
             'Execution requires the separately reviewed exact future pair branch; no alternative publication route')
@@ -158,6 +159,8 @@ def execute(repo,consumer):
             interrupt_driver(pending_stops[0],None)
     try:
         for number in STOP_SIGNALS:previous[number]=signal.signal(number,stop_driver)
+        if allow_runner_package:
+            runner_dependencies.ensure(plan['graphics'],consumer,deadline,allow_install=True)
         availability=graphics_runner.availability(plan['graphics']);write(consumer/'graphics-availability.json',availability)
         require(not availability['missingInputs'],'Required installed runner graphics unavailable before downloads: '+json.dumps(availability['missingInputs']))
         print('RESTORE_START: pinned official runtime, assets and toolchain bytes',flush=True)
@@ -258,6 +261,6 @@ def execute(repo,consumer):
     return result
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);a=p.parse_args()
-    value=prepare(a.repo_root,a.consumer) if a.action=='prepare' else execute(a.repo_root,a.consumer)
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-package',action='store_true');a=p.parse_args()
+    value=prepare(a.repo_root,a.consumer) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_package)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

@@ -2844,6 +2844,15 @@
         "MANIFEST.json"
       ],
       "uncompressed_bytes": 4100281
+    },
+    "recovered-build-inputs": {
+      "path": "portable-bootstrap/recovered-build-source-inputs.zip",
+      "sha256": "ace59d04af7f5faa9670a2c6350b4d9d57224cc5167c0cd34851ba4ea851eab7",
+      "bytes": 1072,
+      "members": [
+        "work/api1/docs/four-loader/quilt/bundled-initial.json",
+        "work/api1/docs/four-loader/quilt/bundled-tooltip.json"
+      ]
     }
   },
   "files": [
@@ -8453,6 +8462,28 @@
       "destination": "work/emi-render-integration/source-package-verification.json",
       "sha256": "f624470a129daa8db698f8e49be47f99ca77d8af1c32a99da0cac1416d5eb3a3",
       "bytes": 859
+    },
+    {
+      "archive": "recovered-build-inputs",
+      "member": "work/api1/docs/four-loader/quilt/bundled-initial.json",
+      "destination": "work/api1/docs/four-loader/quilt/bundled-initial.json",
+      "bytes": 704,
+      "sha256": "6e17ab294a515b0b068b7137c426b7edc7cdae3c2c4f8166de1c4c2ee1073ca9"
+    },
+    {
+      "archive": "recovered-build-inputs",
+      "member": "work/api1/docs/four-loader/quilt/bundled-tooltip.json",
+      "destination": "work/api1/docs/four-loader/quilt/bundled-tooltip.json",
+      "bytes": 923,
+      "sha256": "1cf456b8d537e822b22437efa72e6fdef0e21a0f5871b6875a3e30e2a4411833"
+    },
+    {
+      "archive": "accepted-recovery",
+      "member": "tools/java-env.sh",
+      "destination": "work/api1/tools/java-env.sh",
+      "bytes": 237,
+      "sha256": "baf50fbe0b7d616a10b5158ad5b23636b3dfd435c0cd1522d1ddb968873a122d",
+      "executable": true
     }
   ],
   "dependencies": [

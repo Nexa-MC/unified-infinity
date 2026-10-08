@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "purpose": "Source-only portable derivative of proven fresh core/PRODUCT and FML logging metadata v3 recipes",
+  "files": [
+    {
+      "path": "cold-repositories.init.gradle",
+      "sha256": "b8a8d28bd0ccee441f63e90b23f8cfb0b68ffe6c19cf1aad0a72b23ce46ce2fd",
+      "bytes": 1059,
+      "recoveredSource": "recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_cold_repositories_no_buildscript.gradle",
+      "recoveredSha256": "b8a8d28bd0ccee441f63e90b23f8cfb0b68ffe6c19cf1aad0a72b23ce46ce2fd",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "verified-repositories.init.gradle",
+      "sha256": "e4a85214afd56ce1b3e23828a8eb08953962e865c0e81256691884c6743654bd",
+      "bytes": 970,
+      "recoveredSource": "recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_verified_repositories.gradle",
+      "recoveredSha256": "2636068b5a58a8fc2897d5d53be26a3cc2fbb694574ca3da851a766ccc46b065",
+      "adaptation": "Replace historical absolute API root with PAIR_API_ROOT only"
+    },
+    {
+      "path": "archive-permissions.init.gradle",
+      "sha256": "369b8ef303eafea36d78ad3d9cb7de13cb03a1b0778215958f7de089f01e64c3",
+      "bytes": 242,
+      "recoveredSource": "recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_archive_permissions.gradle",
+      "recoveredSha256": "369b8ef303eafea36d78ad3d9cb7de13cb03a1b0778215958f7de089f01e64c3",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "product-payload-permissions.init.gradle",
+      "sha256": "5333fbc3cd6a7812ac84d51eaa727216cf33f297f3c6fc303c9bf174fc1735cc",
+      "bytes": 700,
+      "recoveredSource": "recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_product_payload_permissions.gradle",
+      "recoveredSha256": "785f636fe2fc5405a9354a957871c902baadfdec0a7d4b2f3d530df29a178b3a",
+      "adaptation": "Replace historical absolute API root with PAIR_API_ROOT only"
+    },
+    {
+      "path": "fml/bounded-build.init.gradle",
+      "sha256": "1f2cc95110d6188cb248932bf40ab5705ad62015e0b9934fd6b27c02c6a87ba1",
+      "bytes": 563,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/fml-logging-metadata-fix-20261007-v3/bounded-build.init.gradle",
+      "recoveredSha256": "1f2cc95110d6188cb248932bf40ab5705ad62015e0b9934fd6b27c02c6a87ba1",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "fml/build.gradle",
+      "sha256": "7f881ea2f3124391962fa578e9224f73502351aa261bea5fd6fbc0c0e0d3fa58",
+      "bytes": 5289,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/api1/source-workspace/fml-unified-logging-fix-v3/build.gradle",
+      "recoveredSha256": "7f881ea2f3124391962fa578e9224f73502351aa261bea5fd6fbc0c0e0d3fa58",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "fml/settings.gradle",
+      "sha256": "41456aec321a78a87db2df049b9d6ea2fa392f40c66290abcc66b23c4711b26e",
+      "bytes": 128,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/api1/source-workspace/fml-unified-logging-fix-v3/settings.gradle",
+      "recoveredSha256": "41456aec321a78a87db2df049b9d6ea2fa392f40c66290abcc66b23c4711b26e",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "fml/tools/build_source.py",
+      "sha256": "3201688235bf1ed470ab5545ce020aa35ab601c0bbf019a66a2bc872f5e951b2",
+      "bytes": 6841,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/api1/source-workspace/fml-unified-logging-fix-v3/tools/build_source.py",
+      "recoveredSha256": "3201688235bf1ed470ab5545ce020aa35ab601c0bbf019a66a2bc872f5e951b2",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "accepted-candidate-reference.json",
+      "sha256": "e66e08b2a394c4793b70cac7ace24157aafacdd287e61041aebb567e8c8afe27",
+      "bytes": 3146,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/fml-logging-metadata-fix-20261007-v3/candidate-identity.json",
+      "recoveredSha256": "e66e08b2a394c4793b70cac7ace24157aafacdd287e61041aebb567e8c8afe27",
+      "adaptation": "Exact recovered bytes"
+    },
+    {
+      "path": "fml-source-inventory.json",
+      "sha256": "4271a904ea32ca6a8073e1038c456c28baf8fabc40a1b0ff25d84d6144ce5d6c",
+      "bytes": 96811,
+      "recoveredSource": "recovery/history/version-4-snapshot/local-pair-20261007/consumer/work/fml-logging-metadata-fix-20261007-v3/input-lock.json",
+      "recoveredSha256": "d8d80803ad5dbcf6ca18621fa4ce5d60105ee1e8adf06cef17b855ceffdf2f18",
+      "adaptation": "Source-only relative paths and exact source hashes extracted from original/fixed/shared source inventories; historical execution receipts are not prerequisites"
+    }
+  ]
+}

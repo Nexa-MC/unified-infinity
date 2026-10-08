@@ -1,0 +1,57 @@
+{
+  "identity_sha256": "ce4b907075e2892f39ee13ed75d19afc193ad602d9ecc8cb5eca03cea4181844",
+  "schema": 1,
+  "kind": "source-built-fml-log4j-metadata-fix-v3",
+  "historicalCandidateIdentity": "54e5f302c1bad0de54a6845a50b128d6a2aa9f4fb9d44ec14c84c754d7fb21f6",
+  "historicalArtifacts": {
+    "service": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/service.jar",
+      "bytes": 5041532,
+      "sha256": "7fbabf5eb18b590bd5a30410d076fd814f11d03e8842e3327b4468217e275aa7"
+    },
+    "game": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/game.jar",
+      "bytes": 127903,
+      "sha256": "9dc29ac8a8030f629dd7afea8b744114504a552c4fce022c6199b23a1024e162"
+    },
+    "fml": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/fml.jar",
+      "bytes": 637890,
+      "sha256": "0281b9389e92c7f560fd1921f86ece8203e23ff7ebbbd2240f10c911e6546c26"
+    },
+    "product": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/product.jar",
+      "bytes": 5680022,
+      "sha256": "b20903f821455682ff5fee62491483e833252dc1a4f4caaa15bef51a356f1409"
+    }
+  },
+  "artifacts": {
+    "service": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/service.jar",
+      "sha256": "7fbabf5eb18b590bd5a30410d076fd814f11d03e8842e3327b4468217e275aa7"
+    },
+    "game": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/game.jar",
+      "sha256": "9dc29ac8a8030f629dd7afea8b744114504a552c4fce022c6199b23a1024e162"
+    },
+    "fml": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/api1/source-workspace/fml-unified-logging-fix-v3/build/libs/fml-loader-4.0.42-unified-source.jar",
+      "sha256": "4d697ba080277ed270ddd427102e03da4d6cd58b2b9ed584db010b59f037c2e9"
+    },
+    "product": {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/local-interactive-client-20261007/work/emi-render-integration/cold-artifacts/product.jar",
+      "sha256": "b20903f821455682ff5fee62491483e833252dc1a4f4caaa15bef51a356f1409"
+    }
+  },
+  "inputLockSha256": "d8d80803ad5dbcf6ca18621fa4ce5d60105ee1e8adf06cef17b855ceffdf2f18",
+  "processor": {
+    "class": "org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor",
+    "version": "2.22.1",
+    "dependencySuffixes": [
+      "log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "log4j-api/2.22.1/log4j-api-2.22.1.jar"
+    ],
+    "mode": "separate-proc-only-after-full-proc-none-compile"
+  },
+  "generatedCacheSha256": "d0f0b5582b430acd1be817a94989f6eda13d359d6980dcdc1bb568408bcb76e6"
+}

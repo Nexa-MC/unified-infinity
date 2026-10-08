@@ -31,7 +31,7 @@ class RuntimeSourceChecks(unittest.TestCase):
         self.assertEqual(len(paths), len(set(paths)))
         self.assertEqual(sum(r['phase'] == 'client-assets' for r in lock['artifacts']), 3888)
 
-    def test_prepare_is_only_text_and_exact_original_exporter(self):
+    def test_prepare_is_only_text_and_exact_reviewed_exporter(self):
         with tempfile.TemporaryDirectory(prefix='runtime-source-check-') as folder, \
              mock.patch('subprocess.run', side_effect=AssertionError('No processes permitted')), \
              mock.patch('urllib.request.OpenerDirector.open', side_effect=AssertionError('No network permitted')):
@@ -41,8 +41,12 @@ class RuntimeSourceChecks(unittest.TestCase):
             runtime.verify_preparation(api)
             self.assertFalse(plan['jvmStarted'])
             self.assertFalse(plan['downloadsStarted'])
-            self.assertEqual((api / 'four-loader/api-contract-controls/client-development/gradle/verification-metadata.xml').read_bytes(),
-                             (REPO / runtime.NONCE / 'probe/gradle/verification-metadata.xml').read_bytes())
+            metadata = (api / 'four-loader/api-contract-controls/client-development/gradle/verification-metadata.xml').read_text()
+            import re
+            extra = re.findall(r'\n      <artifact name="neoforge-21\.1\.219-moddev-config\.json">\n        <sha256 value="([0-9a-f]{64})" origin="Verified official NeoForge module file declaration" />\n      </artifact>', metadata)
+            self.assertEqual(extra, [runtime.MODDEV_CONFIG_SHA])
+            without_extra = re.sub(r'\n      <artifact name="neoforge-21\.1\.219-moddev-config\.json">.*?</artifact>', '', metadata, flags=re.S)
+            self.assertEqual(without_extra, (REPO / runtime.NONCE / 'probe/gradle/verification-metadata.xml').read_text())
             self.assertEqual(len(plan['steps']), 5)
             project = api / 'four-loader/api-contract-controls/client-development'
             for name in ('build.gradle', 'settings.gradle'):

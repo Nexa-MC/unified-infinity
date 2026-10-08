@@ -8398,11 +8398,17 @@
       "phase": "core-build",
       "kind": "verified-maven-module",
       "urls": [
+        "https://maven.neoforged.net/mojang-meta/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
         "https://maven.neoforged.net/releases/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
         "https://plugins.gradle.org/m2/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
         "https://repo.maven.apache.org/maven2/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module"
       ],
       "url_evidence": [
+        {
+          "url": "https://maven.neoforged.net/mojang-meta/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
+          "basis": "Recovered hash-verified official restoration receipt",
+          "repository": "mojang-meta"
+        },
         {
           "url": "https://maven.neoforged.net/releases/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
           "basis": "repository-layout fallback; availability-unverified",
@@ -8421,7 +8427,13 @@
       ],
       "observed_source_path": "work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged/minecraft-dependencies/1.21.1/42b2a5fcd956009dadebda955239079441ef0d52/minecraft-dependencies-1.21.1.module",
       "verification": "portable-bootstrap/verification-metadata.xml",
-      "cache_revalidated": true
+      "cache_revalidated": true,
+      "originalUrls": [
+        "https://maven.neoforged.net/releases/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
+        "https://plugins.gradle.org/m2/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module",
+        "https://repo.maven.apache.org/maven2/net/neoforged/minecraft-dependencies/1.21.1/minecraft-dependencies-1.21.1.module"
+      ],
+      "routeCorrection": "Recovered hash-verified official route; original artifact size and digests unchanged"
     },
     {
       "group": "net.neoforged",
@@ -9586,11 +9598,16 @@
       "phase": "core-build",
       "kind": "verified-maven-pom",
       "urls": [
-        "https://maven.neoforged.net/releases/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
         "https://plugins.gradle.org/m2/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
+        "https://maven.neoforged.net/releases/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
         "https://repo.maven.apache.org/maven2/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom"
       ],
       "url_evidence": [
+        {
+          "url": "https://plugins.gradle.org/m2/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
+          "basis": "Recovered hash-verified official restoration receipt",
+          "repository": "official-declared-mirror"
+        },
         {
           "url": "https://maven.neoforged.net/releases/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
           "basis": "repository-layout fallback; availability-unverified",
@@ -9609,7 +9626,13 @@
       ],
       "observed_source_path": "work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/net.neoforged.gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/d15a3ffa712028b8e1b264327da617ab4ca2318d/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
       "verification": "portable-bootstrap/verification-metadata.xml",
-      "cache_revalidated": true
+      "cache_revalidated": true,
+      "originalUrls": [
+        "https://maven.neoforged.net/releases/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
+        "https://plugins.gradle.org/m2/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom",
+        "https://repo.maven.apache.org/maven2/net/neoforged/gradleutils/net.neoforged.gradleutils.gradle.plugin/5.1.0/net.neoforged.gradleutils.gradle.plugin-5.1.0.pom"
+      ],
+      "routeCorrection": "Recovered hash-verified official route; original artifact size and digests unchanged"
     },
     {
       "group": "net.neoforged.installertools",
@@ -19156,10 +19179,15 @@
       "phase": "core-build",
       "kind": "verified-maven-pom",
       "urls": [
-        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom",
-        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom"
+        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom",
+        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom"
       ],
       "url_evidence": [
+        {
+          "url": "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom",
+          "basis": "Recovered hash-verified official restoration receipt",
+          "repository": "official-declared-mirror"
+        },
         {
           "url": "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom",
           "basis": "repository-layout fallback; availability-unverified",
@@ -19173,7 +19201,12 @@
       ],
       "observed_source_path": "work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.1/2024.11.17/3ec5661b8b1ed1413e1c6d84f7e2a325255138ac/parchment-1.21.1-2024.11.17.pom",
       "verification": "portable-bootstrap/verification-metadata.xml",
-      "cache_revalidated": true
+      "cache_revalidated": true,
+      "originalUrls": [
+        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom",
+        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.pom"
+      ],
+      "routeCorrection": "Recovered hash-verified official route; original artifact size and digests unchanged"
     },
     {
       "group": "org.parchmentmc.data",
@@ -19186,10 +19219,15 @@
       "phase": "core-build",
       "kind": "verified-maven-zip",
       "urls": [
-        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip",
-        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip"
+        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip",
+        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip"
       ],
       "url_evidence": [
+        {
+          "url": "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip",
+          "basis": "Recovered hash-verified official restoration receipt",
+          "repository": "official-declared-mirror"
+        },
         {
           "url": "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip",
           "basis": "repository-layout fallback; availability-unverified",
@@ -19203,7 +19241,12 @@
       ],
       "observed_source_path": "work/api1/source-workspace/gradle-cache/caches/modules-2/files-2.1/org.parchmentmc.data/parchment-1.21.1/2024.11.17/2a561d23e368c371b4c578caa21ae0cf9c597392/parchment-1.21.1-2024.11.17.zip",
       "verification": "portable-bootstrap/verification-metadata.xml",
-      "cache_revalidated": true
+      "cache_revalidated": true,
+      "originalUrls": [
+        "https://maven.parchmentmc.org/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip",
+        "https://maven.neoforged.net/releases/org/parchmentmc/data/parchment-1.21.1/2024.11.17/parchment-1.21.1-2024.11.17.zip"
+      ],
+      "routeCorrection": "Recovered hash-verified official route; original artifact size and digests unchanged"
     },
     {
       "group": "org.sinytra",

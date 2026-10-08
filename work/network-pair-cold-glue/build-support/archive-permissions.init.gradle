@@ -1,0 +1,7 @@
+// Match the original candidate ZIP metadata, without changing filesystem permissions.
+allprojects {
+    tasks.withType(org.gradle.api.tasks.bundling.AbstractArchiveTask).configureEach {
+        fileMode = 0644
+        dirMode = 0755
+    }
+}

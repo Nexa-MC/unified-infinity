@@ -1,0 +1,2 @@
+// Isolated built-in Java project. Dependencies are verified local file inputs.
+rootProject.name = 'fml-unified-logging-fix-v3'

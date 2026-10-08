@@ -1,0 +1,40 @@
+{
+  "probe_sha256": "3a016e8b8340c7c10b6490f15bb7452c1555363035c7373f4d81ccfacfde15fe",
+  "namespace": "Mojmap",
+  "forge_abi": "52.1.0",
+  "member_references": [
+    "net/minecraftforge/common/MinecraftForge.EVENT_BUS:Lnet/minecraftforge/eventbus/api/IEventBus;",
+    "net/minecraftforge/event/TickEvent$ServerTickEvent$Post.getServer:()Lnet/minecraft/server/MinecraftServer;",
+    "net/minecraftforge/event/TickEvent$ServerTickEvent$Post.haveTime:()Z",
+    "net/minecraftforge/event/server/ServerStartedEvent.getServer:()Lnet/minecraft/server/MinecraftServer;",
+    "net/minecraftforge/eventbus/api/IEventBus.addListener:(Ljava/util/function/Consumer;)V",
+    "net/minecraftforge/fml/event/lifecycle/FMLCommonSetupEvent.enqueueWork:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;",
+    "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext.getModEventBus:()Lnet/minecraftforge/eventbus/api/IEventBus;",
+    "net/minecraftforge/registries/DeferredRegister.create:(Lnet/minecraft/resources/ResourceKey;Ljava/lang/String;)Lnet/minecraftforge/registries/DeferredRegister;",
+    "net/minecraftforge/registries/DeferredRegister.register:(Ljava/lang/String;Ljava/util/function/Supplier;)Lnet/minecraftforge/registries/RegistryObject;",
+    "net/minecraftforge/registries/DeferredRegister.register:(Lnet/minecraftforge/eventbus/api/IEventBus;)V",
+    "net/minecraftforge/registries/RegistryObject.get:()Ljava/lang/Object;",
+    "net/minecraftforge/registries/RegistryObject.getId:()Lnet/minecraft/resources/ResourceLocation;",
+    "net/minecraftforge/registries/RegistryObject.getKey:()Lnet/minecraft/resources/ResourceKey;",
+    "net/minecraftforge/registries/RegistryObject.isPresent:()Z"
+  ],
+  "class_constants": [
+    "net/minecraftforge/common/MinecraftForge",
+    "net/minecraftforge/event/TickEvent",
+    "net/minecraftforge/event/TickEvent$ServerTickEvent",
+    "net/minecraftforge/event/TickEvent$ServerTickEvent$Post",
+    "net/minecraftforge/event/server/ServerStartedEvent",
+    "net/minecraftforge/eventbus/api/IEventBus",
+    "net/minecraftforge/fml/event/lifecycle/FMLCommonSetupEvent",
+    "net/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext",
+    "net/minecraftforge/registries/DeferredRegister",
+    "net/minecraftforge/registries/RegistryObject"
+  ],
+  "annotation_descriptor": "Lnet/minecraftforge/fml/common/Mod;",
+  "required_constructor_descriptor": "(Lnet/minecraftforge/fml/javafmlmod/FMLJavaModLoadingContext;)V",
+  "notes": [
+    "Inherited methods are emitted against the actual declared variable subtype.",
+    "Lambda bootstrap method types and handles carry Forge listener descriptors.",
+    "Do not infer semantics of any Forge API absent from this fixture."
+  ]
+}

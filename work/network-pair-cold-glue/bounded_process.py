@@ -4,6 +4,41 @@ from pathlib import Path
 import signal
 import subprocess
 import time
+from contextlib import contextmanager
+
+
+@contextmanager
+def owned_stops():
+    """Record stops across spawn, handle assignment, wait and owned cleanup.
+
+    This reuses the recovered native owner's record-only handler semantics.
+    No signal mask is changed or inherited by the child. Ignored signals stay
+    ignored; handled/default stop requests become failures after cleanup.
+    """
+    previous = {}
+    pending = []
+    failed = False
+    def request(number, _frame):
+        if not pending:
+            pending.append(number)
+    def check():
+        if pending:
+            raise InterruptedError('Owned command interrupted by '+signal.Signals(pending[0]).name)
+    try:
+        for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
+            old = signal.getsignal(number)
+            if old != signal.SIG_IGN:
+                previous[number] = old
+                signal.signal(number, request)
+        yield check
+    except BaseException:
+        failed = True
+        raise
+    finally:
+        for number, handler in previous.items():
+            signal.signal(number, handler)
+        if not failed:
+            check()
 
 def members(group):
     result=[]
@@ -32,15 +67,35 @@ def stop_group(process):
 
 def run(command,*,cwd,env,stdout,stderr,timeout):
     if timeout<=0:raise TimeoutError('Build time budget expired before spawn')
-    process=subprocess.Popen(command,cwd=cwd,env=env,stdout=stdout,stderr=stderr,start_new_session=True)
-    try:
-        code=process.wait(timeout=timeout)
-    except BaseException:
-        stop_group(process)
-        raise
-    # Gradle --no-daemon may briefly finish its single-use daemon after the
-    # launcher exits. No next JVM phase starts until this owned group is empty.
-    until=time.monotonic()+5
-    while members(process.pid) and time.monotonic()<until:time.sleep(0.1)
-    if members(process.pid):stop_group(process)
-    return subprocess.CompletedProcess(command,code)
+    process, failure, code = None, None, None
+    deadline = time.monotonic()+timeout
+    with owned_stops() as check_stop:
+        try:
+            check_stop()
+            process=subprocess.Popen(command,cwd=cwd,env=env,stdout=stdout,stderr=stderr,start_new_session=True)
+            while True:
+                check_stop()
+                remaining=deadline-time.monotonic()
+                if remaining<=0:raise subprocess.TimeoutExpired(command,timeout)
+                try:
+                    code=process.wait(timeout=min(0.2,remaining))
+                    break
+                except subprocess.TimeoutExpired:
+                    continue
+            # Single-use Gradle descendants must finish before the next JVM.
+            until=min(deadline,time.monotonic()+5)
+            while members(process.pid) and time.monotonic()<until:
+                check_stop()
+                time.sleep(0.1)
+        except BaseException as error:
+            failure=error
+        finally:
+            if process is not None:
+                try:
+                    if failure is not None or members(process.pid):stop_group(process)
+                except BaseException as cleanup:
+                    if failure is None:failure=cleanup
+                    else:failure.add_note('Owned cleanup also failed: '+type(cleanup).__name__+': '+str(cleanup))
+        if failure is not None:raise failure
+        check_stop()
+        return subprocess.CompletedProcess(command,code)

@@ -18,7 +18,7 @@ import zipfile
 
 HERE = Path(__file__).resolve().parent
 MANIFEST = HERE / 'source-manifest.json'
-MANIFEST_SHA256 = '7c5bd0cd8eee33f33e9d5b52a94a1767bdeaf8adeb8e3b3c47d5df8b01a8a861'
+MANIFEST_SHA256 = '70ebe485d8266e821cae41eec10495350b3a4081f2f75bbfd09eace2edf892c3'
 MAX_ARCHIVE_BYTES = 32 * 1024 * 1024
 MAX_MEMBER_BYTES = 16 * 1024 * 1024
 MAX_EXPANDED_BYTES = 64 * 1024 * 1024
@@ -232,6 +232,11 @@ def materialize(repo_root: str | Path, consumer_root: str | Path) -> dict:
         _no_symlink_ancestors(output)
         with output.open('xb') as stream:
             stream.write(data)
+    for row in manifest['files']:
+        if row.get('executable'):
+            if row['destination'] != 'work/api1/tools/java-env.sh':
+                raise SourceMaterializationError('Unexpected executable source input')
+            (root / row['destination']).chmod(0o755)
     identity = verify_sources(root)
     report = {
         'schema': 1, 'status': 'PASS_SOURCE_MATERIALIZATION_ONLY',

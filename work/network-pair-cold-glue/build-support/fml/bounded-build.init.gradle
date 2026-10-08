@@ -1,0 +1,15 @@
+allprojects {
+    tasks.withType(JavaCompile).configureEach {
+        options.fork = true
+        options.forkOptions.memoryMaximumSize = '192m'
+        options.forkOptions.jvmArgs = ['-XX:ActiveProcessorCount=1']
+        options.encoding = 'UTF-8'
+    }
+    tasks.withType(Jar).configureEach {
+        preserveFileTimestamps = false
+        reproducibleFileOrder = true
+        filePermissions { unix('0644') }
+        dirPermissions { unix('0755') }
+    }
+    tasks.matching { it.name == 'sourcesJar' }.configureEach { dependsOn 'prepareInstallationPolicy' }
+}

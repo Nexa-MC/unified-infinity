@@ -433,7 +433,7 @@ class SealTests(unittest.TestCase):
                          'max-players': '1', 'level-name': 'world'}
                 file('server/server.properties', ''.join(k+'='+v+'\n' for k,v in props.items()).encode())
                 file('server/whitelist.json', json.dumps([{'uuid': s.IDENTITY, 'name': s.NAME}]).encode())
-                file('server/ops.json', b'[]')
+                file('server/ops.json', b'[]\n')
                 file('server/eula.txt', b'eula=true\n')
             spec[role] = {'cwd': str(profile), 'command': command, 'environment': env, 'original_mods': mods, 'managed_mods': []}
         return spec

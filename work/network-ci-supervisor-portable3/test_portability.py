@@ -343,12 +343,23 @@ class FrozenContract(unittest.TestCase):
         for row in json.loads((frozen / 'source-manifest.json').read_text())['files']:
             self.assertEqual((frozen / row['path']).stat().st_size, row['bytes'])
             self.assertEqual(s.digest(frozen / row['path']), row['sha256'])
-        self.assertEqual((here / 'test_supervisor.py').read_bytes(), (frozen / 'test_supervisor.py').read_bytes())
+        self.assertEqual((here / 'test_supervisor.py').read_bytes().replace(
+            b"file('server/ops.json', b'[]\\n')", b"file('server/ops.json', b'[]')"),
+            (frozen / 'test_supervisor.py').read_bytes())
 
     def test_pair_dependencies_and_graphics_contract_functions_unchanged(self):
         here = Path(__file__).resolve().parent
         upstream = ast.parse((here.parent / 'network-ci-supervisor/supervisor.py').read_text())
         current = ast.parse((here / 'supervisor.py').read_text())
+        capture = next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Capture')
+        additions = {'self.line_observed_monotonic = []', 'self.line_observed_monotonic.append(time.monotonic())'}
+        observed = []
+        for node in ast.walk(capture):
+            if hasattr(node, 'body') and isinstance(node.body, list):
+                observed.extend(ast.unparse(child) for child in node.body if ast.unparse(child) in additions)
+                node.body[:] = [child for child in node.body if ast.unparse(child) not in additions]
+        self.assertEqual(set(observed), additions)
+        self.assertEqual(len(observed), 2)
         def selected(tree):
             return {node.name: ast.dump(node, include_attributes=False) for node in tree.body
                     if isinstance(node, (ast.FunctionDef, ast.ClassDef)) and

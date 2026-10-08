@@ -1,13 +1,40 @@
 """Small consumer-path adapter to the reviewed input-base/finalizer functions."""
 import importlib.util
+import hashlib
 import json
 from pathlib import Path
-from compile_probe import require, sha, record, save
+from compile_probe import require, sha, record, save, SOURCE_RELATIVE, OUTPUT_RELATIVE
 
-SUPERVISOR_SHA='01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf'
+SUPERVISOR_SHA='56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
 
 def module(name,path):
     spec=importlib.util.spec_from_file_location(name,path);value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
+
+def seal_indigo_baseline(target, roles, inputs, out):
+    """Retain the exact prestart Indigo bytes outside the live config tree."""
+    if target != 'unified':
+        return None
+    original = Path(roles['client']['cwd']) / 'config/fabric/indigo-renderer.properties'
+    expected = {'path': str(original), 'bytes': 281,
+                'sha256': '6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b'}
+    require(inputs.get(str(original)) == expected, 'Exact original Indigo role pin required')
+    require(original.resolve() == original and not original.is_symlink() and record(original) == expected,
+            'Original Indigo configuration changed before baseline capture')
+    before = original.read_bytes()
+    require(len(before) == expected['bytes'] and hashlib.sha256(before).hexdigest() == expected['sha256'],
+            'Original Indigo configuration changed during baseline capture')
+    baseline = Path(out) / 'indigo-baseline.properties'
+    require(baseline.resolve() == baseline and not baseline.is_symlink(), 'Redirected Indigo baseline')
+    if baseline.exists():
+        require(baseline.is_file() and baseline.read_bytes() == before, 'Existing Indigo baseline changed')
+    else:
+        with baseline.open('xb') as stream:
+            stream.write(before)
+    row = record(baseline)
+    require(row == dict(expected, path=str(baseline)), 'Indigo baseline differs from original role pin')
+    inputs[row['path']] = row
+    return row
+
 
 def create(repo,consumer,target,graphics_ready,review_reference):
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True);api=consumer/'work/api1'
@@ -18,8 +45,8 @@ def create(repo,consumer,target,graphics_ready,review_reference):
     def add(path):
         row=record(Path(path));inputs[row['path']]=row;return row
     producer=add(assembly_path)
-    probe_base=api/'ci/nonce-probe';build=json.loads((probe_base/'probe-build-binding.json').read_text())
-    source=api/'four-loader/network-control-probe';manifest=json.loads((source/'source-manifest.json').read_text())
+    probe_base=consumer/OUTPUT_RELATIVE;build=json.loads((probe_base/'probe-build-binding.json').read_text())
+    source=consumer/SOURCE_RELATIVE;manifest=json.loads((source/'source-manifest.json').read_text())
     for row in manifest['files']:
         current=add(source/row['path']);require(current['sha256']==row['sha256'] and current['bytes']==row['bytes'],'Probe source/resource changed')
     for path in [source/'source-manifest.json',probe_base/'probe-build-binding.json',probe_base/'result.json',Path(build['artifact_path'])]:add(path)
@@ -46,6 +73,7 @@ def create(repo,consumer,target,graphics_ready,review_reference):
         for key,value in [('HOME','.launch-home'),('XDG_CACHE_HOME','.launch-cache'),('XDG_CONFIG_HOME','.launch-config'),('XDG_DATA_HOME','.launch-data'),('TMPDIR','.launch-tmp')]:env[key]=str(cwd/value)
         roles[side]={'cwd':str(cwd),'command':role['command'],'environment':env,'original_mods':role['original_mods'],'managed_mods':role['managed_mods']}
     out=api/'ci/pair-seals';out.mkdir(parents=True,exist_ok=True)
+    seal_indigo_baseline(target,roles,inputs,out)
     base={'schema':'prepared-network-ci-pair-v2','status':'NEEDS_ACTUAL_GRAPHICS_NOT_EXECUTABLE','target':target,'port':group['port'],
           'preparation_roots':[str(consumer)],'jdk_legal_links':links,'inputs':list(inputs.values()),'immutable_trees':sorted(trees),
           'probe_path':build['artifact_path'],'probe_source_manifest':str(source/'source-manifest.json'),'probe_build_receipt':str(probe_base/'probe-build-binding.json'),

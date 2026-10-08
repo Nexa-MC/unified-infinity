@@ -196,8 +196,9 @@ class CompleteSealLifecycle(unittest.TestCase):
             original = path.read_bytes()
             with self.subTest(relative=relative):
                 self.rewrite(path, original + b'\n')
-                with self.assertRaisesRegex(ValueError, 'size/type changed'):
-                    s.verify_spec(self.spec, before)
+                message = 'Operators must remain exactly empty' if relative == 'server/ops.json' else 'size/type changed'
+                with self.assertRaisesRegex(ValueError, message):
+                    s.verify_spec(self.spec, before, self.root / (path.name + '-mutation.json'))
                 self.rewrite(path, original)
 
     def test_all_preexisting_safety_keys_still_enforced_before_capture(self):
@@ -223,13 +224,30 @@ class SourcePreservation(unittest.TestCase):
             self.assertEqual((frozen / row['path']).stat().st_size, row['bytes'])
             self.assertEqual(s.digest(frozen / row['path']), row['sha256'])
 
-    def test_entire_process_class_only_changes_five_verification_invocations(self):
+    def test_process_class_only_changes_declared_lifecycle_and_verification_blocks(self):
         upstream = ast.parse((HERE.parent / 'network-ci-supervisor-portable1/supervisor.py').read_text())
         current = ast.parse((HERE / 'supervisor.py').read_text())
         expected = next(node for node in upstream.body if isinstance(node, ast.ClassDef) and node.name == 'Pair')
         actual = copy.deepcopy(next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Pair'))
+        # Exact recovered v6 lifecycle methods; other process behavior stays compared below.
+        expected_lifecycle_hashes = {'__init__': '85b7abbd4c94b939a3eaf1d6f3704e9f5254e49b1b8809f336c20d2df3aee0da', 'pump': '72e7aa503dd93b56b1138cd280b7fa3e8e85d5892abd07ffe4a56147e7f37b78', 'wait_for_completed_reload': 'beb2add1e1aed9feb42a60eef7ebbbf311cfb70578d4fdcdace0b515996b0f85'}
+        for name, digest in expected_lifecycle_hashes.items():
+            method = next(node for node in actual.body if isinstance(node, ast.FunctionDef) and node.name == name)
+            self.assertEqual(hashlib.sha256(ast.dump(method, include_attributes=False).encode()).hexdigest(), digest)
+            if name == 'wait_for_completed_reload':
+                actual.body.remove(method)
+            else:
+                prior = next(node for node in expected.body if isinstance(node, ast.FunctionDef) and node.name == name)
+                actual.body[actual.body.index(method)] = copy.deepcopy(prior)
         run = next(node for node in actual.body if isinstance(node, ast.FunctionDef) and node.name == 'run')
         body = next(node for node in run.body if isinstance(node, ast.Try)).body
+        gate_statements = [
+            'completed_gate = self.wait_for_completed_reload()',
+            "completed_gate.before_release(time.monotonic(), all((self.children[r].poll() is None for r in ('server', 'client'))))",
+            'completed_gate.after_release(time.monotonic())']
+        observed_gate = [ast.unparse(node) for node in body if ast.unparse(node) in gate_statements]
+        self.assertEqual(observed_gate, gate_statements)
+        body[:] = [node for node in body if ast.unparse(node) not in gate_statements]
         expected_run = next(node for node in expected.body if isinstance(node, ast.FunctionDef) and node.name == 'run')
         expected_body = next(node for node in expected_run.body if isinstance(node, ast.Try)).body
         observed = []
@@ -250,7 +268,7 @@ class SourcePreservation(unittest.TestCase):
             "verify_spec(self.spec, server_properties_before, self.destination / 'server-properties-after-stop.json')"])
         self.assertEqual(seals, 2)
         self.assertEqual(ast.dump(actual, include_attributes=False), ast.dump(expected, include_attributes=False))
-        changed = {'property_values', 'verify_spec', 'Pair', 'file_pin', 'main'}
+        changed = {'property_values', 'verify_spec', 'Pair', 'Capture', 'file_pin', 'main'}
         old = {n.name: ast.dump(n, include_attributes=False) for n in upstream.body
                if isinstance(n, (ast.FunctionDef, ast.ClassDef)) and n.name not in changed}
         new = {n.name: ast.dump(n, include_attributes=False) for n in current.body
@@ -274,6 +292,10 @@ class SourcePreservation(unittest.TestCase):
         self.assertEqual(ast.unparse(loop.body[2]),
                          "if server_properties_before is not None and row.get('path') == str(Path(spec['server']['cwd']) / 'server.properties'):\n"
                          "    path = verify_server_properties(row, server_properties_before, property_receipt, config_root)\n"
+                         "elif server_properties_before is not None and row.get('path') == str(Path(spec['server']['cwd']) / 'ops.json'):\n"
+                         "    path = verify_empty_ops_serialization(row, property_receipt, config_root)\n"
+                         "elif server_properties_before is not None and spec['target'] == 'unified' and row.get('path') == str(Path(spec['client']['cwd']) / 'config/fabric/indigo-renderer.properties'):\n"
+                         "    path = verify_indigo_timestamp(row, spec, property_receipt, config_root)\n"
                          "else:\n    path = file_pin(row, config_root)")
         loop.body[:3] = [ast.parse('path = file_pin(row)').body[0]]
         actual.body = [node for node in actual.body if not (

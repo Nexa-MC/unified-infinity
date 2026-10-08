@@ -96,6 +96,65 @@
       ],
       "phase": "snapshot",
       "pinSource": "retained timestamped snapshot provenance"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "bytes": 18226,
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "sha1": "e075af7907303f429165d2265d77c0ecac2adcab",
+      "urls": [
+        "https://cdn.modrinth.com/data/Wnxd13zP/versions/aeoQuGBI/Clumps-forge-1.21.1-19.0.0.1.jar"
+      ],
+      "phase": "neighbor-fixtures"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "bytes": 2617057,
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+      "sha1": "8def9206bada9c83fe91a5181c9ad13f4c8cbc4a",
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar"
+      ],
+      "phase": "forge-fixture"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "bytes": 58819,
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999",
+      "sha1": "1a7914b85a47ef9e8f333b694a6f8c0dc6a57db7",
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar"
+      ],
+      "phase": "forge-fixture"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "bytes": 19235,
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15",
+      "sha1": "e4df3a858ae2cb58be2705231a4d52e5cf0b133b",
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar"
+      ],
+      "phase": "forge-fixture"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "bytes": 122624,
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a",
+      "sha1": "6b4d30ef1af5c3250e3d3ef039bb86cba5cb4dc4",
+      "urls": [
+        "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar"
+      ],
+      "phase": "forge-fixture"
+    },
+    {
+      "path": "docs/four-loader/quilt/upstream/loader-0.30.1.jar",
+      "bytes": 3149891,
+      "sha256": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+      "urls": [
+        "https://maven.quiltmc.org/repository/release/org/quiltmc/quilt-loader/0.30.1/quilt-loader-0.30.1.jar"
+      ],
+      "phase": "neighbor-fixtures"
     }
   ]
 }

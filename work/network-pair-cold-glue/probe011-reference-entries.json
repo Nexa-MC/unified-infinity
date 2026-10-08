@@ -1,0 +1,14 @@
+{
+  "META-INF/MANIFEST.MF": "566ad1a80220026d05099562645ce968ff0e7c36cde22634332605bb34cc3eff",
+  "LICENSE": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc",
+  "META-INF/neoforge.mods.toml": "e531e1ce1b8e6b4f66feedfee0196ccdb1c82f7c066fdf55f739323db3f39877",
+  "dev/infinity/networkcontrol/NonceProbe$Input.class": "8e860d3265953c2f5586d71fc527bfe0c3fb4760a1500a85e8e66fe863b1872d",
+  "dev/infinity/networkcontrol/NonceProbe$ProbeFailure.class": "eeb336e889480371a39301f8a81098532af41a93035212ad0a1499a8241aca46",
+  "dev/infinity/networkcontrol/NonceProbe$Role.class": "f715d1214c4244b8ddabb75fae92b663e03385a535b4f2b3b7e9c0078c5d4e53",
+  "dev/infinity/networkcontrol/NonceProbe.class": "5edcff8265de0ec87b1404e716ee055401035e827667d4897888eadf175a3e71",
+  "dev/infinity/networkcontrol/NonceProbeClient.class": "dee190754c472714d4d6b3f3af7031ca4c4adae0224186fa0f2819aabc3d3b5a",
+  "dev/infinity/networkcontrol/NonceReply$1.class": "f4d47558dc6f7043e017dbc3cda45c074e899b16c91d99d84e5873b7c7c9c61c",
+  "dev/infinity/networkcontrol/NonceReply.class": "026944f6ad3459f7fcdcb834ccad4d0f0805c6c462ebbdd394402b7b63e04322",
+  "dev/infinity/networkcontrol/NonceRequest$1.class": "73cc05f5419bf4dcb11b74932a81f4cd5bd42e377ad4f78655e68fa89715134d",
+  "dev/infinity/networkcontrol/NonceRequest.class": "81f7e0ceb6d40f879bcec6454257f261988b4b6b1d70c01fefe8db9883b9df1a"
+}

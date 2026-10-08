@@ -33,6 +33,24 @@ JAVA_VERSION = '21.0.12.1+1'
 GRADLE_VERSION = '8.11.1'
 SOURCE_SHA = '65cf1c852d6e07226fcd7d2f66df8d202f3a6e70cd4d8f963c6dc40b28554909'
 JAVA_SHA = '2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d'
+MODDEV_CONFIG_SHA = 'f236f3c956bf90017c790ebd0be9de5502d1f2d603205a89590906e9bd03ad46'
+OFFLINE_CACHE = 'ci/runtime-restore/verified-mojang-text-resources.jar'
+OFFLINE_CACHE_IDENTITY = {'bytes': 17093553,
+                          'sha256': 'b44f21616601e8d71848661a7fb309efc279838c578dd7ea0a43a5281acbf691'}
+OFFLINE_TEXT_INPUTS = (
+    ('maven/minecraft/1.21.1/client_mappings.txt',
+     'source-workspace/gradle-cache/caches/neoformruntime/artifacts/minecraft_1.21.1_client_mappings.txt',
+     9598610, '140c47931cccc8fc9e4c22d7603e2d714d1a953a146f51ea7397d95c955536ec'),
+    ('maven/minecraft/1.21.1/server_mappings.txt',
+     'run/neoforge-native/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-mappings.txt',
+     7456063, '9d0b04bead421c8229aff14b534432bbc927bea642e7c8593d1276b8df8ba53f'),
+    ('maven/minecraft/1.21.1.json',
+     'source-workspace/gradle-cache/caches/neoformruntime/artifacts/minecraft_1.21.1_version_manifest.json',
+     38408, '458f2fbabc75a1cf79e5853c067f5ad95fca2163941c343b56c5c55b9127c8df'))
+INSTALLER_CLASSES = {
+    'net/minecraftforge/installer/Downloader$LocalSource.class': '436155517f37341e4931aa237f626954d7886e31778d2c3327e54d7ddbe0d71e',
+    'net/minecraftforge/installer/actions/PostProcessors.class': '620af85f1f5edf127c85319780c93cd1e3dfe425cf5f56af995645552b69cba1',
+    'net/minecraftforge/installer/SimpleInstaller.class': 'e357618612a213fd6fa3b0cb5979e2f91a601ceb2103d75bc9f1a54a744439ba'}
 REDIRECT_HOSTS = {'github.com', 'release-assets.githubusercontent.com',
                   'objects.githubusercontent.com', 'services.gradle.org',
                   'downloads.gradle.org', 'plugins.gradle.org', 'plugins-artifacts.gradle.org'}
@@ -112,6 +130,16 @@ def compose_lock(repo_root, meta):
         row['also_seed'] = [compile_path(p) for p in row.get('also_seed', [])]
         row['phase'] = 'toolchains' if row['kind'] == 'toolchain' else 'moddev-inputs'
         row['originalCompilePin'] = record
+        # The official module metadata lives in Mojang Meta. Preserve the
+        # original compile record and immutable identity in the derived lock.
+        if record['path'] == ('maven/net/neoforged/minecraft-dependencies/1.21.1/'
+                              'minecraft-dependencies-1.21.1.module'):
+            require(record['bytes'] == 151544 and record['sha256'] ==
+                    '211b1f95714cf1fb6f4a45612dd4bf731fb09795c30d4fb5f23c9fada6173332',
+                    'Official Minecraft metadata identity changed')
+            row['urls'] = ['https://maven.neoforged.net/mojang-meta/' +
+                           record['path'].removeprefix('maven/')]
+            row['routeCorrection'] = 'Verified official Mojang Meta repository; content pins unchanged'
         rows.append(row)
     for record in read(PUBLIC)['artifacts']:
         if record['phase'] != 'forge':
@@ -220,7 +248,9 @@ def gradle_command(api, project, init, tasks):
 def verification_metadata(repo, output, meta):
     # The complete original strict metadata already includes DevLaunch; the
     # 360-row download subset omitted it because compilation never needed it.
-    # Verify its three pins and preserve the whole XML byte-for-byte.
+    # Verify its three pins and retain every original checksum and setting.
+    # The official NeoForge module separately declares its ModDev JSON file;
+    # the recovered strict exporter added precisely this one checksum.
     source = repo / NONCE / 'probe/gradle/verification-metadata.xml'
     ns = {'v': 'https://schema.gradle.org/dependency-verification'}
     root = ET.parse(source).getroot()
@@ -234,7 +264,19 @@ def verification_metadata(repo, output, meta):
         if row.get('coordinate') == 'net.neoforged:DevLaunch:1.0.2':
             require(row['sha256'] in verified.get(Path(row['path']).name, set()),
                     'DevLaunch differs from unchanged original strict verification metadata')
-    put(output, source.read_text())
+    configs = [r for r in meta['supplementalArtifacts']
+               if Path(r['path']).name == 'neoforge-21.1.219-moddev-config.json']
+    require(len(configs) == 1 and configs[0]['bytes'] == 10209 and
+            configs[0]['sha256'] == MODDEV_CONFIG_SHA, 'Exact official ModDev config pin required')
+    marker = '<component group="net.neoforged" name="neoforge" version="21.1.219">'
+    text = source.read_text()
+    require(text.count(marker) == 1 and 'name="neoforge-21.1.219-moddev-config.json"' not in text,
+            'Original NeoForge verification component changed')
+    addition = ('\n      <artifact name="neoforge-21.1.219-moddev-config.json">\n'
+                '        <sha256 value="' + MODDEV_CONFIG_SHA +
+                '" origin="Verified official NeoForge module file declaration" />\n'
+                '      </artifact>')
+    put(output, text.replace(marker, marker + addition))
 
 
 INIT = '''import groovy.json.JsonSlurper
@@ -245,12 +287,15 @@ def mirror = new File(api, 'ci/runtime-maven').toURI()
 def lock = new JsonSlurper().parse(new File(api, 'ci/runtime-restore/input-lock.json'))
 settingsEvaluated { settings ->
     settings.pluginManagement.repositories.clear()
-    settings.pluginManagement.repositories.maven { url = mirror }
+    settings.pluginManagement.repositories.maven { url = mirror; metadataSources { gradleMetadata(); mavenPom() } }
 }
 allprojects {
     buildscript.repositories.clear()
-    buildscript.repositories.maven { url = mirror }
-    afterEvaluate { repositories.clear(); repositories.maven { url = mirror } }
+    buildscript.repositories.maven { url = mirror; metadataSources { gradleMetadata(); mavenPom() } }
+    afterEvaluate {
+        repositories.clear()
+        repositories.maven { url = mirror; metadataSources { gradleMetadata(); mavenPom() } }
+    }
     tasks.withType(JavaCompile).configureEach {
         options.forkOptions.memoryMaximumSize = '512m'
         options.forkOptions.jvmArgs = ['-XX:ActiveProcessorCount=1']
@@ -341,7 +386,8 @@ def prepare(repo_root, consumer_root):
     for name, root, flag in [('installer-client', 'run/client-dev', '--installClient'),
                              ('installer-native-server', 'run/neoforge-native', '--installServer')]:
         steps.append({'name': name, 'command': [java, '-Xmx512m', '-XX:ActiveProcessorCount=1',
-                      '-jar', installer, flag, str(api / root)],
+                      '-cp', installer + ':' + str(api / OFFLINE_CACHE),
+                      'net.minecraftforge.installer.SimpleInstaller', '--offline', flag, str(api / root)],
                       'cwd': str(api / root / 'installer-work'), 'environment': environment,
                       'timeoutSeconds': 1800, 'requiresExternalExecutionPolicy': True})
     steps.append({'name': 'export-official-client',
@@ -420,10 +466,69 @@ def restore(api_root):
                 module.validate(target, row)
         if restored_index % 64 == 0 or restored_index == len(lock['artifacts']):
             print('OFFICIAL_RUNTIME_INPUTS_VERIFIED: ' + str(restored_index) + '/' + str(len(lock['artifacts'])), flush=True)
+    prepare_offline_installer_cache(api)
     result = verify_inputs(api)
     result['restoredArtifacts'] = len(records)
     save(support / 'restore-result.json', result)
     return result
+
+
+def verify_offline_installer_cache(api):
+    cache = destination(api, OFFLINE_CACHE)
+    require(identity(cache) == OFFLINE_CACHE_IDENTITY, 'Offline text cache identity changed')
+    with zipfile.ZipFile(cache) as archive:
+        require(sorted(archive.namelist()) == sorted(r[0] for r in OFFLINE_TEXT_INPUTS),
+                'Unexpected offline text cache entry')
+        for entry, _, size, digest in OFFLINE_TEXT_INPUTS:
+            data = archive.read(entry)
+            require(len(data) == size and hashlib.sha256(data).hexdigest() == digest,
+                    'Offline text cache payload changed')
+    return pin(cache)
+
+
+def prepare_offline_installer_cache(api):
+    """Future restoration hook: reproduce the proven data-only resource archive."""
+    cache = destination(api, OFFLINE_CACHE)
+    if cache.exists() or cache.is_symlink():
+        return verify_offline_installer_cache(api)
+    installer = api / 'docs/research/upstream/neoforge-21.1.219-installer.jar'
+    require(identity(installer) == {'bytes': 6961236,
+            'sha256': '140df0fa17fd438848051ecfa3d091081515ad12bfe34fa126405037ba01de44'},
+            'Original official installer changed')
+    with zipfile.ZipFile(installer) as archive:
+        original_names = set(archive.namelist())
+        for name, digest in INSTALLER_CLASSES.items():
+            require(hashlib.sha256(archive.read(name)).hexdigest() == digest,
+                    'Pinned offline installer bytecode changed')
+    lock = json.loads((api / 'ci/runtime-restore/input-lock.json').read_text())
+    by_path = {name: row for row in lock['artifacts'] for name in
+               [row['path'], *row.get('also_seed', [])]}
+    payloads = {}
+    for entry, relative_path, size, digest in OFFLINE_TEXT_INPUTS:
+        source = destination(api, relative_path)
+        require(identity(source) == {'bytes': size, 'sha256': digest},
+                'Pinned offline text input changed')
+        row = by_path[relative_path]
+        data = source.read_bytes()
+        require(len(data) == row['bytes'], 'Original text input size changed')
+        for algorithm in ('sha256', 'sha1'):
+            if algorithm in row:
+                require(hashlib.new(algorithm, data).hexdigest() == row[algorithm],
+                        'Original text input digest changed')
+        require(entry not in original_names and '\x00' not in data.decode('utf-8'),
+                'Overlapping or non-text installer cache input')
+        payloads[entry] = data
+    require(sum(map(len, payloads.values())) < 20 * 1024 * 1024, 'Bounded text cache exceeded')
+    # Match the validated resource pack exactly; no class files, service entries,
+    # nested archives, installer changes or newly resolved inputs are permitted.
+    with zipfile.ZipFile(cache, 'x', compression=zipfile.ZIP_STORED) as archive:
+        for name in sorted(payloads):
+            info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.compress_type = zipfile.ZIP_STORED
+            info.external_attr = 0o644 << 16
+            archive.writestr(info, payloads[name])
+    return verify_offline_installer_cache(api)
 
 
 def verify_inputs(api_root):
@@ -460,9 +565,18 @@ def verify_inputs(api_root):
     index_assets = {r['hash'] for r in index['objects'].values()}
     require(expected_assets == index_assets and len(index_assets) == 3888,
             'Pinned asset objects do not cover the original index')
+    offline_cache = verify_offline_installer_cache(api)
     return {'status': 'VERIFIED_PUBLIC_INPUTS_ONLY', 'filesVerified': count,
             'inputLock': pin(api / 'ci/runtime-restore/input-lock.json'),
+            'offlineTextCache': offline_cache,
             'networkIsolationClaimed': False, 'gameLaunched': False}
+
+
+def verify_client_classpath(meta, export):
+    """Preserve the exact official client identity closure after export."""
+    expected = {(r['name'], r['sha256']) for r in meta['clientClasspathIdentities']}
+    actual = {(Path(r['path']).name, r['sha256']) for r in export['inputs']}
+    require(actual == expected and len(export['inputs']) == 95, 'Client classpath identity closure changed')
 
 
 def verify(api_root):
@@ -488,9 +602,7 @@ def verify(api_root):
     export = json.loads((client / 'client-launch-inputs.json').read_text())
     require(export['environment'] == {} and export['gameLaunched'] is False
             and export['mainClass'] == 'net.neoforged.devlaunch.Main', 'Unexpected official client export')
-    expected = {(r['name'], r['sha256']) for r in meta['clientClasspathIdentities']}
-    actual = {(Path(r['path']).name, r['sha256']) for r in export['inputs']}
-    require(actual == expected and len(export['inputs']) == 95, 'Client classpath identity closure changed')
+    verify_client_classpath(meta, export)
     for row in export['inputs']:
         path = Path(row['path'])
         require(path.is_absolute() and path.resolve() == path and path.is_relative_to(api),

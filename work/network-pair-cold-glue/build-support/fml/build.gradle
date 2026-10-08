@@ -1,0 +1,89 @@
+import groovy.json.JsonSlurper
+import java.security.MessageDigest
+plugins { id 'java-library' }
+group = 'net.neoforged.fancymodloader'
+version = '4.0.42-unified-source'
+base { archivesName = 'fml-loader' }
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) }; withSourcesJar() }
+sourceSets.main.java.srcDir('../admission-bootstrap/src/main/java')
+def repoRoot = projectDir.parentFile.parentFile
+def lockFile = file('provenance/compile-classpath-lock.json')
+def lock = new JsonSlurper().parse(lockFile)
+def pinnedCompileFiles = lock.artifacts.collect { new File(repoRoot, it.path) }
+dependencies { compileOnly files(pinnedCompileFiles) }
+// The processor runs separately from the canonical -proc:none class compile.
+// Annotation rounds can otherwise change javac's synthetic debug parameter names.
+def processorPins = [
+    'run/client-dev/libraries/org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar': '46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d',
+    'run/client-dev/libraries/org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar': '5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53'
+]
+processorPins.each { path, digest ->
+    if (lock.artifacts.count { it.path == path && it.sha256 == digest } != 1) {
+        throw new GradleException("Missing exact Log4j processor input: ${path}")
+    }
+}
+def pinnedProcessorFiles = processorPins.keySet().collect { new File(repoRoot, it) }
+def verifyCompileInputs = tasks.register('verifyCompileInputs') {
+    inputs.file(lockFile)
+    inputs.files(pinnedCompileFiles)
+    doLast {
+        lock.artifacts.each { pin ->
+            def input = new File(repoRoot, pin.path)
+            def digest = MessageDigest.getInstance('SHA-256')
+            input.withInputStream { stream -> byte[] bytes = new byte[65536]; int n; while ((n = stream.read(bytes)) >= 0) digest.update(bytes, 0, n) }
+            if (HexFormat.of().formatHex(digest.digest()) != pin.sha256) throw new GradleException("Changed FML compile dependency: ${pin.path}")
+        }
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    dependsOn verifyCompileInputs
+    options.release = 21
+    if (name != 'generateLog4jPluginCache') options.compilerArgs.add('-proc:none')
+    options.fork = true
+    options.forkOptions.memoryMaximumSize = '192m'
+    options.forkOptions.jvmArgs.add('-XX:ActiveProcessorCount=2')
+}
+def pluginResources = layout.buildDirectory.dir('generated/log4j-plugin-resources')
+def emptyProcessorSourcepath = layout.buildDirectory.dir('empty-log4j-sourcepath')
+def generateLog4jPluginCache = tasks.register('generateLog4jPluginCache', JavaCompile) {
+    dependsOn tasks.named('compileJava')
+    source file('src/main/java/net/neoforged/fml/loading/log4j/ForgeHighlight.java')
+    classpath = files(tasks.named('compileJava', JavaCompile).flatMap { it.destinationDirectory }, pinnedCompileFiles)
+    destinationDirectory = pluginResources
+    javaCompiler = javaToolchains.compilerFor(java.toolchain)
+    options.annotationProcessorPath = files(pinnedProcessorFiles)
+    options.sourcepath = files(emptyProcessorSourcepath)
+    options.compilerArgs.addAll(['-proc:only', '-processor', 'org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor',
+                                '-implicit:none'])
+    doFirst { emptyProcessorSourcepath.get().asFile.mkdirs() }
+    doLast {
+        def cache = destinationDirectory.file('META-INF/org/apache/logging/log4j/core/config/plugins/Log4j2Plugins.dat').get().asFile
+        if (!cache.isFile() || MessageDigest.getInstance('SHA-256').digest(cache.bytes).encodeHex().toString() != 'd0f0b5582b430acd1be817a94989f6eda13d359d6980dcdc1bb568408bcb76e6' || fileTree(destinationDirectory.get().asFile).files != ([cache] as Set)) {
+            throw new GradleException('Metadata-only Log4j output differs from the reviewed source/upstream registration')
+        }
+    }
+}
+sourceSets.main.resources.srcDir(pluginResources)
+tasks.named('processResources') { dependsOn generateLog4jPluginCache }
+tasks.named('sourcesJar') { dependsOn generateLog4jPluginCache }
+def installationResources = layout.buildDirectory.dir('generated/installation-resources')
+def prepareInstallationPolicy = tasks.register('prepareInstallationPolicy') {
+    def policy = providers.gradleProperty('unifiedInstallationPolicy')
+    if (policy.isPresent()) inputs.file(policy.get())
+    outputs.dir(installationResources)
+    doLast {
+        def output = installationResources.get().file('META-INF/unified-admission/installation.json').asFile
+        output.parentFile.mkdirs()
+        output.text = policy.isPresent() ? file(policy.get()).text : '{"schema":1,"approved":false}\n'
+    }
+}
+sourceSets.main.resources.srcDir(installationResources)
+tasks.named('processResources') { dependsOn prepareInstallationPolicy }
+tasks.named('jar', Jar) {
+    manifest.from(file('src/main/resources/META-INF/MANIFEST.MF'))
+    exclude('META-INF/MANIFEST.MF')
+    from('LICENSE-LGPL-2.1.txt') { into 'META-INF/unified-admission' }
+    from('MODIFICATIONS.md') { into 'META-INF/unified-admission' }
+}
+tasks.withType(Jar).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+// Full canonical source project. No cached FML binary or duplicate model JAR is packaged.

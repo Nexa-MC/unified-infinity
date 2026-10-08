@@ -1,4 +1,6 @@
-# Concrete cold native/Unified network diagnostic
+# Historical cold native/Unified network diagnostic
+
+The execution overview below records the original144-file preparation. Its first publication and failed early preflight are preserved. Current successor identities, dependency repairs and execution limits are described in [COHERENT-PAIR-SUCCESSOR.md](../../COHERENT-PAIR-SUCCESSOR.md); historical counts below are not the successor closure.
 
 This supersedes the earlier proposal's intentionally stopping preflight. The serial driver now contains the actual restoration, build, probe compilation, pair assembly, graphics handoff and supervisor invocations. It is prepared source, with successful Python-only staging checks. No cold download, JVM, graphics process, game, Git write or CI run has occurred during preparation. Publication remains paused and belongs to the reviewing publisher.
 
@@ -26,6 +28,6 @@ The new source code replaces the earlier missing orchestration rather than claim
 
 ## Review surface
 
-`network-pair.yml` is the concrete workflow source. The isolated publication tree contains it at `.github/workflows/network-pair.yml`, alongside a complete hash manifest. The proposed branch is exactly `diagnostic/network-pair-20261006-a`; it has not been reserved, pushed or run by this task. There are no main/PR/fork/schedule triggers.
+`network-pair.yml` is the concrete workflow source. The isolated publication tree contains it at `.github/workflows/network-pair.yml`, alongside a complete hash manifest. The existing deployment branch is exactly `diagnostic/network-pair-20261006-a`. Its first144-file version was published and ran; this successor has not been published or run. A future authorized update preserves that branch history by a normal fast-forward. There are no main/PR/fork/schedule triggers.
 
 The earlier full-module/render candidate remains game-unverified. A successful automated pair would establish the NeoForge host's typed network control only. QSL/Forge facade wire integration, manual GUI/tooltips, EMI recipe interaction, backpack rendering and full API compatibility remain separate claims.

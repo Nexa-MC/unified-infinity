@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile unchanged own probe against the genuine prepared client API; no game."""
+"""Compile recovered probe0.1.1 against the genuine prepared client API; no game."""
 import argparse
 import hashlib
 import json
@@ -11,8 +11,13 @@ import time
 import zipfile
 import bounded_process
 
-SOURCE_SHA='65cf1c852d6e07226fcd7d2f66df8d202f3a6e70cd4d8f963c6dc40b28554909'
-REFERENCE_JAR_SHA='dbecc6c97401ebc32d3231b061b5156c615a067186c07091c5cdacce4ce67bda'
+SOURCE_SHA='72120ff803ecda74f6d363702afb303d6d053ce22f9e9a7f3ade7782cf5db0ca'
+REFERENCE_JAR_SHA='791f6c303475ad9d32baaacc98f0350c027d6efe826dcd5aa9dc99a81da2918a'
+SOURCE_RELATIVE='work/api1/four-loader/network-control-probe-0.1.1'
+OUTPUT_RELATIVE='work/api1/ci/nonce-probe-0.1.1'
+ARTIFACT_NAME='network-control-probe-0.1.1.jar'
+REFERENCE_ENTRIES=Path(__file__).resolve().parent/'probe011-reference-entries.json'
+REFERENCE_ENTRIES_SHA='b24a51fd2589999b853754a35251fd16ae9667fe629b76a907149755afd98daa'
 TOOLS={'bin/java':'2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d',
        'bin/javac':'55859b80e7a9c4c4736be19ad3addeb35112ca6d17a30c4e0e116afc0a499bdb'}
 
@@ -32,21 +37,29 @@ def verify_source(source):
     manifest=json.loads((source/'source-manifest.json').read_text())
     for row in manifest['files']:
         path=source/row['path'];require(path.is_file() and not path.is_symlink() and path.stat().st_size==row['bytes'] and sha(path)==row['sha256'],'Changed probe source/resource')
+    expected={row['path'] for row in manifest['files']}|{'source-manifest.json'}
+    actual={str(p.relative_to(source)) for p in source.rglob('*') if p.is_file()}
+    require(actual==expected,'Probe source/resource closure differs')
     return manifest
+
+def verify_reference(entries,jar_sha):
+    require(sha(REFERENCE_ENTRIES)==REFERENCE_ENTRIES_SHA,'Probe reference entry manifest changed')
+    require(entries==json.loads(REFERENCE_ENTRIES.read_text()),'Probe compiled entry payload differs from accepted0.1.1')
+    require(jar_sha==REFERENCE_JAR_SHA,'Probe0.1.1 output differs; retain entries and stop for comparison')
 
 def prepare(repo_root,consumer_root):
     repo=Path(repo_root).resolve(strict=True);consumer=Path(consumer_root).resolve(strict=True)
-    source=repo/'work/network-ci-native-probe';manifest=verify_source(source)
-    target=consumer/'work/api1/four-loader/network-control-probe';require(not target.exists(),'Probe source already staged')
+    source=repo/'work/network-ci-native-probe011';manifest=verify_source(source)
+    target=consumer/SOURCE_RELATIVE;require(not target.exists(),'Probe source already staged')
     target.mkdir(parents=True)
     for row in manifest['files']:
         dest=target/row['path'];dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source/row['path'],dest)
     shutil.copyfile(source/'source-manifest.json',target/'source-manifest.json');verify_source(target)
     return {'status':'EXACT_PROBE_SOURCE_STAGED_NO_JVM','source':str(target),'sourceManifestSha256':SOURCE_SHA,'files':len(manifest['files']),
-            'output':str(consumer/'work/api1/ci/nonce-probe'),'gameLaunched':False}
+            'output':str(consumer/OUTPUT_RELATIVE),'gameLaunched':False}
 
 def inputs(api):
-    source=api/'four-loader/network-control-probe';verify_source(source)
+    source=api.parents[1]/SOURCE_RELATIVE;verify_source(source)
     runtime_path=api/'ci/runtime-restore/runtime-result.json';runtime=json.loads(runtime_path.read_text())
     require(runtime['status']=='OFFICIAL_RUNTIME_PREPARED_GAME_UNRUN' and runtime['nativeServerFiles']==95 and runtime['assetObjectsVerified']==3888,'Completed official runtime preparation required')
     export_path=Path(runtime['clientExport']['path']);require(sha(export_path)==runtime['clientExport']['sha256'],'Changed genuine client export')
@@ -66,7 +79,7 @@ def execute(consumer_root,deadline=None):
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')=='Nexa-MC/unified-infinity'
             and os.environ.get('GITHUB_REF')=='refs/heads/diagnostic/network-pair-20261006-a','Requires separately reviewed future pair CI')
     api=Path(consumer_root).resolve(strict=True)/'work/api1';source,jdk,classpath,rows,runtime_pin=inputs(api)
-    output=api/'ci/nonce-probe';require(not output.exists(),'Fresh nonce build output required');output.mkdir()
+    output=Path(consumer_root).resolve(strict=True)/OUTPUT_RELATIVE;require(not output.exists(),'Fresh nonce build output required');output.mkdir()
     main=output/'main-classes';test=output/'test-classes';empty=output/'empty-sourcepath'
     for path in (main,test,empty):path.mkdir()
     limits=['-Xms16m','-Xmx192m','-XX:MaxMetaspaceSize=64m','-XX:ReservedCodeCacheSize=32m','-XX:MaxDirectMemorySize=16m','-XX:ActiveProcessorCount=1','-XX:+UseSerialGC']
@@ -94,14 +107,14 @@ def execute(consumer_root,deadline=None):
              'META-INF/neoforge.mods.toml':(source/'src/main/resources/META-INF/neoforge.mods.toml').read_bytes()}
     for path in sorted(main.rglob('*.class')):
         name=str(path.relative_to(main));require(name.startswith('dev/infinity/networkcontrol/'),'Foreign compiled class');members[name]=path.read_bytes()
-    jar=output/'network-control-probe-0.1.0.jar'
+    jar=output/ARTIFACT_NAME
     with zipfile.ZipFile(jar,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
         for name,data in sorted(members.items()):
             info=zipfile.ZipInfo(name,(1980,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o100644<<16;archive.writestr(info,data)
     entries={name:hashlib.sha256(data).hexdigest() for name,data in members.items()}
     save(output/'entry-manifest.json',entries)
-    require(sha(jar)==REFERENCE_JAR_SHA,'Probe output differs from reviewed original; retain entries and stop for comparison')
-    result={'schema':1,'status':'PASS_COMPILE_REAL_CODEC_ONLY','checks':46,'sourceManifestSha256':SOURCE_SHA,
+    verify_reference(entries,sha(jar))
+    result={'schema':1,'status':'PASS_COMPILE_REAL_CODEC_ONLY','checks':46,'version':'0.1.1','sourceManifestSha256':SOURCE_SHA,
             'probeJar':{'bytes':jar.stat().st_size,'sha256':sha(jar)},'artifactPath':str(jar),'runtimeInputReceipt':runtime_pin,
             'classpathInputs':rows,'phases':phases,'gameLaunched':False,'networkAcceptance':False,'classLoadingInGame':False,
             'publicInputClosureVerifiedBeforeAndAfter':True,'packaging':'Same deterministic ZIP recipe and192MiB directjavac commands as the reviewed local reference'}

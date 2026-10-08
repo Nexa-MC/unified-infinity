@@ -1,0 +1,33 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.140'
+}
+
+if (gradle.gradleVersion != '8.11.1') {
+    throw new GradleException('This source diagnostic requires the pinned Gradle 8.11.1 distribution')
+}
+
+group = 'dev.infinity'
+version = '0.1.1'
+base { archivesName = 'network-control-probe' }
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+neoForge {
+    enable { version = '21.1.219'; disableRecompilation = true }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+tasks.named('jar') { from('LICENSE') }
+
+// Prepared only. This launches a JVM if explicitly invoked in the future CI tranche.
+// It is not a substitute for the separate client/server process test.
+tasks.register('probeCodecTest', JavaExec) {
+    dependsOn testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.infinity.networkcontrol.PreparedCodecTest'
+}

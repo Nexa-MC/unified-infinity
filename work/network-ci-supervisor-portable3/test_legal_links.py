@@ -161,7 +161,7 @@ class V2IntegratedInputs(unittest.TestCase):
         self.spec['jdk_legal_links'] = [{'path': str(alias), 'link_text': '../java.base/LICENSE',
                                        'resolved_path': str(target), 'jdk_root': str(self.root / 'jdk')}]
         before = s.capture_server_properties(self.spec)
-        s.verify_spec(self.spec, before)
+        s.verify_spec(self.spec, before, self.root / 'legal-poststart.json')
         target.write_bytes(b'changed legal bytes')
         with self.assertRaises(ValueError):
             s.verify_spec(self.spec, before)

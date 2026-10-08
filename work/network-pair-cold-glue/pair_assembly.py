@@ -2,7 +2,7 @@
 """Consumer-local pair fixtures and four launch seals; no JVM or network.
 
 The frozen assembly implementation remains authoritative. A recorded derivative
-changes only consumer receipt/profile locations and its exact input-lock hash.
+binds consumer receipts, the repaired FML tuple, and the exact probe 0.1.1.
 """
 from __future__ import annotations
 import argparse
@@ -17,6 +17,9 @@ import shutil
 import sys
 import zipfile
 import source_materialize
+import compile_probe
+import fml_metadata
+import forge_fixture
 
 SOURCE_AREA = 'work/network-pair-assembly-local1'
 SOURCE_PINS = {
@@ -33,7 +36,7 @@ IDENTITY = '54e5f302c1bad0de54a6845a50b128d6a2aa9f4fb9d44ec14c84c754d7fb21f6'
 TUPLE_PINS = {
     'service': '7fbabf5eb18b590bd5a30410d076fd814f11d03e8842e3327b4468217e275aa7',
     'game': '9dc29ac8a8030f629dd7afea8b744114504a552c4fce022c6199b23a1024e162',
-    'fml': '0281b9389e92c7f560fd1921f86ece8203e23ff7ebbbd2240f10c911e6546c26',
+    'fml': fml_metadata.FIXED_FML_SHA,
     'product': 'b20903f821455682ff5fee62491483e833252dc1a4f4caaa15bef51a356f1409',
 }
 SUPPORT = 'work/network-pair-cold-assembly'
@@ -182,8 +185,12 @@ def _input_receipts(root):
         'tuple': candidate / 'cold-built-tuple-artifacts.json',
         'baseReceipt': candidate / 'cold-fml-base-build-receipt.json',
         'buildResult': candidate / 'cold-build-result.json',
-        'probeResult': api / 'ci/nonce-probe/result.json',
-        'probeJar': api / 'ci/nonce-probe/network-control-probe-0.1.0.jar',
+        'probeResult': root / compile_probe.OUTPUT_RELATIVE / 'result.json',
+        'probeJar': root / compile_probe.OUTPUT_RELATIVE / compile_probe.ARTIFACT_NAME,
+        'candidateBinding': root / fml_metadata.AREA / 'candidate-identity.json',
+        'archiveComparison': root / fml_metadata.AREA / 'archive-comparison.json',
+        'fmlSourcePreparation': root / fml_metadata.AREA / 'source-preparation.json',
+        'forgeFixture': root / forge_fixture.SUPPORT / 'build-result.json',
     }
     missing = [str(p.relative_to(root)) for p in paths.values() if not p.is_file()]
     require(not missing, 'Missing fresh consumer build/runtime/probe inputs: ' + json.dumps(missing))
@@ -220,14 +227,20 @@ def _input_receipts(root):
     require(sha(api / '.toolchains/jdk-21.0.12.1+1/bin/java') == JAVA_SHA, 'Pinned Java executable differs')
     build = json.loads(paths['buildResult'].read_text())
     require(build['status'] == 'COLD_TUPLE_BUILT_CHECKED_GAME_UNRUN' and build['sourceIdentity'] == IDENTITY and
+            build['baseSourceIdentity'] == IDENTITY and build['candidateIdentity'] == fml_metadata.CANDIDATE_IDENTITY and
+            build['candidateIdentityKind'] == 'reviewed-artifact-equivalence-reference' and
+            build['fmlCompilationSources'] == 195 and build['identicalFmlClassCount'] == 309 and
+            build['generatedPluginCacheBytes'] == 101 and
             build['sourceRecords'] == 670 and build['dependencyRecords'] == 169 and build['duplicateClasses'] == 0 and
             build['splitPackages'] == 0 and build['gameLaunched'] is False, 'A fresh exact full-source build result is required')
+    require(build['forgeFixture'] == pins['forgeFixture'] == forge_fixture.verify_result(root),
+            'The exact source-built original Forge regression fixture must bind this core build')
     artifacts = json.loads(paths['tuple'].read_text())
     require(set(artifacts) == set(TUPLE_PINS) and artifacts == build['artifacts'], 'Unexpected rebuilt tuple roles')
     for role, row in artifacts.items():
         current = pin(local(root, row['path']))
         require(row['sha256'] == current['sha256'] == TUPLE_PINS[role], 'Exact rebuilt tuple changed: ' + role)
-    for key in ('coreBuildReceipt', 'productBuildReceipt'):
+    for key in ('coreBuildReceipt', 'productBuildReceipt', 'fmlBuildReceipt'):
         path = local(root, build[key])
         receipt = json.loads(path.read_text())
         require(receipt['status'] == 'PASS' and receipt['exitCode'] == 0 and receipt['gameTask'] is False, 'Required genuine bounded build receipt failed')
@@ -235,9 +248,17 @@ def _input_receipts(root):
         pins[key] = pin(path)
     base = json.loads(paths['baseReceipt'].read_text())
     require(base['artifact'] == artifacts['fml']['path'] and base['sha256'] == TUPLE_PINS['fml'] and
-            base['sourceIdentitySha256'] == IDENTITY and base['sourceBuildReceipt'] == build['coreBuildReceipt'],
-            'Fresh full-source FML base receipt differs')
+            base['sourceIdentitySha256'] == IDENTITY and base['sourceBuildReceipt'] == build['fmlBuildReceipt'] and
+            base['baseBuildReceipt'] == build['coreBuildReceipt'] and
+            base['historicalFmlSha256'] == fml_metadata.BASE_FML_SHA and
+            base['candidateIdentity'] == fml_metadata.CANDIDATE_IDENTITY and
+            base['candidateBinding'] == build['candidateBinding'] == pins['candidateBinding'],
+            'Fresh full-source repaired FML receipt differs')
+    verify_candidate_binding(root, paths, pins, build, base, artifacts)
     probe = json.loads(paths['probeResult'].read_text())
+    require(probe.get('version') == '0.1.1' and probe.get('sourceManifestSha256') == compile_probe.SOURCE_SHA and
+            sha(paths['probeJar']) == compile_probe.REFERENCE_JAR_SHA,
+            'The exact source-built probe 0.1.1 is required')
     require(probe.get('artifactPath') == str(paths['probeJar']) and probe.get('runtimeInputReceipt') == pins['runtimeResult'],
             'Probe receipt must bind this fresh consumer artifact and runtime preparation')
     require([phase['name'] for phase in probe['phases']] == ['compile-main', 'compile-test', 'codec-test'],
@@ -253,14 +274,70 @@ def _input_receipts(root):
     return paths, pins
 
 
+def verify_candidate_binding(root, paths, pins, build, base, artifacts):
+    """Recheck local source/receipt binding and exact base-to-repaired BOOT delta."""
+    binding = json.loads(paths['candidateBinding'].read_text())
+    digest = binding.pop('consumerBindingSha256')
+    require(hashlib.sha256(json.dumps(binding, sort_keys=True, separators=(',', ':')).encode()).hexdigest() == digest,
+            'Consumer candidate binding digest differs')
+    require(binding['candidateIdentity'] == fml_metadata.CANDIDATE_IDENTITY and
+            binding['baseSourceIdentity'] == IDENTITY and
+            binding['candidateIdentityKind'] == 'reviewed-artifact-equivalence-reference' and
+            binding['artifacts'] == artifacts and binding['buildReceipt'] == pins['fmlBuildReceipt'] and
+            binding['archiveComparison'] == build['archiveComparison'] == pins['archiveComparison'] and
+            binding['sourcePreparation'] == pins['fmlSourcePreparation'], 'Candidate binding belongs to another build')
+    source = fml_metadata.verify_sources(root)
+    require(source == binding['sourceInputs'], 'FML compilation source binding changed')
+    dependencies, official = fml_metadata.verify_dependencies(root)
+    require(dependencies == binding['dependencies'] and official == binding['officialFmlReference'],
+            'Pinned FML source compile inputs changed')
+    historical = binding['historicalArtifacts']
+    require(set(historical) == set(TUPLE_PINS), 'Historical tuple roles differ')
+    for role, row in historical.items():
+        expected = fml_metadata.BASE_FML_SHA if role == 'fml' else TUPLE_PINS[role]
+        require(pin(local(root, row['path']))['sha256'] == row['sha256'] == expected,
+                'Fresh base output changed: ' + role)
+    comparison = fml_metadata.compare_archives(historical['fml']['path'], artifacts['fml']['path'], official['path'])
+    require(json.loads(paths['archiveComparison'].read_text()) == comparison, 'FML archive comparison differs')
+    require(pin(local(root, binding['sourcesJar']['path'])) == binding['sourcesJar'], 'Fresh FML sources JAR changed')
+    java_sources = {str(Path(row['path']).relative_to(root / 'work/api1/source-workspace')): row['sha256']
+                    for key in ('fixedSources', 'sharedSources') for row in source['sources'][key]
+                    if '/src/main/java/' in row['path'] and row['path'].endswith('.java')}
+    require(len(java_sources) == 195 and base['sources'] == base['compilationSources'] == java_sources,
+            'FML receipt must bind the 195 sources actually compiled')
+
+
+def prepare_profile_helper(root):
+    """Keep the archived four-mod fixture helper intact; bind only probe 0.1.1."""
+    original = root / 'work/network-pair-ci-next/prepare_profiles.py'
+    path = root / SUPPORT / 'prepare_profiles_probe011.py'
+    text = original.read_text()
+    substitutions = [
+        ("SOURCE_MANIFEST = '65cf1c852d6e07226fcd7d2f66df8d202f3a6e70cd4d8f963c6dc40b28554909'",
+         "SOURCE_MANIFEST = '" + compile_probe.SOURCE_SHA + "'", 1),
+        ("'network-control-probe-0.1.0.jar'", repr(compile_probe.ARTIFACT_NAME), 1),
+    ]
+    for before, after, count in substitutions:
+        require(text.count(before) == count, 'Frozen profile helper substitution shape changed')
+        text = text.replace(before, after)
+    write_missing(path, text.encode())
+    write_missing(root / SUPPORT / 'profile-helper-derivation.json',
+                  (json.dumps({'schema': 1, 'original': pin(original), 'derivative': pin(path),
+                               'changes': [{'before': a, 'after': b, 'occurrences': n} for a, b, n in substitutions],
+                               'sourceManifestSha256': compile_probe.SOURCE_SHA,
+                               'expectedProbeSha256': compile_probe.REFERENCE_JAR_SHA,
+                               'gameLaunched': False}, indent=2) + '\n').encode())
+    return path
+
+
 def _prepare_profiles(root, paths, offline_identity_reference, eula_reference):
     for reference in (offline_identity_reference, eula_reference):
         require(isinstance(reference, str) and 0 < len(reference) <= 512 and '\n' not in reference,
                 'Existing authorization references are required for the virtual identity and accepted EULA')
     area = root / PROFILES
     require(not area.exists(), 'Refusing an existing pair profile preparation')
-    source = root / 'work/api1/four-loader/network-control-probe'
-    helper = root / 'work/network-pair-ci-next/prepare_profiles.py'
+    source = root / compile_probe.SOURCE_RELATIVE
+    helper = prepare_profile_helper(root)
     fixture = module('pair_consumer_profiles', helper)
     result = {}
     for target in ('native-neoforge', 'unified'):
@@ -310,6 +387,7 @@ def assemble(repo_root, consumer_root, output=None, *, offline_identity_referenc
     static_paths = [row['originalRelativePath'] for row in required['files']]
     static_paths.append('work/api1/four-loader/launch-support/game_environment.py')
     records = [pin(root / p) for p in static_paths] + list(dynamic.values()) + list(fixtures.values())
+    records += [pin(root / SUPPORT / 'prepare_profiles_probe011.py'), pin(root / SUPPORT / 'profile-helper-derivation.json')]
     rows = []
     for record in records:
         path = local(root, record['path'])
@@ -361,6 +439,9 @@ def assemble(repo_root, consumer_root, output=None, *, offline_identity_referenc
     result = {'schema': 1, 'status': 'COLD_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN',
               'consumerRoot': str(root), 'assemblyRoot': str(out), 'assemblyResult': pin(out / 'assembly-result.json'),
               'roleCount': 4, 'groups': assembled['groups'], 'profiles': fixtures,
+              'baseSourceIdentity': IDENTITY, 'candidateIdentity': fml_metadata.CANDIDATE_IDENTITY,
+              'candidateIdentityKind': 'reviewed-artifact-equivalence-reference',
+              'probeVersion': '0.1.1', 'probeSha256': compile_probe.REFERENCE_JAR_SHA,
               'derivation': pin(support / 'derivation.json'), 'inputLock': lock_pin,
               'requiredTextFiles': preparation['requiredTextFiles'],
               'jvmStarted': False, 'gameLaunched': False, 'networkAcceptance': False,

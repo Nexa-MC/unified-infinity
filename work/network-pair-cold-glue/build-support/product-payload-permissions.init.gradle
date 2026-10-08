@@ -1,0 +1,17 @@
+// Reproduce the original PRODUCT ZIP metadata only; filesystem modes stay untouched.
+def api = new File(System.getenv('PAIR_API_ROOT'))
+def historicalPayloads = [
+    'docs/research/upstream/ffapi-baseline.jar',
+    'docs/four-loader/quilt/upstream/qsl_base-alpha5.jar',
+    'docs/four-loader/quilt/upstream/lifecycle_events-alpha5.jar',
+    'docs/four-loader/quilt/upstream/qsl-alpha5-artifacts/tooltip.jar'
+].collect { new File(api, it).canonicalFile }.toSet()
+allprojects {
+    afterEvaluate {
+        tasks.named('jar').configure {
+            eachFile { details ->
+                if (historicalPayloads.contains(details.file.canonicalFile)) details.mode = 0600
+            }
+        }
+    }
+}

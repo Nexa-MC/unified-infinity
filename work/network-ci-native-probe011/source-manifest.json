@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1091,
+      "sha256": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc"
+    },
+    {
+      "path": "PROVENANCE.json",
+      "bytes": 13960,
+      "sha256": "b01bf68a45032f81b5c50589fd8cc2cce0566a9f29e8a9fe6d6572af6a784e76"
+    },
+    {
+      "path": "README.md",
+      "bytes": 10405,
+      "sha256": "968d8c65e1cec845bfc5c9cc6635c9d40eb8219e94b74d32b173a07b750ce601"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 1063,
+      "sha256": "8cb28a3a6746e60e8a3a322d3bb13ebdd9740411b5f40ee0f487220f28c7670f"
+    },
+    {
+      "path": "gradle/verification-metadata.xml",
+      "bytes": 197245,
+      "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 311,
+      "sha256": "175642bb790475fe367024eae6bfcf9436d9e2ccc73304edeab1e971e80ce028"
+    },
+    {
+      "path": "gradle.properties",
+      "bytes": 176,
+      "sha256": "611299f50709cf84f013bda519f2ed68479927fa0721207e23a745c3dbff7b88"
+    },
+    {
+      "path": "protocol-schema.json",
+      "bytes": 10527,
+      "sha256": "702565002e3acdf9dcb475f15242e9bbe2e6636a7c6cdef70e334b2c524e840b"
+    },
+    {
+      "path": "settings.gradle",
+      "bytes": 181,
+      "sha256": "6682da512209e782fa5a519385a50c9c9b890fba5748e576fedaf53b612ecb29"
+    },
+    {
+      "path": "src/main/java/dev/infinity/networkcontrol/NonceProbe.java",
+      "bytes": 13723,
+      "sha256": "7953143c51da07de058193dc5330794b9e41d9182bf69b6bb350fc9dee16a106"
+    },
+    {
+      "path": "src/main/java/dev/infinity/networkcontrol/NonceProbeClient.java",
+      "bytes": 7011,
+      "sha256": "0a58a2892b2bf6ae9ea7e256b373d5ab6cb08c03233e91123c630a190694efb7"
+    },
+    {
+      "path": "src/main/java/dev/infinity/networkcontrol/NonceReply.java",
+      "bytes": 1477,
+      "sha256": "b0aeb0ff146b938bf163f8ba3d3b800725d5ef2fdc17849f2794c62087c1bf87"
+    },
+    {
+      "path": "src/main/java/dev/infinity/networkcontrol/NonceRequest.java",
+      "bytes": 1388,
+      "sha256": "e598d8e93e77a3a4864a7f8411a8575af7d3ab2c6f6d604c2f2e25f2a6b66ba8"
+    },
+    {
+      "path": "src/main/resources/META-INF/neoforge.mods.toml",
+      "bytes": 497,
+      "sha256": "e531e1ce1b8e6b4f66feedfee0196ccdb1c82f7c066fdf55f739323db3f39877"
+    },
+    {
+      "path": "src/test/java/dev/infinity/networkcontrol/PreparedCodecTest.java",
+      "bytes": 5093,
+      "sha256": "84a6aa53aec28d3654461bc2c1443c105494cf91ab1a8feceab80aa116cfa5fc"
+    },
+    {
+      "path": "verify_source.py",
+      "bytes": 3818,
+      "sha256": "b9df26983fb0f8d876c3eb129e4dd1a687d4efe974fc67bcae43c61d6d9b94e6"
+    }
+  ]
+}

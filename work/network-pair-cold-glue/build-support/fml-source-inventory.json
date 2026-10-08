@@ -1,0 +1,2459 @@
+{
+  "schema": 1,
+  "recoveredInputLockSha256": "d8d80803ad5dbcf6ca18621fa4ce5d60105ee1e8adf06cef17b855ceffdf2f18",
+  "originalSources": [
+    {
+      "path": "LICENSE-LGPL-2.1.txt",
+      "bytes": 26526,
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "path": "MODIFICATIONS.md",
+      "bytes": 1484,
+      "sha256": "95f9ac5f997fb40226e6fd8eb7d7c52c3ad601a6cd642238aca49d095348646c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1155,
+      "sha256": "cebb675e4407dbc7ef689210ed031ee6c5666b28029e3b766e68453039465f01"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 2736,
+      "sha256": "2564872367a6a68d9d1a14103d22822311b72cc7dad2a7ceed89a40e276acb08"
+    },
+    {
+      "path": "provenance/DevLaunch-1.0.2-sources.jar",
+      "bytes": 2135,
+      "sha256": "a7b173d5f64f06cc19f398e2c3a3fcfa995736096b1a4de61175bef0b3edde5d"
+    },
+    {
+      "path": "provenance/JarJarSelector-0.4.1-sources.jar",
+      "bytes": 5352,
+      "sha256": "48f49141fbe2db076e7dab02cb0f16aae4311b2caa7ff3e5ef5c2d284c440b1f"
+    },
+    {
+      "path": "provenance/bootstraplauncher-2.0.2-sources.jar",
+      "bytes": 5567,
+      "sha256": "d148fae013b890a08061cd0407bcdba9b836d4ddc6135f869d2c8b80913f056c"
+    },
+    {
+      "path": "provenance/compile-classpath-lock.json",
+      "bytes": 23241,
+      "sha256": "9471fe1033f2af3811f8307b96b5b1bdbbcb6c11a8ee90e8d33c7bb97485a7f4"
+    },
+    {
+      "path": "provenance/jarjar-source.json",
+      "bytes": 468,
+      "sha256": "b0327a492cfd2de46558c3986722bc46d1a132c85047be94225db3da8917f95b"
+    },
+    {
+      "path": "provenance/static-source-check.json",
+      "bytes": 1388,
+      "sha256": "8df54ebd725be6c35d41aa4b39b1f6fc7fd6a5a40930ded453cd82bc157d4df1"
+    },
+    {
+      "path": "provenance/upstream-source.json",
+      "bytes": 53654,
+      "sha256": "a583830cc1ce7d47800ef3ca4f5dd5bb71c01b1792300b10d8403a7b6eaac606"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/CrashReportCallables.java",
+      "bytes": 3510,
+      "sha256": "89f93c39a651ed7d0671aae0a7ce3f5cc35ac1cc99b488f8a7eb17824bd76c97"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/DeferredWorkQueue.java",
+      "bytes": 4374,
+      "sha256": "3468c2c643c54d071a4e21c9c5316b01d5833aba1b08831063e1cf6c3fc7cc33"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/IBindingsProvider.java",
+      "bytes": 306,
+      "sha256": "346e28b859bda8ad68f52c69ecd7f0115de8c9f20d168bd3e42d0eb1d8073839"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ICrashReportHeader.java",
+      "bytes": 540,
+      "sha256": "553b485f1c00b8f0eab7ede5283d17452fa3a094a76194b7cd05dabcd5b4f749"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/IExtensionPoint.java",
+      "bytes": 709,
+      "sha256": "96532829fe39ce7cc8a009325d397d7e383b521cc54ccf688600d49ce07d7558"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ISystemReportExtender.java",
+      "bytes": 391,
+      "sha256": "2b516f21038ef37a3df48434441d0a29c736aa2f3e8f740e4a41e0dfe50fd3fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/InterModComms.java",
+      "bytes": 5672,
+      "sha256": "c42c0007295b90140cab22ce97a07c5e4f2fa2c23c1af07fa1a71da69085e951"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/Logging.java",
+      "bytes": 898,
+      "sha256": "f154500787538648a5cc687ddc7afaacf6da84b822346254bb9504e5acf54bcf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/LogicalSide.java",
+      "bytes": 1460,
+      "sha256": "15b993aef8a13182ee1166fec50d7f48682480d98ce34afa036fa97b3b2c1517"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModContainer.java",
+      "bytes": 6837,
+      "sha256": "f36e326da0b19624e147efbcdd3db29b5c10cbb564763e30b3b73e73f8777dc9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModList.java",
+      "bytes": 7371,
+      "sha256": "7df42aa8eb6cfb9233e598333f04459d0ecd3eee80e45e308051ef89f996fc2f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoader.java",
+      "bytes": 21693,
+      "sha256": "07842948a9969d68aafcf34bbe4d67804ab05292fcc4e51bec392e89187d3dfa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingContext.java",
+      "bytes": 1371,
+      "sha256": "f3aeacf413939769d4b98b3ae98971d8bc7b8adb75a85219579984d2cd007c5f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingException.java",
+      "bytes": 1913,
+      "sha256": "d66c2fae09f3f1e07fee3d53182fd3bd94fb3640e197fca840bbdb7420350ab4"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingIssue.java",
+      "bytes": 3403,
+      "sha256": "d3d75cff39ec4329a3f716d08e893d33427fb95d4913a742b4033f5178e2dcdf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModWorkManager.java",
+      "bytes": 2062,
+      "sha256": "6f9bee3437eb3e56a34b42f28aa727dc10e801d6d6d272adc0a47bf1672db33c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/VersionChecker.java",
+      "bytes": 10577,
+      "sha256": "0144b0db141e70f8d476005b586fedf16a04ae9e4f4c94f0aeecef3692155b09"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/EventBusSubscriber.java",
+      "bytes": 3453,
+      "sha256": "95065607ee6e1063f118e9d0c53ab5b0c7acbd1e121b1a6c387f8ed77ac10500"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/Mod.java",
+      "bytes": 1483,
+      "sha256": "3e136fee675697eeeb27a6c9a89d4359eddf1f7d803ac18937babce175eb70c2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/ListGeneratorAdapter.java",
+      "bytes": 650,
+      "sha256": "1815ddc76b44988da06ba4102a4d47bdacdfa2da3eb68a988b82e63a350dd391"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/RuntimeDistCleaner.java",
+      "bytes": 8830,
+      "sha256": "05a43de15b0a2305ad4709e00a6c794d917adf7c655957b1c5b29ec592fa343f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumParameters.java",
+      "bytes": 482,
+      "sha256": "fd2cffbdcb7eb15c6f303985f06448419daebfb80c7e776e93d0a91dc8af96fa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumPrototype.java",
+      "bytes": 9163,
+      "sha256": "27d5b8953e443a74fee9d00f5cc90bf5c07208c9024eccc8bec5862f266761ca"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumProxy.java",
+      "bytes": 1654,
+      "sha256": "8aaacdae1591ac5821a741ff8f51983e332e344b841ee3a4d3e63975dcb98f78"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/ExtensionInfo.java",
+      "bytes": 1077,
+      "sha256": "331bcfc418a6b0848f7b7123f64712b0c8d9a90810fbcbb207d96404bfc2cd35"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/IExtensibleEnum.java",
+      "bytes": 1045,
+      "sha256": "9209591fbca1388671b1802a5fc79589f592581942ad9e7e63b83e39880cbf2b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/IndexedEnum.java",
+      "bytes": 499,
+      "sha256": "42a3683aeff9297313058801cca117e4e3c9c770e3a014bf4231f4f2948b964e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/NamedEnum.java",
+      "bytes": 540,
+      "sha256": "49e000a1753797bd9be491293f6f7c579d8c5aac877e6ce8bf5eb11dca762e69"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/NetworkedEnum.java",
+      "bytes": 1360,
+      "sha256": "ac6924c980c662404db2cc0438f6021a82d9355b2b5d81aaa9bdb4f1aea5e2e7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/ReservedConstructor.java",
+      "bytes": 459,
+      "sha256": "865f8b12666a248259d6ae4f56e4f852b307365d805ff2a42a990909956ae06e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/RuntimeEnumExtender.java",
+      "bytes": 24124,
+      "sha256": "66a780f593dde40b0fe159480d41b34635d2ed5b55bf52903e581d45de43ba69"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ConfigTracker.java",
+      "bytes": 14259,
+      "sha256": "a817d69ec9fb9e82b2ee5abbe0625d21b19b308970599d5626f73ba7fe9d9b8f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ConfigWatcher.java",
+      "bytes": 1408,
+      "sha256": "bf854ba00b2b0da3e11775f6d21cff8635bb6a69edc52fcbc8e1d83a7b11e708"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/IConfigSpec.java",
+      "bytes": 2880,
+      "sha256": "df0505965e3dcfc073beb47baea5b009dcf0c7e4cfcf221d3f74ca0a1f9ac947"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/LoadedConfig.java",
+      "bytes": 773,
+      "sha256": "d152fde783ed68a66f4e5d080d18814c2280e981629a6b63454601da670ecb58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ModConfig.java",
+      "bytes": 4165,
+      "sha256": "12be8b71028a88d3974267061af3ef07ce2d9d1c528f45e495e93cbed071ab5a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ModConfigs.java",
+      "bytes": 1475,
+      "sha256": "b0807e23ceb87ebc5433d8956fba02df66b38462954806f3fa348aa36e74b607"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/IModBusEvent.java",
+      "bytes": 286,
+      "sha256": "2b300dcd2f61fc97c0e0b0c4627669b7583c4db9677af29080d08fcd900a6982"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/config/ModConfigEvent.java",
+      "bytes": 1736,
+      "sha256": "7aaade589b35e468931ab2dbd775396d2d11af82fa255a944c8d39e2fe78051c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLClientSetupEvent.java",
+      "bytes": 879,
+      "sha256": "2818de9c6001960364e60b7f97ef0d15bc296e160cc3c8d6cf3fcb93fdbda031"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLCommonSetupEvent.java",
+      "bytes": 1289,
+      "sha256": "d313c7da038b60059268ffa85e153150edb6aef9988147ccbc4ce7ee16a94391"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLConstructModEvent.java",
+      "bytes": 448,
+      "sha256": "4b66ac8ee7765c19814c67fe7899ad3f3eceecbc5a3d3160904e93f2928bf430"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLDedicatedServerSetupEvent.java",
+      "bytes": 1138,
+      "sha256": "f60f1c61cf772c99d5df9b3dd8f59e2cb15796e0634b1d32ae8922dd7f9f476d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLLoadCompleteEvent.java",
+      "bytes": 659,
+      "sha256": "4e1071d8153bc9e6805289f6ad7bddbdff2b85f0dba00e851e1f201a8a4f550b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/InterModEnqueueEvent.java",
+      "bytes": 826,
+      "sha256": "38c19861883dab9c989f4219cde22a0601619bc781ad93176b255c8bb2d5fd61"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/InterModProcessEvent.java",
+      "bytes": 889,
+      "sha256": "e8b337afd61e577e94be95dc515e9b38929b1634daabaeb682cf8a47a8b14cab"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/ModLifecycleEvent.java",
+      "bytes": 1360,
+      "sha256": "79a3d6a372c99c8522a711de9fdfce06adfcc8e948d2ccf5bf3b0ea338c0fca3"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/ParallelDispatchEvent.java",
+      "bytes": 861,
+      "sha256": "727c482cb6eec415f5c2c12f4173020cf0d45d883df2c3d302c457cc29efb10f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/FMLTranslations.java",
+      "bytes": 11614,
+      "sha256": "c5257ef7dfe26138a823c880a19ff7a6e3b9a5b144945c50793c08e6a7a0bfa2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/I18nManager.java",
+      "bytes": 1552,
+      "sha256": "3e6abcc337d3d3dd9eafb04dd8e8fbfd0a74a3a61fb82cd0a5dc7fdd438e3d33"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/MavenVersionTranslator.java",
+      "bytes": 3133,
+      "sha256": "6a468ad52992aa2fd4b54d30055b8df5841b6335c81a79016387ba837a36a220"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/AutomaticEventSubscriber.java",
+      "bytes": 6757,
+      "sha256": "ce30ec13a45327b6ee8918695b7a867ca661f28b0e95ffd86f063398949afd36"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/FMLJavaModLanguageProvider.java",
+      "bytes": 2545,
+      "sha256": "9be9fbc90070d7bb27543f04084822c56b9b909c9f89dbe3e4f68a5e0cdf7ec0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/FMLModContainer.java",
+      "bytes": 6490,
+      "sha256": "495e5777b85d06c496646f3da150c5544dd8fc45ee3c35e5d200f36be7108701"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/BackgroundWaiter.java",
+      "bytes": 1062,
+      "sha256": "658b2cc7e0b97edc9933db4a7594cd1d8f9b3f6e38f71a9b3543795a5adcd5aa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/BuiltInLanguageLoader.java",
+      "bytes": 840,
+      "sha256": "04b2e205ff98108c1d78bfea6b5c626d082c1d2426e084a4bcf4b98edf31aa17"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ClasspathLocatorUtils.java",
+      "bytes": 1504,
+      "sha256": "59ae59c006c49ad2fa3769c5b14101e970f70e5d53b751b5e5b0fae6eca25372"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ClasspathTransformerDiscoverer.java",
+      "bytes": 3388,
+      "sha256": "c6349acd3f0a2541aeb6c3e7711ddf7bd96339df8b5aa73cc6c4abcf51b06378"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/CoreModScriptLoader.java",
+      "bytes": 2648,
+      "sha256": "42d6cb0c359c1cd472fe3ed19b4130c5a2eaa046160283a65be07cc64872f185"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLConfig.java",
+      "bytes": 12286,
+      "sha256": "5eb57aa39b4274e049d55864a7ac88aac3fc1aae7bb7b21d2bd357919c255d4b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLEnvironment.java",
+      "bytes": 649,
+      "sha256": "3970dc0b478dd8572270bf9e0d6c8c223377c2cd8283e92ee95a7f44a5f8687c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLLoader.java",
+      "bytes": 10526,
+      "sha256": "eafd4f92dc3b8622535b37d8883c8af2e3cb612be66b020d36066d4d66c2341a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLPaths.java",
+      "bytes": 2674,
+      "sha256": "ae9dc95511cf4491996c9600be0815b682426467b09b05eeef65a7b7121c719a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLServiceProvider.java",
+      "bytes": 8737,
+      "sha256": "8dcabefc8e801e19370e8ed376dc11dbfae52713f4a221c98b782b03beee8470"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FileUtils.java",
+      "bytes": 925,
+      "sha256": "984f86e53209b5d20f9f7fc23ea53b245f85439d2474d7423a3db4377582c03d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ImmediateWindowHandler.java",
+      "bytes": 8091,
+      "sha256": "64ec9fba0400fcf8d0a34feba5013c16eb7d8bc81a382a464e7c1eca2640a689"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/JarVersionLookupHandler.java",
+      "bytes": 558,
+      "sha256": "7a737e7803059aa3fd4c685c5015e714a8ff060429497d5ad40e7a16b370616e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LanguageProviderLoader.java",
+      "bytes": 4255,
+      "sha256": "717e6fa361847eca1273fe74056f4182b829ada32319cbc738ac3bfdb5ceca40"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LaunchContext.java",
+      "bytes": 4193,
+      "sha256": "ab658f0906c033506bb9bc54868c53c7cc06d42db2fcdd637c133c4b7b7d57a4"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LauncherVersion.java",
+      "bytes": 428,
+      "sha256": "5f96631147611a04e1044d14c950c33b9d21d51a74768eabb7b2f17afef9f242"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LibraryFinder.java",
+      "bytes": 1126,
+      "sha256": "a13227b41da72a16e9e80a516e5258a8e028107143fa235476f5f81d37ffba36"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LoadingModList.java",
+      "bytes": 8220,
+      "sha256": "2d5a1b2b1ea3010562e70eb7f326af4a23db26fd114823c78d33deb9978e4ebc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LogMarkers.java",
+      "bytes": 522,
+      "sha256": "6c7fac5d89d788c265ea0f562c4ff60dca778631270a126688aca988d513ec6f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/MavenCoordinate.java",
+      "bytes": 2986,
+      "sha256": "de27bf718e28f4d38311a9393545de695517b7d447fbb55f30807d909410d91b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/MavenCoordinateResolver.java",
+      "bytes": 807,
+      "sha256": "8c09b438c3b509a64a7a468da441813a10c458754e0aa53c6a4ae9b81515fcf1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ModDirTransformerDiscoverer.java",
+      "bytes": 4066,
+      "sha256": "446690311edf4bce49e1c5aafe98cb6f9356b3036e3c0e6b895107be74635f4a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ModSorter.java",
+      "bytes": 18562,
+      "sha256": "aa40cf7d614429d583b003a0b31f8d0a7d8768c8a70e1be713e9a2d7bf92dd61"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/StringSubstitutor.java",
+      "bytes": 1730,
+      "sha256": "736e94217bd9693b11e016449f6ed67155362a7f1f6b050b07d1971f86bb2186"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/StringUtils.java",
+      "bytes": 1625,
+      "sha256": "95a82111749190b4b2d131501039546ca13d1f4ea1ffb37919bb9b9d3f17cb1c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/TracingPrintStream.java",
+      "bytes": 2112,
+      "sha256": "9f16ed80ae9faf521eac3860a01633ede968fb7463a133c1309c6d3b4e319ccb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/TransformerDiscovererConstants.java",
+      "bytes": 2562,
+      "sha256": "cd5c26866d36e4b0ee345e8ef7c815ea9490d91e5877cccdc4c99cd57491d9c7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/UniqueModListBuilder.java",
+      "bytes": 6249,
+      "sha256": "7a4db33bebdada0f28d29ab4fba05e30971367c33ba1ed3d7ef0c508ea38b1c0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/VersionInfo.java",
+      "bytes": 443,
+      "sha256": "b2a09c1500ef0c10202d549cb97fcfcb340f3d365596f233820aaeb691ff3ce8"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/VersionSupportMatrix.java",
+      "bytes": 1709,
+      "sha256": "a39dcd636dde637729376078fe156334c9424d38882c389defd633f65a1aaaf9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/log4j/ForgeHighlight.java",
+      "bytes": 2376,
+      "sha256": "9cd61925e32558431185a70774bb0851994288ae1a17fbc23b7f50b1ca62c5d0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/log4j/SLF4JFixerLaunchPluginService.java",
+      "bytes": 1372,
+      "sha256": "978220f063362db83657ef8729dccd4dba9f7a5ef519bc68c7d82430dfc086f7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/DeferredMixinConfigRegistration.java",
+      "bytes": 2305,
+      "sha256": "4db2908506b2d3200efdd7dde83a8dbcd38205d18337777c8d37bf595b841369"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/FMLMixinContainerHandle.java",
+      "bytes": 853,
+      "sha256": "39ef96f75c523c5b6a29f16dc47edbc43fa162c3ed8e2a72564a6a02afe4441d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/FMLMixinPlatformAgent.java",
+      "bytes": 827,
+      "sha256": "79e23c9899d5a07cdb03f4fc976c2a16e37e69fe958f90b7b8d31769e317c544"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/CoreModFile.java",
+      "bytes": 250,
+      "sha256": "e43e486a1665db55c9a581113a31246dd4eacff1bd1ae11e56bc1c212bede547"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/IncompatibleModReason.java",
+      "bytes": 1560,
+      "sha256": "a6ef54443838d74419e22fce1b3f0a9d55bf93433ef9ee6d595b6709c3d0376b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModDiscoverer.java",
+      "bytes": 16030,
+      "sha256": "ae23d494127dc7353251e68323417071d362afd7d0e20390b0446f7ec6f69c4c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFile.java",
+      "bytes": 9195,
+      "sha256": "f222f802abf39aef7bb7cea35183a182a2e71c44425d93b6f59319f44f0102ae"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFileInfo.java",
+      "bytes": 8253,
+      "sha256": "3f56de672051967e1d6ad118145d809259b47901dc2cb24649f7c829548d0af9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFileParser.java",
+      "bytes": 6208,
+      "sha256": "db38439fe630e7f3a81490b88502be1f922af43c42769d905f0f1aca569104c3"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModInfo.java",
+      "bytes": 10560,
+      "sha256": "bc1b148bff1265e46c3bbc68331da9b7e397e972023e268acfb6ade990195fcf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModJarMetadata.java",
+      "bytes": 2017,
+      "sha256": "134c323f91be2be8f12e922551758844b67efd11917ea069deb70461038256a7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModListHandler.java",
+      "bytes": 3401,
+      "sha256": "4a48aac74ba5c3eb1d14e2dd1ae9b928dc7e00fe860dc3e80e0b4e715bdbabb5"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModValidator.java",
+      "bytes": 4381,
+      "sha256": "b0f2f6ab1d57690401480b0715d428fdeba9e4ed3aac4887f7c6466b43179046"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/NightConfigWrapper.java",
+      "bytes": 2517,
+      "sha256": "bcc071a0f8474c9d62b2d4f59004b3f5a49b5d98b4348718f715f5656a11883c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/JarInJarDependencyLocator.java",
+      "bytes": 6922,
+      "sha256": "8e3a5f0f6160d46eb807744ff192875531c22aa35abbd56ca08745ba3bbf4d16"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/MavenDirectoryLocator.java",
+      "bytes": 2562,
+      "sha256": "1a6ace256b4d2a5fcff791c7c3dd34b0e509885b3eb75f87d3ef3e7290273872"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/MinecraftModInfo.java",
+      "bytes": 1533,
+      "sha256": "15cd540898c17573b1350524b1bf2a231a25e868dba53205e6c816c1963257cc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ModsFolderLocator.java",
+      "bytes": 2763,
+      "sha256": "23153c2aabb945fda4800afe451447352a18744fe74f4d4e05fbbea1ffaadb58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/NeoForgeDevProvider.java",
+      "bytes": 5113,
+      "sha256": "1d62fc2882b221c4e603ace21703c1d456c53c29079bf057812015309a6f7e1e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/PathBasedLocator.java",
+      "bytes": 1237,
+      "sha256": "58da69e9507327b75e9ef2770e3cc6cf2df6222722571bd2d7a640ccbd414efa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionClientProvider.java",
+      "bytes": 3852,
+      "sha256": "6bfccafc3656b4e8040a4c7cfa51b5bc37c55dad16b9f0ecbd13a3d19e973d11"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionServerProvider.java",
+      "bytes": 4770,
+      "sha256": "bf3f99239ece48a2594ca832ed038f10353d115af3ef15866e490b09efd4e726"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/UserdevLocator.java",
+      "bytes": 2133,
+      "sha256": "53e160a16358a11b318e1f6d4044c7a1235728e3cad002eb811567b478fc67b2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/readers/JarModsDotTomlModFileReader.java",
+      "bytes": 5783,
+      "sha256": "34a924221e7158bbc3a8fdd9e204ec1d09a2996e7063bd8dd454a22633479016"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/readers/NestedLibraryModReader.java",
+      "bytes": 1892,
+      "sha256": "6af180718c74ca8a3da4a486227d2f7d1e97e9a7a80048b976d46cb0de449975"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/BackgroundScanHandler.java",
+      "bytes": 4327,
+      "sha256": "46f75e65830f068ced552849580567d4d7633f998eab04ce2f213f224df25209"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModAnnotation.java",
+      "bytes": 2741,
+      "sha256": "9e797f868666441d656636017628be0f6952ec1f67431e936f375fcf35a2dcb9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModAnnotationVisitor.java",
+      "bytes": 2188,
+      "sha256": "b154f0b548c5df5178e7b9d21414d596ae78424d007c93b561425ec8da21e453"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModClassVisitor.java",
+      "bytes": 2401,
+      "sha256": "846fb9c1ee68f92c78ae4bba3e8570e6fc1573fb011ab41c4418b201bc7539fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModFieldVisitor.java",
+      "bytes": 1026,
+      "sha256": "938071573ffd62a6b9d977186c4f1ede85a386637030cbe7a6c0be828d16a695"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModMethodVisitor.java",
+      "bytes": 1135,
+      "sha256": "652fd6711c479c421401e77f317956a5e0a2ad3d6d0815b004bd8f1af6116465"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/Scanner.java",
+      "bytes": 1547,
+      "sha256": "e0c80b87c2d3a9396ea045db7d2d39253d8e6ca86d4aae95c34729fb85f46cb8"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/Message.java",
+      "bytes": 1075,
+      "sha256": "b4f5eed7312499c20cdaea714ae3564a7913a331ecda498f60054af764b6cf1a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/ProgressMeter.java",
+      "bytes": 1269,
+      "sha256": "93c0d3f0554875244bd16705b8b2ca6a0484a0f3d955806b28505b53d6a6866a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/StartupNotificationManager.java",
+      "bytes": 3717,
+      "sha256": "efd900d8fdf3cbc2436d687334a56a2e82039198d4e666b92525f2856d5783f0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/ArgumentList.java",
+      "bytes": 5302,
+      "sha256": "404e535804586f4ac4292d789bb6713894baa28e5387598a464a8b7413fa15f1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonClientLaunchHandler.java",
+      "bytes": 1594,
+      "sha256": "0e8f216da2caa78516f5d4117f6afbc9aac4c2e7467ec2ba66229ce110661f45"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonDevLaunchHandler.java",
+      "bytes": 3985,
+      "sha256": "de2db56f6e3eed4786234b58faf318218cd20d475c32274a5c82daacf913a9be"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonLaunchHandler.java",
+      "bytes": 5956,
+      "sha256": "e453b96e10128d665cda58d458203b7201875c84c1742d73f84f2563404b8a58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonServerLaunchHandler.java",
+      "bytes": 1589,
+      "sha256": "0c2ac43a3aae071000bec674bf1dff820af4b5f713fa4d65b1d2c74c2a0a5f2e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonUserdevLaunchHandler.java",
+      "bytes": 1227,
+      "sha256": "2cb1251e42837e996116ad9014e3906368fecd6e773730705ca407644f2eacc9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/JUnitDevLaunchTarget.java",
+      "bytes": 835,
+      "sha256": "29fd0bfcc7ec2fcca2d0651c4573a96f45c866eb5ce848c63b4d5fa024bf7344"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/JUnitUserDevLaunchTarget.java",
+      "bytes": 848,
+      "sha256": "a746f8ce65281197ad2b39e5d9ff63b61ae26eab658b19503dc857289049ba3b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientDevLaunchHandler.java",
+      "bytes": 576,
+      "sha256": "0f1e14ca7bf36e8b02f681ff396b18daf8b15061d8bd566369dd9623e330b5ef"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientLaunchHandler.java",
+      "bytes": 1409,
+      "sha256": "ad0a8ff21f36bf20046dbeb1b2acd434bd30f1f6c35e1dbed0b79a5e36bf188f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientUserdevLaunchHandler.java",
+      "bytes": 590,
+      "sha256": "24c8bb27b904abc7ab16e8eabb932d72f8d03b492d51fd7d8f83f99c1fe9ce7b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeDataDevLaunchHandler.java",
+      "bytes": 642,
+      "sha256": "81952154510ffa6a862a7e541561a7777dd4aba9238fd24b6c20a05b4086c979"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeDataUserdevLaunchHandler.java",
+      "bytes": 656,
+      "sha256": "831a5e821e06340067b4b8d02bc5dc2157cc38e5492b514ce76a63b2d13e6034"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerDevLaunchHandler.java",
+      "bytes": 586,
+      "sha256": "8b978e94a1745e89d12143dbae664af6b12619759cfc3446e1da2716c97271ed"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerLaunchHandler.java",
+      "bytes": 1410,
+      "sha256": "22c661634ac430f3bf6b1962f8bcdbfec0aaa7bd2750a7049e49321f976ba261"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerUserdevLaunchHandler.java",
+      "bytes": 600,
+      "sha256": "5a24ce34def0040b1fa85bd7ad4d6f555d6f2882f8debbd7189f93633c087059"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeUserdevLaunchHandler.java",
+      "bytes": 239,
+      "sha256": "aa236797d3f666401425a0c473b81b0a51cc597663d9d555209c7938e8a22ce0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/CyclePresentException.java",
+      "bytes": 1067,
+      "sha256": "77443c2c3d700a412251a1788308a990c88c422b360861610888805f749c07ac"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/StronglyConnectedComponentDetector.java",
+      "bytes": 2864,
+      "sha256": "e10e3d1cfb918ed9eb9ec0f217bd90437d79693472b144fed28a64da523e00bc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/TopologicalSort.java",
+      "bytes": 4323,
+      "sha256": "8069cddc23b18fcd13770472fdf6b4caf0aa5d529a9494f23f5a9e1f736aeafa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/CompatibilityComponent.java",
+      "bytes": 1736,
+      "sha256": "4b02727c565d3b9b4c18bb63e18450503d1b849adedc1e09679945b85b0644d0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/CompatibilityRuntime.java",
+      "bytes": 9557,
+      "sha256": "983b129876ef32641f73c37bfe5bac69e48cfd4dc47d5939d49ba03bdd277807"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/GameCompatibilityComponent.java",
+      "bytes": 664,
+      "sha256": "3046a5977d0bd5ce3d79e0cd4976422e05aa1dad504d829bbc767c84a564755c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/InstalledComponentsLocator.java",
+      "bytes": 976,
+      "sha256": "9e76083bb7c1dcecb94ead9c69062eb7a02afb14049e3c3c619e40f1faae3254"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/InternalCapabilityLanguageLoader.java",
+      "bytes": 1735,
+      "sha256": "ac28db5e59dc7b52770c5561382fe9fdd4f2e965c98025cf8a9540a8a9b65470"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/lowcodemod/LowCodeModContainer.java",
+      "bytes": 933,
+      "sha256": "9f4adb51d3e921dbdbf0294fa6ec65f4d018fdfe8b56f0e46b57daeb85474b28"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/lowcodemod/LowCodeModLanguageProvider.java",
+      "bytes": 700,
+      "sha256": "0fd45ed22810aa3929c6485796649a444f981757edc75b5db6c01817c242481a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/mclanguageprovider/MinecraftModContainer.java",
+      "bytes": 560,
+      "sha256": "06f4d1279651dc4ce672086c4160ba1128376a12cbc0fd841dfb07cf8e51c25a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/mclanguageprovider/MinecraftModLanguageProvider.java",
+      "bytes": 684,
+      "sha256": "f43bda89140333283714ec2beddb60872cde6919dae0de6e14139ac306b1a673"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/CertificateHelper.java",
+      "bytes": 2013,
+      "sha256": "84037df3d725b8b5c19f992bef81f1491618a98efea98a2e5714ea6613f4747b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/DevEnvUtils.java",
+      "bytes": 3206,
+      "sha256": "85182724939f2da32b49cef86cdaf193d45bc11e5394c442dddae92f5450df72"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/EnhancedRuntimeException.java",
+      "bytes": 2711,
+      "sha256": "4f42cad9b9260722711b2628ba642d6d018aaaa4f274c7c9e34cf82f922155d7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/LoaderException.java",
+      "bytes": 668,
+      "sha256": "c789172aa633ce8bef6de73d9edbd5bcf8765ffc5767ebac7f63ac220fd6954e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/LoaderExceptionModCrash.java",
+      "bytes": 569,
+      "sha256": "b219f3efd5e728d4dffd00515e960349633000cf13f73705d3a91188cce68d92"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/ObfuscationReflectionHelper.java",
+      "bytes": 9997,
+      "sha256": "4f1ffd9f759d04c54189387bfd1b9201507523a4d500fe47e1486b3e9b10c52a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/ServiceLoaderUtil.java",
+      "bytes": 5543,
+      "sha256": "b52b05c330e636cab0d8ac38c855b4730aeab00c9bb881d4236413529ede3bbf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/EffectiveSide.java",
+      "bytes": 445,
+      "sha256": "dfef185f2dcfc661e547d46342bcdbfdec79eea5692fd27725dc7f487d42fb3f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/SidedThreadGroup.java",
+      "bytes": 838,
+      "sha256": "de8f457c756a4e4aea454b44b07405ee146e424f57bb76520c2ca4cc39fbff00"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/SidedThreadGroups.java",
+      "bytes": 446,
+      "sha256": "1f0eba99c29a7c1209ab556ef46ab3dbf114351f55317c25e9e4e7bda0c43da0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/Environment.java",
+      "bytes": 1872,
+      "sha256": "f3e6e58d254d1b3ce9649a3a4890123bf3d21a5703ec695ac69b5c810581a61a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/IIssueReporting.java",
+      "bytes": 362,
+      "sha256": "bcf12949df049b39aac3716ae24c530e66d2cd70067c88428ab283cfa9d00c41"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/ILaunchContext.java",
+      "bytes": 1080,
+      "sha256": "a4907f49db0a7a37261a0cc45d48e30b57e5aafd0771fd253a335c7b627047b1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/coremod/ICoreMod.java",
+      "bytes": 351,
+      "sha256": "e1debac82504f877f8f5d32ccd8265962aa90f9b2fbe421ff61be3371ef697bc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/earlywindow/GraphicsBootstrapper.java",
+      "bytes": 806,
+      "sha256": "64db6573707cf0f68d9cb9c7355d8a70e1899c63feff2572e129ed85ae1e1897"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/earlywindow/ImmediateWindowProvider.java",
+      "bytes": 6586,
+      "sha256": "da485790bbb54d905afbc5b615df0da2b1d8986a05aea4db989c48a4e071b46c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IConfigurable.java",
+      "bytes": 423,
+      "sha256": "28e9f9f94101d031ca7e61a32a54351f653cac44557a49a3fe4b0eca554cf16f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModFileInfo.java",
+      "bytes": 774,
+      "sha256": "14479503df8b00b22a6f512df06425413ff55bb158efa7b8189fd093c6a0c0a6"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModInfo.java",
+      "bytes": 2750,
+      "sha256": "03fb678b2616c8118a45d3c5739a6d5534fe363abcafb08d4b2eaf5f9030cb8f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModLanguageLoader.java",
+      "bytes": 2532,
+      "sha256": "110e6d1ed07603ba8dee6dfbcae4ca01cf0e13e53b95c35c1746ac8cd3b6a877"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/MavenVersionAdapter.java",
+      "bytes": 872,
+      "sha256": "365131c98b70edee0e7b6dc2377c40e6ea56eff4d8127c842eeb687212f60c71"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/ModFileScanData.java",
+      "bytes": 1518,
+      "sha256": "5bd0a2e853dbacdc9f6d8e9df6c80c89756247edc0f258f8d856059a43865672"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ForgeFeature.java",
+      "bytes": 5030,
+      "sha256": "c4dcc8952b80a53d5841c408b37dd6fa3cd4e725e1378d124e50e4f0c9cbfb16"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IDependencyLocator.java",
+      "bytes": 715,
+      "sha256": "c4c11026be1ed41b759ec63cc0d5313fad497870574f39eaed27f937b41cd952"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IDiscoveryPipeline.java",
+      "bytes": 3873,
+      "sha256": "ccb8014d2c86a2a1966566aa575f80390557c15d5c645ed9d89ce99b7f7cad70"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFile.java",
+      "bytes": 5924,
+      "sha256": "9865ff26ecb69e1cbf388cb18523ca867d395f4e9af7107f9f9dcaadb8ddd2a1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFileCandidateLocator.java",
+      "bytes": 951,
+      "sha256": "9ca921ec01d692256b78aec597c24b31ceec87f85ee8580f20c90e65d8233502"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFileReader.java",
+      "bytes": 1198,
+      "sha256": "d603206f1863c1fee2925482d3cebe24f3a73684d10b4fd83c796d1fe72e97aa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IOrderedProvider.java",
+      "bytes": 839,
+      "sha256": "e2f8c0334a91c47afefff7b9672b7d1eeb59a7c0db12dd31629ac05ad66a75f5"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IncompatibleFileReporting.java",
+      "bytes": 1903,
+      "sha256": "8cef153c4840cdaed9c84e12a6caad4e6da5dfbe6a337eede06eba0d801ec704"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/InvalidModFileException.java",
+      "bytes": 743,
+      "sha256": "3b3262850e1d9a1b3c5024bd0f5fa32403323764eb64a157fd653684efbd14fe"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileDiscoveryAttributes.java",
+      "bytes": 2953,
+      "sha256": "598a77874df47553edec3bd0aa99610e9d880d6443fae0a7a640bf6b9dfebe58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileInfoParser.java",
+      "bytes": 587,
+      "sha256": "c68d4e0d23cc7843a8eb6240bc1c9717ed931c9d64755fab355c3a36310013fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileLoadingException.java",
+      "bytes": 428,
+      "sha256": "cbf1f8e8a6a6b2036ce7030bf3ca1be8fde868efbdfcd4a85b8899e91e5df18c"
+    },
+    {
+      "path": "src/main/resources/META-INF/MANIFEST.MF",
+      "bytes": 425,
+      "sha256": "c4d17de4f47d643738f0783ed125435b053e77132d77174004cfc1f550417e3b"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.api.ILaunchHandlerService",
+      "bytes": 636,
+      "sha256": "9ca9feadc0b645702df66b4c693d3af0a63a81bbda9837e0ebb9d7053c56ec60"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.api.ITransformationService",
+      "bytes": 45,
+      "sha256": "8ffb1bbf2df7907f95a7a1761e6de24cabfacfbd1cd47363c6b565f5cc6f024b"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.serviceapi.ILaunchPluginService",
+      "bytes": 172,
+      "sha256": "d55b3e146b35e935fdbb382632cc3c99998cea13bf4c0aaa40d587fd43776502"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.serviceapi.ITransformerDiscoveryService",
+      "bytes": 110,
+      "sha256": "3e9e7881bdfcf8400b99e2ae19aa6c3864a170c59b58c64f3cb70d6852536873"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.language.IModLanguageLoader",
+      "bytes": 178,
+      "sha256": "b9cfbf33d36969c7fe5ec283689c44a86d7346bbf07cfeb6e37262533cc15435"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IDependencyLocator",
+      "bytes": 74,
+      "sha256": "4a654ee95188c1ac8340764ab8ebcfe77e8cb47ea855910177d14b221ab41288"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IModFileCandidateLocator",
+      "bytes": 136,
+      "sha256": "1a9d3c3e34937b6283a069ed99d06923ce648360adbba1bc09ac2d6a30a517e9"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IModFileReader",
+      "bytes": 144,
+      "sha256": "149337f2fa83506e3237b07648448e33c03c38ba1e4979af334a64a53ae39ea4"
+    },
+    {
+      "path": "src/main/resources/META-INF/unified-admission/LICENSE-Connector-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "src/main/resources/lang/da_dk.json",
+      "bytes": 8672,
+      "sha256": "1309fa830e82f4b7a91de91486f3b53b19cbc9ada930dcbf9b9879ff4b8e54e3"
+    },
+    {
+      "path": "src/main/resources/lang/de_de.json",
+      "bytes": 9263,
+      "sha256": "fbbc23e507f2f861683347492f2cd212bb87ec5a03ccdc6ef6ffdddcc3168f16"
+    },
+    {
+      "path": "src/main/resources/lang/en_gb.json",
+      "bytes": 8664,
+      "sha256": "bcf15a1b7f91b0a2c3d4edff77e72beff11de4d749049c7f8a8db8c3688bb97d"
+    },
+    {
+      "path": "src/main/resources/lang/en_us.json",
+      "bytes": 9262,
+      "sha256": "b97e6aaa59ac1c3950489b8afb281de9a84d92d9e89186a19919e361b8dfec94"
+    },
+    {
+      "path": "src/main/resources/lang/eo_uy.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/es_es.json",
+      "bytes": 8917,
+      "sha256": "e74080d94d4f52300312f38e4d058b121f93cb613a90fce727eca3899e896390"
+    },
+    {
+      "path": "src/main/resources/lang/et_ee.json",
+      "bytes": 8647,
+      "sha256": "14082f4f33448d272833eb623c8c6cd70ecae10a84bcbfc6235305afe3830b79"
+    },
+    {
+      "path": "src/main/resources/lang/fr_fr.json",
+      "bytes": 9149,
+      "sha256": "0567facaa9ad070238d989d0890722ee1f797aeba48246843ee71a00636e42fc"
+    },
+    {
+      "path": "src/main/resources/lang/hu_hu.json",
+      "bytes": 8704,
+      "sha256": "4d920fa222c6ad6540adbc2764e6a80108d5044ad6707da7969bc02c6ee059a9"
+    },
+    {
+      "path": "src/main/resources/lang/it_it.json",
+      "bytes": 8881,
+      "sha256": "21b2f5fe84c29cd09e60ff72279debec42c3b5b064034dd8a8528c5b2a6159c7"
+    },
+    {
+      "path": "src/main/resources/lang/ja_jp.json",
+      "bytes": 9695,
+      "sha256": "ec52e76fc329c51aec8681bcd59fb595f44e69556d4425fee6eabd20d4105f6b"
+    },
+    {
+      "path": "src/main/resources/lang/ko_kr.json",
+      "bytes": 9427,
+      "sha256": "2f7f5b7e0ee90a185d04be469256f3935f2a1e52c5684df6eadf874d44bad242"
+    },
+    {
+      "path": "src/main/resources/lang/nl_nl.json",
+      "bytes": 8890,
+      "sha256": "42a1fe16e12cb9e9bf204e3584a20969f71f13e70d9fcbc65d2677b77225a346"
+    },
+    {
+      "path": "src/main/resources/lang/pl_pl.json",
+      "bytes": 8922,
+      "sha256": "86bb235258a86000fd10a3fbb994296bce7c751a3c597476147f248c0dada3c9"
+    },
+    {
+      "path": "src/main/resources/lang/pt_br.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/pt_pt.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/ro_ro.json",
+      "bytes": 8664,
+      "sha256": "bcf15a1b7f91b0a2c3d4edff77e72beff11de4d749049c7f8a8db8c3688bb97d"
+    },
+    {
+      "path": "src/main/resources/lang/ru_ru.json",
+      "bytes": 10323,
+      "sha256": "8eacbf5ce404d764bb58f3b10e4834fbf8c8c4587dacb61b70827a3f737a7158"
+    },
+    {
+      "path": "src/main/resources/lang/sk_sk.json",
+      "bytes": 9078,
+      "sha256": "241f01dd956b745ad46bb5a0be21ea511513f85e63c0046fcbd07e608d4ccfd4"
+    },
+    {
+      "path": "src/main/resources/lang/tr_tr.json",
+      "bytes": 8691,
+      "sha256": "4b31c2c6a10c039b17496e814a98e27aefe79278a044e09f1df9e2d147c0a185"
+    },
+    {
+      "path": "src/main/resources/lang/tt_ru.json",
+      "bytes": 8687,
+      "sha256": "5adf86c7d08658aacb97d883e873ff3fb228bfa592ed3293983806457f366603"
+    },
+    {
+      "path": "src/main/resources/lang/uk_ua.json",
+      "bytes": 11528,
+      "sha256": "d818f9b107de3d1b5ec89e824688ba8817ce89d6780daa12daf62e0b86f57503"
+    },
+    {
+      "path": "src/main/resources/lang/zh_cn.json",
+      "bytes": 8502,
+      "sha256": "40d1b9c701f069a4253bc06608e98b03c08bf1e6652ecfd96b973e1ca119b28b"
+    },
+    {
+      "path": "src/main/resources/lang/zh_hk.json",
+      "bytes": 8669,
+      "sha256": "a4bb0123e6fcd46beaaa0b3f6583509bfe96a111ee61a8d12db166e198e29395"
+    },
+    {
+      "path": "src/main/resources/log4j2.xml",
+      "bytes": 6071,
+      "sha256": "10734e07889a0027b29d80a701f987d05e044ccd0d65f339b78194b01035efd2"
+    },
+    {
+      "path": "tests/test_launch_validation.py",
+      "bytes": 4441,
+      "sha256": "f863cf8c2dee74f839dcbd666b2ee90945da88565ec5504a3f736adc7c8139a1"
+    },
+    {
+      "path": "tools/assemble_installation.py",
+      "bytes": 12433,
+      "sha256": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a"
+    },
+    {
+      "path": "tools/build_source.py",
+      "bytes": 4350,
+      "sha256": "00455c1ec072c5b3b02d0d09f8345837385178526ef045f268715881453b0ba6"
+    },
+    {
+      "path": "tools/check_source_candidate.py",
+      "bytes": 3143,
+      "sha256": "e4c2330ebb21bef17577bbd18f5fb6bc1a43acf03b4b3826a393901b05fd9930"
+    },
+    {
+      "path": "tools/launch_successor.py",
+      "bytes": 7290,
+      "sha256": "63a533cdec3ee847bd47209220012b23137c51511da1803863bdccd8c758b984"
+    },
+    {
+      "path": "tools/validate_launch.py",
+      "bytes": 10432,
+      "sha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451"
+    }
+  ],
+  "fixedSources": [
+    {
+      "path": "LICENSE-LGPL-2.1.txt",
+      "bytes": 26526,
+      "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "path": "MODIFICATIONS.md",
+      "bytes": 1484,
+      "sha256": "95f9ac5f997fb40226e6fd8eb7d7c52c3ad601a6cd642238aca49d095348646c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1155,
+      "sha256": "cebb675e4407dbc7ef689210ed031ee6c5666b28029e3b766e68453039465f01"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 5289,
+      "sha256": "7f881ea2f3124391962fa578e9224f73502351aa261bea5fd6fbc0c0e0d3fa58"
+    },
+    {
+      "path": "provenance/DevLaunch-1.0.2-sources.jar",
+      "bytes": 2135,
+      "sha256": "a7b173d5f64f06cc19f398e2c3a3fcfa995736096b1a4de61175bef0b3edde5d"
+    },
+    {
+      "path": "provenance/JarJarSelector-0.4.1-sources.jar",
+      "bytes": 5352,
+      "sha256": "48f49141fbe2db076e7dab02cb0f16aae4311b2caa7ff3e5ef5c2d284c440b1f"
+    },
+    {
+      "path": "provenance/bootstraplauncher-2.0.2-sources.jar",
+      "bytes": 5567,
+      "sha256": "d148fae013b890a08061cd0407bcdba9b836d4ddc6135f869d2c8b80913f056c"
+    },
+    {
+      "path": "provenance/compile-classpath-lock.json",
+      "bytes": 23241,
+      "sha256": "9471fe1033f2af3811f8307b96b5b1bdbbcb6c11a8ee90e8d33c7bb97485a7f4"
+    },
+    {
+      "path": "provenance/jarjar-source.json",
+      "bytes": 468,
+      "sha256": "b0327a492cfd2de46558c3986722bc46d1a132c85047be94225db3da8917f95b"
+    },
+    {
+      "path": "provenance/static-source-check.json",
+      "bytes": 1388,
+      "sha256": "8df54ebd725be6c35d41aa4b39b1f6fc7fd6a5a40930ded453cd82bc157d4df1"
+    },
+    {
+      "path": "provenance/upstream-source.json",
+      "bytes": 53654,
+      "sha256": "a583830cc1ce7d47800ef3ca4f5dd5bb71c01b1792300b10d8403a7b6eaac606"
+    },
+    {
+      "path": "settings.gradle",
+      "bytes": 128,
+      "sha256": "41456aec321a78a87db2df049b9d6ea2fa392f40c66290abcc66b23c4711b26e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/CrashReportCallables.java",
+      "bytes": 3510,
+      "sha256": "89f93c39a651ed7d0671aae0a7ce3f5cc35ac1cc99b488f8a7eb17824bd76c97"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/DeferredWorkQueue.java",
+      "bytes": 4374,
+      "sha256": "3468c2c643c54d071a4e21c9c5316b01d5833aba1b08831063e1cf6c3fc7cc33"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/IBindingsProvider.java",
+      "bytes": 306,
+      "sha256": "346e28b859bda8ad68f52c69ecd7f0115de8c9f20d168bd3e42d0eb1d8073839"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ICrashReportHeader.java",
+      "bytes": 540,
+      "sha256": "553b485f1c00b8f0eab7ede5283d17452fa3a094a76194b7cd05dabcd5b4f749"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/IExtensionPoint.java",
+      "bytes": 709,
+      "sha256": "96532829fe39ce7cc8a009325d397d7e383b521cc54ccf688600d49ce07d7558"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ISystemReportExtender.java",
+      "bytes": 391,
+      "sha256": "2b516f21038ef37a3df48434441d0a29c736aa2f3e8f740e4a41e0dfe50fd3fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/InterModComms.java",
+      "bytes": 5672,
+      "sha256": "c42c0007295b90140cab22ce97a07c5e4f2fa2c23c1af07fa1a71da69085e951"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/Logging.java",
+      "bytes": 898,
+      "sha256": "f154500787538648a5cc687ddc7afaacf6da84b822346254bb9504e5acf54bcf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/LogicalSide.java",
+      "bytes": 1460,
+      "sha256": "15b993aef8a13182ee1166fec50d7f48682480d98ce34afa036fa97b3b2c1517"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModContainer.java",
+      "bytes": 6837,
+      "sha256": "f36e326da0b19624e147efbcdd3db29b5c10cbb564763e30b3b73e73f8777dc9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModList.java",
+      "bytes": 7371,
+      "sha256": "7df42aa8eb6cfb9233e598333f04459d0ecd3eee80e45e308051ef89f996fc2f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoader.java",
+      "bytes": 21693,
+      "sha256": "07842948a9969d68aafcf34bbe4d67804ab05292fcc4e51bec392e89187d3dfa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingContext.java",
+      "bytes": 1371,
+      "sha256": "f3aeacf413939769d4b98b3ae98971d8bc7b8adb75a85219579984d2cd007c5f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingException.java",
+      "bytes": 1913,
+      "sha256": "d66c2fae09f3f1e07fee3d53182fd3bd94fb3640e197fca840bbdb7420350ab4"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModLoadingIssue.java",
+      "bytes": 3403,
+      "sha256": "d3d75cff39ec4329a3f716d08e893d33427fb95d4913a742b4033f5178e2dcdf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/ModWorkManager.java",
+      "bytes": 2062,
+      "sha256": "6f9bee3437eb3e56a34b42f28aa727dc10e801d6d6d272adc0a47bf1672db33c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/VersionChecker.java",
+      "bytes": 10577,
+      "sha256": "0144b0db141e70f8d476005b586fedf16a04ae9e4f4c94f0aeecef3692155b09"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/EventBusSubscriber.java",
+      "bytes": 3453,
+      "sha256": "95065607ee6e1063f118e9d0c53ab5b0c7acbd1e121b1a6c387f8ed77ac10500"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/Mod.java",
+      "bytes": 1483,
+      "sha256": "3e136fee675697eeeb27a6c9a89d4359eddf1f7d803ac18937babce175eb70c2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/ListGeneratorAdapter.java",
+      "bytes": 650,
+      "sha256": "1815ddc76b44988da06ba4102a4d47bdacdfa2da3eb68a988b82e63a350dd391"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/RuntimeDistCleaner.java",
+      "bytes": 8830,
+      "sha256": "05a43de15b0a2305ad4709e00a6c794d917adf7c655957b1c5b29ec592fa343f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumParameters.java",
+      "bytes": 482,
+      "sha256": "fd2cffbdcb7eb15c6f303985f06448419daebfb80c7e776e93d0a91dc8af96fa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumPrototype.java",
+      "bytes": 9163,
+      "sha256": "27d5b8953e443a74fee9d00f5cc90bf5c07208c9024eccc8bec5862f266761ca"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/EnumProxy.java",
+      "bytes": 1654,
+      "sha256": "8aaacdae1591ac5821a741ff8f51983e332e344b841ee3a4d3e63975dcb98f78"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/ExtensionInfo.java",
+      "bytes": 1077,
+      "sha256": "331bcfc418a6b0848f7b7123f64712b0c8d9a90810fbcbb207d96404bfc2cd35"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/IExtensibleEnum.java",
+      "bytes": 1045,
+      "sha256": "9209591fbca1388671b1802a5fc79589f592581942ad9e7e63b83e39880cbf2b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/IndexedEnum.java",
+      "bytes": 499,
+      "sha256": "42a3683aeff9297313058801cca117e4e3c9c770e3a014bf4231f4f2948b964e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/NamedEnum.java",
+      "bytes": 540,
+      "sha256": "49e000a1753797bd9be491293f6f7c579d8c5aac877e6ce8bf5eb11dca762e69"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/NetworkedEnum.java",
+      "bytes": 1360,
+      "sha256": "ac6924c980c662404db2cc0438f6021a82d9355b2b5d81aaa9bdb4f1aea5e2e7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/ReservedConstructor.java",
+      "bytes": 459,
+      "sha256": "865f8b12666a248259d6ae4f56e4f852b307365d805ff2a42a990909956ae06e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/common/asm/enumextension/RuntimeEnumExtender.java",
+      "bytes": 24124,
+      "sha256": "66a780f593dde40b0fe159480d41b34635d2ed5b55bf52903e581d45de43ba69"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ConfigTracker.java",
+      "bytes": 14259,
+      "sha256": "a817d69ec9fb9e82b2ee5abbe0625d21b19b308970599d5626f73ba7fe9d9b8f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ConfigWatcher.java",
+      "bytes": 1408,
+      "sha256": "bf854ba00b2b0da3e11775f6d21cff8635bb6a69edc52fcbc8e1d83a7b11e708"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/IConfigSpec.java",
+      "bytes": 2880,
+      "sha256": "df0505965e3dcfc073beb47baea5b009dcf0c7e4cfcf221d3f74ca0a1f9ac947"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/LoadedConfig.java",
+      "bytes": 773,
+      "sha256": "d152fde783ed68a66f4e5d080d18814c2280e981629a6b63454601da670ecb58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ModConfig.java",
+      "bytes": 4165,
+      "sha256": "12be8b71028a88d3974267061af3ef07ce2d9d1c528f45e495e93cbed071ab5a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/config/ModConfigs.java",
+      "bytes": 1475,
+      "sha256": "b0807e23ceb87ebc5433d8956fba02df66b38462954806f3fa348aa36e74b607"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/IModBusEvent.java",
+      "bytes": 286,
+      "sha256": "2b300dcd2f61fc97c0e0b0c4627669b7583c4db9677af29080d08fcd900a6982"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/config/ModConfigEvent.java",
+      "bytes": 1736,
+      "sha256": "7aaade589b35e468931ab2dbd775396d2d11af82fa255a944c8d39e2fe78051c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLClientSetupEvent.java",
+      "bytes": 879,
+      "sha256": "2818de9c6001960364e60b7f97ef0d15bc296e160cc3c8d6cf3fcb93fdbda031"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLCommonSetupEvent.java",
+      "bytes": 1289,
+      "sha256": "d313c7da038b60059268ffa85e153150edb6aef9988147ccbc4ce7ee16a94391"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLConstructModEvent.java",
+      "bytes": 448,
+      "sha256": "4b66ac8ee7765c19814c67fe7899ad3f3eceecbc5a3d3160904e93f2928bf430"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLDedicatedServerSetupEvent.java",
+      "bytes": 1138,
+      "sha256": "f60f1c61cf772c99d5df9b3dd8f59e2cb15796e0634b1d32ae8922dd7f9f476d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/FMLLoadCompleteEvent.java",
+      "bytes": 659,
+      "sha256": "4e1071d8153bc9e6805289f6ad7bddbdff2b85f0dba00e851e1f201a8a4f550b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/InterModEnqueueEvent.java",
+      "bytes": 826,
+      "sha256": "38c19861883dab9c989f4219cde22a0601619bc781ad93176b255c8bb2d5fd61"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/InterModProcessEvent.java",
+      "bytes": 889,
+      "sha256": "e8b337afd61e577e94be95dc515e9b38929b1634daabaeb682cf8a47a8b14cab"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/ModLifecycleEvent.java",
+      "bytes": 1360,
+      "sha256": "79a3d6a372c99c8522a711de9fdfce06adfcc8e948d2ccf5bf3b0ea338c0fca3"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/event/lifecycle/ParallelDispatchEvent.java",
+      "bytes": 861,
+      "sha256": "727c482cb6eec415f5c2c12f4173020cf0d45d883df2c3d302c457cc29efb10f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/FMLTranslations.java",
+      "bytes": 11614,
+      "sha256": "c5257ef7dfe26138a823c880a19ff7a6e3b9a5b144945c50793c08e6a7a0bfa2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/I18nManager.java",
+      "bytes": 1552,
+      "sha256": "3e6abcc337d3d3dd9eafb04dd8e8fbfd0a74a3a61fb82cd0a5dc7fdd438e3d33"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/i18n/MavenVersionTranslator.java",
+      "bytes": 3133,
+      "sha256": "6a468ad52992aa2fd4b54d30055b8df5841b6335c81a79016387ba837a36a220"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/AutomaticEventSubscriber.java",
+      "bytes": 6757,
+      "sha256": "ce30ec13a45327b6ee8918695b7a867ca661f28b0e95ffd86f063398949afd36"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/FMLJavaModLanguageProvider.java",
+      "bytes": 2545,
+      "sha256": "9be9fbc90070d7bb27543f04084822c56b9b909c9f89dbe3e4f68a5e0cdf7ec0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/javafmlmod/FMLModContainer.java",
+      "bytes": 6490,
+      "sha256": "495e5777b85d06c496646f3da150c5544dd8fc45ee3c35e5d200f36be7108701"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/BackgroundWaiter.java",
+      "bytes": 1062,
+      "sha256": "658b2cc7e0b97edc9933db4a7594cd1d8f9b3f6e38f71a9b3543795a5adcd5aa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/BuiltInLanguageLoader.java",
+      "bytes": 840,
+      "sha256": "04b2e205ff98108c1d78bfea6b5c626d082c1d2426e084a4bcf4b98edf31aa17"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ClasspathLocatorUtils.java",
+      "bytes": 1504,
+      "sha256": "59ae59c006c49ad2fa3769c5b14101e970f70e5d53b751b5e5b0fae6eca25372"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ClasspathTransformerDiscoverer.java",
+      "bytes": 3388,
+      "sha256": "c6349acd3f0a2541aeb6c3e7711ddf7bd96339df8b5aa73cc6c4abcf51b06378"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/CoreModScriptLoader.java",
+      "bytes": 2648,
+      "sha256": "42d6cb0c359c1cd472fe3ed19b4130c5a2eaa046160283a65be07cc64872f185"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLConfig.java",
+      "bytes": 12286,
+      "sha256": "5eb57aa39b4274e049d55864a7ac88aac3fc1aae7bb7b21d2bd357919c255d4b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLEnvironment.java",
+      "bytes": 649,
+      "sha256": "3970dc0b478dd8572270bf9e0d6c8c223377c2cd8283e92ee95a7f44a5f8687c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLLoader.java",
+      "bytes": 10526,
+      "sha256": "eafd4f92dc3b8622535b37d8883c8af2e3cb612be66b020d36066d4d66c2341a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLPaths.java",
+      "bytes": 2674,
+      "sha256": "ae9dc95511cf4491996c9600be0815b682426467b09b05eeef65a7b7121c719a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FMLServiceProvider.java",
+      "bytes": 8737,
+      "sha256": "8dcabefc8e801e19370e8ed376dc11dbfae52713f4a221c98b782b03beee8470"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/FileUtils.java",
+      "bytes": 925,
+      "sha256": "984f86e53209b5d20f9f7fc23ea53b245f85439d2474d7423a3db4377582c03d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ImmediateWindowHandler.java",
+      "bytes": 8091,
+      "sha256": "64ec9fba0400fcf8d0a34feba5013c16eb7d8bc81a382a464e7c1eca2640a689"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/JarVersionLookupHandler.java",
+      "bytes": 558,
+      "sha256": "7a737e7803059aa3fd4c685c5015e714a8ff060429497d5ad40e7a16b370616e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LanguageProviderLoader.java",
+      "bytes": 4255,
+      "sha256": "717e6fa361847eca1273fe74056f4182b829ada32319cbc738ac3bfdb5ceca40"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LaunchContext.java",
+      "bytes": 4193,
+      "sha256": "ab658f0906c033506bb9bc54868c53c7cc06d42db2fcdd637c133c4b7b7d57a4"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LauncherVersion.java",
+      "bytes": 428,
+      "sha256": "5f96631147611a04e1044d14c950c33b9d21d51a74768eabb7b2f17afef9f242"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LibraryFinder.java",
+      "bytes": 1126,
+      "sha256": "a13227b41da72a16e9e80a516e5258a8e028107143fa235476f5f81d37ffba36"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LoadingModList.java",
+      "bytes": 8220,
+      "sha256": "2d5a1b2b1ea3010562e70eb7f326af4a23db26fd114823c78d33deb9978e4ebc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/LogMarkers.java",
+      "bytes": 522,
+      "sha256": "6c7fac5d89d788c265ea0f562c4ff60dca778631270a126688aca988d513ec6f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/MavenCoordinate.java",
+      "bytes": 2986,
+      "sha256": "de27bf718e28f4d38311a9393545de695517b7d447fbb55f30807d909410d91b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/MavenCoordinateResolver.java",
+      "bytes": 807,
+      "sha256": "8c09b438c3b509a64a7a468da441813a10c458754e0aa53c6a4ae9b81515fcf1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ModDirTransformerDiscoverer.java",
+      "bytes": 4066,
+      "sha256": "446690311edf4bce49e1c5aafe98cb6f9356b3036e3c0e6b895107be74635f4a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/ModSorter.java",
+      "bytes": 18562,
+      "sha256": "aa40cf7d614429d583b003a0b31f8d0a7d8768c8a70e1be713e9a2d7bf92dd61"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/StringSubstitutor.java",
+      "bytes": 1730,
+      "sha256": "736e94217bd9693b11e016449f6ed67155362a7f1f6b050b07d1971f86bb2186"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/StringUtils.java",
+      "bytes": 1625,
+      "sha256": "95a82111749190b4b2d131501039546ca13d1f4ea1ffb37919bb9b9d3f17cb1c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/TracingPrintStream.java",
+      "bytes": 2112,
+      "sha256": "9f16ed80ae9faf521eac3860a01633ede968fb7463a133c1309c6d3b4e319ccb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/TransformerDiscovererConstants.java",
+      "bytes": 2562,
+      "sha256": "cd5c26866d36e4b0ee345e8ef7c815ea9490d91e5877cccdc4c99cd57491d9c7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/UniqueModListBuilder.java",
+      "bytes": 6249,
+      "sha256": "7a4db33bebdada0f28d29ab4fba05e30971367c33ba1ed3d7ef0c508ea38b1c0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/VersionInfo.java",
+      "bytes": 443,
+      "sha256": "b2a09c1500ef0c10202d549cb97fcfcb340f3d365596f233820aaeb691ff3ce8"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/VersionSupportMatrix.java",
+      "bytes": 1709,
+      "sha256": "a39dcd636dde637729376078fe156334c9424d38882c389defd633f65a1aaaf9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/log4j/ForgeHighlight.java",
+      "bytes": 2376,
+      "sha256": "9cd61925e32558431185a70774bb0851994288ae1a17fbc23b7f50b1ca62c5d0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/log4j/SLF4JFixerLaunchPluginService.java",
+      "bytes": 1372,
+      "sha256": "978220f063362db83657ef8729dccd4dba9f7a5ef519bc68c7d82430dfc086f7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/DeferredMixinConfigRegistration.java",
+      "bytes": 2305,
+      "sha256": "4db2908506b2d3200efdd7dde83a8dbcd38205d18337777c8d37bf595b841369"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/FMLMixinContainerHandle.java",
+      "bytes": 853,
+      "sha256": "39ef96f75c523c5b6a29f16dc47edbc43fa162c3ed8e2a72564a6a02afe4441d"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/mixin/FMLMixinPlatformAgent.java",
+      "bytes": 827,
+      "sha256": "79e23c9899d5a07cdb03f4fc976c2a16e37e69fe958f90b7b8d31769e317c544"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/CoreModFile.java",
+      "bytes": 250,
+      "sha256": "e43e486a1665db55c9a581113a31246dd4eacff1bd1ae11e56bc1c212bede547"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/IncompatibleModReason.java",
+      "bytes": 1560,
+      "sha256": "a6ef54443838d74419e22fce1b3f0a9d55bf93433ef9ee6d595b6709c3d0376b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModDiscoverer.java",
+      "bytes": 16030,
+      "sha256": "ae23d494127dc7353251e68323417071d362afd7d0e20390b0446f7ec6f69c4c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFile.java",
+      "bytes": 9195,
+      "sha256": "f222f802abf39aef7bb7cea35183a182a2e71c44425d93b6f59319f44f0102ae"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFileInfo.java",
+      "bytes": 8253,
+      "sha256": "3f56de672051967e1d6ad118145d809259b47901dc2cb24649f7c829548d0af9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModFileParser.java",
+      "bytes": 6208,
+      "sha256": "db38439fe630e7f3a81490b88502be1f922af43c42769d905f0f1aca569104c3"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModInfo.java",
+      "bytes": 10560,
+      "sha256": "bc1b148bff1265e46c3bbc68331da9b7e397e972023e268acfb6ade990195fcf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModJarMetadata.java",
+      "bytes": 2017,
+      "sha256": "134c323f91be2be8f12e922551758844b67efd11917ea069deb70461038256a7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModListHandler.java",
+      "bytes": 3401,
+      "sha256": "4a48aac74ba5c3eb1d14e2dd1ae9b928dc7e00fe860dc3e80e0b4e715bdbabb5"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/ModValidator.java",
+      "bytes": 4381,
+      "sha256": "b0f2f6ab1d57690401480b0715d428fdeba9e4ed3aac4887f7c6466b43179046"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/NightConfigWrapper.java",
+      "bytes": 2517,
+      "sha256": "bcc071a0f8474c9d62b2d4f59004b3f5a49b5d98b4348718f715f5656a11883c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/JarInJarDependencyLocator.java",
+      "bytes": 6922,
+      "sha256": "8e3a5f0f6160d46eb807744ff192875531c22aa35abbd56ca08745ba3bbf4d16"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/MavenDirectoryLocator.java",
+      "bytes": 2562,
+      "sha256": "1a6ace256b4d2a5fcff791c7c3dd34b0e509885b3eb75f87d3ef3e7290273872"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/MinecraftModInfo.java",
+      "bytes": 1533,
+      "sha256": "15cd540898c17573b1350524b1bf2a231a25e868dba53205e6c816c1963257cc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ModsFolderLocator.java",
+      "bytes": 2763,
+      "sha256": "23153c2aabb945fda4800afe451447352a18744fe74f4d4e05fbbea1ffaadb58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/NeoForgeDevProvider.java",
+      "bytes": 5113,
+      "sha256": "1d62fc2882b221c4e603ace21703c1d456c53c29079bf057812015309a6f7e1e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/PathBasedLocator.java",
+      "bytes": 1237,
+      "sha256": "58da69e9507327b75e9ef2770e3cc6cf2df6222722571bd2d7a640ccbd414efa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionClientProvider.java",
+      "bytes": 3852,
+      "sha256": "6bfccafc3656b4e8040a4c7cfa51b5bc37c55dad16b9f0ecbd13a3d19e973d11"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/ProductionServerProvider.java",
+      "bytes": 4770,
+      "sha256": "bf3f99239ece48a2594ca832ed038f10353d115af3ef15866e490b09efd4e726"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/locators/UserdevLocator.java",
+      "bytes": 2133,
+      "sha256": "53e160a16358a11b318e1f6d4044c7a1235728e3cad002eb811567b478fc67b2"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/readers/JarModsDotTomlModFileReader.java",
+      "bytes": 5783,
+      "sha256": "34a924221e7158bbc3a8fdd9e204ec1d09a2996e7063bd8dd454a22633479016"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/moddiscovery/readers/NestedLibraryModReader.java",
+      "bytes": 1892,
+      "sha256": "6af180718c74ca8a3da4a486227d2f7d1e97e9a7a80048b976d46cb0de449975"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/BackgroundScanHandler.java",
+      "bytes": 4327,
+      "sha256": "46f75e65830f068ced552849580567d4d7633f998eab04ce2f213f224df25209"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModAnnotation.java",
+      "bytes": 2741,
+      "sha256": "9e797f868666441d656636017628be0f6952ec1f67431e936f375fcf35a2dcb9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModAnnotationVisitor.java",
+      "bytes": 2188,
+      "sha256": "b154f0b548c5df5178e7b9d21414d596ae78424d007c93b561425ec8da21e453"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModClassVisitor.java",
+      "bytes": 2401,
+      "sha256": "846fb9c1ee68f92c78ae4bba3e8570e6fc1573fb011ab41c4418b201bc7539fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModFieldVisitor.java",
+      "bytes": 1026,
+      "sha256": "938071573ffd62a6b9d977186c4f1ede85a386637030cbe7a6c0be828d16a695"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/ModMethodVisitor.java",
+      "bytes": 1135,
+      "sha256": "652fd6711c479c421401e77f317956a5e0a2ad3d6d0815b004bd8f1af6116465"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/modscan/Scanner.java",
+      "bytes": 1547,
+      "sha256": "e0c80b87c2d3a9396ea045db7d2d39253d8e6ca86d4aae95c34729fb85f46cb8"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/Message.java",
+      "bytes": 1075,
+      "sha256": "b4f5eed7312499c20cdaea714ae3564a7913a331ecda498f60054af764b6cf1a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/ProgressMeter.java",
+      "bytes": 1269,
+      "sha256": "93c0d3f0554875244bd16705b8b2ca6a0484a0f3d955806b28505b53d6a6866a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/progress/StartupNotificationManager.java",
+      "bytes": 3717,
+      "sha256": "efd900d8fdf3cbc2436d687334a56a2e82039198d4e666b92525f2856d5783f0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/ArgumentList.java",
+      "bytes": 5302,
+      "sha256": "404e535804586f4ac4292d789bb6713894baa28e5387598a464a8b7413fa15f1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonClientLaunchHandler.java",
+      "bytes": 1594,
+      "sha256": "0e8f216da2caa78516f5d4117f6afbc9aac4c2e7467ec2ba66229ce110661f45"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonDevLaunchHandler.java",
+      "bytes": 3985,
+      "sha256": "de2db56f6e3eed4786234b58faf318218cd20d475c32274a5c82daacf913a9be"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonLaunchHandler.java",
+      "bytes": 5956,
+      "sha256": "e453b96e10128d665cda58d458203b7201875c84c1742d73f84f2563404b8a58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonServerLaunchHandler.java",
+      "bytes": 1589,
+      "sha256": "0c2ac43a3aae071000bec674bf1dff820af4b5f713fa4d65b1d2c74c2a0a5f2e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/CommonUserdevLaunchHandler.java",
+      "bytes": 1227,
+      "sha256": "2cb1251e42837e996116ad9014e3906368fecd6e773730705ca407644f2eacc9"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/JUnitDevLaunchTarget.java",
+      "bytes": 835,
+      "sha256": "29fd0bfcc7ec2fcca2d0651c4573a96f45c866eb5ce848c63b4d5fa024bf7344"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/JUnitUserDevLaunchTarget.java",
+      "bytes": 848,
+      "sha256": "a746f8ce65281197ad2b39e5d9ff63b61ae26eab658b19503dc857289049ba3b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientDevLaunchHandler.java",
+      "bytes": 576,
+      "sha256": "0f1e14ca7bf36e8b02f681ff396b18daf8b15061d8bd566369dd9623e330b5ef"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientLaunchHandler.java",
+      "bytes": 1409,
+      "sha256": "ad0a8ff21f36bf20046dbeb1b2acd434bd30f1f6c35e1dbed0b79a5e36bf188f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeClientUserdevLaunchHandler.java",
+      "bytes": 590,
+      "sha256": "24c8bb27b904abc7ab16e8eabb932d72f8d03b492d51fd7d8f83f99c1fe9ce7b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeDataDevLaunchHandler.java",
+      "bytes": 642,
+      "sha256": "81952154510ffa6a862a7e541561a7777dd4aba9238fd24b6c20a05b4086c979"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeDataUserdevLaunchHandler.java",
+      "bytes": 656,
+      "sha256": "831a5e821e06340067b4b8d02bc5dc2157cc38e5492b514ce76a63b2d13e6034"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerDevLaunchHandler.java",
+      "bytes": 586,
+      "sha256": "8b978e94a1745e89d12143dbae664af6b12619759cfc3446e1da2716c97271ed"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerLaunchHandler.java",
+      "bytes": 1410,
+      "sha256": "22c661634ac430f3bf6b1962f8bcdbfec0aaa7bd2750a7049e49321f976ba261"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeServerUserdevLaunchHandler.java",
+      "bytes": 600,
+      "sha256": "5a24ce34def0040b1fa85bd7ad4d6f555d6f2882f8debbd7189f93633c087059"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/targets/NeoForgeUserdevLaunchHandler.java",
+      "bytes": 239,
+      "sha256": "aa236797d3f666401425a0c473b81b0a51cc597663d9d555209c7938e8a22ce0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/CyclePresentException.java",
+      "bytes": 1067,
+      "sha256": "77443c2c3d700a412251a1788308a990c88c422b360861610888805f749c07ac"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/StronglyConnectedComponentDetector.java",
+      "bytes": 2864,
+      "sha256": "e10e3d1cfb918ed9eb9ec0f217bd90437d79693472b144fed28a64da523e00bc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/toposort/TopologicalSort.java",
+      "bytes": 4323,
+      "sha256": "8069cddc23b18fcd13770472fdf6b4caf0aa5d529a9494f23f5a9e1f736aeafa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/CompatibilityComponent.java",
+      "bytes": 1736,
+      "sha256": "4b02727c565d3b9b4c18bb63e18450503d1b849adedc1e09679945b85b0644d0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/CompatibilityRuntime.java",
+      "bytes": 9557,
+      "sha256": "983b129876ef32641f73c37bfe5bac69e48cfd4dc47d5939d49ba03bdd277807"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/GameCompatibilityComponent.java",
+      "bytes": 664,
+      "sha256": "3046a5977d0bd5ce3d79e0cd4976422e05aa1dad504d829bbc767c84a564755c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/InstalledComponentsLocator.java",
+      "bytes": 976,
+      "sha256": "9e76083bb7c1dcecb94ead9c69062eb7a02afb14049e3c3c619e40f1faae3254"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/loading/unified/InternalCapabilityLanguageLoader.java",
+      "bytes": 1735,
+      "sha256": "ac28db5e59dc7b52770c5561382fe9fdd4f2e965c98025cf8a9540a8a9b65470"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/lowcodemod/LowCodeModContainer.java",
+      "bytes": 933,
+      "sha256": "9f4adb51d3e921dbdbf0294fa6ec65f4d018fdfe8b56f0e46b57daeb85474b28"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/lowcodemod/LowCodeModLanguageProvider.java",
+      "bytes": 700,
+      "sha256": "0fd45ed22810aa3929c6485796649a444f981757edc75b5db6c01817c242481a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/mclanguageprovider/MinecraftModContainer.java",
+      "bytes": 560,
+      "sha256": "06f4d1279651dc4ce672086c4160ba1128376a12cbc0fd841dfb07cf8e51c25a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/mclanguageprovider/MinecraftModLanguageProvider.java",
+      "bytes": 684,
+      "sha256": "f43bda89140333283714ec2beddb60872cde6919dae0de6e14139ac306b1a673"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/CertificateHelper.java",
+      "bytes": 2013,
+      "sha256": "84037df3d725b8b5c19f992bef81f1491618a98efea98a2e5714ea6613f4747b"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/DevEnvUtils.java",
+      "bytes": 3206,
+      "sha256": "85182724939f2da32b49cef86cdaf193d45bc11e5394c442dddae92f5450df72"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/EnhancedRuntimeException.java",
+      "bytes": 2711,
+      "sha256": "4f42cad9b9260722711b2628ba642d6d018aaaa4f274c7c9e34cf82f922155d7"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/LoaderException.java",
+      "bytes": 668,
+      "sha256": "c789172aa633ce8bef6de73d9edbd5bcf8765ffc5767ebac7f63ac220fd6954e"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/LoaderExceptionModCrash.java",
+      "bytes": 569,
+      "sha256": "b219f3efd5e728d4dffd00515e960349633000cf13f73705d3a91188cce68d92"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/ObfuscationReflectionHelper.java",
+      "bytes": 9997,
+      "sha256": "4f1ffd9f759d04c54189387bfd1b9201507523a4d500fe47e1486b3e9b10c52a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/ServiceLoaderUtil.java",
+      "bytes": 5543,
+      "sha256": "b52b05c330e636cab0d8ac38c855b4730aeab00c9bb881d4236413529ede3bbf"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/EffectiveSide.java",
+      "bytes": 445,
+      "sha256": "dfef185f2dcfc661e547d46342bcdbfdec79eea5692fd27725dc7f487d42fb3f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/SidedThreadGroup.java",
+      "bytes": 838,
+      "sha256": "de8f457c756a4e4aea454b44b07405ee146e424f57bb76520c2ca4cc39fbff00"
+    },
+    {
+      "path": "src/main/java/net/neoforged/fml/util/thread/SidedThreadGroups.java",
+      "bytes": 446,
+      "sha256": "1f0eba99c29a7c1209ab556ef46ab3dbf114351f55317c25e9e4e7bda0c43da0"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/Environment.java",
+      "bytes": 1872,
+      "sha256": "f3e6e58d254d1b3ce9649a3a4890123bf3d21a5703ec695ac69b5c810581a61a"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/IIssueReporting.java",
+      "bytes": 362,
+      "sha256": "bcf12949df049b39aac3716ae24c530e66d2cd70067c88428ab283cfa9d00c41"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/ILaunchContext.java",
+      "bytes": 1080,
+      "sha256": "a4907f49db0a7a37261a0cc45d48e30b57e5aafd0771fd253a335c7b627047b1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/coremod/ICoreMod.java",
+      "bytes": 351,
+      "sha256": "e1debac82504f877f8f5d32ccd8265962aa90f9b2fbe421ff61be3371ef697bc"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/earlywindow/GraphicsBootstrapper.java",
+      "bytes": 806,
+      "sha256": "64db6573707cf0f68d9cb9c7355d8a70e1899c63feff2572e129ed85ae1e1897"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/earlywindow/ImmediateWindowProvider.java",
+      "bytes": 6586,
+      "sha256": "da485790bbb54d905afbc5b615df0da2b1d8986a05aea4db989c48a4e071b46c"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IConfigurable.java",
+      "bytes": 423,
+      "sha256": "28e9f9f94101d031ca7e61a32a54351f653cac44557a49a3fe4b0eca554cf16f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModFileInfo.java",
+      "bytes": 774,
+      "sha256": "14479503df8b00b22a6f512df06425413ff55bb158efa7b8189fd093c6a0c0a6"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModInfo.java",
+      "bytes": 2750,
+      "sha256": "03fb678b2616c8118a45d3c5739a6d5534fe363abcafb08d4b2eaf5f9030cb8f"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/IModLanguageLoader.java",
+      "bytes": 2532,
+      "sha256": "110e6d1ed07603ba8dee6dfbcae4ca01cf0e13e53b95c35c1746ac8cd3b6a877"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/MavenVersionAdapter.java",
+      "bytes": 872,
+      "sha256": "365131c98b70edee0e7b6dc2377c40e6ea56eff4d8127c842eeb687212f60c71"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/language/ModFileScanData.java",
+      "bytes": 1518,
+      "sha256": "5bd0a2e853dbacdc9f6d8e9df6c80c89756247edc0f258f8d856059a43865672"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ForgeFeature.java",
+      "bytes": 5030,
+      "sha256": "c4dcc8952b80a53d5841c408b37dd6fa3cd4e725e1378d124e50e4f0c9cbfb16"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IDependencyLocator.java",
+      "bytes": 715,
+      "sha256": "c4c11026be1ed41b759ec63cc0d5313fad497870574f39eaed27f937b41cd952"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IDiscoveryPipeline.java",
+      "bytes": 3873,
+      "sha256": "ccb8014d2c86a2a1966566aa575f80390557c15d5c645ed9d89ce99b7f7cad70"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFile.java",
+      "bytes": 5924,
+      "sha256": "9865ff26ecb69e1cbf388cb18523ca867d395f4e9af7107f9f9dcaadb8ddd2a1"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFileCandidateLocator.java",
+      "bytes": 951,
+      "sha256": "9ca921ec01d692256b78aec597c24b31ceec87f85ee8580f20c90e65d8233502"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IModFileReader.java",
+      "bytes": 1198,
+      "sha256": "d603206f1863c1fee2925482d3cebe24f3a73684d10b4fd83c796d1fe72e97aa"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IOrderedProvider.java",
+      "bytes": 839,
+      "sha256": "e2f8c0334a91c47afefff7b9672b7d1eeb59a7c0db12dd31629ac05ad66a75f5"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/IncompatibleFileReporting.java",
+      "bytes": 1903,
+      "sha256": "8cef153c4840cdaed9c84e12a6caad4e6da5dfbe6a337eede06eba0d801ec704"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/InvalidModFileException.java",
+      "bytes": 743,
+      "sha256": "3b3262850e1d9a1b3c5024bd0f5fa32403323764eb64a157fd653684efbd14fe"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileDiscoveryAttributes.java",
+      "bytes": 2953,
+      "sha256": "598a77874df47553edec3bd0aa99610e9d880d6443fae0a7a640bf6b9dfebe58"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileInfoParser.java",
+      "bytes": 587,
+      "sha256": "c68d4e0d23cc7843a8eb6240bc1c9717ed931c9d64755fab355c3a36310013fb"
+    },
+    {
+      "path": "src/main/java/net/neoforged/neoforgespi/locating/ModFileLoadingException.java",
+      "bytes": 428,
+      "sha256": "cbf1f8e8a6a6b2036ce7030bf3ca1be8fde868efbdfcd4a85b8899e91e5df18c"
+    },
+    {
+      "path": "src/main/resources/META-INF/MANIFEST.MF",
+      "bytes": 425,
+      "sha256": "c4d17de4f47d643738f0783ed125435b053e77132d77174004cfc1f550417e3b"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.api.ILaunchHandlerService",
+      "bytes": 636,
+      "sha256": "9ca9feadc0b645702df66b4c693d3af0a63a81bbda9837e0ebb9d7053c56ec60"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.api.ITransformationService",
+      "bytes": 45,
+      "sha256": "8ffb1bbf2df7907f95a7a1761e6de24cabfacfbd1cd47363c6b565f5cc6f024b"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.serviceapi.ILaunchPluginService",
+      "bytes": 172,
+      "sha256": "d55b3e146b35e935fdbb382632cc3c99998cea13bf4c0aaa40d587fd43776502"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/cpw.mods.modlauncher.serviceapi.ITransformerDiscoveryService",
+      "bytes": 110,
+      "sha256": "3e9e7881bdfcf8400b99e2ae19aa6c3864a170c59b58c64f3cb70d6852536873"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.language.IModLanguageLoader",
+      "bytes": 178,
+      "sha256": "b9cfbf33d36969c7fe5ec283689c44a86d7346bbf07cfeb6e37262533cc15435"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IDependencyLocator",
+      "bytes": 74,
+      "sha256": "4a654ee95188c1ac8340764ab8ebcfe77e8cb47ea855910177d14b221ab41288"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IModFileCandidateLocator",
+      "bytes": 136,
+      "sha256": "1a9d3c3e34937b6283a069ed99d06923ce648360adbba1bc09ac2d6a30a517e9"
+    },
+    {
+      "path": "src/main/resources/META-INF/services/net.neoforged.neoforgespi.locating.IModFileReader",
+      "bytes": 144,
+      "sha256": "149337f2fa83506e3237b07648448e33c03c38ba1e4979af334a64a53ae39ea4"
+    },
+    {
+      "path": "src/main/resources/META-INF/unified-admission/LICENSE-Connector-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "src/main/resources/lang/da_dk.json",
+      "bytes": 8672,
+      "sha256": "1309fa830e82f4b7a91de91486f3b53b19cbc9ada930dcbf9b9879ff4b8e54e3"
+    },
+    {
+      "path": "src/main/resources/lang/de_de.json",
+      "bytes": 9263,
+      "sha256": "fbbc23e507f2f861683347492f2cd212bb87ec5a03ccdc6ef6ffdddcc3168f16"
+    },
+    {
+      "path": "src/main/resources/lang/en_gb.json",
+      "bytes": 8664,
+      "sha256": "bcf15a1b7f91b0a2c3d4edff77e72beff11de4d749049c7f8a8db8c3688bb97d"
+    },
+    {
+      "path": "src/main/resources/lang/en_us.json",
+      "bytes": 9262,
+      "sha256": "b97e6aaa59ac1c3950489b8afb281de9a84d92d9e89186a19919e361b8dfec94"
+    },
+    {
+      "path": "src/main/resources/lang/eo_uy.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/es_es.json",
+      "bytes": 8917,
+      "sha256": "e74080d94d4f52300312f38e4d058b121f93cb613a90fce727eca3899e896390"
+    },
+    {
+      "path": "src/main/resources/lang/et_ee.json",
+      "bytes": 8647,
+      "sha256": "14082f4f33448d272833eb623c8c6cd70ecae10a84bcbfc6235305afe3830b79"
+    },
+    {
+      "path": "src/main/resources/lang/fr_fr.json",
+      "bytes": 9149,
+      "sha256": "0567facaa9ad070238d989d0890722ee1f797aeba48246843ee71a00636e42fc"
+    },
+    {
+      "path": "src/main/resources/lang/hu_hu.json",
+      "bytes": 8704,
+      "sha256": "4d920fa222c6ad6540adbc2764e6a80108d5044ad6707da7969bc02c6ee059a9"
+    },
+    {
+      "path": "src/main/resources/lang/it_it.json",
+      "bytes": 8881,
+      "sha256": "21b2f5fe84c29cd09e60ff72279debec42c3b5b064034dd8a8528c5b2a6159c7"
+    },
+    {
+      "path": "src/main/resources/lang/ja_jp.json",
+      "bytes": 9695,
+      "sha256": "ec52e76fc329c51aec8681bcd59fb595f44e69556d4425fee6eabd20d4105f6b"
+    },
+    {
+      "path": "src/main/resources/lang/ko_kr.json",
+      "bytes": 9427,
+      "sha256": "2f7f5b7e0ee90a185d04be469256f3935f2a1e52c5684df6eadf874d44bad242"
+    },
+    {
+      "path": "src/main/resources/lang/nl_nl.json",
+      "bytes": 8890,
+      "sha256": "42a1fe16e12cb9e9bf204e3584a20969f71f13e70d9fcbc65d2677b77225a346"
+    },
+    {
+      "path": "src/main/resources/lang/pl_pl.json",
+      "bytes": 8922,
+      "sha256": "86bb235258a86000fd10a3fbb994296bce7c751a3c597476147f248c0dada3c9"
+    },
+    {
+      "path": "src/main/resources/lang/pt_br.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/pt_pt.json",
+      "bytes": 8818,
+      "sha256": "46d073045e141540eebe202be3a8e1be3ed26e71b8ebb4d9b330758ef68fe60c"
+    },
+    {
+      "path": "src/main/resources/lang/ro_ro.json",
+      "bytes": 8664,
+      "sha256": "bcf15a1b7f91b0a2c3d4edff77e72beff11de4d749049c7f8a8db8c3688bb97d"
+    },
+    {
+      "path": "src/main/resources/lang/ru_ru.json",
+      "bytes": 10323,
+      "sha256": "8eacbf5ce404d764bb58f3b10e4834fbf8c8c4587dacb61b70827a3f737a7158"
+    },
+    {
+      "path": "src/main/resources/lang/sk_sk.json",
+      "bytes": 9078,
+      "sha256": "241f01dd956b745ad46bb5a0be21ea511513f85e63c0046fcbd07e608d4ccfd4"
+    },
+    {
+      "path": "src/main/resources/lang/tr_tr.json",
+      "bytes": 8691,
+      "sha256": "4b31c2c6a10c039b17496e814a98e27aefe79278a044e09f1df9e2d147c0a185"
+    },
+    {
+      "path": "src/main/resources/lang/tt_ru.json",
+      "bytes": 8687,
+      "sha256": "5adf86c7d08658aacb97d883e873ff3fb228bfa592ed3293983806457f366603"
+    },
+    {
+      "path": "src/main/resources/lang/uk_ua.json",
+      "bytes": 11528,
+      "sha256": "d818f9b107de3d1b5ec89e824688ba8817ce89d6780daa12daf62e0b86f57503"
+    },
+    {
+      "path": "src/main/resources/lang/zh_cn.json",
+      "bytes": 8502,
+      "sha256": "40d1b9c701f069a4253bc06608e98b03c08bf1e6652ecfd96b973e1ca119b28b"
+    },
+    {
+      "path": "src/main/resources/lang/zh_hk.json",
+      "bytes": 8669,
+      "sha256": "a4bb0123e6fcd46beaaa0b3f6583509bfe96a111ee61a8d12db166e198e29395"
+    },
+    {
+      "path": "src/main/resources/log4j2.xml",
+      "bytes": 6071,
+      "sha256": "10734e07889a0027b29d80a701f987d05e044ccd0d65f339b78194b01035efd2"
+    },
+    {
+      "path": "tests/test_launch_validation.py",
+      "bytes": 4441,
+      "sha256": "f863cf8c2dee74f839dcbd666b2ee90945da88565ec5504a3f736adc7c8139a1"
+    },
+    {
+      "path": "tools/assemble_installation.py",
+      "bytes": 12433,
+      "sha256": "07148f3909828a55ee9698a8ed9d96ad6bada651226ab1bf1fdff858c703b37a"
+    },
+    {
+      "path": "tools/build_source.py",
+      "bytes": 6841,
+      "sha256": "3201688235bf1ed470ab5545ce020aa35ab601c0bbf019a66a2bc872f5e951b2"
+    },
+    {
+      "path": "tools/check_source_candidate.py",
+      "bytes": 3143,
+      "sha256": "e4c2330ebb21bef17577bbd18f5fb6bc1a43acf03b4b3826a393901b05fd9930"
+    },
+    {
+      "path": "tools/launch_successor.py",
+      "bytes": 7290,
+      "sha256": "63a533cdec3ee847bd47209220012b23137c51511da1803863bdccd8c758b984"
+    },
+    {
+      "path": "tools/validate_launch.py",
+      "bytes": 10432,
+      "sha256": "a2ba610d504b73160cdd124e399df48d9b8c196c9591f43ab82c6b14729f5451"
+    }
+  ],
+  "sharedSources": [
+    {
+      "path": "LICENSE-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 1027,
+      "sha256": "e6f870ccbfdfcd6b59a56fbf708b26986f18043f94c76451401c95154ff6ec4f"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/AdmissionInventory.java",
+      "bytes": 5958,
+      "sha256": "2a3a29017186efa7201ac05969fe884d06b95fd3c59489542e52b1ee23eb458c"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/AdmissionMetadata.java",
+      "bytes": 10621,
+      "sha256": "eea373092204e1fb72768f6d02263bd8f90e1fa6bf7691d6bbf93ecae924f0d4"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/AdmissionSession.java",
+      "bytes": 27174,
+      "sha256": "9f9df14f3c256cdee453a1c599febdfd3667b9bcd0cf7f9c02b83207c6c3787a"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/ArchiveOrigins.java",
+      "bytes": 3730,
+      "sha256": "acbad14cbf09236b194ae2cc10c61ddcb393340b9506333aedf7f20127bea292"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/AuditedConnectorEnvelope.java",
+      "bytes": 5082,
+      "sha256": "6879c3b6f336b97441f33ca1f87cb735b538b3eee3c408dc294ae9f9462fd241"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/AuditedInfrastructureIds.java",
+      "bytes": 2694,
+      "sha256": "f433e9a878af48c59c2d6dd5df46da4a8ed56bf16c0e80c901f43f8beca27195"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/BootstrapInstallation.java",
+      "bytes": 19110,
+      "sha256": "856bc4d6d8645ef6186c627f470fd06565c9a82d8ede0468cd5747ca752b31c6"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/InfrastructurePolicy.java",
+      "bytes": 5715,
+      "sha256": "e949d8c0d2e706d6c76bba44d20bcf3b1ab692ba15dd500504e839a896e71a80"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/InventoryDisplay.java",
+      "bytes": 5104,
+      "sha256": "8401683e9159c885b2ec2f58c29d7c69ba38b7ab94022d4d0cdd0d03abe18d71"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/InventoryReconciler.java",
+      "bytes": 2272,
+      "sha256": "57d9f81c1d14e3a785df9c6bc4fa4f08b55085029444f123613e1b2dbb5852ca"
+    },
+    {
+      "path": "src/main/java/org/sinytra/connector/infinity/inventory/TrustedPayloads.java",
+      "bytes": 8417,
+      "sha256": "bba08d78807b6cf2dbbe1d36236b9857496d25a177cad02b24701fc6562afac9"
+    },
+    {
+      "path": "src/main/resources/META-INF/LICENSE-Connector-MIT.txt",
+      "bytes": 1061,
+      "sha256": "74fa02130dfcc816dc95cd748fa99e289b28d6cab2207d3650637dc75957c826"
+    }
+  ],
+  "processor": {
+    "class": "org.apache.logging.log4j.core.config.plugins.processor.PluginProcessor",
+    "version": "2.22.1",
+    "dependencySuffixes": [
+      "log4j-core/2.22.1/log4j-core-2.22.1.jar",
+      "log4j-api/2.22.1/log4j-api-2.22.1.jar"
+    ],
+    "mode": "separate-proc-only-after-full-proc-none-compile"
+  },
+  "officialFml": {
+    "path": "run/client-dev/libraries/net/neoforged/fancymodloader/loader/4.0.42/loader-4.0.42.jar",
+    "bytes": 504899,
+    "sha256": "182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6"
+  }
+}

@@ -20,6 +20,14 @@ neoForge {
 tasks.named('createMinecraftArtifacts') {
     additionalResults.put('vanillaDeobfuscated', file('../../../run/api1-unified-client-build/build/moddev/artifacts/minecraft-1.21.1-clean.jar'))
 }
+// This already pinned official dependency belongs to both the legacy and
+// primary runClient classpaths. Keep the verifier's exact 95-input closure.
+afterEvaluate {
+    dependencies.add('additionalRuntimeClasspath', 'com.google.j2objc:j2objc-annotations:2.8')
+    tasks.named('runClient').configure {
+        classpath(project.configurations.getByName('additionalRuntimeClasspath'))
+    }
+}
 tasks.register('prepareClientLaunch') {
     dependsOn 'classes', 'prepareClientRun'
     doLast {

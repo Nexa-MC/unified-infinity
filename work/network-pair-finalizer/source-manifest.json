@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SOURCE_CHECKED_NOT_RUNTIME_ACCEPTANCE",
+  "status": "RECOVERED_SOURCE_DERIVATIVE_GAME_UNRUN",
   "files": [
     {
       "path": "LICENSE",
@@ -15,12 +15,17 @@
     {
       "path": "finalize_pair.py",
       "bytes": 4349,
-      "sha256": "3dfd555d10ec85b29c8bb59e6256425fc540f860de74624d079855b6028567a1"
+      "sha256": "67a3903d3c6515239ed9b645191ab2c094c2c7b719f0b56cd0e21dae7c514666"
     },
     {
       "path": "prepare_inputs.py",
       "bytes": 8524,
       "sha256": "3fe5393ffc0dfe6a7bfe4a23ac9fe55dc133913a66e1908d7ff03e34ce44249e"
+    },
+    {
+      "path": "public-reference-derivative.json",
+      "bytes": 367,
+      "sha256": "3d0a097b9c56d95f9879799095af35158608181542c1f416dd2a01b94b3bec2f"
     },
     {
       "path": "source-checks.json",
@@ -31,11 +36,6 @@
       "path": "test_finalizer.py",
       "bytes": 2266,
       "sha256": "a8685fdf0cc2cc2999fb0942bbc491bbd4f302c4d4d47efb9bcefe8c8b344d99"
-    },
-    {
-      "path": "public-reference-derivative.json",
-      "bytes": 367,
-      "sha256": "3d0a097b9c56d95f9879799095af35158608181542c1f416dd2a01b94b3bec2f"
     }
   ],
   "publicationDerivative": "public-reference-derivative.json"

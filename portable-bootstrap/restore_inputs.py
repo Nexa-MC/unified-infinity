@@ -3,6 +3,12 @@
 import argparse, concurrent.futures, hashlib, json, pathlib, tempfile, time, urllib.error, urllib.parse, urllib.request
 HERE=pathlib.Path(__file__).resolve().parent
 
+class ArtifactMismatch(ValueError):
+    """A declared source did not return the locked artifact bytes."""
+
+class UnsafeURL(ValueError):
+    """Reject this route without following an unapproved redirect."""
+
 def digest(path,kind='sha256'):
     value=hashlib.new(kind)
     with path.open('rb') as stream:
@@ -17,16 +23,16 @@ def destination(root,name):
     return out
 
 def validate(path,row):
-    if 'bytes' in row and path.stat().st_size!=row['bytes']:raise ValueError('Size mismatch: '+row['path'])
+    if 'bytes' in row and path.stat().st_size!=row['bytes']:raise ArtifactMismatch('Size mismatch: '+row['path'])
     for kind in ('sha256','sha1'):
-        if kind in row and digest(path,kind)!=row[kind]:raise ValueError(kind+' mismatch: '+row['path'])
+        if kind in row and digest(path,kind)!=row[kind]:raise ArtifactMismatch(kind+' mismatch: '+row['path'])
 
 def restore(root,row,allowed):
     path=destination(root,row['path'])
     if path.exists():validate(path,row);return {'path':row['path'],'status':'verified-existing','sha256':digest(path),'bytes':path.stat().st_size}
     def check(url):
         x=urllib.parse.urlsplit(url)
-        if x.scheme!='https' or x.hostname not in allowed or x.username or x.password or x.port not in (None,443):raise ValueError('Non-allowlisted HTTPS URL')
+        if x.scheme!='https' or x.hostname not in allowed or x.username or x.password or x.port not in (None,443) or x.fragment:raise UnsafeURL('Non-allowlisted HTTPS URL')
     class Redirect(urllib.request.HTTPRedirectHandler):
         def redirect_request(self,req,fp,code,msg,headers,newurl):
             check(newurl);return super().redirect_request(req,fp,code,msg,headers,newurl)
@@ -37,13 +43,14 @@ def restore(root,row,allowed):
         for attempt in range(3):
             try:
                 with opener.open(urllib.request.Request(url,headers={'User-Agent':'Unified-Infinity-pinned-restoration/1'}),timeout=45) as response:
+                    check(response.geturl())
                     with tempfile.NamedTemporaryFile(dir=path.parent,prefix='.verified-download-',delete=False) as stream:
                         temp=pathlib.Path(stream.name)
                         try:
                             count=0
                             while data:=response.read(1024*1024):
                                 count+=len(data)
-                                if count>row.get('bytes',512*1024*1024):raise ValueError('Download exceeds bounded size')
+                                if count>row.get('bytes',512*1024*1024):raise ArtifactMismatch('Download exceeds bounded size')
                                 stream.write(data)
                             stream.flush();validate(temp,row);temp.replace(path)
                         finally:temp.unlink(missing_ok=True)
@@ -52,11 +59,17 @@ def restore(root,row,allowed):
                 last=error
                 if error.code in (404,410):break
                 if error.code in (429,500,502,503,504) and attempt<2:time.sleep(1+attempt);continue
-                raise
+                break
             except (TimeoutError,urllib.error.URLError) as error:
                 last=error
                 if attempt<2:time.sleep(1+attempt);continue
-                raise
+                break
+            except (ArtifactMismatch,UnsafeURL) as error:
+                # Only try another URL already declared by this artifact lock.
+                # Rejected bytes are removed; rejected redirects are never sent.
+                # Every alternative retains the same byte ceiling and digests.
+                last=error
+                break
     raise RuntimeError('Pinned official artifact unavailable: '+row['path']) from last
 
 def main():

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "status": "RECOVERED_SOURCE_DERIVATIVE_GAME_UNRUN",
   "runtimeStatus": "UNRUN",
   "files": [
     {
@@ -45,13 +45,18 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 72783,
-      "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf"
+      "bytes": 85858,
+      "sha256": "56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0"
+    },
+    {
+      "path": "test_completed_reload.py",
+      "bytes": 9493,
+      "sha256": "c1407fb92df3c658f46fc8df89b52c508754a05f25a90b5113f6d36fe621b1b0"
     },
     {
       "path": "test_control_serialization.py",
-      "bytes": 17401,
-      "sha256": "16c2a91331981d0c65a6a494ea51c7b7fbe1ecd2fd5e2ee5bdc5bd2c220d3d3b"
+      "bytes": 19653,
+      "sha256": "a10f82fc961842e33cc61197c2de2a2587488b3f73a7afda367c9fc1cabd44cf"
     },
     {
       "path": "test_input_modes.py",
@@ -60,18 +65,23 @@
     },
     {
       "path": "test_legal_links.py",
-      "bytes": 9038,
-      "sha256": "dd05360544fd9e59dd349c41480978f67e7cd5b927cc8822225e17e640de800b"
+      "bytes": 9074,
+      "sha256": "4327a6860d861ca78d3d4a1984d44774e1c6cfad7d90e99c162aff94a8dd85d7"
+    },
+    {
+      "path": "test_lifecycle_boundaries.py",
+      "bytes": 13821,
+      "sha256": "9933e74a443c35f70fa7ab7fcc17360a4448b16efd75d3b3cec9b3df8c88f934"
     },
     {
       "path": "test_portability.py",
-      "bytes": 18922,
-      "sha256": "ccea61c659337ed812dd8af7b382fa4329bcfac5928c8296d8834dd1a2481996"
+      "bytes": 19694,
+      "sha256": "766e8c304d861fe88f14062b51b204e822d2968e68807067708ec6e2c9e3d8a0"
     },
     {
       "path": "test_supervisor.py",
-      "bytes": 25543,
-      "sha256": "f078276bb371b4ffe5227a8d9c01938b44a73e9f046cab471285677cbab3e3d8"
+      "bytes": 25545,
+      "sha256": "91d3e3e89407b6dd300d96595b9c4ddb13933181fed4f154c374310678529d42"
     }
   ]
 }

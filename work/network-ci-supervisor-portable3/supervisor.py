@@ -562,6 +562,10 @@ def verify_spec(spec, server_properties_before=None, property_receipt=None):
             require(clean_path(row['path']).stat().st_uid == 0, 'Owned input outside explicit preparation roots')
         if server_properties_before is not None and row.get('path') == str(Path(spec['server']['cwd']) / 'server.properties'):
             path = verify_server_properties(row, server_properties_before, property_receipt, config_root)
+        elif server_properties_before is not None and row.get('path') == str(Path(spec['server']['cwd']) / 'ops.json'):
+            path = verify_empty_ops_serialization(row, property_receipt, config_root)
+        elif server_properties_before is not None and spec['target'] == 'unified' and row.get('path') == str(Path(spec['client']['cwd']) / 'config/fabric/indigo-renderer.properties'):
+            path = verify_indigo_timestamp(row, spec, property_receipt, config_root)
         else:
             path = file_pin(row, config_root)
         require(str(path) not in pins, 'Duplicate sealed file')
@@ -694,6 +698,60 @@ def verify_spec(spec, server_properties_before=None, property_receipt=None):
     lock = clean_path(spec['pair_lock'])
     require(lock.parent.is_dir(), 'Missing shared pair-lock directory')
     return pins
+
+
+def verify_indigo_timestamp(row, spec, receipt_path, owned_profile):
+    """Only Indigo's Java Properties timestamp comment may change after start."""
+    exact_keys(row, ('path','bytes','sha256'), 'Indigo original pin')
+    expected_sha = '6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b'
+    require(row['bytes'] == 281 and row['sha256'] == expected_sha, 'Unexpected original Indigo configuration')
+    baseline = clean_path(spec['pair_lock']).parent / 'indigo-baseline.properties'
+    baseline_row = next((r for r in spec['inputs'] if r['path'] == str(baseline)), None)
+    require(baseline_row == {'path':str(baseline),'bytes':281,'sha256':expected_sha},
+            'Original Indigo baseline must be sealed')
+    file_pin(baseline_row, owned_profile)
+    before = read_bounded(baseline, 1024)
+    require(len(before) == 281 and hashlib.sha256(before).hexdigest() == expected_sha,
+            'Original Indigo baseline changed during verification')
+    path = clean_path(row['path'])
+    after = read_bounded(path, 1024)
+    left, right = before.splitlines(keepends=True), after.splitlines(keepends=True)
+    require(len(left) == len(right) == 9 and left[0] == right[0] == b'#Indigo properties file\n'
+            and left[2:] == right[2:], 'Indigo settings or non-timestamp bytes changed')
+    timestamp = rb'#[A-Z][a-z]{2} [A-Z][a-z]{2} [0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2} [A-Z]{3} [0-9]{4}\n'
+    require(re.fullmatch(timestamp,left[1]) is not None and re.fullmatch(timestamp,right[1]) is not None,
+            'Unexpected Indigo timestamp-comment form')
+    require(parse_properties(before) == parse_properties(after), 'Indigo semantic settings changed')
+    current = {'path':row['path'],'bytes':len(after),'sha256':hashlib.sha256(after).hexdigest()}
+    file_pin(current, owned_profile)
+    require(receipt_path is not None, 'Indigo serialization evidence required')
+    output = Path(receipt_path).with_name(Path(receipt_path).stem+'-indigo-timestamp.json')
+    write_new(output, {'schema':1,'status':'EXACT_INDIGO_SETTINGS_PRESERVED','original':row,'baseline':baseline_row,
+                       'observed':current,'beforeTimestamp':left[1].decode().rstrip(),
+                       'afterTimestamp':right[1].decode().rstrip(),'settings':parse_properties(after),
+                       'onlyAllowedChange':'Second-line Java Properties timestamp comment',
+                       'beforeHex':before.hex(),'afterHex':after.hex(),'byteIdentical':before == after,
+                       'diff':list(difflib.unified_diff(before.decode('ascii').splitlines(keepends=True),
+                                                      after.decode('ascii').splitlines(keepends=True),
+                                                      fromfile='pinned-prestart',tofile='observed-post-start'))})
+    return path
+
+
+def verify_empty_ops_serialization(row, receipt_path, owned_profile):
+    """Allow only Minecraft's observed empty-array newline removal after start."""
+    exact_keys(row, ('path','bytes','sha256'), 'original empty-operator pin')
+    require(row['bytes'] == 3 and row['sha256'] == hashlib.sha256(b'[]\n').hexdigest(),
+            'Expected original exact empty-operator source pin')
+    path = clean_path(row['path'])
+    content = read_bounded(path, 128)
+    require(content in (b'[]\n', b'[]'), 'Operators must remain exactly empty')
+    current = {'path':row['path'],'bytes':len(content),'sha256':hashlib.sha256(content).hexdigest()}
+    file_pin(current, owned_profile)  # Preserve ownership/type/access/hash rules.
+    require(receipt_path is not None, 'Operator serialization evidence required')
+    output = Path(receipt_path).with_name(Path(receipt_path).stem+'-empty-ops.json')
+    write_new(output, {'schema':1,'status':'EXACT_EMPTY_OPERATORS_PRESERVED','original':row,
+                       'observed':current,'operator_count':0,'onlyAllowedChange':'optional terminal LF on the empty JSON array'})
+    return path
 
 
 def verify_graphics(spec, proc):
@@ -904,12 +962,111 @@ def validate_disconnect(row, identity, nonce):
     require(all(type(row[k]) is type(v) and row[k] == v for k, v in expected.items()), 'Disconnect identity mismatch')
 
 
+class CompletedReloadGate:
+    MAX_WAIT_SECONDS = 10.0
+    DWELL_SECONDS = 2.0
+    PROBE_TIMEOUT_SECONDS = 15.0
+    PROBE_MARGIN_SECONDS = 1.0
+    EMI_LINE = re.compile(r'^\[([^\]\r\n]+)\] \[[^\]\r\n]+/INFO\] \[EMI/\]: \[EMI\] (.+)$')
+
+    def __init__(self, started, reply_absent, hard_deadline):
+        require(reply_absent is not None and reply_absent <= started,
+                'Missing causal pre-PASS result absence observation')
+        self.cutoff = min(hard_deadline, started + self.MAX_WAIT_SECONDS,
+                          reply_absent + self.PROBE_TIMEOUT_SECONDS - self.PROBE_MARGIN_SECONDS)
+        self.cursor = 0
+        self.report = {
+            'status': 'WAITING_FOR_CURRENT_RELOAD', 'gate_started_monotonic': started,
+            'client_result_absent_monotonic': reply_absent,
+            'conservative_probe_deadline_monotonic': reply_absent + self.PROBE_TIMEOUT_SECONDS,
+            'gate_cutoff_monotonic': self.cutoff, 'maximum_extra_wait_seconds': self.MAX_WAIT_SECONDS,
+            'required_observed_dwell_seconds': self.DWELL_SECONDS,
+            'probe_deadline_margin_seconds': self.PROBE_MARGIN_SECONDS,
+            'milestones': [], 'reload_start': None, 'reload_completed': None,
+            'release_call_started_monotonic': None, 'release_call_returned_monotonic': None,
+            'release_published': False,
+            'timing_basis': 'Fresh owned stdout observation times; result-file absence precedes the pinned probe release timer; release publication is bounded by call start and return',
+        }
+
+    def observe(self, capture):
+        require(len(capture.lines) == len(capture.line_observed_monotonic)
+                and self.cursor <= len(capture.lines), 'Current-run line observation mismatch')
+        for index in range(self.cursor, len(capture.lines)):
+            line = capture.lines[index]
+            match = self.EMI_LINE.fullmatch(line)
+            if match is None:
+                continue
+            message = match.group(2)
+            milestone = None
+            if message == 'Starting EMI reload...':
+                milestone = 'reload_start'
+            elif re.fullmatch(r'Reloaded EMI in [0-9]+ms', message):
+                milestone = 'reload_completed'
+            elif message == 'Disconnecting from server, EMI data cleared':
+                milestone = 'disconnect_before_release'
+            if milestone is None:
+                continue
+            row = {'milestone': milestone, 'line': index + 1, 'raw_line': line,
+                   'log_timestamp': match.group(1),
+                   'observed_monotonic': capture.line_observed_monotonic[index]}
+            self.report['milestones'].append(row)
+            if milestone == 'reload_start':
+                require(self.report['reload_start'] is None,
+                        'A later EMI reload started before release')
+                self.report['reload_start'] = row
+            elif milestone == 'reload_completed':
+                start = self.report['reload_start']
+                require(start is not None and start['line'] < row['line'],
+                        'Stale EMI completion without a current-run start')
+                require(self.report['reload_completed'] is None, 'Duplicate EMI completion')
+                require(row['observed_monotonic'] >= start['observed_monotonic'],
+                        'EMI observation clock moved backwards')
+                self.report['reload_completed'] = row
+                self.report['status'] = 'OBSERVING_POST_RELOAD_DWELL'
+            else:
+                raise ValueError('EMI disconnected before the completed-reload release')
+        self.cursor = len(capture.lines)
+
+    def ready(self, now, alive):
+        require(alive, 'Completed-reload gate: process exited early')
+        require(self.report['gate_started_monotonic'] <= now < self.cutoff,
+                'Completed-reload gate timeout before unchanged probe deadline')
+        completed = self.report['reload_completed']
+        if completed is None:
+            return False
+        dwell = now - completed['observed_monotonic']
+        require(dwell >= 0, 'EMI observation clock moved backwards')
+        self.report['observed_dwell_seconds'] = dwell
+        if dwell < self.DWELL_SECONDS:
+            return False
+        self.report.setdefault('dwell_satisfied_monotonic', now)
+        return True
+
+    def before_release(self, now, alive):
+        require(self.ready(now, alive), 'Completed EMI reload and two-second dwell required')
+        require(self.report['release_call_started_monotonic'] is None, 'Duplicate release attempt')
+        self.report['status'] = 'PUBLISHING_RELEASE'
+        self.report['release_call_started_monotonic'] = now
+        self.report['observed_dwell_at_release_seconds'] = now - self.report['reload_completed']['observed_monotonic']
+        self.report['extra_wait_before_release_seconds'] = now - self.report['gate_started_monotonic']
+
+    def after_release(self, now):
+        self.report['release_published'] = True
+        self.report['release_call_returned_monotonic'] = now
+        self.report['extra_wait_through_publication_seconds'] = now - self.report['gate_started_monotonic']
+        require(self.report['release_call_started_monotonic'] is not None
+                and self.report['release_call_started_monotonic'] <= now < self.cutoff,
+                'Release publication exceeded conservative completed-reload budget')
+        self.report['status'] = 'RELEASE_PUBLISHED_AFTER_OBSERVED_DWELL'
+
+
 class Capture:
     def __init__(self, path):
         self.stream = Path(path).open('xb')
         self.raw = bytearray()
         self.pending = bytearray()
         self.lines = []
+        self.line_observed_monotonic = []
         self.events = {}
 
     def feed(self, data):
@@ -924,6 +1081,7 @@ class Capture:
             require(len(line) <= MAX_LINE, 'Console line bound exceeded')
             text = line.decode('utf-8', 'strict').rstrip('\r')
             self.lines.append(text)
+            self.line_observed_monotonic.append(time.monotonic())
             require(not any(marker in text for marker in FAIL_MARKERS), 'Game/probe failure marker')
             for marker in ('NETWORK_CONTROL_JSON', 'NETWORK_CONTROL_READY', 'NETWORK_CONTROL_DISCONNECTED'):
                 if marker in text:
@@ -950,6 +1108,7 @@ class Pair:
         self.identities = {}
         self.group_members = {}
         self.logs = {}
+        self.client_result_absent_monotonic = None
         self.selector = selectors.DefaultSelector()
         self.deadline = time.monotonic() + 600
         self.report = {'schema': 1, 'target': spec['target'], 'status': 'INCONCLUSIVE',
@@ -997,6 +1156,13 @@ class Pair:
 
     def pump(self, timeout=0.1):
         require(time.monotonic() < self.deadline, 'Hard pair deadline exceeded')
+        if 'client' in self.logs and 'NETWORK_CONTROL_JSON' not in self.logs['client'].events:
+            # This fresh result is atomically written before pass() emits stdout
+            # and before the pinned client starts its unchanged 15-second timer.
+            absent_observed = time.monotonic()
+            result_path = Path(self.spec['client']['cwd']) / 'network-control-client-result.json'
+            if not os.path.lexists(result_path):
+                self.client_result_absent_monotonic = absent_observed
         for key, _ in self.selector.select(timeout):
             data = os.read(key.fileobj.fileno(), 65536)
             if data:
@@ -1010,7 +1176,23 @@ class Pair:
                 require(code == 0, 'Nonzero ' + role + ' exit')
             else:
                 require(role in self.identities, 'Initial child identity capture failed')
-                self.proc.same(self.identities[role])
+                try:
+                    self.proc.same(self.identities[role])
+                except (FileNotFoundError, ProcessLookupError, ValueError) as error:
+                    # poll(None) can precede this exact owned child's clean exit.
+                    # Never forgive live identity changes or access denials.
+                    if isinstance(error, ValueError) and str(error) != 'Expected live process':
+                        raise
+                    code = child.poll()  # Reconcile only the retained Popen.
+                    if code is None:
+                        remaining = min(0.2, self.deadline-time.monotonic())
+                        require(remaining > 0, 'Hard pair deadline expired during exit reconciliation')
+                        try:
+                            code = child.wait(timeout=remaining)
+                        except subprocess.TimeoutExpired as timeout_error:
+                            raise ValueError('Owned child did not become waitable within reconciliation budget') from timeout_error
+                    self.report['exits'][role] = code
+                    require(code == 0, 'Nonzero ' + role + ' exit during identity observation')
         members = self.proc.all_identities()
         for role, identity in self.identities.items():
             group = [row for row in members if row['pgrp'] == identity['pgrp'] and row['session'] == identity['session'] and row['state'] != 'Z']
@@ -1035,6 +1217,25 @@ class Pair:
                 return
             require(time.monotonic() < until, label + ' timeout')
             require(all(self.children[r].poll() is None for r in required_alive), label + ': process exited early')
+
+    def wait_for_completed_reload(self):
+        gate = CompletedReloadGate(time.monotonic(), self.client_result_absent_monotonic, self.deadline)
+        self.report['completed_reload_release'] = gate.report
+        self.report['phase'] = 'completed_emi_reload_and_dwell'
+        def alive():
+            return all(self.children[role].poll() is None for role in ('server', 'client'))
+        while True:
+            gate.ready(time.monotonic(), alive())
+            self.pump(min(0.1, max(0, gate.cutoff - time.monotonic())))
+            gate.observe(self.logs['client'])
+            gate.ready(time.monotonic(), alive())
+            self.observe('during_completed_reload_dwell', connected=True)
+            if gate.ready(time.monotonic(), alive()):
+                # Catch a later start queued during the final socket observation.
+                self.drain()
+                gate.observe(self.logs['client'])
+                require(gate.ready(time.monotonic(), alive()), 'Completed-reload gate changed before release')
+                return gate
 
     def drain(self):
         # Read all currently available bytes without a blocking tail read.
@@ -1167,8 +1368,11 @@ class Pair:
                       180, 'Actual join and nonce round trip', ('server', 'client'))
             self.report['probe'] = self.probe_results(nonce)
             self.observe('after_matching_reply', connected=True)
+            completed_gate = self.wait_for_completed_reload()
             self.report['phase'] = 'client_disconnect'
+            completed_gate.before_release(time.monotonic(), all(self.children[r].poll() is None for r in ('server', 'client')))
             publish_release(Path(self.spec['client']['cwd']) / PROBE_FILES[1], {'schema': 1, 'nonce': nonce, 'sequence': 1})
+            completed_gate.after_release(time.monotonic())
             self.wait(lambda: self.children['client'].poll() == 0 and
                       'NETWORK_CONTROL_DISCONNECTED' in self.logs['client'].events,
                       30, 'Clean client disconnect and exit', ('server',))

@@ -21,12 +21,12 @@ import time
 
 HERE = Path(__file__).resolve().parent
 COLLECTOR = 'work/network-graphics-ci-portable2/graphics_preflight.py'
-COLLECTOR_SHA = '82283cb5b254f1102a6022b95433f38b6fccf9f99aa8b8f3abc004d9f2507946'
+COLLECTOR_SHA = 'a070f405e47b3e72758e55c3f0380dc45411ea0523fb2ed04614da2804a98ef3'
 SUPERVISOR = 'work/network-ci-supervisor-portable3/supervisor.py'
-SUPERVISOR_SHA = '01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf'
+SUPERVISOR_SHA = '56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
 MIB = 1024 * 1024
 ACTIVE_DEADLINE = None
-REQUIRED = {'xvfb': '/usr/bin/Xvfb', 'glxinfo': '/usr/bin/glxinfo',
+REQUIRED = {'xvfb': '/usr/bin/Xvfb', 'glxinfo': '/usr/bin/glxinfo.x86_64-linux-gnu',
             'software_dri': '/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so',
             'mesa_glx': '/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0'}
 

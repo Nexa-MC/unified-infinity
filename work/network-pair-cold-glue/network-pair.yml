@@ -26,4 +26,4 @@ jobs:
       - name: Materialize isolated consumer sources and serial plans
         run: python3 work/network-pair-cold-glue/driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair"
       - name: Restore, build, and run native then Unified with the same nonce probe
-        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair"
+        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --install-reviewed-runner-package

@@ -1,0 +1,238 @@
+{
+  "schema": 1,
+  "status": "RECOVERED_SOURCE_DERIVATIVE_PREPARED_RUNTIME_UNRUN",
+  "originalPublication": {
+    "commit": "789620d07ebfe3725a998bcd20d9b7f13ca22dc1",
+    "manifestSha256": "1ed3aefa877323f252e23d60bb9f0234909d0671770991f74489db0eb0302de0",
+    "payloadFiles": 143,
+    "totalFiles": 144
+  },
+  "recoveredArchives": [
+    {
+      "name": "unified-infinity-local-client-recovery-v5-20261007.zip",
+      "bytes": 14181344,
+      "sha256": "ccf300b157967c740e3dced1c065e09f14c14681a6f75f6df3904273716a4638",
+      "role": "Executed source fixes and reference artifacts/evidence"
+    },
+    {
+      "name": "unified-infinity-emi-attribution-final-preflight-v5-20261007.zip",
+      "bytes": 4629157,
+      "sha256": "3874dbb5ca12d84f370e1cd2a58a9a17c606568d172a61863dd6afce5b13f047",
+      "role": "Exact fresh restoration/build recipes; matched pair game remains historical NOT_RUN"
+    },
+    {
+      "name": "unified-infinity-validation-scheduling-recovery-v4-20261007.zip",
+      "bytes": 1608491,
+      "sha256": "c06cb63c996ef58ca43eb1715da40589067ef6c05b44aa593f9011c08c8bec47",
+      "role": "Reference inspection only; later scheduling implementation excluded"
+    }
+  ],
+  "scope": {
+    "newForgePlay": false,
+    "newApiFamily": false,
+    "sameOriginalModSet": true,
+    "probeVersion": "0.1.1",
+    "acceptedCandidateReference": "ce4b907075e2892f39ee13ed75d19afc193ad602d9ecc8cb5eca03cea4181844",
+    "historicalEvidenceIsFreshAcceptance": false
+  },
+  "portabilitySources": [
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/frozen-source/work/network-pair-cold-glue/runtime_restore.py",
+      "bytes": 31138,
+      "sha256": "69cb54d57dc114624573c34d4efd645a02e9671d6daffdaaa4201378cfbac533",
+      "use": "Original runtime composition, preparation and exact 95-entry verification implementation"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/frozen-source/work/network-pair-cold-glue/core-dependency-lock.json",
+      "bytes": 1319498,
+      "sha256": "8b5f08ec1ef07a8c646e855d01a01bb9d4797b8d821c87820ec3285cf23ba993",
+      "use": "Original core artifact bytes, digests and URL declarations"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/frozen-source/work/network-pair-cold-glue/product-input-lock.json",
+      "bytes": 4183,
+      "sha256": "4131605fee6cf17b321f787c0b84ddc94fd00d2f417b39c1b85a42d8814cdc0c",
+      "use": "Original PRODUCT artifact pins"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/frozen-source/work/network-pair-cold-glue/original-mod-lock.json",
+      "bytes": 1539,
+      "sha256": "7f8f9173abde03471f0ca1002d8773f5ee0b10e6c5885823f58e509612f21dba",
+      "use": "Original mod pins preserved unchanged"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/work/api1/ci/runtime-restore/restore_inputs.py",
+      "bytes": 4925,
+      "sha256": "26a69bd13798939dd606fe7069380eed6cffadf4659f88182471e3a4d48bb859",
+      "use": "Original bounded downloader and verification semantics"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/work/api1/ci/runtime-restore/runtime-inputs.lock.json",
+      "bytes": 122749,
+      "sha256": "744be4c4fd9464e77e94f88db87f7f4a2e07d5aa2c50c97fce7927b92a07a2e0",
+      "use": "Recovered runtime identities and generated-output closure"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_verified_repositories.gradle",
+      "bytes": 1048,
+      "sha256": "2636068b5a58a8fc2897d5d53be26a3cc2fbb694574ca3da851a766ccc46b065",
+      "use": "Verified Gradle metadataSources configuration"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local_moddev_component_exact.gradle",
+      "bytes": 797,
+      "sha256": "cb1a1046705e2977b14d9f0dde366e54a602f4cf972bbfb64b77638fa8161aaa",
+      "use": "Exact additionalRuntimeClasspath and runClient classpath inclusion"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/official-metadata-route-receipt.json",
+      "bytes": 2054,
+      "sha256": "076b3b4fa54359c93b91f2b41f73d7b63f495808cbaa4b6b38a3687b83ee859b",
+      "use": "Verified Mojang Meta module route and immutable identity"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local-official-route-overrides.json",
+      "bytes": 3418,
+      "sha256": "215493859d9c22463eaef487f91e3b0d3d1f9fe827d9350b13ad2e00eb8a2b6e",
+      "use": "Four validated exact official source routes"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/official-plugin-marker-route-receipt.json",
+      "bytes": 3021,
+      "sha256": "e92a78b1028b41df0f3129dd15d98e8672454f2e41c8aa62ff1fd426b351b3fb",
+      "use": "Verified GradleUtils marker alternative URL"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/parchment-route-pom.json",
+      "bytes": 2422,
+      "sha256": "02a2dc0fecc2273fb01ac5be13c1f874fe3dc7cefc80e16da4ac4d90f1c46850",
+      "use": "Rejected non-allowlisted redirect and verified declared POM alternative"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/parchment-route-zip.json",
+      "bytes": 2426,
+      "sha256": "42ad19084b334466889f069d20bd9b239a4a905ce927e053e9ad6c96f812318f",
+      "use": "Verified declared Parchment ZIP alternative"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/moddev-config-restoration.json",
+      "bytes": 2316,
+      "sha256": "5f7e0191320aec838f8da1234ca3398a96f627dd5fa4993d4fc46b2b39fd4ee9",
+      "use": "Official module declaration and verified 10,209-byte ModDev configuration identity"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/moddev-config-adaptation.json",
+      "bytes": 3705,
+      "sha256": "a45fdf4d33727283643804c0b0c2a94f7ca50b634b0fbcf2201ec1d93979d9eb",
+      "use": "Exactly one added strict verification checksum; original checksum preservation"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/portable-bootstrap/forge-fixture/neighbor-input-lock.json",
+      "bytes": 890,
+      "sha256": "f534917ff74d0babb72a5222806f193987de1e5986f906a5b474b40284c8ec65",
+      "use": "Exact Clumps19.0.0.1 fixture pin"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/consumer/work/api1/four-loader/api-contract-controls/client-development-config-complete/build.gradle",
+      "bytes": 2542,
+      "sha256": "9a5d81f0e54ee4bcb30536fb7ef13874bd8da82c55e38aeec08a1210acca531f",
+      "use": "Verified exporter source and unchanged exported manifest behavior"
+    },
+    {
+      "path": "successor-recovery-20261008/validation/fresh-host-recipes-20261007-2218/fresh_native_build.py",
+      "bytes": 28718,
+      "sha256": "4983d54a0876d96f0091788bb48b7e7c2cd501dd20a4702000d97ed85df7d57f",
+      "use": "Later validation confirms local exact ModDev and metadata adapter recipe"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/prepare_offline_installer_cache.py",
+      "bytes": 6200,
+      "sha256": "af23638046ef6842fe9fbe1621b245408de5ab20fd7f396d98e82c7ebd7db411",
+      "use": "Exact deterministic data-only Mojang resource archive construction; no executable entries"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/consumer/local-offline-installer/offline-installer-plan.json",
+      "bytes": 12793,
+      "sha256": "25d118f4f1420e0b6934fe3b45f8f01cfef18f88477f5fc2a2c7c25ac678f0b5",
+      "use": "Exact cache identity, three input hashes and pinned installer-class identities"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/desktop-restart-20261007/consumer/restart_native_sequence.py",
+      "bytes": 14488,
+      "sha256": "a70b088f450b6bb90f5748259acaa2aa3b507aea433e724781fd09a87459b360",
+      "use": "Validated offline installer prerequisite verification and unchanged per-step bounds"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local-native-evidence/installer-client-offline-001.json",
+      "bytes": 1896,
+      "sha256": "28113b6d9a93ceeeaeb60f7b8f792d84901dfd6ab4da7d6ffa2eebd73fcdd1fd",
+      "use": "Successful recovered SimpleInstaller client command with offline text cache"
+    },
+    {
+      "path": "successor-recovery-20261008/recovery/history/version-4-snapshot/history/version-3-snapshot/verified-unified-20261007/consumer/local-native-evidence/installer-native-server-offline-001.json",
+      "bytes": 1922,
+      "sha256": "836016e78e3ec9c293b96cbf3d9a21369bdb18bff660dafb8eb9ee9dc78a124d",
+      "use": "Successful recovered SimpleInstaller server command with offline text cache"
+    }
+  ],
+  "buildOverlayManifest": "work/network-pair-cold-glue/build-support/manifest.json",
+  "lifecycleReference": [
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/checkpoint/stage/work/network-ci-supervisor-portable3/supervisor.py",
+      "bytes": 72783,
+      "sha256": "01f3796c0d6e9c54a770375f0ae1cc3451a89074bb88934023f997f7c48dc1bf"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/history/version-4-snapshot/local-pair-20261007/consumer/local-pair-adapter/local_pair_supervisor_v5.py",
+      "bytes": 81049,
+      "sha256": "c39f8c275a903eaa93b9d50d13121be66b0dcb18ba1acb6568b1ead1d266c8a5"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/probe-lifecycle-20261007/consumer/local-pair-adapter/local_pair_supervisor_v6_completed.py",
+      "bytes": 88549,
+      "sha256": "2a82e9569c0d183f9fe8f4c4bcd6a67571a1e51e27c4301f4fb0cc4b14b29750"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/history/version-4-snapshot/local-pair-20261007/consumer/local-pair-adapter/indigo-baseline.properties",
+      "bytes": 281,
+      "sha256": "6ccd84c116ad3a0d4277413074cc5b71ac6e5027ea45aa298a21e0b145b25d9b"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/history/version-4-snapshot/local-pair-20261007/consumer/local-pair-adapter/test_indigo_timestamp.py",
+      "bytes": 2478,
+      "sha256": "63a12cd9d9f8176d47f62daebc9294d6eafc0fff77a6302c15d541bddc3ede15"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/history/version-4-snapshot/local-pair-20261007/consumer/local-pair-adapter/test_process_exit_race_v4.py",
+      "bytes": 2974,
+      "sha256": "d2aed46c8f18c8475a8f5262b85a4b64aeccb230d05ceba2e7de6763d254567e"
+    },
+    {
+      "path": "/workspace/scratch/414822c1ef1a/unified-pair-recovery-20261006/successor-recovery-20261008/recovery/probe-lifecycle-20261007/consumer/local-pair-adapter/test_probe011_completed_matrix_v1.py",
+      "bytes": 13653,
+      "sha256": "112063f9ce797ad3be537a8ab323ec9a96b93615b21db07ccb3df2bdbf0c1288"
+    }
+  ],
+  "runtimeRemaining": [
+    "Actual cold downloads and all output byte gates",
+    "Actual installed Ubuntu packages and software graphics",
+    "Current aggregate memory and loopback listener admission",
+    "Both fresh native and Unified distinct-process nonce/save/exit assertions"
+  ],
+  "excludedClaims": [
+    "Rapid Unified lifecycle39-error issue fixed",
+    "Full four-loader API acceptance",
+    "Manual GUI acceptance"
+  ],
+  "reviewRevision2": {
+    "preservedRevision1StageSha256": "006e6ed9620e025bd42c4463ed77263be07df67b30a2bab5fcef37ddefa76a46",
+    "corrections": [
+      "Original Forge regression fixture source build and exact3a016e output",
+      "Five original public fixture JAR rows and three exact Quilt cache aliases",
+      "Record-only stop handlers across child spawn/assignment/wait/cleanup; no inherited signal mask"
+    ],
+    "upstreamRegressionSkipped": false,
+    "fixtureSourceManifest": "work/network-pair-cold-glue/fixture-support/input-lock.json",
+    "stopHandlerSource": "recovery/history/version-4-snapshot/history/version-3-snapshot/consumer/prepare_local_native.py"
+  }
+}

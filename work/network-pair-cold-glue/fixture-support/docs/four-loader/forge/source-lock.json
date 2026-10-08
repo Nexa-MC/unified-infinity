@@ -1,0 +1,194 @@
+{
+  "captured_utc": "2026-10-03",
+  "artifacts": [
+    {
+      "url": "https://files.minecraftforge.net/net/minecraftforge/forge/index_1.21.1.html",
+      "path": "docs/four-loader/forge/upstream/forge-downloads-1.21.1.html",
+      "size": 359060,
+      "sha256": "ec8c6526446e74c41cb5c15f40a1a6a06d1fbfdc12c579a9c759c80f5b558acf",
+      "sha1": "ca42ddce2b1e9d58961ad49623356ba18f935c98"
+    },
+    {
+      "url": "https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json",
+      "path": "docs/four-loader/forge/upstream/forge-promotions.json",
+      "size": 4111,
+      "sha256": "9d3a9dd674c0dd264d82b1f39a204581eaee32d75e3b315f9767d9e07ade01d0",
+      "sha1": "9a9ca524ec48e9850fe218672e77c8490326e215"
+    },
+    {
+      "url": "https://api.modrinth.com/v2/project/clumps/version?loaders=%5B%22forge%22%5D&game_versions=%5B%221.21.1%22%5D",
+      "path": "docs/four-loader/forge/upstream/clumps-versions.json",
+      "size": 2104,
+      "sha256": "bf973841494f3e17c4b6610474ed8208769fff8498dc2a327ad0ad3ef1704164",
+      "sha1": "2a9db2fe2fddca3fca557e80683490c9b1e4f554"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-mdk.zip",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-mdk.zip",
+      "size": 79967,
+      "sha256": "da7ab2ca88a997442d59633a47582b3c528ea268538031b820b3aae95a660991",
+      "sha1": "a081da53578f1bd9b053cf7d65dbe9e95d2b351c"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-sources.jar",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-sources.jar",
+      "size": 1609858,
+      "sha256": "32d8f7ace32fe973b359649855ec8ef491060f1f5a32a31ebb2665ba2e4c6860",
+      "sha1": "54609844c66b0667ac6ba3867177b107b294e56e"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal.jar",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal.jar",
+      "size": 2617057,
+      "sha256": "88ef6625122cfdb9d7b3176bd61b8c0692a191bad0edd77ffddc6a765ee4979c",
+      "sha1": "8def9206bada9c83fe91a5181c9ad13f4c8cbc4a"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-userdev.jar",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-userdev.jar",
+      "size": 3008913,
+      "sha256": "9aa2e6aad9655935affefa8df0b9673ff415c511e7428231ced59e5d6dc0c283",
+      "sha1": "e2174eefe23ac21483fab0853a1518d45cf3d85b"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-installer.jar",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-installer.jar",
+      "size": 6377616,
+      "sha256": "f1b620f2879ad6a5bbe15daba4d8f81eab9f5e08004967604960b98996bdebc4",
+      "sha1": "fa4f90047c23e6df4d2b4e649aec7fd5d1e20acd"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/fmlloader/1.21.1-52.1.0/fmlloader-1.21.1-52.1.0-sources.jar",
+      "path": "docs/four-loader/forge/upstream/fmlloader-1.21.1-52.1.0-sources.jar",
+      "size": 105781,
+      "sha256": "9bd2ca24348839fd3f481818347f0ada040ca81c908d2d7b77eaeec467370ff1",
+      "sha1": "52e4d90db1246d6cd7f6a21a5843ec5735a67ac2"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0-sources.jar",
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0-sources.jar",
+      "size": 10024,
+      "sha256": "45a10a563620313a58c494ffda2cb5e2be24904dd7dae40ab9c7cfb464e2ed9b",
+      "sha1": "298aed1f3d37c1e0f92188402d2100d531f5399a"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0-sources.jar",
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0-sources.jar",
+      "size": 57839,
+      "sha256": "04d145f832ecdac364a45645ade3e161925fb9f4bc46af3ede84578f4c6720fc",
+      "sha1": "ce6d14a6b6d12f4952adb4c1fbe766a35531a3ad"
+    },
+    {
+      "url": "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-sources.jar",
+      "path": "docs/four-loader/forge/upstream/neoforge-21.1.219-sources.jar",
+      "size": 1774876,
+      "sha256": "814983ff6c233935f176a99b10a495cfa37971ffe1a73a6f8b097e893553ca8c",
+      "sha1": "0eefeb66da85d5ced69c1d0bc86b8140ddff77c1"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27-sources.jar",
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27-sources.jar",
+      "size": 36362,
+      "sha256": "8a5dd6a87bf93453896f2118d1d035c737dec60e18de0e7902c0b210fd14e09c",
+      "sha1": "69d1ca7475e5ef9307fbe46b34220d8952c2705c"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/eventbus/6.2.27/eventbus-6.2.27.jar",
+      "path": "docs/four-loader/forge/upstream/eventbus-6.2.27.jar",
+      "size": 58819,
+      "sha256": "d2a7bcecb80b33f90854a003dc295960263d78435d9d6016c427d711510cb999",
+      "sha1": "1a7914b85a47ef9e8f333b694a6f8c0dc6a57db7"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/javafmllanguage/1.21.1-52.1.0/javafmllanguage-1.21.1-52.1.0.jar",
+      "path": "docs/four-loader/forge/upstream/javafmllanguage-1.21.1-52.1.0.jar",
+      "size": 19235,
+      "sha256": "d27e1f3149ea08fc0a80779fe24fa8585692c5042a34bad153e55662486acc15",
+      "sha1": "e4df3a858ae2cb58be2705231a4d52e5cf0b133b"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/fmlcore/1.21.1-52.1.0/fmlcore-1.21.1-52.1.0.jar",
+      "path": "docs/four-loader/forge/upstream/fmlcore-1.21.1-52.1.0.jar",
+      "size": 122624,
+      "sha256": "be4d001363625d8dccaefaf9bdedc1509e03c3ba452e3319f9d99dc75fa3c93a",
+      "sha1": "6b4d30ef1af5c3250e3d3ef039bb86cba5cb4dc4"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.16/forge-1.21.1-52.1.16-changelog.txt",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.16-changelog.txt",
+      "size": 27208,
+      "sha256": "b43f181cfa8ba9753b8970d4831221be41edd8c153582e90fa2a6e0131cb5ef8",
+      "sha1": "e2006a743232514424a884fd295e5f1d0a3ebe0c"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.0.1/forge-1.21.1-52.0.1-mdk.zip",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.0.1-mdk.zip",
+      "size": 94675,
+      "sha256": "8caf7668220cc88da4be50ba45aa1aed378db7ea3fa1126b17614e835e0fe93a",
+      "sha1": "6a1c8b98f56de4c3ddce7f3faed3c79b179948e3"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.21.1-52.1.0/forge-1.21.1-52.1.0-universal-srg.jar",
+      "path": "docs/four-loader/forge/upstream/forge-1.21.1-52.1.0-universal-srg.jar",
+      "size": 2611662,
+      "sha256": "2e97b536ba7a8de987358931d555f4de1f3a9e9e36ee2dc88b1026151eab8209",
+      "sha1": "918eaac2d63a80b9aec7c732c3551859ac21b686"
+    },
+    {
+      "url": "https://maven.minecraftforge.net/de/oceanlabs/mcp/mcp_config/1.21.1-20240808.132146/mcp_config-1.21.1-20240808.132146.zip",
+      "path": "docs/four-loader/forge/upstream/mcp_config-1.21.1-20240808.132146.zip",
+      "size": 1888456,
+      "sha256": "7aaa35810c5d3d831d4db986b622f763d3be631d6c66dbba1f8ee3e7f4c87bbb",
+      "sha1": "3ac99c5c67b601dc19eaf15966594749dedab49c"
+    },
+    {
+      "url": "https://api.modrinth.com/v2/project/clumps",
+      "path": "docs/four-loader/forge/upstream/clumps-project.json",
+      "size": 5034,
+      "sha256": "2b5133e7e74c1090c4c95c5768cdf95586c66a22228c28723041cec348f7b0f2",
+      "sha1": "1de663a7b88186e35da612a33a95b9d15302f3ff"
+    },
+    {
+      "url": "https://api.modrinth.com/v2/user/l45nT5ov",
+      "path": "docs/four-loader/forge/upstream/clumps-author.json",
+      "size": 466,
+      "sha256": "6fc4dfe8c22bf637966c8addd916d528c7a12163288d301e4578f902df29f21b",
+      "sha1": "bc04cb8a1c05d337d65d6860e70d11e1bfc1a62b"
+    },
+    {
+      "path": "docs/integration-audit/sources/fml-loader-sources.jar",
+      "source": "existing pinned NeoForge host or baseline source archive",
+      "size": 274931,
+      "sha256": "43ecb6251d1ca3b2f5e926de2d83e60fc8c5732a9c01967351b5dd2aa6a1625a",
+      "sha1": "207cf42087abc773f166dc95306edce5f8a538be"
+    },
+    {
+      "path": "run/source-built-lithium-unified/libraries/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-universal.jar",
+      "source": "existing pinned NeoForge host or baseline source archive",
+      "size": 3524551,
+      "sha256": "a062142f38543701e3d4da385f19e8dd9d76d19625c204e9c0aca22ad491b4fd",
+      "sha1": "300c6ecf584eab19b4dca5e69cc2ee68d0d21f1f"
+    },
+    {
+      "path": "run/source-built-lithium-unified/libraries/net/neoforged/bus/8.0.5/bus-8.0.5.jar",
+      "source": "existing pinned NeoForge host or baseline source archive",
+      "size": 30340,
+      "sha256": "705e24f37752809499a5cd0c7dd31eaabf3d933c5d3b2060168e94e9ef62593a",
+      "sha1": "5b2d33285ab5d1554e9798ad98c40d6ea3868bd5"
+    },
+    {
+      "path": "docs/four-loader/forge/upstream/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "url": "https://cdn.modrinth.com/data/Wnxd13zP/versions/aeoQuGBI/Clumps-forge-1.21.1-19.0.0.1.jar",
+      "size": 18226,
+      "sha256": "e1de425ddd6f2b5c195c37a008d9fbc2c00c32fe1e214d76c63ab35446d13c19",
+      "sha1": "e075af7907303f429165d2265d77c0ecac2adcab",
+      "source": "User-approved exact artifact; existing bytes verified, no redownload"
+    }
+  ],
+  "policy": {
+    "reference_use": "download and static inspection only",
+    "third_party_mod_execution": false,
+    "quarantine_excluded": [],
+    "approved_third_party_candidate": "Clumps 19.0.0.1 as recorded in candidate-lock.json"
+  }
+}

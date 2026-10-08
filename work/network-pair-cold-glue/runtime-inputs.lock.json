@@ -10,8 +10,8 @@
   "sources": [
     {
       "path": "portable-bootstrap/restore_inputs.py",
-      "bytes": 4925,
-      "sha256": "26a69bd13798939dd606fe7069380eed6cffadf4659f88182471e3a4d48bb859"
+      "bytes": 5554,
+      "sha256": "18f11220f5c210d3d04e0a910d798867694380269a0e000b25c69ec20a8ee29e"
     },
     {
       "path": "portable-bootstrap/prepare_toolchains.py",
@@ -50,8 +50,8 @@
     },
     {
       "path": "work/api1/four-loader/api-contract-controls/client-development/build.gradle",
-      "bytes": 2542,
-      "sha256": "9a5d81f0e54ee4bcb30536fb7ef13874bd8da82c55e38aeec08a1210acca531f"
+      "bytes": 2935,
+      "sha256": "338eb17a1e10372e59625c6c8983f9b645e212549aabc71efaa404baadb5fd3a"
     },
     {
       "path": "work/api1/four-loader/api-contract-controls/client-development/settings.gradle",
@@ -1660,6 +1660,66 @@
       "kind": "maven",
       "coordinate": "net.neoforged:DevLaunch:1.0.2",
       "provenance": "Exact SHA-256 already present in unchanged original strict probe/gradle/verification-metadata.xml and captured official Gradle resolution. NeoForge releases Maven repository/layout matches the verified exporter. Jar digest independently declared by captured module metadata. No HTTP fetch in source-only task."
+    },
+    {
+      "path": "ci/runtime-maven/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-moddev-config.json",
+      "bytes": 10209,
+      "sha256": "f236f3c956bf90017c790ebd0be9de5502d1f2d603205a89590906e9bd03ad46",
+      "sha1": "ef03f2f243dc20164d45e0fbb70bfe3819080a44",
+      "urls": [
+        "https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.219/neoforge-21.1.219-moddev-config.json"
+      ],
+      "phase": "client-runtime-extension",
+      "kind": "maven",
+      "coordinate": "net.neoforged:neoforge:21.1.219:moddev-config",
+      "provenance": "Official NeoForge module 5383c81dc4f51a6b38d60bfd7f8fd5b4e9217377c65c4fc2972bb1f503fdc9ac declares this exact size, SHA-256 and SHA-1; recovered restoration verified them. Explicit strict verification checksum addition for client preparation."
+    },
+    {
+      "path": "source-workspace/pinned-build-maven/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+      "bytes": 283367,
+      "sha256": "4241c14a7727c34feea6507ec801318a3d4a90f070e4525681079fb94ee4c593",
+      "urls": [
+        "https://libraries.minecraft.net/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+        "https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+        "https://maven.neoforged.net/releases/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar",
+        "https://plugins.gradle.org/m2/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar"
+      ],
+      "kind": "verified-maven-jar",
+      "phase": "core-regression-cache",
+      "also_seed": [
+        "source-workspace/gradle-cache/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar"
+      ],
+      "provenance": "Existing exact core dependency pin and recovered Quilt API regression cache preparation; no content or version change"
+    },
+    {
+      "path": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-loader/2.5.70+0.19.3+1.21.1/forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar",
+      "bytes": 3459840,
+      "sha256": "dc8829a0d9b5fa19eb0c50d54c981445fb21cba2abd2a39c5ff0b58ff7d5c1e1",
+      "urls": [
+        "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-loader/2.5.70%2B0.19.3%2B1.21.1/forgified-fabric-loader-2.5.70%2B0.19.3%2B1.21.1.jar"
+      ],
+      "kind": "verified-maven-jar",
+      "phase": "core-regression-cache",
+      "also_seed": [
+        "source-workspace/gradle-cache/caches/modules-2/files-2.1/org.sinytra/forgified-fabric-loader/2.5.70+0.19.3+1.21.1/aa40012ac5e5baf65e75904e93ef665b7ecc297d/forgified-fabric-loader-2.5.70+0.19.3+1.21.1.jar"
+      ],
+      "provenance": "Existing exact core dependency pin and recovered Quilt API regression cache preparation; no content or version change"
+    },
+    {
+      "path": "source-workspace/pinned-build-maven/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+      "bytes": 64579,
+      "sha256": "0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c",
+      "urls": [
+        "https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+        "https://maven.neoforged.net/releases/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar",
+        "https://plugins.gradle.org/m2/org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar"
+      ],
+      "kind": "verified-maven-jar",
+      "phase": "core-regression-cache",
+      "also_seed": [
+        "source-workspace/gradle-cache/caches/modules-2/files-2.1/org.slf4j/slf4j-api/2.0.9/7cf2726fdcfbc8610f9a71fb3ed639871f315340/slf4j-api-2.0.9.jar"
+      ],
+      "provenance": "Existing exact core dependency pin and recovered Quilt API regression cache preparation; no content or version change"
     }
   ],
   "serverClosure": [
