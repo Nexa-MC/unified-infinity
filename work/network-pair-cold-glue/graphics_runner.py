@@ -173,6 +173,97 @@ def parse_ldd(text):
     return paths
 
 
+
+# Ubuntu Noble libc6's no-rename usrmerge diversion. This is metadata only:
+# it never establishes ownership, and the diverted destination need not exist.
+LIBC_LOADER_DIVERSION = ('/lib64/ld-linux-x86-64.so.2',
+                        '/lib64/ld-linux-x86-64.so.2.usr-is-merged', 'libc6')
+
+
+def parse_diversion_database(text):
+    """Parse dpkg's installed triples, rejecting malformed/ambiguous records."""
+    require(len(text.encode('utf-8')) <= MIB, 'Diversion database exceeds bound')
+    lines = text.splitlines()
+    require(len(lines) % 3 == 0, 'Malformed diversion database triples')
+    records, paths = [], set()
+    for index in range(0, len(lines), 3):
+        source, target, package = lines[index:index + 3]
+        require(all(p.startswith('/') and str(Path(p)) == p and
+                    '..' not in Path(p).parts and not any(ord(c) < 32 for c in p)
+                    for p in (source, target)) and source != target,
+                'Malformed diversion database path')
+        require(package == ':' or re.fullmatch(r'[a-z0-9][a-z0-9+.-]+', package),
+                'Malformed diversion database package')
+        require(source not in paths and target not in paths,
+                'Ambiguous diversion database paths')
+        paths.update((source, target))
+        records.append((source, target, package))
+    return records
+
+
+def parse_package_search(text, canonical, candidate, load_diversions):
+    """Real dpkg-query parser; diversion annotations cannot grant ownership."""
+    names, annotations = set(), {}
+    for line in text.splitlines():
+        if line.startswith('diversion '):
+            match = re.fullmatch(r'diversion by ([a-z0-9][a-z0-9+.-]+) (from|to): (/\S+)', line)
+            require(match is not None, 'Malformed or local diversion annotation: ' + line)
+            package, direction, path = match.groups()
+            require(direction not in annotations, 'Duplicate diversion annotation')
+            annotations[direction] = (package, path)
+        else:
+            require(': ' in line, 'Ambiguous package ownership: ' + line)
+            name, owned = line.rsplit(': ', 1)
+            require(re.fullmatch(r'[a-z0-9][a-z0-9+.-]+(?::(?:amd64|all))?', name)
+                    and Path(owned).is_absolute() and Path(owned).exists()
+                    and Path(owned).resolve(strict=True) == canonical,
+                    'Ambiguous canonical package owner')
+            names.add(name)
+    diversion = None
+    if annotations:
+        require(set(annotations) == {'from', 'to'}, 'Unpaired diversion annotation')
+        package, source = annotations['from']
+        to_package, target = annotations['to']
+        diversion = (source, target, package)
+        require(package == to_package and diversion == LIBC_LOADER_DIVERSION,
+                'Unapproved installed diversion')
+        require(candidate == source and Path(source).exists()
+                and Path(source).resolve(strict=True) == canonical,
+                'Diversion does not identify queried canonical file')
+        records = load_diversions()
+        require(records.count(diversion) == 1 and
+                all(record == diversion or not ({source, target} & set(record[:2]))
+                    for record in records), 'Unverified or ambiguous installed diversion')
+    return names, diversion
+
+
+def resolve_package_owner(canonical, alias, search, package, load_diversions):
+    # Ubuntu usrmerge databases may retain /lib paths. Only query an alias
+    # after verifying that its actual target is the same canonical file.
+    aliases = [str(canonical)]
+    if alias is not None and Path(alias).resolve(strict=True) == canonical:
+        aliases.append(str(alias))
+    if str(canonical).startswith('/usr/lib/'):
+        candidate = Path(str(canonical)[4:])
+        if candidate.exists() and candidate.resolve(strict=True) == canonical:
+            aliases.append(str(candidate))
+    names, diversions = set(), set()
+    for candidate in dict.fromkeys(aliases):
+        found = search(candidate)
+        if found.returncode:
+            continue
+        parsed, diversion = parse_package_search(found.stdout, canonical, candidate, load_diversions)
+        names.update(package(name) for name in parsed)
+        if diversion is not None:
+            diversions.add(diversion)
+    require(len(names) == 1, 'Missing/ambiguous owner for installed input: ' + str(canonical))
+    identity = names.pop()
+    if diversions:
+        require(diversions == {LIBC_LOADER_DIVERSION} and identity.startswith('libc6:amd64='),
+                'Diversion package differs from unique installed owner')
+    return identity
+
+
 def observe(plan):
     """Actual installed-file observations; caller has already admitted future CI."""
     root = Path(plan['root'])
@@ -196,6 +287,19 @@ def observe(plan):
     database = trusted_installed('/var/lib/dpkg/status')
     before = pin(database)
     packages, ownership = {}, {}
+    diversion_state = {}
+
+    def load_diversions():
+        if not diversion_state:
+            path = trusted_installed('/var/lib/dpkg/diversions')
+            before = pin(path)
+            with path.open('rb') as stream:
+                data = stream.read(MIB + 1)
+            require(len(data) <= MIB, 'Diversion database exceeds bound')
+            records = parse_diversion_database(data.decode('utf-8', errors='strict'))
+            require(pin(path) == before, 'Diversion database changed while reading')
+            diversion_state.update(path=path, before=before, records=records)
+        return diversion_state['records']
 
     def package(name):
         result = query([str(dpkg), '--show', '--showformat=${Package}\t${Version}\t${Architecture}\t${db:Status-Status}\n', name], raw)
@@ -211,28 +315,9 @@ def observe(plan):
         return identity
 
     def owner(canonical, alias=None):
-        # Ubuntu usrmerge databases may retain /lib paths. Only query an alias
-        # after verifying that its actual target is the same canonical file.
-        aliases = [str(canonical)]
-        if alias is not None and Path(alias).resolve(strict=True) == canonical:
-            aliases.append(str(alias))
-        if str(canonical).startswith('/usr/lib/'):
-            candidate = Path(str(canonical)[4:])
-            if candidate.exists() and candidate.resolve(strict=True) == canonical:
-                aliases.append(str(candidate))
-        names = set()
-        for candidate in dict.fromkeys(aliases):
-            found = query([str(dpkg), '--search', candidate], raw, allowed_failure=True)
-            if found.returncode:
-                continue
-            for line in found.stdout.splitlines():
-                require(': ' in line and not line.startswith('diversion '), 'Ambiguous package ownership: ' + line)
-                name, owned = line.rsplit(': ', 1)
-                require(',' not in name and Path(owned).exists() and
-                        Path(owned).resolve(strict=True) == canonical, 'Ambiguous canonical package owner')
-                names.add(package(name))
-        require(len(names) == 1, 'Missing/ambiguous owner for installed input: ' + str(canonical))
-        identity = names.pop()
+        identity = resolve_package_owner(canonical, alias,
+            lambda candidate: query([str(dpkg), '--search', candidate], raw, allowed_failure=True),
+            package, load_diversions)
         ownership[str(canonical)] = identity
         return identity
 
@@ -269,10 +354,14 @@ def observe(plan):
     require(len(files) + 1 <= 128, 'Installed native closure exceeds frozen collector pin bound')
     actual = [pin(path) for path in sorted(files)]
     require(pin(database) == before, 'Package database changed during installed observation')
+    if diversion_state:
+        require(pin(trusted_installed('/var/lib/dpkg/diversions')) == diversion_state['before'],
+                'Diversion database changed during installed observation')
     observation = {'schema': 1, 'status': 'ACTUAL_INSTALLED_GRAPHICS_OBSERVATIONS',
                    'distribution': distribution, 'osRelease': pin(os_release), 'osReleaseText': distribution_text,
                    'runner': runner, 'packageDatabaseBeforeAfter': before,
                    'inventoryTools': [pin(dpkg), pin(ldd)], 'queries': raw, 'files': actual,
+                   'diversionDatabaseBeforeAfter': diversion_state.get('before'),
                    'producer': plan['producer'], 'archiveSignaturesVerified': False}
     evidence = write(Path(plan['observationPath']), observation)
     provenance = {'schema': 1, 'status': 'OBSERVED_INSTALLED_PACKAGES',

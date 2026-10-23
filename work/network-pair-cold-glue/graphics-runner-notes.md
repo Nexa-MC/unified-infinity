@@ -13,3 +13,30 @@ The driver retains that handle while running the two pairs in sequence, within t
 Twelve source/mock graphics-runner tests passed, including lifetime-receipt consistency and preservation of primary errors when readiness or pidfd setup cleanup fails, as well as frozen source staging, no premature lock/receipt, early missing-input rejection without package/GL commands, dependency parsing, wrong-runtime rejection and exact-owned lifecycle cleanup. No package, native graphics, JVM, network, CI or game command was executed during this source task. Actual installed closure and graphics feasibility remain unobserved until future admitted CI.
 
 The driver defers handled stop signals through `execute(..., interrupt_check=...)` and the returned handle assignment. The runner checks pending stops before creation and after it has retained ownership, and wraps all child creation, pidfd acquisition and readiness in one `BaseException` cleanup scope. Before a pidfd exists it terminates and waits only on its retained direct `Popen` child; any cleanup failure stays attached to the original error. Repeated signals cannot interrupt this cleanup or the driver final-receipt transition.
+
+
+## Noble libc6 usrmerge metadata repair (2026-10-23)
+
+`dpkg-query --search` emits diversion annotations separately from direct file owners.
+The parser admits only the paired `libc6` annotation for
+`/lib64/ld-linux-x86-64.so.2` to the same path plus `.usr-is-merged`, corroborated
+by exactly one installed `/var/lib/dpkg/diversions` triple. The database and
+ancestors must be root-owned and not group/world-writable, the read is bounded,
+and its exact file hash is rechecked after observation. Malformed triples,
+duplicate/conflicting paths, local or unrelated annotations, mismatched packages,
+and missing metadata fail closed. The actual source alias must resolve to the
+trusted canonical file, which independently needs a unique installed
+`libc6:amd64` direct owner. An annotation never creates ownership. The protective
+`--no-rename` destination need not exist. Existing canonical owner aliases, native
+file hashes, root ownership/modes, Ubuntu runner and measured graphics gates remain.
+
+Official references:
+- https://git.launchpad.net/ubuntu/+source/glibc/plain/debian/debhelper.in/libc.preinst?h=ubuntu/noble
+- https://git.launchpad.net/ubuntu/+source/dpkg/plain/src/query/main.c?h=ubuntu/noble
+- https://manpages.ubuntu.com/manpages/noble/man1/dpkg-divert.1.html
+
+The parser tests use text fixtures with the real local loader symlink resolution;
+they do not claim an Ubuntu execution, renderer result, or game acceptance.
+Both workflow copies allow 1,320 work seconds inside a 25-minute job, retaining
+three minutes for cleanup. This is a bounded follow-up to the actual prior run's
+successful restore/build/probe, not a change to build identity or expected hashes.
