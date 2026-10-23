@@ -1,0 +1,161 @@
+{
+  "schema": "portable-ffapi-refreshed-profile-v1",
+  "commit": "2b8a56143f58bc55767cfe23fb67b86111f5c4a0",
+  "coreIdentity": "8f53a44cf220eaddca79cf68be6b4c76cae74f7a9f3bc5982ac7d9719b211170",
+  "historicalCoreIdentity": "54e5f302c1bad0de54a6845a50b128d6a2aa9f4fb9d44ec14c84c754d7fb21f6",
+  "historicalFmlReference": "ce4b907075e2892f39ee13ed75d19afc193ad602d9ecc8cb5eca03cea4181844",
+  "historicalDefaultPreserved": true,
+  "coreProject": "work/api1/source-workspace/connector-four-loader",
+  "version": "2.0.0-beta.17+1.21.1+infinity-source+api1-emi-render-integration",
+  "expectedIdentity": {
+    "path": "work/emi-render-integration/build-identity.json",
+    "bytes": 177760,
+    "sha256": "ef1df8aa263eb5dbf08c2c49752008d971cc53837e7414e19b8e9a647168ef8c"
+  },
+  "ffapiDelta": {
+    "path": "work/network-pair-cold-glue/profiles/ffapi-refresh-inputs.json",
+    "bytes": 130207,
+    "sha256": "328ec2545be9abfea0365359a71ff601748a82938545847bed2f1606eaebaf6d"
+  },
+  "inputPins": [
+    {
+      "path": "portable-bootstrap/verification-metadata.xml",
+      "bytes": 198855,
+      "sha256": "8358d87151141de28d6210209d804ee6f494729d54dacfe910865e4a3ee26287"
+    },
+    {
+      "path": "work/api1/runtime-bundle/gradle/verification-metadata.xml",
+      "bytes": 198855,
+      "sha256": "8358d87151141de28d6210209d804ee6f494729d54dacfe910865e4a3ee26287"
+    },
+    {
+      "path": "work/api1/source-workspace/connector-four-loader/gradle/verification-metadata.xml",
+      "bytes": 198855,
+      "sha256": "8358d87151141de28d6210209d804ee6f494729d54dacfe910865e4a3ee26287"
+    },
+    {
+      "path": "work/emi-render-integration/bounded-build.init.gradle",
+      "bytes": 3443,
+      "sha256": "46a7c06ba404f10dc2fe42e11cf7e37f77986e4f70e4f4c80d36b4d63e675a61"
+    },
+    {
+      "path": "work/emi-render-integration/build-identity.json",
+      "bytes": 177760,
+      "sha256": "ef1df8aa263eb5dbf08c2c49752008d971cc53837e7414e19b8e9a647168ef8c"
+    },
+    {
+      "path": "work/emi-render-integration/portable-build-support/archive-permissions.init.gradle",
+      "bytes": 242,
+      "sha256": "369b8ef303eafea36d78ad3d9cb7de13cb03a1b0778215958f7de089f01e64c3"
+    },
+    {
+      "path": "work/emi-render-integration/portable-build-support/cold-repositories.init.gradle",
+      "bytes": 1059,
+      "sha256": "b8a8d28bd0ccee441f63e90b23f8cfb0b68ffe6c19cf1aad0a72b23ce46ce2fd"
+    },
+    {
+      "path": "work/emi-render-integration/portable-build-support/fml/bounded-build.init.gradle",
+      "bytes": 563,
+      "sha256": "1f2cc95110d6188cb248932bf40ab5705ad62015e0b9934fd6b27c02c6a87ba1"
+    },
+    {
+      "path": "work/emi-render-integration/portable-build-support/product-payload-permissions.init.gradle",
+      "bytes": 700,
+      "sha256": "5333fbc3cd6a7812ac84d51eaa727216cf33f297f3c6fc303c9bf174fc1735cc"
+    },
+    {
+      "path": "work/emi-render-integration/portable-build-support/verified-repositories.init.gradle",
+      "bytes": 970,
+      "sha256": "e4a85214afd56ce1b3e23828a8eb08953962e865c0e81256691884c6743654bd"
+    },
+    {
+      "path": "work/network-pair-cold-glue/bounded_process.py",
+      "bytes": 4081,
+      "sha256": "dcf71f6a4f2892672f95487a7c969886fccdbb7583408ae31775a993cebe6544"
+    },
+    {
+      "path": "work/network-pair-cold-glue/build_candidate.py",
+      "bytes": 33042,
+      "sha256": "f4b66e29ea2ae4007a9bda55dde1527f3308d8cd4457f46e65d460ec3911e56a"
+    },
+    {
+      "path": "work/network-pair-cold-glue/fml_metadata.py",
+      "bytes": 11796,
+      "sha256": "33143d5b12f3cc32f2bd0f21a63df1c822558ddd8befe167b52927e8b3b074ab"
+    },
+    {
+      "path": "work/network-pair-cold-glue/forge_fixture.py",
+      "bytes": 8505,
+      "sha256": "6cd9e33f8134b9022cad6a494149642cc369e0624d949d43f97632d5113ebfce"
+    },
+    {
+      "path": "work/network-pair-cold-glue/profiles/ffapi-core-dependency-lock.json",
+      "bytes": 1350706,
+      "sha256": "43ac0ce038cb00da23f0ae625f64c4b1bb83251c82ee2269b6ae698f50d4389b"
+    },
+    {
+      "path": "work/network-pair-cold-glue/profiles/ffapi-refresh-inputs.json",
+      "bytes": 130207,
+      "sha256": "328ec2545be9abfea0365359a71ff601748a82938545847bed2f1606eaebaf6d"
+    }
+  ],
+  "ffapiAggregateSha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+  "requiredTasks": {
+    "core": [
+      ":fullJar",
+      ":check",
+      ":writeProductCompileInputs",
+      ":forgeAdapterRegression",
+      ":forgeFacadeRegression",
+      ":forgeEventRegression",
+      ":forgeClumpsRegression",
+      ":nativeQuiltApiRegression",
+      ":transformer:nativeQuiltRegression",
+      ":emiEntrypointRegression",
+      ":EmiRenderRouteTest",
+      ":EmiRenderMarkerTest",
+      ":EmiHostRenderScopeTest",
+      ":EmiPoseRestoreTest",
+      ":infinity-core:admissionInventorySelfTest",
+      ":infinity-core:admissionLicenseSelfTest",
+      ":infinity-core:admissionManifestSelfTest",
+      ":infinity-core:coreSelfTest",
+      ":infinity-fart:directEntrySelfTest"
+    ],
+    "product": [
+      ":jar",
+      ":check",
+      ":verifyBundle",
+      ":testArchiveVerifier",
+      ":testClientBranding",
+      ":testExclusionNotices",
+      ":testInventoryUi",
+      ":testProductIsolation"
+    ],
+    "fml": [
+      ":compileJava",
+      ":generateLog4jPluginCache",
+      ":jar"
+    ]
+  },
+  "observedOutputReference": {
+    "service": "98c43921d53563ac27961a867ed78b8857f35650e632dbbbaa9e799ff246d144",
+    "game": "9dc29ac8a8030f629dd7afea8b744114504a552c4fce022c6199b23a1024e162",
+    "fml": "4d697ba080277ed270ddd427102e03da4d6cd58b2b9ed584db010b59f037c2e9",
+    "product": "18403a0ed59eb9276ae1444f42e1ea91b9bb086bea8fc318322796822e194e6a"
+  },
+  "outputReferenceScope": "Hashes observed from actual configured build and structural verification only; never a full-build or runtime acceptance stamp. Fresh complete proof remains mandatory.",
+  "observedTupleEvidenceSha256": "85ba58fdccf91f1dc52fda1e262ab402cb1df2f703ec1ed33df4843ed73f4d0e",
+  "artifactPaths": {
+    "service": "work/api1/source-workspace/connector-four-loader/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+api1-emi-render-integration-full.jar",
+    "game": "work/api1/source-workspace/connector-four-loader/build/libs/connector-2.0.0-beta.17+1.21.1+infinity-source+api1-emi-render-integration-mod.jar",
+    "fml": "work/api1/source-workspace/fml-unified-logging-fix-v3/build/libs/fml-loader-4.0.42-unified-source.jar",
+    "product": "work/api1/runtime-bundle/build/libs/unified-infinity-0.1.0-dev.jar"
+  },
+  "runtimeAcceptance": false,
+  "dependencyLock": {
+    "path": "work/network-pair-cold-glue/profiles/ffapi-core-dependency-lock.json",
+    "bytes": 1350706,
+    "sha256": "43ac0ce038cb00da23f0ae625f64c4b1bb83251c82ee2269b6ae698f50d4389b"
+  }
+}

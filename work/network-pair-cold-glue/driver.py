@@ -18,6 +18,7 @@ import graphics_runner
 import seal_pair
 import bounded_process
 import runner_dependencies
+import generated_output_diagnostics
 
 HERE=Path(__file__).resolve().parent
 REPO='Nexa-MC/unified-infinity'
@@ -29,6 +30,47 @@ STOP_SIGNALS=(signal.SIGTERM,signal.SIGINT,signal.SIGHUP)
 
 def require(value,message):
     if not value:raise ValueError(message)
+
+def profile_options(profile=None,build_proof=None):
+    """Select only the reviewed portable profile, never infer it from artifacts."""
+    if profile is None and build_proof is None:return {}
+    require(profile is not None and build_proof is not None,
+            'Refreshed execution requires both --profile and --build-proof')
+    import refreshed_candidate
+    import ffapi_sources
+    require(str(profile)==refreshed_candidate.PROFILE_PATH==ffapi_sources.PROFILE_REL,
+            'Only the exact bundled consumer-relative refreshed profile is supported')
+    require(str(build_proof)==refreshed_candidate.PROOF_PATH,
+            'The explicit build proof must name the fresh refreshed build output')
+    return {'profile':str(profile),'build_proof':str(build_proof)}
+
+
+def driver_paths(consumer,refreshed=False):
+    """Keep execution evidence and final seals distinct from historical outputs."""
+    root=Path(consumer)
+    return {key:root/name for key,name in {
+        'plan':'refreshed-driver-plan.json' if refreshed else 'cold-driver-plan.json',
+        'result':'refreshed-pair-result.json' if refreshed else 'cold-pair-result.json',
+        'evidence':'runtime-evidence-refreshed' if refreshed else 'runtime-evidence',
+        'runtime':'refreshed-runtime-evidence' if refreshed else 'cold-runtime-evidence',
+        'graphics':'graphics-availability-refreshed.json' if refreshed else 'graphics-availability.json',
+        'additional':'refreshed-additional-inputs.json' if refreshed else 'cold-additional-inputs.json',
+    }.items()}
+
+
+def refreshed_binding(consumer,options):
+    """Bind source-only preparation; this does not validate a completed build."""
+    import refreshed_candidate
+    import ffapi_sources
+    profile=refreshed_candidate.load_profile(consumer,options['profile'])
+    source=ffapi_sources.verify_sources(consumer)
+    require(source['candidate_identity']==profile['coreIdentity'],
+            'Refreshed source preparation belongs to another identity')
+    require(source['ffapiInputsSha256']==profile['ffapiDelta']['sha256'],
+            'Refreshed source preparation belongs to another scoped input manifest')
+    return {'profile':refreshed_candidate.pin(consumer,options['profile']),
+            'buildProofPath':options['build_proof'],'sourceIdentity':profile['coreIdentity'],
+            'ffapiInputsSha256':source['ffapiInputsSha256']}
 
 def restore_with_deadline(function,*args,deadline):
     """Bound synchronous download/hash restoration; no child process is inside."""
@@ -44,11 +86,21 @@ def restore_with_deadline(function,*args,deadline):
 def write(path,value):
     require(not path.exists(),'Refusing overwrite: '+str(path));path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2)+'\n')
 
-def prepare(repo,consumer):
+def prepare(repo,consumer,profile=None,build_proof=None):
+    options=profile_options(profile,build_proof)
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).absolute()
-    source=source_materialize.prepare(repo,consumer)
+    if options:
+        import ffapi_sources
+        source=ffapi_sources.prepare(repo,consumer)
+    else:source=source_materialize.prepare(repo,consumer)
     runtime=runtime_restore.prepare(repo,consumer)
-    build=build_candidate.prepare(consumer)
+    build=build_candidate.prepare(consumer,profile=options['profile']) if options else build_candidate.prepare(consumer)
+    if options:
+        # The pinned build-support scripts are source-only outputs of the
+        # preparation above, not restored binaries or successful build evidence.
+        selected=refreshed_binding(consumer,options)
+        require(build['profileSha256']==selected['profile']['sha256'] and build['proofPath']==options['build_proof'],
+                'Refreshed build plan selected a different profile/proof')
     probe=compile_probe.prepare(repo,consumer)
     pair=pair_assembly.prepare(repo,consumer)
     graphics=graphics_runner.prepare(repo,consumer)
@@ -58,7 +110,10 @@ def prepare(repo,consumer):
             'sourceCodeFiles':{p.name:compile_probe.record(p) for p in HERE.glob('*.py')},
             'dataFiles':{p.name:compile_probe.record(p) for p in HERE.glob('*lock.json')},
             'remainingExecutionObservations':['Actual installed runner graphics availability','All cold public downloads and fallback URL availability','Installer/ModDev outputs and full candidate build','Real native/Unified distinct-process roundtrip']}
-    write(consumer/'cold-driver-plan.json',result)
+    if options:
+        result.update(status='REFRESHED_DRIVER_PREPARED_EXECUTION_UNTESTED',refreshedProfile=selected)
+        result['dataFiles']['refreshedCoreDependencyLock']=compile_probe.record(ffapi_sources.core_lock())
+    write(driver_paths(consumer,bool(options))['plan'],result)
     return result
 
 def source_module(name,path):
@@ -69,8 +124,15 @@ def restore_additional(consumer,plan):
     runtime_lock=json.loads((support/'input-lock.json').read_text())
     seen={row['sha256']:api/row['path'] for row in runtime_lock['artifacts'] if 'sha256' in row}
     results=[]
-    for filename,dest in [('core-dependency-lock.json',api),('product-input-lock.json',api),('original-mod-lock.json',consumer)]:
-        path=HERE/filename;require(compile_probe.record(path)==plan['dataFiles'][filename],'Supplemental lock changed')
+    locks=[('core-dependency-lock.json',HERE/'core-dependency-lock.json',api),
+           ('product-input-lock.json',HERE/'product-input-lock.json',api),
+           ('original-mod-lock.json',HERE/'original-mod-lock.json',consumer)]
+    if plan.get('refreshedProfile'):
+        import ffapi_sources
+        ffapi_sources.verify_sources(consumer)
+        locks[0]=('refreshedCoreDependencyLock',ffapi_sources.core_lock(),api)
+    for key,path,dest in locks:
+        filename=path.name;require(compile_probe.record(path)==plan['dataFiles'][key],'Supplemental lock changed')
         lock=json.loads(path.read_text())
         for index,row in enumerate(lock['artifacts'],1):
             target=downloader.destination(dest,row['path'])
@@ -83,10 +145,10 @@ def restore_additional(consumer,plan):
             else:downloader.restore(dest,row,set(lock['allowedHosts']))
             seen[row['sha256']]=target;results.append(compile_probe.record(target))
             if index%64==0 or index==len(lock['artifacts']):print('ADDITIONAL_INPUTS_VERIFIED '+filename+' '+str(index)+'/'+str(len(lock['artifacts'])),flush=True)
-    write(consumer/'cold-additional-inputs.json',{'schema':1,'status':'EXACT_ADDITIONAL_INPUTS_VERIFIED','files':results,'gameLaunched':False})
+    write(driver_paths(consumer,bool(plan.get('refreshedProfile')))['additional'],{'schema':1,'status':'EXACT_ADDITIONAL_INPUTS_VERIFIED','files':results,'gameLaunched':False})
 
-def execute_step(consumer,step,deadline):
-    root=consumer/'cold-runtime-evidence';root.mkdir(exist_ok=True);log=root/(step['name']+'.log')
+def execute_step(consumer,step,deadline,refreshed=False):
+    root=driver_paths(consumer,refreshed)['runtime'];root.mkdir(exist_ok=True);log=root/(step['name']+'.log')
     require(not log.exists(),'Repeated runtime preparation step')
     timeout=min(step['timeoutSeconds'],max(1,deadline-time.monotonic()))
     print('COLD_STEP_START '+step['name'],flush=True)
@@ -95,7 +157,16 @@ def execute_step(consumer,step,deadline):
     receipt={'schema':1,'name':step['name'],'exitCode':result.returncode,'status':'PASS' if result.returncode==0 else 'FAILED',
              'command':step['command'],'log':compile_probe.record(log),'gameLaunched':False}
     write(root/(step['name']+'.json'),receipt)
-    if result.returncode!=0:print(log.read_text(errors='replace')[-48000:],flush=True)
+    if result.returncode!=0:
+        print(log.read_text(errors='replace')[-48000:],flush=True)
+        # The failed exporter and all owned descendants have already exited.
+        # Print the bounded diagnostic after the tail so it cannot be lost from
+        # that tail; retain the original nonzero result and strict rejection.
+        if step['name']=='export-official-client':
+            try:generated_output_diagnostics.emit(consumer,deadline)
+            except Exception as error:
+                print('GENERATED_OUTPUT_DIAGNOSTIC_ERROR '+json.dumps({
+                    'status':'DIAGNOSTIC_COLLECTION_FAILED','errorType':type(error).__name__}),flush=True)
     require(result.returncode==0,'Official preparation failed; see '+str(log))
     print('COLD_STEP_PASS '+step['name'],flush=True)
 
@@ -132,15 +203,19 @@ def cleanup_pair(active):
     return result
 
 
-def execute(repo,consumer,allow_runner_package=False):
+def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None):
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
             and os.environ.get('GITHUB_REF')=='refs/heads/'+BRANCH and os.environ.get('GITHUB_EVENT_NAME')=='push',
             'Execution requires the separately reviewed exact future pair branch; no alternative publication route')
     require(os.getuid()!=0,'Unprivileged standard runner required')
+    options=profile_options(profile,build_proof)
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True)
-    plan=json.loads((consumer/'cold-driver-plan.json').read_text())
+    paths=driver_paths(consumer,bool(options))
+    plan=json.loads(paths['plan'].read_text())
     require(plan['repoRoot']==str(repo) and plan['consumerRoot']==str(consumer),'Consumer plan belongs elsewhere')
     for row in [*plan['sourceCodeFiles'].values(),*plan['dataFiles'].values()]:require(compile_probe.record(Path(row['path']))==row,'Cold source/lock changed after preparation')
+    if options:require(plan.get('refreshedProfile')==refreshed_binding(consumer,options),'Prepared refreshed profile changed')
+    else:require(not plan.get('refreshedProfile'),'Refreshed plan requires an explicit profile selection')
     deadline=time.monotonic()+WORK_SECONDS;handle=None;active_pair=None;primary_error=None;previous={}
     result={'schema':1,'status':'INCOMPLETE','gameAcceptance':False,'reports':{}}
     spawning_pair=False;starting_graphics=False;cleaning_up=False;pending_stops=[]
@@ -161,18 +236,27 @@ def execute(repo,consumer,allow_runner_package=False):
         for number in STOP_SIGNALS:previous[number]=signal.signal(number,stop_driver)
         if allow_runner_package:
             runner_dependencies.ensure(plan['graphics'],consumer,deadline,allow_install=True)
-        availability=graphics_runner.availability(plan['graphics']);write(consumer/'graphics-availability.json',availability)
+        availability=graphics_runner.availability(plan['graphics']);write(paths['graphics'],availability)
         require(not availability['missingInputs'],'Required installed runner graphics unavailable before downloads: '+json.dumps(availability['missingInputs']))
         print('RESTORE_START: pinned official runtime, assets and toolchain bytes',flush=True)
         restore_with_deadline(runtime_restore.restore,consumer/'work/api1',deadline=deadline)
         restore_with_deadline(restore_additional,consumer,plan,deadline=deadline)
         for step in plan['runtime']['steps']:
             require(time.monotonic()<deadline,'Cold job deadline exceeded')
-            execute_step(consumer,step,deadline)
+            execute_step(consumer,step,deadline,refreshed=bool(options))
         runtime_restore.verify(consumer/'work/api1')
-        print('SOURCE_BUILD_START',flush=True);build_candidate.execute(consumer,deadline=deadline)
+        print('SOURCE_BUILD_START',flush=True)
+        if options:
+            import refreshed_candidate
+            build_candidate.execute(consumer,deadline=deadline,profile=options['profile'])
+            verified=refreshed_candidate.validate_full_build(consumer,options['profile'],options['build_proof'])
+            result['refreshedCandidate']={'profileSha256':verified['profileSha256'],
+                'sourceIdentity':verified['sourceIdentity'],'candidateIdentity':verified['candidateIdentity'],
+                'candidateIdentityKind':verified['candidateIdentityKind'],
+                'buildProof':refreshed_candidate.pin(consumer,options['build_proof'])}
+        else:build_candidate.execute(consumer,deadline=deadline)
         print('PROBE_COMPILE_START',flush=True);compile_probe.execute(consumer,deadline=deadline)
-        pair_assembly.assemble(repo,consumer,offline_identity_reference='Isolated localhost tests with virtual APILocal identity',eula_reference='Existing Minecraft EULA acceptance for isolated local tests')
+        pair_assembly.assemble(repo,consumer,offline_identity_reference='Isolated localhost tests with virtual APILocal identity',eula_reference='Existing Minecraft EULA acceptance for isolated local tests',**options)
         require(time.monotonic()<deadline,'Cold job deadline exceeded before graphics')
         # Keep stop signals deferred through collector creation and the return
         # handoff. The runner checks pending stops only while cleanup owns it.
@@ -187,8 +271,8 @@ def execute(repo,consumer,allow_runner_package=False):
         reports={}
         for target in ('native-neoforge','unified'):
             require(time.monotonic()<deadline,'Cold job deadline exceeded before pair')
-            sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately')
-            evidence=consumer/'runtime-evidence'/target;evidence.parent.mkdir(exist_ok=True)
+            sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**options)
+            evidence=paths['evidence']/target;evidence.parent.mkdir(exist_ok=True)
             args=[sys.executable,sealed['supervisor']['path'],'--spec',sealed['spec']['path'],'--sha256',sealed['spec']['sha256'],'--execute-reviewed-ci-pair','--destination',str(evidence)]
             print('ACTUAL_PAIR_START '+target,flush=True)
             # Defer stop signals across spawn/ownership assignment, so a signal
@@ -246,7 +330,7 @@ def execute(repo,consumer,allow_runner_package=False):
             if errors:
                 result.update(cleanupErrors=errors,gameAcceptance=False)
                 if primary_error is None:result['status']='CLEANUP_FAILED'
-            write(consumer/'cold-pair-result.json',result)
+            write(paths['result'],result)
             print(json.dumps(result,sort_keys=True),flush=True)
             summary=os.environ.get('GITHUB_STEP_SUMMARY')
             if summary:
@@ -257,10 +341,11 @@ def execute(repo,consumer,allow_runner_package=False):
         finally:
             for number,handler in previous.items():signal.signal(number,handler)
     if result.get('cleanupErrors'):
-        raise RuntimeError('Owned process cleanup failed; see cold-pair-result.json')
+        raise RuntimeError('Owned process cleanup failed; see '+str(paths['result']))
     return result
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true');a=p.parse_args()
-    value=prepare(a.repo_root,a.consumer) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure)
+    p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true')
+    p.add_argument('--profile');p.add_argument('--build-proof');a=p.parse_args()
+    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

@@ -4,6 +4,11 @@ import hashlib
 import json
 from pathlib import Path
 import source_materialize
+import argparse
+
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--profile', help='Explicit refreshed source profile; historical checks remain the default')
+args = parser.parse_args()
 
 ROOT=Path(__file__).resolve().parents[2]
 manifest=json.loads((ROOT/'pair-publication-manifest.json').read_text())
@@ -21,7 +26,17 @@ for row in manifest['files']:
     if digest!=row['sha256']:raise ValueError('Changed publication source: '+row['path'])
     if path.suffix.lower() in ('.class','.jar','.so','.dll','.exe','.pyc'):
         raise ValueError('Compiled binary in diagnostic publication')
-for row in source_materialize._load_manifest()['archives'].values():
+selected_manifest = source_materialize._load_manifest()
+if args.profile is not None:
+    import ffapi_sources
+    if args.profile != ffapi_sources.PROFILE_REL:
+        raise ValueError('Unrecognized refreshed publication profile')
+    ffapi_sources.verify_bundle()
+    selected_manifest = ffapi_sources._materializer()._load_manifest()
+for row in selected_manifest['archives'].values():
     path=ROOT/row['path'];source_materialize._source_only(path.read_bytes(),path.name)
-print(json.dumps({'status':'PUBLICATION_SOURCE_VERIFIED','files':len(expected),
-                  'sourceArchives':len(source_materialize._load_manifest()['archives']),'coldExecutionVerified':False,'downloads':False,'jvmStarted':False}))
+result = {'status':'PUBLICATION_SOURCE_VERIFIED','files':len(expected),
+          'sourceArchives':len(selected_manifest['archives']),'coldExecutionVerified':False,'downloads':False,'jvmStarted':False}
+if args.profile is not None:
+    result['profile'] = args.profile
+print(json.dumps(result))

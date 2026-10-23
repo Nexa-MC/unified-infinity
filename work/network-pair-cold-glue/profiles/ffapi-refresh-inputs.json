@@ -1,0 +1,2476 @@
+{
+  "schema": "ffapi-input-refresh-v1",
+  "baseCommit": "2b8a56143f58bc55767cfe23fb67b86111f5c4a0",
+  "historicalCoreIdentity": "54e5f302c1bad0de54a6845a50b128d6a2aa9f4fb9d44ec14c84c754d7fb21f6",
+  "coreIdentity": "8f53a44cf220eaddca79cf68be6b4c76cae74f7a9f3bc5982ac7d9719b211170",
+  "scope": "42 existing standalone FFAPI modules; 23 JAR and 23 module replacements, no coordinate/version/runtime aggregate change",
+  "baseSourceManifestSha256": "70ebe485d8266e821cae41eec10495350b3a4081f2f75bbfd09eace2edf892c3",
+  "baseCoreLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a",
+  "verificationMetadata": {
+    "oldSha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f",
+    "newSha256": "8358d87151141de28d6210209d804ee6f494729d54dacfe910865e4a3ee26287",
+    "bytes": 198855
+  },
+  "identityManifest": {
+    "sha256": "ef1df8aa263eb5dbf08c2c49752008d971cc53837e7414e19b8e9a647168ef8c",
+    "bytes": 177760,
+    "role": "Input expectation backed by actual generateBuildIdentity; not runtime acceptance"
+  },
+  "runtimeAggregateSha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",
+  "moduleCount": 42,
+  "changedArtifactCount": 46,
+  "changedIdentityDependencies": 23,
+  "observations": [
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-base",
+      "version": "0.4.42+d1308ded19",
+      "filename": "fabric-api-base-0.4.42+d1308ded19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.module",
+      "kind": "official-module",
+      "oldBytes": 2813,
+      "oldSha256": "cc194551554bedb9abaf14024bf64a87182773a0fe169a34e9c5b0935cea0d38",
+      "newBytes": 2813,
+      "newSha256": "0ca52f95e2000dee5fa4deca47a2cd55ddac0619978e1a765a9243b6e71a2f9a",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.module",
+        "startedAtUtc": "2026-10-23T02:46:29.620169+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2813,
+        "sha256": "0ca52f95e2000dee5fa4deca47a2cd55ddac0619978e1a765a9243b6e71a2f9a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-base",
+      "version": "0.4.42+d1308ded19",
+      "filename": "fabric-api-base-0.4.42+d1308ded19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 34807,
+      "oldSha256": "28b6e741ab6f9ebb1319dca5fa2c5dabc5582b73b08abc7cbcb812d834046b38",
+      "newBytes": 34806,
+      "newSha256": "55845058007a954f8ffc2dc313731faf391f48ed52b1b7d31a752a887173ac23",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "0ca52f95e2000dee5fa4deca47a2cd55ddac0619978e1a765a9243b6e71a2f9a",
+        "moduleDeclaredFile": {
+          "name": "fabric-api-base-0.4.42+d1308ded19.jar",
+          "url": "fabric-api-base-0.4.42+d1308ded19.jar",
+          "size": 34806,
+          "sha512": "8498d5585b76c57c822a0484349fe87e2aea7f1fd2dc5915c0d923e784097588b4222923fbf0b8522ab62d75ada87f011b3dcbc19818b04084f4c01e57be46f5",
+          "sha256": "55845058007a954f8ffc2dc313731faf391f48ed52b1b7d31a752a887173ac23",
+          "sha1": "f66d4a9b03681d9aa76d0efed6acaeebc8ce1d9c",
+          "md5": "d25f89012922c1f004cb026a35752de9"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.jar",
+          "startedAtUtc": "2026-10-23T02:46:35.920701+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 34806,
+          "sha256": "55845058007a954f8ffc2dc313731faf391f48ed52b1b7d31a752a887173ac23"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-base",
+      "version": "0.4.42+d1308ded19",
+      "filename": "fabric-api-base-0.4.42+d1308ded19.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 790,
+      "oldSha256": "cd4869229afe80d2f33133876bdf958dbe615201852a85118976c44a519f8ce6",
+      "newBytes": 790,
+      "newSha256": "cd4869229afe80d2f33133876bdf958dbe615201852a85118976c44a519f8ce6",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-api-base/0.4.42+d1308ded19/fabric-api-base-0.4.42+d1308ded19.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-lookup-api-v1",
+      "version": "1.6.71+c290471319",
+      "filename": "fabric-api-lookup-api-v1-1.6.71+c290471319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.module",
+      "kind": "official-module",
+      "oldBytes": 2876,
+      "oldSha256": "3f387bfb9e0f4e993aea165dbcb05edbf2fb1863dfbf835ddbc63a207f51548b",
+      "newBytes": 2876,
+      "newSha256": "3f387bfb9e0f4e993aea165dbcb05edbf2fb1863dfbf835ddbc63a207f51548b",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.module",
+        "startedAtUtc": "2026-10-23T02:46:39.071332+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2876,
+        "sha256": "3f387bfb9e0f4e993aea165dbcb05edbf2fb1863dfbf835ddbc63a207f51548b"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-lookup-api-v1",
+      "version": "1.6.71+c290471319",
+      "filename": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 52740,
+      "oldSha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8",
+      "newBytes": 52740,
+      "newSha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "3f387bfb9e0f4e993aea165dbcb05edbf2fb1863dfbf835ddbc63a207f51548b",
+        "moduleDeclaredFile": {
+          "name": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+          "url": "fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+          "size": 52740,
+          "sha512": "f748b1217acee8f2595c2dbcb42e86085817af3c9325c9d1c3c0b6f403dfbda924d0f4a7e9e93a6fca3ce99e6c01ebfe157afdbdd0575283410700ba907dc1ef",
+          "sha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8",
+          "sha1": "43849f14be8ad1c6b1216a326452a23e0992c92d",
+          "md5": "2aef0fb3200652a5ab5e1c1f5dbf850d"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.jar",
+          "startedAtUtc": "2026-10-23T02:46:42.352895+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 52740,
+          "sha256": "d7a40f5eafcd4c045e60f17337fff9115c66c0a04084e77839f3e8690cc5b5d8"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-api-lookup-api-v1",
+      "version": "1.6.71+c290471319",
+      "filename": "fabric-api-lookup-api-v1-1.6.71+c290471319.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 799,
+      "oldSha256": "1e53bdbd9587d96ff4d3fb1a050a61d9370f18dc3ebf7280a41baf63edaa3265",
+      "newBytes": 799,
+      "newSha256": "1e53bdbd9587d96ff4d3fb1a050a61d9370f18dc3ebf7280a41baf63edaa3265",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-api-lookup-api-v1/1.6.71+c290471319/fabric-api-lookup-api-v1-1.6.71+c290471319.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-biome-api-v1",
+      "version": "13.0.31+1e62d33c19",
+      "filename": "fabric-biome-api-v1-13.0.31+1e62d33c19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.module",
+      "kind": "official-module",
+      "oldBytes": 2848,
+      "oldSha256": "a696a793afe07be7476dbd1c808f99866dba6f01b0b8c6c4fe3f7c3231ec3da7",
+      "newBytes": 2848,
+      "newSha256": "f899d6dcd455ae440953b1eabfc8f4065ccd3624f62c0640470e94adbdf07458",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.module",
+        "startedAtUtc": "2026-10-23T02:46:45.741759+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2848,
+        "sha256": "f899d6dcd455ae440953b1eabfc8f4065ccd3624f62c0640470e94adbdf07458"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-biome-api-v1",
+      "version": "13.0.31+1e62d33c19",
+      "filename": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 77170,
+      "oldSha256": "252f4e91732cfffa3bef080be8424ee23ae1cbd271a3981cd9caad0a4449fcde",
+      "newBytes": 77170,
+      "newSha256": "ee2f4baebb26d672480aaadf8f77d4b7c8acc218160a0ebf1ba10a11d9889188",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "f899d6dcd455ae440953b1eabfc8f4065ccd3624f62c0640470e94adbdf07458",
+        "moduleDeclaredFile": {
+          "name": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+          "url": "fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+          "size": 77170,
+          "sha512": "4cac7f7cbd95d2c94a79debf7ae62c7df8511ed73075c6265e01b03e07229531faeaeaf59d9f77bf6e25183a37d84c59eda02ce4920957f75c1df36e4f9c02ba",
+          "sha256": "ee2f4baebb26d672480aaadf8f77d4b7c8acc218160a0ebf1ba10a11d9889188",
+          "sha1": "84694766e520ec084b2709dada01aed04147e657",
+          "md5": "701a337179cd951379ac0b07784fa6f7"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.jar",
+          "startedAtUtc": "2026-10-23T02:46:49.796224+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 77170,
+          "sha256": "ee2f4baebb26d672480aaadf8f77d4b7c8acc218160a0ebf1ba10a11d9889188"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-biome-api-v1",
+      "version": "13.0.31+1e62d33c19",
+      "filename": "fabric-biome-api-v1-13.0.31+1e62d33c19.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 795,
+      "oldSha256": "8467b4d8adc192fd6655de96e1bf23ec2ebaae4e6ebcf88750a08b0b5607b87b",
+      "newBytes": 795,
+      "newSha256": "8467b4d8adc192fd6655de96e1bf23ec2ebaae4e6ebcf88750a08b0b5607b87b",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-biome-api-v1/13.0.31+1e62d33c19/fabric-biome-api-v1-13.0.31+1e62d33c19.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-api-v1",
+      "version": "1.1.0+b0c22bb819",
+      "filename": "fabric-block-api-v1-1.1.0+b0c22bb819.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.module",
+      "kind": "official-module",
+      "oldBytes": 2834,
+      "oldSha256": "7c616b1c8ef8961cf5d34266afa815fef8fc196972538998db040388bc67e0e7",
+      "newBytes": 2834,
+      "newSha256": "fd9594ce72f1612b68262bc0fd60a0780170ff2c8644489e8433ce5085f03ae8",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.module",
+        "startedAtUtc": "2026-10-23T02:46:52.915362+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2834,
+        "sha256": "fd9594ce72f1612b68262bc0fd60a0780170ff2c8644489e8433ce5085f03ae8"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-api-v1",
+      "version": "1.1.0+b0c22bb819",
+      "filename": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 20319,
+      "oldSha256": "b3aa36fd2b2830d1e6cd99daa96b98bf3b5ac05b59b7b67780a95923b4a0f772",
+      "newBytes": 20319,
+      "newSha256": "6903513d24293174fff9ae59c524a1afc9598c39a8035b1240a54f3d5179f276",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "fd9594ce72f1612b68262bc0fd60a0780170ff2c8644489e8433ce5085f03ae8",
+        "moduleDeclaredFile": {
+          "name": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+          "url": "fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+          "size": 20319,
+          "sha512": "80f82fa5b71e5b228878b11393524b65f616d7718a6b1c89609e5d849a0a56c30e47ccf524e2bb7345ea75c4b7e7f43a139ebdff77ecbfe44e0f3606a411ae43",
+          "sha256": "6903513d24293174fff9ae59c524a1afc9598c39a8035b1240a54f3d5179f276",
+          "sha1": "873c988c3ce4f37fff22c0a1dcbef9f88d0a6d3b",
+          "md5": "7f71e2835347d1fb0d2dcfb5aa02cf47"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.jar",
+          "startedAtUtc": "2026-10-23T02:46:55.907326+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 20319,
+          "sha256": "6903513d24293174fff9ae59c524a1afc9598c39a8035b1240a54f3d5179f276"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-api-v1",
+      "version": "1.1.0+b0c22bb819",
+      "filename": "fabric-block-api-v1-1.1.0+b0c22bb819.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 793,
+      "oldSha256": "eea76eb4d686b75b779e70cd83e577e2e39f001b373d535cb87c00046241ea88",
+      "newBytes": 793,
+      "newSha256": "eea76eb4d686b75b779e70cd83e577e2e39f001b373d535cb87c00046241ea88",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-block-api-v1/1.1.0+b0c22bb819/fabric-block-api-v1-1.1.0+b0c22bb819.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-view-api-v2",
+      "version": "1.0.11+e9036fd419",
+      "filename": "fabric-block-view-api-v2-1.0.11+e9036fd419.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.module",
+      "kind": "official-module",
+      "oldBytes": 2876,
+      "oldSha256": "a8a523ff283de0c9764edf6247bcc20bf1879f685db9a1f7692d491860aa68be",
+      "newBytes": 2876,
+      "newSha256": "6abc3a8729372d98cbee1ca80ab32115205d308077dc0210ad61f3d67388f693",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.module",
+        "startedAtUtc": "2026-10-23T02:46:59.092249+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2876,
+        "sha256": "6abc3a8729372d98cbee1ca80ab32115205d308077dc0210ad61f3d67388f693"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-view-api-v2",
+      "version": "1.0.11+e9036fd419",
+      "filename": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 25642,
+      "oldSha256": "6de474a6ed584ec9545e8d69ef515ded73222470ad81d1064242c9784e43f4ac",
+      "newBytes": 25641,
+      "newSha256": "de4c9d2585d902a623aa705b8323cf74ab18dcfd08972318d529213c4bd7ca1b",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "6abc3a8729372d98cbee1ca80ab32115205d308077dc0210ad61f3d67388f693",
+        "moduleDeclaredFile": {
+          "name": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+          "url": "fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+          "size": 25641,
+          "sha512": "ad4d75defe466aaf6df4a97312df57446e3892cd4f6ed826c26ea0d8653472b12fbf3c06f480b134bd0e8d7457042f29d7a04b3113b57018ab5118c4ce17df5a",
+          "sha256": "de4c9d2585d902a623aa705b8323cf74ab18dcfd08972318d529213c4bd7ca1b",
+          "sha1": "badd267dd358e454cd336dd21712ab92e9331481",
+          "md5": "4f5cc3e45f09198b3537b3340febaa2c"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.jar",
+          "startedAtUtc": "2026-10-23T02:47:02.387298+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 25641,
+          "sha256": "de4c9d2585d902a623aa705b8323cf74ab18dcfd08972318d529213c4bd7ca1b"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-block-view-api-v2",
+      "version": "1.0.11+e9036fd419",
+      "filename": "fabric-block-view-api-v2-1.0.11+e9036fd419.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 799,
+      "oldSha256": "fc17a4a18880c459eb79270d6c128d7dade35db43fd0cf530e30b66cc633d558",
+      "newBytes": 799,
+      "newSha256": "fc17a4a18880c459eb79270d6c128d7dade35db43fd0cf530e30b66cc633d558",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-block-view-api-v2/1.0.11+e9036fd419/fabric-block-view-api-v2-1.0.11+e9036fd419.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-blockrenderlayer-v1",
+      "version": "1.1.52+c290471319",
+      "filename": "fabric-blockrenderlayer-v1-1.1.52+c290471319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.module",
+      "kind": "official-module",
+      "oldBytes": 2890,
+      "oldSha256": "abb9ec41adcdac3a82a420d58a2efcbadf9d9d090cfff4152f31ca82c3868f17",
+      "newBytes": 2890,
+      "newSha256": "7fc71160cd7013fc34df84c52aad1b31c926b63cdbe3a43071b3ffe7347ea1a8",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.module",
+        "startedAtUtc": "2026-10-23T02:47:06.219863+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2890,
+        "sha256": "7fc71160cd7013fc34df84c52aad1b31c926b63cdbe3a43071b3ffe7347ea1a8"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-blockrenderlayer-v1",
+      "version": "1.1.52+c290471319",
+      "filename": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 23764,
+      "oldSha256": "22277b144bbf93694b10925afc5700633caba5439bce5afd284984ee02f40427",
+      "newBytes": 23763,
+      "newSha256": "540837ac68be467342345fa6ea7114c9976b47d02978a9b2994feb7522ecd56b",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "7fc71160cd7013fc34df84c52aad1b31c926b63cdbe3a43071b3ffe7347ea1a8",
+        "moduleDeclaredFile": {
+          "name": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+          "url": "fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+          "size": 23763,
+          "sha512": "36ff9bc5baefadafed1821053622b3c3f0c18181c32f5ce71ef2eada6ccc3d3c1bda6214c50ce61e5004d71786973bd830c3c9f9cbf76d818ec9232baedeb0b7",
+          "sha256": "540837ac68be467342345fa6ea7114c9976b47d02978a9b2994feb7522ecd56b",
+          "sha1": "2522055d6131b54db05e2463a0efb9954ac401bb",
+          "md5": "d9e571eec50539393e8bdc795fa6c32e"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.jar",
+          "startedAtUtc": "2026-10-23T02:47:08.938013+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 23763,
+          "sha256": "540837ac68be467342345fa6ea7114c9976b47d02978a9b2994feb7522ecd56b"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-blockrenderlayer-v1",
+      "version": "1.1.52+c290471319",
+      "filename": "fabric-blockrenderlayer-v1-1.1.52+c290471319.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 801,
+      "oldSha256": "24266078c3b3b284d229bf91651bb073bd14bd729f8fa5cf576d27a14ce0f33c",
+      "newBytes": 801,
+      "newSha256": "24266078c3b3b284d229bf91651bb073bd14bd729f8fa5cf576d27a14ce0f33c",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-blockrenderlayer-v1/1.1.52+c290471319/fabric-blockrenderlayer-v1-1.1.52+c290471319.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-client-tags-api-v1",
+      "version": "1.1.15+e053909619",
+      "filename": "fabric-client-tags-api-v1-1.1.15+e053909619.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.module",
+      "kind": "official-module",
+      "oldBytes": 2883,
+      "oldSha256": "ce0f1bbf7a58741145611e4ae90d5229c6463c134b204accbc285ca0bf93cb8f",
+      "newBytes": 2883,
+      "newSha256": "ce0f1bbf7a58741145611e4ae90d5229c6463c134b204accbc285ca0bf93cb8f",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.module",
+        "startedAtUtc": "2026-10-23T02:47:13.799439+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2883,
+        "sha256": "ce0f1bbf7a58741145611e4ae90d5229c6463c134b204accbc285ca0bf93cb8f"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-client-tags-api-v1",
+      "version": "1.1.15+e053909619",
+      "filename": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 25900,
+      "oldSha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c",
+      "newBytes": 25900,
+      "newSha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "ce0f1bbf7a58741145611e4ae90d5229c6463c134b204accbc285ca0bf93cb8f",
+        "moduleDeclaredFile": {
+          "name": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+          "url": "fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+          "size": 25900,
+          "sha512": "841247fc0c22682ebf8b300c82a584f6e3853de0e56635f9296e01302567347ada4a2132056e0c07df7a8987a5b9067506cf98e4353ecb59a4a1d34cd781ab93",
+          "sha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c",
+          "sha1": "5431477cc5f4fc23f666d6f04eb9107696f1a727",
+          "md5": "32d4133bc23f0bc40cb6b3b8cdedf1d8"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.jar",
+          "startedAtUtc": "2026-10-23T02:47:16.965649+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 25900,
+          "sha256": "156c148a1f21ec1b6257d603c3ecfbdefe638f53f8d02fd2d4cf395593dd236c"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-client-tags-api-v1",
+      "version": "1.1.15+e053909619",
+      "filename": "fabric-client-tags-api-v1-1.1.15+e053909619.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 800,
+      "oldSha256": "c6bd65c17efef729d40df67975487637789d38ddf5c29e57a2b28cedc9bc782a",
+      "newBytes": 800,
+      "newSha256": "c6bd65c17efef729d40df67975487637789d38ddf5c29e57a2b28cedc9bc782a",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-client-tags-api-v1/1.1.15+e053909619/fabric-client-tags-api-v1-1.1.15+e053909619.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-command-api-v2",
+      "version": "2.2.28+36d727be19",
+      "filename": "fabric-command-api-v2-2.2.28+36d727be19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.module",
+      "kind": "official-module",
+      "oldBytes": 2855,
+      "oldSha256": "117ac153e355fb812df7b0754d4616386012cf26eb9f70680102540569cb85e6",
+      "newBytes": 2855,
+      "newSha256": "749c55a13a9bcbc0343e089567b2dda4ff3c06014a45603a42e23eb949f4bcc6",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.module",
+        "startedAtUtc": "2026-10-23T02:47:20.644464+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2855,
+        "sha256": "749c55a13a9bcbc0343e089567b2dda4ff3c06014a45603a42e23eb949f4bcc6"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-command-api-v2",
+      "version": "2.2.28+36d727be19",
+      "filename": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 31795,
+      "oldSha256": "5d36aef269d68cc454dc14f63655b5631d1bec445228d482635eaa0147c2a732",
+      "newBytes": 31795,
+      "newSha256": "65dd0be33d524db3772e04ed86775e749f56285835a4b7189b23e1b47a3f668e",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "749c55a13a9bcbc0343e089567b2dda4ff3c06014a45603a42e23eb949f4bcc6",
+        "moduleDeclaredFile": {
+          "name": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+          "url": "fabric-command-api-v2-2.2.28+36d727be19.jar",
+          "size": 31795,
+          "sha512": "c895df083dea3fc189916dd4fb48c787f2a6fec400c16d08fb6e41d6728535fa18839ee79fd8681701a61c78d12be39af766a1f17dcc4663da7755edd634d9c4",
+          "sha256": "65dd0be33d524db3772e04ed86775e749f56285835a4b7189b23e1b47a3f668e",
+          "sha1": "1854ac24d1b460a9ecb38d34f9ce3cb7e4ce2024",
+          "md5": "72d4352b770b6d5d0d1fb5117b0a2306"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.jar",
+          "startedAtUtc": "2026-10-23T02:47:23.507431+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 31795,
+          "sha256": "65dd0be33d524db3772e04ed86775e749f56285835a4b7189b23e1b47a3f668e"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-command-api-v2",
+      "version": "2.2.28+36d727be19",
+      "filename": "fabric-command-api-v2-2.2.28+36d727be19.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 796,
+      "oldSha256": "9ed7e470d1b9c49e3e2a677e3b5a38216f0681472328e8102bb7a7e85ce927e7",
+      "newBytes": 796,
+      "newSha256": "9ed7e470d1b9c49e3e2a677e3b5a38216f0681472328e8102bb7a7e85ce927e7",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-command-api-v2/2.2.28+36d727be19/fabric-command-api-v2-2.2.28+36d727be19.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-content-registries-v0",
+      "version": "8.0.19+c290471319",
+      "filename": "fabric-content-registries-v0-8.0.19+c290471319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.module",
+      "kind": "official-module",
+      "oldBytes": 2904,
+      "oldSha256": "5c88d7c3023284def2f1df1180078e0caabe3c3fcd4792ea8d70bc5dce6b360b",
+      "newBytes": 2904,
+      "newSha256": "5c88d7c3023284def2f1df1180078e0caabe3c3fcd4792ea8d70bc5dce6b360b",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.module",
+        "startedAtUtc": "2026-10-23T02:47:26.638382+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2904,
+        "sha256": "5c88d7c3023284def2f1df1180078e0caabe3c3fcd4792ea8d70bc5dce6b360b"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-content-registries-v0",
+      "version": "8.0.19+c290471319",
+      "filename": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 60896,
+      "oldSha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba",
+      "newBytes": 60896,
+      "newSha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "5c88d7c3023284def2f1df1180078e0caabe3c3fcd4792ea8d70bc5dce6b360b",
+        "moduleDeclaredFile": {
+          "name": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+          "url": "fabric-content-registries-v0-8.0.19+c290471319.jar",
+          "size": 60896,
+          "sha512": "0ddffa0603bdcc3fa95baf1ce677c4671bf1f26cce039d17060c265140b0fe8f5e3aa415af065925a80744d67c043ac1ecdbcec77401b625dbf5b6342717d1ee",
+          "sha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba",
+          "sha1": "c565130200e62485b02d260f82d6ae8fa0c9105f",
+          "md5": "09ff9e0d6df75c2fb0bacb943bb7aa60"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.jar",
+          "startedAtUtc": "2026-10-23T02:47:29.387102+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 60896,
+          "sha256": "e78f4fcac375332a4740d77b29703ede23e764b1326f64d48ff0ac0106405bba"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-content-registries-v0",
+      "version": "8.0.19+c290471319",
+      "filename": "fabric-content-registries-v0-8.0.19+c290471319.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 803,
+      "oldSha256": "a5fcddefa3166aa7481f2694e4a1f1893388aeedef7f9c29d6b510eec7af3f9f",
+      "newBytes": 803,
+      "newSha256": "a5fcddefa3166aa7481f2694e4a1f1893388aeedef7f9c29d6b510eec7af3f9f",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-content-registries-v0/8.0.19+c290471319/fabric-content-registries-v0-8.0.19+c290471319.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-convention-tags-v1",
+      "version": "2.1.5+7f945d5b19",
+      "filename": "fabric-convention-tags-v1-2.1.5+7f945d5b19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-convention-tags-v1/2.1.5+7f945d5b19/fabric-convention-tags-v1-2.1.5+7f945d5b19.module",
+      "kind": "official-module",
+      "oldBytes": 2876,
+      "oldSha256": "ad7b5a872774e65f0a3246521b72fd975060c4425c53f050ddcbea1c73b36103",
+      "newBytes": 2876,
+      "newSha256": "ad7b5a872774e65f0a3246521b72fd975060c4425c53f050ddcbea1c73b36103",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-convention-tags-v1/2.1.5+7f945d5b19/fabric-convention-tags-v1-2.1.5+7f945d5b19.module",
+        "startedAtUtc": "2026-10-23T02:47:33.031527+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2876,
+        "sha256": "ad7b5a872774e65f0a3246521b72fd975060c4425c53f050ddcbea1c73b36103"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-convention-tags-v1",
+      "version": "2.1.5+7f945d5b19",
+      "filename": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-convention-tags-v1/2.1.5+7f945d5b19/fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 37138,
+      "oldSha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448",
+      "newBytes": 37138,
+      "newSha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "ad7b5a872774e65f0a3246521b72fd975060c4425c53f050ddcbea1c73b36103",
+        "moduleDeclaredFile": {
+          "name": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+          "url": "fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+          "size": 37138,
+          "sha512": "8f2bf67f4f4b77ff779230e17536eed24e202c32deda5f49b471bfe958aecfe85bc4782872dc4ee5c6a6558a1c02bc1a4684e38d8ff9b53978d3c8503472925e",
+          "sha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448",
+          "sha1": "62ada0c396fc61a4bc2bc292777fe3cc6ae3bab5",
+          "md5": "acb93800f91e270bba084f0a71190868"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-convention-tags-v1/2.1.5+7f945d5b19/fabric-convention-tags-v1-2.1.5+7f945d5b19.jar",
+          "startedAtUtc": "2026-10-23T02:47:35.887008+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 37138,
+          "sha256": "ec3177f466a8281e98e4e62e5fc9e89461c38b5af7e7a666ffa7a37a2d33f448"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-convention-tags-v2",
+      "version": "2.11.1+87e5848019",
+      "filename": "fabric-convention-tags-v2-2.11.1+87e5848019.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.module",
+      "kind": "official-module",
+      "oldBytes": 2886,
+      "oldSha256": "ec6a59cd83adc07e1cd418062e9ceb289520a1ed658754db5c2bb781b237ac1b",
+      "newBytes": 2886,
+      "newSha256": "ec6a59cd83adc07e1cd418062e9ceb289520a1ed658754db5c2bb781b237ac1b",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.module",
+        "startedAtUtc": "2026-10-23T02:47:39.313341+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2886,
+        "sha256": "ec6a59cd83adc07e1cd418062e9ceb289520a1ed658754db5c2bb781b237ac1b"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-convention-tags-v2",
+      "version": "2.11.1+87e5848019",
+      "filename": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 219081,
+      "oldSha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f",
+      "newBytes": 219081,
+      "newSha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "ec6a59cd83adc07e1cd418062e9ceb289520a1ed658754db5c2bb781b237ac1b",
+        "moduleDeclaredFile": {
+          "name": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+          "url": "fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+          "size": 219081,
+          "sha512": "fad00f9b9647d96aafac8331cfb9d5d695fecefe5ca8db025edd822b83f60c69e553bdb222a28d76657b856131a88176db6dc2c9dec779c0139805561dbc47b4",
+          "sha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f",
+          "sha1": "90e0c477d8c3e5b10dfcc5d5e4ab1c87e4971eba",
+          "md5": "cd6581ac655a3bbd54195d2db7667a16"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.jar",
+          "startedAtUtc": "2026-10-23T02:47:42.093306+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 219081,
+          "sha256": "873a3fda74c9e54cf1cda660f35b4e39939b11d5da49b06a70d14f7e8486078f"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-convention-tags-v2",
+      "version": "2.11.1+87e5848019",
+      "filename": "fabric-convention-tags-v2-2.11.1+87e5848019.pom",
+      "path": "org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.pom",
+      "kind": "unchanged-original-pom",
+      "oldBytes": 800,
+      "oldSha256": "dfb041a24493e76725192f64162b80697d01f4323e39c8c3e6b57cf309b4e154",
+      "newBytes": 800,
+      "newSha256": "dfb041a24493e76725192f64162b80697d01f4323e39c8c3e6b57cf309b4e154",
+      "changed": false,
+      "evidence": {
+        "basis": "Unchanged baseline artifact rehashed locally",
+        "source": "source-workspace/pinned-build-maven/org/sinytra/forgified-fabric-api/fabric-convention-tags-v2/2.11.1+87e5848019/fabric-convention-tags-v2-2.11.1+87e5848019.pom",
+        "baselineLockSha256": "72a7503a405dd2dd80be2466164b472f4db263707b51261b03840c410a53214a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-data-attachment-api-v1",
+      "version": "1.4.5+26d408aa19",
+      "filename": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-data-attachment-api-v1/1.4.5+26d408aa19/fabric-data-attachment-api-v1-1.4.5+26d408aa19.module",
+      "kind": "official-module",
+      "oldBytes": 2904,
+      "oldSha256": "16e7a5fc2e260cbd0aaa90c0fd97969ab89094bf5bb0b1fc824ebab2dba92cd4",
+      "newBytes": 2904,
+      "newSha256": "16e7a5fc2e260cbd0aaa90c0fd97969ab89094bf5bb0b1fc824ebab2dba92cd4",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-data-attachment-api-v1/1.4.5+26d408aa19/fabric-data-attachment-api-v1-1.4.5+26d408aa19.module",
+        "startedAtUtc": "2026-10-23T02:47:46.798962+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2904,
+        "sha256": "16e7a5fc2e260cbd0aaa90c0fd97969ab89094bf5bb0b1fc824ebab2dba92cd4"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-data-attachment-api-v1",
+      "version": "1.4.5+26d408aa19",
+      "filename": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-data-attachment-api-v1/1.4.5+26d408aa19/fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 38155,
+      "oldSha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb",
+      "newBytes": 38155,
+      "newSha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "16e7a5fc2e260cbd0aaa90c0fd97969ab89094bf5bb0b1fc824ebab2dba92cd4",
+        "moduleDeclaredFile": {
+          "name": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+          "url": "fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+          "size": 38155,
+          "sha512": "9e322f538772a3a0991afbf783b98e8c323815519de1f64a17f7aa931ff51cf3e27d6ff9305f86db2c18215370c8f4767a0fc309859aa9e6d67a412a1d080ab6",
+          "sha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb",
+          "sha1": "956cbe9bbab565e954dead3394c36df5249e4711",
+          "md5": "43912b0cf02e9a86e125105f28bc9efa"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-data-attachment-api-v1/1.4.5+26d408aa19/fabric-data-attachment-api-v1-1.4.5+26d408aa19.jar",
+          "startedAtUtc": "2026-10-23T02:47:50.125178+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 38155,
+          "sha256": "34d6cb481f90c3e389819b162318b1b9d08340309aceee31bf309c13d95c1feb"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-data-generation-api-v1",
+      "version": "20.2.34+12dbe3c819",
+      "filename": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-data-generation-api-v1/20.2.34+12dbe3c819/fabric-data-generation-api-v1-20.2.34+12dbe3c819.module",
+      "kind": "official-module",
+      "oldBytes": 2918,
+      "oldSha256": "58a53d0c137870ee1f3cce2b9d93ee752856cc94bd550c12ef9e2d849829e981",
+      "newBytes": 2918,
+      "newSha256": "58a53d0c137870ee1f3cce2b9d93ee752856cc94bd550c12ef9e2d849829e981",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-data-generation-api-v1/20.2.34+12dbe3c819/fabric-data-generation-api-v1-20.2.34+12dbe3c819.module",
+        "startedAtUtc": "2026-10-23T02:47:53.708572+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2918,
+        "sha256": "58a53d0c137870ee1f3cce2b9d93ee752856cc94bd550c12ef9e2d849829e981"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-data-generation-api-v1",
+      "version": "20.2.34+12dbe3c819",
+      "filename": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-data-generation-api-v1/20.2.34+12dbe3c819/fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 98163,
+      "oldSha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066",
+      "newBytes": 98163,
+      "newSha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "58a53d0c137870ee1f3cce2b9d93ee752856cc94bd550c12ef9e2d849829e981",
+        "moduleDeclaredFile": {
+          "name": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+          "url": "fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+          "size": 98163,
+          "sha512": "719efe1c1629f2eed215f5c30321e82e44d1d0c65a809a5ec3ce36059eff7ca3d0f528cf7feeaec8539bc613a5645d4e42f646a42027fad5d542339cb128578a",
+          "sha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066",
+          "sha1": "95e945c8552995eea8840ff14b13921f2c15313b",
+          "md5": "5a3a25a9cc899d379f1d6f11a1978b60"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-data-generation-api-v1/20.2.34+12dbe3c819/fabric-data-generation-api-v1-20.2.34+12dbe3c819.jar",
+          "startedAtUtc": "2026-10-23T02:47:56.951260+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 98163,
+          "sha256": "5e717176b482450eb22f019ab598a8c505221d6db9eebd14545ccb3c7eb0b066"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-entity-events-v1",
+      "version": "1.8.0+5ede667619",
+      "filename": "fabric-entity-events-v1-1.8.0+5ede667619.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-entity-events-v1/1.8.0+5ede667619/fabric-entity-events-v1-1.8.0+5ede667619.module",
+      "kind": "official-module",
+      "oldBytes": 2862,
+      "oldSha256": "2bd4a0f66845839defb06be6682ad4a85b97f194ea7568a298c13199a4f5af2a",
+      "newBytes": 2862,
+      "newSha256": "2bd4a0f66845839defb06be6682ad4a85b97f194ea7568a298c13199a4f5af2a",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-entity-events-v1/1.8.0+5ede667619/fabric-entity-events-v1-1.8.0+5ede667619.module",
+        "startedAtUtc": "2026-10-23T02:48:01.180301+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2862,
+        "sha256": "2bd4a0f66845839defb06be6682ad4a85b97f194ea7568a298c13199a4f5af2a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-entity-events-v1",
+      "version": "1.8.0+5ede667619",
+      "filename": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-entity-events-v1/1.8.0+5ede667619/fabric-entity-events-v1-1.8.0+5ede667619.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 65411,
+      "oldSha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce",
+      "newBytes": 65411,
+      "newSha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "2bd4a0f66845839defb06be6682ad4a85b97f194ea7568a298c13199a4f5af2a",
+        "moduleDeclaredFile": {
+          "name": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+          "url": "fabric-entity-events-v1-1.8.0+5ede667619.jar",
+          "size": 65411,
+          "sha512": "4ae34423ce329ec5c7a9432fe4c9d70e17e35d50bc448a19d6f5621375358a345ebb7329461a4f38104ab51cef404fc90b1841d62ad1377dbe248d66faf89385",
+          "sha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce",
+          "sha1": "207d691f4ca8018072aeb71bdae505021e95fa22",
+          "md5": "f8874ffa036f6bed46b9e10d9fdde1b1"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-entity-events-v1/1.8.0+5ede667619/fabric-entity-events-v1-1.8.0+5ede667619.jar",
+          "startedAtUtc": "2026-10-23T02:48:04.580938+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 65411,
+          "sha256": "50760a5d791afdcbf9d94d0eb80e6a57bed9dd6a320f1a43229e3d9585f357ce"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-events-interaction-v0",
+      "version": "0.7.13+86e0887119",
+      "filename": "fabric-events-interaction-v0-0.7.13+86e0887119.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-events-interaction-v0/0.7.13+86e0887119/fabric-events-interaction-v0-0.7.13+86e0887119.module",
+      "kind": "official-module",
+      "oldBytes": 2904,
+      "oldSha256": "ed93cbe91e569c74cc637b74d1d7e4a328b7e0a3a69c1dfc930eaa2827748d5a",
+      "newBytes": 2904,
+      "newSha256": "ed93cbe91e569c74cc637b74d1d7e4a328b7e0a3a69c1dfc930eaa2827748d5a",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-events-interaction-v0/0.7.13+86e0887119/fabric-events-interaction-v0-0.7.13+86e0887119.module",
+        "startedAtUtc": "2026-10-23T02:48:09.111197+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2904,
+        "sha256": "ed93cbe91e569c74cc637b74d1d7e4a328b7e0a3a69c1dfc930eaa2827748d5a"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-events-interaction-v0",
+      "version": "0.7.13+86e0887119",
+      "filename": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-events-interaction-v0/0.7.13+86e0887119/fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 56154,
+      "oldSha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70",
+      "newBytes": 56154,
+      "newSha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "ed93cbe91e569c74cc637b74d1d7e4a328b7e0a3a69c1dfc930eaa2827748d5a",
+        "moduleDeclaredFile": {
+          "name": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+          "url": "fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+          "size": 56154,
+          "sha512": "78f1252013c699b423575020842406840359f5b607920b13f620c06a3d3c3ad43bfa093e2e8ef911e5cb288b8bd50a81955a58ee02feabb2ce6cc5b3e6856cf3",
+          "sha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70",
+          "sha1": "e2b564efacde333c0068c7618257128444eb7b3e",
+          "md5": "ce4aed5d83eee2b73038f8fdad6ab661"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-events-interaction-v0/0.7.13+86e0887119/fabric-events-interaction-v0-0.7.13+86e0887119.jar",
+          "startedAtUtc": "2026-10-23T02:48:13.044161+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 56154,
+          "sha256": "c8c73e14268bed3149c562115a5152bbe2a2a6ac079b0e9c77ef3309fd612c70"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-game-rule-api-v1",
+      "version": "1.0.53+36d727be19",
+      "filename": "fabric-game-rule-api-v1-1.0.53+36d727be19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-game-rule-api-v1/1.0.53+36d727be19/fabric-game-rule-api-v1-1.0.53+36d727be19.module",
+      "kind": "official-module",
+      "oldBytes": 2869,
+      "oldSha256": "83619aa44aab66919b58a656fe51f2c3a74f70c086696ad9b5c8c2ec87eb151f",
+      "newBytes": 2869,
+      "newSha256": "a07c8fdce4a57cc87c8c78860682be24e5ada4f30d472819a17b75378316fd61",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-game-rule-api-v1/1.0.53+36d727be19/fabric-game-rule-api-v1-1.0.53+36d727be19.module",
+        "startedAtUtc": "2026-10-23T02:48:17.224558+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2869,
+        "sha256": "a07c8fdce4a57cc87c8c78860682be24e5ada4f30d472819a17b75378316fd61"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-game-rule-api-v1",
+      "version": "1.0.53+36d727be19",
+      "filename": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-game-rule-api-v1/1.0.53+36d727be19/fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 52044,
+      "oldSha256": "623b4283718c1226e542a5ab61e3f8ec776cda5fc5d72c688d2b1205de011269",
+      "newBytes": 52044,
+      "newSha256": "8efdae85dca8943620b5ba10645944e452fdcd684441b11a667f8f68ceece256",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "a07c8fdce4a57cc87c8c78860682be24e5ada4f30d472819a17b75378316fd61",
+        "moduleDeclaredFile": {
+          "name": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+          "url": "fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+          "size": 52044,
+          "sha512": "18ee1c030d3ad6eda64af798915a72c25c6dedaed19f5af815ccb0c449ec99d0bf4f288d57b3556758eb6584915ac63ef7869a751bdc1c854ee450d5a9ed7e46",
+          "sha256": "8efdae85dca8943620b5ba10645944e452fdcd684441b11a667f8f68ceece256",
+          "sha1": "2f25a57b7aedb33b17fceccf9e9599bce47c6d5a",
+          "md5": "51edc1e0d71fae06b71437f5f39474fb"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-game-rule-api-v1/1.0.53+36d727be19/fabric-game-rule-api-v1-1.0.53+36d727be19.jar",
+          "startedAtUtc": "2026-10-23T02:48:20.995544+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 52044,
+          "sha256": "8efdae85dca8943620b5ba10645944e452fdcd684441b11a667f8f68ceece256"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-gametest-api-v1",
+      "version": "2.0.5+29f188ce19",
+      "filename": "fabric-gametest-api-v1-2.0.5+29f188ce19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-gametest-api-v1/2.0.5+29f188ce19/fabric-gametest-api-v1-2.0.5+29f188ce19.module",
+      "kind": "official-module",
+      "oldBytes": 2855,
+      "oldSha256": "f03fce8e930f48be0e8f3b55047d7b0ced22a68273ca92ced089687a696443db",
+      "newBytes": 2855,
+      "newSha256": "4363ab463d79a8cbed9eafd80692d0bb21cf831d953038495b77c172730ccc46",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-gametest-api-v1/2.0.5+29f188ce19/fabric-gametest-api-v1-2.0.5+29f188ce19.module",
+        "startedAtUtc": "2026-10-23T02:48:24.469583+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2855,
+        "sha256": "4363ab463d79a8cbed9eafd80692d0bb21cf831d953038495b77c172730ccc46"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-gametest-api-v1",
+      "version": "2.0.5+29f188ce19",
+      "filename": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-gametest-api-v1/2.0.5+29f188ce19/fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 32718,
+      "oldSha256": "476168647007a3f9e2e81a7f484563d46e23ace76ad4fa5324c3b3c9d17b75dd",
+      "newBytes": 32717,
+      "newSha256": "0a6dff3c11061b45199ae9b98019f21ce114297a41430e255a134aec268c141a",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "4363ab463d79a8cbed9eafd80692d0bb21cf831d953038495b77c172730ccc46",
+        "moduleDeclaredFile": {
+          "name": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+          "url": "fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+          "size": 32717,
+          "sha512": "b35d98c0fc473f022b9d8d30a5808f9bbcfd89466212c6d2e171ad91a8e8bd36778143b00fb42e703b843f19147baadec211e9f01377cce9ee45ad55cf811a48",
+          "sha256": "0a6dff3c11061b45199ae9b98019f21ce114297a41430e255a134aec268c141a",
+          "sha1": "441c5735340e3394b99efcd2914d1d63be2950c0",
+          "md5": "e3495ac717a037201f71258eaac626a2"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-gametest-api-v1/2.0.5+29f188ce19/fabric-gametest-api-v1-2.0.5+29f188ce19.jar",
+          "startedAtUtc": "2026-10-23T02:48:28.021336+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 32717,
+          "sha256": "0a6dff3c11061b45199ae9b98019f21ce114297a41430e255a134aec268c141a"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-item-api-v1",
+      "version": "11.2.0+0c57911319",
+      "filename": "fabric-item-api-v1-11.2.0+0c57911319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-item-api-v1/11.2.0+0c57911319/fabric-item-api-v1-11.2.0+0c57911319.module",
+      "kind": "official-module",
+      "oldBytes": 2834,
+      "oldSha256": "2d2eff7d38e1f9339aa28eebcea71ab0df143b4a03206483b6123f29985ef5e2",
+      "newBytes": 2834,
+      "newSha256": "2d2eff7d38e1f9339aa28eebcea71ab0df143b4a03206483b6123f29985ef5e2",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-item-api-v1/11.2.0+0c57911319/fabric-item-api-v1-11.2.0+0c57911319.module",
+        "startedAtUtc": "2026-10-23T02:48:40.441258+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2834,
+        "sha256": "2d2eff7d38e1f9339aa28eebcea71ab0df143b4a03206483b6123f29985ef5e2"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-item-api-v1",
+      "version": "11.2.0+0c57911319",
+      "filename": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-item-api-v1/11.2.0+0c57911319/fabric-item-api-v1-11.2.0+0c57911319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 59981,
+      "oldSha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49",
+      "newBytes": 59981,
+      "newSha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "2d2eff7d38e1f9339aa28eebcea71ab0df143b4a03206483b6123f29985ef5e2",
+        "moduleDeclaredFile": {
+          "name": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+          "url": "fabric-item-api-v1-11.2.0+0c57911319.jar",
+          "size": 59981,
+          "sha512": "2875c42b00209db9f18471fa97571f34d4f0912b81552a475201c1a39f472b44be30cd2d1d387bb2f79f16217342a4cef98a74bb51570771dbf8606e5577571d",
+          "sha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49",
+          "sha1": "07f7716f020e619294f458c721bce6e48cb11325",
+          "md5": "5663191654af6c5ef26940d63d348701"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-item-api-v1/11.2.0+0c57911319/fabric-item-api-v1-11.2.0+0c57911319.jar",
+          "startedAtUtc": "2026-10-23T02:48:43.260721+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 59981,
+          "sha256": "b3be6ec95edc0e91ce543c8ec19d90318195626b59613fd34514dae4799f6d49"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-item-group-api-v1",
+      "version": "4.1.7+e324903319",
+      "filename": "fabric-item-group-api-v1-4.1.7+e324903319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-item-group-api-v1/4.1.7+e324903319/fabric-item-group-api-v1-4.1.7+e324903319.module",
+      "kind": "official-module",
+      "oldBytes": 2869,
+      "oldSha256": "0284efdb98ff0b9d73c72dffbf04b23e69357002423d5338f0b3838e2a1630da",
+      "newBytes": 2869,
+      "newSha256": "3fe625eaeb056e6e8f5d84746fd7a8df3336f5e1c779ea2f3b2979bc6b4ea95c",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-item-group-api-v1/4.1.7+e324903319/fabric-item-group-api-v1-4.1.7+e324903319.module",
+        "startedAtUtc": "2026-10-23T02:48:48.581649+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2869,
+        "sha256": "3fe625eaeb056e6e8f5d84746fd7a8df3336f5e1c779ea2f3b2979bc6b4ea95c"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-item-group-api-v1",
+      "version": "4.1.7+e324903319",
+      "filename": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-item-group-api-v1/4.1.7+e324903319/fabric-item-group-api-v1-4.1.7+e324903319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 43914,
+      "oldSha256": "33fd75221240410042ae4354becdf7dc3574e07a8b8dbdfaa96d8c6ffe2c53d3",
+      "newBytes": 43913,
+      "newSha256": "28d4843e6378db6b87eea69b10500520ffe0b26f9052ba3ba3cf2db1dd9d54f3",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "3fe625eaeb056e6e8f5d84746fd7a8df3336f5e1c779ea2f3b2979bc6b4ea95c",
+        "moduleDeclaredFile": {
+          "name": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+          "url": "fabric-item-group-api-v1-4.1.7+e324903319.jar",
+          "size": 43913,
+          "sha512": "2a03d84ee5b226581cc099442f5ba9b2d459161f5334ebd79feebdfc8042952b2172aa1498b40525a65b5b22d78709bac300f9fd3ca845e645f04785e3ef782b",
+          "sha256": "28d4843e6378db6b87eea69b10500520ffe0b26f9052ba3ba3cf2db1dd9d54f3",
+          "sha1": "c7dbb1dca6863a71fe074fe264b4789f16ffdf46",
+          "md5": "83211717cea8e7441c31d936c9a5e704"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-item-group-api-v1/4.1.7+e324903319/fabric-item-group-api-v1-4.1.7+e324903319.jar",
+          "startedAtUtc": "2026-10-23T02:48:51.907259+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 43913,
+          "sha256": "28d4843e6378db6b87eea69b10500520ffe0b26f9052ba3ba3cf2db1dd9d54f3"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-key-binding-api-v1",
+      "version": "1.0.47+62cc7ce119",
+      "filename": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-key-binding-api-v1/1.0.47+62cc7ce119/fabric-key-binding-api-v1-1.0.47+62cc7ce119.module",
+      "kind": "official-module",
+      "oldBytes": 2883,
+      "oldSha256": "a083529a480b46a6da97b951d5c210dcee7b1895428da23aba822496b6356b75",
+      "newBytes": 2883,
+      "newSha256": "7883973aac01faf033406f9b768302550e55e0f66b3f484e902fe21a47dfa400",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-key-binding-api-v1/1.0.47+62cc7ce119/fabric-key-binding-api-v1-1.0.47+62cc7ce119.module",
+        "startedAtUtc": "2026-10-23T02:48:55.267627+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2883,
+        "sha256": "7883973aac01faf033406f9b768302550e55e0f66b3f484e902fe21a47dfa400"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-key-binding-api-v1",
+      "version": "1.0.47+62cc7ce119",
+      "filename": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-key-binding-api-v1/1.0.47+62cc7ce119/fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 22251,
+      "oldSha256": "aadd1ac08758f0fe9d819179e7aed645c2367eb6190cd1c2eca8dfa5d7ab8fb6",
+      "newBytes": 22251,
+      "newSha256": "42bc00857ed12c30843819bb46608ea4305ae9083130b4c8ea6ae9a585ea8105",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "7883973aac01faf033406f9b768302550e55e0f66b3f484e902fe21a47dfa400",
+        "moduleDeclaredFile": {
+          "name": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+          "url": "fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+          "size": 22251,
+          "sha512": "bdd3efffcb6d3880f7ddf0728492fe7eb57b31e60b7d82048f863b9e1bb8e355d3055f6df7f0fab848dea0e80e954dc1cc28a4ba2734bbfbc6884763581c00d0",
+          "sha256": "42bc00857ed12c30843819bb46608ea4305ae9083130b4c8ea6ae9a585ea8105",
+          "sha1": "d79ac9025260c78cce7782177d22d7ca3aff3b65",
+          "md5": "15e90a09ea925538b4a79adc952c070a"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-key-binding-api-v1/1.0.47+62cc7ce119/fabric-key-binding-api-v1-1.0.47+62cc7ce119.jar",
+          "startedAtUtc": "2026-10-23T02:48:58.763029+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 22251,
+          "sha256": "42bc00857ed12c30843819bb46608ea4305ae9083130b4c8ea6ae9a585ea8105"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-lifecycle-events-v1",
+      "version": "2.6.0+e40d8add19",
+      "filename": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-lifecycle-events-v1/2.6.0+e40d8add19/fabric-lifecycle-events-v1-2.6.0+e40d8add19.module",
+      "kind": "official-module",
+      "oldBytes": 2883,
+      "oldSha256": "baa04c865437eae80c2ce203a98030492d3936c566b7190b908c7b6c2597ca43",
+      "newBytes": 2883,
+      "newSha256": "89e9f13d5083452ff28cd93f7efec36c437a064d36d47286e6b7b6f3f6049c0e",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-lifecycle-events-v1/2.6.0+e40d8add19/fabric-lifecycle-events-v1-2.6.0+e40d8add19.module",
+        "startedAtUtc": "2026-10-23T02:49:02.796961+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2883,
+        "sha256": "89e9f13d5083452ff28cd93f7efec36c437a064d36d47286e6b7b6f3f6049c0e"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-lifecycle-events-v1",
+      "version": "2.6.0+e40d8add19",
+      "filename": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-lifecycle-events-v1/2.6.0+e40d8add19/fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 88814,
+      "oldSha256": "e448755bf38bbff07f5d8d952b18fef2f7ae1ff7d1e7640121a2284b91e9e349",
+      "newBytes": 88814,
+      "newSha256": "b316ff8cb3c7739143e713a1654c1072123079d0e3a07e76c18f94820c0ba767",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "89e9f13d5083452ff28cd93f7efec36c437a064d36d47286e6b7b6f3f6049c0e",
+        "moduleDeclaredFile": {
+          "name": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+          "url": "fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+          "size": 88814,
+          "sha512": "6e3f24dd62b50f75a881c81808e04dce80a72e08e268a059166ea90be1e2c9c57727843941161b1ce0896638be7c735cee7fd32feb906eac03c5e797e2668969",
+          "sha256": "b316ff8cb3c7739143e713a1654c1072123079d0e3a07e76c18f94820c0ba767",
+          "sha1": "861a60eee7aefc0174016a891f6372445cdd06e1",
+          "md5": "5a2d98bb37378668f91b7102b07ccde2"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-lifecycle-events-v1/2.6.0+e40d8add19/fabric-lifecycle-events-v1-2.6.0+e40d8add19.jar",
+          "startedAtUtc": "2026-10-23T02:49:05.872303+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 88814,
+          "sha256": "b316ff8cb3c7739143e713a1654c1072123079d0e3a07e76c18f94820c0ba767"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-loot-api-v2",
+      "version": "3.0.15+a3ee712d19",
+      "filename": "fabric-loot-api-v2-3.0.15+a3ee712d19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-loot-api-v2/3.0.15+a3ee712d19/fabric-loot-api-v2-3.0.15+a3ee712d19.module",
+      "kind": "official-module",
+      "oldBytes": 2834,
+      "oldSha256": "2041ad0f7183a93a94c81ef35ee077e5700e766e507feaa93968becd49628df4",
+      "newBytes": 2834,
+      "newSha256": "b31afcc4ec100f999ddd8ec6f34028ade8edecba630cd07dcfd22d84091cd72c",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-loot-api-v2/3.0.15+a3ee712d19/fabric-loot-api-v2-3.0.15+a3ee712d19.module",
+        "startedAtUtc": "2026-10-23T02:49:09.770057+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2834,
+        "sha256": "b31afcc4ec100f999ddd8ec6f34028ade8edecba630cd07dcfd22d84091cd72c"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-loot-api-v2",
+      "version": "3.0.15+a3ee712d19",
+      "filename": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-loot-api-v2/3.0.15+a3ee712d19/fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 27451,
+      "oldSha256": "875e729220ddf60f12f0170427a5fc70d576d70b1f5e4adba92541eafb021ea8",
+      "newBytes": 27450,
+      "newSha256": "d387d66c197ac0ae9765ba97201db72b1d8a7a68c1c2844aa45451083f7b46d2",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "b31afcc4ec100f999ddd8ec6f34028ade8edecba630cd07dcfd22d84091cd72c",
+        "moduleDeclaredFile": {
+          "name": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+          "url": "fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+          "size": 27450,
+          "sha512": "5801f5c1f9842b2bb5ddd2c5cb05cff24ee6abfa291c250f90d13cccc390b80312d689c094b40ca0fd7c86abdfcb2210a7160dffb53e56011899c4ce7cbd5dbd",
+          "sha256": "d387d66c197ac0ae9765ba97201db72b1d8a7a68c1c2844aa45451083f7b46d2",
+          "sha1": "f7cb1c0cf459175e681c36a0e47666607f4e53b5",
+          "md5": "bf598b9afc85f6cd4fd7df3949952f5a"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-loot-api-v2/3.0.15+a3ee712d19/fabric-loot-api-v2-3.0.15+a3ee712d19.jar",
+          "startedAtUtc": "2026-10-23T02:49:12.435841+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 27450,
+          "sha256": "d387d66c197ac0ae9765ba97201db72b1d8a7a68c1c2844aa45451083f7b46d2"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-loot-api-v3",
+      "version": "1.0.3+333dfad919",
+      "filename": "fabric-loot-api-v3-1.0.3+333dfad919.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-loot-api-v3/1.0.3+333dfad919/fabric-loot-api-v3-1.0.3+333dfad919.module",
+      "kind": "official-module",
+      "oldBytes": 2827,
+      "oldSha256": "460549c052609d68f9875de5fd2f398c2bce04e87a229de5cb4f0b685c1fb6ce",
+      "newBytes": 2827,
+      "newSha256": "0d8b9e67bde1a5c4d44abcbdb23b1454b57447cad76a4b3bed6519ad5e983de6",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-loot-api-v3/1.0.3+333dfad919/fabric-loot-api-v3-1.0.3+333dfad919.module",
+        "startedAtUtc": "2026-10-23T02:49:16.953562+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2827,
+        "sha256": "0d8b9e67bde1a5c4d44abcbdb23b1454b57447cad76a4b3bed6519ad5e983de6"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-loot-api-v3",
+      "version": "1.0.3+333dfad919",
+      "filename": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-loot-api-v3/1.0.3+333dfad919/fabric-loot-api-v3-1.0.3+333dfad919.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 34952,
+      "oldSha256": "ebd99e05b80ddc98ad57a9f1b2feb092b8d90b35a01ceb9a24991147a9a1fc53",
+      "newBytes": 34951,
+      "newSha256": "c2fce52f07497612b1c56201f42991c08f8dc0d48ebf813a3271892f2444056c",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "0d8b9e67bde1a5c4d44abcbdb23b1454b57447cad76a4b3bed6519ad5e983de6",
+        "moduleDeclaredFile": {
+          "name": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+          "url": "fabric-loot-api-v3-1.0.3+333dfad919.jar",
+          "size": 34951,
+          "sha512": "ba926040d060dfb996ad799ebb71b5b96b6dd79a9640415f12846663c9e5449e01ca500665b5c4f4ef2ccbc92d0fe4cf6c15e3421ffebe103b7e37ef9942fcc5",
+          "sha256": "c2fce52f07497612b1c56201f42991c08f8dc0d48ebf813a3271892f2444056c",
+          "sha1": "582d87460c248fb39f81239d104a1573f6aa049e",
+          "md5": "722fef5d1ad51f6bfb97e8106039e9c1"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-loot-api-v3/1.0.3+333dfad919/fabric-loot-api-v3-1.0.3+333dfad919.jar",
+          "startedAtUtc": "2026-10-23T02:49:19.770927+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 34951,
+          "sha256": "c2fce52f07497612b1c56201f42991c08f8dc0d48ebf813a3271892f2444056c"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-message-api-v1",
+      "version": "6.0.14+6a754fce19",
+      "filename": "fabric-message-api-v1-6.0.14+6a754fce19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-message-api-v1/6.0.14+6a754fce19/fabric-message-api-v1-6.0.14+6a754fce19.module",
+      "kind": "official-module",
+      "oldBytes": 2855,
+      "oldSha256": "0a948585709c3f1c964e6e48637a8b783361b37ede162694b9f2131940823c45",
+      "newBytes": 2855,
+      "newSha256": "c25a5a816c240632f52a4614c9eb1fe8b8a7f74ba829f6f080f9cf5883bd9f62",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-message-api-v1/6.0.14+6a754fce19/fabric-message-api-v1-6.0.14+6a754fce19.module",
+        "startedAtUtc": "2026-10-23T02:49:23.389883+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2855,
+        "sha256": "c25a5a816c240632f52a4614c9eb1fe8b8a7f74ba829f6f080f9cf5883bd9f62"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-message-api-v1",
+      "version": "6.0.14+6a754fce19",
+      "filename": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-message-api-v1/6.0.14+6a754fce19/fabric-message-api-v1-6.0.14+6a754fce19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 45752,
+      "oldSha256": "7713de55f30cc67bf7c9e12b8e6f6354044590a9525c753722a21269f3c05c73",
+      "newBytes": 45751,
+      "newSha256": "18e402b0fa56eb751d94ccc48a1110f6d47b7c4f3fa70cd206d4ba850040caaa",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "c25a5a816c240632f52a4614c9eb1fe8b8a7f74ba829f6f080f9cf5883bd9f62",
+        "moduleDeclaredFile": {
+          "name": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+          "url": "fabric-message-api-v1-6.0.14+6a754fce19.jar",
+          "size": 45751,
+          "sha512": "597a04810af3f8018551e384111426eea6372144582843491aa0a63b467be1bb9888fa455145ba3f19fc5334393cf2178b71c3ff9e8ebf22708fa812d59fd54e",
+          "sha256": "18e402b0fa56eb751d94ccc48a1110f6d47b7c4f3fa70cd206d4ba850040caaa",
+          "sha1": "648a78df445ec292c0ae6bbcfe604e1a91503d75",
+          "md5": "c1f67e7c131a5859576746c62656b15a"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-message-api-v1/6.0.14+6a754fce19/fabric-message-api-v1-6.0.14+6a754fce19.jar",
+          "startedAtUtc": "2026-10-23T02:49:26.282115+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 45751,
+          "sha256": "18e402b0fa56eb751d94ccc48a1110f6d47b7c4f3fa70cd206d4ba850040caaa"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-model-loading-api-v1",
+      "version": "2.1.0+6e8f52c719",
+      "filename": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-model-loading-api-v1/2.1.0+6e8f52c719/fabric-model-loading-api-v1-2.1.0+6e8f52c719.module",
+      "kind": "official-module",
+      "oldBytes": 2890,
+      "oldSha256": "39755f5fad7c452da8112c0f16c8f167b5befe92114913fdf29621cf4255a4be",
+      "newBytes": 2890,
+      "newSha256": "2af7f2c9f4a821896389676786f30813fbe84032b2231de07e7d4e646cafcafd",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-model-loading-api-v1/2.1.0+6e8f52c719/fabric-model-loading-api-v1-2.1.0+6e8f52c719.module",
+        "startedAtUtc": "2026-10-23T02:49:30.049497+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2890,
+        "sha256": "2af7f2c9f4a821896389676786f30813fbe84032b2231de07e7d4e646cafcafd"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-model-loading-api-v1",
+      "version": "2.1.0+6e8f52c719",
+      "filename": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-model-loading-api-v1/2.1.0+6e8f52c719/fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 61621,
+      "oldSha256": "077f804b0e281e06b0297581431c70aed136a3bc3f53f437a87cb91e6835469e",
+      "newBytes": 61621,
+      "newSha256": "814a3418bfe264be079e929743c820c2d2387af6a86822890e1522971db44fb7",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "2af7f2c9f4a821896389676786f30813fbe84032b2231de07e7d4e646cafcafd",
+        "moduleDeclaredFile": {
+          "name": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+          "url": "fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+          "size": 61621,
+          "sha512": "c6e45865e337cce7409a3fb07e0caeddf0a863de0ee52792d002c29a50b331cd0325bfe0eb0ce511e0182045e373d9c7635c10285b6cdc6330b97804f967114e",
+          "sha256": "814a3418bfe264be079e929743c820c2d2387af6a86822890e1522971db44fb7",
+          "sha1": "588a1ab4f69e9bb3079f7d2aea1f2f889905bfa1",
+          "md5": "86a298fa5920b9ff0a6b3878680a4052"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-model-loading-api-v1/2.1.0+6e8f52c719/fabric-model-loading-api-v1-2.1.0+6e8f52c719.jar",
+          "startedAtUtc": "2026-10-23T02:49:32.699600+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 61621,
+          "sha256": "814a3418bfe264be079e929743c820c2d2387af6a86822890e1522971db44fb7"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-networking-api-v1",
+      "version": "4.3.0+30a980d919",
+      "filename": "fabric-networking-api-v1-4.3.0+30a980d919.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-networking-api-v1/4.3.0+30a980d919/fabric-networking-api-v1-4.3.0+30a980d919.module",
+      "kind": "official-module",
+      "oldBytes": 2872,
+      "oldSha256": "357c01d14c54517b9ce8110d28b7fd4c9271c91cb19d3bbf0b99f2ad0653b5ee",
+      "newBytes": 2872,
+      "newSha256": "357c01d14c54517b9ce8110d28b7fd4c9271c91cb19d3bbf0b99f2ad0653b5ee",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-networking-api-v1/4.3.0+30a980d919/fabric-networking-api-v1-4.3.0+30a980d919.module",
+        "startedAtUtc": "2026-10-23T02:49:37.647649+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2872,
+        "sha256": "357c01d14c54517b9ce8110d28b7fd4c9271c91cb19d3bbf0b99f2ad0653b5ee"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-networking-api-v1",
+      "version": "4.3.0+30a980d919",
+      "filename": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-networking-api-v1/4.3.0+30a980d919/fabric-networking-api-v1-4.3.0+30a980d919.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 169809,
+      "oldSha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888",
+      "newBytes": 169809,
+      "newSha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "357c01d14c54517b9ce8110d28b7fd4c9271c91cb19d3bbf0b99f2ad0653b5ee",
+        "moduleDeclaredFile": {
+          "name": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+          "url": "fabric-networking-api-v1-4.3.0+30a980d919.jar",
+          "size": 169809,
+          "sha512": "78016bbd7bc8a15f3b6558678e1ee20ca3bcdb5d00025b46918346704150a076ad036e4bbd653456e1d99d69d5122804a2e0ce1948ddce5692204f0e0dcef875",
+          "sha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888",
+          "sha1": "708ef08b5638216e48fc6e1293bd6e1e467097b9",
+          "md5": "11b40322147d22aaf622fc08153e8196"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-networking-api-v1/4.3.0+30a980d919/fabric-networking-api-v1-4.3.0+30a980d919.jar",
+          "startedAtUtc": "2026-10-23T02:49:41.505256+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 169809,
+          "sha256": "8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-object-builder-api-v1",
+      "version": "15.2.1+cc242efd19",
+      "filename": "fabric-object-builder-api-v1-15.2.1+cc242efd19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-object-builder-api-v1/15.2.1+cc242efd19/fabric-object-builder-api-v1-15.2.1+cc242efd19.module",
+      "kind": "official-module",
+      "oldBytes": 2904,
+      "oldSha256": "b19a1c96195c0ec39106400c629d9683ad8a1517c4df2233aa359cac941636f3",
+      "newBytes": 2904,
+      "newSha256": "368ef74723ea4d4605ef4e634b182084979ac65deb63fca2039e5a3b22cdfceb",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-object-builder-api-v1/15.2.1+cc242efd19/fabric-object-builder-api-v1-15.2.1+cc242efd19.module",
+        "startedAtUtc": "2026-10-23T02:49:45.864417+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2904,
+        "sha256": "368ef74723ea4d4605ef4e634b182084979ac65deb63fca2039e5a3b22cdfceb"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-object-builder-api-v1",
+      "version": "15.2.1+cc242efd19",
+      "filename": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-object-builder-api-v1/15.2.1+cc242efd19/fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 79690,
+      "oldSha256": "d47501338613b39978db8adc399dc432b867206162777a5a6ecfec3d9d3be471",
+      "newBytes": 79690,
+      "newSha256": "92fc74eb6bf637cc1807faa0b23e99a0bf9d1500eea736ad563341427b7d1efa",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "368ef74723ea4d4605ef4e634b182084979ac65deb63fca2039e5a3b22cdfceb",
+        "moduleDeclaredFile": {
+          "name": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+          "url": "fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+          "size": 79690,
+          "sha512": "2923def864d86c8ad45619133dbe9e33202fb95729bf5fd3babaeaf4fe53752085c56d6fb2c8abd402cb32a79a20624dd373741d989dd89e20444d6558523931",
+          "sha256": "92fc74eb6bf637cc1807faa0b23e99a0bf9d1500eea736ad563341427b7d1efa",
+          "sha1": "010a40db29b1b1d23bd0f702a55f689e9914dbf7",
+          "md5": "119f2a4b3bcc313f0b55a5fb13f5a202"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-object-builder-api-v1/15.2.1+cc242efd19/fabric-object-builder-api-v1-15.2.1+cc242efd19.jar",
+          "startedAtUtc": "2026-10-23T02:49:48.798618+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 79690,
+          "sha256": "92fc74eb6bf637cc1807faa0b23e99a0bf9d1500eea736ad563341427b7d1efa"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-particles-v1",
+      "version": "4.0.2+824f924c19",
+      "filename": "fabric-particles-v1-4.0.2+824f924c19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-particles-v1/4.0.2+824f924c19/fabric-particles-v1-4.0.2+824f924c19.module",
+      "kind": "official-module",
+      "oldBytes": 2834,
+      "oldSha256": "68b669eadb31593d895a50e85155435582bb5c35c1b1af42efc988e68bdaf37d",
+      "newBytes": 2834,
+      "newSha256": "28f85a5624a644a2692f53bc0b5c2f1ebc6ad4cb3b536793949d3dc660aabfa2",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-particles-v1/4.0.2+824f924c19/fabric-particles-v1-4.0.2+824f924c19.module",
+        "startedAtUtc": "2026-10-23T02:49:52.493034+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2834,
+        "sha256": "28f85a5624a644a2692f53bc0b5c2f1ebc6ad4cb3b536793949d3dc660aabfa2"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-particles-v1",
+      "version": "4.0.2+824f924c19",
+      "filename": "fabric-particles-v1-4.0.2+824f924c19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-particles-v1/4.0.2+824f924c19/fabric-particles-v1-4.0.2+824f924c19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 33007,
+      "oldSha256": "7602ecfd15c01cc354a13a873c10da9ede0f8a3b09b63810d1f79747bf871073",
+      "newBytes": 33006,
+      "newSha256": "4305effd8b9132b390b6146bf7ec0b1968225912cecf6f554d0e908a8eb13113",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "28f85a5624a644a2692f53bc0b5c2f1ebc6ad4cb3b536793949d3dc660aabfa2",
+        "moduleDeclaredFile": {
+          "name": "fabric-particles-v1-4.0.2+824f924c19.jar",
+          "url": "fabric-particles-v1-4.0.2+824f924c19.jar",
+          "size": 33006,
+          "sha512": "9d9ed44012d74d7ff629e64b4554a1e02e2cc30b1c2ee4ef7f723d3ce7b5b11a524fe482186ef7207e27ffa460564bbeb9e2df606b1e5c6c3c3636982068b2df",
+          "sha256": "4305effd8b9132b390b6146bf7ec0b1968225912cecf6f554d0e908a8eb13113",
+          "sha1": "72b8a58f4f386d27d640021f8182d95c2db19461",
+          "md5": "d2ae0d22e6396b007583468f8d909c28"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-particles-v1/4.0.2+824f924c19/fabric-particles-v1-4.0.2+824f924c19.jar",
+          "startedAtUtc": "2026-10-23T02:50:03.029265+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 33006,
+          "sha256": "4305effd8b9132b390b6146bf7ec0b1968225912cecf6f554d0e908a8eb13113"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-recipe-api-v1",
+      "version": "5.0.15+59440bcc19",
+      "filename": "fabric-recipe-api-v1-5.0.15+59440bcc19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-recipe-api-v1/5.0.15+59440bcc19/fabric-recipe-api-v1-5.0.15+59440bcc19.module",
+      "kind": "official-module",
+      "oldBytes": 2848,
+      "oldSha256": "38de093c1407931dbabae2d45276b56fa86cb7c6f719a5f05cc0257ca09ef970",
+      "newBytes": 2848,
+      "newSha256": "38de093c1407931dbabae2d45276b56fa86cb7c6f719a5f05cc0257ca09ef970",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-recipe-api-v1/5.0.15+59440bcc19/fabric-recipe-api-v1-5.0.15+59440bcc19.module",
+        "startedAtUtc": "2026-10-23T02:50:06.714043+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2848,
+        "sha256": "38de093c1407931dbabae2d45276b56fa86cb7c6f719a5f05cc0257ca09ef970"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-recipe-api-v1",
+      "version": "5.0.15+59440bcc19",
+      "filename": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-recipe-api-v1/5.0.15+59440bcc19/fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 54698,
+      "oldSha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f",
+      "newBytes": 54698,
+      "newSha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "38de093c1407931dbabae2d45276b56fa86cb7c6f719a5f05cc0257ca09ef970",
+        "moduleDeclaredFile": {
+          "name": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+          "url": "fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+          "size": 54698,
+          "sha512": "47734e24eba64743b73114cd0620b528cc5afc0df3a5ff5166699b75246719f539265ffafb391bd6a01c6745b4579e882302099b724adb830af4aa1832af5794",
+          "sha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f",
+          "sha1": "765883c9f4878f7b01bb2b2474eab11df5d78a9a",
+          "md5": "060fd2b9aeeb99c068ccd24a24ab7e60"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-recipe-api-v1/5.0.15+59440bcc19/fabric-recipe-api-v1-5.0.15+59440bcc19.jar",
+          "startedAtUtc": "2026-10-23T02:50:09.448619+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 54698,
+          "sha256": "92af40638508574f3746a9a8078dea1389c7065d156718e8f8a0099b3d35764f"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-registry-sync-v0",
+      "version": "5.3.1+f9aace1619",
+      "filename": "fabric-registry-sync-v0-5.3.1+f9aace1619.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-registry-sync-v0/5.3.1+f9aace1619/fabric-registry-sync-v0-5.3.1+f9aace1619.module",
+      "kind": "official-module",
+      "oldBytes": 2862,
+      "oldSha256": "7fd6afdcfde998476c450bb9b4a88bf69578ee854e908fe1aeacecaffe8f6909",
+      "newBytes": 2862,
+      "newSha256": "7fd6afdcfde998476c450bb9b4a88bf69578ee854e908fe1aeacecaffe8f6909",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-registry-sync-v0/5.3.1+f9aace1619/fabric-registry-sync-v0-5.3.1+f9aace1619.module",
+        "startedAtUtc": "2026-10-23T02:50:13.412997+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2862,
+        "sha256": "7fd6afdcfde998476c450bb9b4a88bf69578ee854e908fe1aeacecaffe8f6909"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-registry-sync-v0",
+      "version": "5.3.1+f9aace1619",
+      "filename": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-registry-sync-v0/5.3.1+f9aace1619/fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 53273,
+      "oldSha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96",
+      "newBytes": 53273,
+      "newSha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "7fd6afdcfde998476c450bb9b4a88bf69578ee854e908fe1aeacecaffe8f6909",
+        "moduleDeclaredFile": {
+          "name": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+          "url": "fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+          "size": 53273,
+          "sha512": "ff9a0ff9b2c800043f739f41cfc539893e71ce13db24b91c367999aa632559b8d7cd66e439ec1b4de1547d6ba07c41ee0116fdff2833692365da9245fb1789f0",
+          "sha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96",
+          "sha1": "84eb3c92faf2dd2c5968f41e109713d4e81294b0",
+          "md5": "510ce2431a9bbfe79e85abc1bb6a7dd1"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-registry-sync-v0/5.3.1+f9aace1619/fabric-registry-sync-v0-5.3.1+f9aace1619.jar",
+          "startedAtUtc": "2026-10-23T02:50:16.133249+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 53273,
+          "sha256": "20651a61783c143855fa0a9108fae42b48b64c19a620319463e7e4e073b18b96"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-renderer-api-v1",
+      "version": "3.4.1+6e8f52c719",
+      "filename": "fabric-renderer-api-v1-3.4.1+6e8f52c719.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-renderer-api-v1/3.4.1+6e8f52c719/fabric-renderer-api-v1-3.4.1+6e8f52c719.module",
+      "kind": "official-module",
+      "oldBytes": 2855,
+      "oldSha256": "2664e08b284047daf79db571e988b7639bd0fdfc5267383ddfaa049677d2cca6",
+      "newBytes": 2855,
+      "newSha256": "2664e08b284047daf79db571e988b7639bd0fdfc5267383ddfaa049677d2cca6",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-renderer-api-v1/3.4.1+6e8f52c719/fabric-renderer-api-v1-3.4.1+6e8f52c719.module",
+        "startedAtUtc": "2026-10-23T02:50:19.574679+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2855,
+        "sha256": "2664e08b284047daf79db571e988b7639bd0fdfc5267383ddfaa049677d2cca6"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-renderer-api-v1",
+      "version": "3.4.1+6e8f52c719",
+      "filename": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-renderer-api-v1/3.4.1+6e8f52c719/fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 58067,
+      "oldSha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8",
+      "newBytes": 58067,
+      "newSha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "2664e08b284047daf79db571e988b7639bd0fdfc5267383ddfaa049677d2cca6",
+        "moduleDeclaredFile": {
+          "name": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+          "url": "fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+          "size": 58067,
+          "sha512": "7fe1de2fefa274d864353940e6c3347566f65c2fcd0d686a719abb5152ace3c054785d33cfa5046e276b2121dfbd13a2e87bf69d7d51476aa6deb06d5fe25338",
+          "sha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8",
+          "sha1": "928ccb86aa7e9890c743c2b9455132bb98f39ad3",
+          "md5": "d549519c934ea348de300dc92fd5f1ae"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-renderer-api-v1/3.4.1+6e8f52c719/fabric-renderer-api-v1-3.4.1+6e8f52c719.jar",
+          "startedAtUtc": "2026-10-23T02:50:22.445743+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 58067,
+          "sha256": "be79bbd0648ac99f72079813378ab5bae999f5cf45ff17c37beea846a66d23d8"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-renderer-indigo",
+      "version": "1.7.1+4198af7119",
+      "filename": "fabric-renderer-indigo-1.7.1+4198af7119.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-renderer-indigo/1.7.1+4198af7119/fabric-renderer-indigo-1.7.1+4198af7119.module",
+      "kind": "official-module",
+      "oldBytes": 2857,
+      "oldSha256": "233520b59fe5753e7c01d6f311bcab05dde50320c3909a28f46118829dc939d5",
+      "newBytes": 2857,
+      "newSha256": "233520b59fe5753e7c01d6f311bcab05dde50320c3909a28f46118829dc939d5",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-renderer-indigo/1.7.1+4198af7119/fabric-renderer-indigo-1.7.1+4198af7119.module",
+        "startedAtUtc": "2026-10-23T02:50:25.850701+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2857,
+        "sha256": "233520b59fe5753e7c01d6f311bcab05dde50320c3909a28f46118829dc939d5"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-renderer-indigo",
+      "version": "1.7.1+4198af7119",
+      "filename": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-renderer-indigo/1.7.1+4198af7119/fabric-renderer-indigo-1.7.1+4198af7119.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 109369,
+      "oldSha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2",
+      "newBytes": 109369,
+      "newSha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "233520b59fe5753e7c01d6f311bcab05dde50320c3909a28f46118829dc939d5",
+        "moduleDeclaredFile": {
+          "name": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+          "url": "fabric-renderer-indigo-1.7.1+4198af7119.jar",
+          "size": 109369,
+          "sha512": "4e1478149937d343b8fde2dd3876b3dbe0c7c8d8d80df02ff277032163cfeeea545213bdba6cf68ad51bf6a6df2453f329ff51ba05208392971722de401f6047",
+          "sha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2",
+          "sha1": "62283af33daeab4e4fbc37fdd9306cf540e0d85a",
+          "md5": "fa139e0b29112c1ca53239120b30b142"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-renderer-indigo/1.7.1+4198af7119/fabric-renderer-indigo-1.7.1+4198af7119.jar",
+          "startedAtUtc": "2026-10-23T02:50:28.647489+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 109369,
+          "sha256": "485fff8e39a6261f3af8305810986f3cb9c56a73e256844baeffbfdde09f59c2"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-data-attachment-v1",
+      "version": "0.3.49+73761d2e19",
+      "filename": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-data-attachment-v1/0.3.49+73761d2e19/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.module",
+      "kind": "official-module",
+      "oldBytes": 2953,
+      "oldSha256": "fa7b1242c97f7efe355e3a277ebe0984c12bfeed37e5a0b1574fb1b67969f91e",
+      "newBytes": 2953,
+      "newSha256": "c2f0ee1253d3cfd6851b27c4d80e3ffa4b1ef227b32d544220691c7c4fdadbd3",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-data-attachment-v1/0.3.49+73761d2e19/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.module",
+        "startedAtUtc": "2026-10-23T02:50:38.856305+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2953,
+        "sha256": "c2f0ee1253d3cfd6851b27c4d80e3ffa4b1ef227b32d544220691c7c4fdadbd3"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-data-attachment-v1",
+      "version": "0.3.49+73761d2e19",
+      "filename": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-data-attachment-v1/0.3.49+73761d2e19/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 20498,
+      "oldSha256": "a68a5ad12233436778cd106bf1b5cac21062622f39580a72d1a9641cfc7eb928",
+      "newBytes": 20498,
+      "newSha256": "fdc64bc932fed90950afd36a3ac6e032ea0f8bf482886c5c483af95116f8787b",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "c2f0ee1253d3cfd6851b27c4d80e3ffa4b1ef227b32d544220691c7c4fdadbd3",
+        "moduleDeclaredFile": {
+          "name": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+          "url": "fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+          "size": 20498,
+          "sha512": "63e3b5b8d889660c9ac561239fa641d7007ad3ac0d8d8608012c6bcf5418b9dc76b22638c4a4d5d66eb7dfdc3b1fc238e909547b8e2683ee7c1af1b7a328be75",
+          "sha256": "fdc64bc932fed90950afd36a3ac6e032ea0f8bf482886c5c483af95116f8787b",
+          "sha1": "fa4d43dd456d51341d2fed0de23f5938ac250c5e",
+          "md5": "e6081610bbb9c5b8e4ff88ebf58644d2"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-data-attachment-v1/0.3.49+73761d2e19/fabric-rendering-data-attachment-v1-0.3.49+73761d2e19.jar",
+          "startedAtUtc": "2026-10-23T02:50:41.459467+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 20498,
+          "sha256": "fdc64bc932fed90950afd36a3ac6e032ea0f8bf482886c5c483af95116f8787b"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-fluids-v1",
+      "version": "3.1.6+857185bc19",
+      "filename": "fabric-rendering-fluids-v1-3.1.6+857185bc19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-fluids-v1/3.1.6+857185bc19/fabric-rendering-fluids-v1-3.1.6+857185bc19.module",
+      "kind": "official-module",
+      "oldBytes": 2883,
+      "oldSha256": "9e214287c756ce6e1ecc04a8328521576b949773ed7eb7bfe0498f1462c61146",
+      "newBytes": 2883,
+      "newSha256": "9e214287c756ce6e1ecc04a8328521576b949773ed7eb7bfe0498f1462c61146",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-fluids-v1/3.1.6+857185bc19/fabric-rendering-fluids-v1-3.1.6+857185bc19.module",
+        "startedAtUtc": "2026-10-23T02:50:44.367896+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2883,
+        "sha256": "9e214287c756ce6e1ecc04a8328521576b949773ed7eb7bfe0498f1462c61146"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-fluids-v1",
+      "version": "3.1.6+857185bc19",
+      "filename": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-fluids-v1/3.1.6+857185bc19/fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 40725,
+      "oldSha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a",
+      "newBytes": 40725,
+      "newSha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "9e214287c756ce6e1ecc04a8328521576b949773ed7eb7bfe0498f1462c61146",
+        "moduleDeclaredFile": {
+          "name": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+          "url": "fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+          "size": 40725,
+          "sha512": "17da3773c99a1ad98c8a8a3e787e452b286d219355cd2e9ec5ac1b76da948c5c0d12f642957fe1caa1b31503bf065b98665be0d0f5f30933ea28ea0d6ed086de",
+          "sha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a",
+          "sha1": "3840f96d0f1a3a4237c6ba1de88357c153aeb2b5",
+          "md5": "22f72eb865d089e8e15e0f509aba80b4"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-fluids-v1/3.1.6+857185bc19/fabric-rendering-fluids-v1-3.1.6+857185bc19.jar",
+          "startedAtUtc": "2026-10-23T02:50:46.847120+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 40725,
+          "sha256": "558c0aa132780e6d7679e6ba123511a99528fcad715f792daa5bf8a10de9c34a"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-v1",
+      "version": "5.1.0+1a09bd5a19",
+      "filename": "fabric-rendering-v1-5.1.0+1a09bd5a19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-v1/5.1.0+1a09bd5a19/fabric-rendering-v1-5.1.0+1a09bd5a19.module",
+      "kind": "official-module",
+      "oldBytes": 2834,
+      "oldSha256": "b9ce4c049fd66d914d454ff6f7fc3eb3051ef88ec8e877c50cc0187f675ff921",
+      "newBytes": 2834,
+      "newSha256": "50895f8e79b52eadfafb7b4d7698f79d6a5742a800d54d3bbf52624f616e7d48",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-v1/5.1.0+1a09bd5a19/fabric-rendering-v1-5.1.0+1a09bd5a19.module",
+        "startedAtUtc": "2026-10-23T02:50:50.406454+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2834,
+        "sha256": "50895f8e79b52eadfafb7b4d7698f79d6a5742a800d54d3bbf52624f616e7d48"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-rendering-v1",
+      "version": "5.1.0+1a09bd5a19",
+      "filename": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-rendering-v1/5.1.0+1a09bd5a19/fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 91242,
+      "oldSha256": "f7b1c7c82677cb2718837d2b44d8653aa8b677abcc8274b49ea7abe01578aa30",
+      "newBytes": 91242,
+      "newSha256": "cd989475801e06380f8b4d8649c1d99abd08b3334702d9e8f5df0a9566473e1e",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "50895f8e79b52eadfafb7b4d7698f79d6a5742a800d54d3bbf52624f616e7d48",
+        "moduleDeclaredFile": {
+          "name": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+          "url": "fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+          "size": 91242,
+          "sha512": "b0232d52d5b16550311954853e508b7fda4fe30bc5ad23fab6d61cbac81aa02c478fe3f5589e344498e38b6aca86ecca4682c8a1bf3d0049caf407681d93a175",
+          "sha256": "cd989475801e06380f8b4d8649c1d99abd08b3334702d9e8f5df0a9566473e1e",
+          "sha1": "bcd1fb6f4642cda8605bae82a56776c8784b2f34",
+          "md5": "46d4e5e346b253d1cca5e819b752985f"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-rendering-v1/5.1.0+1a09bd5a19/fabric-rendering-v1-5.1.0+1a09bd5a19.jar",
+          "startedAtUtc": "2026-10-23T02:50:52.799101+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 91242,
+          "sha256": "cd989475801e06380f8b4d8649c1d99abd08b3334702d9e8f5df0a9566473e1e"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-resource-conditions-api-v1",
+      "version": "4.3.0+5bdd099819",
+      "filename": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-resource-conditions-api-v1/4.3.0+5bdd099819/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.module",
+      "kind": "official-module",
+      "oldBytes": 2932,
+      "oldSha256": "5e01f1f583e6d92ebe07543bfa9518922d69f62033658ff693b159d91b486076",
+      "newBytes": 2932,
+      "newSha256": "0b8d840f501eff27e39e9c64a4605f85d9ebfe44a6edbb94f937cd1f7c32fa2f",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-resource-conditions-api-v1/4.3.0+5bdd099819/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.module",
+        "startedAtUtc": "2026-10-23T02:50:57.768134+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2932,
+        "sha256": "0b8d840f501eff27e39e9c64a4605f85d9ebfe44a6edbb94f937cd1f7c32fa2f"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-resource-conditions-api-v1",
+      "version": "4.3.0+5bdd099819",
+      "filename": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-resource-conditions-api-v1/4.3.0+5bdd099819/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 65689,
+      "oldSha256": "9876eca7644ff5d1805b1ebecf708985a120c86d8826b6416538678c3d33894c",
+      "newBytes": 65688,
+      "newSha256": "e36d9e21acab11d5de109634a08ec66aa4f6e91be9f66c99933284ad9670483f",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "0b8d840f501eff27e39e9c64a4605f85d9ebfe44a6edbb94f937cd1f7c32fa2f",
+        "moduleDeclaredFile": {
+          "name": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+          "url": "fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+          "size": 65688,
+          "sha512": "3b12ce8edd61494160cb5d705a5d29be693eae15b231fe47c09f5643937680277ba35e0bab2cdd9e3518f57796b539178e656e5b5a9b01f34f64bffbc93dc6eb",
+          "sha256": "e36d9e21acab11d5de109634a08ec66aa4f6e91be9f66c99933284ad9670483f",
+          "sha1": "3d2f4eaae53b5637147d31f556ed4cbd7859a0d3",
+          "md5": "e18d511c56eb9db86cbe675ba14fbfc5"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-resource-conditions-api-v1/4.3.0+5bdd099819/fabric-resource-conditions-api-v1-4.3.0+5bdd099819.jar",
+          "startedAtUtc": "2026-10-23T02:51:01.706059+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 65688,
+          "sha256": "e36d9e21acab11d5de109634a08ec66aa4f6e91be9f66c99933284ad9670483f"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-resource-loader-v0",
+      "version": "1.3.1+4ea8954419",
+      "filename": "fabric-resource-loader-v0-1.3.1+4ea8954419.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-resource-loader-v0/1.3.1+4ea8954419/fabric-resource-loader-v0-1.3.1+4ea8954419.module",
+      "kind": "official-module",
+      "oldBytes": 2878,
+      "oldSha256": "0381ec2c64ae24957f95088537ed4cc8dfe3f0ec64dd6282c3fa22f632a83179",
+      "newBytes": 2878,
+      "newSha256": "05801c456a5fd798f8ba3fbf48800ec08e687eb6fe23e0f0e476d93d2aeb0cd7",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-resource-loader-v0/1.3.1+4ea8954419/fabric-resource-loader-v0-1.3.1+4ea8954419.module",
+        "startedAtUtc": "2026-10-23T02:51:04.706819+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2878,
+        "sha256": "05801c456a5fd798f8ba3fbf48800ec08e687eb6fe23e0f0e476d93d2aeb0cd7"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-resource-loader-v0",
+      "version": "1.3.1+4ea8954419",
+      "filename": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-resource-loader-v0/1.3.1+4ea8954419/fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 105481,
+      "oldSha256": "9eb65b0a9f069d0eeedbe85770b1562750b304f0fc17f9f94562d54f96034b10",
+      "newBytes": 105481,
+      "newSha256": "5790155a21bf090f04d43bded51898212785968d930929346f93cc35ff3a0982",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "05801c456a5fd798f8ba3fbf48800ec08e687eb6fe23e0f0e476d93d2aeb0cd7",
+        "moduleDeclaredFile": {
+          "name": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+          "url": "fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+          "size": 105481,
+          "sha512": "a3ff3c33839a07860310c54bfc8850f4582c7fc2a2903d2b83367541f72348c082467145f28900118cdb2cac2a84475f0dcca4b7fd834f03837d29b093e67ee4",
+          "sha256": "5790155a21bf090f04d43bded51898212785968d930929346f93cc35ff3a0982",
+          "sha1": "8b12bcd105662d548d97756fd00d981b1427cec6",
+          "md5": "93eb4fcb083de967f628d30579e28eaf"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-resource-loader-v0/1.3.1+4ea8954419/fabric-resource-loader-v0-1.3.1+4ea8954419.jar",
+          "startedAtUtc": "2026-10-23T02:51:08.331021+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 105481,
+          "sha256": "5790155a21bf090f04d43bded51898212785968d930929346f93cc35ff3a0982"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-screen-api-v1",
+      "version": "2.0.25+4228281319",
+      "filename": "fabric-screen-api-v1-2.0.25+4228281319.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-screen-api-v1/2.0.25+4228281319/fabric-screen-api-v1-2.0.25+4228281319.module",
+      "kind": "official-module",
+      "oldBytes": 2848,
+      "oldSha256": "1528213d37501fd2cee385e54f3cd5627e91009c7983df0cc35812dd177d6f13",
+      "newBytes": 2848,
+      "newSha256": "1528213d37501fd2cee385e54f3cd5627e91009c7983df0cc35812dd177d6f13",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-screen-api-v1/2.0.25+4228281319/fabric-screen-api-v1-2.0.25+4228281319.module",
+        "startedAtUtc": "2026-10-23T02:51:12.039185+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2848,
+        "sha256": "1528213d37501fd2cee385e54f3cd5627e91009c7983df0cc35812dd177d6f13"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-screen-api-v1",
+      "version": "2.0.25+4228281319",
+      "filename": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-screen-api-v1/2.0.25+4228281319/fabric-screen-api-v1-2.0.25+4228281319.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 50958,
+      "oldSha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998",
+      "newBytes": 50958,
+      "newSha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "1528213d37501fd2cee385e54f3cd5627e91009c7983df0cc35812dd177d6f13",
+        "moduleDeclaredFile": {
+          "name": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+          "url": "fabric-screen-api-v1-2.0.25+4228281319.jar",
+          "size": 50958,
+          "sha512": "09512c72b982416911061092437aba8cc516a5e3ec843f65e581f30fa0f3b037fb85fe769f7476128a15604d19dc703a880c3e31beb4eb1774bb4fb699cb55d3",
+          "sha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998",
+          "sha1": "0a223b0c28fb01cf7216d1ca09141ef8be712081",
+          "md5": "6452dd628962ffb0475f242c47035c36"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-screen-api-v1/2.0.25+4228281319/fabric-screen-api-v1-2.0.25+4228281319.jar",
+          "startedAtUtc": "2026-10-23T02:51:14.645689+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 50958,
+          "sha256": "09666adf4a2458ac12f04505a95cb3c2a94c6f3389b1464df57847d4ba96b998"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-screen-handler-api-v1",
+      "version": "1.3.90+8dbc56dd19",
+      "filename": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-screen-handler-api-v1/1.3.90+8dbc56dd19/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.module",
+      "kind": "official-module",
+      "oldBytes": 2904,
+      "oldSha256": "8302056bf723d5af0830352058eaa694f4d56aa2d12648ae370cf0d79a1daafb",
+      "newBytes": 2904,
+      "newSha256": "8302056bf723d5af0830352058eaa694f4d56aa2d12648ae370cf0d79a1daafb",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-screen-handler-api-v1/1.3.90+8dbc56dd19/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.module",
+        "startedAtUtc": "2026-10-23T02:51:18.361516+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2904,
+        "sha256": "8302056bf723d5af0830352058eaa694f4d56aa2d12648ae370cf0d79a1daafb"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-screen-handler-api-v1",
+      "version": "1.3.90+8dbc56dd19",
+      "filename": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-screen-handler-api-v1/1.3.90+8dbc56dd19/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 23609,
+      "oldSha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5",
+      "newBytes": 23609,
+      "newSha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "8302056bf723d5af0830352058eaa694f4d56aa2d12648ae370cf0d79a1daafb",
+        "moduleDeclaredFile": {
+          "name": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+          "url": "fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+          "size": 23609,
+          "sha512": "012829695d44577805a545aa2786b879b0d0008528d1325d624d6c1808bb94eb27e45e747a8fa8cc343f69e9992668b169a2c83fa8f4e100345ad1843e4c0570",
+          "sha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5",
+          "sha1": "5ad9edfb90acf73e207f6474c6b5109cf76069b9",
+          "md5": "13a815a6f903c149d7ac98950cad03e6"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-screen-handler-api-v1/1.3.90+8dbc56dd19/fabric-screen-handler-api-v1-1.3.90+8dbc56dd19.jar",
+          "startedAtUtc": "2026-10-23T02:51:21.495948+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 23609,
+          "sha256": "c97466fef68f64027115c0edf98c5f4ab49e7c18f496bad3c77eac905b1168b5"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-sound-api-v1",
+      "version": "1.0.23+10b84f8419",
+      "filename": "fabric-sound-api-v1-1.0.23+10b84f8419.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-sound-api-v1/1.0.23+10b84f8419/fabric-sound-api-v1-1.0.23+10b84f8419.module",
+      "kind": "official-module",
+      "oldBytes": 2841,
+      "oldSha256": "5fcef33c986b1a7fd9fd2b6b977b517a988e7c2dc166dbf84fb2413647952d7c",
+      "newBytes": 2841,
+      "newSha256": "1d29441ec30e48623668fcc45f9ecfa7fd77ad65a683e96e33f4b6bb768695ab",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-sound-api-v1/1.0.23+10b84f8419/fabric-sound-api-v1-1.0.23+10b84f8419.module",
+        "startedAtUtc": "2026-10-23T02:51:24.563801+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2841,
+        "sha256": "1d29441ec30e48623668fcc45f9ecfa7fd77ad65a683e96e33f4b6bb768695ab"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-sound-api-v1",
+      "version": "1.0.23+10b84f8419",
+      "filename": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-sound-api-v1/1.0.23+10b84f8419/fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 20907,
+      "oldSha256": "0bac20f36a80beccdb22e26cd6041c67a7e107a34c248a8a1b368abd7b7ebe78",
+      "newBytes": 20907,
+      "newSha256": "b93290924a4f222635bc30ffa2313afd199e5ca251654017be20514dd179c4b6",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "1d29441ec30e48623668fcc45f9ecfa7fd77ad65a683e96e33f4b6bb768695ab",
+        "moduleDeclaredFile": {
+          "name": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+          "url": "fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+          "size": 20907,
+          "sha512": "bbad961b0e3774a5c8613e7093345af955cd7465b654f9cc7f1eae1ea80a5b2ece049e7154b2a8631bfa8be3f1154739e4910e40cc0227f9683745dfa1ce4472",
+          "sha256": "b93290924a4f222635bc30ffa2313afd199e5ca251654017be20514dd179c4b6",
+          "sha1": "825bff34429b1d11a183e814bb82066b9413c243",
+          "md5": "605812d0635b6d8bf7d50e966a8ed373"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-sound-api-v1/1.0.23+10b84f8419/fabric-sound-api-v1-1.0.23+10b84f8419.jar",
+          "startedAtUtc": "2026-10-23T02:51:27.274314+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 20907,
+          "sha256": "b93290924a4f222635bc30ffa2313afd199e5ca251654017be20514dd179c4b6"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-transfer-api-v1",
+      "version": "5.4.3+a25cb45619",
+      "filename": "fabric-transfer-api-v1-5.4.3+a25cb45619.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-transfer-api-v1/5.4.3+a25cb45619/fabric-transfer-api-v1-5.4.3+a25cb45619.module",
+      "kind": "official-module",
+      "oldBytes": 2858,
+      "oldSha256": "cc277ca5f2f25041cda90613d1276b3862dbaa26af1e08084aff292230860de2",
+      "newBytes": 2858,
+      "newSha256": "cc277ca5f2f25041cda90613d1276b3862dbaa26af1e08084aff292230860de2",
+      "changed": false,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-transfer-api-v1/5.4.3+a25cb45619/fabric-transfer-api-v1-5.4.3+a25cb45619.module",
+        "startedAtUtc": "2026-10-23T02:51:30.330598+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2858,
+        "sha256": "cc277ca5f2f25041cda90613d1276b3862dbaa26af1e08084aff292230860de2"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-transfer-api-v1",
+      "version": "5.4.3+a25cb45619",
+      "filename": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-transfer-api-v1/5.4.3+a25cb45619/fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 204155,
+      "oldSha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65",
+      "newBytes": 204155,
+      "newSha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65",
+      "changed": false,
+      "evidence": {
+        "moduleSha256": "cc277ca5f2f25041cda90613d1276b3862dbaa26af1e08084aff292230860de2",
+        "moduleDeclaredFile": {
+          "name": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+          "url": "fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+          "size": 204155,
+          "sha512": "590eab050d225e5740c28cc697c3379351f1db3f490f24b6c7dd1dbfd76d49f6be5142f0f69d1656d80de9d60d1eef917ba6d2d1975cab2ee4e2e66322e00bc7",
+          "sha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65",
+          "sha1": "c951e188147cb1988cdaac3e45769b1410cd8100",
+          "md5": "7cb348e9552230f8b03538fab0334265"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-transfer-api-v1/5.4.3+a25cb45619/fabric-transfer-api-v1-5.4.3+a25cb45619.jar",
+          "startedAtUtc": "2026-10-23T02:51:33.029393+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 204155,
+          "sha256": "e052a550c5a0c2eaee7c409500fc47f3b359287a81c24de5827ad43e2829bb65"
+        }
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-transitive-access-wideners-v1",
+      "version": "6.2.0+6c854b6f19",
+      "filename": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.module",
+      "path": "org/sinytra/forgified-fabric-api/fabric-transitive-access-wideners-v1/6.2.0+6c854b6f19/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.module",
+      "kind": "official-module",
+      "oldBytes": 2952,
+      "oldSha256": "600dd1f58b6edbb2164fb74e2a196ee3c9e3adea1fd6246bf723a202155524c2",
+      "newBytes": 2952,
+      "newSha256": "4fe74c655f707a78fa7433cd5c7f8911f4523c079f4b688ab8cfe24cc086f8dd",
+      "changed": true,
+      "evidence": {
+        "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-transitive-access-wideners-v1/6.2.0+6c854b6f19/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.module",
+        "startedAtUtc": "2026-10-23T02:51:36.651931+00:00",
+        "httpStatus": 200,
+        "status": "RECEIVED",
+        "bytes": 2952,
+        "sha256": "4fe74c655f707a78fa7433cd5c7f8911f4523c079f4b688ab8cfe24cc086f8dd"
+      }
+    },
+    {
+      "group": "org.sinytra.forgified-fabric-api",
+      "artifact": "fabric-transitive-access-wideners-v1",
+      "version": "6.2.0+6c854b6f19",
+      "filename": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+      "path": "org/sinytra/forgified-fabric-api/fabric-transitive-access-wideners-v1/6.2.0+6c854b6f19/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+      "kind": "metadata-verified-jar",
+      "oldBytes": 17388,
+      "oldSha256": "3410255c6a9cc84801a55e4fdce900a8facf5621b0aaf8b19c89bddd74fba035",
+      "newBytes": 17404,
+      "newSha256": "1d8efbbdaff8c27cf9d290e3562c5777a1464803562f4e512ebc594545b76b29",
+      "changed": true,
+      "evidence": {
+        "moduleSha256": "4fe74c655f707a78fa7433cd5c7f8911f4523c079f4b688ab8cfe24cc086f8dd",
+        "moduleDeclaredFile": {
+          "name": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+          "url": "fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+          "size": 17404,
+          "sha512": "714a8512c19f047a9916b9ca97f45e857873077b8091f743aeffb03df4e3c415a2862c1b6a214b0246eea736ab513ad1a30cad8a341ad8b970b3ac91ff29f5e9",
+          "sha256": "1d8efbbdaff8c27cf9d290e3562c5777a1464803562f4e512ebc594545b76b29",
+          "sha1": "d29f7fc571d8feb49176b7382132c5ecdc5bb24d",
+          "md5": "82afea324fc045b7d072d29a983d2687"
+        },
+        "transport": {
+          "url": "https://maven.su5ed.dev/releases/org/sinytra/forgified-fabric-api/fabric-transitive-access-wideners-v1/6.2.0+6c854b6f19/fabric-transitive-access-wideners-v1-6.2.0+6c854b6f19.jar",
+          "startedAtUtc": "2026-10-23T02:51:39.337647+00:00",
+          "httpStatus": 200,
+          "status": "RECEIVED",
+          "bytes": 17404,
+          "sha256": "1d8efbbdaff8c27cf9d290e3562c5777a1464803562f4e512ebc594545b76b29"
+        }
+      }
+    }
+  ],
+  "upstreamInventorySha256": "ddb23214e9d95a5d9098d0b45054d72b07c55de3eaab2f99a5f7f8b62acccb34",
+  "runtimeAcceptance": false,
+  "newOutputAcceptancePins": null
+}

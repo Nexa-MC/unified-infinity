@@ -42,6 +42,10 @@ TUPLE_PINS = {
 SUPPORT = 'work/network-pair-cold-assembly'
 PROFILES = 'work/network-pair-profiles-cold'
 ASSEMBLED = 'work/network-pair-assembled-cold'
+# Opt-in refreshed outputs never replace the preserved historical 54e5 profile.
+REFRESHED_SUPPORT = 'work/network-pair-refreshed-assembly'
+REFRESHED_PROFILES = 'work/network-pair-profiles-refreshed'
+REFRESHED_ASSEMBLED = 'work/network-pair-assembled-refreshed'
 
 
 def require(value, message):
@@ -128,7 +132,7 @@ def python_context(argv, root):
             sys.modules['common'] = previous_common
 
 
-def prepare(repo_root, consumer_root):
+def prepare(repo_root, consumer_root, *, support_relative=SUPPORT):
     """Restore exact assembly helper/config/legal text into an existing consumer.
 
     This stage has no dependency on binaries or successful runtime/build receipts.
@@ -136,7 +140,7 @@ def prepare(repo_root, consumer_root):
     """
     repo, root = canonical(repo_root), canonical(consumer_root)
     require(root.is_dir() and root != repo, 'An existing separate consumer root is required')
-    area, support = repo / SOURCE_AREA, root / SUPPORT
+    area, support = repo / SOURCE_AREA, root / source_materialize._relative(support_relative)
     originals = {name: pinned_read(area / name, expected) for name, expected in SOURCE_PINS.items()}
     required = json.loads(originals['required-text-inputs.json'])
     source_manifest = json.loads(originals['source-manifest.json'])
@@ -195,36 +199,7 @@ def _input_receipts(root):
     missing = [str(p.relative_to(root)) for p in paths.values() if not p.is_file()]
     require(not missing, 'Missing fresh consumer build/runtime/probe inputs: ' + json.dumps(missing))
     pins = {key: pin(local(root, path)) for key, path in paths.items()}
-    runtime = json.loads(paths['runtimeResult'].read_text())
-    require(runtime['status'] == 'OFFICIAL_RUNTIME_PREPARED_GAME_UNRUN' and runtime['gameLaunched'] is False and
-            runtime['networkAcceptance'] is False, 'Official runtime preparation must complete first')
-    for key in ('clientSeal', 'nativeServerClosure'):
-        expected = pins['clientSeal' if key == 'clientSeal' else 'serverClosure']
-        require(runtime[key]['path'] == expected['path'] and runtime[key]['sha256'] == expected['sha256'], 'Runtime result does not bind current ' + key)
-    server = json.loads(paths['serverClosure'].read_text())
-    server_root = api / 'run/neoforge-native'
-    require(server['status'] == 'OFFICIAL_NATIVE_SERVER_CLOSURE_VERIFIED' and server['gameLaunched'] is False and
-            server['root'] == str(server_root), 'Unexpected native server closure')
-    identity = json.loads((root / SUPPORT / 'official-server-identity.json').read_text())
-    expected = {str(server_root / r['relative']): r['sha256'] for r in identity['runtime_files']}
-    observed = {}
-    for row in server['runtime_files']:
-        current = pin(local(root, row['path']))
-        require(current['sha256'] == row['sha256'] and current['bytes'] == row['bytes'], 'Changed official server input')
-        require(current['path'] not in observed, 'Duplicate official server input')
-        observed[current['path']] = current['sha256']
-    require(observed == expected and len(observed) == 95, 'Official server dependency pins differ from the frozen source recipe')
-    require(server['argfile'] == str(server_root / 'libraries/net/neoforged/neoforge/21.1.219/unix_args.txt'), 'Native server argument source differs')
-    client = json.loads(paths['clientSeal'].read_text())
-    require(client['gameLaunched'] is False and client['heapMiB'] == 1280 and client['activeProcessors'] == 2, 'Unexpected client export bounds')
-    local(root, client['workingDirectory'])
-    for row in client['files']:
-        path = local(root, row['path'])
-        if row.get('kind') == 'declared-empty-source-output':
-            require(not path.exists() or path.is_dir() and not any(path.iterdir()), 'Nonempty development output')
-        else:
-            require(pin(path)['sha256'] == row['sha256'], 'Changed official client input')
-    require(sha(api / '.toolchains/jdk-21.0.12.1+1/bin/java') == JAVA_SHA, 'Pinned Java executable differs')
+    _verify_runtime_receipts(root, paths, pins)
     build = json.loads(paths['buildResult'].read_text())
     require(build['status'] == 'COLD_TUPLE_BUILT_CHECKED_GAME_UNRUN' and build['sourceIdentity'] == IDENTITY and
             build['baseSourceIdentity'] == IDENTITY and build['candidateIdentity'] == fml_metadata.CANDIDATE_IDENTITY and
@@ -255,6 +230,151 @@ def _input_receipts(root):
             base['candidateBinding'] == build['candidateBinding'] == pins['candidateBinding'],
             'Fresh full-source repaired FML receipt differs')
     verify_candidate_binding(root, paths, pins, build, base, artifacts)
+    _verify_probe_receipts(root, paths, pins)
+    return paths, pins
+
+
+def _profile_options(profile, build_proof):
+    require((profile is None) == (build_proof is None),
+            '--profile and --build-proof must be supplied together')
+    if profile is not None:
+        for value in (profile, build_proof):
+            source_materialize._relative(str(value))
+    return profile is not None
+
+
+def _profile_build_inputs(root, profile, build_proof):
+    """Read-only gate: observed tuples and partial logs cannot reach assembly."""
+    import refreshed_candidate as gate
+    _profile_options(profile, build_proof)
+    require(profile is not None, 'A portable profile and full build proof are required')
+    verified = gate.validate_full_build(root, str(profile), str(build_proof))
+    paths = {'profile': gate.local(root, str(profile)),
+             'refreshedBuildProof': gate.local(root, str(build_proof))}
+    require(verified['profileSha256'] == sha(paths['profile']) and
+            verified['candidateIdentity'] == verified['profileSha256'] and
+            verified['candidateIdentityKind'] == 'verified-refreshed-build-profile' and
+            verified['sourceIdentity'] != IDENTITY and verified['runtimeAcceptance'] is False,
+            'Refreshed full proof must bind the selected portable profile without runtime acceptance')
+    require(set(verified['artifacts']) == set(TUPLE_PINS), 'Refreshed tuple roles differ')
+    for role, row in verified['artifacts'].items():
+        paths['artifact_' + role] = gate.check_pin(root, row)
+    for key in ('baseReceipt', 'forgeFixture', 'fmlComparison', 'bundleVerification', 'fmlSourcePreparation'):
+        paths['portableBaseReceipt' if key == 'baseReceipt' else key] = gate.check_pin(root, verified[key])
+    require(set(verified['receipts']) == {'core', 'product', 'fml'}, 'Refreshed receipt roles differ')
+    for role, row in verified['receipts'].items():
+        paths[role + 'BuildReceipt'] = gate.check_pin(root, row)
+    closure = verified['inputPins']
+    require(isinstance(closure, list) and closure, 'Full refreshed proof input closure is required')
+    require(len({row['path'] for row in closure}) == len(closure), 'Duplicate full-proof closure pin')
+    known = {str(path) for path in paths.values()}
+    for index, row in enumerate(closure):
+        path = gate.check_pin(root, row)
+        if str(path) not in known:
+            paths['validatedInput_' + str(index)] = path
+            known.add(str(path))
+    pins = {key: pin(local(root, path)) for key, path in paths.items()}
+    # Preserve the original exact Forge source/ABI/command/log checks independently
+    # of the profile's build-task coverage checks.
+    require(pins['forgeFixture'] == forge_fixture.verify_result(root),
+            'The original exact source-built Forge fixture must bind this refreshed build')
+    return paths, pins, verified
+
+
+def _profile_runtime_inputs(root, paths, pins):
+    """Keep runtime and probe gates identical to the historical code path."""
+    api = root / 'work/api1'
+    paths = dict(paths, clientSeal=api / 'run/api1-unified-client-build/official-client-launch-seal.json',
+                 serverClosure=api / 'ci/runtime-restore/native-server-closure.json',
+                 runtimeResult=api / 'ci/runtime-restore/runtime-result.json',
+                 probeResult=root / compile_probe.OUTPUT_RELATIVE / 'result.json',
+                 probeJar=root / compile_probe.OUTPUT_RELATIVE / compile_probe.ARTIFACT_NAME)
+    missing = [str(path.relative_to(root)) for path in paths.values() if not path.is_file()]
+    require(not missing, 'Missing fresh consumer build/runtime/probe inputs: ' + json.dumps(missing))
+    current = {key: pin(local(root, path)) for key, path in paths.items()}
+    require(all(current[key] == row for key, row in pins.items()), 'Refreshed build input changed before assembly')
+    _verify_runtime_receipts(root, paths, current, support_relative=REFRESHED_SUPPORT)
+    _verify_probe_receipts(root, paths, current)
+    return paths, current
+
+
+def _profile_adapters(root, paths, pins, verified):
+    """Only resolve paths for the unchanged assembler; never promote evidence."""
+    import refreshed_candidate as gate
+    require(all(pin(local(root, paths[key])) == row for key, row in pins.items()),
+            'Refreshed input changed before adapter derivation')
+    artifacts = {role: pin(gate.check_pin(root, row)) for role, row in verified['artifacts'].items()}
+    base = json.loads(paths['portableBaseReceipt'].read_text())
+    require(base['artifact'] == verified['artifacts']['fml']['path'] and
+            base['sha256'] == artifacts['fml']['sha256'] == fml_metadata.FIXED_FML_SHA and
+            base['profileSha256'] == verified['profileSha256'] and
+            base['sourceIdentitySha256'] == verified['sourceIdentity'] and
+            base['candidateIdentity'] == verified['candidateIdentity'] and
+            base['candidateIdentityKind'] == verified['candidateIdentityKind'] and
+            base['installationApproved'] is False and
+            base['sourceBuildReceipt'] == verified['receipts']['fml']['path'] and
+            base['baseBuildReceipt'] == verified['receipts']['core']['path'],
+            'Portable FML receipt belongs to another profile, output or build')
+    source = fml_metadata.verify_sources(root)
+    java_sources = {str(Path(row['path']).relative_to(root / 'work/api1/source-workspace')): row['sha256']
+                    for key in ('fixedSources', 'sharedSources') for row in source['sources'][key]
+                    if '/src/main/java/' in row['path'] and row['path'].endswith('.java')}
+    require(len(java_sources) == 195 and base['sources'] == base['compilationSources'] == java_sources,
+            'Refreshed FML receipt must bind the 195 actual compilation sources')
+    for relative, expected in java_sources.items():
+        path = gate.local(root, 'work/api1/source-workspace/' + relative)
+        require(sha(path) == expected, 'Refreshed FML source changed before assembly')
+    adapted_base = dict(base, artifact=artifacts['fml']['path'],
+                        sourceBuildReceipt=str(paths['fmlBuildReceipt']),
+                        baseBuildReceipt=str(paths['coreBuildReceipt']),
+                        portableReceipt=verified['baseReceipt'],
+                        derivationKind='consumer-local-path-adapter-only', runtimeAcceptance=False)
+    support = root / REFRESHED_SUPPORT
+    tuple_path = support / 'refreshed-built-tuple-artifacts.json'
+    base_path = support / 'refreshed-fml-base-build-receipt.json'
+    # Check both destinations first, so stale adapters never become reusable inputs.
+    require(not tuple_path.exists() and not base_path.exists(), 'Refusing existing refreshed assembly adapters')
+    tuple_pin, base_pin = save(tuple_path, artifacts), save(base_path, adapted_base)
+    return dict(paths, tuple=tuple_path, baseReceipt=base_path), dict(pins, tuple=tuple_pin, baseReceipt=base_pin)
+
+
+def _verify_runtime_receipts(root, paths, pins, *, support_relative=SUPPORT):
+    """Unchanged official runtime and JVM gates for both candidate profiles."""
+    api = root / 'work/api1'
+    runtime = json.loads(paths['runtimeResult'].read_text())
+    require(runtime['status'] == 'OFFICIAL_RUNTIME_PREPARED_GAME_UNRUN' and runtime['gameLaunched'] is False and
+            runtime['networkAcceptance'] is False, 'Official runtime preparation must complete first')
+    for key in ('clientSeal', 'nativeServerClosure'):
+        expected = pins['clientSeal' if key == 'clientSeal' else 'serverClosure']
+        require(runtime[key]['path'] == expected['path'] and runtime[key]['sha256'] == expected['sha256'], 'Runtime result does not bind current ' + key)
+    server = json.loads(paths['serverClosure'].read_text())
+    server_root = api / 'run/neoforge-native'
+    require(server['status'] == 'OFFICIAL_NATIVE_SERVER_CLOSURE_VERIFIED' and server['gameLaunched'] is False and
+            server['root'] == str(server_root), 'Unexpected native server closure')
+    identity = json.loads((root / support_relative / 'official-server-identity.json').read_text())
+    expected = {str(server_root / r['relative']): r['sha256'] for r in identity['runtime_files']}
+    observed = {}
+    for row in server['runtime_files']:
+        current = pin(local(root, row['path']))
+        require(current['sha256'] == row['sha256'] and current['bytes'] == row['bytes'], 'Changed official server input')
+        require(current['path'] not in observed, 'Duplicate official server input')
+        observed[current['path']] = current['sha256']
+    require(observed == expected and len(observed) == 95, 'Official server dependency pins differ from the frozen source recipe')
+    require(server['argfile'] == str(server_root / 'libraries/net/neoforged/neoforge/21.1.219/unix_args.txt'), 'Native server argument source differs')
+    client = json.loads(paths['clientSeal'].read_text())
+    require(client['gameLaunched'] is False and client['heapMiB'] == 1280 and client['activeProcessors'] == 2, 'Unexpected client export bounds')
+    local(root, client['workingDirectory'])
+    for row in client['files']:
+        path = local(root, row['path'])
+        if row.get('kind') == 'declared-empty-source-output':
+            require(not path.exists() or path.is_dir() and not any(path.iterdir()), 'Nonempty development output')
+        else:
+            require(pin(path)['sha256'] == row['sha256'], 'Changed official client input')
+    require(sha(api / '.toolchains/jdk-21.0.12.1+1/bin/java') == JAVA_SHA, 'Pinned Java executable differs')
+
+
+def _verify_probe_receipts(root, paths, pins):
+    """Unchanged actual probe compilation and runtime binding for both paths."""
     probe = json.loads(paths['probeResult'].read_text())
     require(probe.get('version') == '0.1.1' and probe.get('sourceManifestSha256') == compile_probe.SOURCE_SHA and
             sha(paths['probeJar']) == compile_probe.REFERENCE_JAR_SHA,
@@ -271,7 +391,6 @@ def _input_receipts(root):
     require(len(probe['classpathInputs']) == 95, 'Unexpected genuine probe classpath closure')
     for row in probe['classpathInputs']:
         require(pin(local(root, row['path'])) == row, 'Probe classpath input changed')
-    return paths, pins
 
 
 def verify_candidate_binding(root, paths, pins, build, base, artifacts):
@@ -307,10 +426,10 @@ def verify_candidate_binding(root, paths, pins, build, base, artifacts):
             'FML receipt must bind the 195 sources actually compiled')
 
 
-def prepare_profile_helper(root):
+def prepare_profile_helper(root, *, support_relative=SUPPORT):
     """Keep the archived four-mod fixture helper intact; bind only probe 0.1.1."""
     original = root / 'work/network-pair-ci-next/prepare_profiles.py'
-    path = root / SUPPORT / 'prepare_profiles_probe011.py'
+    path = root / support_relative / 'prepare_profiles_probe011.py'
     text = original.read_text()
     substitutions = [
         ("SOURCE_MANIFEST = '65cf1c852d6e07226fcd7d2f66df8d202f3a6e70cd4d8f963c6dc40b28554909'",
@@ -321,7 +440,7 @@ def prepare_profile_helper(root):
         require(text.count(before) == count, 'Frozen profile helper substitution shape changed')
         text = text.replace(before, after)
     write_missing(path, text.encode())
-    write_missing(root / SUPPORT / 'profile-helper-derivation.json',
+    write_missing(root / support_relative / 'profile-helper-derivation.json',
                   (json.dumps({'schema': 1, 'original': pin(original), 'derivative': pin(path),
                                'changes': [{'before': a, 'after': b, 'occurrences': n} for a, b, n in substitutions],
                                'sourceManifestSha256': compile_probe.SOURCE_SHA,
@@ -330,14 +449,15 @@ def prepare_profile_helper(root):
     return path
 
 
-def _prepare_profiles(root, paths, offline_identity_reference, eula_reference):
+def _prepare_profiles(root, paths, offline_identity_reference, eula_reference, *,
+                      support_relative=SUPPORT, profiles_relative=PROFILES):
     for reference in (offline_identity_reference, eula_reference):
         require(isinstance(reference, str) and 0 < len(reference) <= 512 and '\n' not in reference,
                 'Existing authorization references are required for the virtual identity and accepted EULA')
-    area = root / PROFILES
+    area = root / profiles_relative
     require(not area.exists(), 'Refusing an existing pair profile preparation')
     source = root / compile_probe.SOURCE_RELATIVE
-    helper = prepare_profile_helper(root)
+    helper = prepare_profile_helper(root, support_relative=support_relative)
     fixture = module('pair_consumer_profiles', helper)
     result = {}
     for target in ('native-neoforge', 'unified'):
@@ -353,13 +473,32 @@ def _prepare_profiles(root, paths, offline_identity_reference, eula_reference):
     return result
 
 
-def _derivative(source, input_lock_sha):
+def _assembly_lock_rows(root, records, *, refreshed=False):
+    """Merge overlapping verified closures without accepting conflicting records."""
+    rows, seen = [], {}
+    for record in records:
+        path = local(root, record['path'])
+        row = {'path': path.relative_to(root).as_posix(), 'bytes': record['bytes'], 'sha256': record['sha256']}
+        if row['path'] in seen:
+            require(refreshed and seen[row['path']] == row, 'Duplicate or conflicting dynamic assembly input')
+        else:
+            seen[row['path']] = row
+            rows.append(row)
+    return rows
+
+
+def _derivative(source, input_lock_sha, *, tuple_relative='work/emi-render-integration/cold-built-tuple-artifacts.json',
+                base_relative='work/emi-render-integration/cold-fml-base-build-receipt.json',
+                profiles_relative=PROFILES):
+    # Source paths are strictly consumer-relative; never inject arbitrary Python.
+    for relative in (tuple_relative, base_relative, profiles_relative):
+        source_materialize._relative(relative)
     replacements = [
         ("LOCK_SHA = '" + SOURCE_PINS['input-lock.json'] + "'", "LOCK_SHA = '" + input_lock_sha + "'", 1),
-        ("TUPLE = ROOT / 'work/emi-render-integration/built-tuple-artifacts.json'", "TUPLE = ROOT / 'work/emi-render-integration/cold-built-tuple-artifacts.json'", 1),
-        ("BASE_RECEIPT = ROOT / 'work/emi-render-integration/fml-base-build-receipt.json'", "BASE_RECEIPT = ROOT / 'work/emi-render-integration/cold-fml-base-build-receipt.json'", 1),
+        ("TUPLE = ROOT / 'work/emi-render-integration/built-tuple-artifacts.json'", 'TUPLE = ROOT / ' + repr(tuple_relative), 1),
+        ("BASE_RECEIPT = ROOT / 'work/emi-render-integration/fml-base-build-receipt.json'", 'BASE_RECEIPT = ROOT / ' + repr(base_relative), 1),
         ("API/'four-loader/forge-probe/unified-forge-probe-final26b-environment-lock.json'", "API/'ci/runtime-restore/native-server-closure.json'", 2),
-        ("ROOT/'work/network-pair-profiles-local1'", "ROOT/'work/network-pair-profiles-cold'", 1),
+        ("ROOT/'work/network-pair-profiles-local1'", 'ROOT/' + repr(profiles_relative), 1),
     ]
     for old, new, count in replacements:
         require(source.count(old) == count, 'Frozen assembly substitution shape changed: ' + old)
@@ -367,39 +506,60 @@ def _derivative(source, input_lock_sha):
     return source, [{'before': a, 'after': b, 'occurrences': n} for a, b, n in replacements]
 
 
-def assemble(repo_root, consumer_root, output=None, *, offline_identity_reference, eula_reference):
+def assemble(repo_root, consumer_root, output=None, *, offline_identity_reference, eula_reference,
+             profile=None, build_proof=None):
     """Prepare true fresh fixtures and build four seals using verified receipts.
 
     Requires completed official-runtime, exact cold-build, and genuine own-probe
     compile stages in this consumer. The supplied authorization references are
     recorded verbatim by the unchanged profile helper. Nothing is launched.
+    The refreshed opt-in requires consumer-relative profile and full build proof;
+    observed tuples/partial logs cannot generate fixtures or launch seals.
     """
     repo, root = canonical(repo_root), canonical(consumer_root)
-    out = canonical(output) if output is not None else root / ASSEMBLED
+    refreshed = _profile_options(profile, build_proof)
+    support_relative = REFRESHED_SUPPORT if refreshed else SUPPORT
+    profiles_relative = REFRESHED_PROFILES if refreshed else PROFILES
+    assembled_relative = REFRESHED_ASSEMBLED if refreshed else ASSEMBLED
+    support = root / support_relative
+    out = canonical(output) if output is not None else root / assembled_relative
     local(root, out)
     require(not out.exists(), 'Fresh consumer-local assembly output required')
-    preparation = prepare(repo, root)
-    paths, dynamic = _input_receipts(root)
-    fixtures = _prepare_profiles(root, paths, offline_identity_reference, eula_reference)
-    support = root / SUPPORT
+    if refreshed:
+        preserved = [root / name for name in (SUPPORT, PROFILES, ASSEMBLED)]
+        require(not any(out == area or out.is_relative_to(area) or area.is_relative_to(out) for area in preserved),
+                'Refreshed output must not overlap preserved historical assembly paths')
+    if refreshed:
+        # No source, fixture, adapter or seal output is written before the complete
+        # portable build proof has passed. Existing outputs are never reused.
+        paths, dynamic, verified = _profile_build_inputs(root, profile, build_proof)
+        require(not support.exists() and not (root / profiles_relative).exists(),
+                'Refusing existing refreshed support/profile outputs; use a fresh consumer')
+        preparation = prepare(repo, root, support_relative=support_relative)
+        paths, dynamic = _profile_runtime_inputs(root, paths, dynamic)
+        paths, dynamic = _profile_adapters(root, paths, dynamic, verified)
+    else:
+        preparation = prepare(repo, root)
+        paths, dynamic = _input_receipts(root)
+    fixtures = _prepare_profiles(root, paths, offline_identity_reference, eula_reference,
+                                 support_relative=support_relative, profiles_relative=profiles_relative)
     frozen_lock = json.loads((support / 'frozen-source/input-lock.json').read_text())
     required = json.loads((support / 'frozen-source/required-text-inputs.json').read_text())
     static_paths = [row['originalRelativePath'] for row in required['files']]
     static_paths.append('work/api1/four-loader/launch-support/game_environment.py')
     records = [pin(root / p) for p in static_paths] + list(dynamic.values()) + list(fixtures.values())
-    records += [pin(root / SUPPORT / 'prepare_profiles_probe011.py'), pin(root / SUPPORT / 'profile-helper-derivation.json')]
-    rows = []
-    for record in records:
-        path = local(root, record['path'])
-        rows.append({'path': path.relative_to(root).as_posix(), 'bytes': record['bytes'], 'sha256': record['sha256']})
-    require(len({r['path'] for r in rows}) == len(rows), 'Duplicate dynamic assembly input')
+    records += [pin(support / 'prepare_profiles_probe011.py'), pin(support / 'profile-helper-derivation.json')]
+    rows = _assembly_lock_rows(root, records, refreshed=refreshed)
     lock = {'schema': 1, 'files': rows, 'acceptedConfigSources': frozen_lock['acceptedConfigSources'],
             'configNote': frozen_lock['configNote'], 'serverPropertiesBasis': frozen_lock['serverPropertiesBasis'],
             'purpose': 'Consumer-local fresh runtime/build/profile receipts plus unchanged source/config pins',
             'frozenSourceAssemblerSha256': SOURCE_PINS['assemble_pairs.py']}
     lock_pin = save(support / 'input-lock.json', lock)
     source = (support / 'frozen-source/assemble_pairs.py').read_text()
-    derivative, changes = _derivative(source, lock_pin['sha256'])
+    derivative, changes = _derivative(source, lock_pin['sha256'],
+                                      tuple_relative=paths['tuple'].relative_to(root).as_posix(),
+                                      base_relative=paths['baseReceipt'].relative_to(root).as_posix(),
+                                      profiles_relative=profiles_relative)
     derivative_path = support / 'assemble_pairs.py'
     require(not derivative_path.exists(), 'Refusing existing assembly derivative')
     derivative_path.write_text(derivative)
@@ -436,6 +596,14 @@ def assemble(repo_root, consumer_root, output=None, *, offline_identity_referenc
                 require(role['assembly']['status'] == 'validated-before-jvm' and role['assembly']['classOwnerCount'] == 1 and
                         role['assembly']['gameLaunched'] is False and role['assembly']['jvmStarted'] is False,
                         'Unified full-source assembly did not validate')
+    if refreshed:
+        # Detect changed profile/proof/logs/outputs after copying and source-owned
+        # validation, rather than emitting a successful stale assembly receipt.
+        _, final_pins, final_verified = _profile_build_inputs(root, profile, build_proof)
+        require(final_verified == verified and all(dynamic[key] == row for key, row in final_pins.items()),
+                'Refreshed profile or full build proof changed during assembly')
+        _verify_runtime_receipts(root, paths, dynamic, support_relative=support_relative)
+        _verify_probe_receipts(root, paths, dynamic)
     result = {'schema': 1, 'status': 'COLD_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN',
               'consumerRoot': str(root), 'assemblyRoot': str(out), 'assemblyResult': pin(out / 'assembly-result.json'),
               'roleCount': 4, 'groups': assembled['groups'], 'profiles': fixtures,
@@ -446,6 +614,13 @@ def assemble(repo_root, consumer_root, output=None, *, offline_identity_referenc
               'requiredTextFiles': preparation['requiredTextFiles'],
               'jvmStarted': False, 'gameLaunched': False, 'networkAcceptance': False,
               'remaining': assembled['remaining']}
+    if refreshed:
+        import refreshed_candidate as gate
+        result.update(status='REFRESHED_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN',
+                      baseSourceIdentity=verified['sourceIdentity'], candidateIdentity=verified['candidateIdentity'],
+                      candidateIdentityKind=verified['candidateIdentityKind'], profileSha256=verified['profileSha256'],
+                      profile=gate.pin(root, paths['profile']), buildProof=gate.pin(root, paths['refreshedBuildProof']),
+                      historicalBaseSourceIdentityPreserved=IDENTITY, runtimeAcceptance=False)
     save(support / 'pair-assembly-result.json', result)
     return result
 
@@ -458,12 +633,17 @@ def main():
     parser.add_argument('--output', type=Path)
     parser.add_argument('--offline-identity-reference')
     parser.add_argument('--eula-reference')
+    parser.add_argument('--profile', type=Path, help='Consumer-relative refreshed profile; requires --build-proof')
+    parser.add_argument('--build-proof', type=Path, help='Consumer-relative complete profile-bound build proof')
     args = parser.parse_args()
+    _profile_options(args.profile, args.build_proof)
     if args.action == 'prepare':
+        require(args.profile is None, 'Refreshed profile options apply to assemble only')
         result = prepare(args.repo_root, args.consumer_root)
     else:
         result = assemble(args.repo_root, args.consumer_root, args.output,
-                          offline_identity_reference=args.offline_identity_reference, eula_reference=args.eula_reference)
+                          offline_identity_reference=args.offline_identity_reference, eula_reference=args.eula_reference,
+                          profile=args.profile, build_proof=args.build_proof)
     print(json.dumps(result, indent=2))
 
 

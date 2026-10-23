@@ -22,8 +22,8 @@ jobs:
           persist-credentials: false
           fetch-depth: 1
       - name: Verify the complete source-only publication
-        run: python3 work/network-pair-cold-glue/check_stage.py
+        run: python3 work/network-pair-cold-glue/check_stage.py --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json
       - name: Materialize isolated consumer sources and serial plans
-        run: python3 work/network-pair-cold-glue/driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair"
+        run: python3 work/network-pair-cold-glue/driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
       - name: Restore, build, and run native then Unified with the same nonce probe
-        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --install-reviewed-runner-closure
+        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure

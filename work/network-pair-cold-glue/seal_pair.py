@@ -7,6 +7,100 @@ from compile_probe import require, sha, record, save, SOURCE_RELATIVE, OUTPUT_RE
 
 SUPERVISOR_SHA='56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
 
+def refreshed_assembly(consumer,profile,build_proof):
+    """Revalidate full proof and bind its closure before any final seal exists.
+
+    Observed-tuple preparations and historical pair receipts are not accepted.
+    Returned rows are absolute finalizer pins, checked against the shared
+    verifier's portable proof closure, not new acceptance claims.
+    """
+    require(profile is not None and build_proof is not None,
+            'Refreshed seals require both profile and build proof')
+    import refreshed_candidate as refreshed
+    import pair_assembly
+    root=Path(consumer)
+    verified=refreshed.validate_full_build(root,profile,build_proof)
+    require(verified['runtimeAcceptance'] is False and
+            verified['candidateIdentity']==verified['profileSha256'] and
+            verified['candidateIdentityKind']=='verified-refreshed-build-profile',
+            'Full refreshed build proof must not claim runtime acceptance')
+    path=refreshed.local(root,pair_assembly.REFRESHED_SUPPORT+'/pair-assembly-result.json')
+    assembly=json.loads(path.read_text())
+    require(assembly['status']=='REFRESHED_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN' and
+            assembly['consumerRoot']==str(root) and assembly['roleCount']==4 and
+            assembly['profile']==refreshed.pin(root,profile) and
+            assembly['buildProof']==refreshed.pin(root,build_proof) and
+            assembly['profileSha256']==verified['profileSha256'] and
+            assembly['baseSourceIdentity']==verified['sourceIdentity'] and
+            assembly['candidateIdentity']==verified['candidateIdentity'] and
+            assembly['candidateIdentityKind']==verified['candidateIdentityKind'] and
+            assembly['historicalBaseSourceIdentityPreserved']==pair_assembly.IDENTITY and
+            assembly['jvmStarted'] is False and assembly['gameLaunched'] is False and
+            assembly['networkAcceptance'] is False and assembly['runtimeAcceptance'] is False,
+            'Actual profile-bound refreshed assembly required')
+    require(assembly['probeVersion']=='0.1.1' and
+            assembly['probeSha256']==pair_assembly.compile_probe.REFERENCE_JAR_SHA,
+            'Refreshed assembly must preserve the exact probe')
+    inputs={}
+    def add_portable(row):
+        current=record(refreshed.check_pin(root,row))
+        require(current['path'] not in inputs or inputs[current['path']]==current,
+                'Conflicting refreshed closure pin')
+        inputs[current['path']]=current
+        return current
+    def add_absolute(row):
+        absolute=Path(row['path'])
+        require(absolute.is_absolute() and absolute.is_relative_to(root),
+                'Refreshed assembly input leaves consumer')
+        current=add_portable(dict(row,path=absolute.relative_to(root).as_posix()))
+        require(current==row,'Changed refreshed assembly pin')
+        return current
+    require(verified.get('inputPins'),'Complete refreshed proof closure required')
+    for row in verified['inputPins']:add_portable(row)
+    add_portable(refreshed.pin(root,profile));add_portable(refreshed.pin(root,build_proof))
+    out=Path(assembly['assemblyRoot'])
+    require(out.is_absolute() and out.is_relative_to(root) and out!=root,
+            'Refreshed assembly output leaves consumer')
+    require(refreshed.local(root,out.relative_to(root).as_posix())==out,
+            'Noncanonical refreshed assembly root')
+    for relative in (pair_assembly.SUPPORT,pair_assembly.PROFILES,pair_assembly.ASSEMBLED):
+        historical=root/relative
+        require(not out.is_relative_to(historical) and not historical.is_relative_to(out),
+                'Refreshed assembly overlaps historical output')
+    require(assembly['assemblyResult']['path']==str(out/'assembly-result.json'),
+            'Refreshed assembly result belongs elsewhere')
+    add_absolute(assembly['assemblyResult'])
+    assembled=json.loads((out/'assembly-result.json').read_text())
+    require(assembled['status']=='SOURCE_ASSEMBLED_GAME_UNRUN' and
+            assembled['gameLaunched'] is False and assembled['jvmStarted'] is False and
+            assembled['groups']==assembly['groups'], 'Refreshed assembly result changed')
+    require(set(assembly['groups'])=={'native-neoforge','unified'} and
+            set(assembly['profiles'])==set(assembly['groups']), 'Missing refreshed paired group')
+    for target,group in assembly['groups'].items():
+        require(group['port']==(25631 if target=='native-neoforge' else 25632) and
+                set(group['roles'])=={'server','client'},'Refreshed pair roles/port changed')
+        fixture=root/pair_assembly.REFRESHED_PROFILES/target/'profile-preparation.json'
+        require(assembly['profiles'][target]['path']==str(fixture) and
+                group['sourceFixture']==assembly['profiles'][target], 'Refreshed fixture belongs elsewhere')
+        add_absolute(assembly['profiles'][target])
+        for side,row in group['roles'].items():
+            require(row['path']==str(out/target/(side+'-launch-seal.json')),
+                    'Refreshed role seal belongs elsewhere')
+            add_absolute(row)
+    for key,name in (('inputLock','input-lock.json'),('derivation','derivation.json')):
+        require(assembly[key]['path']==str(root/pair_assembly.REFRESHED_SUPPORT/name),
+                'Refreshed '+key+' belongs elsewhere')
+        add_absolute(assembly[key])
+    lock=json.loads(Path(assembly['inputLock']['path']).read_text())
+    for row in lock['files']:add_portable(row)
+    derivation=json.loads(Path(assembly['derivation']['path']).read_text())
+    require(derivation['inputLock']==assembly['inputLock'] and
+            derivation['source']['sha256']==pair_assembly.SOURCE_PINS['assemble_pairs.py'],
+            'Frozen refreshed assembly derivation changed')
+    for key in ('source','derivative','sourcePreparation'):add_absolute(derivation[key])
+    return path,assembly,list(inputs.values()),out
+
+
 def module(name,path):
     spec=importlib.util.spec_from_file_location(name,path);value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
 
@@ -36,15 +130,22 @@ def seal_indigo_baseline(target, roles, inputs, out):
     return row
 
 
-def create(repo,consumer,target,graphics_ready,review_reference):
+def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,build_proof=None):
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True);api=consumer/'work/api1'
     require(target in ('native-neoforge','unified'),'Unknown pair target')
-    assembly_path=consumer/'work/network-pair-cold-assembly/pair-assembly-result.json'
-    assembly=json.loads(assembly_path.read_text());require(assembly['status']=='COLD_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN','Actual cold assembly required')
+    refreshed=profile is not None or build_proof is not None
+    if refreshed:
+        assembly_path,assembly,proof_inputs,assembly_root=refreshed_assembly(consumer,profile,build_proof)
+    else:
+        assembly_path=consumer/'work/network-pair-cold-assembly/pair-assembly-result.json'
+        assembly=json.loads(assembly_path.read_text());require(assembly['status']=='COLD_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN','Actual cold assembly required')
     group=assembly['groups'][target];inputs={};trees={str(api/'run/client-dev/assets')};roles={}
     def add(path):
         row=record(Path(path));inputs[row['path']]=row;return row
     producer=add(assembly_path)
+    if refreshed:
+        for row in proof_inputs:
+            require(add(Path(row['path']))==row,'Refreshed proof input changed before sealing')
     probe_base=consumer/OUTPUT_RELATIVE;build=json.loads((probe_base/'probe-build-binding.json').read_text())
     source=consumer/SOURCE_RELATIVE;manifest=json.loads((source/'source-manifest.json').read_text())
     for row in manifest['files']:
@@ -64,6 +165,7 @@ def create(repo,consumer,target,graphics_ready,review_reference):
     for side,pin in group['roles'].items():
         rolepath=Path(pin['path']);require(sha(rolepath)==pin['sha256'],'Cold role seal changed');add(rolepath);producers.append(str(rolepath))
         role=json.loads(rolepath.read_text());cwd=Path(role['cwd'])
+        if refreshed:require(cwd==assembly_root/target/side,'Refreshed role working directory belongs elsewhere')
         for row in role['files']:
             if row['path']==str(cwd/'options.txt'):continue
             current=add(Path(row['path']));require(current==row,'Cold role input changed')
@@ -72,12 +174,15 @@ def create(repo,consumer,target,graphics_ready,review_reference):
         env={'JAVA_HOME':str(helper.JDK),'PATH':str(helper.JDK/'bin')+':/usr/bin:/bin','LANG':'C.UTF-8','TZ':'UTC','LIBGL_ALWAYS_SOFTWARE':'true','GALLIUM_DRIVER':'llvmpipe'}
         for key,value in [('HOME','.launch-home'),('XDG_CACHE_HOME','.launch-cache'),('XDG_CONFIG_HOME','.launch-config'),('XDG_DATA_HOME','.launch-data'),('TMPDIR','.launch-tmp')]:env[key]=str(cwd/value)
         roles[side]={'cwd':str(cwd),'command':role['command'],'environment':env,'original_mods':role['original_mods'],'managed_mods':role['managed_mods']}
-    out=api/'ci/pair-seals';out.mkdir(parents=True,exist_ok=True)
-    seal_indigo_baseline(target,roles,inputs,out)
+    out=api/('ci/pair-seals-refreshed' if refreshed else 'ci/pair-seals');out.mkdir(parents=True,exist_ok=True)
+    # Both opt-in and historical specs share the original serialization lock.
+    # The frozen supervisor also locates the exact Indigo baseline beside it.
+    serial=api/'ci/pair-seals';serial.mkdir(parents=True,exist_ok=True)
+    seal_indigo_baseline(target,roles,inputs,serial)
     base={'schema':'prepared-network-ci-pair-v2','status':'NEEDS_ACTUAL_GRAPHICS_NOT_EXECUTABLE','target':target,'port':group['port'],
           'preparation_roots':[str(consumer)],'jdk_legal_links':links,'inputs':list(inputs.values()),'immutable_trees':sorted(trees),
           'probe_path':build['artifact_path'],'probe_source_manifest':str(source/'source-manifest.json'),'probe_build_receipt':str(probe_base/'probe-build-binding.json'),
-          'source_receipts':producers,'pair_lock':str(out/'serial-pair.lock'),'server':roles['server'],'client':roles['client'],
+          'source_receipts':producers,'pair_lock':str(serial/'serial-pair.lock'),'server':roles['server'],'client':roles['client'],
           'authorization':{'offline_identity_reference':'Isolated localhost tests with virtual APILocal identity','eula_reference':'Existing Minecraft EULA acceptance for isolated local tests'}}
     import sys
     sys.path.insert(0,str(repo/'work/network-pair-finalizer'))
@@ -87,4 +192,7 @@ def create(repo,consumer,target,graphics_ready,review_reference):
     supervisor=repo/'work/network-ci-supervisor-portable3/supervisor.py';require(sha(supervisor)==SUPERVISOR_SHA,'Final supervisor changed')
     s=module('cold_pair_supervisor',supervisor);s.verify_spec(spec);s.verify_graphics(spec,s.Proc())
     path=out/(target+'.json');save(path,spec)
-    return {'spec':record(path),'supervisor':record(supervisor),'jdkComparison':jdk_result,'gameLaunched':False}
+    result={'spec':record(path),'supervisor':record(supervisor),'jdkComparison':jdk_result,'gameLaunched':False}
+    if refreshed:result.update(profile=assembly['profile'],buildProof=assembly['buildProof'],
+                               profileSha256=assembly['profileSha256'],runtimeAcceptance=False)
+    return result
