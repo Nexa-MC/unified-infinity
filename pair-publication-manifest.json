@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "REFRESHED_CANDIDATE_WITH_UBUNTU_MESA_MATCH_RUNTIME_UNRUN",
+  "status": "EXPLICIT_ORIGINAL_GENERATION_TIMEZONE_RUNTIME_UNRUN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "ca7c9230189e146db0a40f428576bba16335435f",
-    "manifestSha256": "c1266f303863ff81e9a02604717be2ab801cccb72e7a0667a3154b1396503f84"
+    "commit": "3e16205f583207833e11633d1decd1b3112a5d1f",
+    "manifestSha256": "837e68ca17fd28cdedd205350c2bb4fe79a3a8f30ce18c3797fd5c2cf5b6c26c"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 1645,
-      "sha256": "93304cfc5e81060038e3b9a8caa92eaba823028fb05e81e6dbdf8a8886bb80b0"
+      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -855,7 +855,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 1645,
-      "sha256": "93304cfc5e81060038e3b9a8caa92eaba823028fb05e81e6dbdf8a8886bb80b0"
+      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -929,8 +929,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/runtime_restore.py",
-      "bytes": 38160,
-      "sha256": "b2c09564596bd0873ce81d222dc42b64cdfcb3d1a4310aec4f198fa5034c469f"
+      "bytes": 38489,
+      "sha256": "1913bc9fb61c2a1ce8b1a13f81c25f861fd79c28e70aa09f972fadf470f0de8a"
     },
     {
       "path": "work/network-pair-cold-glue/seal_pair.py",
@@ -1019,8 +1019,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_runtime_restore.py",
-      "bytes": 4999,
-      "sha256": "cd93466c748b58e83ca254f0f19673e4e72306f891383309ee169d8e61b55113"
+      "bytes": 5452,
+      "sha256": "c98369cd583bd242a83c0f787c740fc5578d4866ea78c5c44939e80970002d0c"
     },
     {
       "path": "work/network-pair-cold-glue/test_seal_lifecycle.py",
@@ -1093,8 +1093,8 @@
       "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
     }
   ],
-  "revision": 5,
-  "previousReviewManifestSha256": "c1266f303863ff81e9a02604717be2ab801cccb72e7a0667a3154b1396503f84",
+  "revision": 6,
+  "previousReviewManifestSha256": "837e68ca17fd28cdedd205350c2bb4fe79a3a8f30ce18c3797fd5c2cf5b6c26c",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722",

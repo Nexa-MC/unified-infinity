@@ -11,7 +11,7 @@ jobs:
   serial-pair:
     if: github.repository == 'Nexa-MC/unified-infinity' && github.ref == 'refs/heads/diagnostic/network-pair-20261006-a'
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 20
     env:
       CI: 'true'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -26,4 +26,4 @@ jobs:
       - name: Materialize isolated consumer sources and serial plans
         run: python3 work/network-pair-cold-glue/driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
       - name: Restore, build, and run native then Unified with the same nonce probe
-        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1500
+        run: python3 work/network-pair-cold-glue/driver.py run --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1020

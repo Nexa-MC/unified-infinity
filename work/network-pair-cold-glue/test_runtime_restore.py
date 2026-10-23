@@ -57,6 +57,12 @@ class RuntimeSourceChecks(unittest.TestCase):
             init = (api / 'ci/runtime-restore/client.init.gradle').read_text()
             self.assertIn("actual.contains(':prepareClientLaunch')", init)
             self.assertNotIn("':runClient'", init)
+            client_env = plan['steps'][3]['environment']
+            self.assertEqual(client_env['TZ'], 'America/Los_Angeles')
+            self.assertTrue(client_env['JAVA_TOOL_OPTIONS'].endswith(' -Duser.timezone=America/Los_Angeles'))
+            for step in [*plan['steps'][:3], plan['steps'][4]]:
+                self.assertNotIn('TZ', step['environment'])
+                self.assertNotIn('user.timezone', step['environment']['JAVA_TOOL_OPTIONS'])
             command = plan['steps'][3]['command']
             self.assertEqual(command[-3:], ['prepareClientLaunch', '-x', 'downloadAssets'])
             self.assertIn('--offline', command)

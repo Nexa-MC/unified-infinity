@@ -390,10 +390,14 @@ def prepare(repo_root, consumer_root):
                       'net.minecraftforge.installer.SimpleInstaller', '--offline', flag, str(api / root)],
                       'cwd': str(api / root / 'installer-work'), 'environment': environment,
                       'timeoutSeconds': 1800, 'requiresExternalExecutionPolicy': True})
+    # Original pinned ZIP bytes were generated in this zone. Propagate it to
+    # Gradle and every spawned generation JVM, without changing output pins.
+    client_environment = dict(environment, TZ='America/Los_Angeles',
+        JAVA_TOOL_OPTIONS=environment['JAVA_TOOL_OPTIONS']+' -Duser.timezone=America/Los_Angeles')
     steps.append({'name': 'export-official-client',
                   'command': gradle_command(api, project, support / 'client.init.gradle',
                                             ['prepareClientLaunch', '-x', 'downloadAssets']),
-                  'cwd': str(project), 'environment': environment, 'timeoutSeconds': 1800,
+                  'cwd': str(project), 'environment': client_environment, 'timeoutSeconds': 1800,
                   'requiresExternalExecutionPolicy': True})
     steps.append({'name': 'seal-official-client', 'command': [sys.executable, str(support / 'seal_official_client.py')],
                   'cwd': str(api), 'environment': environment, 'timeoutSeconds': 120})
