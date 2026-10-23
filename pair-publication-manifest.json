@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "COORDINATED_REFRESHED_CANDIDATE_SOURCE_RUNTIME_UNRUN",
+  "status": "REFRESHED_CANDIDATE_WITH_UBUNTU_MESA_MATCH_RUNTIME_UNRUN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "2b8a56143f58bc55767cfe23fb67b86111f5c4a0",
-    "manifestSha256": "3f4ce0ee9924cd1166314159b358221f4e1fed46c957a655936d9bf7190f1e80"
+    "commit": "ca7c9230189e146db0a40f428576bba16335435f",
+    "manifestSha256": "c1266f303863ff81e9a02604717be2ab801cccb72e7a0667a3154b1396503f84"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 1625,
-      "sha256": "0ef03c101bbf215c536901cc43ce0c20fd8715a0df18844353300f44150d27ec"
+      "bytes": 1645,
+      "sha256": "93304cfc5e81060038e3b9a8caa92eaba823028fb05e81e6dbdf8a8886bb80b0"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -764,8 +764,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/driver.py",
-      "bytes": 21717,
-      "sha256": "633619ebb390149e5d5050d6895a4dc1d35f2ddc0ac28d555391a03ee6579570"
+      "bytes": 22218,
+      "sha256": "37a20d13d95452905e3e69da5c950a9fca99c993f6f6f2ab1fb385774ef26efa"
     },
     {
       "path": "work/network-pair-cold-glue/ffapi_sources.py",
@@ -854,8 +854,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 1625,
-      "sha256": "0ef03c101bbf215c536901cc43ce0c20fd8715a0df18844353300f44150d27ec"
+      "bytes": 1645,
+      "sha256": "93304cfc5e81060038e3b9a8caa92eaba823028fb05e81e6dbdf8a8886bb80b0"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -910,7 +910,7 @@
     {
       "path": "work/network-pair-cold-glue/runner_dependencies.py",
       "bytes": 19417,
-      "sha256": "145bd5884ef1084095d9907e666c2d079781238010b646a06279a957d214d5db"
+      "sha256": "b5eb704619ec8dcc69227d4c4cdc708d7359c6eb79444c62592c1022d2aa2aed"
     },
     {
       "path": "work/network-pair-cold-glue/runtime-inputs.lock.json",
@@ -959,8 +959,13 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_driver_cleanup.py",
-      "bytes": 13736,
-      "sha256": "440d6451839d1ad6193699f0c6d73b7e0ef6cc691f98a874eb109b259702d12c"
+      "bytes": 14013,
+      "sha256": "1cafef0b1f32b3b81b74a015ffdb97d09f4bb4022ba32ba5720262385fee46c4"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_driver_work_budget.py",
+      "bytes": 2953,
+      "sha256": "67a3a1b27e379884b4ec40448e0e7f3fbffd23eea2c5432f02a9d3ac9f98aefb"
     },
     {
       "path": "work/network-pair-cold-glue/test_ffapi_sources.py",
@@ -1009,8 +1014,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_runner_dependencies.py",
-      "bytes": 19819,
-      "sha256": "bd56e3a270ef08d7891e3d80ddac863c2f35119e9113e4fdb593898f61e96eac"
+      "bytes": 19995,
+      "sha256": "51dfdafc7aacd56689bd31e3d127b7f575d3522f5b7f846fe82f1c0b2b66406d"
     },
     {
       "path": "work/network-pair-cold-glue/test_runtime_restore.py",
@@ -1024,8 +1029,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/ubuntu-graphics-candidates.json",
-      "bytes": 5033,
-      "sha256": "fdcdd96f2c270b3741d84e80cc1a42562b60da7e42105c808361ad4691c804f5"
+      "bytes": 5032,
+      "sha256": "9ea9d00faffe2d3ac2abe5378ff6ef1920cb09d362de5a941b0d0ab14e71b833"
     },
     {
       "path": "work/network-pair-cold-glue/ubuntu-graphics-reference.json",
@@ -1034,8 +1039,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/ubuntu-graphics.Packages",
-      "bytes": 10645,
-      "sha256": "0f936bae8be7cb6a5a128fe079c950d6b3efad923c05b7c112c40fc081072d35"
+      "bytes": 10646,
+      "sha256": "7ec47dcbe2105507f6209773d494e612c0a404cbbba70bd6e48ad405a2dbb06c"
     },
     {
       "path": "work/network-pair-finalizer/LICENSE",
@@ -1088,8 +1093,8 @@
       "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
     }
   ],
-  "revision": 4,
-  "previousReviewManifestSha256": "a464e25ca35e992243e3cfd165d6da9119378dedb682f98b8502a5af33280fdb",
+  "revision": 5,
+  "previousReviewManifestSha256": "c1266f303863ff81e9a02604717be2ab801cccb72e7a0667a3154b1396503f84",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722",

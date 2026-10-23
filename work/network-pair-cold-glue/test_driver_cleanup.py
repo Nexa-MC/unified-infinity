@@ -2,6 +2,7 @@
 from contextlib import ExitStack
 import importlib.util
 import json
+import re
 from pathlib import Path
 import signal
 import subprocess
@@ -212,7 +213,11 @@ class DriverCleanupTests(unittest.TestCase):
         self.assertGreaterEqual(collector.MAX_LIFETIME, 2 * d.PAIR_SECONDS)
         self.assertEqual(d.WORK_SECONDS + 3 * 60, 45 * 60); self.assertLess(d.PAIR_CLEANUP_SECONDS + 20, 3 * 60)
         workflow = (root / '.github/workflows/network-pair.yml').read_text()
-        self.assertIn('timeout-minutes: 45', workflow)
+        timeout = int(re.search(r'timeout-minutes:\s*(\d+)', workflow).group(1))
+        selected = re.search(r'--work-seconds\s+(\d+)', workflow)
+        work = d.work_budget(int(selected.group(1)) if selected else None)
+        self.assertLessEqual(timeout, 45)
+        self.assertLessEqual(work + 3 * 60, timeout * 60)
         self.assertEqual(workflow, Path(d.__file__).with_name('network-pair.yml').read_text())
 
 if __name__ == '__main__': unittest.main()

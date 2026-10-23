@@ -18,7 +18,9 @@ class RunnerSetupTests(unittest.TestCase):
         self.names = {row['Package'] for row in self.candidates}
 
     def status(self, missing=(), extra=()):
-        reference = json.loads((r.HERE/'ubuntu-graphics-reference.json').read_text())
+        # Historical reference stays unchanged; model the observed October 23 image in this fixture.
+        reference = json.loads((r.HERE/'ubuntu-graphics-reference.json').read_text().replace(
+            '25.2.8-0ubuntu0.24.04.2', '25.2.8-0ubuntu0.24.04.4'))
         rows = [dict(row) for row in reference['reference_closure'] if row['Package'] not in missing]
         present = {row['Package'] for row in rows}
         for name in ('xvfb', 'libgl1-mesa-dri', 'dpkg', 'libc-bin'):
@@ -46,10 +48,10 @@ class RunnerSetupTests(unittest.TestCase):
 
     def test_pinned_exact_seven_total_bytes_and_canonical_path(self):
         self.assertEqual(len(self.candidates), 7)
-        self.assertEqual(sum(int(row['Size']) for row in self.candidates), 390800)
+        self.assertEqual(sum(int(row['Size']) for row in self.candidates), 390802)
         self.assertEqual(r.graphics.REQUIRED['glxinfo'], r.CANONICAL)
         mesa = next(row for row in self.candidates if row['Package'] == 'libegl-mesa0')
-        self.assertEqual(mesa['Version'], '25.2.8-0ubuntu0.24.04.2')
+        self.assertEqual(mesa['Version'], '25.2.8-0ubuntu0.24.04.4')
         self.assertIn('libgbm1 (= '+mesa['Version']+')', mesa['Depends'])
 
     def test_changed_reviewed_metadata_fails_closed(self):
@@ -77,7 +79,7 @@ class RunnerSetupTests(unittest.TestCase):
     def test_installed_versions_retained_without_forcing_reference_pins(self):
         with tempfile.TemporaryDirectory() as folder:
             data = self.status(self.names - {'libegl-mesa0', 'libxcb-xkb1'})
-            data = data.replace(b'25.2.8-0ubuntu0.24.04.2', b'25.2.9-0ubuntu0.24.04.3')
+            data = data.replace(b'25.2.8-0ubuntu0.24.04.4', b'25.2.9-0ubuntu0.24.04.3')
             result, _ = self.inspect_fixture(folder, data)
             self.assertFalse(result['blockers'])
             retained = next(row for row in result['candidates'] if row['package'] == 'libegl-mesa0')

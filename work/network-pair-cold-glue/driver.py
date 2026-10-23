@@ -203,7 +203,16 @@ def cleanup_pair(active):
     return result
 
 
-def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None):
+def work_budget(work_seconds=None):
+    """Only narrow the historical work limit; cleanup remains separately bounded."""
+    if work_seconds is None:return WORK_SECONDS
+    require(type(work_seconds) is int and 1<=work_seconds<=WORK_SECONDS,
+            '--work-seconds must be an integer between 1 and '+str(WORK_SECONDS))
+    return work_seconds
+
+
+def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None):
+    budget=work_budget(work_seconds)
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
             and os.environ.get('GITHUB_REF')=='refs/heads/'+BRANCH and os.environ.get('GITHUB_EVENT_NAME')=='push',
             'Execution requires the separately reviewed exact future pair branch; no alternative publication route')
@@ -216,7 +225,7 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
     for row in [*plan['sourceCodeFiles'].values(),*plan['dataFiles'].values()]:require(compile_probe.record(Path(row['path']))==row,'Cold source/lock changed after preparation')
     if options:require(plan.get('refreshedProfile')==refreshed_binding(consumer,options),'Prepared refreshed profile changed')
     else:require(not plan.get('refreshedProfile'),'Refreshed plan requires an explicit profile selection')
-    deadline=time.monotonic()+WORK_SECONDS;handle=None;active_pair=None;primary_error=None;previous={}
+    deadline=time.monotonic()+budget;handle=None;active_pair=None;primary_error=None;previous={}
     result={'schema':1,'status':'INCOMPLETE','gameAcceptance':False,'reports':{}}
     spawning_pair=False;starting_graphics=False;cleaning_up=False;pending_stops=[]
     def stop_driver(number,frame):
@@ -346,6 +355,7 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true')
-    p.add_argument('--profile');p.add_argument('--build-proof');a=p.parse_args()
-    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof)
+    p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);a=p.parse_args()
+    work_budget(a.work_seconds)
+    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

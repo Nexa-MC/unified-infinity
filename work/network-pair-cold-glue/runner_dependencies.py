@@ -20,11 +20,11 @@ VERSION = '9.0.0-2'
 CANONICAL = '/usr/bin/glxinfo.x86_64-linux-gnu'
 STATUS = Path('/var/lib/dpkg/status')
 MAX_PACKAGES = 7
-MAX_BYTES = 390800
+MAX_BYTES = 390802
 SETUP_SECONDS = 180
 METADATA_PINS = {
-    'ubuntu-graphics-candidates.json': 'fdcdd96f2c270b3741d84e80cc1a42562b60da7e42105c808361ad4691c804f5',
-    'ubuntu-graphics.Packages': '0f936bae8be7cb6a5a128fe079c950d6b3efad923c05b7c112c40fc081072d35',
+    'ubuntu-graphics-candidates.json': '9ea9d00faffe2d3ac2abe5378ff6ef1920cb09d362de5a941b0d0ab14e71b833',
+    'ubuntu-graphics.Packages': '7ec47dcbe2105507f6209773d494e612c0a404cbbba70bd6e48ad405a2dbb06c',
 }
 PACKAGE_PATHS = {
     'libdecor-0-0': '/usr/lib/x86_64-linux-gnu/libdecor-0.so.0',
