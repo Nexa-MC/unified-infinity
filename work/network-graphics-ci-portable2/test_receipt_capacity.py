@@ -45,7 +45,8 @@ _EXPECTED_PREDECESSOR_AST_SHA256 = '033409131fee8ff7ea36756e74b60638e51ef7835836
 def _normalized_function_digest(source):
     if source.count(_MIGRATED) != 1:
         raise ValueError('Expected exactly one reviewed graphics capacity expression')
-    tree = ast.parse(source.replace(_MIGRATED, _ORIGINAL))
+    from test_cleanup_lifecycle import normalize_cleanup_reporting
+    tree = ast.parse(normalize_cleanup_reporting(source).replace(_MIGRATED, _ORIGINAL))
     node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'execute')
     return hashlib.sha256(ast.dump(node, include_attributes=False).encode()).hexdigest()
 

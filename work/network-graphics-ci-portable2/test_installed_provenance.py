@@ -189,11 +189,13 @@ class PreservationTests(unittest.TestCase):
                 self.assertEqual(source.count(migrated), 1)
                 self.assertEqual(g.load_supervisor(baseline.SUPERVISOR).GRAPHICS_RECEIPT_MAX_BYTES, 32768)
                 source = source.replace(migrated, "receipt, s, 8192)")
+                from test_cleanup_lifecycle import normalize_cleanup_reporting
+                source = normalize_cleanup_reporting(source)
             return {node.name: ast.dump(node) for node in ast.parse(source).body
                     if isinstance(node, (ast.FunctionDef, ast.ClassDef))}
         old = definitions(FROZEN / 'graphics_preflight.py')
         new = definitions(ROOT / 'graphics_preflight.py')
-        self.assertEqual(set(new) - set(old), {'validate_installed_observations'})
+        self.assertEqual(set(new) - set(old), {'validate_installed_observations', 'validate_generated_config'})
         for name in old:
             if name != 'validate_lock':
                 with self.subTest(name=name):

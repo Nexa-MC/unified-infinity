@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "GRAPHICS_RECEIPT_32K_MIGRATION_SOURCE_VERIFIED_RUNTIME_UNPROVEN",
+  "status": "GRAPHICS_EGL_CACHE_DISCOVERY_AND_EXPLICIT_CLEANUP_SOURCE_VERIFIED_RUNTIME_UNPROVEN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "cc6439f3798f99df805fb04f6cd17a758dac7a40",
-    "manifestSha256": "20747657b9deaa2793c5de38bc12f203e887aeda070188240f6c120bfe5fe722"
+    "commit": "e61eab82874c3c23e095e5dc66bfa2082ccbab79",
+    "manifestSha256": "5da596f0eb6aa9577dfc7f4d61fe873c43c2ef79f6392f096704ab2d4e1a31fa"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 1645,
-      "sha256": "e1d376e0fc5c112ecbf433b36e89a3bf6f13ce959c76acad071aa7e040406381"
+      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -394,8 +394,8 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/LOCK-CONTRACT.md",
-      "bytes": 5648,
-      "sha256": "af50e171c16e93c4458f2a9f16fd4805f33eef8353e282a714bd2fe361e162a8"
+      "bytes": 6726,
+      "sha256": "a7bf9dc4d7a6c5ac8bb3a4fb3ef450204acbe8527b914a89ea6b67356f0642f3"
     },
     {
       "path": "work/network-graphics-ci-portable2/PROVENANCE.json",
@@ -404,8 +404,8 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/README.md",
-      "bytes": 6697,
-      "sha256": "457c0ff094cd74378699cabf06b526249037cb336a45d8753034c92db83007a4"
+      "bytes": 7845,
+      "sha256": "d28e3a4dd4e233e2e738092fc786b03eacdf9e0566375ce88651554b23c2902c"
     },
     {
       "path": "work/network-graphics-ci-portable2/evidence/source-checks.json",
@@ -419,8 +419,8 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/graphics_preflight.py",
-      "bytes": 24131,
-      "sha256": "b79ab2ba6d586d3ed2c0301373132c5cf000d2b86578732bf0e5f1c78f09214d"
+      "bytes": 26234,
+      "sha256": "6b1063dae989f3934ab26b49646b7c0e96331067a4aa86b6b052bba5ee58e189"
     },
     {
       "path": "work/network-graphics-ci-portable2/official-input-research.json",
@@ -429,8 +429,18 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/source-manifest.json",
-      "bytes": 1805,
-      "sha256": "1a5e7b75c65fdf05eb1b4094877acf19cedae12a8e76bb6761fff7f5c8c12a9d"
+      "bytes": 2123,
+      "sha256": "627472d181bc44a34b7dd0d0a22be7983b7150197470d1d400335b4ae789d44e"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/test_cleanup_lifecycle.py",
+      "bytes": 3415,
+      "sha256": "cc6aa9904b0f0d75a4253a4d2ed029efece9a47d5bbbc8f3464c6bc48151daf8"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/test_generated_cache.py",
+      "bytes": 3795,
+      "sha256": "ec9b87f6ee075eea6d23cd5a6b7b5b5a5e852f26c0ea12ef9f9f37809a22784b"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_graphics_preflight.py",
@@ -439,13 +449,13 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/test_installed_provenance.py",
-      "bytes": 10071,
-      "sha256": "5d1a76361d2412938b9bc94947103567185fd752dc87d8fd9bc2aaa6d6ac6e21"
+      "bytes": 10240,
+      "sha256": "063993e7b37b19ce45d5fe162371775440fb7ec1110d5b9654f8f3ae6f3e5cc2"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_receipt_capacity.py",
-      "bytes": 3677,
-      "sha256": "9203fb4c66afb8bde0e8bde7a26cbb5b962bdb5a7afb96df72fe01b6e6c620e2"
+      "bytes": 3773,
+      "sha256": "2272438464551ab466e4ae2fbd79b0272dc2977725b85a7f51aaffe4a50ef870"
     },
     {
       "path": "work/network-pair-assembly-local1/LICENSE",
@@ -859,8 +869,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/graphics_runner.py",
-      "bytes": 28098,
-      "sha256": "b35b49f108923460703fea815f920988d9c5f14b76ad43cad6d269de3dc66f01"
+      "bytes": 31711,
+      "sha256": "89e6d259391c72afdf725a78d627058b64265043bc4fef44b238046f46afcf04"
     },
     {
       "path": "work/network-pair-cold-glue/lifetime-cleanup-checks.json",
@@ -870,7 +880,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 1645,
-      "sha256": "e1d376e0fc5c112ecbf433b36e89a3bf6f13ce959c76acad071aa7e040406381"
+      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -1008,14 +1018,24 @@
       "sha256": "3bf7ac7c62eae71fcbabf05ccc00c1fd33c45032fc1b4536540bbd6fb9fb43f2"
     },
     {
+      "path": "work/network-pair-cold-glue/test_graphics_cleanup_proof.py",
+      "bytes": 2536,
+      "sha256": "45be30e5595175d7415bc3ea83e882d6a859c54f52aefa7c567238a42bc32433"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_graphics_discovery.py",
+      "bytes": 2274,
+      "sha256": "9cd206937d8ee33fbb9f5fb8cb6dafe9f40a307597dcf556062a4a8c162d9fb5"
+    },
+    {
       "path": "work/network-pair-cold-glue/test_graphics_diversions.py",
       "bytes": 7168,
       "sha256": "8dabf5c830ce31cea683164bd64f137cea35a574d878b4c53954e04bb04d3bd1"
     },
     {
       "path": "work/network-pair-cold-glue/test_graphics_runner.py",
-      "bytes": 11703,
-      "sha256": "cabd6989330eb17103fa45dad07f7ff21576c5eba22682b2f288e132376d260d"
+      "bytes": 11938,
+      "sha256": "a23636c05414e7ffade0008960d24a7ec8b0fe75a9d3147e0f2febf84aaf7e14"
     },
     {
       "path": "work/network-pair-cold-glue/test_owned_spawn_cleanup.py",

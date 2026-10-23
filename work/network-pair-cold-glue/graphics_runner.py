@@ -21,7 +21,7 @@ import time
 
 HERE = Path(__file__).resolve().parent
 COLLECTOR = 'work/network-graphics-ci-portable2/graphics_preflight.py'
-COLLECTOR_SHA = 'b79ab2ba6d586d3ed2c0301373132c5cf000d2b86578732bf0e5f1c78f09214d'
+COLLECTOR_SHA = '6b1063dae989f3934ab26b49646b7c0e96331067a4aa86b6b052bba5ee58e189'
 SUPERVISOR = 'work/network-ci-supervisor-portable3/supervisor.py'
 SUPERVISOR_SHA = '77374f48481d53c19abf6c2d071f3caa3fa849afa9706a0c6536aecb4bc3fc2a'
 MIB = 1024 * 1024
@@ -30,7 +30,9 @@ GRAPHICS_RECEIPT_MAX_BYTES = 32 * 1024
 ACTIVE_DEADLINE = None
 REQUIRED = {'xvfb': '/usr/bin/Xvfb', 'glxinfo': '/usr/bin/glxinfo.x86_64-linux-gnu',
             'software_dri': '/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so',
-            'mesa_glx': '/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0'}
+            'mesa_glx': '/usr/lib/x86_64-linux-gnu/libGLX_mesa.so.0',
+            'egl_dispatch': '/usr/lib/x86_64-linux-gnu/libEGL.so.1',
+            'mesa_egl': '/usr/lib/x86_64-linux-gnu/libEGL_mesa.so.0'}
 
 
 def require(ok, message):
@@ -45,6 +47,30 @@ def pin(path):
     with path.open('rb') as stream:
         digest = hashlib.file_digest(stream, 'sha256').hexdigest()
     return {'path': str(path), 'bytes': path.stat().st_size, 'sha256': digest}
+
+
+def pin_loader_cache():
+    """Bounded no-follow snapshot of the single generated loader configuration."""
+    path = trusted_installed('/etc/ld.so.cache')
+    require(str(path) == '/etc/ld.so.cache', 'Loader cache must not be redirected')
+    def identity(info):
+        return (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns,
+                info.st_ctime_ns, info.st_mode, info.st_uid, info.st_gid)
+    fd = os.open(path, os.O_RDONLY | os.O_NONBLOCK | os.O_NOFOLLOW)
+    try:
+        before = os.fstat(fd)
+        require(stat.S_ISREG(before.st_mode) and before.st_uid == 0 and
+                not before.st_mode & 0o022 and 0 < before.st_size <= MIB,
+                'Untrusted or excessive loader cache')
+        with os.fdopen(os.dup(fd), 'rb') as stream:
+            data = stream.read(MIB + 1)
+        require(len(data) == before.st_size and identity(os.fstat(fd)) == identity(before)
+                and identity(path.lstat()) == identity(before),
+                'Loader cache changed during bounded read')
+        return ({'path': str(path), 'bytes': len(data),
+                 'sha256': hashlib.sha256(data).hexdigest()}, identity(before))
+    finally:
+        os.close(fd)
 
 
 def write(path, value):
@@ -288,6 +314,10 @@ def observe(plan):
     ldd = trusted_installed('/usr/bin/ldd', True)
     database = trusted_installed('/var/lib/dpkg/status')
     before = pin(database)
+    # ldconfig output is generated host state, never a package-owned library.
+    loader_cache = trusted_installed('/etc/ld.so.cache')
+    require(str(loader_cache) == '/etc/ld.so.cache', 'Loader cache must not be redirected')
+    cache_before, cache_identity = pin_loader_cache()
     packages, ownership = {}, {}
     diversion_state = {}
 
@@ -342,9 +372,10 @@ def observe(plan):
     files = set(roots.values())
     for name, path in roots.items():
         identity = owner(path, required.get(name))
-        if name in ('xvfb', 'glxinfo'):
-            expected = 'xvfb:' if name == 'xvfb' else 'mesa-utils-bin:'
-            require(identity.startswith(expected), 'Unexpected graphics tool package: ' + str(path))
+        expected_owner = {'xvfb': 'xvfb:', 'glxinfo': 'mesa-utils-bin:',
+                          'egl_dispatch': 'libegl1:', 'mesa_egl': 'libegl-mesa0:'}.get(name)
+        if expected_owner:
+            require(identity.startswith(expected_owner), 'Unexpected graphics tool package: ' + str(path))
         with path.open('rb') as stream:
             magic = stream.read(4)
         require(magic == b'\x7fELF', 'ldd input is not a recognized installed ELF: ' + str(path))
@@ -354,7 +385,13 @@ def observe(plan):
             owner(canonical, alias)
             files.add(canonical)
     require(len(files) + 1 <= 128, 'Installed native closure exceeds frozen collector pin bound')
+    files.add(loader_cache)
+    require(len(files) + 1 <= 128, 'Installed native closure exceeds frozen collector pin bound')
     actual = [pin(path) for path in sorted(files)]
+    require(pin_loader_cache() == (cache_before, cache_identity),
+            'Loader cache changed during installed observation')
+    require(next(row for row in actual if row['path'] == '/etc/ld.so.cache') == cache_before,
+            'Loader cache pin differs from stable snapshot')
     require(pin(database) == before, 'Package database changed during installed observation')
     if diversion_state:
         require(pin(trusted_installed('/var/lib/dpkg/diversions')) == diversion_state['before'],
@@ -364,13 +401,16 @@ def observe(plan):
                    'runner': runner, 'packageDatabaseBeforeAfter': before,
                    'inventoryTools': [pin(dpkg), pin(ldd)], 'queries': raw, 'files': actual,
                    'diversionDatabaseBeforeAfter': diversion_state.get('before'),
+                   'generatedLoaderCacheBeforeAfter': cache_before,
                    'producer': plan['producer'], 'archiveSignaturesVerified': False}
     evidence = write(Path(plan['observationPath']), observation)
-    provenance = {'schema': 1, 'status': 'OBSERVED_INSTALLED_PACKAGES',
+    provenance = {'schema': 2, 'status': 'OBSERVED_INSTALLED_PACKAGES',
                   'observation_reference': evidence['path'] + '#sha256=' + evidence['sha256'],
                   'distribution': distribution, 'runner': runner,
                   'packages': sorted(packages.values(), key=lambda r: (r['package'], r['architecture'])),
-                  'file_packages': {r['path']: ownership[r['path']] for r in actual},
+                  'file_packages': {r['path']: ownership[r['path']] for r in actual if r['path'] != str(loader_cache)},
+                  'generated_config': {'/etc/ld.so.cache': {'kind': 'root-owned-ldconfig-cache',
+                                                        'sha256': cache_before['sha256']}},
                   'file_sha256': {r['path']: r['sha256'] for r in actual}}
     provenance_pin = write(Path(plan['provenancePath']), provenance)
     lock = {'schema': 'network-graphics-lock-v1', 'status': 'COMPLETE_REVIEWED',
@@ -408,8 +448,24 @@ def stop(handle):
         path = Path(handle['lifecyclePath'])
         require(path.is_file(), 'Collector exited without lifecycle evidence')
         lifecycle = json.loads(path.read_text())
-        require(lifecycle.get('status') == 'STOPPED_BY_ORCHESTRATOR' and not lifecycle.get('cleanup_errors'),
-                'Collector lifecycle did not confirm cleanup: ' + repr(lifecycle))
+        require(type(lifecycle.get('schema')) is int and lifecycle['schema'] == 1 and
+                lifecycle.get('pair_acceptance') is False and
+                lifecycle.get('status') in ('STOPPED_BY_ORCHESTRATOR', 'FAILED') and
+                not lifecycle.get('cleanup_errors'), 'Collector lifecycle reports cleanup failure')
+        cleanup = lifecycle.get('cleanup')
+        require(isinstance(cleanup, dict) and cleanup.get('collector_pid') == process.pid and
+                cleanup.get('all_reaped') is True, 'Collector lacks explicit owned-child cleanup proof')
+        children = cleanup.get('children')
+        expected = cleanup.get('expected_children')
+        require(type(expected) is int and 0 <= expected <= 2 and isinstance(children, list) and
+                len(children) == expected, 'Incomplete graphics child cleanup proof')
+        require(lifecycle['status'] != 'STOPPED_BY_ORCHESTRATOR' or expected == 2,
+                'Successful preflight must clean both owned children')
+        require(all(isinstance(row, dict) and set(row) == {'pid', 'reaped', 'returncode'} and
+                    type(row['pid']) is int and row['pid'] > 0 and row['reaped'] is True and
+                    type(row['returncode']) is int for row in children) and
+                len({row['pid'] for row in children}) == len(children),
+                'Invalid graphics child cleanup proof')
         return {'status': 'GRAPHICS_COLLECTOR_CLEANED', 'lifecycle': pin(path)}
     finally:
         # Retain exact ownership handles if bounded cleanup did not complete,

@@ -111,10 +111,11 @@ def validate_installed_observations(provenance, lock, pins, s):
     file ownership and hashes. This parser checks consistency and exact file
     pins; it neither runs dpkg nor verifies archive signatures or .deb origins.
     """
+    extra = ('generated_config',) if provenance.get('schema') == 2 else ()
     s.exact_keys(provenance, ('schema', 'status', 'observation_reference', 'distribution',
-                             'runner', 'packages', 'file_packages', 'file_sha256'),
+                             'runner', 'packages', 'file_packages', 'file_sha256') + extra,
                  'installed package observations')
-    require(provenance['schema'] == 1 and
+    require(type(provenance['schema']) is int and provenance['schema'] in (1, 2) and
             provenance['status'] == 'OBSERVED_INSTALLED_PACKAGES',
             'Explicit installed-package observation status required')
     require(isinstance(provenance['observation_reference'], str) and
@@ -144,7 +145,8 @@ def validate_installed_observations(provenance, lock, pins, s):
             'Observed Xvfb, GLX utility and Mesa DRI packages required')
     mapping = provenance['file_packages']
     files = set(pins) - {lock['package_provenance']}
-    require(isinstance(mapping, dict) and set(mapping) == files and
+    generated = validate_generated_config(provenance.get('generated_config'), pins, s) if extra else set()
+    require(isinstance(mapping, dict) and set(mapping) == files - generated and
             all(isinstance(value, str) and value in identities for value in mapping.values()),
             'Every tool/library needs observed package ownership')
     require(mapping[lock['tools']['xvfb']].startswith('xvfb:') and
@@ -154,6 +156,30 @@ def validate_installed_observations(provenance, lock, pins, s):
     require(isinstance(hashes, dict) and set(hashes) == files and
             all(hashes[path] == pins[path] for path in files),
             'Every observed file SHA-256 must equal its reviewed input pin')
+
+
+def validate_generated_config(generated, pins, s):
+    """Only the observed root-owned loader cache, not arbitrary unowned inputs."""
+    require(isinstance(generated, dict) and set(generated) == {'/etc/ld.so.cache'},
+            'Only the exact generated loader cache is admitted')
+    row = generated['/etc/ld.so.cache']
+    s.exact_keys(row, ('kind', 'sha256'), 'generated loader cache')
+    require(row['kind'] == 'root-owned-ldconfig-cache' and
+            row['sha256'] == pins.get('/etc/ld.so.cache') and
+            re.fullmatch(r'[0-9a-f]{64}', row['sha256'] or ''),
+            'Generated loader cache hash must match its input pin')
+    path = Path('/etc/ld.so.cache')
+    require(path.resolve(strict=True) == path and not path.is_symlink(),
+            'Generated loader cache must not be redirected')
+    info = path.stat()
+    require(stat.S_ISREG(info.st_mode) and 0 < info.st_size <= MIB and
+            info.st_uid == 0 and not info.st_mode & 0o022,
+            'Untrusted generated loader cache')
+    for parent in path.parents:
+        info = parent.stat()
+        require(info.st_uid == 0 and not info.st_mode & 0o022,
+                'Untrusted generated loader cache ancestor')
+    return {'/etc/ld.so.cache'}
 
 
 def parse_glxinfo(text, display):
@@ -412,9 +438,14 @@ def execute(lock, pins, s, destination, lock_identity=None):
         raise
     finally:
         cleanup_errors = []
+        cleanup_children = []
         for child in reversed(children):
             try:
                 child.stop()
+                require(child.result is not None and type(child.result.get('returncode')) is int,
+                        'Owned graphics child lacks wait4 reaping evidence')
+                cleanup_children.append({'pid': child.pid, 'reaped': True,
+                                         'returncode': child.result['returncode']})
             except Exception as error:
                 cleanup_errors.append(str(error))
         logs.close()
@@ -422,6 +453,9 @@ def execute(lock, pins, s, destination, lock_identity=None):
             signal.signal(number, handler)
         if cleanup_errors:
             result.update(status='CLEANUP_FAILED', cleanup_errors=cleanup_errors)
+        result['cleanup'] = {'collector_pid': os.getpid(), 'expected_children': len(children),
+                             'children': cleanup_children,
+                             'all_reaped': not cleanup_errors and len(cleanup_children) == len(children)}
         write_receipt(destination, 'lifecycle.json', result, s)
         require(not cleanup_errors, 'Owned graphics child cleanup failed')
 

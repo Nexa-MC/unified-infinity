@@ -92,3 +92,20 @@ modes follow the selected helper contract. No permissions are changed here.
 observations and the unchanged graphics validator pass. Raw measurements and
 loader logs remain reviewable. No static validation result, observation label or
 source checkpoint provides CI dispatch authority or successful pair acceptance.
+
+
+## Generated loader-cache observation, schema 2
+
+The installed-observation schema 1 remains unchanged. Schema 2 adds only
+`generated_config`, exactly one entry for `/etc/ld.so.cache`, with exact fields
+`kind: root-owned-ldconfig-cache` and its pinned `sha256`. This generated host
+configuration is not claimed as package-owned or vendor-authenticated. In this
+mode `file_packages` covers every other tool/library input; `file_sha256` still
+covers every input including the cache. The cache must be canonical, root-owned,
+not group/world writable, and a regular file of 1 byte through 1 MiB, with trusted
+ancestors. Producer reads are bounded and no-follow, comparing descriptor/path
+identity and hashes before/after discovery. Collector rechecks ownership and the
+normal complete file pins before/after execution. Unknown runtime trace paths
+remain rejected. Exact installed EGL dispatcher and Mesa EGL roots extend ldd
+discovery, including their normal Wayland dependency, without trusting observed
+unknown paths automatically. This is source-tested, not graphics readiness.

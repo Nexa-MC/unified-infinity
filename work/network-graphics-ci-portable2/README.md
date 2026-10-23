@@ -39,7 +39,7 @@ The existing CLI and lock schema are unchanged. `LOCK-CONTRACT.md` specifies the
 observed receipt's exact keys. A future authorized producer on the **actual
 GitHub Ubuntu 24.04 runner** records `/etc/os-release` identity, its real
 `ImageOS`, `ImageVersion`, machine, installed package database versions and
-architectures, and ownership of every canonical pinned file. Retain the raw
+architectures, and ownership of every canonical pinned tool/library file (the exact generated cache exception is described below). Retain the raw
 observations in the review evidence named by `observation_reference`; obtain
 file hashes from the real files, not from package web pages or image manifests.
 Record canonical file ownership even when a public executable or library name
@@ -114,3 +114,20 @@ archive claims, and local-runtime rejection. Existing execution and cleanup
 functions/classes remain AST-identical to portable1; the original 15 test
 bodies remain unchanged. See `evidence/` and `source-manifest.json` for source
 and test evidence. Synthetic passes establish no real graphics feasibility.
+
+
+## Generated loader-cache observation, schema 2
+
+The installed-observation schema 1 remains unchanged. Schema 2 adds only
+`generated_config`, exactly one entry for `/etc/ld.so.cache`, with exact fields
+`kind: root-owned-ldconfig-cache` and its pinned `sha256`. This generated host
+configuration is not claimed as package-owned or vendor-authenticated. In this
+mode `file_packages` covers every other tool/library input; `file_sha256` still
+covers every input including the cache. The cache must be canonical, root-owned,
+not group/world writable, and a regular file of 1 byte through 1 MiB, with trusted
+ancestors. Producer reads are bounded and no-follow, comparing descriptor/path
+identity and hashes before/after discovery. Collector rechecks ownership and the
+normal complete file pins before/after execution. Unknown runtime trace paths
+remain rejected. Exact installed EGL dispatcher and Mesa EGL roots extend ldd
+discovery, including their normal Wayland dependency, without trusting observed
+unknown paths automatically. This is source-tested, not graphics readiness.

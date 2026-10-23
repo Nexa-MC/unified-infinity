@@ -9,8 +9,8 @@
     },
     {
       "path": "LOCK-CONTRACT.md",
-      "bytes": 5648,
-      "sha256": "af50e171c16e93c4458f2a9f16fd4805f33eef8353e282a714bd2fe361e162a8"
+      "bytes": 6726,
+      "sha256": "a7bf9dc4d7a6c5ac8bb3a4fb3ef450204acbe8527b914a89ea6b67356f0642f3"
     },
     {
       "path": "PROVENANCE.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6697,
-      "sha256": "457c0ff094cd74378699cabf06b526249037cb336a45d8753034c92db83007a4"
+      "bytes": 7845,
+      "sha256": "d28e3a4dd4e233e2e738092fc786b03eacdf9e0566375ce88651554b23c2902c"
     },
     {
       "path": "evidence/source-checks.json",
@@ -34,13 +34,23 @@
     },
     {
       "path": "graphics_preflight.py",
-      "bytes": 24131,
-      "sha256": "b79ab2ba6d586d3ed2c0301373132c5cf000d2b86578732bf0e5f1c78f09214d"
+      "bytes": 26234,
+      "sha256": "6b1063dae989f3934ab26b49646b7c0e96331067a4aa86b6b052bba5ee58e189"
     },
     {
       "path": "official-input-research.json",
       "bytes": 4700,
       "sha256": "2a2c8bc5a96f5397a45170dd5555379639ad83d9ee4e0eeadba9a49fa1f2949a"
+    },
+    {
+      "path": "test_cleanup_lifecycle.py",
+      "bytes": 3415,
+      "sha256": "cc6aa9904b0f0d75a4253a4d2ed029efece9a47d5bbbc8f3464c6bc48151daf8"
+    },
+    {
+      "path": "test_generated_cache.py",
+      "bytes": 3795,
+      "sha256": "ec9b87f6ee075eea6d23cd5a6b7b5b5a5e852f26c0ea12ef9f9f37809a22784b"
     },
     {
       "path": "test_graphics_preflight.py",
@@ -49,13 +59,13 @@
     },
     {
       "path": "test_installed_provenance.py",
-      "bytes": 10071,
-      "sha256": "5d1a76361d2412938b9bc94947103567185fd752dc87d8fd9bc2aaa6d6ac6e21"
+      "bytes": 10240,
+      "sha256": "063993e7b37b19ce45d5fe162371775440fb7ec1110d5b9654f8f3ae6f3e5cc2"
     },
     {
       "path": "test_receipt_capacity.py",
-      "bytes": 3677,
-      "sha256": "9203fb4c66afb8bde0e8bde7a26cbb5b962bdb5a7afb96df72fe01b6e6c620e2"
+      "bytes": 3773,
+      "sha256": "2272438464551ab466e4ae2fbd79b0272dc2977725b85a7f51aaffe4a50ef870"
     }
   ]
 }

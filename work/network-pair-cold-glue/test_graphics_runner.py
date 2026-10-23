@@ -97,8 +97,8 @@ class GraphicsProducerSourceTests(unittest.TestCase):
     def test_cleanup_only_signals_owned_pidfd_and_checks_real_lifecycle(self):
         with tempfile.TemporaryDirectory(prefix='graphics-cleanup-fixture-') as folder:
             path = Path(folder) / 'lifecycle.json'
-            path.write_text(json.dumps({'status': 'STOPPED_BY_ORCHESTRATOR'}))
-            process = mock.Mock()
+            path.write_text(json.dumps({'schema': 1, 'pair_acceptance': False, 'status': 'STOPPED_BY_ORCHESTRATOR', 'cleanup': {'collector_pid': 321, 'all_reaped': True, 'expected_children': 2, 'children': [{'pid': 322, 'reaped': True, 'returncode': -15}, {'pid': 323, 'reaped': True, 'returncode': 0}]}}))
+            process = mock.Mock(pid=321)
             process.poll.side_effect = [None, 0]
             handle = {'process': process, 'pidfd': 42, 'log': mock.Mock(), 'lifecyclePath': str(path)}
             with mock.patch.object(g.signal, 'pidfd_send_signal') as signal, \
