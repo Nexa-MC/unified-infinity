@@ -201,3 +201,11 @@ assembly/prestart role receipt. The file is not under a required immutable
 config tree. No general mutable-file list was added. Whitelist/ops use the
 reviewed local4 exact schema serialization and remain exact byte pins; all
 config/defaultconfigs files retain exact hashes and complete inventory checks.
+
+## Exact CPU helper successor
+
+See [CPU-PROBE-POLICY.md](CPU-PROBE-POLICY.md) for the only permitted observed helper
+form and its fail-closed identity/lifecycle/resource contract. This does not add
+a configurable helper allowlist. Memory admission adds exactly 128 MiB to the
+unchanged pair plus measured graphics requirement. Runtime checks are sampled,
+not continuous process history or kernel enforcement.

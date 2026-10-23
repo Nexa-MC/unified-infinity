@@ -94,12 +94,12 @@ canonical legal targets. Its legal-link manifest validation passed. No zero-byte
 JDK files, unsafe file/directory modes, extra hardlinks or unexpected owners were
 found. These are source/input checks, not runtime or graphics acceptance.
 
-The whole Pair class remains AST-identical to portable1 after normalizing exactly
-five verification calls: the three properties checks and two pair-seal checks.
-Actual memory, graphics, socket observation, probe, spawn, shutdown, signal and
-cleanup paths are unchanged. The original thirty-test source file remains
-byte-identical. AST checks preserve the rest of verify_spec outside v2 admission,
-legal-tree inventory and the single properties dispatch.
+Historical preservation statements above describe the original preparation. The
+2026-10-23 CPU-probe successor explicitly changes descendant observation and owned
+helper cleanup, adds a 128 MiB memory reserve, and updates exactly those lifecycle
+and reserve preservation contracts. All unrelated graphics/socket/probe/spawn and
+immutable-input checks remain preserved. See CPU-PROBE-POLICY.md for the exact
+observed executable/argv evidence, conservative sampled limits and runtime limits.
 
 ```sh
 cd /workspace/scratch/414822c1ef1a/mod-compat-runtime/work/network-ci-supervisor-portable3
@@ -127,3 +127,9 @@ An already authorized runtime attempt additionally uses
 This source candidate does not authorize execution or establish a successful
 pair, GUI/tooltips, real EMI Fill Recipe, backpack rendering, performance or
 loader-wide compatibility. Actual runtime evidence is still required.
+
+## 2026-10-23 bounded CPU-probe successor
+
+The exact CPU helper is permitted only under [CPU-PROBE-POLICY.md](CPU-PROBE-POLICY.md).
+Unknown children still fail. Synthetic tests are not runtime acceptance. No
+platform permission, kernel resource limit, artifact or dependency pin changes.

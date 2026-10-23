@@ -4,24 +4,29 @@
   "runtimeStatus": "UNRUN",
   "files": [
     {
+      "path": "CPU-PROBE-POLICY.md",
+      "bytes": 5147,
+      "sha256": "c14bf075d7f9e535036c6750891818cf180065c57bd46fc6de9344eb2bd40397"
+    },
+    {
       "path": "LICENSE",
       "bytes": 1086,
       "sha256": "2882f2fb95e384c7ae9b89de40cbffab81156ad12917f029214dd2607bdcb8bb"
     },
     {
       "path": "PAIR-SPEC.md",
-      "bytes": 14056,
-      "sha256": "5fd417e7956810712f49dcc8bd1a4431f08a7100301180cf9e37e458eb16718a"
+      "bytes": 14466,
+      "sha256": "c9bd3c22cc1bba65159df0d79482e8ee1f2c67c733d00162efc45a0181113590"
     },
     {
       "path": "PROVENANCE.json",
-      "bytes": 3164,
-      "sha256": "48c3836b2a75870caa2fd4dbe04b4cd31240116287843f8930e4e8560719f5c2"
+      "bytes": 3744,
+      "sha256": "9b244d84c7f06c85cb186ed3d5520a31222a38acbca8b2fe5f09ee63e3bd402b"
     },
     {
       "path": "README.md",
-      "bytes": 7751,
-      "sha256": "c0f6108474ac615f1388ca218423677a278ffb6d7634307583fc1610bf59d3a7"
+      "bytes": 8076,
+      "sha256": "75e140255dcefb74a9cd0ab23c5d0c127aeeb4036d02fe9792624205318eeb07"
     },
     {
       "path": "evidence/actual-input-audit.json",
@@ -45,13 +50,13 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 91597,
-      "sha256": "61665321e0f549b6329452d288dd50e21bc14cb801ea006ac374ce57f3258871"
+      "bytes": 108805,
+      "sha256": "b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a"
     },
     {
       "path": "test_child_identity_diagnostics.py",
-      "bytes": 5141,
-      "sha256": "f3a8a9f20a3116e49e192c688075acd9f265a2ee3ef52b1aca70b5f7f6edea70"
+      "bytes": 5169,
+      "sha256": "157c2157eea227ea81d7c4f0a14b549df9adaa8952ffa9ff08c1ef64c2de3f4c"
     },
     {
       "path": "test_completed_reload.py",
@@ -60,8 +65,13 @@
     },
     {
       "path": "test_control_serialization.py",
-      "bytes": 19911,
-      "sha256": "d92eaf342b97ad113e88d7869ed001e7afa373be54e57a72d1f260dba6a93459"
+      "bytes": 20802,
+      "sha256": "c1c759461c7fed8622c34e87f1a56a281eaa201b198c09ea99dc036f795c79f4"
+    },
+    {
+      "path": "test_cpu_probe_policy.py",
+      "bytes": 19123,
+      "sha256": "af7093c371236ddeef02486f0d901e1e75f7d96bf6ecb1c4439acf38b9bf599e"
     },
     {
       "path": "test_fixed_lshw_argv.py",
@@ -80,13 +90,13 @@
     },
     {
       "path": "test_lifecycle_boundaries.py",
-      "bytes": 13821,
-      "sha256": "9933e74a443c35f70fa7ab7fcc17360a4448b16efd75d3b3cec9b3df8c88f934"
+      "bytes": 13896,
+      "sha256": "8b576b1e91ba73b767cada026f73e3d9da0915fdee2de13767e9afce4f91a32d"
     },
     {
       "path": "test_portability.py",
-      "bytes": 20173,
-      "sha256": "97a017127eeee6fb7411bd8f6aabc64368a9bac2aced4a22c54166d1b2dea34b"
+      "bytes": 20567,
+      "sha256": "848f61284c93b5abb8d60db8d997eb0629c04a79071af2fb2d831548563c6023"
     },
     {
       "path": "test_receipt_capacity.py",
@@ -95,8 +105,8 @@
     },
     {
       "path": "test_supervisor.py",
-      "bytes": 25545,
-      "sha256": "91d3e3e89407b6dd300d96595b9c4ddb13933181fed4f154c374310678529d42"
+      "bytes": 25601,
+      "sha256": "8490de9ee755f1fdf78e9f31569bfad368eacd9d8d9a851cb8b9634cbb8d3186"
     }
   ]
 }

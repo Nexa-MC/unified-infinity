@@ -229,11 +229,23 @@ class SourcePreservation(unittest.TestCase):
         source = (HERE / 'supervisor.py').read_text()
         diagnostic_line = "            self.report['unexpected_descendant_diagnostics'] = rejected_children_diagnostics(self.proc, escaped)\n"
         self.assertEqual(source.count(diagnostic_line), 1)
-        current = ast.parse(source.replace(diagnostic_line, '', 1))
+        source = source.replace(diagnostic_line, '', 1)
+        helper_close = '            self.cpu_helpers.close(self)\n'
+        self.assertEqual(source.count(helper_close), 1)
+        source = source.replace(helper_close, '', 1)
+        # Exactly additive 128 MiB helper reserve; no old threshold is reduced.
+        old_memory = "    required = PAIR_BYTES + graphics['reserve_bytes']"
+        self.assertEqual(source.count(old_memory + ' + CPU_PROBE_RESERVE_BYTES'), 1)
+        source = source.replace(old_memory + ' + CPU_PROBE_RESERVE_BYTES', old_memory, 1)
+        helper_receipt = "              'cpu_probe_reserve_bytes': CPU_PROBE_RESERVE_BYTES,\n"
+        self.assertEqual(source.count(helper_receipt), 1)
+        source = source.replace(helper_receipt, '', 1)
+        self.assertEqual(s.CPU_PROBE_RESERVE_BYTES, 128 * s.MIB)
+        current = ast.parse(source)
         expected = next(node for node in upstream.body if isinstance(node, ast.ClassDef) and node.name == 'Pair')
         actual = copy.deepcopy(next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Pair'))
-        # Exact recovered v6 lifecycle methods; other process behavior stays compared below.
-        expected_lifecycle_hashes = {'__init__': '85b7abbd4c94b939a3eaf1d6f3704e9f5254e49b1b8809f336c20d2df3aee0da', 'pump': '72e7aa503dd93b56b1138cd280b7fa3e8e85d5892abd07ffe4a56147e7f37b78', 'wait_for_completed_reload': 'beb2add1e1aed9feb42a60eef7ebbbf311cfb70578d4fdcdace0b515996b0f85'}
+        # Exact reviewed CPU-probe successor methods; other process behavior stays compared below.
+        expected_lifecycle_hashes = {'__init__': '9b2d518127bda163b1ca1ee05cb19ac7984c95d6df6fd4bb22466cdcb6e5b08a', 'pump': '533d939ee17a007ef942bbb63ea16d670ecfc6343f107dbb86c4173c746910c1', 'cleanup': '24e38e304fdb3a4cd24d563ae48b7264a2151f3708182fa6028509cbdad4374b', 'wait_for_completed_reload': 'beb2add1e1aed9feb42a60eef7ebbbf311cfb70578d4fdcdace0b515996b0f85'}
         for name, digest in expected_lifecycle_hashes.items():
             method = next(node for node in actual.body if isinstance(node, ast.FunctionDef) and node.name == name)
             self.assertEqual(hashlib.sha256(ast.dump(method, include_attributes=False).encode()).hexdigest(), digest)

@@ -1,0 +1,25 @@
+# Exact CPU-probe application test policy
+
+This successor changes the pair test supervisor's observation/acceptance rules only. It does not alter platform permissions, kernel limits, network settings, CI access or dependency/artifact pins. Runtime acceptance remains unproven until a fresh complete native and Unified pair succeeds.
+
+## Evidence and exact form
+
+The predecessor CI run https://github.com/Nexa-MC/unified-infinity/actions/runs/39987522655 rejected a direct native-server child. Its diagnostic recorded executable SHA-256 `ee5d244d47458564a6de33a7d08f8b72a1418c17469ebbd2e3fcc1136ad72c0f`, 980168 bytes, root-owned 0755, and `OSHI_PROCESSOR_FORM`. The classifier compared exactly the NUL-delimited bytes for `lshw -class processor`. Those bytes match the independently verified Ubuntu package `lshw_02.19.git.2021.06.19.996aaad9c7-2ubuntu0.24.04.1_amd64.deb`. Pinned OSHI 6.4.10 bytecode contains this invocation in CPU queries. This evidence does not prove the exact Java call stack, benign intent, or a complete execution history.
+
+Admission requires canonical `/usr/bin/lshw`, the exact size/hash, regular root:root 0755 singly linked inode, no deleted link, and actual non-writability of file and all parent directories by the ordinary runner. Every live observation rereads the complete executable hash, stable metadata/link signature, and twice the exact NUL-delimited argument bytes. System/display variants, alternate argv0, extra arguments, wrappers, unknown executables and diagnostics alone never authorize a helper. No raw process arguments, environment or arbitrary path is reported.
+
+The parent must be the retained live direct Java Popen child, with matching recorded PID/start tick/group/session. Its sealed command and executable inode/full metadata are rechecked before and after verification. Helper parentage, group/session, start tick, ordinary real/effective/saved/filesystem UID/GID, and zero inheritable/permitted/effective/ambient capabilities are checked explicitly. Helper pidfds are retained and checked for liveness before and after live verification. Same PID with different start time gets a new complete check and counts as another observed instance.
+
+## Finite sampled bounds
+
+Per Pair, at most four distinct observed helper identities per role, one concurrently observed helper per role, and two across the pair. Each sample requires kernel-start-derived age at most 10 seconds, cumulative user+system CPU at most 2 seconds, RSS and high-water RSS at most 64 MiB, exactly one thread, at most 64 observed file descriptors, and zero socket descriptors. There may be no child process of a helper, including zombies or a child outside the game group/session. Unknown/adopted helpers remain rejected. An additional 128 MiB memory-admission reserve covers the two helper RSS allowances; the original 3584 MiB pair budget and measured graphics reserve remain unchanged.
+
+These are intentionally conservative abort thresholds, not measured lshw performance guarantees, hard OS resource limits, or proof that unobserved transient instances never existed. `lshw -class` filters inventory output and is not proof of no network activity; the zero-socket rule may itself reject legitimate inventory behavior. Checks are sampled at supervisor pumps and bounded cooperatively; long external/kernel calls and intervals between pumps are not continuous monitoring. Receipts explicitly mark `sampled_observations=true`, `hard_resource_enforcement=false`, and `complete_process_history=false`.
+
+Only a previously fully verified helper may receive a separately labeled terminal-zombie observation. Its exact identity, ordinary credentials, live direct parent, group/session, age/CPU and absence of descendants remain required. A zombie is not a new admission, executable/argv revalidation, known exit code, or runtime PASS. Reappearance as live after a terminal observation fails. A successful pair still requires both clean Java exits, no live game-group survivor and no adopted child, including zombies.
+
+## Failure and cleanup
+
+Any failed observation remains sticky. The report gives only fixed policy rejection messages or an opaque observation-unavailable reason; executable diagnostics remain failure-only. Cleanup continues existing identity-checked owned-group signaling, additionally signals only retained helper pidfds if an admitted helper escaped its group, and waits within the existing TERM/KILL budgets even after Java exits. Only retained helper pidfds may be reaped after adoption via `waitid(P_PIDFD)`; no `waitpid(-1)` or name/PID-only signaling is added. Observation/reaping/handle errors and surviving adopted zombies mark cleanup incomplete without replacing the primary failure. No helper is launched by the supervisor.
+
+Tests use synthetic files, process snapshots and mocked retained handles, never lshw/game execution. Preservation contracts explicitly update the affected lifecycle fingerprints and exact additive memory expressions while retaining all unaffected source comparisons. Historical fixtures missing from the publication are reported separately rather than represented as passed.

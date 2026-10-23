@@ -243,14 +243,15 @@ class PortableMemory(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Aggregate memory'):
             self.gate()  # Only 2 GiB is eligible after reclaim, never 4 GiB.
 
-    def test_unchanged_three_and_half_gib_plus_measured_reserve_threshold(self):
+    def test_original_pair_plus_graphics_and_two_helper_reserve_threshold(self):
         self.assertEqual(s.PROCESS_BYTES, (1280+512)*s.MIB)
         self.assertEqual(s.PAIR_BYTES, 3758096384)
         for reserve in (256*s.MIB, 640*s.MIB):
             self.graphics['reserve_bytes'] = reserve
-            required = 3758096384 + reserve
+            required = 3758096384 + reserve + 128*s.MIB
             (self.procroot / 'meminfo').write_text(f'MemAvailable: {required//1024} kB\n')
             self.assertEqual(self.gate()['required_bytes'], required)
+            self.assertEqual(self.gate()['cpu_probe_reserve_bytes'], 128*s.MIB)
             (self.procroot / 'meminfo').write_text(f'MemAvailable: {required//1024-1} kB\n')
             with self.assertRaisesRegex(ValueError, 'Aggregate memory'):
                 self.gate()
@@ -323,7 +324,7 @@ class PortableMemory(unittest.TestCase):
         (self.procroot / '77').mkdir()
         (self.procroot / '77/comm').write_text('java\n')
         (self.procroot / '77/status').write_text('RssAnon: 9999999 kB\n')
-        required = s.PAIR_BYTES + self.graphics['reserve_bytes']
+        required = s.PAIR_BYTES + self.graphics['reserve_bytes'] + s.CPU_PROBE_RESERVE_BYTES
         (self.procroot / 'meminfo').write_text(f'MemAvailable: {(required-s.PROCESS_BYTES)//1024} kB\n')
         with patch.object(self.proc, 'all_identities', return_value=[identity]), patch.object(self.proc, 'same') as same:
             result = s.memory_gate(self.proc, self.graphics, identity)
@@ -343,7 +344,11 @@ class FrozenContract(unittest.TestCase):
         for row in json.loads((frozen / 'source-manifest.json').read_text())['files']:
             self.assertEqual((frozen / row['path']).stat().st_size, row['bytes'])
             self.assertEqual(s.digest(frozen / row['path']), row['sha256'])
-        self.assertEqual((here / 'test_supervisor.py').read_bytes().replace(
+        current_tests = (here / 'test_supervisor.py').read_bytes()
+        reserve_delta = b's.PAIR_BYTES + 256*s.MIB + s.CPU_PROBE_RESERVE_BYTES)'
+        self.assertEqual(current_tests.count(reserve_delta), 2)
+        current_tests = current_tests.replace(reserve_delta, b's.PAIR_BYTES + 256*s.MIB)')
+        self.assertEqual(current_tests.replace(
             b"file('server/ops.json', b'[]\\n')", b"file('server/ops.json', b'[]')"),
             (frozen / 'test_supervisor.py').read_bytes())
 

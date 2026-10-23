@@ -19,7 +19,7 @@ import time
 import types
 
 MIB = 1024 * 1024
-SUPERVISOR_SHA256 = '61665321e0f549b6329452d288dd50e21bc14cb801ea006ac374ce57f3258871'
+SUPERVISOR_SHA256 = 'b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a'
 MAX_LOG = MIB
 MAX_LIFETIME = 42 * 60  # Shared by both serial 650-second pairs; bounded by driver work budget.
 

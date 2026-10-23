@@ -62,5 +62,17 @@
     "path": "evidence/actual-input-audit.json",
     "bytes": 827,
     "sha256": "7f051081aaa2614d0efd711ad5c22e773ce4e2045c43f8f09e8ec8dade7d52cb"
+  },
+  "cpuProbeSuccessor": {
+    "status": "SOURCE_ONLY_RUNTIME_UNPROVEN",
+    "predecessorCommit": "b0912a32d349735a7c60bc94de390640d3c054da",
+    "policy": "CPU-PROBE-POLICY.md",
+    "applicationPolicyOnly": true,
+    "changes": [
+      "Exact source-supported observed processor helper with finite sampled identity/lifecycle/resource bounds",
+      "Retained-pidfd helper cleanup and reaping; unknown helpers still rejected",
+      "Additive 128 MiB helper memory reserve; original pair and graphics requirement unchanged"
+    ],
+    "artifactAndDependencyPinsChanged": false
   }
 }

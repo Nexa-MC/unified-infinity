@@ -8,7 +8,7 @@ from pathlib import Path
 from prepare_inputs import require, pin, load, save
 
 # Filled with the reviewed final supervisor identity before source freeze.
-SUPERVISOR_SHA = '61665321e0f549b6329452d288dd50e21bc14cb801ea006ac374ce57f3258871'
+SUPERVISOR_SHA = 'b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a'
 
 def merge_pins(left,right):
     result={r['path']:r for r in left}

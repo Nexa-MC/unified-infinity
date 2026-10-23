@@ -71,7 +71,7 @@ class ExecutableDiagnostic(unittest.TestCase):
     def test_diagnostic_source_never_reads_private_process_fields(self):
         source=Path(s.__file__).read_text().split('def rejected_child_executable',1)[1].split('class Proc:',1)[0]
         self.assertNotIn("/cmdline",source);self.assertNotIn("/environ",source);self.assertNotIn("/fd/",source)
-    def test_pump_normalization_preserves_exact_rejection(self):
+    def test_pump_exact_reviewed_cpu_probe_successor_contract(self):
         source=Path(s.__file__).read_text()
         line="            self.report['unexpected_descendant_diagnostics'] = rejected_children_diagnostics(self.proc, escaped)\n"
         self.assertEqual(source.count(line),1)
@@ -80,8 +80,8 @@ class ExecutableDiagnostic(unittest.TestCase):
             pump=next(n for n in pair.body if isinstance(n,ast.FunctionDef) and n.name=='pump')
             return hashlib.sha256(ast.dump(pump,include_attributes=False).encode()).hexdigest()
         normalized=source.replace(line,'',1)
-        expected='72e7aa503dd93b56b1138cd280b7fa3e8e85d5892abd07ffe4a56147e7f37b78'
+        expected='533d939ee17a007ef942bbb63ea16d670ecfc6343f107dbb86c4173c746910c1'
         self.assertEqual(pump_hash(normalized),expected)
-        self.assertNotEqual(pump_hash(normalized.replace("raise ValueError('Unexpected game descendant or adopted helper')",'pass')),expected)
+        self.assertNotEqual(pump_hash(normalized.replace("raise ValueError('Unexpected game descendant or CPU probe contract violation') from None",'pass')),expected)
 
 if __name__=='__main__':unittest.main()

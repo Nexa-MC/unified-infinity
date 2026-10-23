@@ -41,7 +41,7 @@ class RetainedChildRace(unittest.TestCase):
                 raise subprocess.TimeoutExpired('synthetic-owned-child', timeout)
             return delayed
         child.wait = Mock(side_effect=wait)
-        obj = SimpleNamespace(deadline=100 + remaining, logs={},
+        obj = SimpleNamespace(cpu_helpers=s.CpuProbePolicy(), deadline=100 + remaining, logs={},
                               selector=SimpleNamespace(select=lambda _: []),
                               children={'client': child}, report={'exits': {}},
                               identities={'client': identity}, group_members={'client': [identity]},
@@ -95,7 +95,7 @@ class CausalResultObservation(unittest.TestCase):
     def test_absence_is_captured_before_pass_and_not_replaced_after_publication(self):
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder) / 'network-control-client-result.json'
-            obj = SimpleNamespace(deadline=100, logs={'client': SimpleNamespace(events={})},
+            obj = SimpleNamespace(cpu_helpers=s.CpuProbePolicy(), report={}, deadline=100, logs={'client': SimpleNamespace(events={})},
                                   spec={'client': {'cwd': folder}}, client_result_absent_monotonic=None,
                                   selector=SimpleNamespace(select=lambda _: []), children={}, identities={},
                                   proc=SimpleNamespace(all_identities=lambda: []))

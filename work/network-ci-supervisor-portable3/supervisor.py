@@ -15,6 +15,7 @@ from pathlib import Path
 import re
 import secrets
 import selectors
+import select
 import signal
 import stat
 import subprocess
@@ -534,6 +535,301 @@ def rejected_children_diagnostics(proc, rows):
             'truncated': len(rows) > len(results), 'children': results}
 
 
+# This is an application test contract, not an OS sandbox or permission change.
+CPU_PROBE_SHA256 = 'ee5d244d47458564a6de33a7d08f8b72a1418c17469ebbd2e3fcc1136ad72c0f'
+CPU_PROBE_BYTES = 980168
+CPU_PROBE_ARGV = b'lshw\0-class\0processor\0'
+CPU_PROBE_PATH = '/usr/bin/lshw'
+CPU_PROBE_MAX_PER_ROLE = 4
+CPU_PROBE_MAX_SECONDS = 10
+CPU_PROBE_MAX_CPU_SECONDS = 2
+CPU_PROBE_MAX_RSS = 64 * MIB
+CPU_PROBE_RESERVE_BYTES = 2 * CPU_PROBE_MAX_RSS
+
+
+def cpu_probe_credentials(proc, identity, helper=False, terminal=False):
+    """Read only fixed credential/resource fields; never environment or raw argv."""
+    def same():
+        if not terminal:
+            return proc.same(identity)
+        actual = proc.identity(identity['pid'])
+        require(actual['state'] == 'Z' and all(actual[key] == identity[key] for key in
+                ('pid', 'start_ticks', 'ppid', 'pgrp', 'session')), 'CPU probe terminal identity changed')
+        return actual
+    same()
+    values = {}
+    for line in read_bounded(proc.root / str(identity['pid']) / 'status', 65536).decode('ascii').splitlines():
+        require(':' in line, 'CPU probe malformed status')
+        key, value = line.split(':', 1)
+        require(key not in values, 'CPU probe duplicate status field')
+        values[key] = value.strip()
+    for key, ids in (('Uid', os.getresuid()), ('Gid', os.getresgid())):
+        require(ids[0] > 0 and len(set(ids)) == 1, 'CPU probe requires ordinary runner identity')
+        require(re.fullmatch(r'\d+\s+\d+\s+\d+\s+\d+', values.get(key, '')) is not None and
+                tuple(map(int, values[key].split())) == (*ids, ids[0]), 'CPU probe credential mismatch')
+    for key in ('CapInh', 'CapPrm', 'CapEff', 'CapAmb'):
+        require(re.fullmatch('[0-9a-fA-F]{16}', values.get(key, '')) is not None and
+                int(values[key], 16) == 0, 'CPU probe capability mismatch')
+    high_water = 0
+    if helper:
+        require(values.get('Threads') == '1', 'CPU probe must be single threaded')
+        require(re.fullmatch(r'\d+ kB', values.get('VmHWM', '')) is not None,
+                'CPU probe missing high-water RSS')
+        high_water = int(values['VmHWM'].split()[0]) * 1024
+        require(high_water <= CPU_PROBE_MAX_RSS, 'CPU probe high-water RSS exceeded')
+    same()
+    return high_water
+
+
+def cpu_probe_parent(proc, parent, command):
+    live = proc.same(parent)
+    require(live['ppid'] == os.getpid(), 'CPU probe game parent was reparented')
+    cpu_probe_credentials(proc, parent)
+    require(proc.command(parent) == command, 'CPU probe parent command changed')
+    expected = os.stat(command[0], follow_symlinks=False)
+    actual = os.stat(proc.root / str(parent['pid']) / 'exe')
+    signature = lambda value: (value.st_dev, value.st_ino, value.st_size, value.st_mode,
+                               value.st_uid, value.st_gid, value.st_mtime_ns, value.st_ctime_ns)
+    require(stat.S_ISREG(expected.st_mode) and signature(actual) == signature(expected),
+            'CPU probe parent executable changed')
+    proc.same(parent)
+    return signature(expected)
+
+
+def cpu_probe_usage(proc, expected):
+    raw = read_bounded(proc.root / str(expected['pid']) / 'stat', 16384).decode('ascii')
+    fields = raw[raw.rfind(')') + 2:].split()
+    require(int(raw[:raw.index('(')].strip()) == expected['pid'] and len(fields) >= 22 and
+            int(fields[19]) == expected['start_ticks'], 'CPU probe resource identity changed')
+    ticks = os.sysconf('SC_CLK_TCK')
+    require(ticks > 0 and int(fields[11]) >= 0 and int(fields[12]) >= 0, 'CPU probe invalid CPU ticks')
+    cpu_ticks = int(fields[11]) + int(fields[12])
+    age = time.clock_gettime(time.CLOCK_BOOTTIME) - expected['start_ticks'] / ticks
+    require(0 <= age <= CPU_PROBE_MAX_SECONDS, 'CPU probe lifetime exceeded')
+    require(0 <= cpu_ticks <= CPU_PROBE_MAX_CPU_SECONDS * ticks, 'CPU probe CPU budget exceeded')
+    return age, cpu_ticks
+
+
+def cpu_probe_zombie(proc, expected, parent, command):
+    # A previously verified helper may become a direct parent's unreaped zombie.
+    # This is terminal observation only: no executable/argv or exit-code claim.
+    parent_signature = cpu_probe_parent(proc, parent, command)
+    def terminal():
+        actual = proc.identity(expected['pid'])
+        require(all(actual[key] == expected[key] for key in ('pid', 'start_ticks', 'ppid', 'pgrp', 'session')) and
+                actual['state'] == 'Z' and actual['ppid'] == parent['pid'] and
+                actual['pgrp'] == parent['pgrp'] and actual['session'] == parent['session'] and
+                actual['start_ticks'] >= parent['start_ticks'], 'CPU probe zombie relationship changed')
+    terminal()
+    cpu_probe_credentials(proc, expected, terminal=True)
+    age, cpu_ticks = cpu_probe_usage(proc, expected)
+    terminal()
+    require(cpu_probe_parent(proc, parent, command) == parent_signature,
+            'CPU probe parent executable changed during verification')
+    return {'age_seconds': round(age, 3), 'cpu_ticks': cpu_ticks,
+            'rss_bytes': 0, 'high_water_rss_bytes': 0}
+
+
+def cpu_probe_handle_live(descriptor):
+    poller = select.poll()
+    poller.register(descriptor, select.POLLIN | select.POLLHUP | select.POLLERR)
+    require(not poller.poll(0), 'CPU probe retained handle is not live')
+
+
+def cpu_probe_fds(proc, expected, deadline):
+    proc.same(expected)
+    with os.scandir(proc.root / str(expected['pid']) / 'fd') as entries:
+        for count, descriptor in enumerate(entries, 1):
+            require(count <= 64 and time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
+            require(re.fullmatch(r'socket:\[\d+\]', os.readlink(descriptor.path)) is None,
+                    'CPU probe socket descriptor forbidden')
+    proc.same(expected)
+
+
+def cpu_probe_sample(proc, expected, parent, command, previous=None):
+    """Separate fail-closed admission; diagnostic labels are never authoritative."""
+    deadline = time.monotonic() + 1
+    def relationship():
+        live_parent, live = proc.same(parent), proc.same(expected)
+        require(live_parent['ppid'] == os.getpid() and live['ppid'] == parent['pid'] and
+                live['pgrp'] == parent['pgrp'] == parent['pid'] and
+                live['session'] == parent['session'] == parent['pid'] and
+                live['start_ticks'] >= parent['start_ticks'], 'CPU probe direct-parent relationship changed')
+        require(live['state'] in ('R', 'S', 'D'), 'CPU probe unexpected process state')
+        require(0 <= live['rss_bytes'] <= CPU_PROBE_MAX_RSS, 'CPU probe RSS exceeded')
+        return live
+    live = relationship()
+    parent_signature = cpu_probe_parent(proc, parent, command)
+    high_water = cpu_probe_credentials(proc, expected, helper=True)
+    path = proc.root / str(expected['pid']) / 'exe'
+    descriptor = None
+    try:
+        require(os.readlink(path) == CPU_PROBE_PATH, 'CPU probe executable path changed')
+        descriptor = os.open(path, os.O_RDONLY | os.O_NONBLOCK | os.O_CLOEXEC)
+        before = os.fstat(descriptor)
+        require(stat.S_ISREG(before.st_mode) and before.st_uid == before.st_gid == 0 and
+                stat.S_IMODE(before.st_mode) == 0o755 and before.st_nlink == 1 and
+                before.st_size == CPU_PROBE_BYTES, 'CPU probe executable metadata mismatch')
+        signature = lambda value: (value.st_dev, value.st_ino, value.st_size, value.st_mode,
+                                   value.st_uid, value.st_gid, value.st_nlink,
+                                   value.st_mtime_ns, value.st_ctime_ns)
+        identity = signature(before)
+        require(previous is None or previous == identity, 'CPU probe executable identity changed')
+        trusted_system_file_access(clean_path(CPU_PROBE_PATH), before)
+        hasher, size = hashlib.sha256(), 0
+        while True:
+            require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+            chunk = os.read(descriptor, min(65536, CPU_PROBE_BYTES + 1 - size))
+            if not chunk:
+                break
+            size += len(chunk)
+            require(size <= CPU_PROBE_BYTES, 'CPU probe executable size exceeded')
+            hasher.update(chunk)
+        require(size == CPU_PROBE_BYTES and hasher.hexdigest() == CPU_PROBE_SHA256,
+                'CPU probe executable digest mismatch')
+        args = proc.root / str(expected['pid']) / 'cmdline'
+        require(read_bounded(args, 128) == CPU_PROBE_ARGV and
+                read_bounded(args, 128) == CPU_PROBE_ARGV, 'CPU probe argument form mismatch')
+        cpu_probe_fds(proc, expected, deadline)
+        age, cpu_ticks = cpu_probe_usage(proc, expected)
+        require(os.readlink(path) == CPU_PROBE_PATH and signature(os.stat(path)) == identity and
+                signature(os.fstat(descriptor)) == identity, 'CPU probe executable changed during verification')
+        high_water = max(high_water, cpu_probe_credentials(proc, expected, helper=True))
+        require(cpu_probe_parent(proc, parent, command) == parent_signature,
+                'CPU probe parent executable changed during verification')
+        live = relationship()
+        require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+        return identity, {'age_seconds': round(age, 3), 'cpu_ticks': cpu_ticks,
+                          'rss_bytes': live['rss_bytes'], 'high_water_rss_bytes': high_water}
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+
+
+class CpuProbePolicy:
+    """Finite observed identities with owned pidfds; no unknown-child allowance."""
+    def __init__(self):
+        self.records = {}
+        self.failed = False
+
+    def check(self, pair, members, candidates):
+        require(not self.failed, 'CPU probe failure remains sticky')
+        accepted, active = set(), set()
+        try:
+            for row in candidates:
+                key = (row['pid'], row['start_ticks'])
+                role = next((name for name, parent in pair.identities.items()
+                             if row['ppid'] == parent['pid']), None)
+                require(role is not None and pair.children[role].poll() is None,
+                        'CPU probe requires retained live direct game parent')
+                require(role not in active, 'CPU probe simultaneous instance limit exceeded')
+                require(not any(child['ppid'] == row['pid'] for child in members),
+                        'CPU probe descendants forbidden')
+                old = self.records.get(key)
+                require(old is None or old['role'] == role, 'CPU probe parent role changed')
+                if old is None:
+                    require(sum(r['role'] == role for r in self.records.values()) < CPU_PROBE_MAX_PER_ROLE,
+                            'CPU probe total instance limit exceeded')
+                if row['state'] == 'Z':
+                    require(old is not None, 'CPU probe unverified zombie forbidden')
+                    metrics = cpu_probe_zombie(pair.proc, row, pair.identities[role], pair.spec[role]['command'])
+                    require(pair.children[role].poll() is None, 'CPU probe parent exited during verification')
+                    old['terminal_observations'] = old.get('terminal_observations', 0) + 1
+                    old['metrics'] = {name: max(value, old['metrics'][name]) for name, value in metrics.items()}
+                    active.add(role)
+                    continue
+                require(old is None or not old.get('terminal_observations'), 'CPU probe revived terminal identity')
+                fd = os.pidfd_open(row['pid'], 0) if old is None else old['pidfd']
+                try:
+                    cpu_probe_handle_live(fd)
+                    signature, metrics = cpu_probe_sample(pair.proc, row, pair.identities[role],
+                                                         pair.spec[role]['command'],
+                                                         old['signature'] if old else None)
+                    cpu_probe_handle_live(fd)
+                    require(pair.children[role].poll() is None, 'CPU probe parent exited during verification')
+                except BaseException:
+                    if old is None:
+                        os.close(fd)
+                    raise
+                if old is None:
+                    old = {'role': role, 'identity': dict(row), 'signature': signature,
+                           'pidfd': fd, 'observations': 0, 'metrics': metrics, 'reaped': False}
+                    self.records[key] = old
+                old['observations'] += 1
+                old['metrics'] = {name: max(value, old['metrics'][name]) for name, value in metrics.items()}
+                accepted.add(key)
+                active.add(role)
+        except (OSError, ValueError) as error:
+            self.failed = True
+            self.failure = (str(error) if type(error) is ValueError and str(error).startswith('CPU probe ')
+                            else 'CPU probe observation unavailable or raced')
+            raise
+        finally:
+            pair.report['cpu_probe_policy'] = {
+                'contract': 'EXACT_OSHI_PROCESSOR_V1', 'failed': self.failed,
+                'sampled_observations': True, 'hard_resource_enforcement': False,
+                'complete_process_history': False,
+                'failure': getattr(self, 'failure', None),
+                'maximum_per_role': CPU_PROBE_MAX_PER_ROLE, 'maximum_simultaneous_per_role': 1,
+                'maximum_age_seconds': CPU_PROBE_MAX_SECONDS, 'maximum_cpu_seconds': CPU_PROBE_MAX_CPU_SECONDS,
+                'maximum_rss_bytes': CPU_PROBE_MAX_RSS,
+                'observed': [{'pid': key[0], 'start_ticks': key[1], 'role': r['role'],
+                              'observations': r['observations'], 'terminal_observations': r.get('terminal_observations', 0),
+                              **r['metrics']} for key, r in self.records.items()]}
+        return accepted
+
+    def signal_owned(self, pair, sig):
+        # A retained pidfd cannot target a recycled PID, even after group escape.
+        for record in self.records.values():
+            try:
+                signal.pidfd_send_signal(record['pidfd'], sig)
+                pair.report.setdefault('cpu_probe_cleanup_signals', []).append(
+                    {'pid': record['identity']['pid'], 'start_ticks': record['identity']['start_ticks'],
+                     'signal': sig.name})
+            except ProcessLookupError:
+                pass
+            except OSError:
+                pair.report['cleanup_incomplete'] = True
+
+    def cleanup_pending(self, pair):
+        """Reap only retained helper pidfds once adopted; never waitpid(-1)."""
+        pending = False
+        for record in self.records.values():
+            if record['reaped']:
+                continue
+            try:
+                waited = os.waitid(os.P_PIDFD, record['pidfd'], os.WEXITED | os.WNOHANG)
+                if waited is not None:
+                    record['reaped'] = True
+                    pair.report.setdefault('cpu_probe_reaped', []).append(record['identity']['pid'])
+                    continue
+            except ChildProcessError:
+                pass  # Still parented to Java, or already reaped by that Java.
+            except (OSError, ValueError):
+                pair.report['cleanup_incomplete'] = True
+                pair.report['cpu_probe_cleanup_observation_error'] = 'Owned helper wait observation unavailable'
+                pending = True
+            try:
+                row = pair.proc.identity(record['identity']['pid'])
+                if row['start_ticks'] == record['identity']['start_ticks']:
+                    pending = True
+            except (FileNotFoundError, ProcessLookupError):
+                pass
+            except (OSError, ValueError):
+                pending = True
+        return pending
+
+    def close(self, pair):
+        for record in self.records.values():
+            try:
+                os.close(record['pidfd'])
+            except OSError:
+                pair.report['cleanup_incomplete'] = True
+                pair.report.update(passed=False, status='INCONCLUSIVE')
+                pair.report.setdefault('failure', 'Owned helper handle cleanup failed')
+        self.records.clear()
+
+
 class Proc:
     """Production always uses /proc. An injected root exists only for unit fixtures."""
     def __init__(self, root=Path('/proc')):
@@ -1009,13 +1305,14 @@ def memory_gate(proc, graphics, owned=None):
         charged = min(measured_kib(read_bounded(proc.root / str(owned['pid']) / 'status', 65536).decode('ascii'),
                                   'RssAnon', 'owned RssAnon'), PROCESS_BYTES)
         proc.same(owned)
-    required = PAIR_BYTES + graphics['reserve_bytes']
+    required = PAIR_BYTES + graphics['reserve_bytes'] + CPU_PROBE_RESERVE_BYTES
     result = {'host_mem_available_bytes': host_available,
               'cgroup_measurements': measurements,
               'memory_bound_source': 'host_and_finite_cgroup_minimum' if limits else 'host_MemAvailable',
               'effective_cgroup_limits': limits, 'eligible_bytes': eligible,
               'owned_server_credit_bytes': charged,
               'pair_bytes': PAIR_BYTES, 'graphics_reserve_bytes': graphics['reserve_bytes'],
+              'cpu_probe_reserve_bytes': CPU_PROBE_RESERVE_BYTES,
               'required_bytes': required, 'competing_jvms': live_java}
     require(not live_java and eligible + charged >= required, 'Aggregate memory or competing-JVM gate blocked')
     return result
@@ -1215,6 +1512,7 @@ class Pair:
         self.children = {}
         self.identities = {}
         self.group_members = {}
+        self.cpu_helpers = CpuProbePolicy()
         self.logs = {}
         self.client_result_absent_monotonic = None
         self.selector = selectors.DefaultSelector()
@@ -1308,15 +1606,22 @@ class Pair:
             observed.update({(row['pid'], row['start_ticks']): row for row in group})
             self.group_members[role] = list(observed.values())
         known = {child.pid for child in self.children.values()}
-        escaped = [row for row in members if row['state'] != 'Z' and row['ppid'] in known | {os.getpid()}
-                   and row['pid'] not in known]
-        if escaped:
+        helper_pids = {key[0] for key in self.cpu_helpers.records}
+        groups = {(row['pgrp'], row['session']) for row in self.identities.values()}
+        escaped = [row for row in members if row['pid'] not in known and
+                   ((row['pid'], row['start_ticks']) in self.cpu_helpers.records or
+                    row['ppid'] in known | helper_pids | {os.getpid()} or
+                    (row['pgrp'], row['session']) in groups)]
+        try:
+            accepted = self.cpu_helpers.check(self, members, escaped)
+        except (OSError, ValueError):
             self.report['unexpected_descendants'] = escaped
             self.report['unexpected_descendant_diagnostics'] = rejected_children_diagnostics(self.proc, escaped)
-            raise ValueError('Unexpected game descendant or adopted helper')
+            raise ValueError('Unexpected game descendant or CPU probe contract violation') from None
         for role, identity in self.identities.items():
             group = [row for row in members if row['pgrp'] == identity['pgrp'] and row['session'] == identity['session'] and row['state'] != 'Z']
-            require(all(row['pid'] == identity['pid'] for row in group), 'Unexpected descendant process in game group')
+            require(all(row['pid'] == identity['pid'] or (row['pid'], row['start_ticks']) in accepted
+                        for row in group), 'Unexpected descendant process in game group')
 
     def wait(self, predicate, seconds, label, required_alive=()):
         until = min(self.deadline, time.monotonic() + seconds)
@@ -1387,6 +1692,7 @@ class Pair:
                 self.report['cleanup_observation_error'] = str(error)[:512]
                 return []
         for sig, seconds in ((signal.SIGTERM, 5), (signal.SIGKILL, 5)):
+            self.cpu_helpers.signal_owned(self, sig)
             parents = {os.getpid(), *(p.pid for p in self.children.values()),
                        *(p['pid'] for group in self.group_members.values() for p in group)}
             for row in inspect_survivors():
@@ -1419,17 +1725,20 @@ class Pair:
                     except ProcessLookupError:
                         pass
             until = time.monotonic() + seconds
-            while time.monotonic() < until and any(p.poll() is None for p in self.children.values()):
+            while time.monotonic() < until and (self.cpu_helpers.cleanup_pending(self) or
+                                                any(p.poll() is None for p in self.children.values())):
                 try:
                     self.pump(0.1)
                 except (ValueError, OSError):
                     # Failure remains sticky; still reap only our children.
                     time.sleep(0.05)
+        if self.cpu_helpers.cleanup_pending(self):
+            self.report['cleanup_incomplete'] = True
         for role, child in self.children.items():
             self.report['exits'][role] = child.poll()
             if child.poll() is None:
                 self.report['cleanup_incomplete'] = True
-        surviving = [row for row in inspect_survivors() if row['state'] != 'Z' and
+        surviving = [row for row in inspect_survivors() if (row['state'] != 'Z' or row['ppid'] == os.getpid()) and
                      (row['pgrp'] in {i['pgrp'] for i in self.identities.values()} or
                       row['ppid'] in {os.getpid(), *(p.pid for p in self.children.values())})]
         if surviving:
@@ -1533,6 +1842,7 @@ class Pair:
                 signal.signal(sig, signal.SIG_IGN)
             if not self.report['passed']:
                 self.cleanup()
+            self.cpu_helpers.close(self)
             self.selector.close()
             for role, capture in self.logs.items():
                 capture.close()
