@@ -350,7 +350,13 @@ class FrozenContract(unittest.TestCase):
     def test_pair_dependencies_and_graphics_contract_functions_unchanged(self):
         here = Path(__file__).resolve().parent
         upstream = ast.parse((here.parent / 'network-ci-supervisor/supervisor.py').read_text())
-        current = ast.parse((here / 'supervisor.py').read_text())
+        source = (here / 'supervisor.py').read_text()
+        # Normalize exactly the reviewed graphics-only bound, not any gate logic.
+        migrated = "decode_json(read_bounded(graphics['preflight'], GRAPHICS_RECEIPT_MAX_BYTES),\n                          GRAPHICS_RECEIPT_MAX_BYTES)"
+        self.assertEqual(source.count(migrated), 1)
+        self.assertEqual(s.GRAPHICS_RECEIPT_MAX_BYTES, 32768)
+        source = source.replace(migrated, "decode_json(read_bounded(graphics['preflight'], 8192), 8192)")
+        current = ast.parse(source)
         capture = next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Capture')
         additions = {'self.line_observed_monotonic = []', 'self.line_observed_monotonic.append(time.monotonic())'}
         observed = []

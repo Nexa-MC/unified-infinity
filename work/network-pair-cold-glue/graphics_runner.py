@@ -21,10 +21,12 @@ import time
 
 HERE = Path(__file__).resolve().parent
 COLLECTOR = 'work/network-graphics-ci-portable2/graphics_preflight.py'
-COLLECTOR_SHA = 'a070f405e47b3e72758e55c3f0380dc45411ea0523fb2ed04614da2804a98ef3'
+COLLECTOR_SHA = 'b79ab2ba6d586d3ed2c0301373132c5cf000d2b86578732bf0e5f1c78f09214d'
 SUPERVISOR = 'work/network-ci-supervisor-portable3/supervisor.py'
-SUPERVISOR_SHA = '56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
+SUPERVISOR_SHA = '77374f48481d53c19abf6c2d071f3caa3fa849afa9706a0c6536aecb4bc3fc2a'
 MIB = 1024 * 1024
+# Must match the hash-pinned supervisor and collector graphics-only contract.
+GRAPHICS_RECEIPT_MAX_BYTES = 32 * 1024
 ACTIVE_DEADLINE = None
 REQUIRED = {'xvfb': '/usr/bin/Xvfb', 'glxinfo': '/usr/bin/glxinfo.x86_64-linux-gnu',
             'software_dri': '/usr/lib/x86_64-linux-gnu/dri/swrast_dri.so',
@@ -376,12 +378,19 @@ def observe(plan):
             'expected_runner': runner, 'display': plan['display'],
             'tools': {name: str(roots[name]) for name in ('xvfb', 'glxinfo')},
             'inputs': [*actual, provenance_pin], 'package_provenance': provenance_pin['path']}
-    # Reserve sufficient room for genuine measured renderer/process fields.
-    require(len(json.dumps({r['path']: r['sha256'] for r in lock['inputs']})) + 1300 < 8192,
-            'Observed graphics closure cannot fit frozen 8192-byte runtime receipt')
+    validate_receipt_capacity(lock['inputs'])
     lock_pin = write(Path(plan['lockPath']), lock)
     return {'status': 'OBSERVED_INSTALLED_INPUTS_READY_GRAPHICS_UNRUN', 'lock': lock_pin,
             'observations': evidence, 'missingInputs': [], 'graphicsStarted': False}
+
+
+def validate_receipt_capacity(inputs):
+    # Reserve sufficient room for genuine measured renderer/process fields.
+    estimated_bytes = len(json.dumps({r['path']: r['sha256'] for r in inputs})) + 1300
+    print('Graphics receipt capacity (not readiness): inputs=%d estimated_bytes=%d limit=%d' %
+          (len(inputs), estimated_bytes, GRAPHICS_RECEIPT_MAX_BYTES), flush=True)
+    require(estimated_bytes < GRAPHICS_RECEIPT_MAX_BYTES,
+            'Observed graphics closure cannot fit frozen 32768-byte runtime receipt')
 
 
 def stop(handle):

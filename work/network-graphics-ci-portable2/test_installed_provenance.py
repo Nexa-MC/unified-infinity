@@ -182,7 +182,14 @@ class InstalledProvenanceTests(unittest.TestCase):
 class PreservationTests(unittest.TestCase):
     def test_all_existing_functions_except_provenance_validator_are_unchanged(self):
         def definitions(path):
-            return {node.name: ast.dump(node) for node in ast.parse(path.read_text()).body
+            source = path.read_text()
+            if path == ROOT / 'graphics_preflight.py':
+                # Only the reviewed graphics receipt capacity migration is normalized.
+                migrated = "receipt, s, s.GRAPHICS_RECEIPT_MAX_BYTES)"
+                self.assertEqual(source.count(migrated), 1)
+                self.assertEqual(g.load_supervisor(baseline.SUPERVISOR).GRAPHICS_RECEIPT_MAX_BYTES, 32768)
+                source = source.replace(migrated, "receipt, s, 8192)")
+            return {node.name: ast.dump(node) for node in ast.parse(source).body
                     if isinstance(node, (ast.FunctionDef, ast.ClassDef))}
         old = definitions(FROZEN / 'graphics_preflight.py')
         new = definitions(ROOT / 'graphics_preflight.py')

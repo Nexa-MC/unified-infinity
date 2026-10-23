@@ -9,8 +9,8 @@
     },
     {
       "path": "LOCK-CONTRACT.md",
-      "bytes": 5435,
-      "sha256": "3be0f86cc0fcc5e4ad19e28aee2b7554c779396ee3b75dc0ce2ba9c6cbbdcf90"
+      "bytes": 5648,
+      "sha256": "af50e171c16e93c4458f2a9f16fd4805f33eef8353e282a714bd2fe361e162a8"
     },
     {
       "path": "PROVENANCE.json",
@@ -19,8 +19,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 6650,
-      "sha256": "5adedaec6a5530ec82069669c52096c095db17c76517d1832d4c6f6c92dd0d50"
+      "bytes": 6697,
+      "sha256": "457c0ff094cd74378699cabf06b526249037cb336a45d8753034c92db83007a4"
     },
     {
       "path": "evidence/source-checks.json",
@@ -34,8 +34,8 @@
     },
     {
       "path": "graphics_preflight.py",
-      "bytes": 24107,
-      "sha256": "a070f405e47b3e72758e55c3f0380dc45411ea0523fb2ed04614da2804a98ef3"
+      "bytes": 24131,
+      "sha256": "b79ab2ba6d586d3ed2c0301373132c5cf000d2b86578732bf0e5f1c78f09214d"
     },
     {
       "path": "official-input-research.json",
@@ -49,8 +49,13 @@
     },
     {
       "path": "test_installed_provenance.py",
-      "bytes": 9592,
-      "sha256": "7d67ec532b38344462e27b9cbc2f31b40d145f0eeb17287f585ff25a96b9dac4"
+      "bytes": 10071,
+      "sha256": "5d1a76361d2412938b9bc94947103567185fd752dc87d8fd9bc2aaa6d6ac6e21"
+    },
+    {
+      "path": "test_receipt_capacity.py",
+      "bytes": 3677,
+      "sha256": "9203fb4c66afb8bde0e8bde7a26cbb5b962bdb5a7afb96df72fe01b6e6c620e2"
     }
   ]
 }

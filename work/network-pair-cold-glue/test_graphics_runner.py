@@ -16,6 +16,36 @@ spec.loader.exec_module(g)
 
 
 class GraphicsProducerSourceTests(unittest.TestCase):
+    def test_graphics_only_receipt_contract_matches_pinned_consumer(self):
+        collector_spec = importlib.util.spec_from_file_location('receipt_collector', REPO / g.COLLECTOR)
+        collector = importlib.util.module_from_spec(collector_spec)
+        collector_spec.loader.exec_module(collector)
+        supervisor = collector.load_supervisor(REPO / g.SUPERVISOR)
+        self.assertEqual(g.GRAPHICS_RECEIPT_MAX_BYTES, supervisor.GRAPHICS_RECEIPT_MAX_BYTES)
+        self.assertEqual(supervisor.GRAPHICS_RECEIPT_MAX_BYTES, 32768)
+        self.assertIn("read_bounded(spec['probe_build_receipt'], 8192), 8192)",
+                      (REPO / g.SUPERVISOR).read_text())
+
+    def test_receipt_capacity_preserves_all_pins_and_rejects_exact_estimate_limit(self):
+        pins = [{'path': '/usr/lib/x86_64-linux-gnu/libSynthetic%03d.so' % i,
+                 'sha256': '%064x' % i} for i in range(128)]
+        before = json.dumps(pins)
+        self.assertGreater(len(json.dumps({r['path']: r['sha256'] for r in pins})), 8192)
+        with mock.patch('builtins.print'):
+            g.validate_receipt_capacity(pins)
+        self.assertEqual(json.dumps(pins), before)
+        # Producer reserves 1300 bytes and fails closed at its conservative limit.
+        estimate = len(json.dumps({r['path']: r['sha256'] for r in pins})) + 1300
+        pins[-1]['path'] += 'x' * (g.GRAPHICS_RECEIPT_MAX_BYTES - estimate - 1)
+        with mock.patch('builtins.print'):
+            g.validate_receipt_capacity(pins)
+            pins[-1]['path'] += 'x'
+            with self.assertRaisesRegex(ValueError, '32768-byte'):
+                g.validate_receipt_capacity(pins)
+            pins[-1]['path'] += 'x'
+            with self.assertRaisesRegex(ValueError, '32768-byte'):
+                g.validate_receipt_capacity(pins)
+
     def test_prepare_only_stages_frozen_text(self):
         with tempfile.TemporaryDirectory(prefix='graphics-source-check-') as folder, \
              mock.patch('subprocess.run', side_effect=AssertionError('No package/native commands')), \

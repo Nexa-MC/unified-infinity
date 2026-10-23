@@ -45,8 +45,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 85858,
-      "sha256": "56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0"
+      "bytes": 86049,
+      "sha256": "77374f48481d53c19abf6c2d071f3caa3fa849afa9706a0c6536aecb4bc3fc2a"
     },
     {
       "path": "test_completed_reload.py",
@@ -75,8 +75,13 @@
     },
     {
       "path": "test_portability.py",
-      "bytes": 19694,
-      "sha256": "766e8c304d861fe88f14062b51b204e822d2968e68807067708ec6e2c9e3d8a0"
+      "bytes": 20173,
+      "sha256": "97a017127eeee6fb7411bd8f6aabc64368a9bac2aced4a22c54166d1b2dea34b"
+    },
+    {
+      "path": "test_receipt_capacity.py",
+      "bytes": 5412,
+      "sha256": "c03d1b4346110b56c112d857989df5ed337ae3aff14d3487f0961224b8dce0f4"
     },
     {
       "path": "test_supervisor.py",

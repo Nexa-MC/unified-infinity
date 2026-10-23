@@ -86,8 +86,9 @@ reserve and uses host MemAvailable and applicable finite cgroup ancestor
 headroom. Missing/ambiguous readings and competing JVMs still fail. No host or
 cgroup settings change. glxinfo measurements do not represent the entire game.
 
-The existing `graphics-preflight.json` consumer schema and 8192-byte bound,
-`measurement.json`, `ready.json` and `lifecycle.json` are unchanged. The sealed
+The `graphics-preflight.json` byte bound is migrated to a graphics-only 32768
+bytes. Its consumer schema and the `measurement.json`, `ready.json` and
+`lifecycle.json` contracts are unchanged. The sealed
 provenance receipt remains pinned in the runtime receipt, preserving its mode.
 Success means graphics preflight readiness, never pair acceptance. The collector
 must stay alive while serial consumers use its display and stops afterward.

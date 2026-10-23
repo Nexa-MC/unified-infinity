@@ -15,7 +15,7 @@
     {
       "path": "finalize_pair.py",
       "bytes": 4349,
-      "sha256": "67a3903d3c6515239ed9b645191ab2c094c2c7b719f0b56cd0e21dae7c514666"
+      "sha256": "49aa07c64c2c7e3ae096bf4a4b023f216d10fa103c9b846b9a812107ef34b1d2"
     },
     {
       "path": "prepare_inputs.py",

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from compile_probe import require, sha, record, save, SOURCE_RELATIVE, OUTPUT_RELATIVE
 
-SUPERVISOR_SHA='56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
+SUPERVISOR_SHA='77374f48481d53c19abf6c2d071f3caa3fa849afa9706a0c6536aecb4bc3fc2a'
 
 def refreshed_assembly(consumer,profile,build_proof):
     """Revalidate full proof and bind its closure before any final seal exists.

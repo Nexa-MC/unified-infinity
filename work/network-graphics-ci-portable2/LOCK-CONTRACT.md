@@ -81,8 +81,10 @@ trace alone establishes every possible runtime dependency; preparation/review
 must include the needed tools/libraries/helpers/data for the intended workload.
 
 The future pair seal also pins the actual graphics receipt and every entry of
-its `input_sha256` map. Its frozen 8192-byte bound, canonical file identities and
-shared helper permission rules are unchanged. Root-owned standard package modes
+its `input_sha256` map. Its graphics-only byte bound is now 32768 bytes, migrated coherently across
+the producer estimate, collector write, and pinned supervisor read. The 128-input
+limit, every input hash, canonical file identities and helper permission rules
+are unchanged. The unrelated probe-build receipt remains bounded at 8192 bytes. Root-owned standard package modes
 pass only the helper's actual nonroot access and ancestor checks; other input
 modes follow the selected helper contract. No permissions are changed here.
 

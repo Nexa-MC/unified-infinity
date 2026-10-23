@@ -22,6 +22,8 @@ import time
 import tomllib
 
 MIB = 1024 * 1024
+# Graphics-only bounded receipt: complete installed closure plus measured fields.
+GRAPHICS_RECEIPT_MAX_BYTES = 32 * 1024
 PROCESS_BYTES = (1280 + 512) * MIB
 PAIR_BYTES = PROCESS_BYTES * 2
 IDENTITY = 'dd29b97d-cafa-3d53-94e1-f85f75bcf1f6'
@@ -771,7 +773,8 @@ def verify_graphics(spec, proc):
     socket_path = '/tmp/.X11-unix/X' + graphics['display'][1:]
     rows = read_bounded(proc.root / 'net' / 'unix', 2*MIB).decode('ascii').splitlines()[1:]
     require(any(len(f := line.split()) >= 8 and f[6] in inodes and f[7] == socket_path for line in rows), 'DISPLAY is not owned by recorded Xvfb')
-    receipt = decode_json(read_bounded(graphics['preflight'], 8192), 8192)
+    receipt = decode_json(read_bounded(graphics['preflight'], GRAPHICS_RECEIPT_MAX_BYTES),
+                          GRAPHICS_RECEIPT_MAX_BYTES)
     exact_keys(receipt, ('schema', 'display', 'xvfb_pid', 'xvfb_start_ticks', 'renderer',
                          'direct_rendering', 'glx_capable', 'gl_probe_peak_rss_bytes',
                          'measured_headroom_bytes', 'input_sha256'), 'graphics preflight')

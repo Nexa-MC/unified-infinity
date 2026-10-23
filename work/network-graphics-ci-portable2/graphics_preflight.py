@@ -19,7 +19,7 @@ import time
 import types
 
 MIB = 1024 * 1024
-SUPERVISOR_SHA256 = '56237acb33a70e7f24927a0ad3acdc1ba9fb788e933e776a3643d379103691c0'
+SUPERVISOR_SHA256 = '77374f48481d53c19abf6c2d071f3caa3fa849afa9706a0c6536aecb4bc3fc2a'
 MAX_LOG = MIB
 MAX_LIFETIME = 42 * 60  # Shared by both serial 650-second pairs; bounded by driver work budget.
 
@@ -381,7 +381,7 @@ def execute(lock, pins, s, destination, lock_identity=None):
                    'direct_rendering': True, 'glx_capable': True,
                    'gl_probe_peak_rss_bytes': gl.result['peak_rss_bytes'],
                    'measured_headroom_bytes': reserve, 'input_sha256': pins}
-        receipt_path = write_receipt(destination, 'graphics-preflight.json', receipt, s, 8192)
+        receipt_path = write_receipt(destination, 'graphics-preflight.json', receipt, s, s.GRAPHICS_RECEIPT_MAX_BYTES)
         receipt_pin = {'path': receipt_path, 'bytes': Path(receipt_path).stat().st_size,
                        'sha256': s.digest(receipt_path)}
         graphics = {'display': display, 'pid': x.pid, 'start_ticks': identity['start_ticks'],
