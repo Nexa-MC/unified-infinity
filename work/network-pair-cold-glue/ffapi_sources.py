@@ -15,7 +15,7 @@ import os
 HERE = Path(__file__).resolve().parent
 AREA = 'work/network-pair-cold-glue'
 PROFILE_REL = AREA + '/profiles/ffapi-20261023.json'
-PROFILE_SHA256 = '5e54c949f08b9f4ec7680a08eec80ff0e5c722cb9149d367ae30417f5e2dafd6'
+PROFILE_SHA256 = '902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438'
 DELTA_REL = AREA + '/profiles/ffapi-refresh-inputs.json'
 DELTA_SHA256 = '328ec2545be9abfea0365359a71ff601748a82938545847bed2f1606eaebaf6d'
 MANIFEST_REL = AREA + '/profiles/ffapi-source-manifest.json'
@@ -130,7 +130,9 @@ def core_lock():
 
 def _support_records(profile):
     names = {AREA + '/' + name for name in
-             ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py')}
+             ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py',
+              'generated_output_diagnostics.py', 'product_tuple_diagnostics.py',
+              'profiles/product-diagnostic-baseline.json')}
     rows = {row['path']: row for row in profile['inputPins'] if row['path'] in names}
     require(set(rows) == names, 'Reviewed build-support source roster differs')
     return rows

@@ -75,8 +75,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/build_candidate.py",
-      "bytes": 33243,
-      "sha256": "087672dbb3c755051e32a7fc61f970203beb78adce50b871dd022ca9a4a8c2dd"
+      "bytes": 34376,
+      "sha256": "2c40cb9b8e9094d7737d43f5bf19aa1992eacaed55c00fdcfc61a69072d1fbfb"
     },
     {
       "path": "work/network-pair-cold-glue/fml_metadata.py",
@@ -97,6 +97,21 @@
       "path": "work/network-pair-cold-glue/profiles/ffapi-refresh-inputs.json",
       "bytes": 130207,
       "sha256": "328ec2545be9abfea0365359a71ff601748a82938545847bed2f1606eaebaf6d"
+    },
+    {
+      "path": "work/network-pair-cold-glue/generated_output_diagnostics.py",
+      "bytes": 14632,
+      "sha256": "2263a864a180ed1df03f13f7548e7915942374c2218f44f82f2c54b87d6002ce"
+    },
+    {
+      "path": "work/network-pair-cold-glue/product_tuple_diagnostics.py",
+      "bytes": 7116,
+      "sha256": "349819717cd9ece0c067ebb858c8b81ae1513ec31d1522f035736ed653723157"
+    },
+    {
+      "path": "work/network-pair-cold-glue/profiles/product-diagnostic-baseline.json",
+      "bytes": 38272,
+      "sha256": "4804a573d15bb589750e5fd86ddf55c74ddaff451a5ac671836d26d12e8266bb"
     }
   ],
   "ffapiAggregateSha256": "f66cf2e5604053ae073652c4baf93721173f06560bf93458d427341f13892690",

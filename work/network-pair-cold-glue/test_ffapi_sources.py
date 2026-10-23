@@ -28,7 +28,7 @@ class RefreshedSourcesTest(unittest.TestCase):
         cls.repo = cls.root / 'repo'
         module = load(HERE / 'ffapi_sources.py')
         manifest = json.loads((HERE / 'source-manifest.json').read_text())
-        files = [AREA + '/' + name for name in ('ffapi_sources.py', 'source_materialize.py', 'source-manifest.json', 'core-dependency-lock.json', 'build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py')]
+        files = [AREA + '/' + name for name in ('ffapi_sources.py', 'source_materialize.py', 'source-manifest.json', 'core-dependency-lock.json', 'build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py', 'generated_output_diagnostics.py', 'product_tuple_diagnostics.py', 'profiles/product-diagnostic-baseline.json')]
         files += [module.PROFILE_REL, module.DELTA_REL, module.MANIFEST_REL, module.LOCK_REL,
                   'portable-bootstrap/ffapi-refresh-source-overlay.zip']
         files += [row['path'] for row in manifest['archives'].values()]
@@ -98,14 +98,14 @@ class RefreshedSourcesTest(unittest.TestCase):
         self.check_changed_input(AREA + '/source_materialize.py', 'changed-materializer')
 
     def test_each_reviewed_support_source_rejected_before_writes_if_changed(self):
-        for name in ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py'):
+        for name in ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py', 'generated_output_diagnostics.py', 'product_tuple_diagnostics.py', 'profiles/product-diagnostic-baseline.json'):
             with self.subTest(name=name):
                 self.check_changed_input(AREA + '/' + name, 'changed-support-' + name)
 
     def test_each_reviewed_consumer_support_copy_reverified(self):
         root = self.root / 'support-reverification'
         self.module.prepare(self.repo, root)
-        for name in ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py'):
+        for name in ('build_candidate.py', 'bounded_process.py', 'fml_metadata.py', 'forge_fixture.py', 'generated_output_diagnostics.py', 'product_tuple_diagnostics.py', 'profiles/product-diagnostic-baseline.json'):
             with self.subTest(name=name):
                 path = root / AREA / name
                 original = path.read_bytes()

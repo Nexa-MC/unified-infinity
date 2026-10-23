@@ -104,7 +104,7 @@ def _name(name):
     return name if len(name) <= 256 else name[:256] + '[name-sha256:' + hashlib.sha256(name.encode()).hexdigest() + ']'
 
 
-def _zip(path, budget, known):
+def _zip(path, budget, known, sample_limit=8):
     result = {'complete': False, 'samples': [], 'fullHistoricalEntryBaseline': False,
               'metadataOnlyDifferenceConclusion': 'UNAVAILABLE'}
     with path.open('rb') as stream:
@@ -137,7 +137,7 @@ def _zip(path, budget, known):
                        'extraSha256': hashlib.sha256(entry.extra).hexdigest(),
                        'commentSha256': hashlib.sha256(entry.comment).hexdigest()}
                 metadata.append(_json({key: value for key, value in row.items() if key != 'payloadSha256'}))
-                if len(result['samples']) < 8:
+                if len(result['samples']) < min(sample_limit, 64):
                     result['samples'].append({**row, 'name': _name(entry.filename)})
                 if known and entry.filename in KNOWN_PARTIAL:
                     partial.setdefault(entry.filename, []).append(digest)

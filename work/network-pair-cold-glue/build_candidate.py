@@ -288,6 +288,23 @@ def execute(consumer, deadline=None, profile=None):
     return result
 
 
+def refreshed_product_prefix(consumer, recipe):
+    """Use refreshed 0644 payload ZIP modes; preserve the historical 0600 recipe."""
+    root, _, _, _ = layout(consumer)
+    prefix = list(recipe['productCommandPrefix'])
+    support = root / fml_metadata.SUPPORT
+    historical = str(support / 'product-payload-permissions.init.gradle')
+    standard = str(support / 'archive-permissions.init.gradle')
+    require(prefix.count(historical) == 1, 'Expected one historical PRODUCT permission override')
+    index = prefix.index(historical)
+    require(index > 0 and prefix[index - 1] == '--init-script', 'Malformed historical PRODUCT permission override')
+    require(prefix.count(standard) == 1, 'Expected one explicit 0644 archive permission script')
+    standard_index = prefix.index(standard)
+    require(standard_index > 0 and prefix[standard_index - 1] == '--init-script', 'Malformed standard archive permission script')
+    del prefix[index - 1:index + 1]
+    return prefix
+
+
 def refreshed_commands(consumer, profile):
     """Deterministic command contract, including every task/property/flag."""
     root, api, candidate, core = layout(consumer)
@@ -295,7 +312,7 @@ def refreshed_commands(consumer, profile):
     service = root / profile['artifactPaths']['service']
     base_fml = api / 'source-workspace/fml-unified/build/libs/fml-loader-4.0.42-unified-source.jar'
     manifest = api / 'run/client-dev/development-build/moddev/client-launch-inputs.json'
-    product = [*recipe['productCommandPrefix'], '-PmanagedCoreJar='+str(service),
+    product = [*refreshed_product_prefix(root, recipe), '-PmanagedCoreJar='+str(service),
                '-PmanagedCoreSha256='+profile['observedOutputReference']['service'],
                '-PunifiedFmlJar='+str(base_fml), '-PffapiJar='+str(api/'docs/research/upstream/ffapi-baseline.jar'),
                '-PqslInventory='+str(api/'docs/four-loader/quilt/bundled-tooltip.json'),
@@ -435,7 +452,7 @@ def execute_refreshed(consumer, profile_path, deadline=None):
     manifest = api/'run/client-dev/development-build/moddev/client-launch-inputs.json'
     for row in json.loads(manifest.read_text())['inputs']:
         require(sha(Path(row['path']))==row['sha256'],'PRODUCT compile classpath changed')
-    args=[*recipe['productCommandPrefix'],'-PmanagedCoreJar='+str(service),'-PmanagedCoreSha256='+sha(service),
+    args=[*refreshed_product_prefix(root, recipe),'-PmanagedCoreJar='+str(service),'-PmanagedCoreSha256='+sha(service),
           '-PunifiedFmlJar='+str(base_fml),'-PffapiJar='+str(api/'docs/research/upstream/ffapi-baseline.jar'),
           '-PqslInventory='+str(api/'docs/four-loader/quilt/bundled-tooltip.json'),'-PclientClasspathManifest='+str(manifest),'jar','sourcesJar','check']
     product=api/'runtime-bundle/build/libs/unified-infinity-0.1.0-dev.jar'
@@ -448,7 +465,9 @@ def execute_refreshed(consumer, profile_path, deadline=None):
     comparison_pin=refresh.save(root,refresh.OUTPUT+'/fml-comparison.json',refresh.portable(root,comparison))
     source_pin=refresh.save(root,refresh.OUTPUT+'/fml-source-preparation.json',refresh.portable(root,sources))
     artifacts={role:refresh.pin(root,path) for role,path in {'service':service,'game':game,'fml':fixed,'product':product}.items()}
-    ownership=refresh.inspect_tuple(root,profile,artifacts)
+    import product_tuple_diagnostics
+    ownership=product_tuple_diagnostics.inspect_tuple(root,profile,artifacts,
+        {'core':core_receipt,'product':product_receipt,'fml':fml_receipt},deadline)
     java={str(Path(row['path']).relative_to(api/'source-workspace')):row['sha256'] for key in ('fixedSources','sharedSources') for row in sources['sources'][key] if '/src/main/java/' in row['path'] and row['path'].endswith('.java')}
     base={'schema':1,'artifact':artifacts['fml']['path'],'sha256':artifacts['fml']['sha256'],'sources':java,'compilationSources':java,
           'profileSha256':refresh.PROFILE_SHA256,'sourceIdentitySha256':refresh.CORE_IDENTITY,'candidateIdentity':refresh.PROFILE_SHA256,
