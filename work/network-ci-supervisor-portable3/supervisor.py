@@ -429,8 +429,27 @@ def verify_listeners(tables, owned_inodes, port):
     return found[0]
 
 
+def fixed_lshw_argv_tag(proc, expected, executable_sha256, deadline):
+    """Hash-gated, fixed-token diagnostic only. Never return raw arguments."""
+    if executable_sha256 != 'ee5d244d47458564a6de33a7d08f8b72a1418c17469ebbd2e3fcc1136ad72c0f':
+        return 'NOT_CLASSIFIED'
+    try:
+        require(time.monotonic() < deadline, 'Diagnostic budget')
+        proc.same(expected)
+        path = proc.root / str(expected['pid']) / 'cmdline'
+        raw = read_bounded(path, 128)
+        require(raw == read_bounded(path, 128), 'Arguments changed')
+        proc.same(expected)
+        require(time.monotonic() < deadline, 'Diagnostic budget')
+        return {b'lshw\0-class\0processor\0': 'OSHI_PROCESSOR_FORM',
+                b'lshw\0-C\0display\0': 'OSHI_DISPLAY_FORM',
+                b'lshw\0-C\0system\0': 'OSHI_SYSTEM_FORM'}.get(raw, 'OTHER_FORM')
+    except (OSError, ValueError, UnicodeError):
+        return 'UNAVAILABLE'
+
+
 def rejected_child_executable(proc, expected, deadline):
-    """Failure-only diagnostic, never admission. No argv, environment or FD contents."""
+    """Failure-only diagnostic, never admission. No raw argv, environment or FD contents."""
     result = {'pid': expected['pid'], 'start_ticks': expected['start_ticks'],
               'status': 'UNAVAILABLE'}
     descriptor = None
@@ -471,6 +490,11 @@ def rejected_child_executable(proc, expected, deadline):
         require(os.readlink(path) == target and identity_fields(os.stat(path)) == identity_fields(before),
                 'Executable link changed')
         proc.same(expected)
+        argv_tag = fixed_lshw_argv_tag(proc, expected, hasher.hexdigest(), deadline)
+        require(os.readlink(path) == target and identity_fields(os.stat(path)) == identity_fields(before)
+                and identity_fields(os.fstat(descriptor)) == identity_fields(before),
+                'Executable changed during argument classification')
+        proc.same(expected)
         # Only fixed public tool labels may be printed; arbitrary path text and
         # arbitrary executable basenames can contain private data and are omitted.
         basename = Path(target.removesuffix(' (deleted)')).name
@@ -480,7 +504,7 @@ def rejected_child_executable(proc, expected, deadline):
                       bytes=count, device=before.st_dev, inode=before.st_ino,
                       uid=before.st_uid, gid=before.st_gid, mode=stat.S_IMODE(before.st_mode),
                       executable_basename_hint=basename if basename in public_labels else 'WITHHELD',
-                      basename_hint_trusted=False,
+                      basename_hint_trusted=False, argv_form_tag=argv_tag, argv_form_is_admission=False,
                       link_deleted=target.endswith(' (deleted)'))
     except (FileNotFoundError, ProcessLookupError):
         result['status'] = 'GONE'

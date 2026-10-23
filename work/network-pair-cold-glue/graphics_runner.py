@@ -21,9 +21,9 @@ import time
 
 HERE = Path(__file__).resolve().parent
 COLLECTOR = 'work/network-graphics-ci-portable2/graphics_preflight.py'
-COLLECTOR_SHA = '26c08fd7a02452ff548848e6e3c0ac5fb309b375a3fb7efc0fbf85df6c441894'
+COLLECTOR_SHA = 'c0808dbef2a414dab40292525369b964fbc02b2d70f896945da4b2998081f2f2'
 SUPERVISOR = 'work/network-ci-supervisor-portable3/supervisor.py'
-SUPERVISOR_SHA = '407c56c55a05c96fa93d5abb27954b0716935ac1520b823834711f6d41597522'
+SUPERVISOR_SHA = '61665321e0f549b6329452d288dd50e21bc14cb801ea006ac374ce57f3258871'
 MIB = 1024 * 1024
 # Must match the hash-pinned supervisor and collector graphics-only contract.
 GRAPHICS_RECEIPT_MAX_BYTES = 32 * 1024

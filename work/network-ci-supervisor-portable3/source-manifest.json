@@ -45,13 +45,13 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 90233,
-      "sha256": "407c56c55a05c96fa93d5abb27954b0716935ac1520b823834711f6d41597522"
+      "bytes": 91597,
+      "sha256": "61665321e0f549b6329452d288dd50e21bc14cb801ea006ac374ce57f3258871"
     },
     {
       "path": "test_child_identity_diagnostics.py",
       "bytes": 5141,
-      "sha256": "e495e09a6f764e62f363093e12e26c2cd6c30fa582a86497afc20c3970f68500"
+      "sha256": "f3a8a9f20a3116e49e192c688075acd9f265a2ee3ef52b1aca70b5f7f6edea70"
     },
     {
       "path": "test_completed_reload.py",
@@ -62,6 +62,11 @@
       "path": "test_control_serialization.py",
       "bytes": 19911,
       "sha256": "d92eaf342b97ad113e88d7869ed001e7afa373be54e57a72d1f260dba6a93459"
+    },
+    {
+      "path": "test_fixed_lshw_argv.py",
+      "bytes": 2166,
+      "sha256": "473288794d899d7c149d9faa11d44f50b9821368314618c85ba12631bc8cd0c6"
     },
     {
       "path": "test_input_modes.py",

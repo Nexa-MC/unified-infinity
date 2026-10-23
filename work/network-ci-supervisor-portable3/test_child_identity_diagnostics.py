@@ -27,7 +27,7 @@ class ExecutableDiagnostic(unittest.TestCase):
         self.assertEqual(value['sha256'], hashlib.sha256(self.target.read_bytes()).hexdigest())
         self.assertEqual(value['executable_basename_hint'], 'jspawnhelper')
         self.assertNotIn(str(self.root), str(value))
-        self.assertEqual(self.proc.same.call_count, 2)
+        self.assertEqual(self.proc.same.call_count, 3)
     def test_arbitrary_basename_is_withheld(self):
         other = self.root / 'PRIVATE_SECRET_abc'
         self.target.rename(other)
