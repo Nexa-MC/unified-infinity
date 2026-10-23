@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "GRAPHICS_EGL_CACHE_DISCOVERY_AND_EXPLICIT_CLEANUP_SOURCE_VERIFIED_RUNTIME_UNPROVEN",
+  "status": "PINNED_PREREQUISITE_INSTALLATION_ORDER_REPAIRED_RUNTIME_UNPROVEN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "e61eab82874c3c23e095e5dc66bfa2082ccbab79",
-    "manifestSha256": "5da596f0eb6aa9577dfc7f4d61fe873c43c2ef79f6392f096704ab2d4e1a31fa"
+    "commit": "ea0b16ba29bcf150bca95a5fcabfa5ecab470f77",
+    "manifestSha256": "c611740f7e45b051c9c521629511aa6b26bfa262c1ee15635aa45e85af74b53e"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 1645,
-      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
+      "bytes": 1644,
+      "sha256": "ebdbe9e623c05f688a2ae50caa9b159573d95c86767514b31ce82dee7ebf227e"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -879,8 +879,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 1645,
-      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
+      "bytes": 1644,
+      "sha256": "ebdbe9e623c05f688a2ae50caa9b159573d95c86767514b31ce82dee7ebf227e"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -944,8 +944,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/runner_dependencies.py",
-      "bytes": 19417,
-      "sha256": "b5eb704619ec8dcc69227d4c4cdc708d7359c6eb79444c62592c1022d2aa2aed"
+      "bytes": 19984,
+      "sha256": "bf94943e0c0da4add486bce408c1c06f8c8750fdde897815d55bd9a3521813a8"
     },
     {
       "path": "work/network-pair-cold-glue/runtime-inputs.lock.json",
@@ -1036,6 +1036,11 @@
       "path": "work/network-pair-cold-glue/test_graphics_runner.py",
       "bytes": 11938,
       "sha256": "a23636c05414e7ffade0008960d24a7ec8b0fe75a9d3147e0f2febf84aaf7e14"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_installable_prerequisites.py",
+      "bytes": 1601,
+      "sha256": "69589f790c8bbb47386bcc6ad392631be798fe1836dc3787244ed4ae316aae8e"
     },
     {
       "path": "work/network-pair-cold-glue/test_owned_spawn_cleanup.py",

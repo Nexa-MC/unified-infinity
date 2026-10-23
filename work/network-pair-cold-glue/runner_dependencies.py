@@ -168,6 +168,15 @@ def verify_paths(candidates, inventory, deadline):
     return observations, blockers
 
 
+def prerequisite_blockers(blockers, missing_candidates):
+    # Only absent files from the already verified missing candidate closure may
+    # wait for installation. Existing untrusted/dangling paths never qualify.
+    permitted = {'mesa-utils-bin', 'libegl1', 'libegl-mesa0'}
+    absent = {PACKAGE_PATHS[row['Package']] for row in missing_candidates
+              if row['Package'] in permitted and not os.path.lexists(PACKAGE_PATHS[row['Package']])}
+    return [row for row in blockers if row.get('path') not in absent]
+
+
 def inspect(plan, deadline, root):
     availability = graphics.availability(plan)
     result = {'availability': availability, 'installedPrerequisites': [], 'blockers': [],
@@ -176,7 +185,7 @@ def inspect(plan, deadline, root):
     if 'runner' not in availability:
         result['blockers'] = availability['missingInputs']
         return result
-    result['blockers'] += [x for x in availability['missingInputs'] if x.get('path') != CANONICAL]
+    result['blockers'] += availability['missingInputs']
     for path in ('/usr/bin/dpkg-query', '/usr/bin/dpkg', '/usr/bin/apt-get'):
         try:
             graphics.trusted_installed(path, True)
@@ -212,6 +221,7 @@ def inspect(plan, deadline, root):
                     'reason': 'Existing foreign-architecture or incomplete package state; no automatic repair'})
             else:
                 result['missing'].append(candidate)
+    result['blockers'] = prerequisite_blockers(result['blockers'], result['missing'])
     require(len(result['missing']) <= MAX_PACKAGES and
             sum(int(row['Size']) for row in result['missing']) <= MAX_BYTES, 'Closure exceeds reviewed bound')
     result['installedPaths'], path_blockers = verify_paths(candidates, inventory, deadline)
