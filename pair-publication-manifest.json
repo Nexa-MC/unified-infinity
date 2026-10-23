@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "REFRESHED_PRODUCT_PERMISSION_DIAGNOSTIC_SOURCE_TESTED_RUNTIME_UNRUN",
+  "status": "BOUNDED_OFFICIAL_PIN_REVALIDATED_RETRY_RUNTIME_UNPROVEN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "606afa80f1b83d074a967cfc9729e5c7e82a941f",
-    "manifestSha256": "30b99c46aba73b226d3d06ac698528b73492f21f9cd934d2ed5789778674fc01"
+    "commit": "057ff4dc9c88bb028c84365afb0527a70f987d12",
+    "manifestSha256": "dd68427cea754c55f6143f4e5ef6509b3075d388162d5a3680f5a14e5f8545bd"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 1645,
-      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
+      "bytes": 1644,
+      "sha256": "02c170cc8b1957290b42ed56546bce04f0a9ad2824f4ce3d0c23c6d5a103db3f"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -854,8 +854,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 1645,
-      "sha256": "149188c653d59c60039757dfb57d9564162bb9a3211a37fecb418d29f9cc1134"
+      "bytes": 1644,
+      "sha256": "02c170cc8b1957290b42ed56546bce04f0a9ad2824f4ce3d0c23c6d5a103db3f"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
