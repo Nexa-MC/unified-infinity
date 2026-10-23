@@ -429,6 +429,87 @@ def verify_listeners(tables, owned_inodes, port):
     return found[0]
 
 
+def rejected_child_executable(proc, expected, deadline):
+    """Failure-only diagnostic, never admission. No argv, environment or FD contents."""
+    result = {'pid': expected['pid'], 'start_ticks': expected['start_ticks'],
+              'status': 'UNAVAILABLE'}
+    descriptor = None
+    try:
+        if time.monotonic() >= deadline:
+            result['status'] = 'BUDGET_EXHAUSTED'
+            return result
+        proc.same(expected)
+        path = proc.root / str(expected['pid']) / 'exe'
+        target = os.readlink(path)
+        require(len(os.fsencode(target)) <= 4096, 'Executable link bound')
+        # /proc/PID/exe is a kernel magic link. Follow only this exact process
+        # handle, never a path copied from its target; reject non-regular files.
+        descriptor = os.open(path, os.O_RDONLY | os.O_NONBLOCK | os.O_CLOEXEC)
+        before = os.fstat(descriptor)
+        require(stat.S_ISREG(before.st_mode), 'Executable is not regular')
+        if before.st_size > 8 * MIB:
+            result['status'] = 'OVERSIZE'
+            return result
+        identity_fields = lambda value: (value.st_dev, value.st_ino, value.st_size,
+                                        value.st_mode, value.st_uid, value.st_gid,
+                                        value.st_mtime_ns, value.st_ctime_ns)
+        hasher, count = hashlib.sha256(), 0
+        while True:
+            if time.monotonic() >= deadline:
+                result['status'] = 'BUDGET_EXHAUSTED'
+                return result
+            chunk = os.read(descriptor, min(65536, 8 * MIB + 1 - count))
+            if not chunk:
+                break
+            count += len(chunk)
+            if count > 8 * MIB:
+                result['status'] = 'OVERSIZE'
+                return result
+            hasher.update(chunk)
+        require(count == before.st_size and identity_fields(os.fstat(descriptor)) == identity_fields(before),
+                'Executable changed while read')
+        require(os.readlink(path) == target and identity_fields(os.stat(path)) == identity_fields(before),
+                'Executable link changed')
+        proc.same(expected)
+        # Only fixed public tool labels may be printed; arbitrary path text and
+        # arbitrary executable basenames can contain private data and are omitted.
+        basename = Path(target.removesuffix(' (deleted)')).name
+        public_labels = {'java', 'jspawnhelper', 'sh', 'dash', 'bash', 'stty',
+                         'uname', 'tput', 'infocmp', 'ldconfig'}
+        result.update(status='OBSERVED_NOT_ADMITTED', sha256=hasher.hexdigest(),
+                      bytes=count, device=before.st_dev, inode=before.st_ino,
+                      uid=before.st_uid, gid=before.st_gid, mode=stat.S_IMODE(before.st_mode),
+                      executable_basename_hint=basename if basename in public_labels else 'WITHHELD',
+                      basename_hint_trusted=False,
+                      link_deleted=target.endswith(' (deleted)'))
+    except (FileNotFoundError, ProcessLookupError):
+        result['status'] = 'GONE'
+    except PermissionError:
+        result['status'] = 'UNREADABLE'
+    except (OSError, ValueError, UnicodeError):
+        result['status'] = 'RACED_OR_UNAVAILABLE'
+    finally:
+        if descriptor is not None:
+            os.close(descriptor)
+    return result
+
+
+def rejected_children_diagnostics(proc, rows):
+    # At most 4 * 8 MiB; a shared cooperative two-second budget is checked
+    # between reads. This is not a hard kernel syscall timeout.
+    deadline = time.monotonic() + 2
+    results = []
+    for row in rows[:4]:
+        try:
+            results.append(rejected_child_executable(proc, row, deadline))
+        except Exception:
+            # Optional diagnostics cannot replace the original rejection/cleanup.
+            results.append({'pid': row['pid'], 'start_ticks': row['start_ticks'],
+                            'status': 'UNAVAILABLE'})
+    return {'observed_count': len(rows), 'reported_count': len(results),
+            'truncated': len(rows) > len(results), 'children': results}
+
+
 class Proc:
     """Production always uses /proc. An injected root exists only for unit fixtures."""
     def __init__(self, root=Path('/proc')):
@@ -1207,6 +1288,7 @@ class Pair:
                    and row['pid'] not in known]
         if escaped:
             self.report['unexpected_descendants'] = escaped
+            self.report['unexpected_descendant_diagnostics'] = rejected_children_diagnostics(self.proc, escaped)
             raise ValueError('Unexpected game descendant or adopted helper')
         for role, identity in self.identities.items():
             group = [row for row in members if row['pgrp'] == identity['pgrp'] and row['session'] == identity['session'] and row['state'] != 'Z']

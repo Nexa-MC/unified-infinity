@@ -226,7 +226,10 @@ class SourcePreservation(unittest.TestCase):
 
     def test_process_class_only_changes_declared_lifecycle_and_verification_blocks(self):
         upstream = ast.parse((HERE.parent / 'network-ci-supervisor-portable1/supervisor.py').read_text())
-        current = ast.parse((HERE / 'supervisor.py').read_text())
+        source = (HERE / 'supervisor.py').read_text()
+        diagnostic_line = "            self.report['unexpected_descendant_diagnostics'] = rejected_children_diagnostics(self.proc, escaped)\n"
+        self.assertEqual(source.count(diagnostic_line), 1)
+        current = ast.parse(source.replace(diagnostic_line, '', 1))
         expected = next(node for node in upstream.body if isinstance(node, ast.ClassDef) and node.name == 'Pair')
         actual = copy.deepcopy(next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Pair'))
         # Exact recovered v6 lifecycle methods; other process behavior stays compared below.
