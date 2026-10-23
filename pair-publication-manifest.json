@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "EXPLICIT_ORIGINAL_GENERATION_TIMEZONE_RUNTIME_UNRUN",
+  "status": "REFRESHED_FIXTURE_ALIAS_ORDER_SOURCE_TESTED_RUNTIME_UNRUN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,8 +8,8 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "3e16205f583207833e11633d1decd1b3112a5d1f",
-    "manifestSha256": "837e68ca17fd28cdedd205350c2bb4fe79a3a8f30ce18c3797fd5c2cf5b6c26c"
+    "commit": "2f05e4fb222231c632049e5c9bbccf60fb72337b",
+    "manifestSha256": "c27eaa76a9fe6dc99aaa3702a6df9cd2f154893c81b22f2641b9aed654eb421e"
   },
   "files": [
     {
@@ -724,8 +724,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/build_candidate.py",
-      "bytes": 33042,
-      "sha256": "f4b66e29ea2ae4007a9bda55dde1527f3308d8cd4457f46e65d460ec3911e56a"
+      "bytes": 33243,
+      "sha256": "087672dbb3c755051e32a7fc61f970203beb78adce50b871dd022ca9a4a8c2dd"
     },
     {
       "path": "work/network-pair-cold-glue/capture_core_dependencies.py",
@@ -770,7 +770,7 @@
     {
       "path": "work/network-pair-cold-glue/ffapi_sources.py",
       "bytes": 10579,
-      "sha256": "71bdc482e5d38661d764cd64402510d2fbe46367b51124af85f429c261238091"
+      "sha256": "341303cbdcbe0440ac7c2ce3af839e6aab4d2ecf0ee85785f3ca89150a93d08d"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -885,7 +885,7 @@
     {
       "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
       "bytes": 6734,
-      "sha256": "bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722"
+      "sha256": "5e54c949f08b9f4ec7680a08eec80ff0e5c722cb9149d367ae30417f5e2dafd6"
     },
     {
       "path": "work/network-pair-cold-glue/profiles/ffapi-core-dependency-lock.json",
@@ -905,7 +905,7 @@
     {
       "path": "work/network-pair-cold-glue/refreshed_candidate.py",
       "bytes": 17546,
-      "sha256": "bddfdf9a59edbf83a7bfd78ec7ff847a185ab2195dfaff54aeddafacbb19c3c3"
+      "sha256": "a2f64e626e43a1453977ba9d66c2ec5f0376acf9ae70395ea7f296d8e95cb223"
     },
     {
       "path": "work/network-pair-cold-glue/runner_dependencies.py",
@@ -1013,6 +1013,11 @@
       "sha256": "97a44d8f8c44dd84977db19f14e9e83cac12ba77481ed5130571ffe48265e124"
     },
     {
+      "path": "work/network-pair-cold-glue/test_refreshed_fixture_alias.py",
+      "bytes": 4602,
+      "sha256": "e3804e5164a1bf53f9cdb644ebd043636baa65fd5afd870c0652f86a5a94407e"
+    },
+    {
       "path": "work/network-pair-cold-glue/test_runner_dependencies.py",
       "bytes": 19995,
       "sha256": "51dfdafc7aacd56689bd31e3d127b7f575d3522f5b7f846fe82f1c0b2b66406d"
@@ -1093,11 +1098,11 @@
       "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
     }
   ],
-  "revision": 6,
-  "previousReviewManifestSha256": "837e68ca17fd28cdedd205350c2bb4fe79a3a8f30ce18c3797fd5c2cf5b6c26c",
+  "revision": 7,
+  "previousReviewManifestSha256": "c27eaa76a9fe6dc99aaa3702a6df9cd2f154893c81b22f2641b9aed654eb421e",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
-    "sha256": "bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722",
+    "sha256": "5e54c949f08b9f4ec7680a08eec80ff0e5c722cb9149d367ae30417f5e2dafd6",
     "runtimeAcceptance": false
   }
 }

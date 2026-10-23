@@ -75,8 +75,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/build_candidate.py",
-      "bytes": 33042,
-      "sha256": "f4b66e29ea2ae4007a9bda55dde1527f3308d8cd4457f46e65d460ec3911e56a"
+      "bytes": 33243,
+      "sha256": "087672dbb3c755051e32a7fc61f970203beb78adce50b871dd022ca9a4a8c2dd"
     },
     {
       "path": "work/network-pair-cold-glue/fml_metadata.py",

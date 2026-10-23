@@ -373,6 +373,9 @@ def execute_refreshed(consumer, profile_path, deadline=None):
         destination.parent.mkdir(parents=True, exist_ok=True)
         with official.open('rb') as src, destination.open('xb') as dst: shutil.copyfileobj(src, dst)
     require(sha(destination) == EXTRA, 'Existing server regression alias differs')
+    # The fixture input lock names this exact-byte alias, not its generation path.
+    # Materialize it with the existing strict helper before verifying all inputs.
+    forge_fixture.clean_alias(root)
     forge_fixture.verify_inputs(root)
     session = {'schema': 'portable-refreshed-build-session-v1', 'sessionId': str(uuid.uuid4()),
                'profileSha256': refresh.PROFILE_SHA256, 'inputsBinding': refresh.inputs_binding(root, profile),

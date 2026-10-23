@@ -8,7 +8,7 @@ import json
 import re
 import zipfile
 
-PROFILE_SHA256 = 'bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722'
+PROFILE_SHA256 = '5e54c949f08b9f4ec7680a08eec80ff0e5c722cb9149d367ae30417f5e2dafd6'
 PROFILE_PATH = 'work/network-pair-cold-glue/profiles/ffapi-20261023.json'
 OUTPUT = 'work/emi-render-integration/refreshed-build-8f53'
 PROOF_PATH = OUTPUT + '/proof.json'

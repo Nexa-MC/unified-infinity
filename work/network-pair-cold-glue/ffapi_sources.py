@@ -15,7 +15,7 @@ import os
 HERE = Path(__file__).resolve().parent
 AREA = 'work/network-pair-cold-glue'
 PROFILE_REL = AREA + '/profiles/ffapi-20261023.json'
-PROFILE_SHA256 = 'bc75bf67565aeefffc701a844e5fd3bbc58f22cf5a464cd6594f0aa532538722'
+PROFILE_SHA256 = '5e54c949f08b9f4ec7680a08eec80ff0e5c722cb9149d367ae30417f5e2dafd6'
 DELTA_REL = AREA + '/profiles/ffapi-refresh-inputs.json'
 DELTA_SHA256 = '328ec2545be9abfea0365359a71ff601748a82938545847bed2f1606eaebaf6d'
 MANIFEST_REL = AREA + '/profiles/ffapi-source-manifest.json'
