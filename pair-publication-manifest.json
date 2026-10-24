@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_1609_1654_HARDWARE_INVENTORY_SKIP_DIAGNOSTIC_UNEXECUTED",
+  "status": "FIXED_1709_1754_DIAGNOSTIC_PRESEAL_ORDER_FIX_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "94cf50a8ec683d1abf37ed7c6b12a9d0cb4c2d08",
-    "manifestSha256": "855e4d8bffd47f40381e00068e4129ef3b4411e6ee195ddcea24945ea057b06b"
+    "commit": "0bdf0079eaf4d5d62c4aa2511bb55a921a864cf5",
+    "manifestSha256": "d9ffa5ed7ef8e509d1697bbe27681f870129a9df5911ae42ee6a7203a782e981"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 8756,
-      "sha256": "f8e7422fffe5313c98117d68be6169edfc449009b4fed41d71b69dc0306e05fa"
+      "sha256": "072ac4980b51e433e471241796ab49ce7a31766336e19925f6e1ae4eef4a8c15"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -819,8 +819,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/driver.py",
-      "bytes": 29044,
-      "sha256": "2b1eeeed1da5e06e7a306eed42eec66690527d93e808dbb4aac7274ef90d9a72"
+      "bytes": 29986,
+      "sha256": "685c3f61c247315e5b7023873d14b773868858a4dfd1dec44359baba6eea05d8"
     },
     {
       "path": "work/network-pair-cold-glue/ffapi_sources.py",
@@ -830,7 +830,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "090a838bb701714ff3bbd0f1918343e0c097d24abefd58287dd75659014757b5"
+      "sha256": "79adc498961a3d499c8e94178242cd8928d0457edf1874bff0e843384b9504c1"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -915,7 +915,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 8756,
-      "sha256": "f8e7422fffe5313c98117d68be6169edfc449009b4fed41d71b69dc0306e05fa"
+      "sha256": "072ac4980b51e433e471241796ab49ce7a31766336e19925f6e1ae4eef4a8c15"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -980,7 +980,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "586706dfb9dcd05e06f047b060ee8acdcd532a51bb9ca738c3cef82b2e3da529"
+      "sha256": "ba96245c656f0af35b1bbb95313b000e09c242e874d182dc3131e778d0a82627"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1359,8 +1359,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_driver.py",
-      "bytes": 8890,
-      "sha256": "72a80567e42da704ae4aa805928229a3d1f6e71649582c81505255e58b8c7412"
+      "bytes": 9976,
+      "sha256": "f230cbdd8964709abbe7449b4a4460e1d42c680954df03c0f296e4e8c6c4be03"
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic_fml_build.py",
@@ -1409,8 +1409,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/DIAGNOSTIC-FML.md",
-      "bytes": 5006,
-      "sha256": "ffa53f0eb6e0e9d5d1d6804e6d00bcc3ea79aede65b15d9e47289357795ddfa2"
+      "bytes": 5519,
+      "sha256": "dd6b860dba62cbd38308d2401c704fe084381ae107d0e35b763561a40c7eb17c"
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic-java/HardwareInventorySkipLaunchPlugin.java",
@@ -1431,10 +1431,15 @@
       "path": "work/network-pair-cold-glue/test_hardware_skip_capture.py",
       "bytes": 2388,
       "sha256": "007ed41461e156e9f56ac63dde42797845976b629f4efca025f0ffe3ba3a16a6"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_presealed_pair_inputs.py",
+      "bytes": 5238,
+      "sha256": "77c4cdb2de74085dd9d21403a03a0f7ce46e69a4ee004cb9de70a2d57db7e092"
     }
   ],
-  "revision": 28,
-  "previousReviewManifestSha256": "855e4d8bffd47f40381e00068e4129ef3b4411e6ee195ddcea24945ea057b06b",
+  "revision": 29,
+  "previousReviewManifestSha256": "d9ffa5ed7ef8e509d1697bbe27681f870129a9df5911ae42ee6a7203a782e981",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
@@ -1442,9 +1447,9 @@
   },
   "roundDeadline": {
     "schema": 1,
-    "roundId": "recovery-20261024T160900Z",
-    "startUtc": "2026-10-24T16:09:00Z",
-    "cutoffUtc": "2026-10-24T16:54:00Z",
+    "roundId": "recovery-20261024T170900Z",
+    "startUtc": "2026-10-24T17:09:00Z",
+    "cutoffUtc": "2026-10-24T17:54:00Z",
     "cleanupReserveSeconds": 180,
     "maximumWorkSeconds": 1980,
     "minimumWorkSeconds": 1560,

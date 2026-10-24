@@ -27,7 +27,7 @@ class DiagnosticDriverTests(unittest.TestCase):
         reports['unified']['passed']=False
         with self.assertRaises(ValueError):d.semantic_comparison(reports)
 
-    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False,hardware_marker=True):
+    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False,hardware_marker=True,seal_fail_target=None):
         with tempfile.TemporaryDirectory() as tmp,ExitStack() as stack:
             repo=Path(tmp)/'repo';repo.mkdir();consumer=Path(tmp)/'consumer';consumer.mkdir()
             manifest=consumer/'diagnostic-manifest.json';manifest.write_text('{"fixture":true}')
@@ -55,10 +55,17 @@ class DiagnosticDriverTests(unittest.TestCase):
             stack.enter_context(mock.patch.object(d.graphics_runner,'availability',return_value={'missingInputs':[]}))
             graphics=stack.enter_context(mock.patch.object(d.graphics_runner,'execute',return_value={'status':'GRAPHICS_PREFLIGHT_READY','readyPath':'ready','handle':'handle'}))
             stop=stack.enter_context(mock.patch.object(d.graphics_runner,'stop',side_effect=OSError('cleanup fixture') if cleanup_fail else None,return_value={'status':'GRAPHICS_COLLECTOR_CLEANED'}))
-            seal=stack.enter_context(mock.patch.object(d.seal_pair,'create',return_value={'supervisor':{'path':'fixture'},'spec':{'path':'fixture','sha256':'0'*64}}))
+            order=[]
+            def create_seal(*args,**kwargs):
+                target=args[2];order.append('seal:'+target)
+                if target==seal_fail_target:raise ValueError('Exact prestart seal fixture rejection')
+                return {'supervisor':{'path':'fixture'},'spec':{'path':'fixture-'+target,'sha256':'0'*64}}
+            seal=stack.enter_context(mock.patch.object(d.seal_pair,'create',side_effect=create_seal))
             waits=[];terms=[]
             def spawn(args,**kwargs):
+                self.assertEqual(seal.call_count,2,'Both exact seals must precede any game process')
                 destination=Path(args[args.index('--destination')+1]);destination.mkdir()
+                order.append('spawn:'+destination.name)
                 report={'passed':True,'status':'PASS','diagnostic_only':True,'baseline_acceptance':False,'diagnostic_profile':profile.copy()}
                 if raw_change:raw_change(report,destination.name)
                 (destination/'result.json').write_text(json.dumps(report))
@@ -89,12 +96,21 @@ class DiagnosticDriverTests(unittest.TestCase):
             self.assertEqual(graphics.call_args.kwargs['deadline'],1100)
             self.assertTrue(all(c.kwargs['diagnostic_manifest']==manifest for c in seal.call_args_list))
             self.assertFalse(d.driver_paths(consumer,True)['result'].exists())
+            self.last_order=order
             return result,error,waits,terms,stop.call_count
 
     def test_two_synthetic_passes_never_promote(self):
         r,e,waits,terms,stops=self.run_driver()
         self.assertIsNone(e);self.assertEqual(r['status'],'DIAGNOSTIC_TRANSPORT_CONTROLS_PASSED')
         self.assertEqual(waits,[d.PAIR_SECONDS,d.PAIR_SECONDS]);self.assertFalse(terms);self.assertEqual(stops,1)
+        self.assertEqual(self.last_order,['seal:native-neoforge','seal:unified','spawn:native-neoforge','spawn:unified'])
+        self.assertEqual(set(r['diagnosticPresealedInputs']),{'native-neoforge','unified'})
+
+    def test_second_preseal_failure_launches_neither_target(self):
+        r,e,waits,terms,stops=self.run_driver(seal_fail_target='unified')
+        self.assertIsInstance(e,ValueError);self.assertEqual(r['status'],'FAILED')
+        self.assertEqual(self.last_order,['seal:native-neoforge','seal:unified'])
+        self.assertFalse(waits);self.assertFalse(terms);self.assertEqual(stops,1)
 
     def test_missing_mixed_mismatched_metadata_rejected(self):
         changes=[lambda r:r.pop('diagnostic_profile'),lambda r:r.update(diagnostic_only=False),

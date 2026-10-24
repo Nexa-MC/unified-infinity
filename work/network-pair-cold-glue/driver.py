@@ -341,12 +341,26 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             starting_graphics=False
         check_stops()
         require(graphics['status']=='GRAPHICS_PREFLIGHT_READY','Graphics did not produce real readiness: '+str(graphics.get('missingInputs')))
+        diagnostic_seals={}
+        if diagnostic_fml:
+            # Full four-role validation is a pre-execution operation. Preserve
+            # both exact seals before either role can legitimately serialize its
+            # runtime-owned files. Each unchanged supervisor rechecks its own
+            # complete seal immediately before starting that target.
+            for target in ('native-neoforge','unified'):
+                check_stops()
+                require(time.monotonic()<deadline,'Cold job deadline exceeded before diagnostic sealing')
+                diagnostic_seals[target]=seal_pair.create(repo,consumer,target,graphics['readyPath'],
+                    'Isolated native/Unified nonce diagnostic; publication approval tracked separately',
+                    diagnostic_manifest=diagnostic_manifest,**options)
+            result['diagnosticPresealedInputs']={target:sealed['spec'] for target,sealed in diagnostic_seals.items()}
         reports={}
         for target in ('native-neoforge','unified'):
+            check_stops()
             require(time.monotonic()<deadline,'Cold job deadline exceeded before pair')
-            seal_options=dict(options)
-            if diagnostic_fml:seal_options['diagnostic_manifest']=diagnostic_manifest
-            sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**seal_options)
+            sealed=(diagnostic_seals[target] if diagnostic_fml else
+                    seal_pair.create(repo,consumer,target,graphics['readyPath'],
+                        'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**options))
             evidence=paths['evidence']/target;evidence.parent.mkdir(exist_ok=True)
             args=[sys.executable,sealed['supervisor']['path'],'--spec',sealed['spec']['path'],'--sha256',sealed['spec']['sha256'],'--execute-reviewed-ci-pair','--destination',str(evidence)]
             if window is not None:args += ['--work-cutoff-monotonic', str(window.deadline)]
