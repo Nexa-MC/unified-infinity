@@ -244,12 +244,14 @@ class SourcePreservation(unittest.TestCase):
         current = ast.parse(source)
         expected = next(node for node in upstream.body if isinstance(node, ast.ClassDef) and node.name == 'Pair')
         actual = copy.deepcopy(next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Pair'))
-        # Exact reviewed CPU-probe successor methods; other process behavior stays compared below.
-        expected_lifecycle_hashes = {'__init__': '9b2d518127bda163b1ca1ee05cb19ac7984c95d6df6fd4bb22466cdcb6e5b08a', 'pump': '533d939ee17a007ef942bbb63ea16d670ecfc6343f107dbb86c4173c746910c1', 'cleanup': '24e38e304fdb3a4cd24d563ae48b7264a2151f3708182fa6028509cbdad4374b', 'wait_for_completed_reload': 'beb2add1e1aed9feb42a60eef7ebbbf311cfb70578d4fdcdace0b515996b0f85'}
+        # Exact reviewed successor methods; new terminal-only adopted cleanup
+        # is hash-checked before removing only that addition for frozen comparison.
+        # All other process behavior stays compared below.
+        expected_lifecycle_hashes = {'__init__': '9b2d518127bda163b1ca1ee05cb19ac7984c95d6df6fd4bb22466cdcb6e5b08a', 'pump': '533d939ee17a007ef942bbb63ea16d670ecfc6343f107dbb86c4173c746910c1', 'cleanup': '15b838a233892d68ea2b511a1233b167cb0b6f130a6dd5d5c545d882fd29c1fe', 'adopted_group_cleanup_pending': '3c8d454799ca24e8fee590c4529b183db2fbf84b5ef35b2f96cbf80ae3d6bac9', 'wait_for_completed_reload': 'beb2add1e1aed9feb42a60eef7ebbbf311cfb70578d4fdcdace0b515996b0f85'}
         for name, digest in expected_lifecycle_hashes.items():
             method = next(node for node in actual.body if isinstance(node, ast.FunctionDef) and node.name == name)
             self.assertEqual(hashlib.sha256(ast.dump(method, include_attributes=False).encode()).hexdigest(), digest)
-            if name == 'wait_for_completed_reload':
+            if name in ('wait_for_completed_reload', 'adopted_group_cleanup_pending'):
                 actual.body.remove(method)
             else:
                 prior = next(node for node in expected.body if isinstance(node, ast.FunctionDef) and node.name == name)

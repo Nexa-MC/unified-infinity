@@ -5,8 +5,8 @@
   "files": [
     {
       "path": "CPU-PROBE-POLICY.md",
-      "bytes": 6011,
-      "sha256": "4988cc8f09f93a0abd0e8a58a3bc532208b66f9e8b8ce412deff02d364f9cce3"
+      "bytes": 7923,
+      "sha256": "dcb5de404138aa60c518c87737a2232b6f68700a573ddff74b1a87287d464900"
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 110312,
-      "sha256": "76b385086e540ed7d977dad1f8891be9de908174fd3273a7298eae8cd964ecf7"
+      "bytes": 123601,
+      "sha256": "e88b507a406f57712c1b6f1d8bccd3e3bfb267412f1771b7f26244ef446aea81"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -65,8 +65,8 @@
     },
     {
       "path": "test_control_serialization.py",
-      "bytes": 20802,
-      "sha256": "c1c759461c7fed8622c34e87f1a56a281eaa201b198c09ea99dc036f795c79f4"
+      "bytes": 21060,
+      "sha256": "33bfb6ac557ac1d56d0b222cbd82515888a2c9d39062d72d47902e40b13b6004"
     },
     {
       "path": "test_cpu_probe_policy.py",
@@ -112,6 +112,21 @@
       "path": "test_supervisor.py",
       "bytes": 25601,
       "sha256": "8490de9ee755f1fdf78e9f31569bfad368eacd9d8d9a851cb8b9634cbb8d3186"
+    },
+    {
+      "path": "test_jdk_spawn_transition.py",
+      "bytes": 13477,
+      "sha256": "c65654b372964d5e875333044cd262bd710d4885268f06de86d184b906c0061d"
+    },
+    {
+      "path": "test_adopted_zombie_cleanup.py",
+      "bytes": 14677,
+      "sha256": "82d9d0b0b538e1cc593d0c181e246fb1061df724a12ebc4c0c39e3bad8cbce36"
+    },
+    {
+      "path": "test_jdk_spawn_producer_binding.py",
+      "bytes": 1509,
+      "sha256": "87eef589eb388126965f404f7072c013534678eb2046b39a3898285521adfc43"
     }
   ]
 }

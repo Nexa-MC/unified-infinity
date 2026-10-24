@@ -4,7 +4,7 @@ The execution overview below records the original144-file preparation. Its first
 
 This supersedes the earlier proposal's intentionally stopping preflight. The serial driver now contains the actual restoration, build, probe compilation, pair assembly, graphics handoff and supervisor invocations. It is prepared source, with successful Python-only staging checks. No cold download, JVM, graphics process, game, Git write or CI run has occurred during preparation. Publication remains paused and belongs to the reviewing publisher.
 
-## API-independent fixed recovery round: 01:09–01:54 UTC
+## API-independent fixed recovery round: 02:09–02:54 UTC
 
 This separate source-only candidate does not use the public jobs API. The prior
 job-anchored proof is preserved unchanged. It is not a retry or alternate access
@@ -19,8 +19,8 @@ exceed the fixed cutoff. The platform job is still one standard Ubuntu job,
 36 minutes, $0 overage. This proof assumes trustworthy runner UTC and normal
 platform behavior; it is not a hard independent kernel/process containment claim.
 
-This candidate targets 24 October 2026 only. First-step admission is 01:09:00
-through 01:13:00 UTC inclusive. Do not publish before 01:09:00: push triggers CI.
+This candidate targets 24 October 2026 only. First-step admission is 02:09:00
+through 02:13:00 UTC inclusive. Do not publish before 02:09:00: push triggers CI.
 Queue delay makes no latest push time guaranteed; target the window opening.
 Before publication recheck remote HEAD, all active runs, the existing zero-overage
 guard and remaining time. Missing the admission window means no execution. No phase,

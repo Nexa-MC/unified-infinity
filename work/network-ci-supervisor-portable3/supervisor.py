@@ -548,6 +548,10 @@ CPU_PROBE_MAX_SECONDS = 10
 CPU_PROBE_MAX_CPU_SECONDS = 2
 CPU_PROBE_MAX_RSS = 64 * MIB
 CPU_PROBE_RESERVE_BYTES = 2 * CPU_PROBE_MAX_RSS
+JDK_SPAWN_SHA256 = 'e3101d3a580c9ae6e973acbf2e861855e93ebceb0bbd8e5fa3ddf6abbf6fd63d'
+JDK_SPAWN_BYTES = 17888
+JDK_SPAWN_VERSION = b'21.0.12.1+1-LTS'
+CPU_PROBE_VERIFY_SECONDS = 1
 
 
 def cpu_probe_credentials(proc, identity, helper=False, terminal=False):
@@ -649,9 +653,9 @@ def cpu_probe_fds(proc, expected, deadline):
     proc.same(expected)
 
 
-def cpu_probe_sample(proc, expected, parent, command, previous=None):
+def cpu_probe_sample(proc, expected, parent, command, previous=None, *, deadline=None, transition_context=None):
     """Separate fail-closed admission; diagnostic labels are never authoritative."""
-    deadline = time.monotonic() + 1
+    deadline = time.monotonic() + CPU_PROBE_VERIFY_SECONDS if deadline is None else deadline
     def relationship():
         live_parent, live = proc.same(parent), proc.same(expected)
         require(live_parent['ppid'] == os.getpid() and live['ppid'] == parent['pid'] and
@@ -667,6 +671,12 @@ def cpu_probe_sample(proc, expected, parent, command, previous=None):
     path = proc.root / str(expected['pid']) / 'exe'
     descriptor = None
     try:
+        if os.readlink(path) != CPU_PROBE_PATH and previous is None and transition_context is not None:
+            pair, retained_pidfd = transition_context
+            signature, metrics = cpu_probe_spawn_transition(pair, expected, parent, command, retained_pidfd, deadline)
+            metrics['rss_bytes'] = max(metrics['rss_bytes'], live['rss_bytes'])
+            metrics['high_water_rss_bytes'] = max(metrics['high_water_rss_bytes'], high_water)
+            return signature, metrics
         require(os.readlink(path) == CPU_PROBE_PATH, 'CPU probe executable path changed')
         descriptor = os.open(path, os.O_RDONLY | os.O_NONBLOCK | os.O_CLOEXEC)
         before = os.fstat(descriptor)
@@ -712,6 +722,164 @@ def cpu_probe_sample(proc, expected, parent, command, previous=None):
             os.close(descriptor)
 
 
+def cpu_probe_spawn_census(pair, expected, parent):
+    """A bounded wait cannot rely on the process census from before the wait."""
+    members = pair.proc.all_identities()
+    require(any((row['pid'], row['start_ticks']) == (expected['pid'], expected['start_ticks'])
+                for row in members), 'CPU probe transition identity disappeared')
+    require(not any(row['ppid'] == expected['pid'] for row in members),
+            'CPU probe descendants forbidden')
+    require(not any(row['pid'] != expected['pid'] and row['ppid'] == parent['pid']
+                    for row in members), 'CPU probe simultaneous instance limit exceeded')
+    require(all(row['pid'] in (parent['pid'], expected['pid']) for row in members
+                if row['pgrp'] == parent['pgrp'] and row['session'] == parent['session']
+                and row['state'] != 'Z'), 'CPU probe unexpected group member during transition')
+
+
+def cpu_probe_spawn_sample(pair, expected, parent, command, deadline, state=None):
+    """Verify one pinned helper snapshot, never infer its pipe-delivered target.
+
+    True means only that the exact target path is now observable; the caller
+    must perform a completely independent lshw sample before any acceptance.
+    No permission/FD/resource/hash failure is caught or forgiven as a race.
+    """
+    proc = pair.proc
+    helper = clean_path(str(Path(command[0]).parent.parent / 'lib/jspawnhelper'))
+    require(Path(command[0]).name == 'java' and Path(command[0]).parent.name == 'bin',
+            'CPU probe parent JDK layout changed')
+    require(str(helper.parent.parent) in pair.spec['immutable_trees'],
+            'CPU probe helper JDK is not sealed')
+    pin = {'path': str(helper), 'bytes': JDK_SPAWN_BYTES, 'sha256': JDK_SPAWN_SHA256}
+    require(sum(row == pin for row in pair.spec['inputs']) == 1,
+            'CPU probe helper original input pin missing')
+    root = None
+    if pair.spec.get('schema') == 'network-ci-pair-v2':
+        root = preparation_root([Path(value) for value in pair.spec['preparation_roots']], str(helper))
+        require(root is not None, 'CPU probe helper outside preparation roots')
+    require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+    seal = helper.stat()
+    require(stat.S_ISREG(seal.st_mode) and seal.st_nlink == 1 and
+            stat.S_IMODE(seal.st_mode) in (0o500, 0o550, 0o555, 0o700, 0o750, 0o755) and
+            seal.st_size == JDK_SPAWN_BYTES, 'CPU probe helper metadata mismatch')
+    if root is not None:
+        owned_preparation_access(helper, seal, root)
+    elif seal.st_mode & 0o222:
+        trusted_system_file_access(helper, seal)
+    signature = lambda value: (value.st_dev, value.st_ino, value.st_size, value.st_mode,
+                               value.st_uid, value.st_gid, value.st_nlink,
+                               value.st_mtime_ns, value.st_ctime_ns)
+    sealed_signature = signature(seal)
+    if state is not None:
+        require(state.get('executable', sealed_signature) == sealed_signature,
+                'CPU probe helper executable changed across observations')
+    path = proc.root / str(expected['pid']) / 'exe'
+    def target_now():
+        proc.same(expected)
+        target = os.readlink(path)
+        require(target in (str(helper), CPU_PROBE_PATH), 'CPU probe transition target forbidden')
+        return target == CPU_PROBE_PATH
+    if target_now():
+        return True
+    descriptor = os.open(path, os.O_RDONLY | os.O_NONBLOCK | os.O_CLOEXEC)
+    try:
+        before = os.fstat(descriptor)
+        if signature(before) != sealed_signature:
+            # An exec can happen between readlink and open. Only the exact
+            # system target inode may start a fresh, full target verification.
+            require(target_now() and signature(before) == signature(os.stat(CPU_PROBE_PATH)),
+                    'CPU probe helper executable identity mismatch')
+            return True
+        hasher, count = hashlib.sha256(), 0
+        while True:
+            require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+            chunk = os.read(descriptor, min(65536, JDK_SPAWN_BYTES + 1 - count))
+            if not chunk:
+                break
+            count += len(chunk)
+            require(count <= JDK_SPAWN_BYTES, 'CPU probe helper size exceeded')
+            hasher.update(chunk)
+        require(count == JDK_SPAWN_BYTES and hasher.hexdigest() == JDK_SPAWN_SHA256,
+                'CPU probe helper digest mismatch')
+        require(signature(os.fstat(descriptor)) == sealed_signature and
+                signature(helper.stat()) == sealed_signature, 'CPU probe helper changed during verification')
+        if target_now():
+            return True
+        args = proc.root / str(expected['pid']) / 'cmdline'
+        def helper_argv(raw):
+            fields = raw.split(b'\0')
+            if len(fields) != 4 or fields[0] != os.fsencode(helper) or fields[1] != JDK_SPAWN_VERSION or fields[3]:
+                return False
+            if re.fullmatch(rb'(?:0|[1-9][0-9]{0,9}):(?:0|[1-9][0-9]{0,9}):(?:0|[1-9][0-9]{0,9})', fields[2]) is None:
+                return False
+            fds = tuple(map(int, fields[2].split(b':')))
+            return len(set(fds)) == 3 and all(value <= 2**31-1 for value in fds)
+        raw = read_bounded(args, 8192)
+        if not helper_argv(raw):
+            require(raw in CPU_PROBE_ALLOWED_ARGV and target_now(), 'CPU probe helper argument form mismatch')
+            return True
+        again = read_bounded(args, 8192)
+        if again != raw:
+            require(again in CPU_PROBE_ALLOWED_ARGV and target_now(), 'CPU probe helper argument form changed')
+            return True
+        if state is not None:
+            require(state.get('argv', raw) == raw, 'CPU probe helper argument form changed across observations')
+        require(signature(os.fstat(descriptor)) == sealed_signature and
+                signature(helper.stat()) == sealed_signature, 'CPU probe helper changed during argument verification')
+        if target_now():
+            return True
+        require(signature(os.stat(path)) == sealed_signature, 'CPU probe helper executable changed')
+        if state is not None:
+            state.update(executable=sealed_signature, argv=raw)
+        return False
+    finally:
+        os.close(descriptor)
+
+
+def cpu_probe_spawn_transition(pair, expected, parent, command, retained_pidfd, deadline):
+    """Synchronous observation grace only, sharing the original one-second budget."""
+    deadline = min(deadline, pair.deadline)
+    proc, observations, helper_state = pair.proc, 0, {}
+    peak = {'age_seconds': 0, 'cpu_ticks': 0, 'rss_bytes': 0, 'high_water_rss_bytes': 0}
+    parent_signature = cpu_probe_parent(proc, parent, command)
+    def invariants():
+        require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+        cpu_probe_handle_live(retained_pidfd)
+        live = proc.same(expected)
+        require(live['ppid'] == parent['pid'] and live['pgrp'] == parent['pgrp'] == parent['pid'] and
+                live['session'] == parent['session'] == parent['pid'] and
+                live['start_ticks'] >= parent['start_ticks'], 'CPU probe direct-parent relationship changed')
+        require(live['state'] in ('R', 'S', 'D'), 'CPU probe unexpected process state')
+        require(0 <= live['rss_bytes'] <= CPU_PROBE_MAX_RSS, 'CPU probe RSS exceeded')
+        high_water = cpu_probe_credentials(proc, expected, helper=True)
+        cpu_probe_fds(proc, expected, deadline)
+        age, ticks = cpu_probe_usage(proc, expected)
+        metrics = {'age_seconds': round(age, 3), 'cpu_ticks': ticks,
+                   'rss_bytes': live['rss_bytes'], 'high_water_rss_bytes': high_water}
+        for key, value in metrics.items():
+            peak[key] = max(peak[key], value)
+        require(cpu_probe_parent(proc, parent, command) == parent_signature,
+                'CPU probe parent executable changed during verification')
+        role = next((role for role, identity in pair.identities.items() if identity == parent), None)
+        require(role is not None and pair.children[role].poll() is None,
+                'CPU probe parent exited during verification')
+        cpu_probe_spawn_census(pair, expected, parent)
+        require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
+    while True:
+        invariants()
+        transitioned = cpu_probe_spawn_sample(pair, expected, parent, command, deadline, helper_state)
+        invariants()
+        if transitioned:
+            signature, metrics = cpu_probe_sample(proc, expected, parent, command, deadline=deadline)
+            invariants()
+            metrics = {key: max(value, peak[key]) for key, value in metrics.items()}
+            pair.report.setdefault('jdk_spawn_transitions', []).append({
+                'pid': expected['pid'], 'start_ticks': expected['start_ticks'],
+                'helper_observations': observations, 'target_verified': True})
+            return signature, metrics
+        observations += 1
+        time.sleep(min(0.005, max(0, deadline - time.monotonic())))
+
+
 class CpuProbePolicy:
     """Finite observed identities with owned pidfds; no unknown-child allowance."""
     def __init__(self):
@@ -750,7 +918,8 @@ class CpuProbePolicy:
                     cpu_probe_handle_live(fd)
                     signature, metrics = cpu_probe_sample(pair.proc, row, pair.identities[role],
                                                          pair.spec[role]['command'],
-                                                         old['signature'] if old else None)
+                                                         old['signature'] if old else None,
+                                                         transition_context=(pair, fd))
                     cpu_probe_handle_live(fd)
                     require(pair.children[role].poll() is None, 'CPU probe parent exited during verification')
                 except BaseException:
@@ -772,7 +941,9 @@ class CpuProbePolicy:
             raise
         finally:
             pair.report['cpu_probe_policy'] = {
-                'contract': 'EXACT_OSHI_PROCESSOR_DISPLAY_V2', 'failed': self.failed,
+                'contract': 'EXACT_OSHI_PROCESSOR_DISPLAY_V3',
+                'jdk_spawn_transition': 'SYNCHRONOUS_EXACT_TARGET_REQUIRED',
+                'maximum_verification_seconds': CPU_PROBE_VERIFY_SECONDS, 'failed': self.failed,
                 'sampled_observations': True, 'hard_resource_enforcement': False,
                 'complete_process_history': False,
                 'failure': getattr(self, 'failure', None),
@@ -1699,6 +1870,55 @@ class Pair:
         self.report['observations'].append(row)
         return row
 
+    def adopted_group_cleanup_pending(self, until):
+        """Terminal-only reaping, not descendant admission or a new signal path."""
+        pending = False
+        direct = {child.pid for child in self.children.values()}
+        try:
+            members = self.proc.all_identities()
+            for row in members:
+                if row['pid'] in direct or row['ppid'] != os.getpid():
+                    continue
+                role = next((name for name, owner in self.identities.items()
+                             if name in self.children and
+                             owner['pid'] == owner['pgrp'] == owner['session'] == self.children[name].pid and
+                             row['pgrp'] == owner['pgrp'] and row['session'] == owner['session'] and
+                             row['start_ticks'] >= owner['start_ticks']), None)
+                if role is None or (row['pid'], row['start_ticks']) in self.cpu_helpers.records:
+                    continue
+                if time.monotonic() >= until:
+                    return True
+                if row['state'] != 'Z':
+                    pending = True  # Keep the existing bounded signal/wait phases alive.
+                    continue
+                descriptor = None
+                try:
+                    descriptor = os.pidfd_open(row['pid'], 0)
+                    actual = self.proc.identity(row['pid'])
+                    require(all(actual[key] == row[key] for key in
+                                ('pid', 'start_ticks', 'ppid', 'pgrp', 'session', 'state')),
+                            'Adopted zombie identity changed')
+                    # The self-parented zombie cannot recycle before this wait.
+                    # P_PIDFD also prevents a stale numeric PID from being reaped.
+                    waited = os.waitid(os.P_PIDFD, descriptor, os.WEXITED | os.WNOHANG)
+                    if waited is None:
+                        pending = True
+                    else:
+                        require(waited.si_pid == row['pid'], 'Adopted zombie wait identity changed')
+                        self.report.setdefault('adopted_group_zombies_reaped', []).append(
+                            {'role': role, 'pid': row['pid'], 'start_ticks': row['start_ticks'],
+                             'pgrp': row['pgrp'], 'session': row['session']})
+                except (FileNotFoundError, ProcessLookupError):
+                    pass
+                finally:
+                    if descriptor is not None:
+                        os.close(descriptor)
+        except (OSError, ValueError):
+            self.report['cleanup_incomplete'] = True
+            self.report['adopted_group_cleanup_observation_error'] = 'Owned adopted child wait observation unavailable'
+            pending = True
+        return pending
+
     def cleanup(self):
         # No pkill, name matching, PID-only termination, or Xvfb shutdown.
         def inspect_survivors():
@@ -1742,8 +1962,14 @@ class Pair:
                     except ProcessLookupError:
                         pass
             until = time.monotonic() + seconds
-            while time.monotonic() < until and (self.cpu_helpers.cleanup_pending(self) or
-                                                any(p.poll() is None for p in self.children.values())):
+            while time.monotonic() < until:
+                # Poll direct children first, so adoption following their exit is
+                # visible before deciding that the whole owned tree is finished.
+                direct_pending = any(p.poll() is None for p in self.children.values())
+                helper_pending = self.cpu_helpers.cleanup_pending(self)
+                adopted_pending = self.adopted_group_cleanup_pending(until)
+                if not (direct_pending or helper_pending or adopted_pending):
+                    break
                 try:
                     self.pump(0.1)
                 except (ValueError, OSError):
