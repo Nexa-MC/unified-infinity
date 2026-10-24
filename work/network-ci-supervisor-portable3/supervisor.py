@@ -862,7 +862,11 @@ def cpu_probe_spawn_sample(pair, expected, parent, command, deadline, state=None
             label = target[:-10] if deleted else target
             error.transition_target_diagnostic = {
                 'admission_evidence': False, 'identity_verified': False,
-                'path_label': 'PARENT_COMMAND_PATH' if label == command[0] else 'OTHER_PATH',
+                'path_label': ('PARENT_COMMAND_PATH' if label == command[0] else {
+                    '/usr/bin/lspci': 'PCI_QUERY_USR_BIN_PATH',
+                    '/usr/sbin/lspci': 'PCI_QUERY_USR_SBIN_PATH',
+                    '/bin/lspci': 'PCI_QUERY_BIN_PATH',
+                    '/sbin/lspci': 'PCI_QUERY_SBIN_PATH'}.get(label, 'OTHER_PATH')),
                 'deleted_suffix': deleted}
             raise error
         return target == CPU_PROBE_PATH
