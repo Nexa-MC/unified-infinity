@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 123601,
-      "sha256": "e88b507a406f57712c1b6f1d8bccd3e3bfb267412f1771b7f26244ef446aea81"
+      "bytes": 124068,
+      "sha256": "12df46db6bf11127a3a95cbf3e813315aa909c83c329d0755c9690d24a9be8ef"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -65,8 +65,8 @@
     },
     {
       "path": "test_control_serialization.py",
-      "bytes": 21060,
-      "sha256": "33bfb6ac557ac1d56d0b222cbd82515888a2c9d39062d72d47902e40b13b6004"
+      "bytes": 21899,
+      "sha256": "66f3b3b7b4c58d728c23ff15c74576420b460f5ca43584e9dad1da1406084fe2"
     },
     {
       "path": "test_cpu_probe_policy.py",
@@ -127,6 +127,11 @@
       "path": "test_jdk_spawn_producer_binding.py",
       "bytes": 1509,
       "sha256": "87eef589eb388126965f404f7072c013534678eb2046b39a3898285521adfc43"
+    },
+    {
+      "path": "test_clean_exit_reconciliation.py",
+      "bytes": 13437,
+      "sha256": "d2e499022027ce75958712d826d0abac5204b774df3d8b04ea3145fa699ef710"
     }
   ]
 }

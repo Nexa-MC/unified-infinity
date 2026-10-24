@@ -241,6 +241,16 @@ class SourcePreservation(unittest.TestCase):
         self.assertEqual(source.count(helper_receipt), 1)
         source = source.replace(helper_receipt, '', 1)
         self.assertEqual(s.CPU_PROBE_RESERVE_BYTES, 128 * s.MIB)
+        # Normalize only the exact reviewed terminal reconciliation addition.
+        # The existing zero-role, event, save, input and survivor gates stay compared.
+        exit_reconciliation = """            for role, child in self.children.items():
+                require(role in self.identities and child.pid == self.identities[role]['pid'],
+                        'Owned child identity mismatch at final exit reconciliation')
+                self.report['exits'][role] = child.poll()
+"""
+        self.assertEqual(source.count(exit_reconciliation), 1)
+        self.assertEqual(source.count(exit_reconciliation + "            require(set(self.children) == {'server', 'client'} and self.report['exits'] == {'server': 0, 'client': 0}, 'Both owned clean exits required')"), 1)
+        source = source.replace(exit_reconciliation, '', 1)
         current = ast.parse(source)
         expected = next(node for node in upstream.body if isinstance(node, ast.ClassDef) and node.name == 'Pair')
         actual = copy.deepcopy(next(node for node in current.body if isinstance(node, ast.ClassDef) and node.name == 'Pair'))

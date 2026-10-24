@@ -2069,6 +2069,12 @@ class Pair:
             require(set(self.logs['server'].events) == {'NETWORK_CONTROL_READY', 'NETWORK_CONTROL_JSON'} and
                     set(self.logs['client'].events) == {'NETWORK_CONTROL_JSON', 'NETWORK_CONTROL_DISCONNECTED'},
                     'Unexpected role/event combination')
+            # A wait predicate may reap after pump; console drain need not pump again.
+            # Read the retained owned children, never infer success from cached exits.
+            for role, child in self.children.items():
+                require(role in self.identities and child.pid == self.identities[role]['pid'],
+                        'Owned child identity mismatch at final exit reconciliation')
+                self.report['exits'][role] = child.poll()
             require(set(self.children) == {'server', 'client'} and self.report['exits'] == {'server': 0, 'client': 0}, 'Both owned clean exits required')
             require(not any(p['pgrp'] in {i['pgrp'] for i in self.identities.values()} and p['state'] != 'Z'
                             for p in self.proc.all_identities()), 'Game process group survived')
