@@ -9,14 +9,23 @@ import zipfile
 import pair_assembly as base
 import diagnostic_fml_build as build
 
-OUTPUT = 'work/network-pair-assembled-process-diagnostic'
+OUTPUT = 'work/network-pair-assembled-hardware-skip-diagnostic'
 RESULT = OUTPUT + '/diagnostic-assembly.json'
 POLICY = 'META-INF/unified-admission/installation.json'
+SCOPE = {'diagnosticProfile': 'system-report-hardware-inventory-skip-v1',
+         'behavioralChange': True,
+         'hardwareScope': 'all-SystemReport-instances-including-crash-reports',
+         'nonHardwareFieldsPreserved': True, 'gameJarBytesModified': False}
 
 
 def require(value, message):
     if not value:
         raise ValueError(message)
+
+
+def require_scope(value):
+    require(all(type(value.get(k)) is type(v) and value.get(k) == v for k, v in SCOPE.items()),
+            'Diagnostic hardware-skip scope changed')
 
 
 def check(root, row):
@@ -102,14 +111,14 @@ def configure_unified(assembler, spec, spec_path, derivative, manifest, output):
                'baseline_acceptance': False, 'artifact': str(owner), 'sha256': base.sha(owner),
                'installationPolicySha256': hashlib.sha256(raw).hexdigest(),
                'diagnosticManifest': base.pin(manifest), 'unconfiguredDerivative': base.pin(derivative),
-               'assemblySpec': base.pin(spec_path), 'sourceLaunch': spec['launchSource']}
+               'assemblySpec': base.pin(spec_path), 'sourceLaunch': spec['launchSource'], **SCOPE}
     output.mkdir()
     receipt_path = output / 'build-receipt.json'
     base.save(receipt_path, receipt)
     result = assembler.v.validate(receipt_path, base.sha(receipt_path), args, policy['environment'])
     result.update(diagnostic_only=True, baseline_acceptance=False, jvmStarted=False,
                   configuredOwner=str(owner), configuredOwnerSha256=base.sha(owner),
-                  buildReceipt=str(receipt_path), buildReceiptSha256=base.sha(receipt_path),
+                  buildReceipt=str(receipt_path), buildReceiptSha256=base.sha(receipt_path), **SCOPE,
                   javaExecutable=java, rawArgumentsStored=False, argumentCount=len(args))
     base.save(output / 'assembly-report.json', result)
     return [java, *args], result, [base.pin(spec_path), base.pin(receipt_path),
@@ -192,7 +201,7 @@ def assemble(repo, consumer, manifest, *, profile, build_proof):
             validator.validate_command(command, side, game, group['port'], files)
             copied.update(command=command, files=sorted(files, key=lambda r: r['path']),
                           assembly=assembly, diagnostic_only=True, baseline_acceptance=False,
-                          diagnosticManifest=base.pin(manifest), baselineRole=base.pin(original_seal))
+                          diagnosticManifest=base.pin(manifest), baselineRole=base.pin(original_seal), **SCOPE)
             path = folder / (side + '-launch-seal.json')
             roles[side] = base.save(path, copied)
             extra.append(base.pin(original_seal))
@@ -201,7 +210,7 @@ def assemble(repo, consumer, manifest, *, profile, build_proof):
               'baseline_acceptance': False, 'gameAcceptance': False, 'gameLaunched': False,
               'jvmStarted': False, 'manifest': base.pin(manifest), 'baselineAssembly': base.pin(baseline_path),
               'assemblyRoot': str(out), 'groups': groups,
-              'inputs': list({r['path']: r for r in extra}.values())}
+              'inputs': list({r['path']: r for r in extra}.values()), **SCOPE}
     build.validate(repo, root, manifest, profile, build_proof)
     seal_pair.refreshed_assembly(root, profile, build_proof)
     base.save(root / RESULT, result)
@@ -215,6 +224,7 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
     baseline_path, baseline, baseline_pins, original_root = seal_pair.refreshed_assembly(root, profile, build_proof)
     path = root / RESULT
     value = json.loads(path.read_text())
+    require_scope(value)
     require(value['schema'] == 'diagnostic-pair-assembly-v1' and value['diagnostic_only'] is True
             and value['baseline_acceptance'] is False and value['gameAcceptance'] is False
             and value['gameLaunched'] is False and value['jvmStarted'] is False,
@@ -233,6 +243,7 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
             rolepath = check(root, row)
             require(rolepath == root / OUTPUT / target / (side + '-launch-seal.json'), 'Role seal belongs elsewhere')
             role = json.loads(rolepath.read_text())
+            require_scope(role)
             original_seal = check(root, baseline['groups'][target]['roles'][side])
             original = json.loads(original_seal.read_text())
             old = original_root / target / side
@@ -269,6 +280,7 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
                         'Configured diagnostic receipt belongs elsewhere')
                 require(base.sha(receipt_path) == role['assembly']['buildReceiptSha256'], 'Configured receipt changed')
                 receipt = json.loads(receipt_path.read_text())
+                require_scope(receipt)
                 require(receipt['diagnostic_only'] is True and receipt['baseline_acceptance'] is False
                         and receipt['diagnosticManifest'] == base.pin(manifest)
                         and receipt['unconfiguredDerivative'] == base.pin(verified['artifacts']['unified']),

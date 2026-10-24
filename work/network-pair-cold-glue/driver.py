@@ -193,6 +193,15 @@ def semantic_comparison(reports):
             'sameProbeSha256':compile_probe.REFERENCE_JAR_SHA,'target':'Actual NeoForge host typed PLAY nonce roundtrip in distinct processes',
             'guiAcceptance':False,'qslForgeFacadeWireAcceptance':False,'fullApiCompatibility':False}
 
+def require_hardware_observation(captures):
+    import diagnostic_log_events
+    require(set(captures)=={'server','client'} and
+            all(capture['status']=='OBSERVED_INCOMPLETE'
+                and capture['hardware_transforms']==[diagnostic_log_events.HARDWARE_ROW]
+                for capture in captures.values()),
+            'Missing exact hardware-skip transformation observation')
+
+
 def diagnostic_comparison(reports,manifest):
     """Transport observations in derivative loaders never become baseline acceptance."""
     require(set(reports)=={'native-neoforge','unified'},'Missing paired diagnostic control')
@@ -371,6 +380,8 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 result.setdefault('diagnosticCaptures',{})[target]=captures
                 # Emit only revalidated safe rows after raw tails, never malformed input.
                 print('DIAGNOSTIC_PROCESS_CAPTURE '+target+' '+json.dumps(captures,sort_keys=True),flush=True)
+                if code==0:
+                    require_hardware_observation(captures)
             require(code==0,'Actual pair failed: '+target)
         if diagnostic_fml:result.update(diagnostic_comparison(reports,diagnostic_manifest))
         else:result.update(semantic_comparison(reports),gameAcceptance=True)

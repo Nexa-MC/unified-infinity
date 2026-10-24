@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_1509_1554_DIAGNOSTIC_COMPILER_EVIDENCE_PIN_FIX_UNEXECUTED",
+  "status": "FIXED_1609_1654_HARDWARE_INVENTORY_SKIP_DIAGNOSTIC_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "e8508b33e103c1f376501acfe7a03b68e72acc44",
-    "manifestSha256": "387d63325e91e2b461f4f148a98407c9d9264b628a88d9b331d2e8f5f7d2188b"
+    "commit": "94cf50a8ec683d1abf37ed7c6b12a9d0cb4c2d08",
+    "manifestSha256": "855e4d8bffd47f40381e00068e4129ef3b4411e6ee195ddcea24945ea057b06b"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 8760,
-      "sha256": "8824df99a49362ceab2425684d2c2ef335c7aecae8b0318944c3b1533d5c5933"
+      "bytes": 8756,
+      "sha256": "f8e7422fffe5313c98117d68be6169edfc449009b4fed41d71b69dc0306e05fa"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -819,8 +819,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/driver.py",
-      "bytes": 28560,
-      "sha256": "7c0f4da93149e4d6da960788613e26b74b8c0ca834917d4a54522373c3eb5d0c"
+      "bytes": 29044,
+      "sha256": "2b1eeeed1da5e06e7a306eed42eec66690527d93e808dbb4aac7274ef90d9a72"
     },
     {
       "path": "work/network-pair-cold-glue/ffapi_sources.py",
@@ -830,7 +830,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "add0df93ce3c1287e79b68f2b69d55e0877274abbf8ec0dae425af868e8ad9f3"
+      "sha256": "090a838bb701714ff3bbd0f1918343e0c097d24abefd58287dd75659014757b5"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -914,8 +914,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 8760,
-      "sha256": "8824df99a49362ceab2425684d2c2ef335c7aecae8b0318944c3b1533d5c5933"
+      "bytes": 8756,
+      "sha256": "f8e7422fffe5313c98117d68be6169edfc449009b4fed41d71b69dc0306e05fa"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -980,7 +980,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "f93c7669a00ab0de95a62217271afdd3364656ef5e98781c0f796e42ca7fcc8d"
+      "sha256": "586706dfb9dcd05e06f047b060ee8acdcd532a51bb9ca738c3cef82b2e3da529"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1344,8 +1344,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic_pair_assembly.py",
-      "bytes": 17127,
-      "sha256": "bcba724ff04077e78b06c97a1ba09566349b80fa013903aaa462389bc6087f2a"
+      "bytes": 17708,
+      "sha256": "7df1ee68e6d7169dd84780c2df773204df58426b71accc05b0975a7da86ff3c0"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_pair_assembly.py",
@@ -1354,23 +1354,23 @@
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic_log_events.py",
-      "bytes": 4282,
-      "sha256": "8d2213924f86e19a7d759aebb1b21f4daba884d77cdd58f4e535b9f95d8db03c"
+      "bytes": 4867,
+      "sha256": "1ec1c72ba757e4b01e9e9a2e5b62c5e2f0129b956be896253e0aad4464a905a3"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_driver.py",
-      "bytes": 8166,
-      "sha256": "4a05e90c3bb221dd4832bf8d007807fd5f0767097ecdec401ae46e847f584dfa"
+      "bytes": 8890,
+      "sha256": "72a80567e42da704ae4aa805928229a3d1f6e71649582c81505255e58b8c7412"
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic_fml_build.py",
-      "bytes": 26858,
-      "sha256": "1ea04a407fb2c0a4fe688283278b18a52eeded4a87c5a304bb5fbf621a50ca64"
+      "bytes": 29037,
+      "sha256": "f3077ca4af100bfd2ef1d313faa4c914d11cca71f6597288fea92d92e7ba2e5a"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_fml_build.py",
-      "bytes": 19526,
-      "sha256": "9cbe3f52589e08c49c0d35f3461b6b8e03a23b6de08c2a2a339f7cc10a0da386"
+      "bytes": 23474,
+      "sha256": "8b1d1e0ad59b6af5ba62e24fd79c6eb7e0d93b538030c8792db2433be396898a"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_flow_fixture.py",
@@ -1409,12 +1409,32 @@
     },
     {
       "path": "work/network-pair-cold-glue/DIAGNOSTIC-FML.md",
-      "bytes": 3686,
-      "sha256": "a8b167b05584da47bad712ed8e379cd406f4c8f0d3d56a0130d232b60e67a75c"
+      "bytes": 5006,
+      "sha256": "ffa53f0eb6e0e9d5d1d6804e6d00bcc3ea79aede65b15d9e47289357795ddfa2"
+    },
+    {
+      "path": "work/network-pair-cold-glue/diagnostic-java/HardwareInventorySkipLaunchPlugin.java",
+      "bytes": 9805,
+      "sha256": "7af99ebb5f50d4f41a51f69325bb91646c216fe92a80d8fbb9b1064c40a939f1"
+    },
+    {
+      "path": "work/network-pair-cold-glue/diagnostic-tests/HardwareInventorySkipTest.java",
+      "bytes": 12599,
+      "sha256": "7e83ab4ae5be7a20cc61c44d0a9c5de27b7e3f629672fb9303c1b9d83676440e"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_hardware_skip_assembly.py",
+      "bytes": 10710,
+      "sha256": "843220ca1f770b7463330518404782bf99dead4b1d95d19dedc9422c211a652e"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_hardware_skip_capture.py",
+      "bytes": 2388,
+      "sha256": "007ed41461e156e9f56ac63dde42797845976b629f4efca025f0ffe3ba3a16a6"
     }
   ],
-  "revision": 27,
-  "previousReviewManifestSha256": "140c683cd74c0be1c0ddf00a3f7066033d14b06b0539e9de4a440e8db9758777",
+  "revision": 28,
+  "previousReviewManifestSha256": "855e4d8bffd47f40381e00068e4129ef3b4411e6ee195ddcea24945ea057b06b",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
@@ -1422,9 +1442,9 @@
   },
   "roundDeadline": {
     "schema": 1,
-    "roundId": "recovery-20261024T140900Z",
-    "startUtc": "2026-10-24T14:09:00Z",
-    "cutoffUtc": "2026-10-24T14:54:00Z",
+    "roundId": "recovery-20261024T160900Z",
+    "startUtc": "2026-10-24T16:09:00Z",
+    "cutoffUtc": "2026-10-24T16:54:00Z",
     "cleanupReserveSeconds": 180,
     "maximumWorkSeconds": 1980,
     "minimumWorkSeconds": 1560,
@@ -1432,5 +1452,12 @@
     "anchorKind": "FIRST_STEP_LOCAL_CLOCK",
     "remainingJobTimeGuaranteed": false,
     "platformCancellationReserveSeconds": 300
-  }
+  },
+  "diagnosticProfile": "system-report-hardware-inventory-skip-v1",
+  "behavioralChange": true,
+  "hardwareScope": "all-SystemReport-instances-including-crash-reports",
+  "nonHardwareFieldsPreserved": true,
+  "gameJarBytesModified": false,
+  "baselineAcceptance": false,
+  "fullApiCompatibility": false
 }

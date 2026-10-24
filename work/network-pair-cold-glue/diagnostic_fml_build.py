@@ -21,7 +21,7 @@ import refreshed_candidate as refreshed
 HERE = Path(__file__).resolve().parent
 MODULE = 'work/network-pair-cold-glue/diagnostic_fml_build.py'
 SOURCES = 'work/network-pair-cold-glue/diagnostic-java'
-OUTPUT = 'work/process-start-diagnostic-fml'
+OUTPUT = 'work/process-start-hardware-skip-diagnostic-fml'
 SCHEMA = 'fml-process-start-diagnostic-v1'
 RECEIPT_SCHEMA = 'fml-process-start-diagnostic-build-v1'
 NATIVE_SHA = '182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6'
@@ -33,8 +33,19 @@ OWN_CLASSES = {OWN + name + '.class' for name in (
     'ProcessStartDiagnostic', 'ProcessStartDiagnostic$Caller', 'ProcessStartDiagnostic$DecodeFault',
     'ProcessStartDiagnostic$Event', 'ProcessStartDiagnostic$Limits', 'ProcessStartDiagnostic$Reason',
     'ProcessStartDiagnostic$RequestedCommand', 'ProcessStartDiagnostic$SetupFault',
-    'ProcessStartDiagnostic$Snapshot', 'ProcessStartDiagnosticLaunch', 'ProcessStartDiagnosticLaunch$Refused')}
-METADATA = 'META-INF/unified-process-start-diagnostic.json'
+    'ProcessStartDiagnostic$Snapshot', 'ProcessStartDiagnosticLaunch', 'ProcessStartDiagnosticLaunch$Refused',
+    'HardwareInventorySkipLaunchPlugin', 'HardwareInventorySkipLaunchPlugin$Refused')}
+METADATA = 'META-INF/unified-hardware-inventory-skip-diagnostic.json'
+SERVICE = 'META-INF/services/cpw.mods.modlauncher.serviceapi.ILaunchPluginService'
+SERVICE_ORIGINAL = (b'net.neoforged.fml.loading.log4j.SLF4JFixerLaunchPluginService\n'
+                    b'net.neoforged.fml.common.asm.RuntimeDistCleaner\n'
+                    b'net.neoforged.fml.common.asm.enumextension.RuntimeEnumExtender')
+SERVICE_PROVIDER = 'net.neoforged.fml.loading.diagnostic.HardwareInventorySkipLaunchPlugin'
+SERVICE_DERIVED = SERVICE_ORIGINAL + b'\n' + SERVICE_PROVIDER.encode('ascii') + b'\n'
+SCOPE = {'diagnosticProfile': 'system-report-hardware-inventory-skip-v1',
+         'behavioralChange': True,
+         'hardwareScope': 'all-SystemReport-instances-including-crash-reports',
+         'nonHardwareFieldsPreserved': True, 'gameJarBytesModified': False}
 # Deterministic output of the pinned source/dependency/compiler recipe, independently
 # compiled and module-smoke-tested before this portable builder was introduced.
 EXPECTED_CLASS_SHA = {'net/neoforged/fml/loading/diagnostic/ProcessStartDiagnostic$Caller.class': '58292d8e01856d6fdb9e69ba22dd46eb4578e30a6f85f061656b473694d655a5',
@@ -50,7 +61,12 @@ EXPECTED_CLASS_SHA = {'net/neoforged/fml/loading/diagnostic/ProcessStartDiagnost
  'net/neoforged/fml/loading/diagnostic/ProcessStartDiagnosticLaunch.class': '580bf1968dfc2aa1b2dd28338e06b99f5ce953aa260a23269e913c8e23263a23',
  'net/neoforged/fml/loading/targets/CommonLaunchHandler$1ExplodedModPath.class': '4488817c19c3aef17b0d9f64f5b758184761497164119b0772fc0a8557bd24a2',
  'net/neoforged/fml/loading/targets/CommonLaunchHandler.class': '3542e38e6c7a8d961a6d53a712b862238bf3ebb7fe8b506d3a622087be16c525'}
+EXPECTED_CLASS_SHA.update({
+    OWN + 'HardwareInventorySkipLaunchPlugin.class': 'dbc307c37ac4045f6599aa93fc589f6fc818f230e00b544e36de8b45a2ac5dc8',
+    OWN + 'HardwareInventorySkipLaunchPlugin$Refused.class': 'f81d4859ac673b0e673c843af108072ea3e8837197257a6094947290bc129040',
+})
 SOURCE_SHA = {
+    'HardwareInventorySkipLaunchPlugin.java': '7af99ebb5f50d4f41a51f69325bb91646c216fe92a80d8fbb9b1064c40a939f1',
     'CommonLaunchHandler.java': 'e453b96e10128d665cda58d458203b7201875c84c1742d73f84f2563404b8a58',
     'ProcessStartDiagnostic.java': 'c7915ed6d33f41fa9bc4de5a4f1903300f7f358f2801f749a59006c81387c5b0',
     'ProcessStartDiagnosticLaunch.java': '50e1e7da3c32d68b509a7db3b66a1c0a9d7b7b0b0d1a0f9c55b8371446776f65',
@@ -64,6 +80,8 @@ DEPENDENCIES = {
  'org/apache/logging/log4j/log4j-core/2.22.1/log4j-core-2.22.1.jar': '46dccecac556623d8e2ce8648496824a82951d139062a4e61148aff1a25ed18d',
  'org/apache/logging/log4j/log4j-api/2.22.1/log4j-api-2.22.1.jar': '5d7beae7ff15d8516d6517121d7f12a79a6ac180df64b5fcec55d5be21056e53',
  'org/slf4j/slf4j-api/2.0.9/slf4j-api-2.0.9.jar': '0818930dc8d7debb403204611691da58e49d42c50b6ffcfdce02dadb7c3c2b6c',
+ 'org/ow2/asm/asm/9.8/asm-9.8.jar': '876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051',
+ 'org/ow2/asm/asm-tree/9.8/asm-tree-9.8.jar': '14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1',
 }
 JDK_FILES = {
  'bin/java': '2a207f5e7d075afa01d97f8048389a64432a44c4a5af0f5e77d6e286ec5f401d',
@@ -73,8 +91,8 @@ JDK_FILES = {
  'lib/libjli.so': '6703dbc0a7d5953ba248f45afca71b13807e5be9682110ed205f4361640f496a',
  'lib/server/libjvm.so': '462fa559157ee8a862e7e4b8a4a74f8abbf5e1a9deb64f22ee23c7e8c43f698b',
 }
-ARTIFACT_NAMES = {'native': 'loader-4.0.42-process-start-diagnostic-only.jar',
-                  'unified': 'fml-loader-4.0.42-unified-process-start-diagnostic-only.jar'}
+ARTIFACT_NAMES = {'native': 'loader-4.0.42-process-start-hardware-skip-diagnostic-only.jar',
+                  'unified': 'fml-loader-4.0.42-unified-process-start-hardware-skip-diagnostic-only.jar'}
 
 
 def require(value, message):
@@ -135,6 +153,8 @@ def read_archive(path, *, diagnostic=False):
                         'Configured installation base refused')
             entries[name] = (copy.copy(info), payload)
     require(REPLACEMENTS <= entries.keys(), 'Required launch classes absent')
+    require(SERVICE in entries and entries[SERVICE][1] == (SERVICE_DERIVED if diagnostic else SERVICE_ORIGINAL),
+            'Unexpected launch plugin service descriptor')
     return entries
 
 
@@ -150,7 +170,7 @@ def archive_derivative(base, output, classes, metadata):
     with zipfile.ZipFile(output, 'x') as archive:
         # Unrelated entry payload and metadata are copied, not regenerated.
         for name, (info, payload) in entries.items():
-            archive.writestr(info, classes.get(name, payload))
+            archive.writestr(info, SERVICE_DERIVED if name == SERVICE else classes.get(name, payload))
         for name in sorted(OWN_CLASSES):
             info = zipfile.ZipInfo(name, (1980, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED; info.external_attr = 0o644 << 16
@@ -164,17 +184,21 @@ def archive_derivative(base, output, classes, metadata):
 def compare_derivative(base, output, metadata):
     before = read_archive(base); after = read_archive(output, diagnostic=True)
     require(set(after) == set(before) | OWN_CLASSES | {METADATA}, 'Derivative archive entry drift')
-    require(json.loads(after[METADATA][1]) == metadata, 'Derivative metadata mismatch')
+    require(after[METADATA][1] == json.dumps(metadata, sort_keys=True, separators=(',', ':')).encode(),
+            'Derivative metadata mismatch')
     preserved = []
     for name, (info, data) in before.items():
-        if name in REPLACEMENTS: continue
+        if name in REPLACEMENTS or name == SERVICE: continue
         out_info, out_data = after[name]
         require(data == out_data, 'Unrelated archive entry payload changed: ' + name)
         for field in ('date_time', 'compress_type', 'comment', 'extra', 'external_attr', 'internal_attr', 'create_system'):
             require(getattr(info, field) == getattr(out_info, field), 'Unrelated archive metadata changed: ' + name)
         preserved.append(name)
     return {'originalEntryHashes': inventory(before), 'newEntryHashes': inventory(after),
-            'replacedEntries': sorted(REPLACEMENTS), 'addedEntries': sorted(OWN_CLASSES | {METADATA}),
+            'replacedEntries': sorted(REPLACEMENTS | {SERVICE}),
+            'serviceOriginalSha256': canonical_digest(SERVICE_ORIGINAL),
+            'serviceDerivedSha256': canonical_digest(SERVICE_DERIVED),
+            'originalProvidersPreserved': True, 'addedEntries': sorted(OWN_CLASSES | {METADATA}),
             'unrelatedEntriesPreserved': len(preserved), 'unrelatedEntryPayloadsPreserved': True}
 
 
@@ -205,7 +229,7 @@ def compiler_command(consumer, root, jdk, dependencies, sources):
 
 
 def diagnostic_metadata(role, baseline, sources, compiler, proof_pins):
-    return {'schema': RECEIPT_SCHEMA, 'target': role, 'diagnostic_only': True,
+    return {'schema': RECEIPT_SCHEMA, 'target': role, 'diagnostic_only': True, **SCOPE,
             'baseline_acceptance': False, 'runtimeAcceptance': False,
             'baselineSha256': baseline['sha256'],
             'sourceHashes': {r['path'].rsplit('/', 1)[-1]: r['sha256'] for r in sources},
@@ -372,7 +396,9 @@ def validate(repo, consumer, manifest, profile, build_proof):
         require(receipt['sources'] == expected_sources, 'Changed compilation source paths/order')
         expected_metadata = diagnostic_metadata(role, receipt['baseline'], expected_sources, compiler, proof_pins)
         require(receipt['archiveMetadata'] == expected_metadata
-                and all(receipt.get(key) == value for key, value in expected_metadata.items()),
+                and all(type(receipt.get(key)) is type(value) and receipt.get(key) == value
+                        and type(receipt['archiveMetadata'].get(key)) is type(value)
+                        for key, value in expected_metadata.items()),
                 'Changed embedded/top-level diagnostic metadata')
         baseline = refreshed.check_pin(consumer, receipt['baseline'])
         artifact = refreshed.check_pin(consumer, receipt['artifact'])

@@ -41,6 +41,7 @@ class DiagnosticBuildTests(unittest.TestCase):
     def make_archive(self, extras=()):
         with zipfile.ZipFile(self.base, 'w') as archive:
             for name in sorted(b.REPLACEMENTS): archive.writestr(name, b'original-class')
+            archive.writestr(b.SERVICE, b.SERVICE_ORIGINAL)
             info = zipfile.ZipInfo('META-INF/MANIFEST.MF', (2020, 1, 2, 3, 4, 6))
             info.comment = b'preserved'; info.external_attr = 0o100644 << 16
             info.compress_type = zipfile.ZIP_DEFLATED
@@ -57,9 +58,45 @@ class DiagnosticBuildTests(unittest.TestCase):
         output, result = self.derivative()
         self.assertEqual(self.base.read_bytes(), original)
         self.assertEqual(result['unrelatedEntriesPreserved'], 1)
-        self.assertEqual(result['replacedEntries'], sorted(b.REPLACEMENTS))
-        self.assertEqual(len(result['addedEntries']), 12)
+        self.assertEqual(result['replacedEntries'], sorted(b.REPLACEMENTS | {b.SERVICE}))
+        self.assertEqual(len(result['addedEntries']), len(b.OWN_CLASSES) + 1)
         self.assertEqual(b.compare_derivative(self.base, output, self.metadata), result)
+
+    def test_exact_service_append_preserves_three_original_providers(self):
+        original = b.SERVICE_ORIGINAL
+        self.assertFalse(original.endswith(b'\n'))
+        output, result = self.derivative()
+        with zipfile.ZipFile(output) as archive:
+            actual = archive.read(b.SERVICE)
+        self.assertTrue(actual.startswith(original))
+        self.assertEqual(actual, original + b'\n' + b.SERVICE_PROVIDER.encode('ascii') + b'\n')
+        self.assertEqual(actual.splitlines()[:3], original.splitlines())
+        self.assertEqual(actual.splitlines().count(b.SERVICE_PROVIDER.encode('ascii')), 1)
+        self.assertEqual(len(actual.splitlines()), 4)
+        self.assertTrue(result['originalProvidersPreserved'])
+        self.assertIn(b.SERVICE, result['replacedEntries'])
+        self.assertEqual(result['serviceOriginalSha256'], b.canonical_digest(original))
+
+    def test_changed_missing_or_preappended_service_refused(self):
+        for altered in (None, b.SERVICE_ORIGINAL + b'\n', b.SERVICE_DERIVED, b'unknown.Provider'):
+            self.make_archive()
+            with zipfile.ZipFile(self.base) as archive:
+                rows = [(info, archive.read(info)) for info in archive.infolist() if info.filename != b.SERVICE]
+            with zipfile.ZipFile(self.base, 'w') as archive:
+                for info, payload in rows: archive.writestr(info, payload)
+                if altered is not None: archive.writestr(b.SERVICE, altered)
+            with self.assertRaisesRegex(ValueError, 'service descriptor'):
+                b.read_archive(self.base)
+
+    def test_hardware_scope_is_explicit_and_separately_named(self):
+        self.assertEqual(b.SCOPE['diagnosticProfile'], 'system-report-hardware-inventory-skip-v1')
+        self.assertIs(b.SCOPE['behavioralChange'], True)
+        self.assertEqual(b.SCOPE['hardwareScope'], 'all-SystemReport-instances-including-crash-reports')
+        self.assertIs(b.SCOPE['nonHardwareFieldsPreserved'], True)
+        self.assertIs(b.SCOPE['gameJarBytesModified'], False)
+        self.assertIn('hardware-skip', b.OUTPUT)
+        self.assertTrue(all('hardware-skip' in name for name in b.ARTIFACT_NAMES.values()))
+        self.assertEqual(b.METADATA, 'META-INF/unified-hardware-inventory-skip-diagnostic.json')
 
     def test_duplicate_member_refused(self):
         with warnings.catch_warnings():
@@ -209,6 +246,28 @@ class DiagnosticBuildTests(unittest.TestCase):
             self.assertEqual(compile_check.call_count, 1)
             self.assertEqual(proof_check.call_count, 3)  # entry, post-build, validation
             self.assertTrue(all(not r['baseline_acceptance'] for r in result['receipts']))
+            for receipt in result['receipts']:
+                for key, expected in b.SCOPE.items():
+                    self.assertIs(type(receipt[key]), type(expected))
+                    self.assertEqual(receipt[key], expected)
+                    self.assertEqual(receipt['archiveMetadata'][key], expected)
+            # Rehashed receipt metadata cannot re-label this as logging-only, or
+            # substitute a numeric truth value for the exact behavioral flag.
+            metadata_manifest = json.loads(good_manifest)
+            metadata_receipt_path = Path(metadata_manifest['build_receipts'][0]['path'])
+            metadata_receipt_bytes = metadata_receipt_path.read_bytes()
+            for key, bad in (('diagnosticProfile', 'process-start-observation-only'), ('behavioralChange', 1)):
+                changed = json.loads(metadata_receipt_bytes)
+                changed[key] = bad
+                changed['archiveMetadata'][key] = bad
+                metadata_receipt_path.write_text(json.dumps(changed))
+                changed_pin = b.exact_pin(self.root, metadata_receipt_path)
+                metadata_manifest['build_receipts'][0] = dict(changed_pin, path=str(metadata_receipt_path))
+                manifest.write_text(json.dumps(metadata_manifest))
+                with self.assertRaisesRegex(ValueError, 'diagnostic metadata'):
+                    b.validate(repo, self.root, manifest, 'profile.json', 'proof.json')
+            metadata_receipt_path.write_bytes(metadata_receipt_bytes)
+            manifest.write_bytes(good_manifest)
             exported_paths = {row['path'] for row in result['inputPins']}
             for receipt in result['receipts']:
                 for key in ('stdout', 'stderr'):
@@ -310,7 +369,7 @@ class DiagnosticBuildTests(unittest.TestCase):
     def test_source_hook_is_after_prelaunch_and_source_bytes_are_pinned(self):
         repo = b.HERE.parents[1]
         rows = b.source_inputs(repo)
-        self.assertEqual(len(rows), 6)
+        self.assertEqual(len(rows), 3 + len(b.SOURCE_SHA))
         data = (repo/b.SOURCES/'CommonLaunchHandler.java').read_bytes()
         anchor = b'        var args = preLaunch(arguments, gameLayer);\n'
         self.assertEqual(data.count(anchor), 1)

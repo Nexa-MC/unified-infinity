@@ -27,7 +27,7 @@ class DiagnosticDriverTests(unittest.TestCase):
         reports['unified']['passed']=False
         with self.assertRaises(ValueError):d.semantic_comparison(reports)
 
-    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False):
+    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False,hardware_marker=True):
         with tempfile.TemporaryDirectory() as tmp,ExitStack() as stack:
             repo=Path(tmp)/'repo';repo.mkdir();consumer=Path(tmp)/'consumer';consumer.mkdir()
             manifest=consumer/'diagnostic-manifest.json';manifest.write_text('{"fixture":true}')
@@ -62,6 +62,11 @@ class DiagnosticDriverTests(unittest.TestCase):
                 report={'passed':True,'status':'PASS','diagnostic_only':True,'baseline_acceptance':False,'diagnostic_profile':profile.copy()}
                 if raw_change:raw_change(report,destination.name)
                 (destination/'result.json').write_text(json.dumps(report))
+                # Synthetic diagnostic output, not game evidence.
+                import diagnostic_log_events
+                if hardware_marker:
+                    for role in ('server','client'):
+                        (destination/(role+'.log')).write_text(json.dumps(diagnostic_log_events.HARDWARE_ROW)+'\n')
                 class Pair:
                     done=False
                     def wait(self,timeout):
@@ -107,6 +112,13 @@ class DiagnosticDriverTests(unittest.TestCase):
     def test_cleanup_failure_cannot_promote(self):
         r,e,*_=self.run_driver(cleanup_fail=True)
         self.assertIsInstance(e,RuntimeError);self.assertEqual(r['status'],'CLEANUP_FAILED')
+
+    def test_transport_receipt_without_hardware_marker_is_not_promoted(self):
+        r,e,waits,terms,stops=self.run_driver(hardware_marker=False)
+        self.assertIsInstance(e,ValueError)
+        self.assertIn('hardware-skip transformation observation',str(e))
+        self.assertEqual(r['status'],'FAILED');self.assertEqual(stops,1)
+        self.assertEqual(waits,[d.PAIR_SECONDS])
 
     def test_timeout_retains_owned_cleanup_and_budget(self):
         r,e,waits,terms,stops=self.run_driver(timeout=True)
