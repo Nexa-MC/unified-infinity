@@ -1,0 +1,61 @@
+{
+  "status": "EXACT_HISTORICAL_SOURCE_EXTRACTED_NOT_COMPILED_OR_RUNTIME_READY",
+  "archiveSha256": "655c90673ce9f6d1cc0783037fe9a066dfaa774c3f347752f8ece8035c5c1762",
+  "files": [
+    {
+      "path": "four-loader/quilt-probe/README.md",
+      "bytes": 3622,
+      "sha256": "da5118d05e926f8a9c40a2e03581cb80580282ae284362705f151b9235be585c"
+    },
+    {
+      "path": "four-loader/quilt-probe/build.py",
+      "bytes": 3123,
+      "sha256": "a29e546d804ec9fd3e31d1ce87599cba0b1b2babd02547866f35961739b19ee4"
+    },
+    {
+      "path": "four-loader/quilt-probe/build/build-report.json",
+      "bytes": 1584,
+      "sha256": "1e533c17b2021860f9544a9be3f66254630d705ce8d93deb64879e5869d280f4"
+    },
+    {
+      "path": "four-loader/quilt-probe/resources/infinity_native_quilt_probe.mixins.json",
+      "bytes": 147,
+      "sha256": "96f9e6307d03383409137a93d2404cd3a4ebc0238432df37daa1ca0fbbccd4b9"
+    },
+    {
+      "path": "four-loader/quilt-probe/resources/native-quilt-proof.txt",
+      "bytes": 31,
+      "sha256": "34bcc75c0355a9c1e8a15cd6ddd852b51c6f65b351e0456d9bc269f5eb343657"
+    },
+    {
+      "path": "four-loader/quilt-probe/resources/quilt.mod.json",
+      "bytes": 1065,
+      "sha256": "8f5c209e656228a23a994f4511c830c249942136f16e358d2ca0e2e12e925adf"
+    },
+    {
+      "path": "four-loader/quilt-probe/src/dev/infinity/quiltprobe/ClientProbe.java",
+      "bytes": 494,
+      "sha256": "60fd1b6f920d0edcffea2dded0654b7f3396206948cdd8a1f5eb67ad5263234f"
+    },
+    {
+      "path": "four-loader/quilt-probe/src/dev/infinity/quiltprobe/QuiltProbe.java",
+      "bytes": 7332,
+      "sha256": "d794d5291aff5e095d33dd54f7795ae3addaaca785eb2da337fb42c3b3bed82f"
+    },
+    {
+      "path": "four-loader/quilt-probe/src/dev/infinity/quiltprobe/mixin/TickMixin.java",
+      "bytes": 631,
+      "sha256": "632dc968592cf2a4a3388e35fb78e70ed1798073218791e899025b5187512916"
+    }
+  ],
+  "originalArtifactLocksChanged": false,
+  "ciStarted": false,
+  "baselineAcceptance": false,
+  "fullApiCompatibility": false,
+  "historicalReportNotFreshProof": "four-loader/quilt-probe/build/build-report.json",
+  "missingLocalCompileInputs": [
+    "locked QSL base alpha.5 JAR",
+    "locked QSL lifecycle alpha.5 JAR",
+    "exact historical server-intermediary.jar and complete compile classpath"
+  ]
+}

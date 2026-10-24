@@ -1,0 +1,29 @@
+{
+  "negative_controls": [
+    {
+      "path": "four-loader/quilt-probe/build/unified-native-quilt-probe-missing-dependency.jar",
+      "sha256": "bb5a9f87353e303d8abd1eaa37c483e453c32c548e788b9cac8a7daeecfc5ad1",
+      "must_reject_before": "NATIVE_QUILT_PROBE CLASS_DEFINED"
+    },
+    {
+      "path": "four-loader/quilt-probe/build/unified-native-quilt-probe-loader-version.jar",
+      "sha256": "ef7278f847c74e1563c763a3305c8b4830dfc2fd9abd846173fa20f371e24661",
+      "must_reject_before": "NATIVE_QUILT_PROBE CLASS_DEFINED"
+    }
+  ],
+  "probe": "four-loader/quilt-probe/build/unified-native-quilt-probe-0.1.0.jar",
+  "sha256": "f420e2021563d25931f1783f5a5744943dfbafc7557ae5c52ff2090331066b04",
+  "compile_only_pins": {
+    "loader-0.30.1.jar": "a561a9fe9abb45556c696095a29e81477618bf2408b86c36db5aecdcd6a86fdb",
+    "qsl_base-alpha5.jar": "7eb4ec613f901ef7232f9f84ee91be5576f00682f32ad9c9f7b1a679bcf82465",
+    "lifecycle_events-alpha5.jar": "1a1f9b72c38e2475b471df1dcff7992d6ae4955e8a2cd8288bb3ba3986768aa4"
+  },
+  "native_descriptor_only": true,
+  "foreign_loader_api_references": false,
+  "runtime_status": "NOT RUN",
+  "sources": {
+    "four-loader/quilt-probe/src/dev/infinity/quiltprobe/ClientProbe.java": "60fd1b6f920d0edcffea2dded0654b7f3396206948cdd8a1f5eb67ad5263234f",
+    "four-loader/quilt-probe/src/dev/infinity/quiltprobe/QuiltProbe.java": "d794d5291aff5e095d33dd54f7795ae3addaaca785eb2da337fb42c3b3bed82f",
+    "four-loader/quilt-probe/src/dev/infinity/quiltprobe/mixin/TickMixin.java": "632dc968592cf2a4a3388e35fb78e70ed1798073218791e899025b5187512916"
+  }
+}

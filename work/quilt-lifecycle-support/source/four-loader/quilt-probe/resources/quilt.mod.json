@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "dev.infinity.probes", "id": "unified-quilt-probe", "version": "0.1.0+native",
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "metadata": {"name": "Native Quilt ABI Probe", "license": "MIT", "description": "Project-owned native Quilt/QSL fixture"},
+    "entrypoints": {
+      "pre_launch": "dev.infinity.quiltprobe.QuiltProbe",
+      "init": ["dev.infinity.quiltprobe.QuiltProbe", "dev.infinity.quiltprobe.QuiltProbe::afterInit"],
+      "server_init": "dev.infinity.quiltprobe.QuiltProbe",
+      "client_init": "dev.infinity.quiltprobe.ClientProbe",
+      "events": "dev.infinity.quiltprobe.QuiltProbe$AutomaticEvents"
+    },
+    "depends": [
+      {"id": "minecraft", "versions": "=1.21.1"}, {"id": "java", "versions": ">=21"},
+      {"id": "quilt_loader", "versions": ">=0.25.0"},
+      {"id": "quilt_base", "versions": "=10.0.0-alpha.5+1.21.1"},
+      {"id": "quilt_lifecycle_events", "versions": "=10.0.0-alpha.5+1.21.1"}
+    ]
+  },
+  "mixin": "infinity_native_quilt_probe.mixins.json"
+}

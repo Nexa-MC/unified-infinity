@@ -1,0 +1,189 @@
+{
+  "schema": "quilt-lifecycle-driver-source-contract-v1",
+  "status": "SOURCE_ONLY_CANDIDATE_NOT_EXECUTION_APPROVAL",
+  "files": [
+    {
+      "source": "work/quilt-lifecycle-support/sources/jdk-input-verification.json",
+      "destination": "sources/jdk-input-verification.json",
+      "bytes": 43340,
+      "sha256": "f01898929ae478e4bdb546eae2b056ef87e9d91232713f1568070fc53ba9de71"
+    },
+    {
+      "source": "recovery/api1/sources/accepted-v6-reconstruction-base.zip",
+      "destination": "sources/accepted-v6-reconstruction-base.zip",
+      "bytes": 4697414,
+      "sha256": "655c90673ce9f6d1cc0783037fe9a066dfaa774c3f347752f8ece8035c5c1762"
+    },
+    {
+      "source": "work/network-ci-supervisor-portable3/supervisor.py",
+      "destination": "original/supervisor.py",
+      "bytes": 146200,
+      "sha256": "2f86c57b6baa693b07064f520d3e2020ba015d07b3bfb29b2ca8a65db8cb1b9b"
+    },
+    {
+      "source": "work/network-pair-finalizer/finalize_pair.py",
+      "destination": "original/finalize_pair.py",
+      "bytes": 4349,
+      "sha256": "e713ea481a00a760e6767fd373256fca5d1dc0f5a2dd7553ae2ffa13bbea1839"
+    },
+    {
+      "source": "work/network-pair-finalizer/prepare_inputs.py",
+      "destination": "original/prepare_inputs.py",
+      "bytes": 8524,
+      "sha256": "3fe5393ffc0dfe6a7bfe4a23ac9fe55dc133913a66e1908d7ff03e34ce44249e"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/AbiCheck.java",
+      "destination": "compile/AbiCheck.java",
+      "bytes": 5080,
+      "sha256": "390fe6e0877da1e5a54748f55c5f92f5a6137451a977c0e00677968aa72c49bf"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/RemapServer.java",
+      "destination": "compile/RemapServer.java",
+      "bytes": 1560,
+      "sha256": "36a5ce84a6fdf73e6b6d553804a5977843afbc2fa36e9d68706982c58b827a3a"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/build_portable.py",
+      "destination": "compile/build_portable.py",
+      "bytes": 11558,
+      "sha256": "31d985b7601739445d48f0298692453313e651842a7ff754abef480f5f62fcfc"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/build_recovery.py",
+      "destination": "compile/build_recovery.py",
+      "bytes": 19836,
+      "sha256": "49020c708f2639cf68ab1c324909053c834d28dd806039f12f94ce6973a6ec95"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/portable_io.py",
+      "destination": "compile/portable_io.py",
+      "bytes": 2282,
+      "sha256": "93b28129279cb74c4917908ec1e426f7cd438420cf82b83ce7c1a38f06b945b7"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/reviewed-contract.json",
+      "destination": "compile/reviewed-contract.json",
+      "bytes": 57380,
+      "sha256": "0afd87b988fedc7b06445a9c160bc15ed878a722a4b1598ad7474b886d20a6c8"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/validate_for_consumer.py",
+      "destination": "compile/validate_for_consumer.py",
+      "bytes": 1475,
+      "sha256": "9076351c57770ffcfa20a2d35a1e243455f707aec8eea61571afa90b123a7d3e"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/compile/validate_portable.py",
+      "destination": "compile/validate_portable.py",
+      "bytes": 13682,
+      "sha256": "061bf9a1dce48d5d70769467d0d2bf29b8f7ee2e879355b17e37e5406cc044e7"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/continuation/owned_pair_run.py",
+      "destination": "continuation/owned_pair_run.py",
+      "bytes": 7719,
+      "sha256": "a7ca63c9d47f0dcb60d98702449938f65dcbdf7db461197622c1ec1d49fd757d"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/continuation/quilt_continuation.py",
+      "destination": "continuation/quilt_continuation.py",
+      "bytes": 38486,
+      "sha256": "cc6378e0b5dfc9433fdfccf1f5e8da45cd56a299912be1e229ac6b86aa93471f"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
+      "destination": "driver/quilt_lifecycle_driver.py",
+      "bytes": 45882,
+      "sha256": "2f9924f3fb5fda3594609b67d21abaf14a6750b9bf17bbf5c9dbf47dc2e34f16"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/README.md",
+      "destination": "source/four-loader/quilt-probe/README.md",
+      "bytes": 3622,
+      "sha256": "da5118d05e926f8a9c40a2e03581cb80580282ae284362705f151b9235be585c"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/build.py",
+      "destination": "source/four-loader/quilt-probe/build.py",
+      "bytes": 3123,
+      "sha256": "a29e546d804ec9fd3e31d1ce87599cba0b1b2babd02547866f35961739b19ee4"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/build/build-report.json",
+      "destination": "source/four-loader/quilt-probe/build/build-report.json",
+      "bytes": 1584,
+      "sha256": "1e533c17b2021860f9544a9be3f66254630d705ce8d93deb64879e5869d280f4"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/resources/infinity_native_quilt_probe.mixins.json",
+      "destination": "source/four-loader/quilt-probe/resources/infinity_native_quilt_probe.mixins.json",
+      "bytes": 147,
+      "sha256": "96f9e6307d03383409137a93d2404cd3a4ebc0238432df37daa1ca0fbbccd4b9"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/resources/native-quilt-proof.txt",
+      "destination": "source/four-loader/quilt-probe/resources/native-quilt-proof.txt",
+      "bytes": 31,
+      "sha256": "34bcc75c0355a9c1e8a15cd6ddd852b51c6f65b351e0456d9bc269f5eb343657"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/resources/quilt.mod.json",
+      "destination": "source/four-loader/quilt-probe/resources/quilt.mod.json",
+      "bytes": 1065,
+      "sha256": "8f5c209e656228a23a994f4511c830c249942136f16e358d2ca0e2e12e925adf"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/ClientProbe.java",
+      "destination": "source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/ClientProbe.java",
+      "bytes": 494,
+      "sha256": "60fd1b6f920d0edcffea2dded0654b7f3396206948cdd8a1f5eb67ad5263234f"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/QuiltProbe.java",
+      "destination": "source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/QuiltProbe.java",
+      "bytes": 7332,
+      "sha256": "d794d5291aff5e095d33dd54f7795ae3addaaca785eb2da337fb42c3b3bed82f"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/mixin/TickMixin.java",
+      "destination": "source/four-loader/quilt-probe/src/dev/infinity/quiltprobe/mixin/TickMixin.java",
+      "bytes": 631,
+      "sha256": "632dc968592cf2a4a3388e35fb78e70ed1798073218791e899025b5187512916"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/source/source-recovery.json",
+      "destination": "source/source-recovery.json",
+      "bytes": 2296,
+      "sha256": "3b394abd6ccdc59fe393f97be0deec3c0ab3e27b6d53cfb1d2540728d16c3d61"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/pipeline/quilt_compile_pipeline.py",
+      "destination": "pipeline/quilt_compile_pipeline.py",
+      "bytes": 23247,
+      "sha256": "c30adcf9b6195215792a0cbd3b0f5371aac512f95d3fe96a1d787a303930738f"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/qualification/quilt_lifecycle_qualification.py",
+      "destination": "qualification/quilt_lifecycle_qualification.py",
+      "bytes": 50049,
+      "sha256": "b1bffd7a7218d27962eff7b56d390584bf62587da6e615a63a007bcc5adf3e5c"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/staging/quilt_lifecycle_staging.py",
+      "destination": "staging/quilt_lifecycle_staging.py",
+      "bytes": 56867,
+      "sha256": "6ddc65d700e41340385e80d80ef5a7b025294224f31af4bacf86b181c5d9c825"
+    },
+    {
+      "source": "work/quilt-lifecycle-support/staging/quilt_phase_seal.py",
+      "destination": "staging/quilt_phase_seal.py",
+      "bytes": 20437,
+      "sha256": "22e252a1e040f8b3a07e5c22413214a1cf31b829074feb7b3d117037b731b186"
+    }
+  ],
+  "baselineAcceptance": false,
+  "gameAcceptance": false,
+  "fullApiCompatibility": false
+}
