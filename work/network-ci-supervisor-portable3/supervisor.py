@@ -1208,6 +1208,64 @@ class CpuProbePolicy:
         self.records.clear()
 
 
+def failed_peer_sample_diagnostic(tables, server_inodes, client_inodes, connection, peer_count):
+    """Categorical failed sample from already-collected data, never admission."""
+    result = {'schema': 1, 'status': 'UNAVAILABLE', 'admission_evidence': False,
+              'identity_verified': False, 'atomic_observation': False,
+              'source': 'ALREADY_COLLECTED_FD_SETS_AND_TABLES'}
+    try:
+        require(type(tables) is dict and type(server_inodes) is set and type(client_inodes) is set,
+                'Peer diagnostic input unavailable')
+        require(type(connection) is dict and connection['protocol'] == 'tcp' and
+                connection['state'] == '01' and connection['local'].startswith('0100007F:') and
+                connection['remote'].startswith('0100007F:'), 'Peer diagnostic connection unavailable')
+        require(type(peer_count) is int and 0 <= peer_count <= 16 and peer_count != 1,
+                'Peer diagnostic failure count unavailable')
+        candidates, availability = [], []
+        scanned, matching = 0, 0
+        scan_limit, candidate_limit = 4096, 8
+        for protocol in TABLES:
+            status = 'READ'
+            raw = tables.get(protocol)
+            if type(raw) is not str or len(raw) > 2*MIB:
+                availability.append({'protocol': protocol, 'status': 'UNAVAILABLE'})
+                continue
+            for line in raw.splitlines()[1:]:
+                if scanned == scan_limit:
+                    status = 'TRUNCATED'
+                    break
+                scanned += 1
+                fields = line.split()
+                if len(fields) < 10:
+                    status = 'UNAVAILABLE'
+                    break
+                # Exact reverse relation only. Never publish endpoints or unrelated rows.
+                if fields[1] != connection['remote'] or fields[2] != connection['local']:
+                    continue
+                if re.fullmatch(r'[0-9A-F]{2}', fields[3]) is None or re.fullmatch(r'[0-9]{1,20}', fields[9]) is None:
+                    status = 'UNAVAILABLE'
+                    break
+                matching += 1
+                if len(candidates) < candidate_limit:
+                    in_server, in_client = fields[9] in server_inodes, fields[9] in client_inodes
+                    membership = ('BOTH' if in_server and in_client else 'SERVER_ONLY' if in_server else
+                                  'CLIENT_ONLY' if in_client else 'NEITHER')
+                    candidates.append({'protocol': protocol, 'state_code': fields[3],
+                                       'fd_membership': membership, 'relation': 'EXACT_REVERSE'})
+            availability.append({'protocol': protocol, 'status': status})
+        complete = all(row['status'] == 'READ' for row in availability)
+        result.update(status='OBSERVED', matching_client_established_rows=peer_count,
+                      reverse_candidates=candidates, reverse_rows_seen=matching,
+                      reverse_row_count_is_lower_bound=not complete, tables=availability,
+                      rows_scanned=scanned, scan_limit=scan_limit, candidate_limit=candidate_limit,
+                      scan_complete=complete, truncated=matching > candidate_limit or
+                      any(row['status'] == 'TRUNCATED' for row in availability))
+    except Exception:
+        # No fresh process reads, retries or timing changes to fill missing evidence.
+        result['status'] = 'UNAVAILABLE'
+    return result
+
+
 class Proc:
     """Production always uses /proc. An injected root exists only for unit fixtures."""
     def __init__(self, root=Path('/proc')):
@@ -1285,7 +1343,18 @@ class Proc:
             peers = [r for r in owned if r['role'] == 'client' and r['protocol'] == 'tcp'
                      and r['state'] == '01' and r['local'] == connection['remote']
                      and r['remote'] == connection['local']]
-            require(len(peers) == 1, 'Expected matching client-owned established loopback peer')
+            try:
+                require(len(peers) == 1, 'Expected matching client-owned established loopback peer')
+            except ValueError as error:
+                error.peer_sample_diagnostic = {'schema': 1, 'status': 'UNAVAILABLE',
+                                                'admission_evidence': False, 'identity_verified': False,
+                                                'atomic_observation': False}
+                try:
+                    error.peer_sample_diagnostic = failed_peer_sample_diagnostic(
+                        tables, server_inodes, client_inodes, connection, len(peers))
+                except Exception:
+                    pass  # A diagnostic failure must not replace the exact rejection.
+                raise
         self.same(server)
         if client:
             self.same(client)
@@ -2065,8 +2134,19 @@ class Pair:
         return {role: self.logs[role].events['NETWORK_CONTROL_JSON'] for role in ('server', 'client')}
 
     def observe(self, label, connected=False):
-        row = self.proc.sockets(self.identities['server'], self.spec['port'],
-                                self.identities['client'] if connected else None)
+        try:
+            row = self.proc.sockets(self.identities['server'], self.spec['port'],
+                                    self.identities['client'] if connected else None)
+        except ValueError as error:
+            try:
+                if hasattr(error, 'peer_sample_diagnostic'):
+                    encoded = json.dumps(error.peer_sample_diagnostic, allow_nan=False)
+                    require(len(encoded) <= 8192, 'Peer diagnostic report bound exceeded')
+                    self.report['failed_peer_observation'] = {
+                        'phase': label, 'diagnostic': json.loads(encoded)}
+            except Exception:
+                pass  # Inert report copying cannot mask the original socket failure.
+            raise
         row['phase'] = label
         self.report['observations'].append(row)
         return row
