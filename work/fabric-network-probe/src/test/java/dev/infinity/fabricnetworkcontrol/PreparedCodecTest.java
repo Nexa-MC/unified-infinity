@@ -75,6 +75,7 @@ public final class PreparedCodecTest {
         reject(() -> NonceProbe.directionFields(NonceProbe.Role.SERVER, ConnectionProtocol.CONFIGURATION, PacketFlow.SERVERBOUND));
         reject(() -> NonceProbe.directionFields(NonceProbe.Role.CLIENT, ConnectionProtocol.LOGIN, PacketFlow.CLIENTBOUND));
         System.out.println("Prepared codec/input checks: " + checked + "; no network or game acceptance");
+        DisconnectHandoffTest.run();
     }
     private static RegistryFriendlyByteBuf buffer() {
         return new RegistryFriendlyByteBuf(Unpooled.buffer(), RegistryAccess.EMPTY);

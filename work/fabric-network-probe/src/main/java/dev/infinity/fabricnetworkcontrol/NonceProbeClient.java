@@ -18,6 +18,8 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 public final class NonceProbeClient implements ClientModInitializer {
     private NonceProbe.Input input;
     private Connection joined;
+    private net.minecraft.client.multiplayer.ClientPacketListener joinedHandler;
+    private final DisconnectHandoff disconnectHandoff = new DisconnectHandoff();
     private int sent;
     private int received;
     private long deadline;
@@ -31,7 +33,7 @@ public final class NonceProbeClient implements ClientModInitializer {
                     "client_receiver_duplicate");
             ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> joined(handler));
             ClientTickEvents.END_CLIENT_TICK.register(client -> tick());
-            ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> loggedOut(handler));
+            ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> loggedOut(handler, client));
             ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
                 try {
                     NonceProbe.require(client == Minecraft.getInstance() && client.isSameThread(), "client_wrong_thread");
@@ -54,6 +56,7 @@ public final class NonceProbeClient implements ClientModInitializer {
             NonceProbe.require(NonceProbe.PLAYER_UUID.equals(minecraft.player.getUUID())
                     && NonceProbe.PLAYER_NAME.equals(minecraft.player.getGameProfile().getName()), "client_wrong_identity");
             joined = handler.getConnection();
+            joinedHandler = handler;
             NonceProbe.require(minecraft.getConnection() != null
                     && minecraft.getConnection().getConnection() == joined, "client_wrong_connection");
             NonceProbe.requireRemote(joined, input.port(), true);
@@ -94,28 +97,44 @@ public final class NonceProbeClient implements ClientModInitializer {
         if (stopped || input == null) return;
         try {
             NonceProbe.require(Minecraft.getInstance().isSameThread(), "client_wrong_thread");
-            if (received == 1 && !releasing && NonceProbe.releasePresent()) {
-                NonceProbe.requireRelease(input.nonce());
-                releasing = true;
-                joined.disconnect(Component.literal("network_control:complete"));
-                Minecraft.getInstance().disconnect(new TitleScreen()); // Fires the actual Fabric DISCONNECT callback.
-            }
-            if (!stopped && System.nanoTime() - deadline >= 0)
+            // Teardown can discard Minecraft tasks. Keep observation outside that queue and
+            // never consume it from a reentrant tick while our explicit teardown is active.
+            if (disconnectHandoff.isTearingDown()) return;
+            Object disconnected = disconnectHandoff.poll();
+            if (System.nanoTime() - deadline >= 0)
                 throw new NonceProbe.ProbeFailure(received == 1 ? "client_release_timeout"
                         : sent == 1 ? "client_reply_timeout" : "client_join_timeout");
+            if (disconnected != null) {
+                NonceProbe.require(releasing && sent == 1 && received == 1, "client_early_disconnect");
+                NonceProbe.require(disconnected == joined && !joined.isConnected(), "client_disconnect_mismatch");
+                NonceProbe.disconnected(input.nonce());
+                stopped = true;
+                Minecraft.getInstance().stop();
+                return;
+            }
+            if (received == 1 && !releasing && NonceProbe.releasePresent()) {
+                NonceProbe.requireRelease(input.nonce());
+                NonceProbe.require(sent == 1 && joined != null && joinedHandler != null
+                        && Minecraft.getInstance().getConnection() == joinedHandler,
+                        "client_disconnect_mismatch");
+                disconnectHandoff.beginTeardown(Minecraft.getInstance(), joinedHandler, joined);
+                releasing = true;
+                try {
+                    joined.disconnect(Component.literal("network_control:complete"));
+                    Minecraft.getInstance().disconnect(new TitleScreen());
+                } finally {
+                    disconnectHandoff.finishTeardown();
+                }
+                // Complete only on a subsequent ordinary owner tick, after teardown unwinds.
+                return;
+            }
         } catch (RuntimeException exception) { fail(exception, "client_tick_failure"); }
     }
 
-    private void loggedOut(net.minecraft.client.multiplayer.ClientPacketListener handler) {
-        if (stopped || joined == null) return;
-        try {
-            NonceProbe.require(Minecraft.getInstance().isSameThread(), "client_wrong_thread");
-            NonceProbe.require(releasing && sent == 1 && received == 1, "client_early_disconnect");
-            NonceProbe.require(handler.getConnection() == joined && !joined.isConnected(), "client_disconnect_mismatch");
-            NonceProbe.disconnected(input.nonce());
-            stopped = true;
-            Minecraft.getInstance().stop();
-        } catch (RuntimeException exception) { fail(exception, "client_logout_failure"); }
+    private void loggedOut(net.minecraft.client.multiplayer.ClientPacketListener handler, Minecraft client) {
+        // channelInactive can invoke this on Netty. Read only the callback's exact identities;
+        // all game state checks, result emission and stopping belong to the owner tick.
+        disconnectHandoff.observe(client, handler, handler == null ? null : handler.getConnection());
     }
 
     private void fail(RuntimeException exception, String fallback) {

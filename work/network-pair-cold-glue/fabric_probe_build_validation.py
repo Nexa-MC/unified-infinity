@@ -6,19 +6,16 @@ import shutil
 import zipfile
 import fabric_probe_overlay as b
 
-SOURCE_SHA256 = 'a9316a2bef37b6bc356094d49df4a28deb9a5c03c1d1c96ce14300de9fac1df7'
-ARTIFACT_SHA256 = 'ea962bca4cc4d52cacefb1de59d69fe2f8cb4b864d83c984bca95048da5e7dc7'
+SOURCE_SHA256 = '6a7e1afe7f405a2d6a7075f283067d9efa5b4e72467e31e76240fbe7cadff4bf'
+ARTIFACT_SHA256 = 'cd02f33e8110580802f1d9ec043dcd7c1a2e183ae9051654c950e4f6a65e4df8'
 BUILDER_SHA256 = 'f76786b20efe5a7d7a2baa8590bca72f1bdebc9850199185cc8f217eea129ad7'
 UTILITY_SHA256 = '8c4880ce68677d93ca7bba69dccda80a3f9ca4aea7d545bc000a38e9123a8810'
 JDK_MANIFEST_SHA256 = 'f01898929ae478e4bdb546eae2b056ef87e9d91232713f1568070fc53ba9de71'
 MAPPING_SHA256 = 'b4f0963e90d433f03d3597252da42ff1e38ce9928777c4ce65c779aae71ecdfa'
 CLASSPATH_IDENTITY = '2373e81359159882551577cb092a3bfe32cad48ad6487204c66a02b0b4f0039e'
-REMAP_TREES = {'probe-intermediary-raw.jar': 'e08e81615ee6b154b9f82f8cff907f9f4a41b89b0f6835e9f8b348cf255b65df',
-               'probe-roundtrip.jar': '86454a77490ae8570c9acd5f5a5b34b48c77b53085f80bf6ac34f101275eea58'}
-CLASS_TREES = {'main': (12, '1d6d49e417bbc269580a51212f7b9a3c73fe5761c4d89097d9f6e8ee69a4b955'),
-               'test': (2, 'e8fa314bfa6eb2991253ff86efe30eb0d90970d248aa9bc02527ca157b17b915'),
-               'tools': (8, 'baf6e3b6074984c0f66e88988c988f5d9a7d7bd80088c8fde637ef4270bc2155')}
-NAMED_SHA256 = 'ae01e49ada9f53055586f3fbc552bba904283f1a14b43b0dc0a4906ec78c69ec'
+REMAP_TREES = {'probe-intermediary-raw.jar': 'def3cb5a40268708621e0480b260705f0de4d5d1f82dcc0571937faa5fe5513d', 'probe-roundtrip.jar': 'f0764d10a9e23b365339a9ab27cf7695d68ffbec281ebaea23a97b2ad00b5e1f'}
+CLASS_TREES = {'main': [13, 'f2917f43f173866d42026198f2a6f859d7a8206698930f02b7e91dd8df904a50'], 'test': [4, '177cc792d9903567942f7fa96cc74f5044c384d676d7b56b216e0a3daae2fa4e'], 'tools': [8, 'baf6e3b6074984c0f66e88988c988f5d9a7d7bd80088c8fde637ef4270bc2155']}
+NAMED_SHA256 = 'e66aab5c7f170bc8359a04f88c9f8a8eef5f8813b7b5e10822947311b50ddfdb'
 ART_SHA256 = 'e977ee4422efb51eb54cc99f939833cef769de8b4aa1043294ce5400c60f3b1f'
 EXTRAS = {'networking':(169809,'8752ba0c80491dc56c51ecd037339ec015f73869db5d488eda7189a1a0f45888'),
           'lifecycle':(88814,'b316ff8cb3c7739143e713a1654c1072123079d0e3a07e76c18f94820c0ba767'),
@@ -152,15 +149,18 @@ def semantic_result(root, result_path):
         if data:add(pin)
         token={'actual-game-codecs':b'Prepared codec/input checks: 46; no network or game acceptance',
                'shared-wire':b'ACTUAL_SHARED_NONCE_WIRE assertions=138 PASS',
-               'actual-remap-roundtrip':b'ACTUAL_ART_PROBE_ROUNDTRIP classes=12 mapped_classes=6 invokedynamic=34 PASS'}.get(name)
+               'actual-remap-roundtrip':b'ACTUAL_ART_PROBE_ROUNDTRIP classes=13 mapped_classes=6 invokedynamic=34 PASS'}.get(name)
         if token:require(data.splitlines().count(token)==1,'Actual codec/remap assertions absent')
+        if name=='actual-game-codecs':
+            handoff=b'ACTUAL_DISCONNECT_HANDOFF assertions=47 PASS; real threads, production handoff, identity/queue/tick fixtures; no live game or PLAY acceptance'
+            require(data.splitlines().count(handoff)==1,'Actual disconnect handoff assertions absent')
     artifact=add(result['artifact'],ARTIFACT_SHA256)
     require(artifact==out/b.ARTIFACT_NAME,'Wrong final remapped artifact path')
     b.verify_archive(artifact,source_root/'src/main/resources/fabric.mod.json')
     with zipfile.ZipFile(artifact) as archive:
         require(archive.read('META-INF/MANIFEST.MF')==b'Manifest-Version: 1.0\r\nFabric-Mapping-Namespace: intermediary\r\n\r\n',
                 'Named-only artifact cannot be staged')
-        require(len([n for n in archive.namelist() if n.endswith('.class')])==12,'Reviewed class inventory changed')
+        require(len([n for n in archive.namelist() if n.endswith('.class')])==13,'Reviewed class inventory changed')
     return {'result':result,'inputPins':sorted(inputs.values(),key=lambda row:row['path'])}
 
 

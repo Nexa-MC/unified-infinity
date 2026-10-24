@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_2009_2054_FABRIC_API_PROBE_DIAGNOSTIC_UNEXECUTED",
+  "status": "FIXED_2109_2154_FABRIC_DISCONNECT_HANDOFF_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "25c036f20efee389c61667003f5c4a8b3a130cc0",
-    "manifestSha256": "8c9564433639c4edeb31af130bde3886a8b3e601ab64c7c14a997bf937b710e2"
+    "commit": "f68ba9c72d4e96dbc9354917a2654d04f560498d",
+    "manifestSha256": "b1d34d0f3af28d3b79d8393e08c84a3ead97c107f4b1af9c68c9803307238618"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 8802,
-      "sha256": "e974592bc74d3b5155472b19be082dd399b2c74e989703a9bf0dc83959a4753d"
+      "bytes": 8805,
+      "sha256": "931e2899ac22c04c2272e5d94b87afb027e950bffc678dd919c2a918813d70f5"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -830,7 +830,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "68a5f9bd94c8a69365a9e31135e9f12d2d1d9025f77fe0a725705316f7c8e9d1"
+      "sha256": "ccd681d24482868837071868afbcea907f5db549178edade3b1e5bccf9b7fd80"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -914,8 +914,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 8802,
-      "sha256": "e974592bc74d3b5155472b19be082dd399b2c74e989703a9bf0dc83959a4753d"
+      "bytes": 8805,
+      "sha256": "931e2899ac22c04c2272e5d94b87afb027e950bffc678dd919c2a918813d70f5"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -980,7 +980,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "2f3232c8a93b713662ce0b72ac477cd3bde36b0ba9cf210560d3e4a6762aaa6b"
+      "sha256": "33c6fe39c3a00fe79e5d987f3651a7ddb5c74f7cdcd5073a853f67464e91dda3"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1444,8 +1444,8 @@
     },
     {
       "path": "work/fabric-network-probe/source-manifest.json",
-      "bytes": 2407,
-      "sha256": "a9316a2bef37b6bc356094d49df4a28deb9a5c03c1d1c96ce14300de9fac1df7"
+      "bytes": 2821,
+      "sha256": "6a7e1afe7f405a2d6a7075f283067d9efa5b4e72467e31e76240fbe7cadff4bf"
     },
     {
       "path": "work/fabric-network-probe/jdk-input-verification.json",
@@ -1484,8 +1484,8 @@
     },
     {
       "path": "work/fabric-network-probe/src/test/java/dev/infinity/fabricnetworkcontrol/PreparedCodecTest.java",
-      "bytes": 5110,
-      "sha256": "5296e317ec5f283a967816dc9e28e5b3156942e8d3d24af10d453ecbc69de9d1"
+      "bytes": 5147,
+      "sha256": "923ff11661ee5adb47007f2ce8d4549a2b06df4ef9ef01435a69a6a2d59f4af4"
     },
     {
       "path": "work/fabric-network-probe/src/main/resources/fabric.mod.json",
@@ -1504,8 +1504,8 @@
     },
     {
       "path": "work/fabric-network-probe/src/main/java/dev/infinity/fabricnetworkcontrol/NonceProbeClient.java",
-      "bytes": 7746,
-      "sha256": "904c7b1cee8f6dc8dd990e75dee350916ade2b0c1afad4645e4bc9a583a6ec8e"
+      "bytes": 8918,
+      "sha256": "f1ff0c29f610af928926cc2a69062b337be479bf8c53e67afeb5ed5863e1e0ad"
     },
     {
       "path": "work/fabric-network-probe/src/main/java/dev/infinity/fabricnetworkcontrol/NonceReply.java",
@@ -1539,18 +1539,18 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_fabric_build_validation.py",
-      "bytes": 8042,
-      "sha256": "dcd0eb1b98b13ad23381d74ca2c94b02f383186a36fa6fba348df764c46cf33a"
+      "bytes": 8566,
+      "sha256": "bc7a391da07ea84ab68a5c88822a2672d7b1e96c0c95c42489f68f11a876cb90"
     },
     {
       "path": "work/network-pair-cold-glue/fabric_probe_pipeline.py",
       "bytes": 4699,
-      "sha256": "a2cfb973c70bf9abfe448ac28e30cd08c0d4b29a1f8019b79173831c2d47e1dc"
+      "sha256": "07090d2d61c36036398149c654c6b068069e72efa74e2bbcfe269a7f25d147b6"
     },
     {
       "path": "work/network-pair-cold-glue/fabric_probe_build_validation.py",
-      "bytes": 18210,
-      "sha256": "b0529773bee637dabe52bb82670f7375fdf4cdbe42622d3f35c60b6440dbe005"
+      "bytes": 18472,
+      "sha256": "a6f21adf4c913f4846c0b1754f211d9e2fc544f183713b54fa30cd056ff7cf82"
     },
     {
       "path": "work/network-pair-cold-glue/test_fabric_pair_integration.py",
@@ -1561,10 +1561,20 @@
       "path": "work/network-pair-cold-glue/test_fabric_probe_overlay.py",
       "bytes": 14085,
       "sha256": "5d88e3c63785249386c7b84060064065e124e71e989435cf906954d6dee8abd7"
+    },
+    {
+      "path": "work/fabric-network-probe/src/test/java/dev/infinity/fabricnetworkcontrol/DisconnectHandoffTest.java",
+      "bytes": 8691,
+      "sha256": "6f82b999c4b009c9f68c2dce9e63ea0edc5723060c4578edd4378acaa4d288e1"
+    },
+    {
+      "path": "work/fabric-network-probe/src/main/java/dev/infinity/fabricnetworkcontrol/DisconnectHandoff.java",
+      "bytes": 2074,
+      "sha256": "d3df0d6896aef3ce5a1270c63235b2f97200212681d7067d35cc4d4eb7183931"
     }
   ],
-  "revision": 31,
-  "previousReviewManifestSha256": "8c9564433639c4edeb31af130bde3886a8b3e601ab64c7c14a997bf937b710e2",
+  "revision": 32,
+  "previousReviewManifestSha256": "b1d34d0f3af28d3b79d8393e08c84a3ead97c107f4b1af9c68c9803307238618",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
@@ -1572,9 +1582,9 @@
   },
   "roundDeadline": {
     "schema": 1,
-    "roundId": "recovery-20261024T200900Z",
-    "startUtc": "2026-10-24T20:09:00Z",
-    "cutoffUtc": "2026-10-24T20:54:00Z",
+    "roundId": "recovery-20261024T210900Z",
+    "startUtc": "2026-10-24T21:09:00Z",
+    "cutoffUtc": "2026-10-24T21:54:00Z",
     "cleanupReserveSeconds": 180,
     "maximumWorkSeconds": 1980,
     "minimumWorkSeconds": 1560,

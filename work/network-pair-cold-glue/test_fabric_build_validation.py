@@ -14,7 +14,7 @@ import zipfile
 import fabric_probe_overlay as b
 import fabric_probe_build_validation as v
 
-REAL_OUTPUT=Path(__file__).resolve().parents[1]/'fabric-network-probe-candidate/build-owned-1901'
+REAL_OUTPUT=Path(__file__).resolve().parents[1]/'fabric-disconnect-handoff-2032/build-owned-2035'
 
 @unittest.skipUnless((REAL_OUTPUT/'result.json').is_file(),'Retained local actual build proof not present')
 class RetainedActualBuildValidation(unittest.TestCase):
@@ -107,5 +107,12 @@ class RetainedActualBuildValidation(unittest.TestCase):
         self.assertEqual(fresh['reviewed']['artifact_sha256'],descriptor['reviewed']['artifact_sha256'])
         with self.assertRaisesRegex(ValueError,'Stale staged source tree'):
             v.build_bundle(self.root,Path(self.result['sourceManifest']['path']).parent,self.output)
+
+
+    def test_missing_actual_handoff_marker_rejected(self):
+        row=next(x for x in self.result['phases'] if x['name']=='actual-game-codecs')
+        path=Path(row['log']['path']);data=path.read_bytes();data=b'\n'.join(x for x in data.splitlines() if not x.startswith(b'ACTUAL_DISCONNECT_HANDOFF '))+b'\n';path.write_bytes(data)
+        row['log']['bytes']=len(data);row['log']['sha256']=b.digest(data);self.write()
+        with self.assertRaisesRegex(ValueError,'disconnect handoff assertions absent'):self.validate()
 
 if __name__=='__main__':unittest.main()
