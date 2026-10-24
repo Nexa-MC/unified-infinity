@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 127361,
-      "sha256": "0b754c27425a6ae36966f7c81b96669bc9c78f1409937e83405ffef26d084351"
+      "bytes": 131500,
+      "sha256": "a3991d5b6d894d45d523ea0f681a57ef3d6e0993b5f4b9516f5a6d67f4419df2"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -151,7 +151,7 @@
     {
       "path": "fixtures/jna-classpath-provenance.json",
       "bytes": 1175,
-      "sha256": "157f173fb4566553219cad2260e04695a11f4baedd0a2ded516d354d8d6b5915"
+      "sha256": "89a9131c33802341bcbef3029113faef96207938542aae1921670a71299c1444"
     },
     {
       "path": "fixtures/jna-native-classpath.log",
@@ -165,13 +165,23 @@
     },
     {
       "path": "fd_census_preservation.py",
-      "bytes": 2204,
-      "sha256": "d64cdd47314ca4e05f3dae84dc64670eb5f242311f52bc678e51fa5a359f597c"
+      "bytes": 2321,
+      "sha256": "803bbc25030e26d460189a4b541711d44483d790de41e804dfd4a664677bb52c"
     },
     {
       "path": "test_fd_census_restart.py",
       "bytes": 9029,
       "sha256": "9cbce4260c1d0b288ce805f6c5846d849f2576b67bd75723b42b4f33493f3d8a"
+    },
+    {
+      "path": "helper_retirement_preservation.py",
+      "bytes": 5015,
+      "sha256": "c2715ddf6f2912e70a5cbb8bba84808604b48be57fa7def8a6973859f9b412e3"
+    },
+    {
+      "path": "test_helper_retirement.py",
+      "bytes": 8484,
+      "sha256": "7c0b8bebe6929cfdf938cbc8984439111f92b2e1a9acd97d1cdc518d37c4bcf5"
     }
   ]
 }

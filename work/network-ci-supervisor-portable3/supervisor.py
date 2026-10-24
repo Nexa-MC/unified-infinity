@@ -934,6 +934,60 @@ def cpu_probe_failure_diagnostic(error, row, records):
     return result
 
 
+def cpu_probe_retired(pair, row, role, old, members, error, deadline):
+    """Reconcile an already verified, now absent identity, not live admission.
+
+    A missing child stat is the sole recoverable observation error. Retained
+    pidfd terminal evidence never supplies exit status or final CPU/RSS usage.
+    """
+    stat_path = pair.proc.root / str(row['pid']) / 'stat'
+    require(error.errno == 2 and error.filename == str(stat_path) and
+            old is not None and old['observations'] > 0 and old['role'] == role and
+            not old.get('terminal_observations'), 'CPU probe retirement evidence unavailable')
+    require(all(row[k] == old['identity'][k] for k in
+                ('pid', 'start_ticks', 'ppid', 'pgrp', 'session')),
+            'CPU probe retirement identity changed')
+    parent = pair.identities[role]
+    require(row['ppid'] == parent['pid'] and row['pgrp'] == parent['pgrp'] and
+            row['session'] == parent['session'], 'CPU probe retirement parent changed')
+    require(time.monotonic() < deadline, 'CPU probe retirement budget exceeded')
+    poller = select.poll()
+    poller.register(old['pidfd'], select.POLLIN | select.POLLHUP | select.POLLERR)
+    events = poller.poll(0)
+    require(len(events) == 1 and events[0][0] == old['pidfd'] and
+            events[0][1] & select.POLLIN and
+            not events[0][1] & ~(select.POLLIN | select.POLLHUP),
+            'CPU probe retirement handle is not terminal')
+    signature = cpu_probe_parent(pair.proc, parent, pair.spec[role]['command'])
+    require(pair.children[role].poll() is None, 'CPU probe retirement parent exited')
+    ticks = os.sysconf('SC_CLK_TCK')
+    require(ticks > 0 and 0 <= time.clock_gettime(time.CLOCK_BOOTTIME) -
+            row['start_ticks'] / ticks <= CPU_PROBE_MAX_SECONDS,
+            'CPU probe retirement lifetime exceeded')
+    fresh = pair.proc.all_identities()
+    require(not any(p['pid'] == row['pid'] or p['ppid'] == row['pid'] for p in fresh),
+            'CPU probe retirement identity or descendants remain')
+    known = {p['pid'] for p in pair.identities.values()}
+    helpers = {key[0] for key in pair.cpu_helpers.records}
+    groups = {(p['pgrp'], p['session']) for p in pair.identities.values()}
+    previous = {(p['pid'], p['start_ticks'], p['ppid'], p['pgrp'], p['session']) for p in members}
+    require(all((p['pid'], p['start_ticks'], p['ppid'], p['pgrp'], p['session']) in previous
+                for p in fresh if p['pid'] not in known and
+                (p['ppid'] in known | helpers | {os.getpid()} or
+                 (p['pgrp'], p['session']) in groups)),
+            'CPU probe retirement census changed')
+    try:
+        pair.proc.identity(row['pid'])
+    except FileNotFoundError as missing:
+        require(missing.errno == 2 and missing.filename == str(stat_path),
+                'CPU probe retirement absence unavailable')
+    else:
+        raise ValueError('CPU probe retirement PID reappeared')
+    require(cpu_probe_parent(pair.proc, parent, pair.spec[role]['command']) == signature and
+            pair.children[role].poll() is None, 'CPU probe retirement parent changed')
+    require(time.monotonic() < deadline, 'CPU probe retirement budget exceeded')
+
+
 class CpuProbePolicy:
     """Finite observed identities with owned pidfds; no unknown-child allowance."""
     def __init__(self):
@@ -970,14 +1024,27 @@ class CpuProbePolicy:
                     continue
                 require(old is None or not old.get('terminal_observations'), 'CPU probe revived terminal identity')
                 fd = os.pidfd_open(row['pid'], 0) if old is None else old['pidfd']
+                verification_deadline = time.monotonic() + CPU_PROBE_VERIFY_SECONDS
                 try:
                     cpu_probe_handle_live(fd)
                     signature, metrics = cpu_probe_sample(pair.proc, row, pair.identities[role],
                                                          pair.spec[role]['command'],
                                                          old['signature'] if old else None,
-                                                         transition_context=(pair, fd))
+                                                         deadline=verification_deadline, transition_context=(pair, fd))
                     cpu_probe_handle_live(fd)
                     require(pair.children[role].poll() is None, 'CPU probe parent exited during verification')
+                except FileNotFoundError as error:
+                    if old is None:
+                        os.close(fd)
+                        raise
+                    if error.errno != 2 or error.filename != str(pair.proc.root / str(row['pid']) / 'stat'):
+                        raise
+                    cpu_probe_retired(pair, row, role, old, members, error, verification_deadline)
+                    old['terminal_observations'] = old.get('terminal_observations', 0) + 1
+                    old['retired_after_stat_race'] = True
+                    accepted.add(key)  # Only discharges this stale census row, not live admission.
+                    active.add(role)
+                    continue
                 except BaseException:
                     if old is None:
                         os.close(fd)
@@ -1013,6 +1080,7 @@ class CpuProbePolicy:
                 'maximum_rss_bytes': CPU_PROBE_MAX_RSS,
                 'observed': [{'pid': key[0], 'start_ticks': key[1], 'role': r['role'],
                               'observations': r['observations'], 'terminal_observations': r.get('terminal_observations', 0),
+                              'retired_after_stat_race': r.get('retired_after_stat_race', False),
                               **r['metrics']} for key, r in self.records.items()]}
         return accepted
 
