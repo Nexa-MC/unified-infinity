@@ -196,10 +196,12 @@ def semantic_comparison(reports):
 def require_hardware_observation(captures):
     import diagnostic_log_events
     require(set(captures)=={'server','client'} and
-            all(capture['status']=='OBSERVED_INCOMPLETE'
-                and capture['hardware_transforms']==[diagnostic_log_events.HARDWARE_ROW]
-                for capture in captures.values()),
-            'Missing exact hardware-skip transformation observation')
+            all(capture.get('status')=='OBSERVED_INCOMPLETE'
+                and capture.get('hardware_transforms')==[diagnostic_log_events.HARDWARE_ROW]
+                for capture in captures.values())
+            and captures['server'].get('cpu_description_transforms')==[]
+            and captures['client'].get('cpu_description_transforms')==[diagnostic_log_events.CPU_ROW],
+            'Missing exact role-bound hardware/CPU-skip transformation observation')
 
 
 def diagnostic_comparison(reports,manifest):

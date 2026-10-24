@@ -21,7 +21,7 @@ import refreshed_candidate as refreshed
 HERE = Path(__file__).resolve().parent
 MODULE = 'work/network-pair-cold-glue/diagnostic_fml_build.py'
 SOURCES = 'work/network-pair-cold-glue/diagnostic-java'
-OUTPUT = 'work/process-start-hardware-skip-diagnostic-fml'
+OUTPUT = 'work/process-start-hardware-cpu-skip-diagnostic-fml'
 SCHEMA = 'fml-process-start-diagnostic-v1'
 RECEIPT_SCHEMA = 'fml-process-start-diagnostic-build-v1'
 NATIVE_SHA = '182fcee7ed6e2be4c815bd08d2c766d355c58ab1e227b6ffd84ed26a0f71b6d6'
@@ -42,9 +42,9 @@ SERVICE_ORIGINAL = (b'net.neoforged.fml.loading.log4j.SLF4JFixerLaunchPluginServ
                     b'net.neoforged.fml.common.asm.enumextension.RuntimeEnumExtender')
 SERVICE_PROVIDER = 'net.neoforged.fml.loading.diagnostic.HardwareInventorySkipLaunchPlugin'
 SERVICE_DERIVED = SERVICE_ORIGINAL + b'\n' + SERVICE_PROVIDER.encode('ascii') + b'\n'
-SCOPE = {'diagnosticProfile': 'system-report-hardware-inventory-skip-v1',
+SCOPE = {'diagnosticProfile': 'system-report-and-glx-cpu-inventory-skip-v2',
          'behavioralChange': True,
-         'hardwareScope': 'all-SystemReport-instances-including-crash-reports',
+         'hardwareScope': 'all-SystemReport-instances-including-crash-reports-and-GLX-CPU-description',
          'nonHardwareFieldsPreserved': True, 'gameJarBytesModified': False}
 # Deterministic output of the pinned source/dependency/compiler recipe, independently
 # compiled and module-smoke-tested before this portable builder was introduced.
@@ -62,11 +62,11 @@ EXPECTED_CLASS_SHA = {'net/neoforged/fml/loading/diagnostic/ProcessStartDiagnost
  'net/neoforged/fml/loading/targets/CommonLaunchHandler$1ExplodedModPath.class': '4488817c19c3aef17b0d9f64f5b758184761497164119b0772fc0a8557bd24a2',
  'net/neoforged/fml/loading/targets/CommonLaunchHandler.class': '3542e38e6c7a8d961a6d53a712b862238bf3ebb7fe8b506d3a622087be16c525'}
 EXPECTED_CLASS_SHA.update({
-    OWN + 'HardwareInventorySkipLaunchPlugin.class': 'dbc307c37ac4045f6599aa93fc589f6fc818f230e00b544e36de8b45a2ac5dc8',
-    OWN + 'HardwareInventorySkipLaunchPlugin$Refused.class': 'f81d4859ac673b0e673c843af108072ea3e8837197257a6094947290bc129040',
+    OWN + 'HardwareInventorySkipLaunchPlugin.class': '217f85ebbced90c322c50f704bcae7cd2604c2d444ead65a0c866966d0dd2e7e',
+    OWN + 'HardwareInventorySkipLaunchPlugin$Refused.class': 'c5470025788660b342e6a4075d427868391ffac6a37e55c640c0cb6be587c8ca',
 })
 SOURCE_SHA = {
-    'HardwareInventorySkipLaunchPlugin.java': '7af99ebb5f50d4f41a51f69325bb91646c216fe92a80d8fbb9b1064c40a939f1',
+    'HardwareInventorySkipLaunchPlugin.java': 'e9eddd6814f34a632232b229184083c0d60d95cdaed74a180a9bf88083caa372',
     'CommonLaunchHandler.java': 'e453b96e10128d665cda58d458203b7201875c84c1742d73f84f2563404b8a58',
     'ProcessStartDiagnostic.java': 'c7915ed6d33f41fa9bc4de5a4f1903300f7f358f2801f749a59006c81387c5b0',
     'ProcessStartDiagnosticLaunch.java': '50e1e7da3c32d68b509a7db3b66a1c0a9d7b7b0b0d1a0f9c55b8371446776f65',
@@ -91,8 +91,8 @@ JDK_FILES = {
  'lib/libjli.so': '6703dbc0a7d5953ba248f45afca71b13807e5be9682110ed205f4361640f496a',
  'lib/server/libjvm.so': '462fa559157ee8a862e7e4b8a4a74f8abbf5e1a9deb64f22ee23c7e8c43f698b',
 }
-ARTIFACT_NAMES = {'native': 'loader-4.0.42-process-start-hardware-skip-diagnostic-only.jar',
-                  'unified': 'fml-loader-4.0.42-unified-process-start-hardware-skip-diagnostic-only.jar'}
+ARTIFACT_NAMES = {'native': 'loader-4.0.42-process-start-hardware-cpu-skip-diagnostic-only.jar',
+                  'unified': 'fml-loader-4.0.42-unified-process-start-hardware-cpu-skip-diagnostic-only.jar'}
 
 
 def require(value, message):

@@ -89,13 +89,13 @@ class DiagnosticBuildTests(unittest.TestCase):
                 b.read_archive(self.base)
 
     def test_hardware_scope_is_explicit_and_separately_named(self):
-        self.assertEqual(b.SCOPE['diagnosticProfile'], 'system-report-hardware-inventory-skip-v1')
+        self.assertEqual(b.SCOPE['diagnosticProfile'], 'system-report-and-glx-cpu-inventory-skip-v2')
         self.assertIs(b.SCOPE['behavioralChange'], True)
-        self.assertEqual(b.SCOPE['hardwareScope'], 'all-SystemReport-instances-including-crash-reports')
+        self.assertEqual(b.SCOPE['hardwareScope'], 'all-SystemReport-instances-including-crash-reports-and-GLX-CPU-description')
         self.assertIs(b.SCOPE['nonHardwareFieldsPreserved'], True)
         self.assertIs(b.SCOPE['gameJarBytesModified'], False)
-        self.assertIn('hardware-skip', b.OUTPUT)
-        self.assertTrue(all('hardware-skip' in name for name in b.ARTIFACT_NAMES.values()))
+        self.assertIn('hardware-cpu-skip', b.OUTPUT)
+        self.assertTrue(all('hardware-cpu-skip' in name for name in b.ARTIFACT_NAMES.values()))
         self.assertEqual(b.METADATA, 'META-INF/unified-hardware-inventory-skip-diagnostic.json')
 
     def test_duplicate_member_refused(self):

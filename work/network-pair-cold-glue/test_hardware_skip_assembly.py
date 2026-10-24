@@ -132,7 +132,7 @@ class FourRoleScopeBinding(unittest.TestCase):
         fixture=FourRoleFlow();fixture.setUp();self.addCleanup(fixture.doCleanups)
         result=d.assemble(fixture.root,fixture.root,fixture.manifest,profile='fixture',build_proof='fixture')
         original=result.read_bytes();value=json.loads(original)
-        self.assertEqual(d.OUTPUT,'work/network-pair-assembled-hardware-skip-diagnostic')
+        self.assertEqual(d.OUTPUT,'work/network-pair-assembled-hardware-cpu-skip-diagnostic')
         d.require_scope(value)
         for target,group in value['groups'].items():
             for side,row in group['roles'].items():

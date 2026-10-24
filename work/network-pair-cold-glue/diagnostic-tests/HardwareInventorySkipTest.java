@@ -39,7 +39,7 @@ public final class HardwareInventorySkipTest {
         throw new AssertionError("fixture_dynamic_missing");
     }
     private static byte[] bytes(ClassNode n) { ClassWriter w = new ClassWriter(0); n.accept(w); return w.toByteArray(); }
-    private static ClassNode fixture() {
+    static ClassNode fixture() {
         ClassWriter w = new ClassWriter(0);
         w.visit(Opcodes.V21, Opcodes.ACC_PUBLIC, OWNER, null, "java/lang/Object", null);
         for (String field : new String[]{"before", "after", "hardware"})

@@ -16,7 +16,10 @@ EVENT_KEYS={'kind','requested_command','caller','pid','diagnostic_only','admissi
 STATUS_KEYS={'kind','state','diagnostic_only','admission_evidence'}
 HARDWARE_ROW={'kind':'hardware_inventory_skip_diagnostic','state':'TRANSFORMED',
               'diagnostic_only':True,'baseline_acceptance':False}
-MARKERS=(b'processbuilder_debug',b'processbuilder_diagnostic_status',b'hardware_inventory_skip_diagnostic')
+CPU_ROW={'kind':'cpu_description_skip_diagnostic','state':'TRANSFORMED',
+         'diagnostic_only':True,'baseline_acceptance':False}
+MARKERS=(b'processbuilder_debug',b'processbuilder_diagnostic_status',b'hardware_inventory_skip_diagnostic',
+         b'cpu_description_skip_diagnostic')
 
 def unique_object(pairs):
     value={}
@@ -26,8 +29,9 @@ def unique_object(pairs):
     return value
 
 def valid(row):
-    if type(row) is dict and row.get('kind')=='hardware_inventory_skip_diagnostic':
-        return set(row)==set(HARDWARE_ROW) and all(type(row[k]) is type(v) and row[k]==v for k,v in HARDWARE_ROW.items())
+    if type(row) is dict and row.get('kind') in ('hardware_inventory_skip_diagnostic','cpu_description_skip_diagnostic'):
+        expected=HARDWARE_ROW if row['kind']=='hardware_inventory_skip_diagnostic' else CPU_ROW
+        return set(row)==set(expected) and all(type(row[k]) is type(v) and row[k]==v for k,v in expected.items())
     if type(row) is not dict or row.get('diagnostic_only') is not True or row.get('admission_evidence') is not False:
         return False
     if row.get('kind')=='processbuilder_debug':
@@ -43,7 +47,7 @@ def extract(path):
     result={'schema':'bounded-process-diagnostic-log-v1','status':'UNOBSERVED',
             'diagnostic_only':True,'admission_evidence':False,'baseline_acceptance':False,
             'observation_complete':False,'absence_of_process_evidence':False,
-            'log_pin':None,'events':[],'statuses':[],'hardware_transforms':[],'malformed_rows':0,
+            'log_pin':None,'events':[],'statuses':[],'hardware_transforms':[],'cpu_description_transforms':[],'malformed_rows':0,
             'overflow':False,'log_available':False,'log_changed':False}
     descriptor=None
     try:
@@ -73,12 +77,13 @@ def extract(path):
             if not accepted:
                 result['malformed_rows']+=1;continue
             key=('events' if row['kind']=='processbuilder_debug' else
-                 'hardware_transforms' if row['kind']=='hardware_inventory_skip_diagnostic' else 'statuses')
-            cap=64 if key=='events' else 1 if key=='hardware_transforms' else 2
+                 'hardware_transforms' if row['kind']=='hardware_inventory_skip_diagnostic' else
+                 'cpu_description_transforms' if row['kind']=='cpu_description_skip_diagnostic' else 'statuses')
+            cap=64 if key=='events' else 1 if key in ('hardware_transforms','cpu_description_transforms') else 2
             if len(result[key])>=cap:result['overflow']=True
             else:result[key].append(row)
         if result['malformed_rows'] or result['overflow']:result['status']='INVALID_OR_INCOMPLETE'
-        elif result['events'] or result['statuses'] or result['hardware_transforms']:result['status']='OBSERVED_INCOMPLETE'
+        elif result['events'] or result['statuses'] or result['hardware_transforms'] or result['cpu_description_transforms']:result['status']='OBSERVED_INCOMPLETE'
     except (OSError,ValueError):
         result['status']='UNOBSERVED'
     finally:

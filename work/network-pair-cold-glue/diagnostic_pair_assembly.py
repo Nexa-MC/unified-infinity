@@ -9,12 +9,12 @@ import zipfile
 import pair_assembly as base
 import diagnostic_fml_build as build
 
-OUTPUT = 'work/network-pair-assembled-hardware-skip-diagnostic'
+OUTPUT = 'work/network-pair-assembled-hardware-cpu-skip-diagnostic'
 RESULT = OUTPUT + '/diagnostic-assembly.json'
 POLICY = 'META-INF/unified-admission/installation.json'
-SCOPE = {'diagnosticProfile': 'system-report-hardware-inventory-skip-v1',
+SCOPE = {'diagnosticProfile': 'system-report-and-glx-cpu-inventory-skip-v2',
          'behavioralChange': True,
-         'hardwareScope': 'all-SystemReport-instances-including-crash-reports',
+         'hardwareScope': 'all-SystemReport-instances-including-crash-reports-and-GLX-CPU-description',
          'nonHardwareFieldsPreserved': True, 'gameJarBytesModified': False}
 
 

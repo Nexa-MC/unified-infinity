@@ -27,7 +27,7 @@ class DiagnosticDriverTests(unittest.TestCase):
         reports['unified']['passed']=False
         with self.assertRaises(ValueError):d.semantic_comparison(reports)
 
-    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False,hardware_marker=True,seal_fail_target=None):
+    def run_driver(self,raw_change=None,cleanup_fail=False,timeout=False,hardware_marker=True,seal_fail_target=None,cpu_marker=True,cpu_wrong_role=False):
         with tempfile.TemporaryDirectory() as tmp,ExitStack() as stack:
             repo=Path(tmp)/'repo';repo.mkdir();consumer=Path(tmp)/'consumer';consumer.mkdir()
             manifest=consumer/'diagnostic-manifest.json';manifest.write_text('{"fixture":true}')
@@ -73,7 +73,8 @@ class DiagnosticDriverTests(unittest.TestCase):
                 import diagnostic_log_events
                 if hardware_marker:
                     for role in ('server','client'):
-                        (destination/(role+'.log')).write_text(json.dumps(diagnostic_log_events.HARDWARE_ROW)+'\n')
+                        (destination/(role+'.log')).write_text(json.dumps(diagnostic_log_events.HARDWARE_ROW)+'\n'+
+                            (json.dumps(diagnostic_log_events.CPU_ROW)+'\n' if cpu_marker and (role=='server' if cpu_wrong_role else role=='client') else ''))
                 class Pair:
                     done=False
                     def wait(self,timeout):
@@ -132,9 +133,17 @@ class DiagnosticDriverTests(unittest.TestCase):
     def test_transport_receipt_without_hardware_marker_is_not_promoted(self):
         r,e,waits,terms,stops=self.run_driver(hardware_marker=False)
         self.assertIsInstance(e,ValueError)
-        self.assertIn('hardware-skip transformation observation',str(e))
+        self.assertIn('hardware/CPU-skip transformation observation',str(e))
         self.assertEqual(r['status'],'FAILED');self.assertEqual(stops,1)
         self.assertEqual(waits,[d.PAIR_SECONDS])
+
+    def test_transport_receipt_without_role_correct_cpu_marker_is_not_promoted(self):
+        for options in ({'cpu_marker':False},{'cpu_wrong_role':True}):
+            with self.subTest(options=options):
+                r,e,waits,terms,stops=self.run_driver(**options)
+                self.assertIsInstance(e,ValueError)
+                self.assertEqual(r['status'],'FAILED');self.assertFalse(r['gameAcceptance'])
+                self.assertEqual(stops,1);self.assertEqual(waits,[d.PAIR_SECONDS])
 
     def test_timeout_retains_owned_cleanup_and_budget(self):
         r,e,waits,terms,stops=self.run_driver(timeout=True)
