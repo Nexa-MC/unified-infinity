@@ -855,7 +855,16 @@ def cpu_probe_spawn_sample(pair, expected, parent, command, deadline, state=None
     def target_now():
         proc.same(expected)
         target = os.readlink(path)
-        require(target in (str(helper), CPU_PROBE_PATH), 'CPU probe transition target forbidden')
+        if target not in (str(helper), CPU_PROBE_PATH):
+            error = ValueError('CPU probe transition target forbidden')
+            # Path-label evidence from this existing readlink only, not inode identity.
+            deleted = target.endswith(' (deleted)')
+            label = target[:-10] if deleted else target
+            error.transition_target_diagnostic = {
+                'admission_evidence': False, 'identity_verified': False,
+                'path_label': 'PARENT_COMMAND_PATH' if label == command[0] else 'OTHER_PATH',
+                'deleted_suffix': deleted}
+            raise error
         return target == CPU_PROBE_PATH
     if target_now():
         return True
@@ -992,6 +1001,8 @@ def cpu_probe_failure_diagnostic(error, row, records):
     result.update(frames=frames, traceback_truncated=trace is not None or matched > 12)
     if type(error) is ValueError and hasattr(error, 'socket_diagnostic'):
         result['socket_diagnostic'] = error.socket_diagnostic
+    if type(error) is ValueError and hasattr(error, 'transition_target_diagnostic'):
+        result['transition_target_diagnostic'] = error.transition_target_diagnostic
     return result
 
 
