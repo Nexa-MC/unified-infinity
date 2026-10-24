@@ -1,5 +1,6 @@
 """Focused synthetic safety tests. Synthetic receipts are never production build evidence."""
 import copy
+import importlib.util
 import json
 from pathlib import Path
 import stat
@@ -11,6 +12,14 @@ import warnings
 import zipfile
 
 import diagnostic_fml_build as b
+
+
+def supervisor_module():
+    path = b.HERE.parent / 'network-ci-supervisor-portable3/supervisor.py'
+    spec = importlib.util.spec_from_file_location('diagnostic_build_pin_supervisor', path)
+    result = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(result)
+    return result
 
 
 class DiagnosticBuildTests(unittest.TestCase):
@@ -200,8 +209,85 @@ class DiagnosticBuildTests(unittest.TestCase):
             self.assertEqual(compile_check.call_count, 1)
             self.assertEqual(proof_check.call_count, 3)  # entry, post-build, validation
             self.assertTrue(all(not r['baseline_acceptance'] for r in result['receipts']))
+            exported_paths = {row['path'] for row in result['inputPins']}
+            for receipt in result['receipts']:
+                for key in ('stdout', 'stderr'):
+                    log = receipt['compilation'][key]
+                    self.assertEqual(log['bytes'], 0)
+                    self.assertEqual(log['sha256'], b.canonical_digest(b''))
+                    self.assertNotIn(log['path'], exported_paths)
+                    self.assertEqual(b.refreshed.check_pin(self.root, log).read_bytes(), b'')
+            supervisor = supervisor_module()
+            for row in result['inputPins']:
+                self.assertGreater(row['bytes'], 0)
+                absolute = dict(row, path=str(self.root/row['path']))
+                self.assertEqual(supervisor.file_pin(absolute, self.root), self.root/row['path'])
+            # Empty observations remain strictly checked through the sealed receipt.
+            log_path = self.root / result['receipts'][0]['compilation']['stdout']['path']
+            log_path.write_bytes(b'changed-after-compile')
+            with self.assertRaisesRegex(ValueError, 'compiler log pin'):
+                b.validate(repo, self.root, manifest, 'profile.json', 'proof.json')
+            log_path.write_bytes(b'')
             self.assertEqual(b.exact_pin(self.root, self.base), native_pin)
             self.assertEqual(b.exact_pin(self.root, unified), unified_pin)
+            # Exercise nonempty provenance streams through the SAME actual
+            # validator and supervisor boundary, without mocking either.
+            originals = {}
+            current = json.loads(good_manifest)
+            log_paths = {row['compilation'][name]['path']
+                         for row in result['receipts'] for name in ('stdout', 'stderr')}
+            for name in log_paths: (self.root/name).write_bytes(b'compiler observation\n')
+            try:
+                for index, receipt_pin in enumerate(current['build_receipts']):
+                    receipt_file = Path(receipt_pin['path'])
+                    originals[receipt_file] = receipt_file.read_bytes()
+                    receipt = json.loads(originals[receipt_file])
+                    for key in ('stdout', 'stderr'):
+                        receipt['compilation'][key] = b.exact_pin(self.root, self.root/receipt['compilation'][key]['path'])
+                    receipt_file.write_text(json.dumps(receipt))
+                    current['build_receipts'][index] = dict(b.exact_pin(self.root, receipt_file), path=str(receipt_file))
+                manifest.write_text(json.dumps(current))
+                nonempty = b.validate(repo, self.root, manifest, 'profile.json', 'proof.json')
+                self.assertTrue(log_paths.issubset({row['path'] for row in nonempty['inputPins']}))
+                for row in nonempty['inputPins']:
+                    absolute = dict(row, path=str(self.root/row['path']))
+                    self.assertEqual(supervisor.file_pin(absolute, self.root), self.root/row['path'])
+                for name in log_paths:
+                    (self.root/name).write_bytes(b'changed compiler log\n')
+                    with self.assertRaisesRegex(ValueError, 'compiler log pin'):
+                        b.validate(repo, self.root, manifest, 'profile.json', 'proof.json')
+                    (self.root/name).write_bytes(b'compiler observation\n')
+            finally:
+                for name in log_paths: (self.root/name).write_bytes(b'')
+                for path, data in originals.items(): path.write_bytes(data)
+                manifest.write_bytes(good_manifest)
+            # An empty executable/runtime input must not receive this special
+            # provenance treatment, even with an internally consistent digest.
+            empty_runtime = self.root/'empty-runtime.jar'
+            empty_runtime.write_bytes(b'')
+            empty_pin = b.exact_pin(self.root, empty_runtime)
+            with self.assertRaisesRegex(ValueError, 'Invalid pin'):
+                supervisor.file_pin(dict(empty_pin, path=str(empty_runtime)))
+            proof['inputPins'].append(empty_pin)
+            try:
+                # Make receipts agree so the failure is specifically the positive
+                # launch-input constraint, not a stale receipt-provenance mismatch.
+                current = json.loads(manifest.read_text())
+                originals = {}
+                for index, receipt_pin in enumerate(current['build_receipts']):
+                    receipt_file = Path(receipt_pin['path'])
+                    originals[receipt_file] = receipt_file.read_bytes()
+                    receipt = json.loads(originals[receipt_file])
+                    receipt['fullBuildInputPins'].append(empty_pin)
+                    receipt_file.write_text(json.dumps(receipt))
+                    current['build_receipts'][index] = dict(b.exact_pin(self.root, receipt_file), path=str(receipt_file))
+                manifest.write_text(json.dumps(current))
+                with self.assertRaisesRegex(ValueError, 'Runtime provenance input must be nonempty'):
+                    b.validate(repo, self.root, manifest, 'profile.json', 'proof.json')
+            finally:
+                proof['inputPins'].pop()
+                for path, data in originals.items(): path.write_bytes(data)
+                manifest.write_bytes(good_manifest)
             with self.assertRaisesRegex(ValueError, 'Stale'):
                 b.execute(repo, self.root, deadline=time.monotonic()+10,
                           profile='profile.json', build_proof='proof.json')

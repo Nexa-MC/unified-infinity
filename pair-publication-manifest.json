@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_1409_1454_INDEPENDENT_DIAGNOSTIC_FML_CANDIDATE_UNEXECUTED",
+  "status": "FIXED_1509_1554_DIAGNOSTIC_COMPILER_EVIDENCE_PIN_FIX_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "40dac6eab574830279805b52b265118e98f72d09",
-    "manifestSha256": "140c683cd74c0be1c0ddf00a3f7066033d14b06b0539e9de4a440e8db9758777"
+    "commit": "e8508b33e103c1f376501acfe7a03b68e72acc44",
+    "manifestSha256": "387d63325e91e2b461f4f148a98407c9d9264b628a88d9b331d2e8f5f7d2188b"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 8760,
-      "sha256": "749086cf4b9559292b26e84b4143bf882b1516e1a8f4ffd5a4d4fc52d302e597"
+      "sha256": "8824df99a49362ceab2425684d2c2ef335c7aecae8b0318944c3b1533d5c5933"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -830,7 +830,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "46c343e9b9805b53405b86dd30acf979bd9a686977b913378fa52f115909e98d"
+      "sha256": "add0df93ce3c1287e79b68f2b69d55e0877274abbf8ec0dae425af868e8ad9f3"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -915,7 +915,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 8760,
-      "sha256": "749086cf4b9559292b26e84b4143bf882b1516e1a8f4ffd5a4d4fc52d302e597"
+      "sha256": "8824df99a49362ceab2425684d2c2ef335c7aecae8b0318944c3b1533d5c5933"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -980,7 +980,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "ddaa50dad5a713bf0cf586749fa4a6b6e50773b6c69ab6bf67925c322e287a41"
+      "sha256": "f93c7669a00ab0de95a62217271afdd3364656ef5e98781c0f796e42ca7fcc8d"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1364,13 +1364,13 @@
     },
     {
       "path": "work/network-pair-cold-glue/diagnostic_fml_build.py",
-      "bytes": 26019,
-      "sha256": "677dfc6c8b734d2b2be80f5d9a5751da4a8792d296bc8ace5e6d00a17eae3303"
+      "bytes": 26858,
+      "sha256": "1ea04a407fb2c0a4fe688283278b18a52eeded4a87c5a304bb5fbf621a50ca64"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_fml_build.py",
-      "bytes": 14009,
-      "sha256": "5305876df4d4730878219eb7f7ae0a6a8629b6b02606fbec1ba1d976b53b407c"
+      "bytes": 19526,
+      "sha256": "9cbe3f52589e08c49c0d35f3461b6b8e03a23b6de08c2a2a339f7cc10a0da386"
     },
     {
       "path": "work/network-pair-cold-glue/test_diagnostic_flow_fixture.py",

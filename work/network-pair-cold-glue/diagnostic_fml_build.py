@@ -311,6 +311,26 @@ def build(repo, consumer, *, deadline, profile=refreshed.PROFILE_PATH,
     return path
 
 
+def compiler_log_input_pins(consumer, compile_receipt, build_root):
+    """Revalidate all observations; export only nonempty files as runtime pins.
+
+    Silent javac stdout/stderr are legitimate zero-byte observations, not launch
+    inputs. Their exact paths/sizes/hashes remain bound inside the nonempty sealed
+    build receipts, and are checked on every validation. Never blanket-filter the
+    provenance closure: other zero-byte inputs must still fail strict admission.
+    """
+    logs = []
+    for key in ('stdout', 'stderr'):
+        row = compile_receipt[key]
+        require(type(row.get('bytes')) is int and row['bytes'] >= 0,
+                'Invalid compiler log size')
+        require(row == exact_pin(consumer, build_root / ('compile.' + key + '.txt')),
+                'Changed compiler log pin')
+        logs.append(row)
+    require(sum(row['bytes'] for row in logs) <= 65536, 'Compiler output exceeds bound')
+    return [row for row in logs if row['bytes'] > 0]
+
+
 def validate(repo, consumer, manifest, profile, build_proof):
     """Rehash full proof, sources, toolchain, dependencies and every archive payload."""
     repo = Path(repo).absolute(); consumer = Path(consumer).absolute()
@@ -372,17 +392,17 @@ def validate(repo, consumer, manifest, profile, build_proof):
         require(compile_receipt['command'] == expected_command and compile_receipt['heapMiB'] == 128
                 and compile_receipt['activeProcessors'] == 2 and compile_receipt['javaRelease'] == 21,
                 'Changed exact compiler command/bounds')
-        for key in ('stdout', 'stderr'):
-            require(compile_receipt[key] == exact_pin(consumer, build_root / ('compile.' + key + '.txt')), 'Changed compiler log pin')
-        require(compile_receipt['stdout']['bytes'] + compile_receipt['stderr']['bytes'] <= 65536, 'Compiler output exceeds bound')
+        log_input_pins = compiler_log_input_pins(consumer, compile_receipt, build_root)
         require(receipt['baselineUnchanged'] is True and receipt['temporaryClassesRemoved'] is True
                 and not (build_root / 'classes').exists(), 'Stale compiler output remains')
         pins.extend([portable_row, receipt['baseline'], receipt['artifact'], *receipt['sources'],
-                     receipt['compilation']['stdout'], receipt['compilation']['stderr']])
+                     *log_input_pins])
         receipts.append(receipt); artifacts[role] = artifact
     pins.extend([*proof_pins, *proof['inputPins'], *compiler, *dependencies])
     unique = {}
     for row in pins:
+        require(type(row['bytes']) is int and row['bytes'] >= 1,
+                'Runtime provenance input must be nonempty')
         require(row['path'] not in unique or unique[row['path']] == row, 'Conflicting provenance pin')
         refreshed.check_pin(consumer, row); unique[row['path']] = row
     return {'receipts': receipts, 'artifacts': artifacts,
