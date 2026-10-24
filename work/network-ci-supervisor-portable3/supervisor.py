@@ -647,13 +647,30 @@ def cpu_probe_handle_live(descriptor):
 
 
 def cpu_probe_fds(proc, expected, deadline):
-    proc.same(expected)
-    with os.scandir(proc.root / str(expected['pid']) / 'fd') as entries:
-        for count, descriptor in enumerate(entries, 1):
-            require(count <= 64 and time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
-            require(re.fullmatch(r'socket:\[\d+\]', os.readlink(descriptor.path)) is None,
-                    'CPU probe socket descriptor forbidden')
-    proc.same(expected)
+    # A live helper may close an enumerated descriptor before readlink. Restart
+    # the whole census, never skip an unobserved entry or renew its deadline.
+    for attempt in range(3):
+        proc.same(expected)
+        require(time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
+        changed = False
+        with os.scandir(proc.root / str(expected['pid']) / 'fd') as entries:
+            for count, descriptor in enumerate(entries, 1):
+                require(count <= 64 and time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
+                try:
+                    target = os.readlink(descriptor.path)
+                except FileNotFoundError as exc:
+                    if exc.errno != 2:
+                        raise
+                    proc.same(expected)
+                    changed = True
+                    break
+                require(re.fullmatch(r'socket:\[\d+\]', target) is None,
+                        'CPU probe socket descriptor forbidden')
+        proc.same(expected)
+        require(time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
+        if not changed:
+            return
+    raise ValueError('CPU probe descriptor census remained unstable')
 
 
 def cpu_probe_sample(proc, expected, parent, command, previous=None, *, deadline=None, transition_context=None):

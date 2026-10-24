@@ -204,7 +204,7 @@ class SpawnTransition(unittest.TestCase):
         self.pair.deadline = 100
         ticks = iter(i / 100 for i in range(1000))
         with patch.object(s.time, 'monotonic', side_effect=lambda: next(ticks)), patch.object(s.time, 'sleep'):
-            with self.assertRaisesRegex(ValueError, 'budget'): self.transition(deadline=.25)
+            with self.assertRaisesRegex(ValueError, 'budget|descriptor bound exceeded'): self.transition(deadline=.25)
         self.assertEqual(self.pair.report, {})
 
     def test_pair_deadline_is_stricter_than_sample_budget(self):

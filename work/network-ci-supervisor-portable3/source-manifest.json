@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 126565,
-      "sha256": "400f9f2eb2b21d11b4fbbaa3617244435daf351868d651b6c889d836bafdda00"
+      "bytes": 127361,
+      "sha256": "0b754c27425a6ae36966f7c81b96669bc9c78f1409937e83405ffef26d084351"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -115,8 +115,8 @@
     },
     {
       "path": "test_jdk_spawn_transition.py",
-      "bytes": 13477,
-      "sha256": "c65654b372964d5e875333044cd262bd710d4885268f06de86d184b906c0061d"
+      "bytes": 13503,
+      "sha256": "a52b9a68a8394222fa7e07941625e4b159a21e9d832a4050b2e38fa8e27e812e"
     },
     {
       "path": "test_adopted_zombie_cleanup.py",
@@ -135,13 +135,13 @@
     },
     {
       "path": "test_probe_failure_diagnostics.py",
-      "bytes": 17105,
-      "sha256": "bd5bbc2a89cae70cc0245f3db502136f7b1ca0cfceebaf25ca9d01b9b8a83846"
+      "bytes": 15449,
+      "sha256": "dadeffa070389a756c280b710b3370529e69393b8954851c8338a3144a923c33"
     },
     {
       "path": "console_capacity_preservation.py",
-      "bytes": 925,
-      "sha256": "5156e4a5ba1545ab87646d011d92488a8762f1b28da8cbc30a3c2742424ae495"
+      "bytes": 1034,
+      "sha256": "7c40b008e93d505470cf271eac81f6865b6b9be696ab3cd9b26664ab68989421"
     },
     {
       "path": "test_console_capacity.py",
@@ -151,7 +151,7 @@
     {
       "path": "fixtures/jna-classpath-provenance.json",
       "bytes": 1175,
-      "sha256": "a5a22609354ab2ae24c87e18f055b6eb72bb57875fe4f8bd4d0c6c86a468583b"
+      "sha256": "157f173fb4566553219cad2260e04695a11f4baedd0a2ded516d354d8d6b5915"
     },
     {
       "path": "fixtures/jna-native-classpath.log",
@@ -162,6 +162,16 @@
       "path": "fixtures/jna-unified-classpath.log",
       "bytes": 20073,
       "sha256": "62116773a147a06ab44cb4e7f9de3cd2cd3db997372d319d75b7875a6f0ac44c"
+    },
+    {
+      "path": "fd_census_preservation.py",
+      "bytes": 2204,
+      "sha256": "d64cdd47314ca4e05f3dae84dc64670eb5f242311f52bc678e51fa5a359f597c"
+    },
+    {
+      "path": "test_fd_census_restart.py",
+      "bytes": 9029,
+      "sha256": "9cbce4260c1d0b288ce805f6c5846d849f2576b67bd75723b42b4f33493f3d8a"
     }
   ]
 }
