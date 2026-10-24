@@ -1429,10 +1429,65 @@ def one_argument(command, name, value):
     require(command[command.index(name) + 1] == value, 'Changed argument: ' + name)
 
 
+def diagnostic_report_fields(spec):
+    """Label an explicitly selected diagnostic without granting any admission."""
+    if 'diagnostic_profile' not in spec:
+        return {}
+    profile = spec['diagnostic_profile']
+    exact_keys(profile, ('manifest_path', 'manifest_sha256', 'diagnostic_only',
+                         'baseline_acceptance'), 'diagnostic profile')
+    require(profile['diagnostic_only'] is True and profile['baseline_acceptance'] is False,
+            'Diagnostic profile must explicitly reject baseline acceptance')
+    require(isinstance(profile['manifest_path'], str) and
+            1 <= len(profile['manifest_path']) <= 4096, 'Invalid diagnostic manifest path')
+    clean_path(profile['manifest_path'])
+    require(isinstance(profile['manifest_sha256'], str) and
+            re.fullmatch('[0-9a-f]{64}', profile['manifest_sha256']) is not None,
+            'Invalid diagnostic manifest digest')
+    return {'diagnostic_profile': dict(profile), 'diagnostic_only': True,
+            'baseline_acceptance': False}
+
+
+def verify_diagnostic_profile(spec, pins):
+    """Check only provenance; all ordinary file and runtime gates remain required."""
+    fields = diagnostic_report_fields(spec)
+    if not fields:
+        return
+    profile = fields['diagnostic_profile']
+    row = pins.get(profile['manifest_path'])
+    require(row is not None and row['sha256'] == profile['manifest_sha256'],
+            'Diagnostic manifest must match an existing sealed input')
+    raw = read_bounded(profile['manifest_path'], 16 * 1024)
+    require(len(raw) == row['bytes'] and hashlib.sha256(raw).hexdigest() == row['sha256'],
+            'Diagnostic manifest changed during verification')
+    manifest = decode_json(raw, 16 * 1024)
+    exact_keys(manifest, ('schema', 'diagnostic_only', 'baseline_acceptance', 'build_receipts'),
+               'diagnostic manifest')
+    require(manifest['schema'] == 'fml-process-start-diagnostic-v1' and
+            manifest['diagnostic_only'] is True and manifest['baseline_acceptance'] is False,
+            'Invalid diagnostic-only manifest')
+    receipts = manifest['build_receipts']
+    require(isinstance(receipts, list) and len(receipts) == 2,
+            'Exactly two diagnostic build receipt pins required')
+    seen = set()
+    for receipt in receipts:
+        exact_keys(receipt, ('path', 'bytes', 'sha256'), 'diagnostic build receipt pin')
+        require(isinstance(receipt['path'], str), 'Invalid diagnostic build receipt path')
+        require(integer(receipt['bytes'], 1) and isinstance(receipt['sha256'], str) and
+                re.fullmatch('[0-9a-f]{64}', receipt['sha256']) is not None,
+                'Invalid diagnostic build receipt pin')
+        path = str(clean_path(receipt['path']))
+        require(path not in seen, 'Duplicate diagnostic build receipt path')
+        seen.add(path)
+        require(pins.get(path) == receipt, 'Diagnostic build receipt must match a sealed input')
+
+
 def verify_spec(spec, server_properties_before=None, property_receipt=None):
     keys = ('schema', 'target', 'port', 'authorization', 'inputs', 'immutable_trees',
                      'graphics', 'server', 'client', 'probe_path', 'probe_source_manifest',
                      'probe_build_receipt', 'pair_lock', 'source_receipts')
+    if 'diagnostic_profile' in spec:
+        keys = (*keys, 'diagnostic_profile')
     if spec.get('schema') == 'network-ci-pair-v2':
         exact_keys(spec, (*keys, 'preparation_roots', 'jdk_legal_links'), 'pair spec')
         roots = verify_preparation_roots(spec['preparation_roots'])
@@ -1465,6 +1520,7 @@ def verify_spec(spec, server_properties_before=None, property_receipt=None):
             path = file_pin(row, config_root)
         require(str(path) not in pins, 'Duplicate sealed file')
         pins[str(path)] = row
+    verify_diagnostic_profile(spec, pins)
     require(spec['probe_path'] in pins and spec['probe_path'].endswith('.jar'), 'Built probe must be pinned')
     require(spec['probe_source_manifest'] in pins and spec['probe_build_receipt'] in pins, 'Probe source and build receipts required')
     manifest_path = Path(spec['probe_source_manifest'])
@@ -2023,6 +2079,7 @@ class Pair:
         self.report = {'schema': 1, 'target': spec['target'], 'status': 'INCONCLUSIVE',
                        'passed': False, 'game_launched': False, 'phase': 'preflight',
                        'observations': [], 'exits': {}, 'cleanup_signals': []}
+        self.report.update(diagnostic_report_fields(spec))
 
     def spawn(self, role):
         require(role in ('server', 'client') and role not in self.children, 'Exactly one process per role')
@@ -2451,7 +2508,8 @@ def main():
     verify_spec(spec)
     if not args.execute_reviewed_ci_pair:
         print(json.dumps({'status': 'STATIC_INPUTS_VERIFIED_ONLY', 'game_launched': False,
-                          'runtime_evidence_observed': False, 'passed': False}))
+                          'runtime_evidence_observed': False, 'passed': False,
+                          **diagnostic_report_fields(spec)}))
         return 0
     unprivileged_runner()
     require(args.destination is not None, 'Fresh local evidence destination required')
@@ -2474,7 +2532,8 @@ def main():
         for sig, handler in previous.items():
             signal.signal(sig, handler)
     print(json.dumps({'status': report['status'], 'passed': report['passed'],
-                      'game_launched': report['game_launched'], 'result': str(destination / 'result.json')}))
+                      'game_launched': report['game_launched'], 'result': str(destination / 'result.json'),
+                      **diagnostic_report_fields(spec)}))
     return 0 if report['passed'] else 1
 
 

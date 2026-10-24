@@ -374,7 +374,8 @@ class Preservation(unittest.TestCase):
         source = Path(s.__file__).read_text()
         old = without_socket_failure_stage(source)
         self.assertEqual(hashlib.sha256(old.encode()).hexdigest(), PREDECESSOR_SHA256)
-        current_ast, old_ast = ast.parse(source), ast.parse(old)
+        from diagnostic_profile_preservation import without_diagnostic_profile
+        current_ast, old_ast = ast.parse(without_diagnostic_profile(source)), ast.parse(old)
         for tree in (current_ast, old_ast):
             tree.body = [node for node in tree.body if not
                 (isinstance(node, ast.FunctionDef) and node.name == 'cpu_probe_socket_diagnostic')]

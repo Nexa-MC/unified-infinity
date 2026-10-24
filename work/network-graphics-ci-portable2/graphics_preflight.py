@@ -20,7 +20,7 @@ import time
 import types
 
 MIB = 1024 * 1024
-SUPERVISOR_SHA256 = '1b489c7cd6db677cb067cc6f3d564c2e813baacaada2b4d583d911953aee7183'
+SUPERVISOR_SHA256 = '2f86c57b6baa693b07064f520d3e2020ba015d07b3bfb29b2ca8a65db8cb1b9b'
 MAX_LOG = MIB
 MAX_LIFETIME = 42 * 60  # Upper bound only; absolute owner cutoff is normally earlier.
 

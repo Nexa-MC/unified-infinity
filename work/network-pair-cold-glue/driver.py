@@ -46,9 +46,15 @@ def profile_options(profile=None,build_proof=None):
     return {'profile':str(profile),'build_proof':str(build_proof)}
 
 
-def driver_paths(consumer,refreshed=False):
+def driver_paths(consumer,refreshed=False,diagnostic=False):
     """Keep execution evidence and final seals distinct from historical outputs."""
     root=Path(consumer)
+    if diagnostic:
+        return {key:root/name for key,name in {
+            'plan':'diagnostic-fml-driver-plan.json','result':'diagnostic-fml-pair-result.json',
+            'evidence':'runtime-evidence-diagnostic-fml','runtime':'diagnostic-fml-runtime-evidence',
+            'graphics':'graphics-availability-diagnostic-fml.json',
+            'additional':'diagnostic-fml-additional-inputs.json'}.items()}
     return {key:root/name for key,name in {
         'plan':'refreshed-driver-plan.json' if refreshed else 'cold-driver-plan.json',
         'result':'refreshed-pair-result.json' if refreshed else 'cold-pair-result.json',
@@ -87,8 +93,9 @@ def restore_with_deadline(function,*args,deadline):
 def write(path,value):
     require(not path.exists(),'Refusing overwrite: '+str(path));path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2)+'\n')
 
-def prepare(repo,consumer,profile=None,build_proof=None):
+def prepare(repo,consumer,profile=None,build_proof=None,diagnostic_fml=False):
     options=profile_options(profile,build_proof)
+    require(not diagnostic_fml or bool(options),'Diagnostic FML requires explicit refreshed profile and build proof')
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).absolute()
     if options:
         import ffapi_sources
@@ -115,7 +122,10 @@ def prepare(repo,consumer,profile=None,build_proof=None):
     if options:
         result.update(status='REFRESHED_DRIVER_PREPARED_EXECUTION_UNTESTED',refreshedProfile=selected)
         result['dataFiles']['refreshedCoreDependencyLock']=compile_probe.record(ffapi_sources.core_lock())
-    write(driver_paths(consumer,bool(options))['plan'],result)
+    if diagnostic_fml:
+        result.update(status='DIAGNOSTIC_FML_PREPARED_EXECUTION_UNTESTED',diagnostic_only=True,
+                      gameAcceptance=False,baselineAcceptance=False,fullApiCompatibility=False)
+    write(driver_paths(consumer,bool(options),diagnostic_fml)['plan'],result)
     return result
 
 def source_module(name,path):
@@ -147,10 +157,10 @@ def restore_additional(consumer,plan):
             else:downloader.restore(dest,row,set(lock['allowedHosts']))
             seen[row['sha256']]=target;results.append(compile_probe.record(target))
             if index%64==0 or index==len(lock['artifacts']):print('ADDITIONAL_INPUTS_VERIFIED '+filename+' '+str(index)+'/'+str(len(lock['artifacts'])),flush=True)
-    write(driver_paths(consumer,bool(plan.get('refreshedProfile')))['additional'],{'schema':1,'status':'EXACT_ADDITIONAL_INPUTS_VERIFIED','files':results,'gameLaunched':False})
+    write(driver_paths(consumer,bool(plan.get('refreshedProfile')),plan.get('diagnostic_only') is True)['additional'],{'schema':1,'status':'EXACT_ADDITIONAL_INPUTS_VERIFIED','files':results,'gameLaunched':False})
 
-def execute_step(consumer,step,deadline,refreshed=False):
-    root=driver_paths(consumer,refreshed)['runtime'];root.mkdir(exist_ok=True);log=root/(step['name']+'.log')
+def execute_step(consumer,step,deadline,refreshed=False,diagnostic=False):
+    root=driver_paths(consumer,refreshed,diagnostic)['runtime'];root.mkdir(exist_ok=True);log=root/(step['name']+'.log')
     require(not log.exists(),'Repeated runtime preparation step')
     remaining=deadline-time.monotonic()
     require(remaining>0,'Cold job deadline expired before runtime command')
@@ -182,6 +192,27 @@ def semantic_comparison(reports):
     return {'schema':1,'status':'BOTH_HOST_NONCE_CONTROLS_PASSED','nativePass':True,'unifiedPass':True,
             'sameProbeSha256':compile_probe.REFERENCE_JAR_SHA,'target':'Actual NeoForge host typed PLAY nonce roundtrip in distinct processes',
             'guiAcceptance':False,'qslForgeFacadeWireAcceptance':False,'fullApiCompatibility':False}
+
+def diagnostic_comparison(reports,manifest):
+    """Transport observations in derivative loaders never become baseline acceptance."""
+    require(set(reports)=={'native-neoforge','unified'},'Missing paired diagnostic control')
+    pin=compile_probe.record(Path(manifest))
+    expected={'manifest_path':pin['path'],'manifest_sha256':pin['sha256'],
+              'diagnostic_only':True,'baseline_acceptance':False}
+    for target,report in reports.items():
+        require(report.get('diagnostic_only') is True and report.get('baseline_acceptance') is False,
+                'Ordinary or unlabelled receipt cannot count as diagnostic control: '+target)
+        bound=report.get('diagnostic_profile')
+        require(type(bound) is dict and bound==expected
+                and bound.get('diagnostic_only') is True and bound.get('baseline_acceptance') is False,
+                'Diagnostic receipt manifest mismatch: '+target)
+        require(report.get('passed') is True and report.get('status')=='PASS',
+                'No actual diagnostic transport control: '+target)
+    return {'schema':1,'status':'DIAGNOSTIC_TRANSPORT_CONTROLS_PASSED',
+            'diagnostic_only':True,'baselineAcceptance':False,'gameAcceptance':False,
+            'fullApiCompatibility':False,'nativeDiagnosticControlPass':True,
+            'unifiedDiagnosticControlPass':True,'diagnosticProfile':expected,
+            'guiAcceptance':False,'qslForgeFacadeWireAcceptance':False}
 
 class DriverInterrupted(RuntimeError):
     pass
@@ -215,7 +246,7 @@ def work_budget(work_seconds=None):
     return work_seconds
 
 
-def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None,round_id=None):
+def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None,round_id=None,diagnostic_fml=False):
     budget=work_budget(work_seconds if work_seconds is not None else (round_deadline.MAX_WORK_SECONDS if round_id is not None else None))
     window=round_deadline.admit(round_id,budget) if round_id is not None else None
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
@@ -223,9 +254,11 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             'Execution requires the separately reviewed exact future pair branch; no alternative publication route')
     require(os.getuid()!=0,'Unprivileged standard runner required')
     options=profile_options(profile,build_proof)
+    require(not diagnostic_fml or bool(options),'Diagnostic FML requires explicit refreshed profile and build proof')
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True)
-    paths=driver_paths(consumer,bool(options))
+    paths=driver_paths(consumer,bool(options),diagnostic_fml)
     plan=json.loads(paths['plan'].read_text())
+    require((plan.get('diagnostic_only') is True)==diagnostic_fml,'Diagnostic plan requires matching explicit opt-in')
     require(plan['repoRoot']==str(repo) and plan['consumerRoot']==str(consumer),'Consumer plan belongs elsewhere')
     for row in [*plan['sourceCodeFiles'].values(),*plan['dataFiles'].values()]:require(compile_probe.record(Path(row['path']))==row,'Cold source/lock changed after preparation')
     if options:require(plan.get('refreshedProfile')==refreshed_binding(consumer,options),'Prepared refreshed profile changed')
@@ -234,6 +267,8 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
     watchdog=round_deadline.Watchdog(window) if window is not None else None
     handle=None;active_pair=None;primary_error=None;previous={}
     result={'schema':1,'status':'INCOMPLETE','gameAcceptance':False,'reports':{}}
+    if diagnostic_fml:result.update(diagnostic_only=True,baselineAcceptance=False,fullApiCompatibility=False)
+    diagnostic_manifest=None
     if window is not None:result['roundDeadline']=window.receipt()
     spawning_pair=False;starting_graphics=False;cleaning_up=False;pending_stops=[]
     def stop_driver(number,frame):
@@ -265,7 +300,7 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
         restore_with_deadline(restore_additional,consumer,plan,deadline=deadline)
         for step in plan['runtime']['steps']:
             require(time.monotonic()<deadline,'Cold job deadline exceeded')
-            execute_step(consumer,step,deadline,refreshed=bool(options))
+            execute_step(consumer,step,deadline,refreshed=bool(options),diagnostic=diagnostic_fml)
         runtime_restore.verify(consumer/'work/api1')
         print('SOURCE_BUILD_START',flush=True)
         if options:
@@ -279,6 +314,12 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
         else:build_candidate.execute(consumer,deadline=deadline)
         print('PROBE_COMPILE_START',flush=True);compile_probe.execute(consumer,deadline=deadline)
         pair_assembly.assemble(repo,consumer,offline_identity_reference='Isolated localhost tests with virtual APILocal identity',eula_reference='Existing Minecraft EULA acceptance for isolated local tests',**options)
+        if diagnostic_fml:
+            import diagnostic_fml_build
+            import diagnostic_pair_assembly
+            diagnostic_manifest=diagnostic_fml_build.execute(repo,consumer,deadline=deadline,**options)
+            diagnostic_pair_assembly.assemble(repo,consumer,diagnostic_manifest,**options)
+            result['diagnosticManifest']=compile_probe.record(Path(diagnostic_manifest))
         require(time.monotonic()<deadline,'Cold job deadline exceeded before graphics')
         # Keep stop signals deferred through collector creation and the return
         # handoff. The runner checks pending stops only while cleanup owns it.
@@ -294,7 +335,9 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
         reports={}
         for target in ('native-neoforge','unified'):
             require(time.monotonic()<deadline,'Cold job deadline exceeded before pair')
-            sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**options)
+            seal_options=dict(options)
+            if diagnostic_fml:seal_options['diagnostic_manifest']=diagnostic_manifest
+            sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**seal_options)
             evidence=paths['evidence']/target;evidence.parent.mkdir(exist_ok=True)
             args=[sys.executable,sealed['supervisor']['path'],'--spec',sealed['spec']['path'],'--sha256',sealed['spec']['sha256'],'--execute-reviewed-ci-pair','--destination',str(evidence)]
             if window is not None:args += ['--work-cutoff-monotonic', str(window.deadline)]
@@ -322,8 +365,15 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             for role in ('server','client'):
                 log=evidence/(role+'.log')
                 if log.exists():print('ACTUAL_PAIR_LOG '+target+' '+role+'\n'+log.read_text(errors='replace')[-32000:],flush=True)
+            if diagnostic_fml:
+                import diagnostic_log_events
+                captures={role:diagnostic_log_events.extract(evidence/(role+'.log')) for role in ('server','client')}
+                result.setdefault('diagnosticCaptures',{})[target]=captures
+                # Emit only revalidated safe rows after raw tails, never malformed input.
+                print('DIAGNOSTIC_PROCESS_CAPTURE '+target+' '+json.dumps(captures,sort_keys=True),flush=True)
             require(code==0,'Actual pair failed: '+target)
-        result.update(semantic_comparison(reports),gameAcceptance=True)
+        if diagnostic_fml:result.update(diagnostic_comparison(reports,diagnostic_manifest))
+        else:result.update(semantic_comparison(reports),gameAcceptance=True)
         cleaning_up=True
     except BaseException as error:
         cleaning_up=True
@@ -361,12 +411,13 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             if errors:
                 result.update(cleanupErrors=errors,gameAcceptance=False)
                 if primary_error is None:result['status']='CLEANUP_FAILED'
+            if diagnostic_fml:result.update(diagnostic_only=True,gameAcceptance=False,baselineAcceptance=False,fullApiCompatibility=False)
             write(paths['result'],result)
             print(json.dumps(result,sort_keys=True),flush=True)
             summary=os.environ.get('GITHUB_STEP_SUMMARY')
             if summary:
                 try:
-                    with open(summary,'a') as stream:stream.write('Native/Unified nonce diagnostic: '+result['status']+'\n\nOnly actual independently asserted host transport results count. GUI and QSL/Forge facade wire compatibility remain separate.\n')
+                    with open(summary,'a') as stream:stream.write(('Diagnostic FML derivative only: ' if diagnostic_fml else 'Native/Unified nonce diagnostic: ')+result['status']+'\n\n'+('Derivative transport controls do not establish original-loader or game acceptance.\n' if diagnostic_fml else 'Only actual independently asserted host transport results count. GUI and QSL/Forge facade wire compatibility remain separate.\n'))
                 except OSError as error:
                     print('STEP_SUMMARY_FAILED '+str(error),file=sys.stderr,flush=True)
         finally:
@@ -379,9 +430,9 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true')
-    p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);p.add_argument('--round-id');a=p.parse_args()
+    p.add_argument('--diagnostic-fml',action='store_true');p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);p.add_argument('--round-id');a=p.parse_args()
     work_budget(a.work_seconds)
     require(a.action!='run' or a.round_id is not None,'Execution requires the fixed --round-id')
     if a.round_id is not None:round_deadline.admit(a.round_id,a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS)
-    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS,round_id=a.round_id)
+    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof,diagnostic_fml=a.diagnostic_fml) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS,round_id=a.round_id,diagnostic_fml=a.diagnostic_fml)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

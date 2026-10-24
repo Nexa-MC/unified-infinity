@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from compile_probe import require, sha, record, save, SOURCE_RELATIVE, OUTPUT_RELATIVE
 
-SUPERVISOR_SHA='1b489c7cd6db677cb067cc6f3d564c2e813baacaada2b4d583d911953aee7183'
+SUPERVISOR_SHA='2f86c57b6baa693b07064f520d3e2020ba015d07b3bfb29b2ca8a65db8cb1b9b'
 
 def refreshed_assembly(consumer,profile,build_proof):
     """Revalidate full proof and bind its closure before any final seal exists.
@@ -130,11 +130,17 @@ def seal_indigo_baseline(target, roles, inputs, out):
     return row
 
 
-def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,build_proof=None):
+def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,build_proof=None,diagnostic_manifest=None):
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True);api=consumer/'work/api1'
     require(target in ('native-neoforge','unified'),'Unknown pair target')
     refreshed=profile is not None or build_proof is not None
-    if refreshed:
+    diagnostic=diagnostic_manifest is not None
+    require(not diagnostic or refreshed,'Diagnostic seals require full refreshed build ancestry')
+    if diagnostic:
+        import diagnostic_pair_assembly
+        assembly_path,assembly,proof_inputs,assembly_root=diagnostic_pair_assembly.validate(
+            repo,consumer,Path(diagnostic_manifest),profile=profile,build_proof=build_proof)
+    elif refreshed:
         assembly_path,assembly,proof_inputs,assembly_root=refreshed_assembly(consumer,profile,build_proof)
     else:
         assembly_path=consumer/'work/network-pair-cold-assembly/pair-assembly-result.json'
@@ -174,7 +180,9 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
         env={'JAVA_HOME':str(helper.JDK),'PATH':str(helper.JDK/'bin')+':/usr/bin:/bin','LANG':'C.UTF-8','TZ':'UTC','LIBGL_ALWAYS_SOFTWARE':'true','GALLIUM_DRIVER':'llvmpipe'}
         for key,value in [('HOME','.launch-home'),('XDG_CACHE_HOME','.launch-cache'),('XDG_CONFIG_HOME','.launch-config'),('XDG_DATA_HOME','.launch-data'),('TMPDIR','.launch-tmp')]:env[key]=str(cwd/value)
         roles[side]={'cwd':str(cwd),'command':role['command'],'environment':env,'original_mods':role['original_mods'],'managed_mods':role['managed_mods']}
-    out=api/('ci/pair-seals-refreshed' if refreshed else 'ci/pair-seals');out.mkdir(parents=True,exist_ok=True)
+    out=api/('ci/pair-seals-refreshed' if refreshed else 'ci/pair-seals')
+    if diagnostic:out=api/'ci/pair-seals-process-diagnostic'
+    out.mkdir(parents=True,exist_ok=True)
     # Both opt-in and historical specs share the original serialization lock.
     # The frozen supervisor also locates the exact Indigo baseline beside it.
     serial=api/'ci/pair-seals';serial.mkdir(parents=True,exist_ok=True)
@@ -184,6 +192,11 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
           'probe_path':build['artifact_path'],'probe_source_manifest':str(source/'source-manifest.json'),'probe_build_receipt':str(probe_base/'probe-build-binding.json'),
           'source_receipts':producers,'pair_lock':str(serial/'serial-pair.lock'),'server':roles['server'],'client':roles['client'],
           'authorization':{'offline_identity_reference':'Isolated localhost tests with virtual APILocal identity','eula_reference':'Existing Minecraft EULA acceptance for isolated local tests'}}
+    if diagnostic:
+        manifest_pin=record(Path(diagnostic_manifest))
+        require(inputs.get(manifest_pin['path'])==manifest_pin,'Diagnostic manifest missing from complete seal inputs')
+        base['diagnostic_profile']={'manifest_path':manifest_pin['path'],'manifest_sha256':manifest_pin['sha256'],
+                                    'diagnostic_only':True,'baseline_acceptance':False}
     import sys
     sys.path.insert(0,str(repo/'work/network-pair-finalizer'))
     finalizer=module('cold_pair_finalizer',repo/'work/network-pair-finalizer/finalize_pair.py')
@@ -193,6 +206,8 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
     s=module('cold_pair_supervisor',supervisor);s.verify_spec(spec);s.verify_graphics(spec,s.Proc())
     path=out/(target+'.json');save(path,spec)
     result={'spec':record(path),'supervisor':record(supervisor),'jdkComparison':jdk_result,'gameLaunched':False}
-    if refreshed:result.update(profile=assembly['profile'],buildProof=assembly['buildProof'],
+    if diagnostic:result.update(diagnostic_only=True,baseline_acceptance=False,runtimeAcceptance=False,
+                                diagnostic_profile=base['diagnostic_profile'])
+    elif refreshed:result.update(profile=assembly['profile'],buildProof=assembly['buildProof'],
                                profileSha256=assembly['profileSha256'],runtimeAcceptance=False)
     return result
