@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "status": "SOURCE_ONLY_NOT_RUNTIME_ACCEPTANCE",
+  "files": [
+    {
+      "path": "src/main/java/dev/infinity/fabricnetworkcontrol/NonceProbe.java",
+      "bytes": 14101,
+      "sha256": "b43f1aa1b772603f976dbcd6b1004fe09e3013951034f457e02ae5a59f0cfef9"
+    },
+    {
+      "path": "src/main/java/dev/infinity/fabricnetworkcontrol/NonceProbeClient.java",
+      "bytes": 7746,
+      "sha256": "904c7b1cee8f6dc8dd990e75dee350916ade2b0c1afad4645e4bc9a583a6ec8e"
+    },
+    {
+      "path": "src/main/java/dev/infinity/fabricnetworkcontrol/NonceReply.java",
+      "bytes": 1527,
+      "sha256": "40203c63562fa8587c4a46b1503732f60b2f645040d1f10b044ed810a19fb3ac"
+    },
+    {
+      "path": "src/main/java/dev/infinity/fabricnetworkcontrol/NonceRequest.java",
+      "bytes": 1491,
+      "sha256": "14a048d7118b0f3c088360d82c8a3d212d5459a65eb338e629244f6e4284644f"
+    },
+    {
+      "path": "src/main/java/dev/infinity/fabricnetworkcontrol/NonceWire.java",
+      "bytes": 1462,
+      "sha256": "f167b48379742a43f9470a5e59770af0b5f22cb91300b5e938757c536e3f9770"
+    },
+    {
+      "path": "src/main/resources/fabric.mod.json",
+      "bytes": 628,
+      "sha256": "eb4689fe5f21562bae0445a3526106b984878ff78240766cf394515908f0262d"
+    },
+    {
+      "path": "src/test/java/dev/infinity/fabricnetworkcontrol/NonceWireTest.java",
+      "bytes": 2492,
+      "sha256": "0b2cf7e4173a6b91954ed287865e630417330614b64bc2c71651e7813e5c865c"
+    },
+    {
+      "path": "src/test/java/dev/infinity/fabricnetworkcontrol/PreparedCodecTest.java",
+      "bytes": 5110,
+      "sha256": "5296e317ec5f283a967816dc9e28e5b3156942e8d3d24af10d453ecbc69de9d1"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1091,
+      "sha256": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc"
+    },
+    {
+      "path": "protocol-schema.json",
+      "bytes": 10527,
+      "sha256": "702565002e3acdf9dcb475f15242e9bbe2e6636a7c6cdef70e334b2c524e840b"
+    },
+    {
+      "path": "build.gradle",
+      "bytes": 321,
+      "sha256": "326a483f36c35824c3e50f67b3c95794202d9acaaaefa8d830db7decafaa21be"
+    },
+    {
+      "path": "build_probe.py",
+      "bytes": 13521,
+      "sha256": "f76786b20efe5a7d7a2baa8590bca72f1bdebc9850199185cc8f217eea129ad7"
+    },
+    {
+      "path": "tools/RemapProbe.java",
+      "bytes": 7603,
+      "sha256": "8c4880ce68677d93ca7bba69dccda80a3f9ca4aea7d545bc000a38e9123a8810"
+    }
+  ]
+}

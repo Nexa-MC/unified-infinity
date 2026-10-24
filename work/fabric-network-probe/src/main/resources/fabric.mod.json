@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "fabric_network_control",
+  "version": "0.1.0",
+  "name": "Fabric Network Control Diagnostic",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.infinity.fabricnetworkcontrol.NonceProbe"
+    ],
+    "client": [
+      "dev.infinity.fabricnetworkcontrol.NonceProbeClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "fabric-networking-api-v1": "4.3.0+30a980d919",
+    "fabric-lifecycle-events-v1": "2.6.0+e40d8add19"
+  },
+  "custom": {
+    "unified:diagnosticOnly": true,
+    "unified:baselineAcceptance": false
+  }
+}

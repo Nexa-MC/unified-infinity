@@ -11,6 +11,7 @@ import diagnostic_fml_build as build
 
 OUTPUT = 'work/network-pair-assembled-hardware-cpu-skip-diagnostic'
 RESULT = OUTPUT + '/diagnostic-assembly.json'
+FFAPI_OUTPUT = 'work/network-pair-assembled-fabric-ffapi-diagnostic'
 POLICY = 'META-INF/unified-admission/installation.json'
 SCOPE = {'diagnosticProfile': 'system-report-and-glx-cpu-inventory-skip-v2',
          'behavioralChange': True,
@@ -125,14 +126,17 @@ def configure_unified(assembler, spec, spec_path, derivative, manifest, output):
                                  base.pin(output / 'assembly-report.json')]
 
 
-def assemble(repo, consumer, manifest, *, profile, build_proof):
+def assemble(repo, consumer, manifest, *, profile, build_proof, ffapi_probe_bundle=None):
     import seal_pair
     root = base.canonical(consumer)
     repo = base.canonical(repo)
     manifest = base.local(root, manifest)
+    import fabric_probe_build_validation as ffapi_build
+    import fabric_probe_overlay as ffapi_overlay
+    ffapi = ffapi_build.validate_bundle(root, ffapi_probe_bundle) if ffapi_probe_bundle is not None else None
     verified = build.validate(repo, root, manifest, profile, build_proof)
     baseline_path, baseline, proof_inputs, original_root = seal_pair.refreshed_assembly(root, profile, build_proof)
-    out = root / OUTPUT
+    out = root / (FFAPI_OUTPUT if ffapi is not None else OUTPUT)
     require(not out.exists(), 'Fresh diagnostic assembly root required')
     for relative in (base.SUPPORT, base.PROFILES, base.ASSEMBLED, base.REFRESHED_SUPPORT,
                      base.REFRESHED_PROFILES, base.REFRESHED_ASSEMBLED):
@@ -145,6 +149,8 @@ def assemble(repo, consumer, manifest, *, profile, build_proof):
     extra = [base.pin(manifest), base.pin(baseline_path), *proof_inputs]
     for row in verified['inputPins']:
         extra.append(base.pin(root / row['path']))
+    if ffapi is not None:
+        extra.extend(base.pin(root / row['path']) for row in ffapi['inputPins'])
     out.mkdir()
     for target in ('native-neoforge', 'unified'):
         group = baseline['groups'][target]
@@ -202,6 +208,16 @@ def assemble(repo, consumer, manifest, *, profile, build_proof):
             copied.update(command=command, files=sorted(files, key=lambda r: r['path']),
                           assembly=assembly, diagnostic_only=True, baseline_acceptance=False,
                           diagnosticManifest=base.pin(manifest), baselineRole=base.pin(original_seal), **SCOPE)
+            if ffapi is not None and target == 'unified':
+                # Preserve a pinned pre-overlay role; this only replaces its copied
+                # sole probe. Baseline/native profile and other mod roles stay exact.
+                before_pin = base.save(folder / (side + '-pre-ffapi-launch-seal.json'), copied)
+                copied, overlay_receipt = ffapi_overlay.stage_unified_probe(root, copied, ffapi['binding'],
+                    target=target, baseline_probe=base.pin(base.local(root, role['probe_path'])), overlay_root=out)
+                receipt_pin = base.save(folder / (side + '-ffapi-probe-overlay.json'), overlay_receipt)
+                copied['ffapiProbeOverlay'] = {'beforeRole': before_pin, 'receipt': receipt_pin,
+                                               'bundle': ffapi_probe_bundle['bundle_pin']}
+                extra.extend([before_pin, receipt_pin])
             path = folder / (side + '-launch-seal.json')
             roles[side] = base.save(path, copied)
             extra.append(base.pin(original_seal))
@@ -211,29 +227,40 @@ def assemble(repo, consumer, manifest, *, profile, build_proof):
               'jvmStarted': False, 'manifest': base.pin(manifest), 'baselineAssembly': base.pin(baseline_path),
               'assemblyRoot': str(out), 'groups': groups,
               'inputs': list({r['path']: r for r in extra}.values()), **SCOPE}
+    if ffapi is not None:
+        require(ffapi_build.validate_bundle(root, ffapi_probe_bundle) == ffapi, 'FFAPI proof changed during assembly')
+        result['ffapiProbeBundle'] = ffapi_probe_bundle
     build.validate(repo, root, manifest, profile, build_proof)
     seal_pair.refreshed_assembly(root, profile, build_proof)
-    base.save(root / RESULT, result)
-    return root / RESULT
+    base.save(out / 'diagnostic-assembly.json', result)
+    return out / 'diagnostic-assembly.json'
 
 
-def validate(repo, consumer, manifest, *, profile, build_proof):
+def validate(repo, consumer, manifest, *, profile, build_proof, ffapi_probe_bundle=None):
     import seal_pair
     root = base.canonical(consumer)
+    import fabric_probe_build_validation as ffapi_build
+    import fabric_probe_overlay as ffapi_overlay
+    ffapi = ffapi_build.validate_bundle(root, ffapi_probe_bundle) if ffapi_probe_bundle is not None else None
+    out = root / (FFAPI_OUTPUT if ffapi is not None else OUTPUT)
     verified = build.validate(repo, root, manifest, profile, build_proof)
     baseline_path, baseline, baseline_pins, original_root = seal_pair.refreshed_assembly(root, profile, build_proof)
-    path = root / RESULT
+    path = out / 'diagnostic-assembly.json'
     value = json.loads(path.read_text())
     require_scope(value)
+    require(value.get('ffapiProbeBundle') == ffapi_probe_bundle
+            and ('ffapiProbeBundle' in value) == (ffapi is not None), 'FFAPI opt-in ancestry changed')
     require(value['schema'] == 'diagnostic-pair-assembly-v1' and value['diagnostic_only'] is True
             and value['baseline_acceptance'] is False and value['gameAcceptance'] is False
             and value['gameLaunched'] is False and value['jvmStarted'] is False,
             'Diagnostic assembly cannot assert baseline acceptance')
     require(value['manifest'] == base.pin(manifest) and value['baselineAssembly'] == base.pin(baseline_path)
-            and value['assemblyRoot'] == str(root / OUTPUT), 'Diagnostic ancestry changed')
+            and value['assemblyRoot'] == str(out), 'Diagnostic ancestry changed')
     require(set(value['groups']) == {'native-neoforge', 'unified'}, 'Missing diagnostic groups')
     pins = [base.pin(path), base.pin(manifest), base.pin(baseline_path), *baseline_pins]
     pins.extend(base.pin(root / row['path']) for row in verified['inputPins'])
+    if ffapi is not None:
+        pins.extend(base.pin(root / row['path']) for row in ffapi['inputPins'])
     for row in value['inputs']:
         pins.append(base.pin(check(root, row)))
     for target, group in value['groups'].items():
@@ -241,19 +268,48 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
                 'Diagnostic role or port changed')
         for side, row in group['roles'].items():
             rolepath = check(root, row)
-            require(rolepath == root / OUTPUT / target / (side + '-launch-seal.json'), 'Role seal belongs elsewhere')
+            require(rolepath == out / target / (side + '-launch-seal.json'), 'Role seal belongs elsewhere')
             role = json.loads(rolepath.read_text())
             require_scope(role)
             original_seal = check(root, baseline['groups'][target]['roles'][side])
             original = json.loads(original_seal.read_text())
             old = original_root / target / side
-            game = root / OUTPUT / target / side
-            require(role['cwd'] == str(root / OUTPUT / target / side) and role['diagnostic_only'] is True
+            game = out / target / side
+            require(role['cwd'] == str(out / target / side) and role['diagnostic_only'] is True
                     and role['baseline_acceptance'] is False and role['diagnosticManifest'] == base.pin(manifest),
                     'Diagnostic role binding changed')
             require(role['baselineRole'] == base.pin(original_seal), 'Diagnostic role ancestry changed')
-            for key in ('original_mods', 'managed_mods', 'probe_path'):
+            for key in ('original_mods', 'managed_mods'):
                 require(role[key] == relocate(original[key], old, game), 'Diagnostic mod identity changed')
+            if ffapi is not None and target == 'unified':
+                overlay = role.get('ffapiProbeOverlay')
+                require(type(overlay) is dict and set(overlay) == {'beforeRole', 'receipt', 'bundle'}
+                        and overlay['bundle'] == ffapi_probe_bundle['bundle_pin'], 'Missing exact FFAPI overlay ancestry')
+                before_path = check(root, overlay['beforeRole']); receipt_path = check(root, overlay['receipt'])
+                require(before_path == out / target / (side + '-pre-ffapi-launch-seal.json')
+                        and receipt_path == out / target / (side + '-ffapi-probe-overlay.json'), 'FFAPI overlay proof belongs elsewhere')
+                before = json.loads(before_path.read_text()); receipt = json.loads(receipt_path.read_text())
+                # Re-derive the pre-overlay files from immutable baseline pins,
+                # never from the mutable predecessor receipt's own claims.
+                owner = Path(relocate(original['assembly']['configuredOwner'], old, game))
+                prior_files = []
+                for item in original['files']:
+                    relocated = dict(item, path=relocate(item['path'], old, game))
+                    prior_files.append(base.pin(owner) if relocated['path'] == str(owner) else relocated)
+                prior_files.extend(base.pin(p) for p in verified['artifacts'].values())
+                prior_files = sorted({r['path']: r for r in prior_files}.values(), key=lambda r:r['path'])
+                expected_before = relocate(original, old, game)
+                expected_before.update(command=role['command'], files=prior_files, assembly=role['assembly'],
+                    diagnostic_only=True, baseline_acceptance=False, diagnosticManifest=base.pin(manifest),
+                    baselineRole=base.pin(original_seal), **SCOPE)
+                require(before == expected_before, 'FFAPI predecessor differs from independently derived baseline')
+                after = dict(role); after.pop('ffapiProbeOverlay')
+                ffapi_overlay.validate_staged_role(root, before, after, ffapi['binding'], receipt,
+                    baseline_probe=base.pin(base.local(root, original['probe_path'])), overlay_root=out)
+                pins.extend([base.pin(before_path), base.pin(receipt_path)])
+            else:
+                require('ffapiProbeOverlay' not in role
+                        and role['probe_path'] == relocate(original['probe_path'], old, game), 'Diagnostic probe identity changed')
             pins.append(base.pin(rolepath))
             for item in role['files']:
                 # Match seal_pair's existing mutable-client-options contract.
@@ -276,7 +332,7 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
                 assembler = base.module('diagnostic_revalidate_configured_owner',
                     root / 'work/api1/source-workspace/fml-unified/tools/assemble_installation.py')
                 receipt_path = Path(role['assembly']['buildReceipt'])
-                require(receipt_path == root / OUTPUT / target / (side + '-configured/build-receipt.json'),
+                require(receipt_path == out / target / (side + '-configured/build-receipt.json'),
                         'Configured diagnostic receipt belongs elsewhere')
                 require(base.sha(receipt_path) == role['assembly']['buildReceiptSha256'], 'Configured receipt changed')
                 receipt = json.loads(receipt_path.read_text())
@@ -294,4 +350,4 @@ def validate(repo, consumer, manifest, *, profile, build_proof):
                 require(checked['classOwnerCount'] == 1 and checked['gameLaunched'] is False,
                         'Configured diagnostic owner validation failed')
                 pins.extend([base.pin(receipt_path), base.pin(spec_path)])
-    return path, value, list({r['path']: r for r in pins}.values()), root / OUTPUT
+    return path, value, list({r['path']: r for r in pins}.values()), out

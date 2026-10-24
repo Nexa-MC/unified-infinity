@@ -1,0 +1,4 @@
+// SPDX-License-Identifier: MIT
+// This fixture is deliberately built only by the source-owned bounded build_probe.py.
+// Its caller supplies hash-verified official Minecraft/FFAPI inputs; Gradle resolves nothing.
+throw new GradleException('Use build_probe.py with explicit pinned compiler inputs and absolute deadline')

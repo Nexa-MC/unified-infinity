@@ -130,16 +130,18 @@ def seal_indigo_baseline(target, roles, inputs, out):
     return row
 
 
-def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,build_proof=None,diagnostic_manifest=None):
+def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,build_proof=None,diagnostic_manifest=None,ffapi_probe_bundle=None):
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).resolve(strict=True);api=consumer/'work/api1'
     require(target in ('native-neoforge','unified'),'Unknown pair target')
     refreshed=profile is not None or build_proof is not None
     diagnostic=diagnostic_manifest is not None
     require(not diagnostic or refreshed,'Diagnostic seals require full refreshed build ancestry')
+    require(ffapi_probe_bundle is None or diagnostic,'FFAPI probe requires an explicit diagnostic profile')
     if diagnostic:
         import diagnostic_pair_assembly
         assembly_path,assembly,proof_inputs,assembly_root=diagnostic_pair_assembly.validate(
-            repo,consumer,Path(diagnostic_manifest),profile=profile,build_proof=build_proof)
+            repo,consumer,Path(diagnostic_manifest),profile=profile,build_proof=build_proof,
+            **({'ffapi_probe_bundle':ffapi_probe_bundle} if ffapi_probe_bundle is not None else {}))
     elif refreshed:
         assembly_path,assembly,proof_inputs,assembly_root=refreshed_assembly(consumer,profile,build_proof)
     else:
@@ -152,11 +154,24 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
     if refreshed:
         for row in proof_inputs:
             require(add(Path(row['path']))==row,'Refreshed proof input changed before sealing')
-    probe_base=consumer/OUTPUT_RELATIVE;build=json.loads((probe_base/'probe-build-binding.json').read_text())
-    source=consumer/SOURCE_RELATIVE;manifest=json.loads((source/'source-manifest.json').read_text())
-    for row in manifest['files']:
-        current=add(source/row['path']);require(current['sha256']==row['sha256'] and current['bytes']==row['bytes'],'Probe source/resource changed')
-    for path in [source/'source-manifest.json',probe_base/'probe-build-binding.json',probe_base/'result.json',Path(build['artifact_path'])]:add(path)
+    if ffapi_probe_bundle is not None and target=='unified':
+        import fabric_probe_build_validation as ffapi_build
+        import fabric_probe_overlay as ffapi_overlay
+        validated=ffapi_build.validate_bundle(consumer,ffapi_probe_bundle)
+        selected=ffapi_overlay.supervisor_binding(consumer,validated['binding'])
+        for row in validated['inputPins']:
+            path=consumer/row['path']
+            require(add(path)==dict(row,path=str(path)),'FFAPI build/source/remap input changed before sealing')
+        probe_path=selected['probe_path'];probe_source_manifest=selected['probe_source_manifest']
+        probe_build_receipt=selected['probe_build_receipt'];probe_producers=selected['source_receipts']
+    else:
+        probe_base=consumer/OUTPUT_RELATIVE;build=json.loads((probe_base/'probe-build-binding.json').read_text())
+        source=consumer/SOURCE_RELATIVE;manifest=json.loads((source/'source-manifest.json').read_text())
+        for row in manifest['files']:
+            current=add(source/row['path']);require(current['sha256']==row['sha256'] and current['bytes']==row['bytes'],'Probe source/resource changed')
+        for path in [source/'source-manifest.json',probe_base/'probe-build-binding.json',probe_base/'result.json',Path(build['artifact_path'])]:add(path)
+        probe_path=build['artifact_path'];probe_source_manifest=str(source/'source-manifest.json')
+        probe_build_receipt=str(probe_base/'probe-build-binding.json');probe_producers=[str(probe_base/'result.json')]
     helper_path=repo/'work/network-pair-finalizer/prepare_inputs.py'
     source_seal=json.loads((helper_path.parent/'source-manifest.json').read_text())
     expected=next(r for r in source_seal['files'] if r['path']=='prepare_inputs.py')
@@ -167,7 +182,7 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
     for row in jdk_files:inputs[row['path']]=row
     for path in (api/'run/client-dev/assets').rglob('*'):
         if path.is_file():add(path)
-    producers=[producer['path'],str(probe_base/'result.json')]
+    producers=[producer['path'],*probe_producers]
     for side,pin in group['roles'].items():
         rolepath=Path(pin['path']);require(sha(rolepath)==pin['sha256'],'Cold role seal changed');add(rolepath);producers.append(str(rolepath))
         role=json.loads(rolepath.read_text());cwd=Path(role['cwd'])
@@ -182,6 +197,7 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
         roles[side]={'cwd':str(cwd),'command':role['command'],'environment':env,'original_mods':role['original_mods'],'managed_mods':role['managed_mods']}
     out=api/('ci/pair-seals-refreshed' if refreshed else 'ci/pair-seals')
     if diagnostic:out=api/'ci/pair-seals-process-diagnostic'
+    if ffapi_probe_bundle is not None:out=api/'ci/pair-seals-fabric-ffapi-diagnostic'
     out.mkdir(parents=True,exist_ok=True)
     # Both opt-in and historical specs share the original serialization lock.
     # The frozen supervisor also locates the exact Indigo baseline beside it.
@@ -189,7 +205,7 @@ def create(repo,consumer,target,graphics_ready,review_reference,*,profile=None,b
     seal_indigo_baseline(target,roles,inputs,serial)
     base={'schema':'prepared-network-ci-pair-v2','status':'NEEDS_ACTUAL_GRAPHICS_NOT_EXECUTABLE','target':target,'port':group['port'],
           'preparation_roots':[str(consumer)],'jdk_legal_links':links,'inputs':list(inputs.values()),'immutable_trees':sorted(trees),
-          'probe_path':build['artifact_path'],'probe_source_manifest':str(source/'source-manifest.json'),'probe_build_receipt':str(probe_base/'probe-build-binding.json'),
+          'probe_path':probe_path,'probe_source_manifest':probe_source_manifest,'probe_build_receipt':probe_build_receipt,
           'source_receipts':producers,'pair_lock':str(serial/'serial-pair.lock'),'server':roles['server'],'client':roles['client'],
           'authorization':{'offline_identity_reference':'Isolated localhost tests with virtual APILocal identity','eula_reference':'Existing Minecraft EULA acceptance for isolated local tests'}}
     if diagnostic:

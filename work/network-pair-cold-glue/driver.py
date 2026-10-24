@@ -93,7 +93,8 @@ def restore_with_deadline(function,*args,deadline):
 def write(path,value):
     require(not path.exists(),'Refusing overwrite: '+str(path));path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2)+'\n')
 
-def prepare(repo,consumer,profile=None,build_proof=None,diagnostic_fml=False):
+def prepare(repo,consumer,profile=None,build_proof=None,diagnostic_fml=False,fabric_network_probe=False):
+    require(not fabric_network_probe or diagnostic_fml,'Fabric API probe requires explicit diagnostic lane')
     options=profile_options(profile,build_proof)
     require(not diagnostic_fml or bool(options),'Diagnostic FML requires explicit refreshed profile and build proof')
     repo=Path(repo).resolve(strict=True);consumer=Path(consumer).absolute()
@@ -110,6 +111,10 @@ def prepare(repo,consumer,profile=None,build_proof=None,diagnostic_fml=False):
         require(build['profileSha256']==selected['profile']['sha256'] and build['proofPath']==options['build_proof'],
                 'Refreshed build plan selected a different profile/proof')
     probe=compile_probe.prepare(repo,consumer)
+    fabric_source=None
+    if fabric_network_probe:
+        import fabric_probe_pipeline
+        fabric_source=fabric_probe_pipeline.prepare(repo,consumer)
     pair=pair_assembly.prepare(repo,consumer)
     graphics=graphics_runner.prepare(repo,consumer)
     result={'schema':1,'status':'COLD_DRIVER_PREPARED_EXECUTION_UNTESTED','repository':REPO,'branch':BRANCH,
@@ -125,6 +130,7 @@ def prepare(repo,consumer,profile=None,build_proof=None,diagnostic_fml=False):
     if diagnostic_fml:
         result.update(status='DIAGNOSTIC_FML_PREPARED_EXECUTION_UNTESTED',diagnostic_only=True,
                       gameAcceptance=False,baselineAcceptance=False,fullApiCompatibility=False)
+    if fabric_network_probe:result.update(fabricNetworkProbe=True,fabricProbeSource=fabric_source)
     write(driver_paths(consumer,bool(options),diagnostic_fml)['plan'],result)
     return result
 
@@ -257,7 +263,7 @@ def work_budget(work_seconds=None):
     return work_seconds
 
 
-def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None,round_id=None,diagnostic_fml=False):
+def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None,round_id=None,diagnostic_fml=False,fabric_network_probe=False):
     budget=work_budget(work_seconds if work_seconds is not None else (round_deadline.MAX_WORK_SECONDS if round_id is not None else None))
     window=round_deadline.admit(round_id,budget) if round_id is not None else None
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
@@ -274,12 +280,16 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
     for row in [*plan['sourceCodeFiles'].values(),*plan['dataFiles'].values()]:require(compile_probe.record(Path(row['path']))==row,'Cold source/lock changed after preparation')
     if options:require(plan.get('refreshedProfile')==refreshed_binding(consumer,options),'Prepared refreshed profile changed')
     else:require(not plan.get('refreshedProfile'),'Refreshed plan requires an explicit profile selection')
+    require(not fabric_network_probe or diagnostic_fml,'Fabric API probe requires explicit diagnostic lane')
+    require((plan.get('fabricNetworkProbe') is True)==fabric_network_probe,'Fabric probe requires matching prepared opt-in')
     deadline=window.deadline if window is not None else time.monotonic()+budget
     watchdog=round_deadline.Watchdog(window) if window is not None else None
     handle=None;active_pair=None;primary_error=None;previous={}
     result={'schema':1,'status':'INCOMPLETE','gameAcceptance':False,'reports':{}}
     if diagnostic_fml:result.update(diagnostic_only=True,baselineAcceptance=False,fullApiCompatibility=False)
     diagnostic_manifest=None
+    ffapi_bundle=None
+    ffapi_qualification=None
     if window is not None:result['roundDeadline']=window.receipt()
     spawning_pair=False;starting_graphics=False;cleaning_up=False;pending_stops=[]
     def stop_driver(number,frame):
@@ -324,12 +334,16 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 'buildProof':refreshed_candidate.pin(consumer,options['build_proof'])}
         else:build_candidate.execute(consumer,deadline=deadline)
         print('PROBE_COMPILE_START',flush=True);compile_probe.execute(consumer,deadline=deadline)
+        if fabric_network_probe:
+            import fabric_probe_pipeline
+            ffapi_bundle=fabric_probe_pipeline.build(consumer,deadline,execute_step)
+            result['fabricProbeBundle']=ffapi_bundle
         pair_assembly.assemble(repo,consumer,offline_identity_reference='Isolated localhost tests with virtual APILocal identity',eula_reference='Existing Minecraft EULA acceptance for isolated local tests',**options)
         if diagnostic_fml:
             import diagnostic_fml_build
             import diagnostic_pair_assembly
             diagnostic_manifest=diagnostic_fml_build.execute(repo,consumer,deadline=deadline,**options)
-            diagnostic_pair_assembly.assemble(repo,consumer,diagnostic_manifest,**options)
+            diagnostic_pair_assembly.assemble(repo,consumer,diagnostic_manifest,**options,**({'ffapi_probe_bundle':ffapi_bundle} if fabric_network_probe else {}))
             result['diagnosticManifest']=compile_probe.record(Path(diagnostic_manifest))
         require(time.monotonic()<deadline,'Cold job deadline exceeded before graphics')
         # Keep stop signals deferred through collector creation and the return
@@ -354,7 +368,7 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 require(time.monotonic()<deadline,'Cold job deadline exceeded before diagnostic sealing')
                 diagnostic_seals[target]=seal_pair.create(repo,consumer,target,graphics['readyPath'],
                     'Isolated native/Unified nonce diagnostic; publication approval tracked separately',
-                    diagnostic_manifest=diagnostic_manifest,**options)
+                    diagnostic_manifest=diagnostic_manifest,**options,**({'ffapi_probe_bundle':ffapi_bundle} if fabric_network_probe else {}))
             result['diagnosticPresealedInputs']={target:sealed['spec'] for target,sealed in diagnostic_seals.items()}
         reports={}
         for target in ('native-neoforge','unified'):
@@ -399,7 +413,19 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 if code==0:
                     require_hardware_observation(captures)
             require(code==0,'Actual pair failed: '+target)
-        if diagnostic_fml:result.update(diagnostic_comparison(reports,diagnostic_manifest))
+            if fabric_network_probe and target=='unified':
+                import fabric_network_qualification,fabric_probe_build_validation
+                verified=fabric_probe_build_validation.validate_bundle(consumer,ffapi_bundle)['binding']
+                portable=lambda row:dict(row,path=str(Path(row['path']).relative_to(consumer)))
+                ffapi_qualification=fabric_network_qualification.validate(consumer,spec_pin=portable(sealed['spec']),report_pin=portable(result['reports'][target]),verified_bundle=verified,supervisor_path=Path(sealed['supervisor']['path']))
+                result['fabricApiQualification']=ffapi_qualification
+                print('FABRIC_API_QUALIFICATION '+json.dumps(ffapi_qualification,sort_keys=True),flush=True)
+        if diagnostic_fml:
+            result.update(diagnostic_comparison(reports,diagnostic_manifest))
+            if fabric_network_probe:
+                require(ffapi_qualification is not None and ffapi_qualification['status']=='FFAPI_PATH_QUALIFIED_WITH_TRANSPORT_PASS','Missing actual FFAPI path qualification')
+                result.pop('unifiedDiagnosticControlPass',None)
+                result.update(status='DIAGNOSTIC_NATIVE_CONTROL_AND_FABRIC_API_PROBE_PASSED',unifiedFabricApiProbePass=True,unifiedDiagnosticTransportPass=True)
         else:result.update(semantic_comparison(reports),gameAcceptance=True)
         cleaning_up=True
     except BaseException as error:
@@ -439,6 +465,8 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 result.update(cleanupErrors=errors,gameAcceptance=False)
                 if primary_error is None:result['status']='CLEANUP_FAILED'
             if diagnostic_fml:result.update(diagnostic_only=True,gameAcceptance=False,baselineAcceptance=False,fullApiCompatibility=False)
+            if fabric_network_probe and (primary_error is not None or errors):
+                result.update(unifiedFabricApiProbePass=False,unifiedDiagnosticTransportPass=False)
             write(paths['result'],result)
             print(json.dumps(result,sort_keys=True),flush=True)
             summary=os.environ.get('GITHUB_STEP_SUMMARY')
@@ -457,9 +485,9 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true')
-    p.add_argument('--diagnostic-fml',action='store_true');p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);p.add_argument('--round-id');a=p.parse_args()
+    p.add_argument('--diagnostic-fml',action='store_true');p.add_argument('--fabric-network-probe',action='store_true');p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);p.add_argument('--round-id');a=p.parse_args()
     work_budget(a.work_seconds)
     require(a.action!='run' or a.round_id is not None,'Execution requires the fixed --round-id')
     if a.round_id is not None:round_deadline.admit(a.round_id,a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS)
-    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof,diagnostic_fml=a.diagnostic_fml) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS,round_id=a.round_id,diagnostic_fml=a.diagnostic_fml)
+    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof,diagnostic_fml=a.diagnostic_fml,fabric_network_probe=a.fabric_network_probe) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS,round_id=a.round_id,diagnostic_fml=a.diagnostic_fml,fabric_network_probe=a.fabric_network_probe)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))
