@@ -31,7 +31,10 @@ PAIR_BYTES = PROCESS_BYTES * 2
 IDENTITY = 'dd29b97d-cafa-3d53-94e1-f85f75bcf1f6'
 NAME = 'APILocal'
 MAX_LOG = 2 * MIB
-MAX_LINE = 16 * 1024
+# The sealed 95-entry Unified classpath produces a 20,072-byte JNA line.
+# Keep that complete diagnostic within a finite 32 KiB line envelope; the
+# 2 MiB process log, 2 KiB protocol JSON, and all capture checks are unchanged.
+MAX_LINE = 32 * 1024
 MAX_JSON = 2048
 TABLES = ('tcp', 'tcp6', 'udp', 'udp6')
 PRIVATE = {'HOME': '.launch-home', 'XDG_CACHE_HOME': '.launch-cache',

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "origin": "GitHub Actions run 40061239106, recovery-20261024T040900Z",
+  "sourceCommit": "a3d93d4aabdb97ec2caa20ab828be71dc647c826",
+  "sourceJobLogSha256": "661bd45abf263aa9c5ec45506311c9d15498eac44f63612e6e3af5f9ba82d514",
+  "extraction": "Retained complete diagnostic from ACTUAL_PAIR_LOG output; removed only the 29-byte GitHub timestamp prefix and restored LF. These are one-line log excerpts, not full process logs.",
+  "records": [
+    {
+      "path": "fixtures/jna-native-classpath.log",
+      "bytes": 12715,
+      "lineBytes": 12714,
+      "sha256": "9a0f2261e8183fcfb11c93b92feb79f08b29a621b8e4122400db866234aa189e",
+      "jobLogLine": 496,
+      "sourceTimestampPrefixBytes": 29,
+      "classpathEntries": 95
+    },
+    {
+      "path": "fixtures/jna-unified-classpath.log",
+      "bytes": 20073,
+      "lineBytes": 20072,
+      "sha256": "62116773a147a06ab44cb4e7f9de3cd2cd3db997372d319d75b7875a6f0ac44c",
+      "jobLogLine": 854,
+      "sourceTimestampPrefixBytes": 29,
+      "classpathEntries": 95
+    }
+  ],
+  "predecessorSupervisorSha256": "400f9f2eb2b21d11b4fbbaa3617244435daf351868d651b6c889d836bafdda00",
+  "runtimeAcceptance": false
+}

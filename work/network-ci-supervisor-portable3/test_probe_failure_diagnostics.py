@@ -19,6 +19,7 @@ import unittest
 from unittest.mock import Mock, patch
 
 import supervisor as s
+from console_capacity_preservation import without_console_capacity
 import test_cpu_probe_policy as fixtures
 
 
@@ -38,6 +39,7 @@ ADDITIONS = (
 
 def without_probe_diagnostics(source):
     """Remove only the exact independently pinned diagnostic additions."""
+    source = without_console_capacity(source)
     nodes = [n for n in ast.parse(source).body if isinstance(n, ast.FunctionDef)
              and n.name == 'cpu_probe_failure_diagnostic']
     if len(nodes) != 1:
