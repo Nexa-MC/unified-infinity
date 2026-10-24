@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "BOUNDED_EXACT_CPU_PROBE_POLICY_SOURCE_VERIFIED_RUNTIME_UNPROVEN",
+  "status": "FIXED_0009_0054_API_INDEPENDENT_LOCAL_LEASE_RUNTIME_UNPROVEN",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "b0912a32d349735a7c60bc94de390640d3c054da",
-    "manifestSha256": "03b46b77f017cb8d7d3f7a615f2009ae1885cfb4c6c906e33ae536cb7808ded4"
+    "commit": "1a46574a4c383cc98ef1cf8e6dfe6b451c7c4524",
+    "manifestSha256": "a97a710e8305a589f39e9b3336a8ee77b649d8ff89ffe21a74115fc0812dc9f1"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
-      "bytes": 1644,
-      "sha256": "3b2d204acd5802125ba21314eb067bfbe39bc019494c0fb066eeb51cc315fc6d"
+      "bytes": 8724,
+      "sha256": "911efa00c444d3ddcf1d47b5048f2b954341321aa2b7e75a9188b9f98f1d76b8"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -344,13 +344,13 @@
     },
     {
       "path": "work/network-ci-supervisor-portable3/source-manifest.json",
-      "bytes": 3409,
-      "sha256": "addd0f6d1606d57079d0ca1dbae5eee45f25fa286de81d9e98a25e45a7f1c086"
+      "bytes": 3568,
+      "sha256": "fe7afa1d69744d21b05bc03f776efedae09553cd98e2ff5e2b84b7df70729a06"
     },
     {
       "path": "work/network-ci-supervisor-portable3/supervisor.py",
-      "bytes": 108805,
-      "sha256": "b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a"
+      "bytes": 109938,
+      "sha256": "023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599"
     },
     {
       "path": "work/network-ci-supervisor-portable3/test_child_identity_diagnostics.py",
@@ -391,6 +391,11 @@
       "path": "work/network-ci-supervisor-portable3/test_lifecycle_boundaries.py",
       "bytes": 13896,
       "sha256": "8b576b1e91ba73b767cada026f73e3d9da0915fdee2de13767e9afce4f91a32d"
+    },
+    {
+      "path": "work/network-ci-supervisor-portable3/test_pair_work_cutoff.py",
+      "bytes": 4952,
+      "sha256": "56c81521668984893227110378972e4ed8b6cabb626ca816eb61c72fb4679130"
     },
     {
       "path": "work/network-ci-supervisor-portable3/test_portability.py",
@@ -439,8 +444,8 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/graphics_preflight.py",
-      "bytes": 26234,
-      "sha256": "031b0a7e0c685790e0ca9f79fe038f879c8cd07b2d550b455734b43b491a57d4"
+      "bytes": 29634,
+      "sha256": "25a7c12b606f9f0c7101d95cbdc98780ea7cfaafd869957be291d5ec603ec784"
     },
     {
       "path": "work/network-graphics-ci-portable2/official-input-research.json",
@@ -449,13 +454,13 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/source-manifest.json",
-      "bytes": 2123,
-      "sha256": "abf1365f48cf10327cb9fc13247c841a4c20c6fa1a51731ba1d8d06ccce96dd9"
+      "bytes": 2281,
+      "sha256": "80a326d6b1b992461d5812f568d84d4922afe3e22a4c90fdcba216063931f8bb"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_cleanup_lifecycle.py",
-      "bytes": 3415,
-      "sha256": "cc6aa9904b0f0d75a4253a4d2ed029efece9a47d5bbbc8f3464c6bc48151daf8"
+      "bytes": 3583,
+      "sha256": "489bbbdc86cd2f23fe5348be349706ca6fa2f45f3d4bfbcf66c70e2cf1066bc7"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_generated_cache.py",
@@ -464,18 +469,23 @@
     },
     {
       "path": "work/network-graphics-ci-portable2/test_graphics_preflight.py",
-      "bytes": 9395,
-      "sha256": "e33305a9fd2a4d3eed81eb3fd675de4cdce4b8df56c64aa17049e0b9f9006d9c"
+      "bytes": 9532,
+      "sha256": "1025dd9bc3266190245a626a4923244344d6b75c5e93ea1a9d490cbfc8accc71"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_installed_provenance.py",
-      "bytes": 10240,
-      "sha256": "063993e7b37b19ce45d5fe162371775440fb7ec1110d5b9654f8f3ae6f3e5cc2"
+      "bytes": 11125,
+      "sha256": "d07120d8ae16afafdc37ed5a69ae145fd66af19afcdc46099f7e8b7b150f5512"
+    },
+    {
+      "path": "work/network-graphics-ci-portable2/test_owner_deadline.py",
+      "bytes": 16283,
+      "sha256": "dfecb7527df3bbc6f4c6770565f5edee64d076f93c92762b55b84a8a8b320776"
     },
     {
       "path": "work/network-graphics-ci-portable2/test_receipt_capacity.py",
-      "bytes": 3773,
-      "sha256": "2272438464551ab466e4ae2fbd79b0272dc2977725b85a7f51aaffe4a50ef870"
+      "bytes": 3880,
+      "sha256": "feb994c5715c4cf420df33a0003ab81fa0697cb26c6ff2a30d332970ee683c08"
     },
     {
       "path": "work/network-pair-assembly-local1/LICENSE",
@@ -689,8 +699,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/README.md",
-      "bytes": 7049,
-      "sha256": "f52a3c62f8b572187fb67785c845c5a24e79013c9eb605c3e3d30e49e1b09f82"
+      "bytes": 10418,
+      "sha256": "a5308fe45d3d51eb955bb34827a087d0eb355b70e561c35ce284275c8fad8d8c"
     },
     {
       "path": "work/network-pair-cold-glue/REFRESHED-PROFILE.md",
@@ -809,13 +819,18 @@
     },
     {
       "path": "work/network-pair-cold-glue/driver.py",
-      "bytes": 22218,
-      "sha256": "37a20d13d95452905e3e69da5c950a9fca99c993f6f6f2ab1fb385774ef26efa"
+      "bytes": 24282,
+      "sha256": "835cb5a18a920004e9126c6cdbd279390c609b8a6db7aea29ff1261ef69e1012"
     },
     {
       "path": "work/network-pair-cold-glue/ffapi_sources.py",
       "bytes": 10719,
       "sha256": "b55ecac144e0fb94149e79ca9f556ac0702bcf6e7c73c6d4551176728bf10c3c"
+    },
+    {
+      "path": "work/network-pair-cold-glue/first_step_anchor.py",
+      "bytes": 5424,
+      "sha256": "edd2d651a6989802e1419bf45065f2d022178cdc5882c38d7b46ee5fd38ee3f4"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -889,8 +904,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/graphics_runner.py",
-      "bytes": 31711,
-      "sha256": "338cc92808c3da9f30e388b5d3a0cd2b53290ae5debdbcd4bebf2b7d94532aec"
+      "bytes": 32678,
+      "sha256": "5694b7deadd05f0bd735debb0513b54d7bdaadafc09df43f1cf3d1a57816e4c2"
     },
     {
       "path": "work/network-pair-cold-glue/lifetime-cleanup-checks.json",
@@ -899,8 +914,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
-      "bytes": 1644,
-      "sha256": "3b2d204acd5802125ba21314eb067bfbe39bc019494c0fb066eeb51cc315fc6d"
+      "bytes": 8724,
+      "sha256": "911efa00c444d3ddcf1d47b5048f2b954341321aa2b7e75a9188b9f98f1d76b8"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -963,6 +978,16 @@
       "sha256": "69c956b0491d4a2721a06b9eaabb948067fa0e8bda5945350e2730a7e6bc7f86"
     },
     {
+      "path": "work/network-pair-cold-glue/round-deadline.json",
+      "bytes": 377,
+      "sha256": "634cbedf8fe63366d1fa38b2b7d504f92a40de96ed8c7bada9b36848b211df40"
+    },
+    {
+      "path": "work/network-pair-cold-glue/round_deadline.py",
+      "bytes": 6273,
+      "sha256": "185baa210e70631002c978e07a50d4b949c985208ed64e59b6578643324cae65"
+    },
+    {
       "path": "work/network-pair-cold-glue/runner_dependencies.py",
       "bytes": 19984,
       "sha256": "bf94943e0c0da4add486bce408c1c06f8c8750fdde897815d55bd9a3521813a8"
@@ -990,7 +1015,7 @@
     {
       "path": "work/network-pair-cold-glue/seal_pair.py",
       "bytes": 13628,
-      "sha256": "e51938cda1437aa63c2b2e61549862f96503bf7b876508da6b779928f6c31f0f"
+      "sha256": "0a38eef0de57c4ca04e0395096b6e2d9a6a48e0064e7b8e94fcc776f0632907c"
     },
     {
       "path": "work/network-pair-cold-glue/source-manifest.json",
@@ -1014,8 +1039,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_driver_cleanup.py",
-      "bytes": 14013,
-      "sha256": "1cafef0b1f32b3b81b74a015ffdb97d09f4bb4022ba32ba5720262385fee46c4"
+      "bytes": 14040,
+      "sha256": "c5d4830314a0e287a16978ec8ba1e264217786e64b8ae3607133f6c3492fa6b0"
     },
     {
       "path": "work/network-pair-cold-glue/test_driver_work_budget.py",
@@ -1026,6 +1051,11 @@
       "path": "work/network-pair-cold-glue/test_ffapi_sources.py",
       "bytes": 8211,
       "sha256": "6d1d8fa38b6ddf331ddb30fc61833927da75469c3098eacd3c4559231b44f0bf"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_first_step_anchor.py",
+      "bytes": 6772,
+      "sha256": "06997f8e4666b8bb874b2434c285d0a3616567af251a41c69d2bbe5876d8bf2d"
     },
     {
       "path": "work/network-pair-cold-glue/test_generated_diagnostic_hook.py",
@@ -1039,8 +1069,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_graphics_cleanup_proof.py",
-      "bytes": 2536,
-      "sha256": "45be30e5595175d7415bc3ea83e882d6a859c54f52aefa7c567238a42bc32433"
+      "bytes": 2735,
+      "sha256": "1aa710b02a36c6c1d7edcb0c03ccc2b840c490e87954a34db9d787a7dee0cc65"
     },
     {
       "path": "work/network-pair-cold-glue/test_graphics_discovery.py",
@@ -1054,8 +1084,8 @@
     },
     {
       "path": "work/network-pair-cold-glue/test_graphics_runner.py",
-      "bytes": 11938,
-      "sha256": "a23636c05414e7ffade0008960d24a7ec8b0fe75a9d3147e0f2febf84aaf7e14"
+      "bytes": 12660,
+      "sha256": "d41207167765f764748a26028992e0c8ca0fbec960190f0545a02bb33911fd0d"
     },
     {
       "path": "work/network-pair-cold-glue/test_installable_prerequisites.py",
@@ -1080,7 +1110,7 @@
     {
       "path": "work/network-pair-cold-glue/test_profile_runtime_paths.py",
       "bytes": 9300,
-      "sha256": "d298fbc827b8b0e0d14b08b803c96b5401e6ab2cb520554aad717824571585b5"
+      "sha256": "ed30d1723cd046c7b09cfe72b505adcfbfb38bee197daa3badd74d7496ceb41b"
     },
     {
       "path": "work/network-pair-cold-glue/test_recovered_source_closure.py",
@@ -1101,6 +1131,11 @@
       "path": "work/network-pair-cold-glue/test_refreshed_product_permissions.py",
       "bytes": 3791,
       "sha256": "05d1c0522ff514621b1eb3228167c78071fb0329ef03a014f06d2854fde0b4b4"
+    },
+    {
+      "path": "work/network-pair-cold-glue/test_round_deadline.py",
+      "bytes": 12928,
+      "sha256": "3b867e887387841097a6617848552d42ed5d3dd58379c055a924fea89714a44a"
     },
     {
       "path": "work/network-pair-cold-glue/test_runner_dependencies.py",
@@ -1145,7 +1180,7 @@
     {
       "path": "work/network-pair-finalizer/finalize_pair.py",
       "bytes": 4349,
-      "sha256": "1bb1b19905d88e243d0469cef4fe604dd60a4f4eb2610046df3f179689309b7e"
+      "sha256": "491379afef3fb7f307a4adb5a07115fac24ad1f598ffc2f6a1ed1fbba126d79c"
     },
     {
       "path": "work/network-pair-finalizer/prepare_inputs.py",
@@ -1165,7 +1200,7 @@
     {
       "path": "work/network-pair-finalizer/source-manifest.json",
       "bytes": 1211,
-      "sha256": "57565ed218ba808557dcb7a192295a4e3ddf91c1d6c99aaf5cf8d748e2d6da23"
+      "sha256": "d9e5623af000c21e63ac8af004fdcd694d57570ce0bf350683d26e1fdbb50164"
     },
     {
       "path": "work/network-pair-finalizer/test_finalizer.py",
@@ -1183,11 +1218,24 @@
       "sha256": "301991fa4fb172adc5776daa36a48efadcb855f145cc386fdfc49e307fe9105f"
     }
   ],
-  "revision": 10,
-  "previousReviewManifestSha256": "20747657b9deaa2793c5de38bc12f203e887aeda070188240f6c120bfe5fe722",
+  "revision": 14,
+  "previousReviewManifestSha256": "a97a710e8305a589f39e9b3336a8ee77b649d8ff89ffe21a74115fc0812dc9f1",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
     "runtimeAcceptance": false
+  },
+  "roundDeadline": {
+    "schema": 1,
+    "roundId": "recovery-20261024T000900Z",
+    "startUtc": "2026-10-24T00:09:00Z",
+    "cutoffUtc": "2026-10-24T00:54:00Z",
+    "cleanupReserveSeconds": 180,
+    "maximumWorkSeconds": 1980,
+    "minimumWorkSeconds": 1560,
+    "jobSeconds": 2160,
+    "anchorKind": "FIRST_STEP_LOCAL_CLOCK",
+    "remainingJobTimeGuaranteed": false,
+    "platformCancellationReserveSeconds": 300
   }
 }

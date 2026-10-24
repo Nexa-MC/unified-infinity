@@ -195,15 +195,22 @@ class PreservationTests(unittest.TestCase):
                     if isinstance(node, (ast.FunctionDef, ast.ClassDef))}
         old = definitions(FROZEN / 'graphics_preflight.py')
         new = definitions(ROOT / 'graphics_preflight.py')
-        self.assertEqual(set(new) - set(old), {'validate_installed_observations', 'validate_generated_config'})
+        self.assertEqual(set(new) - set(old), {'validate_installed_observations', 'validate_generated_config', 'OwnerDeadline'})
         for name in old:
-            if name != 'validate_lock':
+            # Reviewed deadline successor changes execute/main only; all other
+            # pre-existing ownership, parsing and process cleanup bodies stay fixed.
+            if name not in ('validate_lock', 'execute', 'main'):
                 with self.subTest(name=name):
                     self.assertEqual(new[name], old[name])
 
     def test_fifteen_original_test_bodies_are_preserved(self):
         old = (FROZEN / 'test_graphics_preflight.py').read_text()
         new = (ROOT / 'test_graphics_preflight.py').read_text()
+        # The legacy failure fixture must now supply the required owner lease.
+        reviewed = "            with self.assertRaisesRegex(ValueError, 'bounded cgroup missing'):\n                from test_owner_deadline import cutoff\n                g.execute(self.lock, {}, S, Path(self.directory.name) / 'unused',\n                          owner_cutoff=cutoff(g.time.monotonic(), g.time.time()))"
+        original = "            with self.assertRaisesRegex(ValueError, 'bounded cgroup missing'):\n                g.execute(self.lock, {}, S, Path(self.directory.name) / 'unused')"
+        self.assertEqual(new.count(reviewed), 1)
+        new = new.replace(reviewed, original)
         self.assertEqual(new.replace('network-ci-supervisor-portable3/', 'network-ci-supervisor-portable1/'), old)
 
 

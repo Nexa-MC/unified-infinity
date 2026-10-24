@@ -10,6 +10,7 @@ import difflib
 import fcntl
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -1504,8 +1505,19 @@ class Capture:
         self.stream.close()
 
 
+def pair_deadline(work_cutoff=None):
+    """Narrow the existing pair budget; never renew a supplied same-host cutoff."""
+    now = time.monotonic()
+    require(math.isfinite(now), 'Invalid pair monotonic clock')
+    if work_cutoff is None:
+        return now + 600
+    require(type(work_cutoff) in (int, float) and math.isfinite(work_cutoff) and work_cutoff > now,
+            'Invalid or expired absolute pair work cutoff')
+    return min(now + 600, work_cutoff)
+
+
 class Pair:
-    def __init__(self, spec, destination, proc=None):
+    def __init__(self, spec, destination, proc=None, work_cutoff=None):
         self.spec = spec
         self.destination = destination
         self.proc = proc or Proc()
@@ -1516,7 +1528,7 @@ class Pair:
         self.logs = {}
         self.client_result_absent_monotonic = None
         self.selector = selectors.DefaultSelector()
-        self.deadline = time.monotonic() + 600
+        self.deadline = pair_deadline(work_cutoff)
         self.report = {'schema': 1, 'target': spec['target'], 'status': 'INCONCLUSIVE',
                        'passed': False, 'game_launched': False, 'phase': 'preflight',
                        'observations': [], 'exits': {}, 'cleanup_signals': []}
@@ -1863,7 +1875,11 @@ def main():
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--execute-reviewed-ci-pair', action='store_true')
     parser.add_argument('--destination', type=Path)
+    parser.add_argument('--work-cutoff-monotonic', type=float)
     args = parser.parse_args()
+    require(args.work_cutoff_monotonic is None or args.execute_reviewed_ci_pair,
+            'Absolute pair work cutoff applies only to execution')
+    work_cutoff = pair_deadline(args.work_cutoff_monotonic) if args.work_cutoff_monotonic is not None else None
     require(re.fullmatch('[0-9a-f]{64}', args.sha256) is not None, 'Expected exact pair-spec SHA-256')
     path = clean_path(str(args.spec))
     require(digest(path) == args.sha256, 'Pair spec digest mismatch')
@@ -1879,12 +1895,17 @@ def main():
     destination = clean_path(str(args.destination))
     require(not destination.exists(), 'Evidence directory already exists')
     destination.mkdir(mode=0o700)
+    remaining = 600 if work_cutoff is None else work_cutoff - time.monotonic()
+    require(remaining > 0, 'Absolute pair work cutoff expired during validation')
     def interrupted(signum, _frame):
         raise InterruptedError('Supervisor interrupted by signal ' + str(signum))
     previous = {sig: signal.signal(sig, interrupted) for sig in HANDLED_SIGNALS}
-    signal.setitimer(signal.ITIMER_REAL, 600)
+    signal.setitimer(signal.ITIMER_REAL, remaining)
     try:
-        report = Pair(spec, destination).run(args.sha256, path)
+        if work_cutoff is None:
+            report = Pair(spec, destination).run(args.sha256, path)
+        else:
+            report = Pair(spec, destination, work_cutoff=work_cutoff).run(args.sha256, path)
     finally:
         signal.setitimer(signal.ITIMER_REAL, 0)
         for sig, handler in previous.items():

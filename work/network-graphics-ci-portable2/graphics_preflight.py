@@ -7,6 +7,7 @@ launches Java, dispatches CI, changes system settings, or kills by name/group.
 import argparse
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import platform
@@ -19,14 +20,56 @@ import time
 import types
 
 MIB = 1024 * 1024
-SUPERVISOR_SHA256 = 'b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a'
+SUPERVISOR_SHA256 = '023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599'
 MAX_LOG = MIB
-MAX_LIFETIME = 42 * 60  # Shared by both serial 650-second pairs; bounded by driver work budget.
+MAX_LIFETIME = 42 * 60  # Upper bound only; absolute owner cutoff is normally earlier.
 
 
 def require(value, message):
     if not value:
         raise ValueError(message)
+
+
+class OwnerDeadline:
+    """Same-host dual-clock lease supplied by the retained collector owner.
+
+    Checks are cooperative; blocking kernel operations are not hard-contained.
+    The independent collector cannot renew the driver's absolute lease.
+    """
+    KEYS = {'work_monotonic', 'work_wall', 'cleanup_monotonic', 'cleanup_wall'}
+
+    def __init__(self, cutoff):
+        require(type(cutoff) is dict and set(cutoff) == self.KEYS,
+                'Exact graphics owner cutoff required')
+        require(all(type(v) in (int, float) and math.isfinite(v) for v in cutoff.values()),
+                'Invalid graphics owner cutoff clock')
+        self.cutoff = dict(cutoff)
+        self.initial_monotonic = time.monotonic()
+        now = time.time()
+        require(math.isfinite(self.initial_monotonic) and math.isfinite(now), 'Invalid graphics clock')
+        # Float addition can cross an exponent boundary. Permit only rounding-scale
+        # representation error; never alter or extend either absolute cutoff.
+        def exact_reserve(work, cleanup):
+            return math.isclose(cleanup - work, 90, rel_tol=0,
+                                abs_tol=min(1e-6, 2 * max(math.ulp(work), math.ulp(cleanup))))
+        require(exact_reserve(cutoff['work_monotonic'], cutoff['cleanup_monotonic']) and
+                exact_reserve(cutoff['work_wall'], cutoff['cleanup_wall']),
+                'Graphics owner requires exactly 90 seconds of cleanup reserve')
+        remaining = cutoff['work_monotonic'] - self.initial_monotonic
+        wall_remaining = cutoff['work_wall'] - now
+        require(0 < remaining <= MAX_LIFETIME and 0 < wall_remaining <= MAX_LIFETIME and
+                abs(remaining - wall_remaining) <= 5,
+                'Expired, excessive or inconsistent graphics owner cutoff')
+
+    def remaining(self, cleanup=False):
+        mono, wall = time.monotonic(), time.time()
+        require(math.isfinite(mono) and math.isfinite(wall) and mono >= self.initial_monotonic,
+                'Invalid or backwards graphics clock')
+        prefix = 'cleanup' if cleanup else 'work'
+        return min(self.cutoff[prefix + '_monotonic'] - mono, self.cutoff[prefix + '_wall'] - wall)
+
+    def check(self):
+        require(self.remaining() > 0, 'Graphics owner cutoff exhausted')
 
 
 def load_supervisor(path):
@@ -327,12 +370,13 @@ def write_receipt(destination, name, value, s, limit=MIB):
     return str(path)
 
 
-def execute(lock, pins, s, destination, lock_identity=None):
+def execute(lock, pins, s, destination, lock_identity=None, owner_cutoff=None):
     require(os.environ.get('GITHUB_ACTIONS') == 'true', 'Future GitHub CI mode only')
     require(all(os.environ.get(key) == lock['expected_runner'][key]
                 for key in ('ImageOS', 'ImageVersion')) and
             platform.machine() == lock['expected_runner']['machine'], 'Runner image changed; review new lock')
     require(hasattr(os, 'pidfd_open') and hasattr(signal, 'pidfd_send_signal'), 'Linux pidfd support required')
+    lease = OwnerDeadline(owner_cutoff)
     proc = s.Proc()
     # Reuse the frozen gate. No cgroup creation or relaxation when unavailable.
     initial_gate = s.memory_gate(proc, {'reserve_bytes': 256 * MIB})
@@ -357,17 +401,20 @@ def execute(lock, pins, s, destination, lock_identity=None):
         requested_stop.append(number)
     for number in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
         previous[number] = signal.signal(number, stop_signal)
-    deadline = time.monotonic() + MAX_LIFETIME
-    result = {'schema': 1, 'status': 'FAILED', 'pair_acceptance': False}
+    deadline = lease.cutoff['work_monotonic']
+    result = {'schema': 1, 'status': 'FAILED', 'pair_acceptance': False,
+              'owner_cutoff': dict(lease.cutoff)}
     try:
+        lease.check()
         x = OwnedChild(xvfb_command, env, destination)
         children.append(x)
         logs.add('xvfb', x)
         identity = proc.identity(x.pid)
         require(identity['ppid'] == os.getpid(), 'Xvfb is not our direct child')
-        startup_deadline = time.monotonic() + 15
+        startup_deadline = min(time.monotonic() + 15, deadline)
         socket_path = '/tmp/.X11-unix/X' + display[1:]
         while True:
+            lease.check()
             require(not requested_stop and not x.reap(), 'Xvfb stopped during startup')
             require(time.monotonic() < startup_deadline, 'Xvfb startup timeout')
             logs.drain()
@@ -377,17 +424,20 @@ def execute(lock, pins, s, destination, lock_identity=None):
                 require(stat.S_ISSOCK(os.stat(socket_path).st_mode), 'DISPLAY path is not a live Unix socket')
                 break
         observed = process_libraries(x.pid, s)
+        lease.check()
         gl = OwnedChild(gl_command, env, destination)
         children.append(gl)
         logs.add('glxinfo', gl)
-        probe_deadline = time.monotonic() + 30
+        probe_deadline = min(time.monotonic() + 30, deadline)
         while not gl.reap():
+            lease.check()
             require(not requested_stop and not x.reap(), 'Preflight interrupted or Xvfb exited')
             require(time.monotonic() < probe_deadline, 'GLX probe timeout')
             logs.drain()
         # Drain both final pipes after wait4; EOF is mandatory and bounded.
-        drain_deadline = time.monotonic() + 2
+        drain_deadline = min(time.monotonic() + 2, deadline)
         while any(key.data.startswith('glxinfo.') for key in logs.selector.get_map().values()):
+            lease.check()
             require(time.monotonic() < drain_deadline, 'GLX output EOF timeout')
             logs.drain()
         require(gl.result['returncode'] == 0, 'Official GLX preflight failed')
@@ -401,7 +451,9 @@ def execute(lock, pins, s, destination, lock_identity=None):
         reserve = measured_reserve(xvfb_peak, gl.result['peak_rss_bytes'])
         gate = s.memory_gate(proc, {'reserve_bytes': reserve})
         s.no_new_oom_events(initial_gate)
+        lease.check()
         validate_lock(lock, s)  # Post-execution file hashes are not self-generated pins.
+        lease.check()
         receipt = {'schema': 1, 'display': display, 'xvfb_pid': x.pid,
                    'xvfb_start_ticks': identity['start_ticks'], 'renderer': measured['renderer'],
                    'direct_rendering': True, 'glx_capable': True,
@@ -421,14 +473,16 @@ def execute(lock, pins, s, destination, lock_identity=None):
                       'initial_memory_gate': initial_gate, 'post_probe_memory_gate': gate,
                       'headroom_derivation': 'Xvfb VmHWM + glxinfo wait4 ru_maxrss + 256 MiB slack',
                       'review_reference': lock['review_reference'], 'lock_identity': lock_identity}, s)
+        lease.check()
         write_receipt(destination, 'ready.json', {'schema': 1, 'status': 'GRAPHICS_PREFLIGHT_READY',
                       'pair_acceptance': False, 'graphics': graphics, 'inputs': spec['inputs'],
-                      'collector_pid': os.getpid(), 'maximum_lifetime_seconds': MAX_LIFETIME}, s)
+                      'collector_pid': os.getpid(), 'maximum_lifetime_seconds': MAX_LIFETIME,
+                      'owner_cutoff': dict(lease.cutoff)}, s)
         print(json.dumps({'status': 'GRAPHICS_PREFLIGHT_READY', 'ready': str(destination / 'ready.json')}), flush=True)
         # The future orchestration keeps this collector alive for both serial
         # pairs, then signals it. No game/consumer command is accepted here.
         while not requested_stop:
-            require(time.monotonic() < deadline, 'Graphics lifetime exhausted')
+            lease.check()
             require(not x.reap(), 'Owned Xvfb exited while consumers could be running')
             proc.same(identity)
             logs.drain(0.1)
@@ -456,8 +510,14 @@ def execute(lock, pins, s, destination, lock_identity=None):
         result['cleanup'] = {'collector_pid': os.getpid(), 'expected_children': len(children),
                              'children': cleanup_children,
                              'all_reaped': not cleanup_errors and len(cleanup_children) == len(children)}
+        try:
+            result['cleanup_before_cutoff'] = lease.remaining(cleanup=True) > 0
+        except (ValueError, OSError, OverflowError):
+            result['cleanup_before_cutoff'] = False
+        if not result['cleanup_before_cutoff']:
+            result.update(status='CLEANUP_FAILED')
         write_receipt(destination, 'lifecycle.json', result, s)
-        require(not cleanup_errors, 'Owned graphics child cleanup failed')
+        require(not cleanup_errors and result['cleanup_before_cutoff'], 'Owned graphics child cleanup failed or exceeded cutoff')
 
 
 def main(argv=None):
@@ -466,14 +526,23 @@ def main(argv=None):
     parser.add_argument('--lock', required=True)
     parser.add_argument('--sha256', required=True)
     parser.add_argument('--destination')
+    parser.add_argument('--owner-cutoff')
     parser.add_argument('--execute-reviewed-ci-preflight', action='store_true')
     args = parser.parse_args(argv)
+    owner_cutoff = None
+    lease = None
+    if args.execute_reviewed_ci_preflight:
+        require(args.owner_cutoff, 'Explicit graphics owner cutoff required')
+        owner_cutoff = json.loads(args.owner_cutoff)
+        lease = OwnerDeadline(owner_cutoff)
     s = load_supervisor(args.supervisor)
     path = s.clean_path(args.lock)
     lock_identity = {'path': str(path), 'bytes': path.stat().st_size, 'sha256': args.sha256}
     s.file_pin(lock_identity)
     lock = s.decode_json(s.read_bounded(path, MIB), MIB)
+    if lease is not None: lease.check()
     pins = validate_lock(lock, s)
+    if lease is not None: lease.check()
     if not args.execute_reviewed_ci_preflight:
         print(json.dumps({'status': 'STATIC_INPUTS_VALID', 'runtime_evidence_observed': False,
                           'pair_acceptance': False}))
@@ -481,7 +550,7 @@ def main(argv=None):
     require(args.destination, 'Fresh absolute destination required')
     destination = s.clean_path(args.destination)
     require(not destination.exists() and destination.parent.is_dir(), 'Fresh destination required')
-    execute(lock, pins, s, destination, lock_identity)
+    execute(lock, pins, s, destination, lock_identity, owner_cutoff=owner_cutoff)
     return 0
 
 

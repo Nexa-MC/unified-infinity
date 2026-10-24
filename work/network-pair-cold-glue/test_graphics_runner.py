@@ -97,10 +97,10 @@ class GraphicsProducerSourceTests(unittest.TestCase):
     def test_cleanup_only_signals_owned_pidfd_and_checks_real_lifecycle(self):
         with tempfile.TemporaryDirectory(prefix='graphics-cleanup-fixture-') as folder:
             path = Path(folder) / 'lifecycle.json'
-            path.write_text(json.dumps({'schema': 1, 'pair_acceptance': False, 'status': 'STOPPED_BY_ORCHESTRATOR', 'cleanup': {'collector_pid': 321, 'all_reaped': True, 'expected_children': 2, 'children': [{'pid': 322, 'reaped': True, 'returncode': -15}, {'pid': 323, 'reaped': True, 'returncode': 0}]}}))
+            path.write_text(json.dumps({'schema': 1, 'pair_acceptance': False, 'status': 'STOPPED_BY_ORCHESTRATOR', 'owner_cutoff': {'fixture': 1}, 'cleanup_before_cutoff': True, 'cleanup': {'collector_pid': 321, 'all_reaped': True, 'expected_children': 2, 'children': [{'pid': 322, 'reaped': True, 'returncode': -15}, {'pid': 323, 'reaped': True, 'returncode': 0}]}}))
             process = mock.Mock(pid=321)
             process.poll.side_effect = [None, 0]
-            handle = {'process': process, 'pidfd': 42, 'log': mock.Mock(), 'lifecyclePath': str(path)}
+            handle = {'process': process, 'pidfd': 42, 'log': mock.Mock(), 'lifecyclePath': str(path), 'ownerCutoff': {'fixture': 1}}
             with mock.patch.object(g.signal, 'pidfd_send_signal') as signal, \
                  mock.patch.object(g.os, 'close') as close:
                 result = g.stop(handle)
@@ -111,14 +111,18 @@ class GraphicsProducerSourceTests(unittest.TestCase):
 
 
 class GraphicsLifetimeAndFailureTests(unittest.TestCase):
-    def exercise(self, lifetime=2520, primary=None, cleanup=None, pidfd_error=None, interrupted_at=None):
+    def exercise(self, lifetime=2520, primary=None, cleanup=None, pidfd_error=None, interrupted_at=None, wrong_cutoff=False):
         with tempfile.TemporaryDirectory(prefix='graphics-mocked-run-') as folder:
             plan = g.prepare(REPO, Path(folder) / 'consumer')
             Path(plan['lockPath']).write_text(json.dumps({'expected_runner': {
                 'ImageOS': 'ubuntu24', 'ImageVersion': '20261006.1.0'}}))
             destination = Path(plan['destination']); destination.mkdir()
             ready = {'status': 'GRAPHICS_PREFLIGHT_READY', 'collector_pid': 4321,
-                     'pair_acceptance': False, 'maximum_lifetime_seconds': lifetime}
+                     'pair_acceptance': False, 'maximum_lifetime_seconds': lifetime,
+                     'owner_cutoff': {'work_monotonic':1000000090, 'work_wall':2000000090,
+                                      'cleanup_monotonic':1000000180, 'cleanup_wall':2000000180}}
+            owner_cutoff = dict(ready['owner_cutoff'])
+            if wrong_cutoff: ready['owner_cutoff']['work_wall'] += 1
             (destination / 'ready.json').write_text(json.dumps(ready))
             supervisor = mock.Mock()
             supervisor.decode_json.side_effect = lambda data, limit: json.loads(data)
@@ -148,7 +152,7 @@ class GraphicsLifetimeAndFailureTests(unittest.TestCase):
                  mock.patch.object(g.os, 'pidfd_open', side_effect=pidfd), \
                  mock.patch.object(g, 'stop', side_effect=cleanup) as stop:
                 result = None; error = None
-                try: result = g.execute(plan, deadline=1000000000, interrupt_check=check)
+                try: result = g.execute(plan, deadline=1000000000, interrupt_check=check, owner_cutoff=owner_cutoff)
                 except BaseException as caught: error = caught
                 # The mocked stop deliberately performs no IO; close the real fixture log.
                 if result is not None: result['handle']['log'].close()
@@ -169,6 +173,12 @@ class GraphicsLifetimeAndFailureTests(unittest.TestCase):
         result, error, calls = self.exercise(lifetime=900)
         self.assertIsNone(result)
         self.assertIn('lifetime receipt differs', str(error))
+        self.assertEqual(calls, 1)
+
+    def test_wrong_absolute_owner_cutoff_receipt_is_rejected(self):
+        result, error, calls = self.exercise(wrong_cutoff=True)
+        self.assertIsNone(result)
+        self.assertIn('owner cutoff receipt differs', str(error))
         self.assertEqual(calls, 1)
 
     def test_startup_cleanup_failure_preserves_original_exception(self):

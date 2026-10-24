@@ -87,7 +87,7 @@ class DriverCleanupTests(unittest.TestCase):
                 'supervisor': {'path': '/fixture/supervisor.py'}, 'spec': {'path': '/fixture/spec', 'sha256': '0'*64}}))
             def spawn(args, **kwargs):
                 events.append(('pair.spawn',))
-                evidence = Path(args[-1]); evidence.mkdir()
+                evidence = Path(args[args.index('--destination')+1]); evidence.mkdir()
                 (evidence / 'result.json').write_text(json.dumps({'passed': True, 'status': 'PASS'}))
                 values = [0]
                 if not processes:

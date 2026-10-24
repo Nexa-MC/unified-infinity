@@ -21,9 +21,9 @@ import time
 
 HERE = Path(__file__).resolve().parent
 COLLECTOR = 'work/network-graphics-ci-portable2/graphics_preflight.py'
-COLLECTOR_SHA = '031b0a7e0c685790e0ca9f79fe038f879c8cd07b2d550b455734b43b491a57d4'
+COLLECTOR_SHA = '25a7c12b606f9f0c7101d95cbdc98780ea7cfaafd869957be291d5ec603ec784'
 SUPERVISOR = 'work/network-ci-supervisor-portable3/supervisor.py'
-SUPERVISOR_SHA = 'b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a'
+SUPERVISOR_SHA = '023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599'
 MIB = 1024 * 1024
 # Must match the hash-pinned supervisor and collector graphics-only contract.
 GRAPHICS_RECEIPT_MAX_BYTES = 32 * 1024
@@ -110,12 +110,13 @@ def prepare(repo_root, consumer_root):
               'commandRecipe': [sys.executable, str(root / 'graphics_preflight.py'), '--supervisor',
                                 str(root / 'supervisor.py'), '--lock', str(root / 'graphics-lock.json'),
                                 '--sha256', '<actual-produced-lock-sha256>', '--destination',
-                                str(root / 'actual-preflight'), '--execute-reviewed-ci-preflight'],
+                                str(root / 'actual-preflight'), '--execute-reviewed-ci-preflight',
+                                '--owner-cutoff', '<driver-owned-absolute-cutoff-json>'],
               'observationCommands': ['/usr/bin/dpkg-query --show --showformat=<exact fields> <observed package>',
                                       '/usr/bin/dpkg-query --search <canonical file and verified alias>',
                                       '/usr/bin/ldd <package-owned recognized ELF input>'],
               'availabilityCallable': 'graphics_runner.availability(plan)',
-              'executionCallable': 'graphics_runner.execute(plan)',
+              'executionCallable': 'graphics_runner.execute(plan, deadline=driver_deadline, owner_cutoff=driver_cutoff)',
               'cleanupCallable': 'graphics_runner.stop(result["handle"])',
               'installedInputsObserved': False, 'graphicsStarted': False, 'gameLaunched': False}
     write(root / 'graphics-producer-plan.json', result)
@@ -452,6 +453,9 @@ def stop(handle):
                 lifecycle.get('pair_acceptance') is False and
                 lifecycle.get('status') in ('STOPPED_BY_ORCHESTRATOR', 'FAILED') and
                 not lifecycle.get('cleanup_errors'), 'Collector lifecycle reports cleanup failure')
+        require(lifecycle.get('owner_cutoff') == handle.get('ownerCutoff') and
+                type(handle.get('ownerCutoff')) is dict and lifecycle.get('cleanup_before_cutoff') is True,
+                'Collector cleanup cutoff proof differs or expired')
         cleanup = lifecycle.get('cleanup')
         require(isinstance(cleanup, dict) and cleanup.get('collector_pid') == process.pid and
                 cleanup.get('all_reaped') is True, 'Collector lacks explicit owned-child cleanup proof')
@@ -475,7 +479,7 @@ def stop(handle):
             handle['log'].close()
 
 
-def execute(plan,deadline=None,interrupt_check=None):
+def execute(plan,deadline=None,interrupt_check=None,owner_cutoff=None):
     """Explicit future-CI operation; no execution occurs when imported/prepared."""
     global ACTIVE_DEADLINE
     ACTIVE_DEADLINE=deadline
@@ -497,10 +501,15 @@ def execute(plan,deadline=None,interrupt_check=None):
     spec.loader.exec_module(collector)
     supervisor = collector.load_supervisor(plan['supervisor']['path'])
     lock = json.loads(Path(plan['lockPath']).read_text())
+    lease = collector.OwnerDeadline(owner_cutoff)
+    require(type(deadline) in (int, float) and owner_cutoff['work_monotonic'] == deadline + 90,
+            'Graphics cutoff differs from driver work deadline')
     collector.validate_lock(lock, supervisor)
+    lease.check()
     command = [sys.executable, plan['collector']['path'], '--supervisor', plan['supervisor']['path'],
                '--lock', plan['lockPath'], '--sha256', observed['lock']['sha256'],
-               '--destination', plan['destination'], '--execute-reviewed-ci-preflight']
+               '--destination', plan['destination'], '--execute-reviewed-ci-preflight',
+               '--owner-cutoff', json.dumps(owner_cutoff, sort_keys=True, separators=(',', ':'))]
     environment = {'PATH': '/usr/bin:/bin', 'LANG': 'C.UTF-8', 'LC_ALL': 'C.UTF-8',
                    'GITHUB_ACTIONS': 'true', 'ImageOS': lock['expected_runner']['ImageOS'],
                    'ImageVersion': lock['expected_runner']['ImageVersion']}
@@ -510,12 +519,13 @@ def execute(plan,deadline=None,interrupt_check=None):
         log = (Path(plan['root']) / 'collector.log').open('xb')
         # The driver defers its handled signals until this direct child and its
         # ownership descriptor have been retained. Never block inherited masks.
+        lease.check()
         process = subprocess.Popen(command, cwd=plan['root'], env=environment, stdin=subprocess.DEVNULL,
                                    stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
         pidfd = os.pidfd_open(process.pid)
         destination = Path(plan['destination'])
         handle = {'process': process, 'pidfd': pidfd, 'log': log,
-                  'lifecyclePath': str(destination / 'lifecycle.json')}
+                  'lifecyclePath': str(destination / 'lifecycle.json'), 'ownerCutoff': dict(owner_cutoff)}
         check_stops()
         ready_deadline = min(time.monotonic() + 60, deadline if deadline is not None else float('inf'))
         ready_path = destination / 'ready.json'
@@ -530,6 +540,8 @@ def execute(plan,deadline=None,interrupt_check=None):
                 and ready.get('pair_acceptance') is False, 'Collector readiness identity differs')
         require(ready.get('maximum_lifetime_seconds') == collector.MAX_LIFETIME == 42 * 60,
                 'Collector lifetime receipt differs from the shared work budget')
+        require(ready.get('owner_cutoff') == handle['ownerCutoff'], 'Collector owner cutoff receipt differs')
+        lease.check()
         supervisor.verify_graphics(ready, supervisor.Proc())
         return {'status': 'GRAPHICS_PREFLIGHT_READY', 'readyPath': str(ready_path),
                 'ready': ready, 'readyPin': pin(ready_path), 'observedInputs': observed,
@@ -542,7 +554,7 @@ def execute(plan,deadline=None,interrupt_check=None):
                     # between descriptor acquisition and handle construction.
                     if handle is None:
                         handle={'process':process,'pidfd':pidfd,'log':log,
-                                'lifecyclePath':str(Path(plan['destination'])/'lifecycle.json')}
+                                'lifecyclePath':str(Path(plan['destination'])/'lifecycle.json'), 'ownerCutoff':dict(owner_cutoff)}
                     error.graphics_cleanup=stop(handle)
                 else:
                     # No imported PID: Popen still owns this unreaped child.

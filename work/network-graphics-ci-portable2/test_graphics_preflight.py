@@ -153,7 +153,9 @@ class LockTests(unittest.TestCase):
         with patch.dict(os.environ, env, clear=True), patch.object(g, 'OwnedChild') as spawn, \
                 patch.object(S, 'memory_gate', side_effect=ValueError('bounded cgroup missing')):
             with self.assertRaisesRegex(ValueError, 'bounded cgroup missing'):
-                g.execute(self.lock, {}, S, Path(self.directory.name) / 'unused')
+                from test_owner_deadline import cutoff
+                g.execute(self.lock, {}, S, Path(self.directory.name) / 'unused',
+                          owner_cutoff=cutoff(g.time.monotonic(), g.time.time()))
             spawn.assert_not_called()
 
     def test_receipt_is_bounded_for_unchanged_supervisor(self):

@@ -5,12 +5,12 @@ from unittest import mock
 import graphics_runner as g
 class CleanupProof(unittest.TestCase):
     def proof(self):
-        return {'schema':1,'status':'FAILED','pair_acceptance':False,'cleanup':{'collector_pid':321,'all_reaped':True,'expected_children':2,'children':[{'pid':322,'reaped':True,'returncode':-15},{'pid':323,'reaped':True,'returncode':0}]}}
+        return {'schema':1,'status':'FAILED','pair_acceptance':False,'owner_cutoff':{'fixture':1},'cleanup_before_cutoff':True,'cleanup':{'collector_pid':321,'all_reaped':True,'expected_children':2,'children':[{'pid':322,'reaped':True,'returncode':-15},{'pid':323,'reaped':True,'returncode':0}]}}
     def stop(self,r):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'lifecycle.json';p.write_text(json.dumps(r));process=mock.Mock(pid=321);process.poll.return_value=1
             with mock.patch.object(g.os,'close'),mock.patch.object(g.signal,'pidfd_send_signal') as sig:
-                result=g.stop({'process':process,'pidfd':41,'log':mock.Mock(),'lifecyclePath':str(p)})
+                result=g.stop({'process':process,'pidfd':41,'log':mock.Mock(),'lifecyclePath':str(p),'ownerCutoff':{'fixture':1}})
                 sig.assert_not_called();return result
     def test_failure_cleanup_is_distinct_from_acceptance(self):
         r=self.proof();self.assertEqual(self.stop(r)['status'],'GRAPHICS_COLLECTOR_CLEANED');self.assertEqual(r['status'],'FAILED');self.assertFalse(r['pair_acceptance'])
@@ -18,7 +18,7 @@ class CleanupProof(unittest.TestCase):
         cases=[];r=self.proof();r.pop('cleanup');cases.append(r)
         for key,value in [('all_reaped',False),('children',[]),('expected_children',3),('collector_pid',999)]:
             r=self.proof();r['cleanup'][key]=value;cases.append(r)
-        for key,value in [('schema',2),('schema',True),('pair_acceptance',True),('cleanup_errors',['failure'])]:
+        for key,value in [('schema',2),('schema',True),('pair_acceptance',True),('cleanup_errors',['failure']),('owner_cutoff',{'fixture':2}),('owner_cutoff',None),('cleanup_before_cutoff',False),('cleanup_before_cutoff',1)]:
             r=self.proof();r[key]=value;cases.append(r)
         for r in cases:
             with self.subTest(r=r),self.assertRaises(ValueError):self.stop(r)

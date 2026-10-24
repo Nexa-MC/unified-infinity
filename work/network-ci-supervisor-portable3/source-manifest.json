@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 108805,
-      "sha256": "b321e0bb30efa4ce0331fffe7571b75766ef6f323d973c8c27b07daa244d4f3a"
+      "bytes": 109938,
+      "sha256": "023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -92,6 +92,11 @@
       "path": "test_lifecycle_boundaries.py",
       "bytes": 13896,
       "sha256": "8b576b1e91ba73b767cada026f73e3d9da0915fdee2de13767e9afce4f91a32d"
+    },
+    {
+      "path": "test_pair_work_cutoff.py",
+      "bytes": 4952,
+      "sha256": "56c81521668984893227110378972e4ed8b6cabb626ca816eb61c72fb4679130"
     },
     {
       "path": "test_portability.py",

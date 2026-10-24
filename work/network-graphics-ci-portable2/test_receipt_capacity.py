@@ -46,6 +46,8 @@ def _normalized_function_digest(source):
     if source.count(_MIGRATED) != 1:
         raise ValueError('Expected exactly one reviewed graphics capacity expression')
     from test_cleanup_lifecycle import normalize_cleanup_reporting
+    from test_owner_deadline import normalize_owner_deadline
+    source = normalize_owner_deadline(source)
     tree = ast.parse(normalize_cleanup_reporting(source).replace(_MIGRATED, _ORIGINAL))
     node = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == 'execute')
     return hashlib.sha256(ast.dump(node, include_attributes=False).encode()).hexdigest()

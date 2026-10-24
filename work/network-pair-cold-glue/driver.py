@@ -19,6 +19,7 @@ import seal_pair
 import bounded_process
 import runner_dependencies
 import generated_output_diagnostics
+import round_deadline
 
 HERE=Path(__file__).resolve().parent
 REPO='Nexa-MC/unified-infinity'
@@ -110,6 +111,7 @@ def prepare(repo,consumer,profile=None,build_proof=None):
             'sourceCodeFiles':{p.name:compile_probe.record(p) for p in HERE.glob('*.py')},
             'dataFiles':{p.name:compile_probe.record(p) for p in HERE.glob('*lock.json')},
             'remainingExecutionObservations':['Actual installed runner graphics availability','All cold public downloads and fallback URL availability','Installer/ModDev outputs and full candidate build','Real native/Unified distinct-process roundtrip']}
+    result['dataFiles']['roundDeadline']=compile_probe.record(HERE/'round-deadline.json')
     if options:
         result.update(status='REFRESHED_DRIVER_PREPARED_EXECUTION_UNTESTED',refreshedProfile=selected)
         result['dataFiles']['refreshedCoreDependencyLock']=compile_probe.record(ffapi_sources.core_lock())
@@ -150,7 +152,9 @@ def restore_additional(consumer,plan):
 def execute_step(consumer,step,deadline,refreshed=False):
     root=driver_paths(consumer,refreshed)['runtime'];root.mkdir(exist_ok=True);log=root/(step['name']+'.log')
     require(not log.exists(),'Repeated runtime preparation step')
-    timeout=min(step['timeoutSeconds'],max(1,deadline-time.monotonic()))
+    remaining=deadline-time.monotonic()
+    require(remaining>0,'Cold job deadline expired before runtime command')
+    timeout=min(step['timeoutSeconds'],remaining)
     print('COLD_STEP_START '+step['name'],flush=True)
     with log.open('w') as stream:
         result=bounded_process.run(step['command'],cwd=step['cwd'],env=step['environment'],stdout=stream,stderr=subprocess.STDOUT,timeout=timeout)
@@ -211,8 +215,9 @@ def work_budget(work_seconds=None):
     return work_seconds
 
 
-def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None):
-    budget=work_budget(work_seconds)
+def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=None,work_seconds=None,round_id=None):
+    budget=work_budget(work_seconds if work_seconds is not None else (round_deadline.MAX_WORK_SECONDS if round_id is not None else None))
+    window=round_deadline.admit(round_id,budget) if round_id is not None else None
     require(os.environ.get('GITHUB_ACTIONS')=='true' and os.environ.get('GITHUB_REPOSITORY')==REPO
             and os.environ.get('GITHUB_REF')=='refs/heads/'+BRANCH and os.environ.get('GITHUB_EVENT_NAME')=='push',
             'Execution requires the separately reviewed exact future pair branch; no alternative publication route')
@@ -225,8 +230,11 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
     for row in [*plan['sourceCodeFiles'].values(),*plan['dataFiles'].values()]:require(compile_probe.record(Path(row['path']))==row,'Cold source/lock changed after preparation')
     if options:require(plan.get('refreshedProfile')==refreshed_binding(consumer,options),'Prepared refreshed profile changed')
     else:require(not plan.get('refreshedProfile'),'Refreshed plan requires an explicit profile selection')
-    deadline=time.monotonic()+budget;handle=None;active_pair=None;primary_error=None;previous={}
+    deadline=window.deadline if window is not None else time.monotonic()+budget
+    watchdog=round_deadline.Watchdog(window) if window is not None else None
+    handle=None;active_pair=None;primary_error=None;previous={}
     result={'schema':1,'status':'INCOMPLETE','gameAcceptance':False,'reports':{}}
+    if window is not None:result['roundDeadline']=window.receipt()
     spawning_pair=False;starting_graphics=False;cleaning_up=False;pending_stops=[]
     def stop_driver(number,frame):
         nonlocal cleaning_up
@@ -243,6 +251,11 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             interrupt_driver(pending_stops[0],None)
     try:
         for number in STOP_SIGNALS:previous[number]=signal.signal(number,stop_driver)
+        if watchdog is not None:
+            watchdog.start()
+            require(window.remaining()>=round_deadline.MIN_WORK_SECONDS,
+                    'Plan validation consumed useful-work allowance; stop before downloads or setup')
+        require(time.monotonic()<deadline,'Round work deadline expired before setup')
         if allow_runner_package:
             runner_dependencies.ensure(plan['graphics'],consumer,deadline,allow_install=True)
         availability=graphics_runner.availability(plan['graphics']);write(paths['graphics'],availability)
@@ -271,7 +284,8 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
         # handoff. The runner checks pending stops only while cleanup owns it.
         starting_graphics=True
         try:
-            graphics=graphics_runner.execute(plan['graphics'],deadline=deadline,interrupt_check=check_stops)
+            graphics=graphics_runner.execute(plan['graphics'],deadline=deadline,interrupt_check=check_stops,
+                                             owner_cutoff=window.owner_cutoff() if window is not None else None)
             handle=graphics.get('handle')
         finally:
             starting_graphics=False
@@ -283,9 +297,12 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
             sealed=seal_pair.create(repo,consumer,target,graphics['readyPath'],'Isolated native/Unified nonce diagnostic; publication approval tracked separately',**options)
             evidence=paths['evidence']/target;evidence.parent.mkdir(exist_ok=True)
             args=[sys.executable,sealed['supervisor']['path'],'--spec',sealed['spec']['path'],'--sha256',sealed['spec']['sha256'],'--execute-reviewed-ci-pair','--destination',str(evidence)]
+            if window is not None:args += ['--work-cutoff-monotonic', str(window.deadline)]
             print('ACTUAL_PAIR_START '+target,flush=True)
             # Defer stop signals across spawn/ownership assignment, so a signal
             # cannot strand a newly created child before finally can identify it.
+            remaining=deadline-time.monotonic()
+            require(remaining>0,'Cold job deadline expired before pair spawn')
             spawning_pair=True
             try:
                 call=subprocess.Popen(args,cwd=consumer)
@@ -294,7 +311,7 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 spawning_pair=False
             if pending_stops:interrupt_driver(pending_stops[0],None)
             try:
-                code=call.wait(timeout=min(PAIR_SECONDS,max(1,deadline-time.monotonic())))
+                code=call.wait(timeout=min(PAIR_SECONDS,max(0,deadline-time.monotonic())))
             except subprocess.TimeoutExpired as error:
                 raise RuntimeError('Pair time budget exhausted; owned supervisor cleanup required') from error
             active_pair=None  # wait reaped this owned supervisor before the next pair.
@@ -321,6 +338,11 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
         for number in previous:signal.signal(number,signal.SIG_IGN)
         try:
             errors=[]
+            if watchdog is not None:
+                try:watchdog.close()
+                except BaseException as error:
+                    errors.append({'component':'round-watchdog','failure':type(error).__name__+': '+str(error)})
+                result['roundDeadline']['stopReason']=watchdog.reason
             result['pairCleanup']=cleanup_pair(active_pair)
             if not result['pairCleanup']['reaped']:
                 errors.append({'component':'pair',**result['pairCleanup']})
@@ -348,14 +370,18 @@ def execute(repo,consumer,allow_runner_package=False,profile=None,build_proof=No
                 except OSError as error:
                     print('STEP_SUMMARY_FAILED '+str(error),file=sys.stderr,flush=True)
         finally:
-            for number,handler in previous.items():signal.signal(number,handler)
+            # Never expose a restored default handler to an unjoined stop thread.
+            if watchdog is None or not watchdog.thread.is_alive():
+                for number,handler in previous.items():signal.signal(number,handler)
     if result.get('cleanupErrors'):
         raise RuntimeError('Owned process cleanup failed; see '+str(paths['result']))
     return result
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('action',choices=['prepare','run']);p.add_argument('--repo-root',type=Path,required=True);p.add_argument('--consumer',type=Path,required=True);p.add_argument('--install-reviewed-runner-closure',action='store_true')
-    p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);a=p.parse_args()
+    p.add_argument('--profile');p.add_argument('--build-proof');p.add_argument('--work-seconds',type=int);p.add_argument('--round-id');a=p.parse_args()
     work_budget(a.work_seconds)
-    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds)
+    require(a.action!='run' or a.round_id is not None,'Execution requires the fixed --round-id')
+    if a.round_id is not None:round_deadline.admit(a.round_id,a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS)
+    value=prepare(a.repo_root,a.consumer,profile=a.profile,build_proof=a.build_proof) if a.action=='prepare' else execute(a.repo_root,a.consumer,a.install_reviewed_runner_closure,profile=a.profile,build_proof=a.build_proof,work_seconds=a.work_seconds if a.work_seconds is not None else round_deadline.MAX_WORK_SECONDS,round_id=a.round_id)
     print(json.dumps({'status':value['status'],'consumerRoot':str(a.consumer),'gameExecuted':a.action=='run'},indent=2))

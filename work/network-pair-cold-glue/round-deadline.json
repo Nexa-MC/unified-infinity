@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "roundId": "recovery-20261024T000900Z",
+  "startUtc": "2026-10-24T00:09:00Z",
+  "cutoffUtc": "2026-10-24T00:54:00Z",
+  "cleanupReserveSeconds": 180,
+  "maximumWorkSeconds": 1980,
+  "minimumWorkSeconds": 1560,
+  "jobSeconds": 2160,
+  "anchorKind": "FIRST_STEP_LOCAL_CLOCK",
+  "remainingJobTimeGuaranteed": false,
+  "platformCancellationReserveSeconds": 300
+}

@@ -1,5 +1,5 @@
 """Synthetic failure lifecycle tests; no native graphics or acceptance claim."""
-import os, platform, tempfile, unittest
+import os, platform, tempfile, unittest, time
 from pathlib import Path
 from unittest.mock import Mock, patch
 import test_graphics_preflight as baseline
@@ -20,10 +20,11 @@ class FailureCleanup(unittest.TestCase):
         if stop_error: child.stop.side_effect=ValueError('failed stop')
         s.Proc.return_value.identity.side_effect=ValueError('deliberate validation failure')
         observed={}
+        mono,wall=time.monotonic(),time.time()
         lock={'expected_runner':{'ImageOS':'ubuntu24','ImageVersion':'fixture','machine':platform.machine()},
               'display':':193','tools':{'xvfb':'/usr/bin/Xvfb','glxinfo':'/usr/bin/glxinfo'}}
         with tempfile.TemporaryDirectory() as d, patch.dict(os.environ, {'GITHUB_ACTIONS':'true','CI':'true','ImageOS':'ubuntu24','ImageVersion':'fixture'}),              patch.object(g,'OwnedChild',return_value=child), patch.object(g,'Logs'),              patch.object(g,'write_receipt',side_effect=lambda dest,name,value,*a:observed.update({name:value.copy()})):
-            with self.assertRaises(ValueError):g.execute(lock,{},s,Path(d)/'fresh')
+            with self.assertRaises(ValueError):g.execute(lock,{},s,Path(d)/'fresh',owner_cutoff={'work_monotonic':mono+100,'work_wall':wall+100,'cleanup_monotonic':mono+190,'cleanup_wall':wall+190})
         return observed['lifecycle.json'],child
     def test_failed_acceptance_stays_failed_but_child_reaping_explicit(self):
         r,c=self.exercise();self.assertEqual(r['status'],'FAILED');self.assertFalse(r['pair_acceptance'])
