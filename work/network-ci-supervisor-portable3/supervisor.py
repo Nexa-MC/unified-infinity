@@ -540,6 +540,8 @@ def rejected_children_diagnostics(proc, rows):
 CPU_PROBE_SHA256 = 'ee5d244d47458564a6de33a7d08f8b72a1418c17469ebbd2e3fcc1136ad72c0f'
 CPU_PROBE_BYTES = 980168
 CPU_PROBE_ARGV = b'lshw\0-class\0processor\0'
+CPU_PROBE_DISPLAY_ARGV = b'lshw\0-C\0display\0'
+CPU_PROBE_ALLOWED_ARGV = (CPU_PROBE_ARGV, CPU_PROBE_DISPLAY_ARGV)
 CPU_PROBE_PATH = '/usr/bin/lshw'
 CPU_PROBE_MAX_PER_ROLE = 4
 CPU_PROBE_MAX_SECONDS = 10
@@ -675,7 +677,8 @@ def cpu_probe_sample(proc, expected, parent, command, previous=None):
                                    value.st_uid, value.st_gid, value.st_nlink,
                                    value.st_mtime_ns, value.st_ctime_ns)
         identity = signature(before)
-        require(previous is None or previous == identity, 'CPU probe executable identity changed')
+        require(previous is None or (type(previous) is tuple and len(previous) == len(identity) + 1 and
+                                     previous[:-1] == identity), 'CPU probe executable identity changed')
         trusted_system_file_access(clean_path(CPU_PROBE_PATH), before)
         hasher, size = hashlib.sha256(), 0
         while True:
@@ -689,8 +692,10 @@ def cpu_probe_sample(proc, expected, parent, command, previous=None):
         require(size == CPU_PROBE_BYTES and hasher.hexdigest() == CPU_PROBE_SHA256,
                 'CPU probe executable digest mismatch')
         args = proc.root / str(expected['pid']) / 'cmdline'
-        require(read_bounded(args, 128) == CPU_PROBE_ARGV and
-                read_bounded(args, 128) == CPU_PROBE_ARGV, 'CPU probe argument form mismatch')
+        argv = read_bounded(args, 128)
+        require(argv in CPU_PROBE_ALLOWED_ARGV and read_bounded(args, 128) == argv,
+                'CPU probe argument form mismatch')
+        require(previous is None or previous[-1] == argv, 'CPU probe argument form changed across observations')
         cpu_probe_fds(proc, expected, deadline)
         age, cpu_ticks = cpu_probe_usage(proc, expected)
         require(os.readlink(path) == CPU_PROBE_PATH and signature(os.stat(path)) == identity and
@@ -700,7 +705,7 @@ def cpu_probe_sample(proc, expected, parent, command, previous=None):
                 'CPU probe parent executable changed during verification')
         live = relationship()
         require(time.monotonic() < deadline, 'CPU probe verification budget exceeded')
-        return identity, {'age_seconds': round(age, 3), 'cpu_ticks': cpu_ticks,
+        return identity + (argv,), {'age_seconds': round(age, 3), 'cpu_ticks': cpu_ticks,
                           'rss_bytes': live['rss_bytes'], 'high_water_rss_bytes': high_water}
     finally:
         if descriptor is not None:
@@ -767,7 +772,7 @@ class CpuProbePolicy:
             raise
         finally:
             pair.report['cpu_probe_policy'] = {
-                'contract': 'EXACT_OSHI_PROCESSOR_V1', 'failed': self.failed,
+                'contract': 'EXACT_OSHI_PROCESSOR_DISPLAY_V2', 'failed': self.failed,
                 'sampled_observations': True, 'hard_resource_enforcement': False,
                 'complete_process_history': False,
                 'failure': getattr(self, 'failure', None),

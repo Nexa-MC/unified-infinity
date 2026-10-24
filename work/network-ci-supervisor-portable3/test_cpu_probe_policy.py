@@ -32,6 +32,7 @@ def proc_stat(row, cpu=10):
 
 
 class SampleContract(unittest.TestCase):
+    ARGV = s.CPU_PROBE_ARGV
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
@@ -47,7 +48,7 @@ class SampleContract(unittest.TestCase):
         (self.root/'101/exe').symlink_to(self.java)
         (self.root/'102/exe').symlink_to(self.binary)
         (self.root/'101/cmdline').write_bytes(str(self.java).encode()+b'\0-cp\0sealed\0')
-        (self.root/'102/cmdline').write_bytes(s.CPU_PROBE_ARGV)
+        (self.root/'102/cmdline').write_bytes(self.ARGV)
         self.proc = s.Proc(self.root)
         self.command = [str(self.java), '-cp', 'sealed']
         self.stack = ExitStack(); self.addCleanup(self.stack.close)
@@ -87,8 +88,10 @@ class SampleContract(unittest.TestCase):
         self.assertNotIn(str(self.root), str(metrics))
 
     def test_other_argument_forms_and_secret_are_rejected_without_echo(self):
-        for raw in (b'lshw\0-C\0display\0', b'lshw\0-C\0system\0', b'/usr/bin/lshw\0-class\0processor\0',
-                    s.CPU_PROBE_ARGV+b'SECRET\0', s.CPU_PROBE_ARGV[:-1], b'lshw -class processor\0'):
+        for raw in (b'lshw\0-class\0display\0', b'lshw\0-C\0processor\0', b'lshw\0-C\0system\0',
+                    b'/usr/bin/lshw\0-class\0processor\0', b'/usr/bin/lshw\0-C\0display\0',
+                    self.ARGV+b'SECRET\0', self.ARGV[:-1], b'lshw -class processor\0',
+                    b'lshw -C display\0', b'sh\0-c\0lshw -C display\0'):
             (self.root/'102/cmdline').write_bytes(raw)
             with self.subTest(raw=raw), self.assertRaisesRegex(ValueError, 'argument form') as err: self.sample()
             self.assertNotIn('SECRET',str(err.exception))
@@ -152,6 +155,28 @@ class SampleContract(unittest.TestCase):
         with patch.object(s,'read_bounded',side_effect=read),self.assertRaisesRegex(ValueError,'argument'):self.sample()
         with patch.object(self.proc,'same',side_effect=PermissionError('private')),self.assertRaises(PermissionError):self.sample()
 
+    def test_allowed_form_switch_between_reads_is_rejected(self):
+        other = next(form for form in s.CPU_PROBE_ALLOWED_ARGV if form != self.ARGV)
+        original = s.read_bounded
+        count = 0
+        def read(path, limit):
+            nonlocal count
+            if Path(path) == self.root/'102/cmdline':
+                count += 1
+                return self.ARGV if count == 1 else other
+            return original(path, limit)
+        with patch.object(s, 'read_bounded', side_effect=read), self.assertRaisesRegex(ValueError, 'argument form'):
+            self.sample()
+
+    def test_allowed_form_is_bound_to_retained_identity(self):
+        signature, metrics = self.sample()
+        self.assertEqual(signature[-1], self.ARGV)
+        self.assertTrue(all(type(value) in (int, float) for value in metrics.values()))
+        other = next(form for form in s.CPU_PROBE_ALLOWED_ARGV if form != self.ARGV)
+        (self.root/'102/cmdline').write_bytes(other)
+        with self.assertRaisesRegex(ValueError, 'across observations'):
+            self.sample(signature)
+
     def test_known_zombie_is_bounded_terminal_observation_only(self):
         zombie = dict(self.helper, state='Z')
         (self.root/'102/stat').write_text(proc_stat(zombie))
@@ -191,6 +216,12 @@ class SampleContract(unittest.TestCase):
         for i in range(65):(self.root/'102/fd'/str(i)).symlink_to('/dev/null')
         with self.assertRaisesRegex(ValueError,'descriptor bound'):self.sample()
 
+
+
+class DisplaySampleContract(SampleContract):
+    # Re-run every sample invariant against display; shared policy quotas below
+    # are not duplicated or increased by the additional form.
+    ARGV = s.CPU_PROBE_DISPLAY_ARGV
 
 
 class PolicyContract(unittest.TestCase):

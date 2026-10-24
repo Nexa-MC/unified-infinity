@@ -139,7 +139,7 @@ class ProfileRuntimePaths(unittest.TestCase):
         self.assertIn("'pair_lock':str(serial/'serial-pair.lock')",source)
         self.assertIn('seal_indigo_baseline(target,roles,inputs,serial)',source)
         self.assertIn('s.verify_spec(spec);s.verify_graphics(spec,s.Proc())',source)
-        self.assertEqual(seal_pair.SUPERVISOR_SHA,'023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599')
+        self.assertEqual(seal_pair.SUPERVISOR_SHA,'76b385086e540ed7d977dad1f8891be9de908174fd3273a7298eae8cd964ecf7')
 
 
 if __name__=='__main__':unittest.main()

@@ -5,8 +5,8 @@
   "files": [
     {
       "path": "CPU-PROBE-POLICY.md",
-      "bytes": 5147,
-      "sha256": "c14bf075d7f9e535036c6750891818cf180065c57bd46fc6de9344eb2bd40397"
+      "bytes": 6011,
+      "sha256": "4988cc8f09f93a0abd0e8a58a3bc532208b66f9e8b8ce412deff02d364f9cce3"
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 109938,
-      "sha256": "023402d9c954449114719afcbe58180ac5cccc3bd019a1a99e0dd5c4d4aaa599"
+      "bytes": 110312,
+      "sha256": "76b385086e540ed7d977dad1f8891be9de908174fd3273a7298eae8cd964ecf7"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -70,8 +70,8 @@
     },
     {
       "path": "test_cpu_probe_policy.py",
-      "bytes": 19123,
-      "sha256": "af7093c371236ddeef02486f0d901e1e75f7d96bf6ecb1c4439acf38b9bf599e"
+      "bytes": 20586,
+      "sha256": "d4c560ddf7e7727041a499bffea95a96ac7e771e7745ee680df0c605fe3a77d5"
     },
     {
       "path": "test_fixed_lshw_argv.py",
