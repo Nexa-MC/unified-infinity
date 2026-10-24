@@ -38,9 +38,9 @@ jobs:
           
           REPOSITORY = 'Nexa-MC/unified-infinity'
           BRANCH = 'diagnostic/network-pair-20261006-a'
-          ROUND_ID = 'recovery-20261024T030900Z'
-          START_UTC = '2026-10-24T03:09:00Z'
-          CUTOFF_UTC = '2026-10-24T03:54:00Z'
+          ROUND_ID = 'recovery-20261024T040900Z'
+          START_UTC = '2026-10-24T04:09:00Z'
+          CUTOFF_UTC = '2026-10-24T04:54:00Z'
           JOB_SECONDS = 36 * 60
           CANCELLATION_SECONDS = 300
           CLEANUP_SECONDS = 180
@@ -153,10 +153,10 @@ jobs:
       - name: Verify the complete source-only publication
         timeout-minutes: 1
         run: |
-          python3 work/network-pair-cold-glue/round_deadline.py --round-id recovery-20261024T030900Z
+          python3 work/network-pair-cold-glue/round_deadline.py --round-id recovery-20261024T040900Z
           python3 work/network-pair-cold-glue/check_stage.py --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json
       - name: Materialize isolated consumer sources and serial plans
         timeout-minutes: 2
-        run: python3 work/network-pair-cold-glue/driver.py prepare --round-id recovery-20261024T030900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
+        run: python3 work/network-pair-cold-glue/driver.py prepare --round-id recovery-20261024T040900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
       - name: Restore, build, and run native then Unified with the same nonce probe
-        run: python3 work/network-pair-cold-glue/driver.py run --round-id recovery-20261024T030900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1980
+        run: python3 work/network-pair-cold-glue/driver.py run --round-id recovery-20261024T040900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-network-pair" --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1980

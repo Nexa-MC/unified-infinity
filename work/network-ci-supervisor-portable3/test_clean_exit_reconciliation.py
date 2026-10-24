@@ -17,6 +17,7 @@ import unittest
 from unittest.mock import Mock
 
 import supervisor as s
+from test_probe_failure_diagnostics import without_probe_diagnostics
 
 
 RECONCILIATION_BLOCK = '''            # A wait predicate may reap after pump; console drain need not pump again.
@@ -145,14 +146,14 @@ class SyntheticExitReconciliation(unittest.TestCase):
 
 class FrozenAcceptancePreservation(unittest.TestCase):
     def test_exact_addition_is_the_only_supervisor_byte_change(self):
-        source = Path(s.__file__).read_text()
+        source = without_probe_diagnostics(Path(s.__file__).read_text())
         self.assertEqual(source.count(RECONCILIATION_BLOCK), 1)
         self.assertEqual(source.count(RECONCILIATION_BLOCK + '            ' + EXIT_GATE), 1)
         original = source.replace(RECONCILIATION_BLOCK, '', 1)
         self.assertEqual(hashlib.sha256(original.encode()).hexdigest(), PREDECESSOR_SHA256)
 
     def test_gate_mutations_are_not_normalized_or_forgiven(self):
-        source = Path(s.__file__).read_text()
+        source = without_probe_diagnostics(Path(s.__file__).read_text())
         self.assertEqual(source.count(RECONCILIATION_BLOCK), 1)
         original = source.replace(RECONCILIATION_BLOCK, '', 1)
         for text in (EXIT_GATE, "self.probe_results(nonce)",

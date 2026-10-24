@@ -880,6 +880,40 @@ def cpu_probe_spawn_transition(pair, expected, parent, command, retained_pidfd, 
         time.sleep(min(0.005, max(0, deadline - time.monotonic())))
 
 
+def cpu_probe_failure_diagnostic(error, row, records):
+    """Failure-only in-memory evidence; never retry, read proc, or admit a child."""
+    allowed_frames = {
+        'check', 'cpu_probe_sample', 'relationship', 'cpu_probe_parent',
+        'cpu_probe_credentials', 'same', 'cpu_probe_fds', 'cpu_probe_usage',
+        'cpu_probe_spawn_transition', 'invariants', 'cpu_probe_spawn_sample',
+        'target_now', 'cpu_probe_spawn_census', 'cpu_probe_handle_live',
+        'cpu_probe_zombie', 'terminal', 'identity', 'command', 'all_identities',
+        'read_bounded', 'clean_path', 'trusted_system_file_access',
+        'owned_preparation_access', 'preparation_root', 'require'}
+    categories = {FileNotFoundError: 'NOT_FOUND', ProcessLookupError: 'NO_PROCESS',
+                  PermissionError: 'PERMISSION', ValueError: 'VALUE'}
+    result = {'admission_evidence': False,
+              'category': categories.get(type(error), 'OS_ERROR' if isinstance(error, OSError) else 'VALUE'),
+              'errno': error.errno if isinstance(error, OSError) and type(error.errno) is int
+                       and 0 <= error.errno <= 4095 else None}
+    if row is not None:
+        key = (row['pid'], row['start_ticks'])
+        result.update(pid=key[0], start_ticks=key[1], previously_verified=key in records)
+    frames, scanned, matched = [], 0, 0
+    trace = error.__traceback__
+    while trace is not None and scanned < 32:
+        code = trace.tb_frame.f_code
+        if code.co_filename == cpu_probe_failure_diagnostic.__code__.co_filename and code.co_name in allowed_frames:
+            frames.append({'function': code.co_name, 'line': trace.tb_lineno})
+            matched += 1
+            if len(frames) > 12:
+                frames.pop(0)
+        trace = trace.tb_next
+        scanned += 1
+    result.update(frames=frames, traceback_truncated=trace is not None or matched > 12)
+    return result
+
+
 class CpuProbePolicy:
     """Finite observed identities with owned pidfds; no unknown-child allowance."""
     def __init__(self):
@@ -889,8 +923,10 @@ class CpuProbePolicy:
     def check(self, pair, members, candidates):
         require(not self.failed, 'CPU probe failure remains sticky')
         accepted, active = set(), set()
+        current = None
         try:
             for row in candidates:
+                current = row
                 key = (row['pid'], row['start_ticks'])
                 role = next((name for name, parent in pair.identities.items()
                              if row['ppid'] == parent['pid']), None)
@@ -938,6 +974,10 @@ class CpuProbePolicy:
             self.failed = True
             self.failure = (str(error) if type(error) is ValueError and str(error).startswith('CPU probe ')
                             else 'CPU probe observation unavailable or raced')
+            try:
+                self.failure_context = cpu_probe_failure_diagnostic(error, current, self.records)
+            except Exception:
+                self.failure_context = {'admission_evidence': False, 'status': 'UNAVAILABLE'}
             raise
         finally:
             pair.report['cpu_probe_policy'] = {
@@ -947,6 +987,7 @@ class CpuProbePolicy:
                 'sampled_observations': True, 'hard_resource_enforcement': False,
                 'complete_process_history': False,
                 'failure': getattr(self, 'failure', None),
+                'failure_context': getattr(self, 'failure_context', None),
                 'maximum_per_role': CPU_PROBE_MAX_PER_ROLE, 'maximum_simultaneous_per_role': 1,
                 'maximum_age_seconds': CPU_PROBE_MAX_SECONDS, 'maximum_cpu_seconds': CPU_PROBE_MAX_CPU_SECONDS,
                 'maximum_rss_bytes': CPU_PROBE_MAX_RSS,

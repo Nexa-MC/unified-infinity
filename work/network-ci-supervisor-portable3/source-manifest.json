@@ -5,8 +5,8 @@
   "files": [
     {
       "path": "CPU-PROBE-POLICY.md",
-      "bytes": 7923,
-      "sha256": "dcb5de404138aa60c518c87737a2232b6f68700a573ddff74b1a87287d464900"
+      "bytes": 9124,
+      "sha256": "b8da3bd375957f5031f36c16dbb4d82f47fc0026bbef0557a237f66d04f6a1fe"
     },
     {
       "path": "LICENSE",
@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 124068,
-      "sha256": "12df46db6bf11127a3a95cbf3e813315aa909c83c329d0755c9690d24a9be8ef"
+      "bytes": 126338,
+      "sha256": "c0bbb9713411dd4a0107608977a1bee47b2df711abd93a5bda55baae9d927746"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -130,8 +130,13 @@
     },
     {
       "path": "test_clean_exit_reconciliation.py",
-      "bytes": 13437,
-      "sha256": "d2e499022027ce75958712d826d0abac5204b774df3d8b04ea3145fa699ef710"
+      "bytes": 13560,
+      "sha256": "bc96f210e50194fe740f03f7b477d26a267a9a958699b275ea3ae4e29eb29996"
+    },
+    {
+      "path": "test_probe_failure_diagnostics.py",
+      "bytes": 16992,
+      "sha256": "92ff76c2aa32a177f6223d41d8cdbe1b5c9d6fa807a7e1c2e92329cd3160d692"
     }
   ]
 }
