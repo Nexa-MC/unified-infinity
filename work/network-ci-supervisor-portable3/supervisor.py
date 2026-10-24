@@ -646,6 +646,62 @@ def cpu_probe_handle_live(descriptor):
     require(not poller.poll(0), 'CPU probe retained handle is not live')
 
 
+def cpu_probe_socket_diagnostic(proc, expected, descriptor_path, target, deadline):
+    """Failure-only bounded namespace observation, never socket admission."""
+    result = {'admission_evidence': False, 'status': 'UNAVAILABLE'}
+    try:
+        name = Path(descriptor_path).name
+        match = re.fullmatch(r'socket:\[([0-9]{1,20})\]', target)
+        require(re.fullmatch(r'[0-9]{1,20}', name) is not None and match is not None,
+                'CPU probe socket diagnostic identity malformed')
+        inode = match.group(1)
+        result.update(fd=int(name), inode=inode)
+        require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
+        proc.same(expected)
+        require(os.readlink(descriptor_path) == target, 'CPU probe socket diagnostic FD changed')
+        matches, tables = [], []
+        for table in ('tcp', 'tcp6', 'udp', 'udp6', 'unix', 'netlink'):
+            require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
+            try:
+                raw = read_bounded(proc.root / str(expected['pid']) / 'net' / table, 65536)
+                lines = raw.decode('ascii').splitlines()
+                require(len(lines) <= 1025, 'CPU probe socket diagnostic row bound exceeded')
+                hits = []
+                for line in lines[1:]:
+                    require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
+                    fields = line.split()
+                    index = 6 if table == 'unix' else 9
+                    require(len(fields) > index and re.fullmatch(r'[0-9]{1,20}', fields[index]) is not None,
+                            'CPU probe socket diagnostic table malformed')
+                    if fields[index] == inode:
+                        require(not hits, 'CPU probe socket diagnostic duplicate inode')
+                        hit = {'table': table}
+                        if table == 'netlink':
+                            require(re.fullmatch(r'[0-9]{1,3}', fields[1]) is not None and int(fields[1]) <= 255,
+                                    'CPU probe socket diagnostic protocol malformed')
+                            hit['protocol'] = int(fields[1])
+                        elif table == 'unix':
+                            require(re.fullmatch(r'[0-9A-Fa-f]{1,4}', fields[4]) is not None,
+                                    'CPU probe socket diagnostic type malformed')
+                            hit['type'] = int(fields[4], 16)
+                        hits.append(hit)
+                matches.extend(hits)
+                tables.append({'table': table, 'status': 'READ'})
+            except (OSError, ValueError, UnicodeError):
+                tables.append({'table': table, 'status': 'UNAVAILABLE'})
+        proc.same(expected)
+        require(os.readlink(descriptor_path) == target and time.monotonic() < deadline,
+                'CPU probe socket diagnostic observation changed or expired')
+        result.update(status='OBSERVED', matches=matches, tables=tables,
+                      classification='AMBIGUOUS' if len(matches) > 1 else
+                      'MATCHED' if matches else 'UNRESOLVED',
+                      complete=all(t['status'] == 'READ' for t in tables))
+    except Exception:
+        # Diagnostic failures must never replace the original socket prohibition.
+        result['status'] = 'UNAVAILABLE'
+    return result
+
+
 def cpu_probe_fds(proc, expected, deadline):
     # A live helper may close an enumerated descriptor before readlink. Restart
     # the whole census, never skip an unobserved entry or renew its deadline.
@@ -664,8 +720,11 @@ def cpu_probe_fds(proc, expected, deadline):
                     proc.same(expected)
                     changed = True
                     break
-                require(re.fullmatch(r'socket:\[\d+\]', target) is None,
-                        'CPU probe socket descriptor forbidden')
+                if re.fullmatch(r'socket:\[\d+\]', target) is not None:
+                    error = ValueError('CPU probe socket descriptor forbidden')
+                    error.socket_diagnostic = cpu_probe_socket_diagnostic(
+                        proc, expected, descriptor.path, target, deadline)
+                    raise error
         proc.same(expected)
         require(time.monotonic() < deadline, 'CPU probe descriptor bound exceeded')
         if not changed:
@@ -931,6 +990,8 @@ def cpu_probe_failure_diagnostic(error, row, records):
         trace = trace.tb_next
         scanned += 1
     result.update(frames=frames, traceback_truncated=trace is not None or matched > 12)
+    if type(error) is ValueError and hasattr(error, 'socket_diagnostic'):
+        result['socket_diagnostic'] = error.socket_diagnostic
     return result
 
 
