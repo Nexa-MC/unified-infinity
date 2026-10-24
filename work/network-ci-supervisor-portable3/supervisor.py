@@ -649,6 +649,28 @@ def cpu_probe_handle_live(descriptor):
 def cpu_probe_socket_diagnostic(proc, expected, descriptor_path, target, deadline):
     """Failure-only bounded namespace observation, never socket admission."""
     result = {'admission_evidence': False, 'status': 'UNAVAILABLE'}
+    matches, tables = [], []
+    stage, active_table = 'INPUT', None
+
+    def failure(error):
+        # Fixed labels only: never exception text, filenames, endpoints or rows.
+        categories = {FileNotFoundError: 'NOT_FOUND', ProcessLookupError: 'NO_PROCESS',
+                      PermissionError: 'PERMISSION'}
+        detail = {'stage': stage, 'error_category': categories.get(type(error),
+                  'OS_ERROR' if isinstance(error, OSError) else
+                  'UNICODE' if isinstance(error, UnicodeError) else
+                  'VALIDATION' if isinstance(error, ValueError) else 'OTHER'),
+                  'errno': None}
+        if active_table is not None:
+            detail['table'] = active_table
+        try:
+            number = error.errno if isinstance(error, OSError) else None
+            if type(number) is int and 0 <= number <= 4095:
+                detail['errno'] = number
+        except Exception:
+            pass  # Even unusual exception attributes cannot mask the rejection.
+        return detail
+
     try:
         name = Path(descriptor_path).name
         match = re.fullmatch(r'socket:\[([0-9]{1,20})\]', target)
@@ -656,49 +678,68 @@ def cpu_probe_socket_diagnostic(proc, expected, descriptor_path, target, deadlin
                 'CPU probe socket diagnostic identity malformed')
         inode = match.group(1)
         result.update(fd=int(name), inode=inode)
+        stage = 'INITIAL_BUDGET'
         require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
+        stage = 'IDENTITY_BEFORE'
         proc.same(expected)
+        stage = 'FD_BEFORE'
         require(os.readlink(descriptor_path) == target, 'CPU probe socket diagnostic FD changed')
-        matches, tables = [], []
         for table in ('tcp', 'tcp6', 'udp', 'udp6', 'unix', 'netlink'):
+            stage, active_table = 'TABLE_BUDGET', table
             require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
             try:
+                stage = 'TABLE_READ'
                 raw = read_bounded(proc.root / str(expected['pid']) / 'net' / table, 65536)
+                stage = 'TABLE_DECODE'
                 lines = raw.decode('ascii').splitlines()
+                stage = 'TABLE_ROW_BOUND'
                 require(len(lines) <= 1025, 'CPU probe socket diagnostic row bound exceeded')
                 hits = []
                 for line in lines[1:]:
+                    stage = 'TABLE_ROW_BUDGET'
                     require(time.monotonic() < deadline, 'CPU probe socket diagnostic budget exceeded')
+                    stage = 'TABLE_PARSE'
                     fields = line.split()
                     index = 6 if table == 'unix' else 9
                     require(len(fields) > index and re.fullmatch(r'[0-9]{1,20}', fields[index]) is not None,
                             'CPU probe socket diagnostic table malformed')
                     if fields[index] == inode:
+                        stage = 'TABLE_MATCH'
                         require(not hits, 'CPU probe socket diagnostic duplicate inode')
                         hit = {'table': table}
                         if table == 'netlink':
+                            stage = 'TABLE_PROTOCOL'
                             require(re.fullmatch(r'[0-9]{1,3}', fields[1]) is not None and int(fields[1]) <= 255,
                                     'CPU probe socket diagnostic protocol malformed')
                             hit['protocol'] = int(fields[1])
                         elif table == 'unix':
+                            stage = 'TABLE_TYPE'
                             require(re.fullmatch(r'[0-9A-Fa-f]{1,4}', fields[4]) is not None,
                                     'CPU probe socket diagnostic type malformed')
                             hit['type'] = int(fields[4], 16)
                         hits.append(hit)
                 matches.extend(hits)
                 tables.append({'table': table, 'status': 'READ'})
-            except (OSError, ValueError, UnicodeError):
-                tables.append({'table': table, 'status': 'UNAVAILABLE'})
+            except (OSError, ValueError, UnicodeError) as error:
+                tables.append({'table': table, 'status': 'UNAVAILABLE', 'failure': failure(error)})
+        stage, active_table = 'IDENTITY_AFTER', None
         proc.same(expected)
-        require(os.readlink(descriptor_path) == target and time.monotonic() < deadline,
+        stage = 'FD_AFTER'
+        observed_target = os.readlink(descriptor_path)
+        if observed_target == target:
+            stage = 'FINAL_BUDGET'
+        require(observed_target == target and time.monotonic() < deadline,
                 'CPU probe socket diagnostic observation changed or expired')
         result.update(status='OBSERVED', matches=matches, tables=tables,
                       classification='AMBIGUOUS' if len(matches) > 1 else
                       'MATCHED' if matches else 'UNRESOLVED',
                       complete=all(t['status'] == 'READ' for t in tables))
-    except Exception:
+    except Exception as error:
+        # Partial observations are unverified and cannot restore classification.
         # Diagnostic failures must never replace the original socket prohibition.
-        result['status'] = 'UNAVAILABLE'
+        result.update(status='UNAVAILABLE', failure=failure(error),
+                      partial={'admission_evidence': False, 'identity_verified': False,
+                               'atomic_observation': False, 'tables': tables, 'matches': matches})
     return result
 
 

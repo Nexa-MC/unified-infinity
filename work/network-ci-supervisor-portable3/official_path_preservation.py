@@ -13,7 +13,10 @@ REVIEWED = """                'path_label': ('PARENT_COMMAND_PATH' if label == c
 """
 
 
+from socket_stage_preservation import without_socket_failure_stage
+
 def without_official_path_diagnostic(source):
+    source = without_socket_failure_stage(source)
     if source.count(REVIEWED) != 1:
         raise ValueError('Changed or duplicate rejected PCI-query path diagnostic block')
     return source.replace(REVIEWED, ORIGINAL, 1)

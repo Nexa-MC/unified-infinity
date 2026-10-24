@@ -50,8 +50,8 @@
     },
     {
       "path": "supervisor.py",
-      "bytes": 140903,
-      "sha256": "87205185dbb399ea516338036e7dae39b25e0659c7a7d3d9beac606f7f82fc89"
+      "bytes": 142948,
+      "sha256": "1b489c7cd6db677cb067cc6f3d564c2e813baacaada2b4d583d911953aee7183"
     },
     {
       "path": "test_child_identity_diagnostics.py",
@@ -151,7 +151,7 @@
     {
       "path": "fixtures/jna-classpath-provenance.json",
       "bytes": 1175,
-      "sha256": "ba93fe6e9b973cd34a5ce4a1551dd02392fca3af567fa719da6b79fb7aff77a1"
+      "sha256": "9977ab0f6570e57878edc6195148dc36a7dbf0c4bb8d35a6805fea71e8882f05"
     },
     {
       "path": "fixtures/jna-native-classpath.log",
@@ -215,13 +215,23 @@
     },
     {
       "path": "official_path_preservation.py",
-      "bytes": 868,
-      "sha256": "91bbe23b40e6d73fe22935caf77ea9572be606a588110dbed23beabca0938447"
+      "bytes": 986,
+      "sha256": "15555dc3dbd8c250223e03eb53da012384802f77a0f37e336ed8963ee329fa4b"
     },
     {
       "path": "test_official_path_diagnostic.py",
-      "bytes": 13691,
-      "sha256": "7b16639d93224fb50f6ca4856c17d917e3343003b1a0cfd1e29dca4f5e212b01"
+      "bytes": 13820,
+      "sha256": "4279cb6e2e87ea385a6f02060415e7aa7acae2b1dc67be49243a7b0c916c02b4"
+    },
+    {
+      "path": "socket_stage_preservation.py",
+      "bytes": 9663,
+      "sha256": "8005c70cb8daa4bd97ef021c0b60d5f4ac60fc9d51efd855e4cfab3e18c825b5"
+    },
+    {
+      "path": "test_socket_stage_diagnostic.py",
+      "bytes": 21773,
+      "sha256": "b50a1730eff341e71c3d42a7806f45c0669e067dd5344f297d24a975edd83722"
     }
   ]
 }

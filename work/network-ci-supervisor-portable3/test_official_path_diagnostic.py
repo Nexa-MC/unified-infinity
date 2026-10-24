@@ -245,6 +245,8 @@ class ExactPreservation(unittest.TestCase):
     def test_only_path_label_value_changes_in_entire_source_ast(self):
         source = Path(s.__file__).read_text()
         previous = without_official_path_diagnostic(source)
+        from socket_stage_preservation import without_socket_failure_stage
+        source = without_socket_failure_stage(source)
         tree = ast.parse(source)
         old_tree = ast.parse(previous)
         replaced = 0
