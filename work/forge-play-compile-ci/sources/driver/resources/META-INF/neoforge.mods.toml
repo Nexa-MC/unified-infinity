@@ -1,0 +1,19 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+[[mods]]
+modId="forge_play_driver"
+version="0.1.0"
+displayName="Unified Forge PLAY Runtime Driver"
+[[dependencies.forge_play_driver]]
+modId="neoforge"
+type="required"
+versionRange="[21.1.219]"
+ordering="NONE"
+side="BOTH"
+[[dependencies.forge_play_driver]]
+modId="unified_forge_play"
+type="required"
+versionRange="[0.1.0]"
+ordering="AFTER"
+side="BOTH"
