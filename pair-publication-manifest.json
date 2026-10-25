@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_0209_0254_TYPED_HISTORICAL_PROVENANCE_REPAIR_UNEXECUTED",
+  "status": "FIXED_0309_0354_EXACT_MODLAUNCHER_SGR_PARSER_REPAIR_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "be989aae0525b83ce6f8bdb5edfbcbcc7f4594cd",
-    "manifestSha256": "e87e5b0e8cce0671b90f7025d6d414c2fc7db4b4216f6986b4ef512b29ea4ba7"
+    "commit": "9c1bad6c914a442c8a34a0974bcbdb3cb0199560",
+    "manifestSha256": "00d94a62d234a7dc04da9d10d928ea9a8c2afad74cf7b6adfb2a2ceed557ea49"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 9078,
-      "sha256": "591639c490fd2835a9b9594ed4ae746c3c7d12c566dee5cb377376d459a15578"
+      "sha256": "28b36b4f08edf283fccaeb8bb7ac3f365db7067d465aa4a42fe8203db4edd6b2"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -1120,7 +1120,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "1077d649cf3b3447236ac0118bc4d77983bed73514a9cdc3e5c7028ef95a778c"
+      "sha256": "43ffa6aab70d90d27db9fb4472c1db1bcfba6234726ae626960d74824e8da044"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -1205,7 +1205,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 9078,
-      "sha256": "591639c490fd2835a9b9594ed4ae746c3c7d12c566dee5cb377376d459a15578"
+      "sha256": "28b36b4f08edf283fccaeb8bb7ac3f365db7067d465aa4a42fe8203db4edd6b2"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -1270,7 +1270,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "0ac9359f2037cb2d169a802e8d781e6c0b36812293429589bbdb051fbaf20ee1"
+      "sha256": "07d32e192810d44bd0b582642120dd58ff849858b2d4dcf8cfa28402938b9c17"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1625,7 +1625,7 @@
     {
       "path": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
       "bytes": 47958,
-      "sha256": "3a880ea2f87bbfd6f54c16d69573414e72375d326d7f6fdd19a88fd7d5a7538e"
+      "sha256": "47802348636fced6d621e2eda6350f6d56b55b2c0de4ff840b43d978e0c223b4"
     },
     {
       "path": "work/quilt-lifecycle-support/pipeline/quilt_compile_pipeline.py",
@@ -1634,8 +1634,8 @@
     },
     {
       "path": "work/quilt-lifecycle-support/qualification/quilt_lifecycle_qualification.py",
-      "bytes": 64360,
-      "sha256": "1abca1a1b7cfe34f6d49aafd62ea0dbaaeb706d88bc10a3c887e08a4dd476045"
+      "bytes": 66395,
+      "sha256": "80fc07e92e3af0330c7d8363eb5c8bd12d41e5eb670413735ac4067639e77856"
     },
     {
       "path": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/README.md",
@@ -1690,7 +1690,7 @@
     {
       "path": "work/quilt-lifecycle-support/source-contract.json",
       "bytes": 8295,
-      "sha256": "5adae6568837732de9a4a447b9d974ec8cee530de2b549ee615684070f421d0b"
+      "sha256": "1455589e5cc28a5ef768b72cf845fdde7fa5ee0c86719d12bb06f538726deb15"
     },
     {
       "path": "work/quilt-lifecycle-support/sources/jdk-input-verification.json",
@@ -1708,8 +1708,8 @@
       "sha256": "c53a51560aea189c04fabf4e8fd404380a3c4caee1173a83db2f3f480a9dd271"
     }
   ],
-  "revision": 36,
-  "previousReviewManifestSha256": "e87e5b0e8cce0671b90f7025d6d414c2fc7db4b4216f6986b4ef512b29ea4ba7",
+  "revision": 37,
+  "previousReviewManifestSha256": "00d94a62d234a7dc04da9d10d928ea9a8c2afad74cf7b6adfb2a2ceed557ea49",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
@@ -1717,9 +1717,9 @@
   },
   "roundDeadline": {
     "schema": 1,
-    "roundId": "recovery-20261025T020900Z",
-    "startUtc": "2026-10-25T02:09:00Z",
-    "cutoffUtc": "2026-10-25T02:54:00Z",
+    "roundId": "recovery-20261025T030900Z",
+    "startUtc": "2026-10-25T03:09:00Z",
+    "cutoffUtc": "2026-10-25T03:54:00Z",
     "cleanupReserveSeconds": 180,
     "maximumWorkSeconds": 1980,
     "minimumWorkSeconds": 1560,
@@ -1742,6 +1742,6 @@
     "sourceControlsExecuted": false,
     "currentRuntimeAcceptance": false,
     "qslNetworkingAcceptance": false,
-    "sourceContractSha256": "5adae6568837732de9a4a447b9d974ec8cee530de2b549ee615684070f421d0b"
+    "sourceContractSha256": "1455589e5cc28a5ef768b72cf845fdde7fa5ee0c86719d12bb06f538726deb15"
   }
 }

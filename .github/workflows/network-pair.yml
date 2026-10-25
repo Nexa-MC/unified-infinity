@@ -38,9 +38,9 @@ jobs:
           
           REPOSITORY = 'Nexa-MC/unified-infinity'
           BRANCH = 'diagnostic/network-pair-20261006-a'
-          ROUND_ID = 'recovery-20261025T020900Z'
-          START_UTC = '2026-10-25T02:09:00Z'
-          CUTOFF_UTC = '2026-10-25T02:54:00Z'
+          ROUND_ID = 'recovery-20261025T030900Z'
+          START_UTC = '2026-10-25T03:09:00Z'
+          CUTOFF_UTC = '2026-10-25T03:54:00Z'
           JOB_SECONDS = 36 * 60
           CANCELLATION_SECONDS = 300
           CLEANUP_SECONDS = 180
@@ -153,10 +153,10 @@ jobs:
       - name: Verify the complete source-only publication
         timeout-minutes: 1
         run: |
-          python3 work/network-pair-cold-glue/round_deadline.py --round-id recovery-20261025T020900Z
+          python3 work/network-pair-cold-glue/round_deadline.py --round-id recovery-20261025T030900Z
           python3 work/network-pair-cold-glue/check_stage.py --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json
       - name: Materialize separate QSL source-only consumer and serial plans
         timeout-minutes: 2
-        run: python3 work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-quilt-lifecycle" --support-source "$GITHUB_WORKSPACE" --source-contract "$GITHUB_WORKSPACE/work/quilt-lifecycle-support/source-contract.json" --source-contract-sha256 5adae6568837732de9a4a447b9d974ec8cee530de2b549ee615684070f421d0b --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
+        run: python3 work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py prepare --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-quilt-lifecycle" --support-source "$GITHUB_WORKSPACE" --source-contract "$GITHUB_WORKSPACE/work/quilt-lifecycle-support/source-contract.json" --source-contract-sha256 1455589e5cc28a5ef768b72cf845fdde7fa5ee0c86719d12bb06f538726deb15 --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json
       - name: Restore, build and seal fresh QSL create then owned reopen
-        run: python3 work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py run --execute-reviewed-quilt-lifecycle --round-id recovery-20261025T020900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-quilt-lifecycle" --source-contract-sha256 5adae6568837732de9a4a447b9d974ec8cee530de2b549ee615684070f421d0b --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1980
+        run: python3 work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py run --execute-reviewed-quilt-lifecycle --round-id recovery-20261025T030900Z --repo-root "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-quilt-lifecycle" --source-contract-sha256 1455589e5cc28a5ef768b72cf845fdde7fa5ee0c86719d12bb06f538726deb15 --profile work/network-pair-cold-glue/profiles/ffapi-20261023.json --build-proof work/emi-render-integration/refreshed-build-8f53/proof.json --install-reviewed-runner-closure --work-seconds 1980

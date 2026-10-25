@@ -96,7 +96,7 @@
       "source": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
       "destination": "driver/quilt_lifecycle_driver.py",
       "bytes": 47958,
-      "sha256": "3a880ea2f87bbfd6f54c16d69573414e72375d326d7f6fdd19a88fd7d5a7538e"
+      "sha256": "47802348636fced6d621e2eda6350f6d56b55b2c0de4ff840b43d978e0c223b4"
     },
     {
       "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/README.md",
@@ -167,8 +167,8 @@
     {
       "source": "work/quilt-lifecycle-support/qualification/quilt_lifecycle_qualification.py",
       "destination": "qualification/quilt_lifecycle_qualification.py",
-      "bytes": 64360,
-      "sha256": "1abca1a1b7cfe34f6d49aafd62ea0dbaaeb706d88bc10a3c887e08a4dd476045"
+      "bytes": 66395,
+      "sha256": "80fc07e92e3af0330c7d8363eb5c8bd12d41e5eb670413735ac4067639e77856"
     },
     {
       "source": "work/quilt-lifecycle-support/staging/quilt_lifecycle_staging.py",

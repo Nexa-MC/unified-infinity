@@ -531,16 +531,51 @@ def fixture_gate(evidence, fixture, reviewed, *, synthetic_fixture=False):
             'compile_receipt': fixture['compile_receipt']}
 
 
-def lifecycle_log(payload, *, role, phase, fixture_path, fixture_sha):
-    """Accept only the fixture's actual stdout grammar, never invented JSON events."""
+def _lifecycle_console_lines(payload):
+    """Recognize only the observed ModLauncher highlight layout, not arbitrary ANSI.
+
+    Its %highlight{...%n} places the reset after the physical newline. The
+    residual reset can therefore precede the first direct CLASS_DEFINED write.
+    Keep raw lines separately: transport/reload receipts refer to those bytes.
+    """
     require(payload.endswith(b'\n') and b'\x00' not in payload, 'Truncated or malformed log')
     try:
-        lines = payload.decode('utf-8', 'strict').split('\n')[:-1]
-        require(not any('\r' in line or any(ord(c) < 32 and c != '\t' for c in line) for line in lines),
-                'Malformed control character in log')
+        raw_lines = payload.decode('utf-8', 'strict').split('\n')[:-1]
     except UnicodeError:
         raise ValueError('Malformed UTF-8 log') from None
-    require(all(len(line.encode('utf-8')) <= MAX_LINE for line in lines), 'Oversized log line')
+    require(all(len(line.encode('utf-8')) <= MAX_LINE for line in raw_lines), 'Oversized log line')
+    logical, highlighted, native_started = [], False, False
+    for raw in raw_lines:
+        line, reset = raw, False
+        if line.startswith('\x1b[m'):
+            require(highlighted and not native_started, 'Unpaired or late console SGR reset')
+            highlighted, reset, line = False, True, line[3:]
+        color = next((value for value in ('\x1b[32m', '\x1b[33m') if line.startswith(value)), None)
+        if color is not None:
+            require(not highlighted and not native_started, 'Unpaired or late console SGR color')
+            line = line[len(color):]
+            level = 'INFO' if color == '\x1b[32m' else 'WARN'
+            require(re.match(r'\[(?:[01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]\.[0-9]{3}\] '
+                             r'\[[^\[\]\r\n]{1,256}/'+level+r'\] \[[^\[\]\r\n]{1,256}\]: ', line)
+                    is not None, 'SGR color requires matching ModLauncher log header')
+            highlighted = True
+        elif reset:
+            require(line == 'NATIVE_QUILT_PROBE CLASS_DEFINED', 'Unexpected console SGR reset boundary')
+        # No generic escape removal: embedded SGR, alternate reset/color codes,
+        # OSC, cursor movement, CR, C1 controls, and DEL all remain forbidden.
+        require(not any((ord(c) < 32 and c != '\t') or 0x7f <= ord(c) <= 0x9f for c in line),
+                'Malformed control character in log')
+        has_marker = 'NATIVE_QUILT_PROBE' in line or 'NETWORK_CONTROL_' in line
+        require(not highlighted or not has_marker, 'Probe marker inside highlighted console message')
+        native_started = native_started or 'NATIVE_QUILT_PROBE' in line
+        logical.append(line)
+    require(not highlighted, 'Unterminated console SGR highlight')
+    return raw_lines, logical
+
+
+def lifecycle_log(payload, *, role, phase, fixture_path, fixture_sha):
+    """Accept only the fixture's actual stdout grammar, never invented JSON events."""
+    raw_lines, lines = _lifecycle_console_lines(payload)
     markers, events = [], {}
     for index, line in enumerate(lines):
         if 'NATIVE_QUILT_PROBE' in line:
@@ -576,7 +611,7 @@ def lifecycle_log(payload, *, role, phase, fixture_path, fixture_sha):
         require(tick is not None and 5 <= int(tick[1]) <= 2**31-1, 'Missing actual five tick/mixin sentinel')
         require(stop is not None and 5 <= int(stop[1]) <= 2**31-1, 'Missing final STOPPED callback')
         result.update(ticks=5, mixin_ticks=int(tick[1]), stopped_ticks=int(stop[1]), read_before_write=phase=='reopen')
-    return result, events, lines
+    return result, events, raw_lines
 
 
 def _identity(row):

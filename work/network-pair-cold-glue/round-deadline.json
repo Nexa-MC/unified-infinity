@@ -1,8 +1,8 @@
 {
   "schema": 1,
-  "roundId": "recovery-20261025T020900Z",
-  "startUtc": "2026-10-25T02:09:00Z",
-  "cutoffUtc": "2026-10-25T02:54:00Z",
+  "roundId": "recovery-20261025T030900Z",
+  "startUtc": "2026-10-25T03:09:00Z",
+  "cutoffUtc": "2026-10-25T03:54:00Z",
   "cleanupReserveSeconds": 180,
   "maximumWorkSeconds": 1980,
   "minimumWorkSeconds": 1560,
