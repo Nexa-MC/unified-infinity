@@ -19,7 +19,7 @@ import time
 HERE = Path(__file__).resolve().parent
 ORIGINAL_DRIVER_SHA256 = '8b38fc5925168811670365a6ec95a8cadc7ddf6288a54fa33019b25def80216e'
 CONTINUATION_SHA256 = 'cc6378e0b5dfc9433fdfccf1f5e8da45cd56a299912be1e229ac6b86aa93471f'
-QUALIFIER_SHA256 = 'b1bffd7a7218d27962eff7b56d390584bf62587da6e615a63a007bcc5adf3e5c'
+QUALIFIER_SHA256 = '1abca1a1b7cfe34f6d49aafd62ea0dbaaeb706d88bc10a3c887e08a4dd476045'
 STAGING_SHA256 = '6ddc65d700e41340385e80d80ef5a7b025294224f31af4bacf86b181c5d9c825'
 REPO='Nexa-MC/unified-infinity'
 BRANCH='diagnostic/network-pair-20261006-a'
@@ -416,10 +416,21 @@ def original_assembly_sources(consumer,input_rows,staging):
     return assembler,validator
 
 
-def source_materialization_inputs(consumer,source,assembly,proof_inputs,staging):
-    """Extract only exact original diagnostic producer contracts, never infer wrappers."""
+def source_materialization_inputs(consumer,source,assembly,proof_inputs,staging,*,host_graphics=()):
+    """Extract local producer contracts, retaining host graphics in the source seal.
+
+    host_graphics is the exact typed result of the reviewed qualifier, not an
+    external-path allowlist. The runtime caller always uses its strict public
+    classifier after the unchanged original static/live source-seal gates.
+    """
+    require(record(Path(source['spec']['path']))==source['spec'],'Pristine source spec changed')
     source_spec=load_json(source['spec']['path']);inputs={row['path']:row for row in source_spec['inputs']}
     require(len(inputs)==len(source_spec['inputs']),'Duplicate pristine source input')
+    hosts={row['path']:row for row in host_graphics}
+    require(len(hosts)==len(host_graphics),'Duplicate classified host graphics input')
+    for path,row in hosts.items():
+        require(not Path(path).is_relative_to(consumer) and inputs.get(path)==row,
+                'Classified host graphics must be exact external source pins')
     for row in proof_inputs:
         require(inputs.get(row['path'])==row,'Pristine seed spec misses independently validated proof input: '+row['path'])
     inputs[source['spec']['path']]=source['spec']
@@ -448,7 +459,10 @@ def source_materialization_inputs(consumer,source,assembly,proof_inputs,staging)
                 inputs[item['path']]=item
             else:require(inputs[item['path']]==item,'Pristine role pin conflicts with source spec')
     assembler,validator=original_assembly_sources(consumer,source_spec['inputs'],staging)
-    return {'source_roles':source_roles,'source_specs':source_specs,'source_inputs':list(inputs.values()),
+    local_inputs=[row for path,row in inputs.items() if path not in hosts]
+    require(all(Path(row['path']).is_relative_to(consumer) for row in local_inputs),
+            'Unclassified external input in pristine materialization closure')
+    return {'source_roles':source_roles,'source_specs':source_specs,'source_inputs':local_inputs,
             'assembler_pin':assembler,'validator_pin':validator,'derivative_pin':derivative,
             'diagnostic_manifest_pin':diagnostic_manifest}
 
@@ -461,7 +475,9 @@ def prepare_phases(repo,consumer,options,component,verified,manifest,fabric,grap
         diagnostic_manifest=manifest,ffapi_probe_bundle=fabric,**options)
     _,assembly,proof_inputs,_=diagnostic_pair_assembly.validate(repo,consumer,Path(manifest),ffapi_probe_bundle=fabric,**options)
     staging=component['staging'];sealer=component['sealer'];phases={}
-    inputs=source_materialization_inputs(consumer,source,assembly,proof_inputs,staging)
+    host_graphics=component['qualifier'].classify_graphics_inputs(consumer,load_json(source['spec']['path']),
+        consumer/SUPPORT/'original/supervisor.py')
+    inputs=source_materialization_inputs(consumer,source,assembly,proof_inputs,staging,host_graphics=host_graphics)
     (consumer/'work/quilt-lifecycle-seals').mkdir()
     for phase in ('create','reopen'):
         require(time.monotonic()<deadline,'Round expired before fresh phase materialization')

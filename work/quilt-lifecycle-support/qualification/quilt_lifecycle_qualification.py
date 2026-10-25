@@ -268,6 +268,211 @@ def load_supervisor(path):
     return module, row
 
 
+# This is a typed exception for the existing graphics producer, not a second
+# general evidence root. No live process/display observation happens here.
+GRAPHICS_ROOT_RELATIVE = 'work/network-pair-cold-glue/graphics-production'
+GRAPHICS_READY_MAX = 1024 * 1024
+GRAPHICS_PREFLIGHT_MAX = 32 * 1024
+GRAPHICS_FILE_MAX = 512 * 1024 * 1024
+GRAPHICS_TOTAL_MAX = 2 * 1024 * 1024 * 1024
+
+
+def _graphics_inputs_contract(root, spec):
+    """Check retained local provenance only; NOT root ownership/live acceptance.
+
+    Kept separate solely so structural tests can state exactly what they prove
+    on environments whose existing host files are not owned by UID 0. Production
+    callers must use classify_graphics_inputs, never this parser as admission.
+    """
+    evidence = Evidence(root)
+    require(type(spec) is dict and type(spec.get('inputs')) is list
+            and 1 <= len(spec['inputs']) <= 100000, 'Bounded graphics source spec inputs required')
+    pins = {}
+    for row in spec['inputs']:
+        exact(row, ('path','bytes','sha256'), 'graphics source input pin')
+        require(type(row['path']) is str and integer(row['bytes'],1) and sha(row['sha256']),
+                'Invalid graphics source input pin')
+        canonical_path(row['path'])
+        require(row['path'] not in pins, 'Duplicate graphics source input pin')
+        pins[row['path']] = row
+    producer = evidence.root/GRAPHICS_ROOT_RELATIVE
+    ready_path = str(producer/'actual-preflight/ready.json')
+    preflight_path = str(producer/'actual-preflight/graphics-preflight.json')
+    provenance_path = str(producer/'installed-provenance.json')
+    receipts = spec.get('source_receipts')
+    require(type(receipts) is list and all(type(value) is str for value in receipts)
+            and receipts.count(ready_path) == 1 and ready_path in pins,
+            'Unique fixed graphics ready source receipt and sealed pin required')
+    ready = evidence.json(pins[ready_path], GRAPHICS_READY_MAX)
+    exact(ready, ('schema','status','pair_acceptance','graphics','inputs','collector_pid',
+                  'maximum_lifetime_seconds','owner_cutoff'), 'original graphics ready receipt')
+    require(type(ready['schema']) is int and ready['schema'] == 1
+            and ready['status'] == 'GRAPHICS_PREFLIGHT_READY' and ready['pair_acceptance'] is False
+            and integer(ready['collector_pid'],1,2**31-1)
+            and integer(ready['maximum_lifetime_seconds'],2520,2520), 'Graphics ready identity/status mismatch')
+    cutoff = ready['owner_cutoff']
+    exact(cutoff, ('work_monotonic','work_wall','cleanup_monotonic','cleanup_wall'), 'retained graphics owner cutoff')
+    require(all(type(value) in (int,float) and math.isfinite(value) and value > 0 for value in cutoff.values()),
+            'Invalid retained graphics cutoff value')
+    for kind in ('monotonic','wall'):
+        work, cleanup = cutoff['work_'+kind], cutoff['cleanup_'+kind]
+        require(math.isclose(cleanup-work,90,rel_tol=0,
+                    abs_tol=min(1e-6,2*max(math.ulp(work),math.ulp(cleanup)))),
+                'Retained graphics cleanup reserve changed')
+    graphics = ready['graphics']
+    exact(graphics, ('display','pid','start_ticks','executable','preflight','reserve_bytes'), 'retained graphics identity')
+    require(type(graphics['display']) is str and re.fullmatch(r':\d{1,5}',graphics['display'])
+            and integer(graphics['pid'],1,2**31-1) and integer(graphics['start_ticks'],1)
+            and graphics['pid'] != ready['collector_pid']
+            and integer(graphics['reserve_bytes'],256*1024*1024)
+            and graphics['preflight'] == preflight_path, 'Invalid fixed graphics identity/preflight path')
+    canonical_path(graphics['executable'])
+    # Explicit types above avoid bool/int equivalence inside a dict comparison.
+    require(type(spec.get('graphics')) is dict and spec['graphics'] == graphics
+            and all(type(spec['graphics'].get(key)) is type(value) for key,value in graphics.items()),
+            'Graphics ready identity differs from current sealed spec')
+    require(type(ready['inputs']) is list and 4 <= len(ready['inputs']) <= 129,
+            'Bounded original graphics ready input roster required')
+    ready_pins = {}
+    total = 0
+    for row in ready['inputs']:
+        exact(row, ('path','bytes','sha256'), 'graphics ready input pin')
+        require(type(row['path']) is str and integer(row['bytes'],1,GRAPHICS_FILE_MAX) and sha(row['sha256']),
+                'Invalid bounded graphics ready input')
+        canonical_path(row['path'])
+        require(row['path'] not in ready_pins, 'Duplicate graphics ready input pin')
+        require(pins.get(row['path']) == row, 'Graphics ready input missing/replaced in sealed spec')
+        ready_pins[row['path']] = row
+        total += row['bytes']
+    require(total <= GRAPHICS_TOTAL_MAX, 'Graphics retained input byte bound exceeded')
+    local_paths = {path for path in ready_pins if Path(path).is_relative_to(evidence.root)}
+    require(local_paths == {preflight_path,provenance_path},
+            'Only fixed local graphics preflight/provenance receipts may classify host inputs')
+    require(graphics['executable'] in ready_pins and graphics['executable'] not in local_paths,
+            'Current graphics executable missing from exact host roster')
+    preflight = evidence.json(ready_pins[preflight_path], GRAPHICS_PREFLIGHT_MAX)
+    exact(preflight, ('schema','display','xvfb_pid','xvfb_start_ticks','renderer','direct_rendering',
+                      'glx_capable','gl_probe_peak_rss_bytes','measured_headroom_bytes','input_sha256'),
+          'original retained graphics preflight')
+    require(type(preflight['schema']) is int and preflight['schema'] == 1
+            and type(preflight['display']) is str and preflight['display'] == graphics['display']
+            and integer(preflight['xvfb_pid'],1,2**31-1) and preflight['xvfb_pid'] == graphics['pid']
+            and integer(preflight['xvfb_start_ticks'],1) and preflight['xvfb_start_ticks'] == graphics['start_ticks']
+            and preflight['glx_capable'] is True and preflight['direct_rendering'] is True
+            and type(preflight['renderer']) is str and 'llvmpipe' in preflight['renderer'].lower()
+            and integer(preflight['gl_probe_peak_rss_bytes'],1)
+            and integer(preflight['measured_headroom_bytes'],256*1024*1024)
+            and preflight['measured_headroom_bytes'] == graphics['reserve_bytes'],
+            'Retained graphics preflight identity/measurement mismatch')
+    expected_roster = {path:row['sha256'] for path,row in ready_pins.items() if path != preflight_path}
+    require(type(preflight['input_sha256']) is dict and preflight['input_sha256'] == expected_roster,
+            'Graphics preflight hash roster differs from exact ready input closure')
+    provenance = evidence.json(ready_pins[provenance_path], GRAPHICS_READY_MAX)
+    # The current fixed installed producer emits this schema. No arbitrary
+    # external receipt, alternate snapshot producer or guessed path is selected.
+    exact(provenance, ('schema','status','observation_reference','distribution','runner',
+                       'packages','file_packages','generated_config','file_sha256'),
+          'fixed installed graphics provenance')
+    require(type(provenance['schema']) is int and provenance['schema'] == 2
+            and provenance['status'] == 'OBSERVED_INSTALLED_PACKAGES'
+            and provenance['distribution'] == {'id':'ubuntu','version_id':'24.04'},
+            'Original installed graphics provenance required')
+    require(type(provenance['observation_reference']) is str
+            and 1 <= len(provenance['observation_reference']) <= 512,
+            'Bounded original package observation reference required')
+    image = provenance['runner']
+    exact(image, ('ImageOS','ImageVersion','machine'), 'installed graphics runner')
+    require(image['ImageOS'] == 'ubuntu24' and image['machine'] == 'x86_64'
+            and type(image['ImageVersion']) is str and re.fullmatch(r'\d{8}\.\d+\.\d+',image['ImageVersion']),
+            'Original Ubuntu graphics runner identity required')
+    packages = provenance['packages']
+    require(type(packages) is list and 3 <= len(packages) <= 256, 'Bounded original graphics package roster required')
+    identities, names = set(), set()
+    for package in packages:
+        exact(package, ('package','version','architecture'), 'installed graphics package identity')
+        require(type(package['package']) is str and re.fullmatch(r'[a-z0-9][a-z0-9+.-]+',package['package'])
+                and type(package['version']) is str and 1 <= len(package['version']) <= 128
+                and re.fullmatch(r'[0-9A-Za-z.+:~\-]+',package['version'])
+                and package['architecture'] in ('amd64','all'), 'Invalid installed graphics package identity')
+        identity = package['package']+':'+package['architecture']+'='+package['version']
+        require(identity not in identities, 'Duplicate installed graphics package identity')
+        identities.add(identity);names.add(package['package'])
+    require({'xvfb','mesa-utils-bin','libgl1-mesa-dri'} <= names, 'Original graphics tool/package identities required')
+    external = {path:row for path,row in ready_pins.items() if path not in local_paths}
+    require(type(provenance['file_sha256']) is dict
+            and provenance['file_sha256'] == {path:row['sha256'] for path,row in external.items()},
+            'Installed provenance host hashes differ from ready/preflight closure')
+    generated = provenance['generated_config']
+    require(type(generated) is dict and set(generated) == {'/etc/ld.so.cache'}
+            and set(generated) <= set(external), 'Unexpected generated graphics host input')
+    for path,row in generated.items():
+        require(row == {'kind':'root-owned-ldconfig-cache','sha256':external[path]['sha256']},
+                'Generated loader-cache provenance mismatch')
+    require(type(provenance['file_packages']) is dict
+            and set(provenance['file_packages']) == set(external)-set(generated)
+            and all(type(value) is str and value in identities for value in provenance['file_packages'].values()),
+            'Graphics package ownership roster mismatch')
+    observed_external = {path:row for path,row in pins.items() if not Path(path).is_relative_to(evidence.root)}
+    require(observed_external == external, 'Unexpected or omitted external spec input outside exact graphics closure')
+    return {'host_inputs':[external[path] for path in sorted(external)],
+            'local_evidence':evidence.finish(), 'ready_pin':pins[ready_path],
+            'preflight_pin':ready_pins[preflight_path], 'provenance_pin':ready_pins[provenance_path]}
+
+
+def _verify_graphics_host_files(rows, module):
+    """Use the unchanged original ownership/access/digest rules, not a mock."""
+    for row in rows:
+        path = module.clean_path(row['path'])
+        before = path.stat(follow_symlinks=False)
+        require(before.st_uid == 0, 'External graphics input must remain root-owned (uid 0)')
+        require(stat.S_ISREG(before.st_mode) and before.st_size == row['bytes']
+                and 1 <= before.st_size <= GRAPHICS_FILE_MAX, 'External graphics file type/size changed')
+        module.file_pin(row)  # Keeps original system modes, actual access and parent rules.
+        after = path.stat(follow_symlinks=False)
+        require(_signature(before) == _signature(after) and before.st_mode == after.st_mode
+                and before.st_uid == after.st_uid == 0,
+                'External graphics identity changed during original verification')
+
+
+def classify_graphics_inputs(root, spec, supervisor_path):
+    """Return only exact sorted host pins after static retained-provenance checks.
+
+    No caller-selected external receipt, generic path relaxation, live collector
+    dependency, copying, ownership change or production test bypass is provided.
+    Original finalizer/sealer/owner still own live Xvfb/display admission.
+    """
+    contract = _graphics_inputs_contract(root, spec)
+    module, supervisor_pin = load_supervisor(supervisor_path)
+    _verify_graphics_host_files(contract['host_inputs'], module)
+    repeated = _graphics_inputs_contract(root, spec)
+    require(repeated == contract, 'Graphics provenance changed during host verification')
+    require(pin(supervisor_path,1024*1024) == supervisor_pin, 'Original graphics validator changed')
+    return contract['host_inputs']
+
+
+def _track_graphics_inputs(evidence, spec, supervisor_path, *, expected=None):
+    """Register local bytes and separately typed host rechecks for proof replay."""
+    inputs = spec.get('inputs')
+    require(type(inputs) is list, 'Sealed input inventory required')
+    exterior = any(type(row) is dict and type(row.get('path')) is str
+                   and not Path(row['path']).is_relative_to(evidence.root) for row in inputs)
+    if not exterior and 'graphics' not in spec:
+        hosts = []  # Preserve existing non-graphics parser-only synthetic fixtures.
+    else:
+        hosts = classify_graphics_inputs(evidence.root,spec,supervisor_path)
+        contract = _graphics_inputs_contract(evidence.root,spec)
+        require(contract['host_inputs'] == hosts, 'Graphics classification changed before retention')
+        for row in contract['local_evidence']:
+            evidence.read(row,GRAPHICS_READY_MAX)
+        def recheck():
+            require(classify_graphics_inputs(evidence.root,spec,supervisor_path) == hosts,
+                    'Typed host graphics provenance changed during qualification')
+        evidence.final_checks.append(recheck)
+    require(expected is None or hosts == expected, 'Retained typed host graphics evidence changed')
+    return hosts
+
+
+
 def fixture_gate(evidence, fixture, reviewed, *, synthetic_fixture=False):
     exact(fixture, ('artifact', 'source_manifest', 'compile_receipt'), 'fixture bundle')
     exact(reviewed, ('artifact_sha256', 'source_manifest_sha256', 'compile_receipt_sha256'), 'independent reviewed hashes')
@@ -581,11 +786,13 @@ def validate_phase(root, *, phase, spec_pin, report_pin, fixture, reviewed, supe
     else:
         require(runner is None and 'continuation_owner' not in report, 'Create must retain original supervisor identity')
     require(type(spec.get('inputs')) is list and 1 <= len(spec['inputs']) <= 100000, 'Sealed input inventory required')
+    host_graphics_inputs = _track_graphics_inputs(evidence,spec,supervisor_path)
+    host_graphics_paths = {row['path'] for row in host_graphics_inputs}
     pins = {}
     for row in spec['inputs']:
         exact(row, ('path', 'bytes', 'sha256'), 'sealed input pin')
         require(type(row['path']) is str and integer(row['bytes'], 1) and sha(row['sha256']), 'Invalid sealed input identity')
-        canonical_path(row['path'], evidence.root)
+        canonical_path(row['path'], None if row['path'] in host_graphics_paths else evidence.root)
         require(row['path'] not in pins, 'Duplicate sealed input pin')
         pins[row['path']] = row
     for row in fixture.values():
@@ -682,6 +889,7 @@ def validate_phase(root, *, phase, spec_pin, report_pin, fixture, reviewed, supe
             'transport_origin': 'original-supervisor' if phase == 'create' else 'reviewed-continuation-derivative',
             'supervisor_source': supervisor_pin, 'continuation_source': runner_pin,
             'spec': spec_pin, 'report': report_pin, 'fixture': fixture, 'roles': result,
+            'host_graphics_inputs':host_graphics_inputs,
             'world': {'path': str(world), 'saved_data': saved_pin, 'level_dat': level_pin, 'parsed': parsed},
             'evidence': rows}
 
@@ -767,6 +975,7 @@ def continuation_gate(evidence, *, runner, spec_pin, report, report_pin, fixture
     for row in actual_create['evidence']:
         # Register retained create evidence for another end-of-validation check.
         evidence.read(row, max(MAX_JSON, row['bytes']))
+    _track_graphics_inputs(evidence,create_spec,supervisor_path,expected=actual_create['host_graphics_inputs'])
     return owner, receipt, actual_create
 
 
@@ -788,6 +997,8 @@ def validate_pair(root, *, create_spec_pin, create_report_pin, reopen_spec_pin, 
     for result in (create, reopen):
         for row in result['evidence']:
             evidence.read(row, max(MAX_JSON, row['bytes']))
+        phase_spec = evidence.json(result['spec'])
+        _track_graphics_inputs(evidence,phase_spec,supervisor_path,expected=result['host_graphics_inputs'])
     owner_raw = evidence.read(runner['owner_source'], 1024*1024)
     owner = types.ModuleType('qsl_pair_final_inventory_check')
     owner.__file__ = runner['owner_source']['path']
