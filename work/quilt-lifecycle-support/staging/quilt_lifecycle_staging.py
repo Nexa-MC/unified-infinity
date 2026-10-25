@@ -21,6 +21,10 @@ import zipfile
 
 ARTIFACT_NAME = 'unified-native-quilt-probe-0.1.0.jar'
 TRANSPORT_NAME = 'fabric-network-control-0.1.0.jar'
+TRANSPORT_SHA256 = 'cd02f33e8110580802f1d9ec043dcd7c1a2e183ae9051654c950e4f6a65e4df8'
+TRANSPORT_SOURCE_SHA256 = '6a7e1afe7f405a2d6a7075f283067d9efa5b4e72467e31e76240fbe7cadff4bf'
+LEGACY_PROBE_NAME = 'network-control-probe-0.1.1.jar'
+LEGACY_PROBE_SHA256 = '791f6c303475ad9d32baaacc98f0350c027d6efe826dcd5aa9dc99a81da2918a'
 MOD_ID = 'unified-quilt-probe'
 PHASE_PROPERTY = '-Dunified.quiltProbe.phase='
 BUNDLE_SCHEMA = 'quilt-lifecycle-staging-bundle-v1'
@@ -707,6 +711,199 @@ def _referenced_pins(root, value):
     return rows
 
 
+def _source_user_mods(root, source, spec, inputs, source_role_pin):
+    """Authenticate the original producer's historical userMods disposition.
+
+    userMods is not an installation-policy field. The original Fabric overlay
+    deliberately retains that pre-overlay copy recipe while deleting only its
+    cloned legacy emitter. No missing-file exception is used here: the complete
+    predecessor, source fixture, old and current probe identities must agree.
+    Returned extra pins are live historical sources, not retired destinations.
+    The caller has already run the original complete diagnostic/build validators.
+    """
+    if 'userMods' not in spec:
+        require('beforeRole' not in source.get('ffapiProbeOverlay', {}),
+                'Original Fabric overlay requires its complete userMods recipe')
+        return None, {}
+    game = absolute(root, source['cwd']); side = game.name
+    extra = {}
+    def sealed(row, portable=False):
+        path = check(root, row) if portable else check_absolute(root, row)
+        actual = absolute_pin(root, path)
+        require(inputs.get(actual['path']) == actual, 'Unsealed original userMods ancestry')
+        return path
+    def historical(row):
+        path = check_absolute(root, row)
+        require(row['bytes'] > 0 and path.stat().st_nlink == 1, 'Empty or aliased historical source input')
+        require(row['path'] not in inputs or inputs[row['path']] == row,
+                'Historical source conflicts with sealed input')
+        extra[row['path']] = row
+        return path
+    overlay = source.get('ffapiProbeOverlay')
+    exact(overlay, ('beforeRole', 'receipt', 'bundle'), 'original Fabric overlay ancestry')
+    before_path = sealed(overlay['beforeRole']); overlay_path = sealed(overlay['receipt'])
+    require(before_path == game.parent / (side + '-pre-ffapi-launch-seal.json')
+            and overlay_path == game.parent / (side + '-ffapi-probe-overlay.json'),
+            'Original Fabric overlay belongs to another role')
+    original = load(sealed(source['baselineRole'])); old = absolute(root, original['cwd'])
+    require(old.name == side and old.parent.name == 'unified' and old != game
+            and not old.is_relative_to(game) and not game.is_relative_to(old),
+            'Distinct same-side original baseline required')
+    require(source['baselineRole']['path'] == str(old.parent / (side + '-launch-seal.json'))
+            and len({row['path'] for row in original['files']}) == len(original['files']),
+            'Baseline role path or file inventory changed')
+    prior = original['assembly']
+    prior_receipt_path = absolute(root, prior['buildReceipt'])
+    prior_pin = absolute_pin(root, prior_receipt_path); sealed(prior_pin)
+    require(prior_pin['sha256'] == prior['buildReceiptSha256'], 'Baseline assembly receipt changed')
+    prior_receipt = load(prior_receipt_path)
+    prior_spec_path = old.parent / (side + '-assembly-spec.json')
+    prior_spec_pin = absolute_pin(root, prior_spec_path); sealed(prior_spec_pin)
+    require(prior_spec_pin['sha256'] == prior_receipt['assemblySpecSha256'], 'Baseline assembly spec changed')
+    require(spec == relocate_role_paths(load(prior_spec_path), old, game),
+            'Diagnostic assembly spec differs from exact original recipe')
+    # assemble_pairs creates this document after its input-lock. The original
+    # configured receipt and spec authenticate it, but the original sealer does
+    # not flatten it into inputs. Retain that exact live document in this sibling
+    # closure, never invent a path or relax generic reference membership.
+    launch_pin = spec['launchSource']
+    require(launch_pin['path'] == str(old.parent / (side + '-source-launch.json'))
+            and launch_pin['sha256'] == prior_receipt['sourceLaunchSealSha256'],
+            'Original launch source differs from baseline receipt/side')
+    historical(launch_pin)
+    diagnostic_path = game.parent.parent / 'diagnostic-assembly.json'
+    sealed(absolute_pin(root, diagnostic_path)); diagnostic = load(diagnostic_path)
+    require(diagnostic.get('schema') == 'diagnostic-pair-assembly-v1'
+            and diagnostic.get('assemblyRoot') == str(game.parent.parent)
+            and diagnostic.get('manifest') == source['diagnosticManifest']
+            and diagnostic.get('diagnostic_only') is True
+            and all(diagnostic.get(k) is False for k in ('baseline_acceptance', 'gameAcceptance', 'gameLaunched', 'jvmStarted'))
+            and diagnostic['groups']['unified']['roles'][side] == source_role_pin,
+            'Original diagnostic producer does not bind this source role')
+    baseline = load(sealed(diagnostic['baselineAssembly']))
+    require(baseline.get('status') == 'REFRESHED_FOUR_ROLE_ASSEMBLY_READY_GAME_UNRUN'
+            and baseline.get('assemblyRoot') == str(old.parent.parent)
+            and baseline.get('gameLaunched') is False and baseline.get('jvmStarted') is False,
+            'Exact original refreshed baseline assembly required')
+    assembly_path = sealed(baseline['assemblyResult'])
+    require(assembly_path == old.parent.parent / 'assembly-result.json', 'Baseline assembly result belongs elsewhere')
+    assembly = load(assembly_path)
+    require(assembly.get('status') == 'SOURCE_ASSEMBLED_GAME_UNRUN'
+            and assembly.get('gameLaunched') is False and assembly.get('jvmStarted') is False,
+            'Original unrun assembly provenance required')
+    require(assembly['groups'] == baseline['groups'], 'Baseline producer groups changed')
+    group = assembly['groups']['unified']
+    require(group['port'] == 25632 and group['roles'][side] == source['baselineRole'],
+            'Original source role/group binding changed')
+    require(diagnostic['groups']['unified']['sourceFixture'] == group['sourceFixture'],
+            'Diagnostic source fixture ancestry changed')
+    fixture_path = sealed(group['sourceFixture']); fixture = load(fixture_path)
+    require(fixture.get('schema') == 1 and fixture.get('target') == 'unified'
+            and fixture.get('port') == 25632 and fixture.get('gameLaunched') is False
+            and fixture.get('status') == 'FRESH_PROFILES_PREPARED_NO_LAUNCH',
+            'Exact pristine prepared source fixture required')
+    profile = fixture['profiles'][side]; prepared = absolute(root, profile['workingDirectory'])
+    require(prepared == fixture_path.parent / ('unified-' + side)
+            and not prepared.is_relative_to(old) and not old.is_relative_to(prepared)
+            and not prepared.is_relative_to(game) and not game.is_relative_to(prepared),
+            'Prepared, baseline and diagnostic sources must remain distinct')
+    fixture_rows = {row['path']: row for row in profile['files']}
+    require(len(fixture_rows) == len(profile['files']), 'Duplicate prepared source file')
+    origins = [*profile['original_mods'], profile['probe_path']]
+    require(len(origins) == len(set(origins)) and all(absolute(root, path).parent == prepared / 'mods' for path in origins),
+            'Wrong-role prepared user-mod origin')
+    expected_mods = []
+    for origin in origins:
+        require(origin in fixture_rows, 'Missing prepared source user-mod pin')
+        row = fixture_rows[origin]; historical(row)
+        expected_mods.append({'source': origin, 'path': str(game / 'mods' / Path(origin).name), 'sha256': row['sha256']})
+    require(spec['userMods'] == expected_mods, 'Historical userMods changed, missing, duplicated or unowned')
+    require(source['original_mods'] == [row['path'] for row in expected_mods[:-1]]
+            and original['original_mods'] == [str(old / 'mods' / Path(path).name) for path in profile['original_mods']],
+            'Original user-mod roster changed')
+    legacy = expected_mods[-1]; retired = absolute(root, legacy['path'])
+    require(retired == game / 'mods' / LEGACY_PROBE_NAME and legacy['sha256'] == LEGACY_PROBE_SHA256
+            and Path(legacy['source']).name == LEGACY_PROBE_NAME
+            and original['probe_path'] == str(old / 'mods' / LEGACY_PROBE_NAME),
+            'Exact original legacy probe recipe required')
+    baseline_probe = absolute_pin(root, Path(original['probe_path'])); historical(baseline_probe)
+    require(baseline_probe == dict(fixture_rows[legacy['source']], path=original['probe_path'])
+            and baseline_probe in original['files'], 'Baseline legacy copy differs from prepared source')
+    require(not retired.exists() and not retired.is_symlink(), 'Retired diagnostic probe must remain absent')
+    # The original diagnostic producer appends exactly its two derivative pins.
+    manifest = load(sealed(source['diagnosticManifest']))
+    exact(manifest, ('schema', 'diagnostic_only', 'baseline_acceptance', 'build_receipts'), 'diagnostic manifest')
+    require(manifest['schema'] == 'fml-process-start-diagnostic-v1' and manifest['diagnostic_only'] is True
+            and manifest['baseline_acceptance'] is False and len(manifest['build_receipts']) == 2,
+            'Exact diagnostic build ancestry required')
+    derivatives = []
+    for target, row in zip(('native', 'unified'), manifest['build_receipts']):
+        path = sealed(row); value = load(path)
+        require(path.parent.name == target and path.name == 'build-receipt.json'
+                and path.parent.parent == Path(source['diagnosticManifest']['path']).parent
+                and value.get('schema') == 'fml-process-start-diagnostic-build-v1'
+                and value.get('target') == target and value.get('diagnostic_only') is True
+                and all(value.get(k) is False for k in ('baseline_acceptance', 'runtimeAcceptance', 'gameLaunched')),
+                'Wrong diagnostic derivative receipt role')
+        derivatives.append(absolute_pin(root, sealed(value['artifact'], portable=True)))
+    prior_files = []
+    owner = absolute(root, source['assembly']['configuredOwner'])
+    for row in original['files']:
+        moved = dict(row, path=relocate_role_paths(row['path'], old, game))
+        prior_files.append(absolute_pin(root, owner) if moved['path'] == str(owner) else moved)
+    prior_files.extend(derivatives)
+    expected_before = relocate_role_paths(original, old, game)
+    scope = {'diagnosticProfile': 'system-report-and-glx-cpu-inventory-skip-v2', 'behavioralChange': True,
+             'hardwareScope': 'all-SystemReport-instances-including-crash-reports-and-GLX-CPU-description',
+             'nonHardwareFieldsPreserved': True, 'gameJarBytesModified': False}
+    expected_before.update(command=source['command'], assembly=source['assembly'],
+        files=sorted({row['path']: row for row in prior_files}.values(), key=lambda row: row['path']),
+        diagnostic_only=True, baseline_acceptance=False, diagnosticManifest=source['diagnosticManifest'],
+        baselineRole=source['baselineRole'], **scope)
+    before = load(before_path)
+    require(before == expected_before, 'Fabric predecessor differs from independently derived baseline')
+    bundle = load(sealed(overlay['bundle'], portable=True))
+    exact(bundle, ('schema', 'diagnostic_only', 'baseline_acceptance', 'artifact', 'source_manifest',
+                   'build_binding', 'build_result', 'namespace_proof'), 'original Fabric bundle')
+    require(bundle['schema'] == 'fabric-ffapi-probe-bundle-v1' and bundle['diagnostic_only'] is True
+            and bundle['baseline_acceptance'] is False, 'Original diagnostic Fabric bundle required')
+    require(diagnostic.get('ffapiProbeBundle') == {'bundle_pin': overlay['bundle'], 'reviewed': {
+        'source_manifest_sha256': TRANSPORT_SOURCE_SHA256, 'artifact_sha256': TRANSPORT_SHA256,
+        'namespace_proof_sha256': bundle['namespace_proof']['sha256']}}
+        and bundle['source_manifest']['sha256'] == TRANSPORT_SOURCE_SHA256,
+        'Fabric bundle differs from original reviewed producer binding')
+    for key in ('artifact', 'source_manifest', 'build_binding', 'build_result', 'namespace_proof'):
+        sealed(bundle[key], portable=True)
+    artifact = absolute_pin(root, check(root, bundle['artifact']))
+    require(Path(artifact['path']).name == TRANSPORT_NAME and artifact['sha256'] == TRANSPORT_SHA256,
+            'Exact current reviewed Fabric transport artifact required')
+    copied = dict(artifact, path=str(game / 'mods' / TRANSPORT_NAME))
+    removed = dict(baseline_probe, path=str(retired))
+    require(before['probe_path'] == str(retired) and removed in before['files'], 'Retired copy absent from exact predecessor')
+    expected_after = copy.deepcopy(before); expected_after['probe_path'] = copied['path']
+    expected_after['files'] = sorted([row for row in before['files'] if row['path'] != str(retired)] + [copied],
+                                     key=lambda row: row['path'])
+    after = copy.deepcopy(source); after.pop('ffapiProbeOverlay')
+    require(after == expected_after, 'Original Fabric overlay changed non-probe role data')
+    expected_receipt = {'schema': 'unified-fabric-ffapi-probe-overlay-v1', 'target': 'unified',
+        'diagnostic_only': True, 'baseline_acceptance': False, 'game_launched': False,
+        'native_control_unchanged': True, 'bundle': overlay['bundle'], 'baseline_probe': baseline_probe,
+        'removed_diagnostic_copy': removed, 'new_diagnostic_copy': copied,
+        'before_role_sha256': digest(canonical(before)), 'after_role_sha256': digest(canonical(after))}
+    require(load(overlay_path) == expected_receipt, 'Historical Fabric overlay receipt changed')
+    check_absolute(root, copied)
+    # New phase specs describe the current transport. Original specs stay intact.
+    current = copy.deepcopy(expected_mods)
+    current[-1] = {'source': artifact['path'], 'path': copied['path'], 'sha256': artifact['sha256']}
+    return current, extra
+
+
+def _fresh_phase_spec(source, game):
+    spec = copy.deepcopy(source['spec'])
+    if source['currentUserMods'] is not None: spec['userMods'] = source['currentUserMods']
+    return relocate_role_paths(spec, source['game'], game)
+
+
 def _source_phase_inputs(root, *, source_roles, source_specs, source_inputs, assembler_pin,
                          validator_pin, derivative_pin, diagnostic_manifest_pin):
     exact(source_roles, ('server', 'client'), 'source Unified roles')
@@ -754,10 +951,20 @@ def _source_phase_inputs(root, *, source_roles, source_specs, source_inputs, ass
         checked = assembler.v.validate(receipt_path, receipt_pin['sha256'], args, policy['environment'])
         require(checked['classOwnerCount'] == 1 and checked['gameLaunched'] is False,
                 'Original source role launch validation failed')
-        references = _referenced_pins(root, [source, spec, receipt])
-        require(all(inputs.get(path) == row for path, row in references.items()),
+        current_mods, historical_inputs = _source_user_mods(root, source, spec, inputs, source_roles[side])
+        # Only the typed producer-owned slot is projected. Every other nested
+        # path/sha reference retains the existing strict live-file requirement.
+        live_spec = {key: value for key, value in spec.items() if key != 'userMods'}
+        if current_mods is not None:
+            require(receipt.get('sourceLaunch') == spec['launchSource'],
+                    'Diagnostic receipt launch source binding changed')
+        references = _referenced_pins(root, [source, live_spec, receipt])
+        if current_mods is not None: references.update(_referenced_pins(root, current_mods))
+        reference_inputs = dict(inputs); reference_inputs.update(historical_inputs)
+        require(all(reference_inputs.get(path) == row for path, row in references.items()),
                 'Referenced source input missing from passing source closure')
-        result[side] = {'role': source, 'spec': spec, 'game': game, 'owner': owner}
+        result[side] = {'role': source, 'spec': spec, 'game': game, 'owner': owner,
+                        'currentUserMods': current_mods, 'historicalInputs': historical_inputs}
     require(result['server']['game'].parent == result['client']['game'].parent,
             'Source roles must form one passing Unified pair')
     return result
@@ -817,6 +1024,10 @@ def materialize_unified_phase(root, verified, *, phase, overlay_root, source_rol
     overlay.mkdir(parents=True)
     folder = overlay / 'unified'; folder.mkdir()
     roles = {}; before_roles = {}; configurations = {}; specs = {}; inputs = {row['path']: row for row in source_inputs}
+    for source in sources.values():
+        for path, row in source['historicalInputs'].items():
+            require(path not in inputs or inputs[path] == row, 'Conflicting historical source input')
+            inputs[path] = row
     for row in verified['inputs']:
         absolute_row = dict(row, path=str(local(root, row['path']))); inputs[absolute_row['path']] = absolute_row
     inputs[str(local(root, verified['bundle_pin']['path']))] = dict(verified['bundle_pin'], path=str(local(root, verified['bundle_pin']['path'])))
@@ -825,7 +1036,7 @@ def materialize_unified_phase(root, verified, *, phase, overlay_root, source_rol
         def ignore(path, names):
             return [old_owner.name] if Path(path) == old_owner.parent else []
         shutil.copytree(source['game'], game, ignore=ignore)
-        spec = relocate_role_paths(source['spec'], source['game'], game)
+        spec = _fresh_phase_spec(source, game)
         spec_path = folder / (side + '-assembly-spec.json')
         with spec_path.open('xb') as stream: stream.write(canonical(spec) + b'\n')
         spec_pin = absolute_pin(root, spec_path)
@@ -882,6 +1093,10 @@ def validate_materialized_phase(root, manifest_pin, verified):
         diagnostic_manifest_pin=manifest['diagnosticManifest'])
     overlay = absolute(root, manifest['assemblyRoot']); phase = manifest['phase']
     expected_inputs = {row['path']: row for row in manifest['sourceInputs']}
+    for source in sources.values():
+        for path, row in source['historicalInputs'].items():
+            require(path not in expected_inputs or expected_inputs[path] == row, 'Conflicting historical source input')
+            expected_inputs[path] = row
     for row in [verified['bundle_pin'], *verified['inputs']]:
         row = dict(row, path=str(local(root, row['path']))); expected_inputs[row['path']] = row
     require(Path(manifest_pin['path']) == overlay / 'phase-assembly.json', 'Materialized manifest path changed')
@@ -895,7 +1110,7 @@ def validate_materialized_phase(root, manifest_pin, verified):
         require(config['assemblySpec'] == manifest['assemblySpecs'][side], 'Phase configuration spec ancestry changed')
         before, command = _materialized_before(root, sources[side], game, phase, manifest['phaseConfigurations'][side])
         require(load(before_path) == before, 'Materialized predecessor differs from independently rederived source')
-        expected_spec = relocate_role_paths(sources[side]['spec'], sources[side]['game'], game)
+        expected_spec = _fresh_phase_spec(sources[side], game)
         require(load(check_absolute(root, manifest['assemblySpecs'][side])) == expected_spec,
                 'Materialized spec differs from exact source-role relocation')
         after = load(role_path); receipt = load(absolute(root, after['assembly']['buildReceipt']))

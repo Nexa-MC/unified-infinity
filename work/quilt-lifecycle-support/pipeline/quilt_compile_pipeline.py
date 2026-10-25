@@ -18,7 +18,7 @@ import time
 
 CONTRACT_SHA256 = '0afd87b988fedc7b06445a9c160bc15ed878a722a4b1598ad7474b886d20a6c8'
 CONSUMER_VALIDATOR_SHA256 = '9076351c57770ffcfa20a2d35a1e243455f707aec8eea61571afa90b123a7d3e'
-STAGING_SHA256 = '6ddc65d700e41340385e80d80ef5a7b025294224f31af4bacf86b181c5d9c825'
+STAGING_SHA256 = 'a58df908eecb8c2047bc87fdb3b65f27d5f1d46f3f2b5f42cb0c7c28898db2f6'
 LOCKS = {
     'runtime': ('runtime-inputs.lock.json', 126434, '8a6457888bc302bbcb74ff0b74dbefee72d63b15140bdc9dfa639629bee4f85f'),
     'core': ('profiles/ffapi-core-dependency-lock.json', 1350706, '43ac0ce038cb00da23f0ae625f64c4b1bb83251c82ee2269b6ae698f50d4389b'),

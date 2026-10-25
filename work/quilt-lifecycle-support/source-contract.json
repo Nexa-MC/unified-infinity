@@ -90,13 +90,13 @@
       "source": "work/quilt-lifecycle-support/continuation/quilt_continuation.py",
       "destination": "continuation/quilt_continuation.py",
       "bytes": 38486,
-      "sha256": "cc6378e0b5dfc9433fdfccf1f5e8da45cd56a299912be1e229ac6b86aa93471f"
+      "sha256": "7dfbaf1de1ddd673de4fa041bea424d2f85ce9ee033cf1bd0610f1b84ca1bad5"
     },
     {
       "source": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
       "destination": "driver/quilt_lifecycle_driver.py",
       "bytes": 47958,
-      "sha256": "2b47b716bc2932b5e0dd83e400921b791336d2d85b43b965bffb6d3cfc3d0122"
+      "sha256": "3a880ea2f87bbfd6f54c16d69573414e72375d326d7f6fdd19a88fd7d5a7538e"
     },
     {
       "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/README.md",
@@ -162,7 +162,7 @@
       "source": "work/quilt-lifecycle-support/pipeline/quilt_compile_pipeline.py",
       "destination": "pipeline/quilt_compile_pipeline.py",
       "bytes": 23247,
-      "sha256": "c30adcf9b6195215792a0cbd3b0f5371aac512f95d3fe96a1d787a303930738f"
+      "sha256": "10a8c7be69c9850c93a1b7c319d266db11f8b4a1b59ef32fb7397c54aff0ef84"
     },
     {
       "source": "work/quilt-lifecycle-support/qualification/quilt_lifecycle_qualification.py",
@@ -173,14 +173,14 @@
     {
       "source": "work/quilt-lifecycle-support/staging/quilt_lifecycle_staging.py",
       "destination": "staging/quilt_lifecycle_staging.py",
-      "bytes": 56867,
-      "sha256": "6ddc65d700e41340385e80d80ef5a7b025294224f31af4bacf86b181c5d9c825"
+      "bytes": 72402,
+      "sha256": "a58df908eecb8c2047bc87fdb3b65f27d5f1d46f3f2b5f42cb0c7c28898db2f6"
     },
     {
       "source": "work/quilt-lifecycle-support/staging/quilt_phase_seal.py",
       "destination": "staging/quilt_phase_seal.py",
       "bytes": 20437,
-      "sha256": "22e252a1e040f8b3a07e5c22413214a1cf31b829074feb7b3d117037b731b186"
+      "sha256": "c53a51560aea189c04fabf4e8fd404380a3c4caee1173a83db2f3f480a9dd271"
     }
   ],
   "baselineAcceptance": false,
