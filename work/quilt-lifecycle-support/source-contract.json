@@ -95,8 +95,8 @@
     {
       "source": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
       "destination": "driver/quilt_lifecycle_driver.py",
-      "bytes": 45882,
-      "sha256": "2f9924f3fb5fda3594609b67d21abaf14a6750b9bf17bbf5c9dbf47dc2e34f16"
+      "bytes": 46852,
+      "sha256": "660de2518922fc63d767defe4e9a09a985a16f56124764110a1b0bf9a7d0d5c6"
     },
     {
       "source": "work/quilt-lifecycle-support/source/four-loader/quilt-probe/README.md",

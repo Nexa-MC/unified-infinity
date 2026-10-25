@@ -28,6 +28,9 @@ PAIR_SECONDS=650
 PAIR_CLEANUP_SECONDS=30
 STOP_SIGNALS=(signal.SIGTERM,signal.SIGINT,signal.SIGHUP)
 SUPPORT='work/quilt-lifecycle-support'
+# Exact tool owner selected by the unchanged diagnostic_pair_assembly producer.
+# The separate logging-fix source project legitimately seals identical copies.
+ORIGINAL_ASSEMBLY_TOOLS='work/api1/source-workspace/fml-unified/tools'
 MODULE_PATHS={'pipeline':'pipeline/quilt_compile_pipeline.py','staging':'staging/quilt_lifecycle_staging.py',
               'sealer':'staging/quilt_phase_seal.py','continuation':'continuation/quilt_continuation.py',
               'qualifier':'qualification/quilt_lifecycle_qualification.py'}
@@ -391,6 +394,28 @@ def compile_quilt(consumer,plan,component,deadline,deadline_epoch):
     return result,verified,fixture,reviewed
 
 
+def original_assembly_sources(consumer,input_rows,staging):
+    """Bind one exact original producer tool role, not a global filename search.
+
+    The full refreshed build seals both original and logging-fix source trees.
+    Their tool copies are byte-identical but only the original canonical path is
+    executed by diagnostic_pair_assembly. Other sealed copies remain provenance;
+    they cannot substitute for, or create ambiguity within, that exact role.
+    """
+    tools=Path(consumer)/ORIGINAL_ASSEMBLY_TOOLS
+    def unique_source(name,sha):
+        expected=tools/name
+        matches=[row for row in input_rows if row['path']==str(expected)]
+        require(len(matches)==1,'Exactly one frozen original-role '+name+' must be present in independently sealed source closure')
+        require(matches[0]['sha256']==sha,'Frozen original-role '+name+' source hash changed')
+        require(record(expected)==matches[0],'Frozen original assembler source changed')
+        return matches[0]
+    assembler=unique_source('assemble_installation.py',staging.ASSEMBLER_SHA256)
+    validator=unique_source('validate_launch.py',staging.VALIDATOR_SHA256)
+    require(Path(validator['path']).parent==Path(assembler['path']).parent,'Original validator must be adjacent to assembler')
+    return assembler,validator
+
+
 def source_materialization_inputs(consumer,source,assembly,proof_inputs,staging):
     """Extract only exact original diagnostic producer contracts, never infer wrappers."""
     source_spec=load_json(source['spec']['path']);inputs={row['path']:row for row in source_spec['inputs']}
@@ -422,14 +447,7 @@ def source_materialization_inputs(consumer,source,assembly,proof_inputs,staging)
                 require(item['path']==str(Path(role['cwd'])/'options.txt'),'Unexpected unsealed source role input')
                 inputs[item['path']]=item
             else:require(inputs[item['path']]==item,'Pristine role pin conflicts with source spec')
-    def unique_source(name,sha):
-        matches=[row for row in inputs.values() if Path(row['path']).name==name and row['sha256']==sha]
-        require(len(matches)==1,'Exactly one frozen '+name+' must be present in independently sealed source closure')
-        require(record(Path(matches[0]['path']))==matches[0],'Frozen assembler source changed')
-        return matches[0]
-    assembler=unique_source('assemble_installation.py',staging.ASSEMBLER_SHA256)
-    validator=unique_source('validate_launch.py',staging.VALIDATOR_SHA256)
-    require(Path(validator['path']).parent==Path(assembler['path']).parent,'Original validator must be adjacent to assembler')
+    assembler,validator=original_assembly_sources(consumer,source_spec['inputs'],staging)
     return {'source_roles':source_roles,'source_specs':source_specs,'source_inputs':list(inputs.values()),
             'assembler_pin':assembler,'validator_pin':validator,'derivative_pin':derivative,
             'diagnostic_manifest_pin':diagnostic_manifest}

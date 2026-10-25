@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "FIXED_2309_2354_QSL_LIFECYCLE_PERSISTENCE_COLD_ATTEMPT_UNEXECUTED",
+  "status": "FIXED_0009_0054_CANONICAL_ASSEMBLER_ROLE_REPAIR_UNEXECUTED",
   "repository": "Nexa-MC/unified-infinity",
   "branch": "diagnostic/network-pair-20261006-a",
   "remotePublished": false,
@@ -8,14 +8,14 @@
   "jvmStarted": false,
   "gameLaunched": false,
   "predecessor": {
-    "commit": "a0b266450641f359db069170f37cdffa0d47069d",
-    "manifestSha256": "3877c85a57c37dec173a54b2b415e01a5795f1278360e04796d4ff3ccfc27d05"
+    "commit": "ed3a43f4c3d0b59e365fe285a3c7dca076072f11",
+    "manifestSha256": "0bcd1d547f62580b2b47837579388fdc840eca698262f70a610296924547aba6"
   },
   "files": [
     {
       "path": ".github/workflows/network-pair.yml",
       "bytes": 9078,
-      "sha256": "62fcf559bafc242c06bbac075e07e819b501fbeb37ee7b0b8ce5f23994cac66f"
+      "sha256": "694b4d13d83d467e1d202ed0f37a6357d0a624fa3e3ede41c9a9ea468e2b3101"
     },
     {
       "path": "COHERENT-PAIR-SUCCESSOR.md",
@@ -1120,7 +1120,7 @@
     {
       "path": "work/network-pair-cold-glue/first_step_anchor.py",
       "bytes": 5424,
-      "sha256": "0cc4594c26c48dfee9ca838bc9f96db38d526edb456f140b89771f79855645ab"
+      "sha256": "fe44d8abc25af6eda370e7e7c2c1d48c703b2ebf54adfd259032dd7eafc87a81"
     },
     {
       "path": "work/network-pair-cold-glue/fixture-support/docs/four-loader/forge/source-lock.json",
@@ -1205,7 +1205,7 @@
     {
       "path": "work/network-pair-cold-glue/network-pair.yml",
       "bytes": 9078,
-      "sha256": "62fcf559bafc242c06bbac075e07e819b501fbeb37ee7b0b8ce5f23994cac66f"
+      "sha256": "694b4d13d83d467e1d202ed0f37a6357d0a624fa3e3ede41c9a9ea468e2b3101"
     },
     {
       "path": "work/network-pair-cold-glue/original-mod-lock.json",
@@ -1270,7 +1270,7 @@
     {
       "path": "work/network-pair-cold-glue/round-deadline.json",
       "bytes": 377,
-      "sha256": "d906cd346886000d8150c232149b8012e8706524a269340f73c24f3152c80fd0"
+      "sha256": "f9cd3a9bab7acc00cde0fb18b4a28eca3744d8a11b1ba80539e523c30467c7aa"
     },
     {
       "path": "work/network-pair-cold-glue/round_deadline.py",
@@ -1624,8 +1624,8 @@
     },
     {
       "path": "work/quilt-lifecycle-support/driver/quilt_lifecycle_driver.py",
-      "bytes": 45882,
-      "sha256": "2f9924f3fb5fda3594609b67d21abaf14a6750b9bf17bbf5c9dbf47dc2e34f16"
+      "bytes": 46852,
+      "sha256": "660de2518922fc63d767defe4e9a09a985a16f56124764110a1b0bf9a7d0d5c6"
     },
     {
       "path": "work/quilt-lifecycle-support/pipeline/quilt_compile_pipeline.py",
@@ -1690,7 +1690,7 @@
     {
       "path": "work/quilt-lifecycle-support/source-contract.json",
       "bytes": 8295,
-      "sha256": "9f08a5d954dff64df7c99afa73813ca73b189c2ee79dcdf0f299397ccd94997f"
+      "sha256": "0321cf5020a5f5c9cef40b05ef531b8d7125e81d7298eb413b02b8de24113284"
     },
     {
       "path": "work/quilt-lifecycle-support/sources/jdk-input-verification.json",
@@ -1708,8 +1708,8 @@
       "sha256": "22e252a1e040f8b3a07e5c22413214a1cf31b829074feb7b3d117037b731b186"
     }
   ],
-  "revision": 33,
-  "previousReviewManifestSha256": "3877c85a57c37dec173a54b2b415e01a5795f1278360e04796d4ff3ccfc27d05",
+  "revision": 34,
+  "previousReviewManifestSha256": "0bcd1d547f62580b2b47837579388fdc840eca698262f70a610296924547aba6",
   "refreshedProfile": {
     "path": "work/network-pair-cold-glue/profiles/ffapi-20261023.json",
     "sha256": "902b79f990a210fd63d864f463143f4f26cd6f2c0eba8fd9f075efca86e8d438",
@@ -1717,9 +1717,9 @@
   },
   "roundDeadline": {
     "schema": 1,
-    "roundId": "recovery-20261024T230900Z",
-    "startUtc": "2026-10-24T23:09:00Z",
-    "cutoffUtc": "2026-10-24T23:54:00Z",
+    "roundId": "recovery-20261025T000900Z",
+    "startUtc": "2026-10-25T00:09:00Z",
+    "cutoffUtc": "2026-10-25T00:54:00Z",
     "cleanupReserveSeconds": 180,
     "maximumWorkSeconds": 1980,
     "minimumWorkSeconds": 1560,
@@ -1742,6 +1742,6 @@
     "sourceControlsExecuted": false,
     "currentRuntimeAcceptance": false,
     "qslNetworkingAcceptance": false,
-    "sourceContractSha256": "9f08a5d954dff64df7c99afa73813ca73b189c2ee79dcdf0f299397ccd94997f"
+    "sourceContractSha256": "0321cf5020a5f5c9cef40b05ef531b8d7125e81d7298eb413b02b8de24113284"
   }
 }
