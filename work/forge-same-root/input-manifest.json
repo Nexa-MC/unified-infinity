@@ -1,0 +1,165 @@
+{
+  "schema": "same-root-stage-inputs-v1",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 3959,
+      "sha256": "81cb21b2421529be3afc26f5878b57d17f8bb654f16bd390f847f6d0651e0781"
+    },
+    {
+      "path": "ci_entry.py",
+      "bytes": 2583,
+      "sha256": "2e6c34b114ae3a47610bd6a6f9fc27c42708f1959bce1036c8607b66823121e2"
+    },
+    {
+      "path": "compile_postconditions.py",
+      "bytes": 3801,
+      "sha256": "d36ab0321ecfd981b026bfcee5f6f40923b4780f4bd5eb169a261347855d5dba"
+    },
+    {
+      "path": "core-delta.json",
+      "bytes": 2325,
+      "sha256": "c673226ad593da0496382f9fa7c281d4b7fff06fb8bcf611be31cbfd103ad452"
+    },
+    {
+      "path": "first_step_anchor.py",
+      "bytes": 5494,
+      "sha256": "5f542337f07fe6dd3188541d19e0ce148619cba23e3547fcc85834fc4ec7c6fa"
+    },
+    {
+      "path": "forge-play-compile-qualified-core-sources-v2.zip",
+      "bytes": 1103677,
+      "sha256": "fcd8aba206abb28ba92d7e9ae8611c716cb9a6592a7080457706018015a4b838"
+    },
+    {
+      "path": "forge_probe_bundle.py",
+      "bytes": 18610,
+      "sha256": "b9ae215f593338bfde6f81a19b29ed3800a7ffef41cdbdbd74c427b7a02ff417"
+    },
+    {
+      "path": "original-forge-source-lock.json",
+      "bytes": 9901,
+      "sha256": "68e2f0a132da33e4e2c02db404e798f162fb1324d767c86ecede38e907188b66"
+    },
+    {
+      "path": "pipeline.py",
+      "bytes": 3357,
+      "sha256": "162afe7b9fa4cd3f4f8add170cb0707b0eca9f31e92f4730cf478a2e886a4316"
+    },
+    {
+      "path": "probe-source-manifest.json",
+      "bytes": 1342,
+      "sha256": "2c2bae5de786d05669df90e43f9ff97c6629a4e83f592a52cfa6d67f9d0e7901"
+    },
+    {
+      "path": "restore_core_inputs.py",
+      "bytes": 9350,
+      "sha256": "76248ea388468a05bf6027bb3d7900e26541aeeffb8e513a8d67fc1ca8715f7c"
+    },
+    {
+      "path": "same_root.py",
+      "bytes": 18776,
+      "sha256": "426762d2a33f547c15e93879926586d8035e425672c1f37335936c60f81859e2"
+    },
+    {
+      "path": "sources/LICENSE-Network-Control-Probe-MIT.txt",
+      "bytes": 1091,
+      "sha256": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc"
+    },
+    {
+      "path": "sources/driver/resources/META-INF/neoforge.mods.toml",
+      "bytes": 406,
+      "sha256": "d884cbb010fbf150f492536c6266e12edbb62e8b9c5fcc7e5b8454ef5c0a48b1"
+    },
+    {
+      "path": "sources/driver/src/dev/infinity/forgeplaydriver/ForgePlayClient.java",
+      "bytes": 7171,
+      "sha256": "fec24733451cdb66d464564fb922c58b27065ff6e20ac98d1bfeba53be98cee7"
+    },
+    {
+      "path": "sources/driver/src/dev/infinity/forgeplaydriver/ForgePlayDriver.java",
+      "bytes": 13488,
+      "sha256": "2f938a44e10074d446e46630d682b0d0bc936d3a635d1872767ff4b0e620a41a"
+    },
+    {
+      "path": "sources/forge/resources/META-INF/mods.toml",
+      "bytes": 392,
+      "sha256": "c2c52b8bde5b3b1ae3a3dd41e66842ffa78c9ebad69d9564b1f3948ee2d766f3"
+    },
+    {
+      "path": "sources/forge/src/dev/infinity/forgeplayprobe/ForgePlayMod.java",
+      "bytes": 226,
+      "sha256": "e506155fb1c9596356057090ead154cfce6af96ccc72009001c384f0a498fed2"
+    },
+    {
+      "path": "sources/forge/src/dev/infinity/forgeplayprobe/PlayProbe.java",
+      "bytes": 4304,
+      "sha256": "78bf3220abed1691c2d23f25d6f9a9c5b2f6b3afcf5e38a18ba9bbb3701a4018"
+    },
+    {
+      "path": "strict_runtime_restore.py",
+      "bytes": 4403,
+      "sha256": "724ad8bbff90094619eff7e743724097b9b10da41104efb503778e6f0d4cb16d"
+    },
+    {
+      "path": "support/bounded-build.init.gradle",
+      "bytes": 3443,
+      "sha256": "46a7c06ba404f10dc2fe42e11cf7e37f77986e4f70e4f4c80d36b4d63e675a61"
+    },
+    {
+      "path": "support/bounded_process.py",
+      "bytes": 4081,
+      "sha256": "dcf71f6a4f2892672f95487a7c969886fccdbb7583408ae31775a993cebe6544"
+    },
+    {
+      "path": "support/cold-repositories.init.gradle",
+      "bytes": 1059,
+      "sha256": "b8a8d28bd0ccee441f63e90b23f8cfb0b68ffe6c19cf1aad0a72b23ce46ce2fd"
+    },
+    {
+      "path": "support/compile-only-guard.init.gradle",
+      "bytes": 878,
+      "sha256": "06c3dbf4f9253c662849317296da1d3170d24f9f884d3b799e699357585878b6"
+    },
+    {
+      "path": "support/owned_compile_process_v3.py",
+      "bytes": 5757,
+      "sha256": "3207386e4046dba48959f0b48f1f641d50dd756e1f6b1291b0103950c9b55b46"
+    },
+    {
+      "path": "support/owner_completion_model.py",
+      "bytes": 526,
+      "sha256": "433c3b3d5df7a39fe097aeef70fc2708d561ed336281fd250d54852d5bd5962d"
+    },
+    {
+      "path": "support/owner_completion_validation.py",
+      "bytes": 4846,
+      "sha256": "b3d60dd6de2a55b0b33176f28c7f0ed58b9e9eca2fd933eda631ffc11712bed1"
+    },
+    {
+      "path": "support/verified-repositories.init.gradle",
+      "bytes": 970,
+      "sha256": "e4a85214afd56ce1b3e23828a8eb08953962e865c0e81256691884c6743654bd"
+    },
+    {
+      "path": "test_ci_entry.py",
+      "bytes": 918,
+      "sha256": "844ad63fce86acd8ae3a6399be98a4f3e1ef692c74c7252d67cfb26ea7ca039a"
+    },
+    {
+      "path": "test_restore_core_inputs.py",
+      "bytes": 4233,
+      "sha256": "8ae323db51f008495f96dcb191ee2d1faac508c6b56b3d8e13b3bd7537643650"
+    },
+    {
+      "path": "test_same_root.py",
+      "bytes": 2719,
+      "sha256": "1455584899dbd09e8b6c33e4adbee9e6fc4bfb31280df7d800197b3e035ff60f"
+    },
+    {
+      "path": "test_strict_runtime_restore.py",
+      "bytes": 4621,
+      "sha256": "caca49d8bd13c1164be9fbd471e60ed7c98b703252e6985f49e91ad46cb2307c"
+    }
+  ]
+}

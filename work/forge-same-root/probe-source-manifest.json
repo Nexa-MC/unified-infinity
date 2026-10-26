@@ -1,0 +1,40 @@
+{
+  "schema": "forge-play-sources-v1",
+  "files": [
+    {
+      "path": "LICENSE-Network-Control-Probe-MIT.txt",
+      "bytes": 1091,
+      "sha256": "134d866c1f6ac45cbbbed28621234c3b1e67aec5d6d4253faf8cd5d3d43e42cc"
+    },
+    {
+      "path": "driver/resources/META-INF/neoforge.mods.toml",
+      "bytes": 406,
+      "sha256": "d884cbb010fbf150f492536c6266e12edbb62e8b9c5fcc7e5b8454ef5c0a48b1"
+    },
+    {
+      "path": "driver/src/dev/infinity/forgeplaydriver/ForgePlayClient.java",
+      "bytes": 7171,
+      "sha256": "fec24733451cdb66d464564fb922c58b27065ff6e20ac98d1bfeba53be98cee7"
+    },
+    {
+      "path": "driver/src/dev/infinity/forgeplaydriver/ForgePlayDriver.java",
+      "bytes": 13488,
+      "sha256": "2f938a44e10074d446e46630d682b0d0bc936d3a635d1872767ff4b0e620a41a"
+    },
+    {
+      "path": "forge/resources/META-INF/mods.toml",
+      "bytes": 392,
+      "sha256": "c2c52b8bde5b3b1ae3a3dd41e66842ffa78c9ebad69d9564b1f3948ee2d766f3"
+    },
+    {
+      "path": "forge/src/dev/infinity/forgeplayprobe/ForgePlayMod.java",
+      "bytes": 226,
+      "sha256": "e506155fb1c9596356057090ead154cfce6af96ccc72009001c384f0a498fed2"
+    },
+    {
+      "path": "forge/src/dev/infinity/forgeplayprobe/PlayProbe.java",
+      "bytes": 4304,
+      "sha256": "78bf3220abed1691c2d23f25d6f9a9c5b2f6b3afcf5e38a18ba9bbb3701a4018"
+    }
+  ]
+}

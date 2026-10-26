@@ -1,4 +1,4 @@
-name: Diagnostic original Forge entrypoint compilation
+name: Diagnostic same-root Forge core and probes compilation
 on:
   push:
     branches: [diagnostic/network-pair-20261006-a]
@@ -11,7 +11,7 @@ jobs:
   serial-pair:
     if: github.repository == 'Nexa-MC/unified-infinity' && github.ref == 'refs/heads/diagnostic/network-pair-20261006-a'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       CI: 'true'
       PYTHONDONTWRITEBYTECODE: '1'
@@ -38,14 +38,14 @@ jobs:
           
           REPOSITORY = 'Nexa-MC/unified-infinity'
           BRANCH = 'diagnostic/network-pair-20261006-a'
-          ROUND_ID = 'forge-compile-20261025T100900Z'
-          START_UTC = '2026-10-25T10:09:00Z'
-          CUTOFF_UTC = '2026-10-25T10:54:00Z'
-          JOB_SECONDS = 20 * 60
+          ROUND_ID = 'forge-same-root-20261026T010900Z'
+          START_UTC = '2026-10-26T01:09:00Z'
+          CUTOFF_UTC = '2026-10-26T01:54:00Z'
+          JOB_SECONDS = 30 * 60
           CANCELLATION_SECONDS = 300
           CLEANUP_SECONDS = 180
           MIN_WORK_SECONDS = 60  # Stage-specific pre-spawn minimum; not a job-time guarantee.
-          ANCHOR_NAME = 'forge-compile-first-step-anchor.json'
+          ANCHOR_NAME = 'forge-same-root-first-step-anchor.json'
           
           
           def require(value, message):
@@ -152,6 +152,6 @@ jobs:
           fetch-depth: 1
       - name: Verify complete compile-stage source closure
         timeout-minutes: 1
-        run: python3 work/forge-play-compile-ci/run.py --verify-only --repo "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-forge-compile" --manifest-sha256 fcb9423fbb73b52b3d7e2826611707c4ad48f7185f7019f3d9aa2260242b2708
-      - name: Restore exact originals and compile genuine Forge entrypoint and driver
-        run: python3 work/forge-play-compile-ci/run.py --repo "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-forge-compile" --manifest-sha256 fcb9423fbb73b52b3d7e2826611707c4ad48f7185f7019f3d9aa2260242b2708
+        run: python3 work/forge-same-root/ci_entry.py --verify-only --repo "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-forge-same-root" --manifest-sha256 81dd299af3e41b3f4445b5911b16f80e17f25d6778ed9d9dda4903f9fe7a6fc0
+      - name: Build fresh same-root core and both genuine probes
+        run: python3 work/forge-same-root/ci_entry.py --repo "$GITHUB_WORKSPACE" --consumer "$RUNNER_TEMP/unified-forge-same-root" --manifest-sha256 81dd299af3e41b3f4445b5911b16f80e17f25d6778ed9d9dda4903f9fe7a6fc0

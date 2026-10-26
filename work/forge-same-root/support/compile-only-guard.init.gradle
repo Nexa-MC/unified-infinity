@@ -1,0 +1,13 @@
+// Additional local safety assertion only. No task is disabled and no verification is weakened.
+gradle.taskGraph.whenReady { graph ->
+    def requests = gradle.startParameter.taskNames
+    if (requests != ['compileJava', 'compileModJava'])
+        throw new GradleException('Only the documented explicit source compile targets are admitted: ' + requests)
+    def forbidden = graph.allTasks.findAll { task ->
+        def name = task.name.toLowerCase(Locale.ROOT)
+        name.startsWith('run') || name.startsWith('publish') || name.startsWith('upload') ||
+        name.startsWith('release') || name.startsWith('decompile') || task.class.name.contains('RunGameTask')
+    }
+    if (!forbidden.empty) throw new GradleException('Non-compile execution task in local graph: ' + forbidden*.path)
+    println('LOCAL_FORGE_COMPILE_ONLY_GRAPH: ' + graph.allTasks*.path.sort().join(','))
+}

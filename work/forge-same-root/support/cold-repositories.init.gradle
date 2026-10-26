@@ -1,0 +1,21 @@
+def mirror = new File(System.getenv('PAIR_MAVEN_MIRROR')).toURI()
+def coreMirror = new File(System.getenv('PAIR_CORE_MAVEN')).toURI()
+settingsEvaluated { settings ->
+    // Keep the original pinned SNAPSHOT exclusiveContent owner intact.
+    // Gradle --offline prohibits remote fallback requests; both added mirrors
+    // contain only separately verified bytes from the published locks.
+    settings.pluginManagement.repositories.maven { url = coreMirror }
+    settings.pluginManagement.repositories.maven { url = mirror }
+}
+allprojects {
+    afterEvaluate {
+        repositories.maven { url = coreMirror }
+        repositories.maven { url = mirror }
+    }
+    tasks.withType(JavaCompile).configureEach {
+        options.forkOptions.memoryMaximumSize='512m'
+        options.forkOptions.jvmArgs=['-XX:ActiveProcessorCount=1']
+    }
+    tasks.withType(JavaExec).configureEach { maxHeapSize='512m'; jvmArgs '-XX:ActiveProcessorCount=1' }
+    tasks.withType(Test).configureEach { maxHeapSize='512m'; maxParallelForks=1; jvmArgs '-XX:ActiveProcessorCount=1' }
+}

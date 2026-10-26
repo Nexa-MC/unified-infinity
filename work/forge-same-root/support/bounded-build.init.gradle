@@ -1,0 +1,61 @@
+settingsEvaluated { settings ->
+    def pinnedRepository = settings.pluginManagement.repositories.maven {
+        url = new File(settings.rootDir, '../pinned-maven').toURI()
+    }
+    settings.pluginManagement.repositories.exclusiveContent {
+        forRepositories(pinnedRepository)
+        filter {
+            includeModule('org.sinytra.adapter.userdev', 'org.sinytra.adapter.userdev.gradle.plugin')
+            includeModule('org.sinytra.adapter', 'userdev')
+        }
+    }
+}
+allprojects {
+    tasks.withType(JavaExec).configureEach { maxHeapSize='256m'; jvmArgs '-XX:ActiveProcessorCount=1' }
+    tasks.withType(Test).configureEach { maxHeapSize='256m'; maxParallelForks=1; jvmArgs '-XX:ActiveProcessorCount=1' }
+}
+gradle.projectsEvaluated {
+    if(rootProject.name=='connector') {
+        rootProject.tasks.named('createMinecraftArtifacts') {
+            additionalResults.put('vanillaDeobfuscated', rootProject.layout.buildDirectory.file('moddev/artifacts/minecraft-1.21.1-clean.jar').get().asFile)
+        }
+        rootProject.tasks.register('writeProductCompileInputs') {
+            dependsOn 'classes', 'createMinecraftArtifacts'
+            doLast {
+                def inputs = ['compileClasspath','runtimeClasspath','modCompileClasspath'].collectMany { name ->
+                    rootProject.configurations.getByName(name).files.findAll { it.isFile() && it.name.endsWith('.jar') }
+                }.unique().sort { it.absolutePath }
+                def out = new File(rootProject.rootDir, '../../run/client-dev/development-build/moddev/client-launch-inputs.json')
+                out.parentFile.mkdirs()
+                out.text = groovy.json.JsonOutput.prettyPrint(groovy.json.JsonOutput.toJson([
+                    schema:1, gameLaunched:false, scope:'Reconstructed compile-only classpath; never a game launch policy',
+                    classpath:inputs.collect { it.absolutePath },
+                    inputs:inputs.collect { [path:it.absolutePath, sha256:java.security.MessageDigest.getInstance('SHA-256').digest(it.bytes).encodeHex().toString()] }
+                ])) + '\n'
+            }
+        }
+        rootProject.version='2.0.0-beta.17+1.21.1+infinity-source+api1-emi-render-integration'
+        rootProject.project(':transformer').version=rootProject.version
+        [rootProject,rootProject.project(':transformer')].each { project ->
+            project.tasks.withType(Jar).configureEach {
+                manifest.attributes('Implementation-Version':rootProject.version,
+                    'Unified-Infinity-Candidate':'api1-emi-render-integration-game-unverified')
+            }
+        }
+        rootProject.project(':infinity-core').tasks.named('sourcesJar') {
+            dependsOn rootProject.project(':infinity-core').tasks.named('generateBuildIdentity')
+        }
+        rootProject.project(':fml-unified').tasks.named('sourcesJar') {
+            dependsOn rootProject.project(':fml-unified').tasks.named('prepareInstallationPolicy')
+        }
+    }
+}
+
+gradle.projectsEvaluated {
+    if(rootProject.name=='connector') {
+        rootProject.project(':infinity-core').tasks.named('admissionManifestSelfTest') {
+            args new File(rootProject.rootDir, '../../run/api1-unified-server-2/libraries/net/minecraft/server/1.21.1-20240808.144430/server-1.21.1-20240808.144430-extra.jar').absolutePath,
+                '24a5d2d162cfad2a1a574c4d552e99dc6c6303a49d1e68b43a7b638f3b0930fd'
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+  "baselineSha256": "f22095224db189603b74ef4b147a5c8eae0caed5c2abdeaf1ae02e3b2215f111",
+  "candidateSha256": "fcd8aba206abb28ba92d7e9ae8611c716cb9a6592a7080457706018015a4b838",
+  "exactDelta": [
+    {
+      "path": "components/infinity-forge/src/main/java/org/sinytra/connector/forge/transform/Forge52Symbols.java",
+      "baselineSha256": "e502b63b6530dc96280710df5bc27f36bfa5b6432d92642f4b08e5c5a938fc98",
+      "candidateSha256": "58ba92899ab4b4b9cdbfe10f4d02c22cea69eff93404e18585f19c6d7ed44455",
+      "kind": "modified"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/network/Channel.java",
+      "baselineSha256": null,
+      "candidateSha256": "a4f7566806c37eb137960bcc6fc291a07faa454c0eebe9e383ab7eb22d3ccbeb",
+      "kind": "added"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/network/ChannelBuilder.java",
+      "baselineSha256": null,
+      "candidateSha256": "5fcfe510720a81cb7b34c4b6b5ab2682a62a92f3ef9f5528f498ec69ed21dc1c",
+      "kind": "added"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/network/CustomPayloadContext.java",
+      "baselineSha256": null,
+      "candidateSha256": "f41862e15ee1ffa1cd7beba4eb1d9a00375ba15e3a60e541db776ba01f2a737a",
+      "kind": "added"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/network/ForgePlayNetwork.java",
+      "baselineSha256": null,
+      "candidateSha256": "595e63f9b5f07ad91a4ad36c1e165d9d74f07116d874b56a41b3a840763ad7d7",
+      "kind": "added"
+    },
+    {
+      "path": "components/infinity-forge/src/mod/java/org/sinytra/connector/forge/runtime/network/SimpleChannel.java",
+      "baselineSha256": null,
+      "candidateSha256": "bd0473997d71a176815af2d759055acd8ba3bccf36663bfe1857f422aeee22a1",
+      "kind": "added"
+    },
+    {
+      "path": "src/mod/java/org/sinytra/connector/mod/FmlGameCompatibilityComponent.java",
+      "baselineSha256": "5135a744a6255f8ea0c70046f6698bcaeb6b146a34bf2e54539f5c1d8bcf8f80",
+      "candidateSha256": "e7aea5af35aee744250e944ac7ffa8bd02b9e0b5e69893c295f965e75d4749fd",
+      "kind": "modified"
+    }
+  ],
+  "unchangedBaselineFiles": 683,
+  "deletedBaselineFiles": 0,
+  "addedFiles": 5
+}

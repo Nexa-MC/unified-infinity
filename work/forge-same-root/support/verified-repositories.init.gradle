@@ -1,0 +1,23 @@
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+
+// Explicit local equivalents of the official Mojang Meta Gradle metadata
+// repository and the already verified Maven inputs. No versions are forced.
+def api = new File(System.getenv('PAIR_API_ROOT'))
+def verifiedRoots = [new File(api, 'ci/runtime-maven'), new File(api, 'source-workspace/pinned-build-maven')]
+allprojects {
+    afterEvaluate {
+        verifiedRoots.each { root ->
+            def existing = repositories.withType(MavenArtifactRepository).find {
+                it.url.scheme == 'file' && new File(it.url).canonicalFile == root.canonicalFile
+            }
+            if (existing == null) {
+                repositories.maven {
+                    url = root.toURI()
+                    metadataSources { gradleMetadata(); mavenPom() }
+                }
+            } else {
+                existing.metadataSources { gradleMetadata(); mavenPom() }
+            }
+        }
+    }
+}
